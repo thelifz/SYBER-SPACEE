@@ -1,0 +1,24 @@
+{
+  "name": "syberspace-cctv-ecommerce",
+  "version": "1.0.0",
+  "description": "Syber Space Security Systems - Wholesale CCTV Hardware Fleet E-Commerce with HDFC Bank SmartGateway Multi-Rail Integration",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js",
+    "test": "node --check server.js"
+  },
+  "keywords": [
+    "cctv",
+    "security-systems",
+    "surveillance",
+    "hdfc-smartgateway",
+    "payment-gateway",
+    "ecommerce"
+  ],
+  "author": "Syber Space Security Systems (info@syberspace.in)",
+  "license": "ISC",
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

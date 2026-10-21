@@ -1,0 +1,1599 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hardware Specification — SYBER SPACE Precision Surveillance</title>
+    <!-- Google Fonts: Space Grotesk & Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css?v=3.4">
+    <style>
+        /* ======================================================================
+           WHOLE-WINDOW PRODUCT PAGE: NO BOXES — PURE JESKO JETS EDITORIAL FLOW
+           ====================================================================== */
+        .p-page-wrapper {
+            background: var(--base-sand, #f3f0ea);
+            min-height: 100vh;
+            padding-bottom: 90px;
+        }
+
+        .p-page-container {
+            max-width: 1440px;
+            margin: 0 auto;
+            padding: 36px 4% 60px 4%;
+        }
+
+        /* Breadcrumbs: Clean Minimalist Line */
+        .p-breadcrumbs {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-family: var(--font-mono, monospace);
+            font-size: 0.76rem;
+            color: var(--base-dark-muted, #5e574d);
+            margin-bottom: 32px;
+            flex-wrap: wrap;
+            border-bottom: 1px solid rgba(27, 24, 21, 0.12);
+            padding-bottom: 16px;
+        }
+
+        .p-breadcrumbs a {
+            color: var(--base-dark-muted, #5e574d);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        .p-breadcrumbs a:hover {
+            color: #004c8f;
+        }
+
+        .p-breadcrumbs .sep {
+            color: rgba(27, 24, 21, 0.3);
+        }
+
+        .p-breadcrumbs .current {
+            color: var(--base-dark, #1b1815);
+            font-weight: 700;
+        }
+
+        /* 3-Column Layout: Open, Natural Editorial Hierarchy (Zero Enclosing Boxes) */
+        .product-amazon-layout {
+            display: grid;
+            grid-template-columns: 480px 1fr 340px;
+            gap: 48px;
+            align-items: start;
+        }
+
+        /* Column 1: Multi-Angle Visual Showcase (Zero Box, Floats Directly on Sand) */
+        .p-col-visuals {
+            display: flex;
+            gap: 16px;
+            position: sticky;
+            top: 96px;
+        }
+
+        .p-vertical-thumbs {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            width: 68px;
+            flex-shrink: 0;
+        }
+
+        .p-vthumb-btn {
+            background: transparent;
+            border: none;
+            border-bottom: 2px solid transparent;
+            border-radius: 0;
+            padding: 4px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            width: 68px;
+            height: 68px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0.5;
+        }
+
+        .p-vthumb-btn img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            mix-blend-mode: multiply;
+        }
+
+        .p-vthumb-btn:hover {
+            opacity: 0.85;
+            transform: translateY(-2px);
+        }
+
+        .p-vthumb-btn.active {
+            opacity: 1;
+            border-bottom: 2px solid #004c8f;
+        }
+
+        /* Main Image Stage: Completely Transparent, Image Floats in Space */
+        .p-stage-card {
+            flex: 1;
+            background: transparent;
+            border: none;
+            box-shadow: none;
+            border-radius: 0;
+            height: 480px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0;
+        }
+
+        .p-stage-img {
+            max-width: 95%;
+            max-height: 440px;
+            object-fit: contain;
+            mix-blend-mode: multiply;
+            filter: drop-shadow(0 20px 35px rgba(27, 24, 21, 0.15));
+            transition: opacity 0.25s ease, transform 0.25s ease;
+        }
+
+        .p-stage-img.sliding {
+            opacity: 0.35;
+            transform: scale(0.96);
+        }
+
+        .p-stage-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: transparent !important;
+            border: none !important;
+            box-shadow: none !important;
+            color: var(--base-dark, #1b1815);
+            width: 36px;
+            height: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+            z-index: 10;
+            opacity: 0.45;
+            padding: 0;
+            outline: none;
+        }
+
+        .p-stage-arrow:hover {
+            opacity: 1;
+            color: #004c8f;
+            transform: translateY(-50%) scale(1.22);
+        }
+
+        .p-stage-arrow.prev { left: 8px; }
+        .p-stage-arrow.next { right: 8px; }
+
+        .p-angle-counter {
+            position: absolute;
+            bottom: 6px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-family: var(--font-mono, monospace);
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            color: var(--base-dark-muted, #5e574d);
+            background: transparent;
+            border: none;
+            padding: 0;
+            pointer-events: none;
+        }
+
+        /* Column 2: Center Details & Specs (Zero Box, Pure Typography & Hairlines) */
+        .p-col-details {
+            background: transparent;
+            border: none;
+            box-shadow: none;
+            border-radius: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .p-kicker-strip {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 12px;
+            flex-wrap: wrap;
+        }
+
+        .p-brand-badge {
+            font-family: var(--font-mono, monospace);
+            font-size: 0.76rem;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            color: #059669;
+            text-transform: uppercase;
+        }
+
+        .p-bestseller-pill {
+            background: transparent;
+            color: #059669;
+            font-family: var(--font-mono, monospace);
+            font-size: 0.74rem;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            padding: 0;
+            border: none;
+        }
+
+        .p-main-title {
+            font-family: var(--font-display, 'Space Grotesk', sans-serif);
+            font-size: 2.1rem;
+            font-weight: 700;
+            color: var(--base-dark, #1b1815);
+            line-height: 1.24;
+            margin-bottom: 14px;
+        }
+
+        .p-rating-strip {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.88rem;
+            padding-bottom: 18px;
+            border-bottom: 1px solid rgba(27, 24, 21, 0.12);
+            margin-bottom: 22px;
+            flex-wrap: wrap;
+        }
+
+        .p-rating-strip .stars { color: #f59e0b; }
+        .p-rating-strip .rating-val { font-weight: 700; color: var(--base-dark, #1b1815); }
+        .p-rating-strip .rating-count { color: var(--base-dark-muted, #5e574d); }
+        .p-rating-strip .rating-dot { color: rgba(27, 24, 21, 0.3); }
+        .p-rating-strip .deployed-badge {
+            font-family: var(--font-mono, monospace);
+            font-size: 0.74rem;
+            color: #059669;
+            font-weight: 600;
+            background: transparent;
+            border: none;
+            padding: 0;
+        }
+
+        /* Pricing (Zero Box: Open Typography with Minimalist Hairline Divider) */
+        .p-price-card {
+            background: transparent;
+            border: none;
+            box-shadow: none;
+            border-radius: 0;
+            padding: 0 0 20px 0;
+            margin-bottom: 22px;
+            border-bottom: 1px solid rgba(27, 24, 21, 0.12);
+        }
+
+        .p-mrp-row {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 6px;
+        }
+
+        .p-save-chip {
+            background: transparent;
+            color: #059669;
+            font-family: var(--font-mono, monospace);
+            font-size: 0.8rem;
+            font-weight: 700;
+            padding: 0;
+            border: none;
+            letter-spacing: 0.04em;
+        }
+
+        .p-mrp-strike {
+            font-family: var(--font-mono, monospace);
+            font-size: 0.95rem;
+            color: var(--base-dark-muted, #5e574d);
+            text-decoration: line-through;
+        }
+
+        .p-rate-row {
+            display: flex;
+            align-items: baseline;
+            gap: 14px;
+            margin-bottom: 8px;
+            flex-wrap: wrap;
+        }
+
+        .p-price-num {
+            font-family: var(--font-display, 'Space Grotesk', sans-serif);
+            font-size: 2.6rem;
+            font-weight: 800;
+            color: var(--base-dark, #1b1815);
+        }
+
+        .p-tax-label {
+            font-family: var(--font-mono, monospace);
+            font-size: 0.78rem;
+            color: var(--base-dark-muted, #5e574d);
+        }
+
+        .p-gst-banner {
+            font-size: 0.84rem;
+            line-height: 1.5;
+            color: var(--base-dark-muted, #5e574d);
+        }
+
+        .p-gst-banner strong {
+            color: var(--base-dark, #1b1815);
+        }
+
+        /* Specs Chips (Zero Box: Pure Editorial Slash-Separated Tags) */
+        .p-chips-wrap {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 26px;
+            align-items: center;
+        }
+
+        .p-chip-tag {
+            font-family: var(--font-mono, monospace);
+            font-size: 0.76rem;
+            background: transparent;
+            border: none;
+            color: var(--base-dark, #1b1815);
+            padding: 0;
+            font-weight: 600;
+            letter-spacing: 0.04em;
+            display: inline-flex;
+            align-items: center;
+        }
+
+        .p-chip-tag:not(:last-child)::after {
+            content: "//";
+            color: rgba(27, 24, 21, 0.25);
+            margin-left: 10px;
+            font-weight: 400;
+        }
+
+        /* About Section (Pure Editorial Bullets) */
+        .p-section-heading {
+            font-family: var(--font-mono, monospace);
+            font-size: 0.82rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            color: var(--base-dark, #1b1815);
+            margin-bottom: 14px;
+            text-transform: uppercase;
+        }
+
+        .p-feature-bullets {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 32px 0;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            border-bottom: 1px solid rgba(27, 24, 21, 0.12);
+            padding-bottom: 28px;
+        }
+
+        .p-feature-bullets li {
+            position: relative;
+            padding-left: 20px;
+            font-size: 0.92rem;
+            line-height: 1.6;
+            color: var(--base-dark-muted, #5e574d);
+        }
+
+        .p-feature-bullets li::before {
+            content: "•";
+            position: absolute;
+            left: 2px;
+            color: #059669;
+            font-size: 1.3rem;
+            line-height: 1;
+        }
+
+        .p-feature-bullets strong {
+            color: var(--base-dark, #1b1815);
+        }
+
+        /* Technical Specifications Table (Zero Box: Crisp Hairlines) */
+        .p-specs-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.86rem;
+            margin-bottom: 24px;
+        }
+
+        .p-specs-table tr {
+            border-bottom: 1px solid rgba(27, 24, 21, 0.1);
+        }
+
+        .p-specs-table td {
+            padding: 10px 8px;
+            vertical-align: top;
+        }
+
+        .p-specs-table td.col-key {
+            width: 36%;
+            font-family: var(--font-mono, monospace);
+            font-weight: 600;
+            color: var(--base-dark-muted, #5e574d);
+            background: transparent;
+        }
+
+        .p-specs-table td.col-val {
+            color: var(--base-dark, #1b1815);
+            font-weight: 500;
+        }
+
+        /* Column 3: Buy Column (NO BOX! Unboxed Column with Vertical Hairline) */
+        .p-col-buybox {
+            position: sticky;
+            top: 96px;
+            border-left: 1px solid rgba(27, 24, 21, 0.15);
+            padding-left: 36px;
+        }
+
+        .p-buybox-card {
+            background: transparent;
+            border: none;
+            box-shadow: none;
+            border-radius: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+        }
+
+        .bb-price-row {
+            display: flex;
+            align-items: baseline;
+            gap: 8px;
+        }
+
+        .bb-price {
+            font-family: var(--font-display, 'Space Grotesk', sans-serif);
+            font-size: 2.3rem;
+            font-weight: 800;
+            color: var(--base-dark, #1b1815);
+        }
+
+        .bb-tax-note {
+            font-family: var(--font-mono, monospace);
+            font-size: 0.74rem;
+            color: var(--base-dark-muted, #5e574d);
+        }
+
+        .bb-stock-status {
+            font-family: var(--font-mono, monospace);
+            font-size: 0.76rem;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            color: var(--base-dark, #1b1815);
+            text-transform: uppercase;
+        }
+
+        .bb-meta-grid {
+            border-top: 1px solid rgba(27, 24, 21, 0.12);
+            border-bottom: 1px solid rgba(27, 24, 21, 0.12);
+            padding: 12px 0;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            font-size: 0.82rem;
+        }
+
+        .bb-meta-item {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .bb-meta-label {
+            color: var(--base-dark-muted, #5e574d);
+        }
+
+        .bb-meta-val {
+            font-weight: 600;
+            color: var(--base-dark, #1b1815);
+        }
+
+        .bb-qty-block {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px;
+            padding: 4px 0;
+        }
+
+        .bb-qty-block label {
+            font-family: var(--font-mono, monospace);
+            font-size: 0.82rem;
+            font-weight: 700;
+            color: var(--base-dark, #1b1815);
+        }
+
+        .bb-qty-select {
+            background: transparent;
+            border: none;
+            border-bottom: 2px solid var(--base-dark, #1b1815);
+            border-radius: 0;
+            padding: 6px 12px;
+            font-family: var(--font-mono, monospace);
+            font-size: 0.82rem;
+            font-weight: 600;
+            color: var(--base-dark, #1b1815);
+            cursor: pointer;
+            outline: none;
+        }
+
+        .bb-subtotal-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-family: var(--font-mono, monospace);
+            font-size: 0.86rem;
+            padding: 10px 0;
+            border-top: 1px solid rgba(27, 24, 21, 0.1);
+            border-bottom: 1px solid rgba(27, 24, 21, 0.1);
+        }
+
+        .bb-actions {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .bb-btn-cart {
+            background: #1b1815;
+            color: #ffffff;
+            border: 1px solid #1b1815;
+            padding: 15px 18px;
+            font-family: var(--font-mono, monospace);
+            font-size: 0.84rem;
+            font-weight: 700;
+            letter-spacing: 0.06em;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            text-align: center;
+        }
+
+        .bb-btn-cart:hover {
+            background: #2b2520;
+            border-color: #2b2520;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.18);
+        }
+
+        .bb-btn-hdfc {
+            background: #004c8f;
+            color: #ffffff;
+            border: 1px solid #004c8f;
+            padding: 15px 18px;
+            font-family: var(--font-mono, monospace);
+            font-size: 0.84rem;
+            font-weight: 700;
+            letter-spacing: 0.06em;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            text-align: center;
+        }
+
+        .bb-btn-hdfc:hover {
+            background: #003366;
+            border-color: #003366;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(0, 76, 143, 0.35);
+        }
+
+        .bb-trust-stack {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            font-size: 0.78rem;
+            color: var(--base-dark, #1b1815);
+            border-top: 1px solid rgba(27, 24, 21, 0.12);
+            padding-top: 14px;
+        }
+
+        .bb-trust-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .bb-trust-icon {
+            color: #059669;
+            font-weight: 800;
+        }
+
+        .bb-helpline-card {
+            background: transparent;
+            border: none;
+            border-top: 1px solid rgba(27, 24, 21, 0.12);
+            border-radius: 0;
+            padding: 14px 0 0 0;
+            font-size: 0.78rem;
+            color: var(--base-dark, #1b1815);
+            text-align: left;
+            line-height: 1.5;
+        }
+
+        .bb-helpline-card a {
+            color: #004c8f;
+            font-weight: 700;
+            text-decoration: none;
+        }
+
+        /* Frequently Deployed Together (Zero Box: Top Hairline Divider) */
+        .p-bundle-section {
+            margin-top: 64px;
+            background: transparent;
+            border: none;
+            box-shadow: none;
+            border-radius: 0;
+            border-top: 1px solid rgba(27, 24, 21, 0.15);
+            padding: 48px 0 0 0;
+        }
+
+        .p-bundle-card {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 32px;
+            flex-wrap: wrap;
+            margin-top: 24px;
+        }
+
+        .p-bundle-items-row {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .bundle-item-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            width: 150px;
+            text-align: center;
+        }
+
+        .bundle-item-thumb {
+            width: 110px;
+            height: 110px;
+            background: transparent;
+            border: none;
+            border-radius: 0;
+            padding: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .bundle-item-thumb img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+            mix-blend-mode: multiply;
+        }
+
+        .bundle-item-title {
+            font-size: 0.78rem;
+            font-weight: 600;
+            color: var(--base-dark, #1b1815);
+            line-height: 1.3;
+        }
+
+        .bundle-item-price {
+            font-family: var(--font-mono, monospace);
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: var(--base-dark, #1b1815);
+        }
+
+        .bundle-plus {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--base-dark-muted, #5e574d);
+        }
+
+        .p-bundle-action {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            min-width: 260px;
+        }
+
+        .bundle-price-total {
+            font-family: var(--font-display, 'Space Grotesk', sans-serif);
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--base-dark, #1b1815);
+        }
+
+        .bundle-btn {
+            background: #1b1815;
+            color: #ffffff;
+            border: 1px solid #1b1815;
+            padding: 14px 22px;
+            font-family: var(--font-mono, monospace);
+            font-size: 0.82rem;
+            font-weight: 700;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            text-align: center;
+        }
+
+        .bundle-btn:hover {
+            background: #004c8f;
+            border-color: #004c8f;
+            transform: translateY(-2px);
+        }
+
+        /* Responsive Breakpoints */
+        @media (max-width: 1200px) {
+            .product-amazon-layout {
+                grid-template-columns: 420px 1fr;
+            }
+            .p-col-buybox {
+                grid-column: span 2;
+                position: static;
+                border-left: none;
+                border-top: 1px solid rgba(27, 24, 21, 0.15);
+                padding-left: 0;
+                padding-top: 32px;
+            }
+            .p-buybox-card {
+                max-width: 600px;
+            }
+        }
+
+        @media (max-width: 900px) {
+            .product-amazon-layout {
+                grid-template-columns: 1fr;
+                gap: 32px;
+            }
+            .p-col-visuals {
+                position: static;
+                flex-direction: column-reverse;
+            }
+            .p-vertical-thumbs {
+                flex-direction: row;
+                width: 100%;
+                overflow-x: auto;
+                padding-bottom: 6px;
+            }
+            .p-stage-card {
+                height: 360px;
+            }
+            .p-stage-img {
+                max-height: 300px;
+            }
+            .p-col-buybox {
+                grid-column: span 1;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Symmetrical Jesko Jets Header -->
+    <header class="header" id="main-header">
+        <div class="header-container">
+            <nav class="header-nav">
+                <div class="nav-item-list">
+                    <a href="index.html#cameras" class="nav-item">
+                        <div class="nav-item_label">
+                            <span class="nav-text">Cameras</span>
+                            <span class="nav-text is-2">Cameras</span>
+                        </div>
+                        <div class="nav-item_bg"><div class="nav-item_bg_hover"></div></div>
+                    </a>
+                    <a href="index.html?slide=2#hero-viewport" class="nav-item">
+                        <div class="nav-item_label">
+                            <span class="nav-text">Deals</span>
+                            <span class="nav-text is-2">Deals</span>
+                        </div>
+                        <div class="nav-item_bg"><div class="nav-item_bg_hover"></div></div>
+                    </a>
+                    <a href="index.html?slide=0#hero-viewport" class="nav-item">
+                        <div class="nav-item_label">
+                            <span class="nav-text">Live Demo</span>
+                            <span class="nav-text is-2">Live Demo</span>
+                        </div>
+                        <div class="nav-item_bg"><div class="nav-item_bg_hover"></div></div>
+                    </a>
+                    <a href="index.html#why-us" class="nav-item">
+                        <div class="nav-item_label">
+                            <span class="nav-text">Why Syber Space</span>
+                            <span class="nav-text is-2">Why Syber Space</span>
+                        </div>
+                        <div class="nav-item_bg"><div class="nav-item_bg_hover"></div></div>
+                    </a>
+                    <a href="index.html#about" class="nav-item">
+                        <div class="nav-item_label">
+                            <span class="nav-text">About Us</span>
+                            <span class="nav-text is-2">About Us</span>
+                        </div>
+                        <div class="nav-item_bg"><div class="nav-item_bg_hover"></div></div>
+                    </a>
+                </div>
+            </nav>
+
+            <div class="header-logo">
+                <a href="index.html" class="link-logo">
+                    <span class="logo-text">SYBER SPACE</span>
+                </a>
+            </div>
+
+            <div class="header-cta">
+                <div class="nav-item-list">
+                    <a href="tel:+917511180808" class="nav-item">
+                        <div class="nav-item_label">
+                            <span class="nav-text">+91 75111 80808</span>
+                            <span class="nav-text is-2">+91 75111 80808</span>
+                        </div>
+                        <div class="nav-item_bg"><div class="nav-item_bg_hover"></div></div>
+                    </a>
+                    <a href="mailto:info@syberspace.in" class="nav-item header-email-link">
+                        <div class="nav-item_label">
+                            <span class="nav-text">info@syberspace.in</span>
+                            <span class="nav-text is-2">info@syberspace.in</span>
+                        </div>
+                        <div class="nav-item_bg"><div class="nav-item_bg_hover"></div></div>
+                    </a>
+                    <a href="cart.html" class="nav-item cart-pill">
+                        <div class="nav-item_label">
+                            <span class="nav-text cart-counter-label">Cart (0)</span>
+                            <span class="nav-text is-2 cart-counter-label">Cart (0)</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Whole Window Product Arena -->
+    <div class="p-page-wrapper">
+        <main class="p-page-container">
+            <!-- Breadcrumbs -->
+            <nav class="p-breadcrumbs" aria-label="Breadcrumbs">
+                <a href="index.html">SYBER SPACE</a>
+                <span class="sep">/</span>
+                <a href="index.html#cameras">SECURITY ARSENAL</a>
+                <span class="sep">/</span>
+                <span class="sep" id="p-crumb-brand">BRAND</span>
+                <span class="sep">/</span>
+                <span class="current" id="p-crumb-title">Loading Product...</span>
+            </nav>
+
+            <!-- 3-Column Layout: Amazon Ergonomics with Jesko Jets Luxury Aesthetic -->
+            <div class="product-amazon-layout">
+                <!-- Column 1: Multi-Angle Interactive Gallery -->
+                <div class="p-col-visuals">
+                    <!-- Vertical Angle Thumbnails -->
+                    <div class="p-vertical-thumbs" id="p-vertical-thumbs" role="tablist" aria-label="Product angles"></div>
+
+                    <!-- Main Image Stage -->
+                    <div class="p-stage-card">
+                        <button type="button" class="p-stage-arrow prev" onclick="cycleActiveAngle(-1)" aria-label="Previous angle">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+                        </button>
+                        <img id="p-main-img" src="assets/idada_q2i35s_1.jpg" alt="Surveillance Hardware Angle" class="p-stage-img">
+                        <button type="button" class="p-stage-arrow next" onclick="cycleActiveAngle(1)" aria-label="Next angle">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+                        </button>
+                        <span class="p-angle-counter" id="p-angle-counter">ANGLE 01 // 03</span>
+                    </div>
+                </div>
+
+                <!-- Column 2: Center Editorial Specs & Information -->
+                <div class="p-col-details">
+                    <div class="p-kicker-strip">
+                        <span class="p-brand-badge" id="p-brand-tag">BRAND // iDADA</span>
+                        <span class="p-bestseller-pill" id="p-bestseller-pill">#1 BESTSELLER WHOLESALE</span>
+                    </div>
+
+                    <h1 class="p-main-title" id="p-main-title">Product Title</h1>
+
+                    <div class="p-rating-strip">
+                        <span class="stars" id="p-stars-val">★★★★★</span>
+                        <span class="rating-val" id="p-rating-num">5.0</span>
+                        <span class="rating-count" id="p-review-count">(218 verified partner reviews)</span>
+                        <span class="rating-dot">•</span>
+                        <span class="deployed-badge">1,200+ deployed this month</span>
+                    </div>
+
+                    <!-- Pricing Block -->
+                    <div class="p-price-card">
+                        <div class="p-mrp-row">
+                            <span class="p-save-chip" id="p-save-chip">-44% OFF</span>
+                            <span class="p-mrp-strike" id="p-mrp-strike">M.R.P.: ₹3,299</span>
+                        </div>
+                        <div class="p-rate-row">
+                            <span class="p-price-num" id="p-price-num">₹1,850</span>
+                            <span class="p-tax-label">Official Wholesale Direct Rate</span>
+                        </div>
+                        <div class="p-gst-banner">
+                            <strong>Inclusive of all GST.</strong> Tax invoice provided with full GST Input Tax Credit (ITC) eligibility.
+                        </div>
+                    </div>
+
+                    <!-- Feature Tags / Chips -->
+                    <div class="p-chips-wrap" id="p-chips-wrap"></div>
+
+                    <!-- "About This Surveillance Hardware" (Amazon Preference) -->
+                    <div class="p-about-section">
+                        <h2 class="p-section-heading">ABOUT THIS SURVEILLANCE HARDWARE</h2>
+                        <ul class="p-feature-bullets" id="p-feature-bullets"></ul>
+                    </div>
+
+                    <!-- Technical Specifications Arsenal Table -->
+                    <div class="p-specs-section">
+                        <h2 class="p-section-heading">TECHNICAL SPECIFICATIONS</h2>
+                        <table class="p-specs-table" id="p-specs-table"></table>
+                    </div>
+                </div>
+
+                <!-- Column 3: Dedicated Procurement Buy Box (Amazon Preference) -->
+                <div class="p-col-buybox">
+                    <div class="p-buybox-card">
+                        <div class="bb-price-row">
+                            <span class="bb-price" id="bb-price">₹1,850</span>
+                            <span class="bb-tax-note">/ unit</span>
+                        </div>
+
+                        <div class="bb-stock-status">
+                            <span>STATUS // IN STOCK • READY FOR DISPATCH</span>
+                        </div>
+
+                        <div class="bb-meta-grid">
+                            <div class="bb-meta-item">
+                                <span class="bb-meta-label">Ships from</span>
+                                <span class="bb-val">SYBER SPACE Direct</span>
+                            </div>
+                            <div class="bb-meta-item">
+                                <span class="bb-meta-label">Sold by</span>
+                                <span class="bb-val">Authorized Partner Logistics</span>
+                            </div>
+                            <div class="bb-meta-item">
+                                <span class="bb-meta-label">Packaging</span>
+                                <span class="bb-val">100% Sealed Genuine Box</span>
+                            </div>
+                            <div class="bb-meta-item">
+                                <span class="bb-meta-label">Warranty</span>
+                                <span class="bb-val">1-Year Authorized Brand</span>
+                            </div>
+                        </div>
+
+                        <!-- Quantity Selector -->
+                        <div class="bb-qty-block">
+                            <label for="bb-qty">Order Qty:</label>
+                            <select id="bb-qty" class="bb-qty-select" onchange="onQuantityChange()">
+                                <option value="1">1 Unit</option>
+                                <option value="2">2 Units</option>
+                                <option value="5">5 Units (Contractor Pack)</option>
+                                <option value="10">10 Units (Fleet Batch)</option>
+                                <option value="25">25 Units (Master Carton)</option>
+                                <option value="50">50+ Units (Bulk Project)</option>
+                            </select>
+                        </div>
+
+                        <div class="bb-subtotal-row">
+                            <span>Subtotal (<span id="bb-qty-count">1</span> unit):</span>
+                            <strong id="bb-subtotal-val">₹1,850</strong>
+                        </div>
+
+                        <div class="bb-actions">
+                            <button type="button" class="bb-btn-hdfc" onclick="buyNowHdfc()">
+                                <span>PAY NOW</span>
+                            </button>
+                            <button type="button" class="bb-btn-cart" onclick="addProductToCart()">
+                                <span>ADD TO PROCUREMENT CART</span>
+                            </button>
+                        </div>
+
+                        <div class="bb-trust-stack">
+                            <div class="bb-trust-item">
+                                <span class="bb-trust-icon">✓</span>
+                                <span>100% Genuine Sealed Unit</span>
+                            </div>
+                            <div class="bb-trust-item">
+                                <span class="bb-trust-icon">✓</span>
+                                <span>GST Input Tax Credit Invoice</span>
+                            </div>
+                            <div class="bb-trust-item">
+                                <span class="bb-trust-icon">✓</span>
+                                <span>Insured All-India Transit</span>
+                            </div>
+                            <div class="bb-trust-item">
+                                <span class="bb-trust-icon">✓</span>
+                                <span>Direct Engineer Support</span>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+
+            <!-- Frequently Deployed Together Section -->
+            <section class="p-bundle-section">
+                <h2 class="p-section-heading">FREQUENTLY DEPLOYED TOGETHER</h2>
+                <div class="p-bundle-card">
+                    <div class="p-bundle-items-row">
+                        <!-- Item 1: This Unit -->
+                        <div class="bundle-item-card">
+                            <div class="bundle-item-thumb">
+                                <img id="bundle-img-1" src="assets/idada_q2i35s_1.jpg" alt="Selected Unit">
+                            </div>
+                            <span class="bundle-item-title" id="bundle-name-1">This Unit</span>
+                            <span class="bundle-item-price" id="bundle-price-1">₹1,850</span>
+                        </div>
+
+                        <span class="bundle-plus">+</span>
+
+                        <!-- Item 2: PoE / Switch Hub -->
+                        <div class="bundle-item-card">
+                            <div class="bundle-item-thumb">
+                                <img src="assets/trueview_poe_4_2.webp" alt="Trueview 4+2 PoE Switch">
+                            </div>
+                            <span class="bundle-item-title">Trueview 4+2 PoE Switch 65W</span>
+                            <span class="bundle-item-price">₹1,750</span>
+                        </div>
+
+                        <span class="bundle-plus">+</span>
+
+                        <!-- Item 3: 4G High-Gain Router -->
+                        <div class="bundle-item-card">
+                            <div class="bundle-item-thumb">
+                                <img src="assets/trueview_router_r300.webp" alt="Trueview 4G Router">
+                            </div>
+                            <span class="bundle-item-title">Trueview 4G R300 SIM Router</span>
+                            <span class="bundle-item-price">₹2,100</span>
+                        </div>
+                    </div>
+
+                    <div class="p-bundle-action">
+                        <span style="font-size:0.82rem; color:var(--base-dark-muted);">Commercial Fleet Combo Price:</span>
+                        <span class="bundle-price-total" id="bundle-price-total">₹5,700</span>
+                        <button type="button" class="bundle-btn" onclick="addBundleToCart()">
+                            <span>ADD BUNDLE TO CART</span>
+                        </button>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- ======================================================================
+         DEDICATED WHOLESALE & TENDER WHATSAPP CONCIERGE (PLACED ONLY ABOVE FOOTER)
+         ====================================================================== -->
+    <section class="footer-whatsapp-section" id="wholesale-concierge">
+        <div class="footer-whatsapp-container">
+            <div class="footer-whatsapp-content">
+                <div class="footer-whatsapp-kicker">WHOLESALE DESK // DIRECT KERALA WAREHOUSE // CONTRACTORS &amp; TENDERS</div>
+                <h2 class="footer-whatsapp-title">Have a Bulk Project or Wholesale Inquiries?</h2>
+                <p class="footer-whatsapp-desc">
+                    Connect directly with our Kerala procurement team on WhatsApp for contractor volume discounts, bulk dispatch schedules, or custom camera bundles. We respond within minutes with direct factory rates.
+                </p>
+            </div>
+            <div class="footer-whatsapp-actions">
+                <a href="https://wa.me/917511180808?text=Hello%20Syber%20Space%2C%20I%20have%20a%20wholesale%20%2F%20bulk%20CCTV%20inquiry." target="_blank" rel="noopener noreferrer" class="whatsapp-concierge-btn">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
+                    </svg>
+                    <span>CHAT ON WHATSAPP (+91 75111 80808)</span>
+                </a>
+                <span class="whatsapp-concierge-note">Dedicated Wholesale &amp; Tender Desk • 100% Direct Rates</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer" id="contact">
+        <div class="footer-container">
+            <div class="footer-top">
+                <div>
+                    <h2 class="footer-headline">
+                        Securing every perimeter with total clarity and control.
+                    </h2>
+                </div>
+                <div class="footer-inquiries-box">
+                    <span class="footer-inquiries-title">Statutory Inquiries</span>
+                    <div class="footer-contact-links">
+                        <a href="mailto:info@syberspace.in" class="footer-contact-link">info@syberspace.in</a>
+                        <a href="tel:+917511180808" class="footer-contact-link">+91 75111 80808</a>
+                    </div>
+                    <p class="footer-location">
+                        Syber Space Security Systems<br>
+                        Kerala HQ // Pan-India Fast Courier Dispatch
+                    </p>
+                </div>
+            </div>
+            <!-- Regulatory Payment Schemes -->
+            <div class="footer-payment-schemes">
+                <span class="schemes-left-title">Verified Payment Rails & Security Standards:</span>
+                <div class="schemes-pills-wrap">
+                    <span class="scheme-pill hdfc">HDFC Bank SmartGateway™</span>
+                    <span class="scheme-pill secure">PCI-DSS Level 1</span>
+                    <span class="scheme-pill">256-Bit SSL</span>
+                    <span class="scheme-pill">UPI / QR</span>
+                    <span class="scheme-pill">Visa Secure</span>
+                    <span class="scheme-pill">Mastercard ID Check</span>
+                    <span class="scheme-pill">RuPay</span>
+                    <span class="scheme-pill">NetBanking (50+ Banks)</span>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <div>
+                    © 2026 SYBER SPACE SECURITY SYSTEMS. ALL RIGHTS RESERVED.
+                </div>
+                <div class="footer-bottom-links">
+                    <a href="privacy.html">Privacy Policy</a>
+                    <a href="terms.html">Terms of Procurement</a>
+                    <a href="refund-policy.html">Cancellation & Refunds</a>
+                    <a href="shipping-policy.html">Shipping & Delivery</a>
+                    <a href="contact.html">Contact & Grievance</a>
+                </div>
+                <div>
+                    ENGINEERED FOR SYBER SPACE
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="cookie-location.js?v=3.4"></script>
+    <!-- Products Database -->
+    <script src="products_data.js?v=3.4"></script>
+
+    <script>
+        let currentProduct = null;
+        let currentAngleIndex = 0;
+        let currentQty = 1;
+
+        document.addEventListener('DOMContentLoaded', () => {
+            updateNavCart();
+
+            // Resolve target product from URL
+            const urlParams = new URLSearchParams(window.location.search);
+            const targetId = urlParams.get('id');
+            const targetModel = urlParams.get('model');
+            const targetName = urlParams.get('name');
+
+            if (typeof SYBER_PRODUCTS !== 'undefined' && SYBER_PRODUCTS.length > 0) {
+                if (targetId) {
+                    currentProduct = SYBER_PRODUCTS.find(p => p.id === targetId);
+                }
+                if (!currentProduct && targetModel) {
+                    currentProduct = SYBER_PRODUCTS.find(p => p.id === targetModel || p.title.toLowerCase().includes(targetModel.toLowerCase()));
+                }
+                if (!currentProduct && targetName) {
+                    currentProduct = SYBER_PRODUCTS.find(p => p.title.toLowerCase() === targetName.toLowerCase());
+                }
+                // Fallback to #1 Bestseller iDADA
+                if (!currentProduct) {
+                    currentProduct = SYBER_PRODUCTS[0];
+                }
+            }
+
+            document.body.classList.add('has-mobile-buybar');
+            initTouchGallery();
+            renderProductPage(currentProduct);
+        });
+
+        function renderProductPage(p) {
+            if (!p) return;
+
+            document.title = `${p.title} — SYBER SPACE`;
+
+            // Sync Mobile Sticky Bar
+            const msPrice = document.getElementById('ms-price');
+            if (msPrice) msPrice.textContent = `₹${p.price.toLocaleString('en-IN')}`;
+
+            // Breadcrumbs
+            document.getElementById('p-crumb-brand').textContent = p.brand;
+            document.getElementById('p-crumb-title').textContent = p.title;
+
+            // Brand & Bestseller Badge
+            document.getElementById('p-brand-tag').textContent = `BRAND // ${p.brand}`;
+            document.getElementById('p-bestseller-pill').textContent = p.badge || 'VERIFIED WHOLESALE';
+
+            // Title
+            document.getElementById('p-main-title').textContent = p.title;
+
+            // Rating
+            document.getElementById('p-rating-num').textContent = p.rating || '5.0';
+
+            // Pricing
+            document.getElementById('p-save-chip').textContent = p.save || 'Save Wholesale';
+            document.getElementById('p-mrp-strike').textContent = `M.R.P.: ${p.mrp || '₹3,299'}`;
+            document.getElementById('p-price-num').textContent = `₹${p.price.toLocaleString('en-IN')}`;
+            document.getElementById('bb-price').textContent = `₹${p.price.toLocaleString('en-IN')}`;
+            document.getElementById('bb-subtotal-val').textContent = `₹${p.price.toLocaleString('en-IN')}`;
+
+            // Chips
+            const chipsWrap = document.getElementById('p-chips-wrap');
+            if (chipsWrap && p.chips) {
+                chipsWrap.innerHTML = p.chips.map(c => `<span class="p-chip-tag">${c}</span>`).join('');
+            }
+
+            // About Bullets (Amazon Preference)
+            const bulletsWrap = document.getElementById('p-feature-bullets');
+            if (bulletsWrap) {
+                const bullets = generateBullets(p);
+                bulletsWrap.innerHTML = bullets.map(b => `<li>${b}</li>`).join('');
+            }
+
+            // Specs Table (Amazon Preference)
+            const tableWrap = document.getElementById('p-specs-table');
+            if (tableWrap) {
+                const specs = generateSpecs(p);
+                tableWrap.innerHTML = specs.map(s => `
+                    <tr>
+                        <td class="col-key">${s.k}</td>
+                        <td class="col-val">${s.v}</td>
+                    </tr>
+                `).join('');
+            }
+
+            // Multi-Angle Gallery
+            renderGallery(p.images || []);
+
+            // Bundle Setup
+            const bundleImg1 = document.getElementById('bundle-img-1');
+            const bundleName1 = document.getElementById('bundle-name-1');
+            const bundlePrice1 = document.getElementById('bundle-price-1');
+            const bundleTotal = document.getElementById('bundle-price-total');
+
+            if (bundleImg1 && p.images && p.images.length > 0) {
+                bundleImg1.src = p.images[0];
+            }
+            if (bundleName1) bundleName1.textContent = p.title;
+            if (bundlePrice1) bundlePrice1.textContent = `₹${p.price.toLocaleString('en-IN')}`;
+            if (bundleTotal) {
+                const total = p.price + 1750 + 2100;
+                bundleTotal.textContent = `₹${total.toLocaleString('en-IN')}`;
+            }
+        }
+
+        function generateBullets(p) {
+            const list = [];
+            list.push(`<strong>Surveillance Grade Hardware:</strong> ${p.desc}`);
+            if (p.category.includes('wifi')) {
+                list.push(`<strong>Seamless Wireless Architecture:</strong> High-bandwidth 2.4GHz Wi-Fi connectivity with dual high-gain transmission antennas for zero packet-loss video streaming.`);
+                list.push(`<strong>Real-Time AI Edge Detection:</strong> Integrated onboard humanoid body shape filtering prevents false alarms caused by leaves, rain, or small insects.`);
+            } else if (p.category.includes('4g') || p.category.includes('router')) {
+                list.push(`<strong>100% Cellular Connectivity:</strong> Standalone SIM slot compatible with all Indian telecom providers (Jio, Airtel, Vi, BSNL). High-gain transmission for remote surveillance sites.`);
+                list.push(`<strong>Industrial 24/7 Stability:</strong> Hardware watchdog timer auto-reboots connection in case of cellular signal dropouts.`);
+            } else if (p.category.includes('poe')) {
+                list.push(`<strong>Intelligent Power over Ethernet:</strong> High-efficiency power allocation with 250m long-distance transmission and 6KV surge lightning protection.`);
+                list.push(`<strong>Plug & Play Infrastructure:</strong> Zero configuration required. Auto-detects IEEE 802.3af/at powered IP cameras.`);
+            } else if (p.category.includes('accessory')) {
+                list.push(`<strong>Heavy-Duty Commercial Grade:</strong> Precision manufactured for continuous 24/7 operational reliability in professional CCTV installations.`);
+                list.push(`<strong>Universal Cross-Compatibility:</strong> Fully compatible with all leading surveillance systems including Trueview, CP PLUS, and Dahua.`);
+            } else {
+                list.push(`<strong>Real-Time AI Edge Detection:</strong> Integrated onboard humanoid body shape filtering prevents false alarms caused by leaves, rain, or small insects.`);
+            }
+            list.push(`<strong>Official Wholesale Guarantee:</strong> 100% factory-sealed hardware backed by Syber Space direct replacement warranty and verified GST Input Tax Credit invoicing.`);
+            return list;
+        }
+
+        function generateSpecs(p) {
+            const baseSpecs = [
+                { k: 'Brand & Origin', v: `${p.brand} Official Authorized Distribution` },
+                { k: 'Hardware Fleet Model', v: p.title },
+                { k: 'Category / Form Factor', v: p.category.toUpperCase().replace(/-/g, ' ') },
+                { k: 'Wholesale Commercial Rate', v: `₹${p.price.toLocaleString('en-IN')} (GST ITC Eligible)` }
+            ];
+
+            if (p.category === 'poe-switch') {
+                return [
+                    ...baseSpecs,
+                    { k: 'PoE Standard', v: 'IEEE 802.3af / IEEE 802.3at Auto-Sensing' },
+                    { k: 'Power Budget', v: (p.chips && p.chips.find(c => c.includes('W'))) || '65W - 300W Max Budget' },
+                    { k: 'Transmission Distance', v: 'Up to 250 Meters (Extend Mode Activated)' },
+                    { k: 'Enclosure', v: 'Industrial Galvanized Steel Fanless Housing' },
+                    { k: 'Surge Protection', v: '6KV Common Mode ESD & Lightning Protection' },
+                    { k: 'Warranty & Support', v: '2-Year Manufacturer Replacement Warranty' }
+                ];
+            }
+
+            if (p.category === 'router') {
+                return [
+                    ...baseSpecs,
+                    { k: 'Cellular Technology', v: '4G LTE FDD/TDD Cat 4 (150Mbps DL / 50Mbps UL)' },
+                    { k: 'SIM Card Support', v: 'Standard Micro-SIM (Jio, Airtel, Vi, BSNL)' },
+                    { k: 'Antenna Configuration', v: 'Dual External High-Gain 5dBi Antennas' },
+                    { k: 'Local Network', v: '10/100M RJ45 Fast Ethernet + 300Mbps 802.11b/g/n' },
+                    { k: 'Power Input', v: '12V 1A DC Barrel Connector' },
+                    { k: 'Warranty & Support', v: '1-Year Manufacturer Authorized Warranty' }
+                ];
+            }
+
+            if (p.category === 'accessory') {
+                if (p.id.includes('hdd')) {
+                    return [
+                        ...baseSpecs,
+                        { k: 'Storage Capacity', v: '4TB (Terabytes) Formatted' },
+                        { k: 'Workload Rating', v: '180 TB/year (24/7 Surveillance Optimized)' },
+                        { k: 'Interface', v: 'SATA 6 Gb/s (3.5-inch Internal)' },
+                        { k: 'Cache Buffer', v: '64MB High-Speed DRAM Cache' },
+                        { k: 'Cameras Supported', v: 'Up to 64 HD Surveillance Cameras Simultaneously' },
+                        { k: 'Warranty & Support', v: '3-Year Manufacturer Direct Warranty' }
+                    ];
+                }
+                if (p.id.includes('smps')) {
+                    return [
+                        ...baseSpecs,
+                        { k: 'Input Voltage', v: '100V - 240V AC 50/60Hz Universal' },
+                        { k: 'Output Voltage', v: '12V DC ± 5% Regulated' },
+                        { k: 'Max Current Capacity', v: '10 Amperes (120W Continuous)' },
+                        { k: 'Channels / Terminals', v: '9 Filtered Positive & Negative Screw Rail Connectors' },
+                        { k: 'Protections', v: 'Short-Circuit, Overload & Thermal Auto-Recovery' },
+                        { k: 'Warranty & Support', v: '1-Year Full Replacement Guarantee' }
+                    ];
+                }
+                if (p.id.includes('cable')) {
+                    return [
+                        ...baseSpecs,
+                        { k: 'Cable Type', v: 'Cat6 UTP (Unshielded Twisted Pair) 4-Pair' },
+                        { k: 'Conductor Material', v: '100% Solid Pure Annealed Bare Copper (23 AWG)' },
+                        { k: 'Roll Length', v: '305 Meters (1000 Feet) Wooden Reel' },
+                        { k: 'Bandwidth Rating', v: 'Up to 250 MHz / Gigabit Transmission 1000BASE-T' },
+                        { k: 'PoE Compliance', v: 'IEEE 802.3bt Type 4 (90W PoE++) High Power' },
+                        { k: 'Warranty & Support', v: 'Syber Space Certified Infrastructure' }
+                    ];
+                }
+                return [
+                    ...baseSpecs,
+                    { k: 'Weatherproof Ingress', v: 'IP66 Rated Water & Dust Resistant' },
+                    { k: 'Material', v: 'Heavy-Duty Impact-Resistant Engineering Thermoplastic' },
+                    { k: 'Compatibility', v: 'Universal Base Knockouts for Dome and Bullet Cameras' },
+                    { k: 'Cable Management', v: 'Concealed Terminal Cavity with Threaded Rubber Gland' },
+                    { k: 'Warranty & Support', v: 'Syber Space Certified Hardware' }
+                ];
+            }
+
+            return [
+                ...baseSpecs,
+                { k: 'Video Compression', v: 'H.265+ / H.264 Ultra Stream Engine' },
+                { k: 'Audio Communication', v: 'High-Fidelity Two-Way Intercom (Mic + Speaker)' },
+                { k: 'Storage Capacity', v: 'MicroSD up to 256GB / NVR / DVR Compatible' },
+                { k: 'Power Input', v: '12V DC / PoE Standard IEEE 802.3af/at' },
+                { k: 'Operating Environment', v: '-10°C to +55°C (All-Weather Certified)' },
+                { k: 'Warranty & Support', v: '1-Year Manufacturer Authorized Warranty' }
+            ];
+        }
+
+        function renderGallery(images) {
+            const thumbsCol = document.getElementById('p-vertical-thumbs');
+            const mainImg = document.getElementById('p-main-img');
+            const counter = document.getElementById('p-angle-counter');
+
+            if (!images || images.length === 0) {
+                images = ['assets/idada_q2i35s_1.jpg'];
+            }
+
+            currentAngleIndex = 0;
+            if (mainImg) mainImg.src = images[0];
+
+            if (counter) {
+                counter.textContent = `ANGLE 01 // ${String(images.length).padStart(2, '0')}`;
+            }
+
+            if (thumbsCol) {
+                if (images.length <= 1) {
+                    thumbsCol.style.display = 'none';
+                    document.querySelectorAll('.p-stage-arrow').forEach(a => a.style.display = 'none');
+                } else {
+                    thumbsCol.style.display = 'flex';
+                    document.querySelectorAll('.p-stage-arrow').forEach(a => a.style.display = 'flex');
+                    thumbsCol.innerHTML = images.map((img, i) => `
+                        <button type="button" class="p-vthumb-btn ${i === 0 ? 'active' : ''}" onclick="selectAngle(${i})" onmouseenter="selectAngle(${i})" aria-label="Angle ${i+1}">
+                            <img src="${img}" alt="Hardware Angle ${i+1}">
+                        </button>
+                    `).join('');
+                }
+            }
+        }
+
+        function selectAngle(idx) {
+            if (!currentProduct || !currentProduct.images || currentProduct.images.length === 0) return;
+            if (idx < 0 || idx >= currentProduct.images.length) return;
+
+            currentAngleIndex = idx;
+            const img = document.getElementById('p-main-img');
+            const counter = document.getElementById('p-angle-counter');
+
+            if (img) {
+                img.classList.add('sliding');
+                setTimeout(() => {
+                    img.src = currentProduct.images[idx];
+                    img.classList.remove('sliding');
+                }, 120);
+            }
+
+            if (counter) {
+                const c = String(idx + 1).padStart(2, '0');
+                const t = String(currentProduct.images.length).padStart(2, '0');
+                counter.textContent = `ANGLE ${c} // ${t}`;
+            }
+
+            document.querySelectorAll('.p-vthumb-btn').forEach((btn, i) => {
+                if (i === idx) btn.classList.add('active');
+                else btn.classList.remove('active');
+            });
+        }
+
+        function cycleActiveAngle(delta) {
+            if (!currentProduct || !currentProduct.images || currentProduct.images.length <= 1) return;
+            const next = (currentAngleIndex + delta + currentProduct.images.length) % currentProduct.images.length;
+            selectAngle(next);
+        }
+
+        function onQuantityChange() {
+            const select = document.getElementById('bb-qty');
+            currentQty = parseInt(select.value, 10) || 1;
+            document.getElementById('bb-qty-count').textContent = currentQty;
+
+            if (currentProduct) {
+                const subtotal = currentProduct.price * currentQty;
+                document.getElementById('bb-subtotal-val').textContent = `₹${subtotal.toLocaleString('en-IN')}`;
+            }
+        }
+
+        function addProductToCart() {
+            if (!currentProduct) return;
+            saveCartItem(currentProduct.title, currentProduct.price, currentProduct.images[0] || 'assets/idada_q2i35s_1.jpg', currentQty);
+            triggerCartPulse();
+        }
+
+        function addBundleToCart() {
+            if (!currentProduct) return;
+            saveCartItem(currentProduct.title, currentProduct.price, currentProduct.images[0] || 'assets/idada_q2i35s_1.jpg', 1);
+            saveCartItem('Trueview 4+2 PoE Switch 65W', 1750, 'assets/trueview_poe_4_2.webp', 1);
+            saveCartItem('Trueview 4G R300 SIM Router', 2100, 'assets/trueview_router_r300.webp', 1);
+            triggerCartPulse();
+        }
+
+        function triggerCartPulse() {
+            const pills = document.querySelectorAll('.cart-pill');
+            pills.forEach(p => {
+                p.classList.remove('cart-pill-pulse');
+                void p.offsetWidth;
+                p.classList.add('cart-pill-pulse');
+            });
+        }
+
+        function buyNowHdfc() {
+            if (!currentProduct) return;
+            saveCartItem(currentProduct.title, currentProduct.price, currentProduct.images[0] || 'assets/idada_q2i35s_1.jpg', currentQty);
+            window.location.href = 'cart.html?checkout=1';
+        }
+
+        function saveCartItem(name, price, img, qty = 1) {
+            const raw = localStorage.getItem('syber_cart') || '[]';
+            let cart = JSON.parse(raw);
+            const existing = cart.find(i => i.name === name);
+            if (existing) {
+                existing.quantity = (existing.quantity || 1) + qty;
+            } else {
+                cart.push({
+                    name: name,
+                    price: price,
+                    image: img,
+                    quantity: qty
+                });
+            }
+            localStorage.setItem('syber_cart', JSON.stringify(cart));
+            updateNavCart();
+        }
+
+        function updateNavCart() {
+            const raw = localStorage.getItem('syber_cart') || '[]';
+            const cart = JSON.parse(raw);
+            const total = cart.reduce((s, i) => s + (i.quantity || 1), 0);
+            document.querySelectorAll('.cart-counter-label').forEach(el => {
+                el.textContent = `Cart (${total})`;
+            });
+            const mbBadge = document.getElementById('mb-cart-badge');
+            if (mbBadge) {
+                mbBadge.textContent = String(total);
+                mbBadge.style.display = total > 0 ? 'inline-flex' : 'none';
+            }
+        }
+
+        function showToast(title, sub) {
+            // Big popup disabled per specification
+        }
+
+        // Mobile Touch Swipe Navigation for Multi-Angle Stage
+        function initTouchGallery() {
+            const stage = document.querySelector('.p-stage-card') || document.getElementById('p-main-img');
+            if (!stage) return;
+            let touchStartX = 0;
+            let touchEndX = 0;
+            stage.addEventListener('touchstart', (e) => {
+                if (e.touches && e.touches.length > 0) {
+                    touchStartX = e.touches[0].clientX;
+                }
+            }, { passive: true });
+            stage.addEventListener('touchend', (e) => {
+                if (e.changedTouches && e.changedTouches.length > 0) {
+                    touchEndX = e.changedTouches[0].clientX;
+                    const deltaX = touchEndX - touchStartX;
+                    if (Math.abs(deltaX) > 40) {
+                        if (deltaX < 0) {
+                            cycleActiveAngle(1); // Swipe left -> next angle
+                        } else {
+                            cycleActiveAngle(-1); // Swipe right -> prev angle
+                        }
+                    }
+                }
+            }, { passive: true });
+        }
+    </script>
+
+    <!-- Mobile Sticky Commercial Action Bar -->
+    <div class="mobile-sticky-buybar" id="mobile-sticky-buybar">
+        <div class="ms-price-col">
+            <span class="ms-price" id="ms-price">₹1,850</span>
+            <span class="ms-tax-note">Official Wholesale</span>
+        </div>
+        <div class="ms-btn-col">
+            <button type="button" class="ms-btn-cart" onclick="addProductToCart()">ADD TO CART</button>
+            <button type="button" class="ms-btn-pay" onclick="buyNowHdfc()">PAY NOW</button>
+        </div>
+    </div>
+
+    <!-- ======================================================================
+         AMAZON-STYLE MOBILE BOTTOM NAVIGATION BAR (PHONE SCREEN ONLY)
+         ====================================================================== -->
+    <nav class="mobile-bottom-nav" id="mobile-bottom-nav" aria-label="Mobile Navigation">
+        <a href="index.html#cameras" class="mb-nav-item" id="mb-nav-arsenal">
+            <svg class="mb-nav-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                <polyline points="9 22 9 12 15 12 15 22"></polyline>
+            </svg>
+            <span class="mb-nav-label">Arsenal</span>
+        </a>
+        <a href="index.html#hero-viewport" class="mb-nav-item" id="mb-nav-deals">
+            <svg class="mb-nav-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+            </svg>
+            <span class="mb-nav-label">Deals</span>
+        </a>
+        <a href="cart.html" class="mb-nav-item" id="mb-nav-cart">
+            <div class="mb-cart-wrap">
+                <svg class="mb-nav-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="9" cy="21" r="1"></circle>
+                    <circle cx="20" cy="21" r="1"></circle>
+                    <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                </svg>
+                <span class="mb-cart-badge" id="mb-cart-badge">0</span>
+            </div>
+            <span class="mb-nav-label">Cart</span>
+        </a>
+        <a href="https://wa.me/917511180808?text=Hello%20Syber%20Space%2C%20I%20have%20a%20wholesale%20%2F%20bulk%20CCTV%20inquiry." target="_blank" rel="noopener noreferrer" class="mb-nav-item" id="mb-nav-whatsapp">
+            <svg class="mb-nav-icon" width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
+            </svg>
+            <span class="mb-nav-label">Wholesale</span>
+        </a>
+    </nav>
+
+</body>
+</html>
