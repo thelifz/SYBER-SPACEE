@@ -1262,68 +1262,54 @@ function onFilterCriteriaChange() {
         matchedCards.sort((a, b) => (a.getAttribute('data-name') || '').localeCompare(b.getAttribute('data-name') || ''));
     }
 
-    // Mobile Pagination & Curated View Logic
+    // Mobile View Logic: Brand Showrooms Only by Default
     const isMobile = window.innerWidth <= 768;
-    const hasFilterOrSearch = Boolean(
-        query || 
-        (typeof currentTextCategory !== 'undefined' && currentTextCategory !== 'all') ||
-        (typeof currentTextBrand !== 'undefined' && currentTextBrand !== 'all') ||
-        (selectedBrands && selectedBrands.length > 0) ||
-        (selectedCategories && selectedCategories.length > 0) ||
-        (selectedFeatures && selectedFeatures.length > 0) ||
-        maxPrice < 12000
-    );
+    const isSearching = Boolean(query && query.trim().length > 0);
 
     const expandWrap = document.getElementById('mobile-catalog-expand-wrap');
     const showroomsEl = document.getElementById('mobile-brand-showrooms');
-    if (showroomsEl && isMobile) {
-        showroomsEl.style.display = hasFilterOrSearch ? 'none' : 'flex';
-    }
-    const MOBILE_INITIAL_LIMIT = 12;
+    const statusBar = document.querySelector('.ecom-status-bar');
 
-    if (isMobile && !hasFilterOrSearch && !mobileCatalogExpanded) {
-        // Mobile Curated Home: Top 12 Bestsellers initially
-        matchedCards.forEach((card, index) => {
-            if (index < MOBILE_INITIAL_LIMIT) {
+    if (isMobile) {
+        if (isSearching) {
+            // User is actively searching on mobile: Show matching search results, hide showrooms
+            if (showroomsEl) showroomsEl.style.display = 'none';
+            grid.classList.add('is-searching');
+            grid.style.display = 'grid';
+            if (statusBar) {
+                statusBar.style.display = 'flex';
+                const countElem = document.getElementById('filtered-count-num');
+                if (countElem) countElem.textContent = matchedCards.length + ' matching';
+            }
+            matchedCards.forEach(card => {
                 card.style.display = 'flex';
                 grid.appendChild(card);
-            } else {
+            });
+            if (expandWrap) expandWrap.style.display = 'none';
+        } else {
+            // Default Clean Mobile View: Showrooms Only, completely hide crowded hardware listing!
+            if (showroomsEl) showroomsEl.style.display = 'flex';
+            grid.classList.remove('is-searching');
+            grid.style.display = 'none';
+            if (statusBar) statusBar.style.display = 'none';
+            if (expandWrap) expandWrap.style.display = 'none';
+            matchedCards.forEach(card => {
                 card.style.display = 'none';
-            }
-        });
-        if (expandWrap) {
-            expandWrap.style.display = 'flex';
-            const remaining = Math.max(0, matchedCards.length - MOBILE_INITIAL_LIMIT);
-            const btnText = expandWrap.querySelector('.expand-btn-text');
-            if (btnText) {
-                btnText.textContent = 'SHOW ALL ' + matchedCards.length + ' WHOLESALE SYSTEMS (' + remaining + ' MORE) ↓';
-            }
-        }
-        const countElem = document.getElementById('filtered-count-num');
-        if (countElem) {
-            countElem.textContent = Math.min(MOBILE_INITIAL_LIMIT, matchedCards.length) + ' of ' + matchedCards.length;
+            });
         }
     } else {
-        // Desktop or Search/Filter active or Expanded: Show all
+        // Desktop (> 768px): 100% untouched full desktop experience
+        grid.classList.remove('is-searching');
+        grid.style.display = '';
+        if (showroomsEl) showroomsEl.style.display = 'none';
         matchedCards.forEach(card => {
             card.style.display = 'flex';
             grid.appendChild(card);
         });
-        if (expandWrap) {
-            if (isMobile && !hasFilterOrSearch && mobileCatalogExpanded) {
-                expandWrap.style.display = 'flex';
-                const btnText = expandWrap.querySelector('.expand-btn-text');
-                if (btnText) {
-                    btnText.textContent = 'SHOW TOP ' + MOBILE_INITIAL_LIMIT + ' BESTSELLERS ↑';
-                }
-            } else {
-                expandWrap.style.display = 'none';
-            }
-        }
+        if (statusBar) statusBar.style.display = 'flex';
+        if (expandWrap) expandWrap.style.display = 'none';
         const countElem = document.getElementById('filtered-count-num');
-        if (countElem) {
-            countElem.textContent = matchedCards.length;
-        }
+        if (countElem) countElem.textContent = matchedCards.length;
     }
 
     const emptyNotice = document.getElementById('catalog-no-results');

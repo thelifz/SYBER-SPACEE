@@ -1,4 +1,4 @@
-﻿/* ==========================================================================
+/* ==========================================================================
    SYBER SPACE — Authentic Jesko Jets Luxury Light Aesthetic
    Inspired by jeskojets.com by The First The Last
    ========================================================================== */
@@ -6591,5 +6591,31 @@ a {
         gap: 8px !important;
         width: 100% !important;
         margin-top: 6px !important;
+    }
+
+    /* ==========================================================
+       MOBILE ONLY: HIDE CROWDED HARDWARE LISTING & FILTER SUITE
+       Keeps mobile exclusively focused on the clean Brand Showrooms.
+       Desktop (>768px) remains 100% untouched.
+       ========================================================== */
+    .products-header,
+    #text-filter-suite,
+    .text-filter-suite,
+    .ecom-status-bar,
+    .mobile-catalog-expand-wrap,
+    #mobile-catalog-expand-wrap,
+    .m-brand-footer {
+        display: none !important;
+    }
+
+    #products-grid:not(.is-searching) {
+        display: none !important;
+    }
+
+    #products-grid.is-searching {
+        display: grid !important;
+        grid-template-columns: 1fr !important;
+        gap: 16px !important;
+        margin-top: 14px !important;
     }
 }
