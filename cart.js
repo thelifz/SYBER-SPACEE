@@ -83,6 +83,12 @@ function updateNavCartCount() {
         mbBadge.textContent = String(totalItems);
         mbBadge.style.display = totalItems > 0 ? 'inline-flex' : 'none';
     }
+
+    const headerBadge = document.getElementById('mobile-header-cart-badge');
+    if (headerBadge) {
+        headerBadge.textContent = String(totalItems);
+        headerBadge.style.display = totalItems > 0 ? 'inline-flex' : 'none';
+    }
 }
 
 function renderCart() {

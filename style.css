@@ -6618,4 +6618,320 @@ a {
         gap: 16px !important;
         margin-top: 14px !important;
     }
+
+    /* ==========================================================
+       MOBILE CART & PROCUREMENT PAGE ENHANCEMENTS (@media max-width: 768px)
+       Pure crisp white background, touch-first card layout, zero horizontal cramping
+       ========================================================== */
+    .cart-page-section {
+        background: #ffffff !important;
+        padding: 76px 16px 110px 16px !important;
+        min-height: calc(100vh - 120px) !important;
+    }
+
+    .cart-header-block {
+        margin-bottom: 22px !important;
+    }
+
+    .cart-kicker {
+        font-size: 0.65rem !important;
+        letter-spacing: 0.1em !important;
+        margin-bottom: 6px !important;
+    }
+
+    .cart-title {
+        font-size: 1.55rem !important;
+        line-height: 1.18 !important;
+        letter-spacing: -0.02em !important;
+        margin-bottom: 8px !important;
+    }
+
+    .cart-desc {
+        font-size: 0.8rem !important;
+        line-height: 1.4 !important;
+        color: #57534e !important;
+    }
+
+    .cart-layout {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 24px !important;
+    }
+
+    .cart-items-heading {
+        font-size: 0.72rem !important;
+        padding-bottom: 12px !important;
+        border-bottom: 1px solid rgba(27, 24, 21, 0.1) !important;
+        margin-bottom: 4px !important;
+    }
+
+    .cart-item-row {
+        display: grid !important;
+        grid-template-columns: 82px 1fr !important;
+        grid-template-areas:
+            "img info"
+            "img actions" !important;
+        gap: 8px 14px !important;
+        align-items: center !important;
+        padding: 16px 0 !important;
+        border-bottom: 1px solid rgba(27, 24, 21, 0.1) !important;
+        position: relative !important;
+    }
+
+    .cart-item-img-box {
+        grid-area: img !important;
+        width: 82px !important;
+        height: 82px !important;
+        background: #fdfcfb !important;
+        border: 1px solid rgba(27, 24, 21, 0.1) !important;
+        border-radius: 12px !important;
+        padding: 6px !important;
+        box-sizing: border-box !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+    }
+
+    .cart-item-img {
+        width: 100% !important;
+        height: 100% !important;
+        object-fit: contain !important;
+        mix-blend-mode: normal !important;
+    }
+
+    .cart-item-info {
+        grid-area: info !important;
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 3px !important;
+        padding-right: 32px !important;
+    }
+
+    .cart-item-name {
+        font-size: 0.88rem !important;
+        line-height: 1.25 !important;
+        font-weight: 700 !important;
+        color: #1b1815 !important;
+        display: -webkit-box !important;
+        -webkit-line-clamp: 2 !important;
+        -webkit-box-orient: vertical !important;
+        overflow: hidden !important;
+    }
+
+    .cart-item-sku {
+        font-size: 0.64rem !important;
+        color: #78716c !important;
+        font-family: var(--font-mono, monospace) !important;
+    }
+
+    .cart-item-price {
+        font-size: 0.95rem !important;
+        font-weight: 800 !important;
+        color: #1b1815 !important;
+        font-family: var(--font-display, sans-serif) !important;
+    }
+
+    .cart-qty-control {
+        grid-area: actions !important;
+        display: inline-flex !important;
+        align-items: center !important;
+        width: fit-content !important;
+        border: 1px solid rgba(27, 24, 21, 0.2) !important;
+        border-radius: 8px !important;
+        background: #ffffff !important;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04) !important;
+        margin-top: 2px !important;
+    }
+
+    .cart-qty-btn {
+        width: 34px !important;
+        height: 34px !important;
+        font-size: 1.05rem !important;
+        font-weight: 700 !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        cursor: pointer !important;
+    }
+
+    .cart-qty-val {
+        padding: 0 10px !important;
+        font-size: 0.88rem !important;
+        font-weight: 700 !important;
+    }
+
+    .cart-item-remove-btn {
+        position: absolute !important;
+        top: 14px !important;
+        right: 0 !important;
+        width: 32px !important;
+        height: 32px !important;
+        font-size: 1.1rem !important;
+        color: #ef4444 !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        background: transparent !important;
+        border: none !important;
+        padding: 0 !important;
+        cursor: pointer !important;
+    }
+
+    .cart-summary-panel {
+        border-left: none !important;
+        border-top: 1px solid rgba(27, 24, 21, 0.12) !important;
+        padding: 22px 0 0 0 !important;
+        position: static !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+    }
+
+    .cart-summary-title {
+        font-size: 1.25rem !important;
+        margin-bottom: 16px !important;
+        padding-bottom: 12px !important;
+    }
+
+    .cart-summary-rows {
+        gap: 12px !important;
+        margin-bottom: 20px !important;
+    }
+
+    .cart-summary-row {
+        font-size: 0.85rem !important;
+    }
+
+    .cart-summary-row.total-row {
+        font-size: 1.15rem !important;
+        font-weight: 800 !important;
+        padding-top: 12px !important;
+        border-top: 1px solid rgba(27, 24, 21, 0.15) !important;
+    }
+
+    .cart-checkout-btn {
+        width: 100% !important;
+        padding: 15px 20px !important;
+        font-size: 0.95rem !important;
+        font-weight: 800 !important;
+        letter-spacing: 0.05em !important;
+        border-radius: 9999px !important;
+        background: #1b1815 !important;
+        color: #ffffff !important;
+        box-shadow: 0 4px 16px rgba(27, 24, 21, 0.2) !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        margin-bottom: 14px !important;
+    }
+
+    .cart-continue-link {
+        display: block !important;
+        text-align: center !important;
+        font-size: 0.82rem !important;
+        font-weight: 700 !important;
+        color: #004c8f !important;
+        margin-bottom: 22px !important;
+        text-decoration: underline !important;
+    }
+
+    .cart-assurance-badges {
+        padding-top: 16px !important;
+        border-top: 1px solid rgba(27, 24, 21, 0.1) !important;
+        gap: 10px !important;
+    }
+
+    .cart-assurance-item {
+        font-size: 0.72rem !important;
+        line-height: 1.35 !important;
+    }
+
+    .cart-empty-state {
+        padding: 50px 16px !important;
+    }
+
+    .cart-empty-title {
+        font-size: 1.45rem !important;
+    }
+
+    .cart-empty-subtitle {
+        font-size: 0.85rem !important;
+    }
+
+    .cart-empty-cta {
+        width: 100% !important;
+        justify-content: center !important;
+        padding: 14px 20px !important;
+        border-radius: 9999px !important;
+        box-sizing: border-box !important;
+    }
+
+    /* HDFC Checkout Terminal on Mobile */
+    .hdfc-overlay {
+        padding: 10px !important;
+    }
+
+    .hdfc-terminal-window {
+        max-height: 94vh !important;
+        border-radius: 12px !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+    }
+
+    .hdfc-header-bar {
+        padding: 12px 14px !important;
+    }
+
+    .hdfc-title-main {
+        font-size: 0.74rem !important;
+    }
+
+    .hdfc-title-sub {
+        font-size: 0.62rem !important;
+    }
+
+    .hdfc-telemetry-strip {
+        padding: 8px 14px !important;
+        font-size: 0.68rem !important;
+    }
+
+    .hdfc-amount-callout {
+        font-size: 1.25rem !important;
+    }
+
+    .hdfc-modal-body {
+        padding: 16px 14px !important;
+        gap: 16px !important;
+    }
+
+    .hdfc-grid-form {
+        grid-template-columns: 1fr !important;
+        gap: 12px !important;
+    }
+
+    .hdfc-grid-form .span-2 {
+        grid-column: span 1 !important;
+    }
+
+    .hdfc-upi-apps-grid {
+        grid-template-columns: repeat(3, 1fr) !important;
+        gap: 8px !important;
+    }
+
+    .hdfc-upi-app-card {
+        padding: 10px 4px !important;
+    }
+
+    .upi-app-title {
+        font-size: 0.72rem !important;
+    }
+
+    .upi-app-badge {
+        font-size: 0.62rem !important;
+    }
+
+    .hdfc-pay-now-btn {
+        padding: 14px 16px !important;
+        font-size: 0.95rem !important;
+        border-radius: 9999px !important;
+    }
 }
