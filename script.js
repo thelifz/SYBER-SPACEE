@@ -210,6 +210,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (curIsMobile !== lastIsMobile) {
             lastIsMobile = curIsMobile;
             showSlide(0);
+            onFilterCriteriaChange();
         }
     });
 
@@ -1262,15 +1263,23 @@ function onFilterCriteriaChange() {
         matchedCards.sort((a, b) => (a.getAttribute('data-name') || '').localeCompare(b.getAttribute('data-name') || ''));
     }
 
-    // Mobile View Logic: Brand Showrooms Only by Default
+    // Strict Separation: Desktop (>768px) vs Mobile Phone (<=768px)
     const isMobile = window.innerWidth <= 768;
     const isSearching = Boolean(query && query.trim().length > 0);
 
     const expandWrap = document.getElementById('mobile-catalog-expand-wrap');
     const showroomsEl = document.getElementById('mobile-brand-showrooms');
     const statusBar = document.querySelector('.ecom-status-bar');
+    const productsHeader = document.querySelector('.products-header');
+    const textFilterSuite = document.getElementById('text-filter-suite');
+    const sidebarFilters = document.querySelector('.sidebar-filters');
 
     if (isMobile) {
+        // MOBILE PHONE EXPERIENCE:
+        if (sidebarFilters) sidebarFilters.style.display = 'none';
+        if (productsHeader) productsHeader.style.display = 'none';
+        if (textFilterSuite) textFilterSuite.style.display = 'none';
+
         if (isSearching) {
             // User is actively searching on mobile: Show matching search results, hide showrooms
             if (showroomsEl) showroomsEl.style.display = 'none';
@@ -1298,10 +1307,14 @@ function onFilterCriteriaChange() {
             });
         }
     } else {
-        // Desktop (> 768px): 100% untouched full desktop experience
-        grid.classList.remove('is-searching');
-        grid.style.display = '';
+        // DESKTOP EXPERIENCE (> 768px): 100% FULL ORIGINAL WHOLESALE ARSENAL
         if (showroomsEl) showroomsEl.style.display = 'none';
+        if (sidebarFilters) sidebarFilters.style.display = 'block';
+        if (productsHeader) productsHeader.style.display = 'flex';
+        if (textFilterSuite) textFilterSuite.style.display = 'flex';
+
+        grid.classList.remove('is-searching');
+        grid.style.display = 'grid';
         matchedCards.forEach(card => {
             card.style.display = 'flex';
             grid.appendChild(card);

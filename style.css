@@ -6208,9 +6208,64 @@ a {
     }
 }
 
-/* Desktop Hide for Mobile Brand Showrooms */
-.mobile-brand-showrooms {
-    display: none;
+/* ==========================================================================
+   STRICT SEPARATION: DESKTOP ONLY (min-width: 769px)
+   Completely separates desktop controls and mobile brand showrooms.
+   Desktop and mobile views NEVER mix around.
+   ========================================================================== */
+@media (min-width: 769px) {
+    .mobile-brand-showrooms,
+    #mobile-brand-showrooms,
+    .mobile-top-search-strip,
+    #mobile-top-search-strip,
+    .mobile-header-actions,
+    .mobile-bottom-nav,
+    #mobile-bottom-nav,
+    .mobile-catalog-expand-wrap,
+    #mobile-catalog-expand-wrap,
+    .m-brand-footer {
+        display: none !important;
+        visibility: hidden !important;
+        height: 0 !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        overflow: hidden !important;
+        pointer-events: none !important;
+    }
+
+    .sidebar-filters {
+        display: block !important;
+        visibility: visible !important;
+    }
+
+    .products-header {
+        display: flex !important;
+        visibility: visible !important;
+    }
+
+    #text-filter-suite,
+    .text-filter-suite {
+        display: flex !important;
+        visibility: visible !important;
+    }
+
+    .ecom-status-bar {
+        display: flex !important;
+        visibility: visible !important;
+    }
+
+    .ecom-grid,
+    #products-grid {
+        display: grid !important;
+        grid-template-columns: repeat(3, 1fr) !important;
+        gap: 24px !important;
+        visibility: visible !important;
+    }
+
+    .header-nav,
+    .header-cta {
+        display: flex !important;
+    }
 }
 
 /* ==========================================================================
@@ -6598,6 +6653,7 @@ a {
        Keeps mobile exclusively focused on the clean Brand Showrooms.
        Desktop (>768px) remains 100% untouched.
        ========================================================== */
+    .sidebar-filters,
     .products-header,
     #text-filter-suite,
     .text-filter-suite,
