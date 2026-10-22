@@ -176,6 +176,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Initialize Shopping Cart Badge
     updateCartCountDisplay();
+    onFilterCriteriaChange();
 
     // Mark hero viewport ready and start Hero Slideshow on Slide 0
     const vp = document.getElementById('hero-viewport');
@@ -1261,13 +1262,64 @@ function onFilterCriteriaChange() {
         matchedCards.sort((a, b) => (a.getAttribute('data-name') || '').localeCompare(b.getAttribute('data-name') || ''));
     }
 
-    matchedCards.forEach(card => {
-        grid.appendChild(card);
-    });
+    // Mobile Pagination & Curated View Logic
+    const isMobile = window.innerWidth <= 768;
+    const hasFilterOrSearch = Boolean(
+        query || 
+        (typeof currentTextCategory !== 'undefined' && currentTextCategory !== 'all') ||
+        (typeof currentTextBrand !== 'undefined' && currentTextBrand !== 'all') ||
+        (selectedBrands && selectedBrands.length > 0) ||
+        (selectedCategories && selectedCategories.length > 0) ||
+        (selectedFeatures && selectedFeatures.length > 0) ||
+        maxPrice < 12000
+    );
 
-    const countElem = document.getElementById('filtered-count-num');
-    if (countElem) {
-        countElem.textContent = matchedCards.length;
+    const expandWrap = document.getElementById('mobile-catalog-expand-wrap');
+    const MOBILE_INITIAL_LIMIT = 12;
+
+    if (isMobile && !hasFilterOrSearch && !mobileCatalogExpanded) {
+        // Mobile Curated Home: Top 12 Bestsellers initially
+        matchedCards.forEach((card, index) => {
+            if (index < MOBILE_INITIAL_LIMIT) {
+                card.style.display = 'flex';
+                grid.appendChild(card);
+            } else {
+                card.style.display = 'none';
+            }
+        });
+        if (expandWrap) {
+            expandWrap.style.display = 'flex';
+            const remaining = Math.max(0, matchedCards.length - MOBILE_INITIAL_LIMIT);
+            const btnText = expandWrap.querySelector('.expand-btn-text');
+            if (btnText) {
+                btnText.textContent = 'SHOW ALL ' + matchedCards.length + ' WHOLESALE SYSTEMS (' + remaining + ' MORE) ↓';
+            }
+        }
+        const countElem = document.getElementById('filtered-count-num');
+        if (countElem) {
+            countElem.textContent = Math.min(MOBILE_INITIAL_LIMIT, matchedCards.length) + ' of ' + matchedCards.length;
+        }
+    } else {
+        // Desktop or Search/Filter active or Expanded: Show all
+        matchedCards.forEach(card => {
+            card.style.display = 'flex';
+            grid.appendChild(card);
+        });
+        if (expandWrap) {
+            if (isMobile && !hasFilterOrSearch && mobileCatalogExpanded) {
+                expandWrap.style.display = 'flex';
+                const btnText = expandWrap.querySelector('.expand-btn-text');
+                if (btnText) {
+                    btnText.textContent = 'SHOW TOP ' + MOBILE_INITIAL_LIMIT + ' BESTSELLERS ↑';
+                }
+            } else {
+                expandWrap.style.display = 'none';
+            }
+        }
+        const countElem = document.getElementById('filtered-count-num');
+        if (countElem) {
+            countElem.textContent = matchedCards.length;
+        }
     }
 
     const emptyNotice = document.getElementById('catalog-no-results');
@@ -1689,6 +1741,7 @@ function addToCart(productName, price, imageSrc) {
 
         localStorage.setItem('syber_cart', JSON.stringify(cart));
         updateCartCountDisplay();
+    onFilterCriteriaChange();
         const cartPills = document.querySelectorAll('.cart-pill');
         cartPills.forEach(pill => {
             pill.classList.remove('cart-pill-pulse');
@@ -1721,6 +1774,7 @@ function payNowDirect(productName, price, imageSrc) {
 
         localStorage.setItem('syber_cart', JSON.stringify(cart));
         updateCartCountDisplay();
+    onFilterCriteriaChange();
 
         // Immediate direct route into HDFC Multi-Rail Checkout Terminal
         window.location.href = 'cart.html?checkout=1';
@@ -1921,4 +1975,79 @@ function selectTextBrand(brand, btn) {
     });
 
     onFilterCriteriaChange();
+}
+
+
+// =============================================================================
+// AMAZON-STYLE MOBILE SEARCH & FILTER ENGINE
+// =============================================================================
+let mobileCatalogExpanded = false;
+
+function toggleMobileCatalogExpand() {
+    mobileCatalogExpanded = !mobileCatalogExpanded;
+    onFilterCriteriaChange();
+    if (!mobileCatalogExpanded) {
+        const catalog = document.getElementById('cameras');
+        if (catalog) {
+            catalog.scrollIntoView({ behavior: 'smooth' });
+        }
+    }
+}
+
+function syncMobileSearch(val) {
+    const desktopInput = document.getElementById('camera-search-input');
+    const clearBtn = document.getElementById('mobile-search-clear');
+    if (desktopInput) desktopInput.value = val;
+    if (clearBtn) clearBtn.style.display = val ? 'inline-flex' : 'none';
+
+    onFilterCriteriaChange();
+
+    if (val && val.trim().length >= 2 && window.innerWidth <= 768) {
+        const catalog = document.getElementById('cameras');
+        if (catalog) {
+            const rect = catalog.getBoundingClientRect();
+            if (rect.top > 140) {
+                window.scrollTo({ top: window.pageYOffset + rect.top - 120, behavior: 'smooth' });
+            }
+        }
+    }
+}
+
+function clearMobileSearch() {
+    const mobileInput = document.getElementById('mobile-search-input');
+    const desktopInput = document.getElementById('camera-search-input');
+    const clearBtn = document.getElementById('mobile-search-clear');
+    if (mobileInput) mobileInput.value = '';
+    if (desktopInput) desktopInput.value = '';
+    if (clearBtn) clearBtn.style.display = 'none';
+    onFilterCriteriaChange();
+}
+
+function quickFilterCategory(cat, btn) {
+    document.querySelectorAll('.m-cat-pill').forEach(b => b.classList.remove('active'));
+    if (btn) btn.classList.add('active');
+
+    // Also sync desktop text filter pills if present
+    document.querySelectorAll('.text-cat-pill').forEach(b => {
+        const bText = b.textContent.toLowerCase();
+        if (cat === 'all' && bText.includes('all')) {
+            b.classList.add('active');
+        } else if (cat !== 'all' && bText.includes(cat.split('-')[0])) {
+            b.classList.add('active');
+        } else {
+            b.classList.remove('active');
+        }
+    });
+
+    selectTextCategory(cat, null);
+
+    if (window.innerWidth <= 768) {
+        const catalog = document.getElementById('cameras');
+        if (catalog) {
+            const rect = catalog.getBoundingClientRect();
+            if (rect.top > 140 || rect.top < -100) {
+                window.scrollTo({ top: window.pageYOffset + rect.top - 120, behavior: 'smooth' });
+            }
+        }
+    }
 }
