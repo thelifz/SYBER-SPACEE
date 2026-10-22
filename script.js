@@ -1797,8 +1797,14 @@ function updateCartCountDisplay() {
             mbBadge.style.display = totalItems > 0 ? 'inline-flex' : 'none';
         }
 
+        const headerBadge = document.getElementById('mobile-header-cart-badge');
+        if (headerBadge) {
+            headerBadge.textContent = String(totalItems);
+        }
+
         const counterLabels = document.querySelectorAll('.cart-counter-label');
         counterLabels.forEach(label => {
+            if (label.id === 'mobile-header-cart-badge') return;
             if (label.classList.contains('mobile-link')) {
                 label.textContent = `Shopping Cart (${totalItems})`;
             } else {
