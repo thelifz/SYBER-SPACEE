@@ -1275,6 +1275,10 @@ function onFilterCriteriaChange() {
     );
 
     const expandWrap = document.getElementById('mobile-catalog-expand-wrap');
+    const showroomsEl = document.getElementById('mobile-brand-showrooms');
+    if (showroomsEl && isMobile) {
+        showroomsEl.style.display = hasFilterOrSearch ? 'none' : 'flex';
+    }
     const MOBILE_INITIAL_LIMIT = 12;
 
     if (isMobile && !hasFilterOrSearch && !mobileCatalogExpanded) {
@@ -2055,5 +2059,21 @@ function quickFilterCategory(cat, btn) {
                 window.scrollTo({ top: window.pageYOffset + rect.top - 120, behavior: 'smooth' });
             }
         }
+    }
+}
+
+// =============================================================================
+// MOBILE BRAND SHOWROOM EXPLORATION & AUTO-TOGGLE
+// =============================================================================
+function openBrandCatalog(brandKey) {
+    if (brandKey === 'accessory') {
+        selectTextCategory('accessory', null);
+    } else {
+        selectTextBrand(brandKey, null);
+    }
+
+    const gridHeader = document.querySelector('.products-header-left');
+    if (gridHeader) {
+        gridHeader.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
 }

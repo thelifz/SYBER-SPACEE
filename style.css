@@ -6207,3 +6207,389 @@ a {
         object-fit: contain !important;
     }
 }
+
+/* Desktop Hide for Mobile Brand Showrooms */
+.mobile-brand-showrooms {
+    display: none;
+}
+
+/* ==========================================================================
+   MOBILE BRAND SHOWROOMS STYLING (@media max-width: 768px)
+   Prominent Bestseller Photos, Exact Verified Counts, Horizontal Swipe Shelves
+   ========================================================================== */
+@media (max-width: 768px) {
+    .mobile-brand-showrooms {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 20px !important;
+        margin-bottom: 28px !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+    }
+
+    .m-showrooms-header {
+        padding: 4px 4px 10px 4px !important;
+    }
+
+    .m-showrooms-kicker {
+        font-family: var(--font-mono, monospace) !important;
+        font-size: 0.68rem !important;
+        font-weight: 800 !important;
+        letter-spacing: 0.1em !important;
+        color: #059669 !important;
+        text-transform: uppercase !important;
+        display: block !important;
+        margin-bottom: 4px !important;
+    }
+
+    .m-showrooms-title {
+        font-family: var(--font-display) !important;
+        font-size: 1.45rem !important;
+        font-weight: 800 !important;
+        letter-spacing: -0.02em !important;
+        color: #1b1815 !important;
+        line-height: 1.2 !important;
+        margin-bottom: 4px !important;
+    }
+
+    .m-showrooms-desc {
+        font-size: 0.8rem !important;
+        color: #78716c !important;
+        line-height: 1.4 !important;
+    }
+
+    /* Brand Showroom Card Base */
+    .m-brand-showroom-card {
+        background: #ffffff !important;
+        border: 1px solid rgba(27, 24, 21, 0.12) !important;
+        border-radius: 16px !important;
+        padding: 16px 14px 14px 14px !important;
+        box-shadow: 0 4px 18px rgba(27, 24, 21, 0.05) !important;
+        overflow: hidden !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+    }
+
+    /* Brand Banner Row: Text Info on Left, Large Bestseller Box on Right */
+    .m-brand-banner-row {
+        display: flex !important;
+        justify-content: space-between !important;
+        align-items: stretch !important;
+        gap: 12px !important;
+        margin-bottom: 14px !important;
+    }
+
+    .m-brand-banner-info {
+        flex: 1 !important;
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: center !important;
+    }
+
+    .m-brand-badge {
+        font-family: var(--font-mono, monospace) !important;
+        font-size: 0.62rem !important;
+        font-weight: 800 !important;
+        letter-spacing: 0.08em !important;
+        text-transform: uppercase !important;
+        padding: 3px 8px !important;
+        border-radius: 4px !important;
+        display: inline-block !important;
+        width: fit-content !important;
+        margin-bottom: 6px !important;
+    }
+
+    .badge-trueview { background: #059669 !important; color: #ffffff !important; }
+    .badge-cpplus { background: #1e3a8a !important; color: #ffffff !important; }
+    .badge-idada { background: #d97706 !important; color: #ffffff !important; }
+    .badge-acc { background: #475569 !important; color: #ffffff !important; }
+
+    .m-brand-title {
+        font-family: var(--font-display) !important;
+        font-size: 1.3rem !important;
+        font-weight: 800 !important;
+        letter-spacing: -0.01em !important;
+        color: #1b1815 !important;
+        line-height: 1.1 !important;
+        margin-bottom: 6px !important;
+    }
+
+    .m-brand-inventory-pill {
+        display: inline-flex !important;
+        align-items: center !important;
+        gap: 5px !important;
+        background: #f4f2ee !important;
+        border: 1px solid rgba(27, 24, 21, 0.1) !important;
+        border-radius: 9999px !important;
+        padding: 4px 10px !important;
+        font-family: var(--font-mono, monospace) !important;
+        font-size: 0.68rem !important;
+        font-weight: 800 !important;
+        color: #1b1815 !important;
+        margin-bottom: 8px !important;
+        width: fit-content !important;
+    }
+
+    .m-brand-inventory-pill svg {
+        color: #059669 !important;
+    }
+
+    .m-brand-snippet {
+        font-size: 0.74rem !important;
+        color: #57534e !important;
+        line-height: 1.35 !important;
+        display: -webkit-box !important;
+        -webkit-line-clamp: 2 !important;
+        -webkit-box-orient: vertical !important;
+        overflow: hidden !important;
+    }
+
+    /* Bestseller Visual Box */
+    .m-brand-bestseller-box {
+        width: 120px !important;
+        flex-shrink: 0 !important;
+        background: #fdfcfb !important;
+        border: 1px solid rgba(27, 24, 21, 0.1) !important;
+        border-radius: 12px !important;
+        padding: 8px 6px !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: center !important;
+        text-align: center !important;
+        position: relative !important;
+        cursor: pointer !important;
+        box-shadow: 0 4px 12px rgba(27, 24, 21, 0.04) !important;
+    }
+
+    .m-bestseller-ribbon {
+        position: absolute !important;
+        top: -6px !important;
+        background: #059669 !important;
+        color: #ffffff !important;
+        font-family: var(--font-mono, monospace) !important;
+        font-size: 0.55rem !important;
+        font-weight: 800 !important;
+        letter-spacing: 0.06em !important;
+        padding: 2px 6px !important;
+        border-radius: 4px !important;
+        box-shadow: 0 2px 4px rgba(5, 150, 105, 0.3) !important;
+        white-space: nowrap !important;
+    }
+
+    .ribbon-gold { background: #d97706 !important; }
+    .ribbon-contractor { background: #2563eb !important; }
+
+    .m-bestseller-img {
+        width: 86px !important;
+        height: 86px !important;
+        object-fit: contain !important;
+        margin: 6px 0 4px 0 !important;
+        filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.08)) !important;
+    }
+
+    .m-bestseller-name {
+        font-family: var(--font-mono, monospace) !important;
+        font-size: 0.62rem !important;
+        font-weight: 700 !important;
+        color: #1b1815 !important;
+        line-height: 1.15 !important;
+        display: block !important;
+        max-width: 110px !important;
+        white-space: nowrap !important;
+        overflow: hidden !important;
+        text-overflow: ellipsis !important;
+    }
+
+    /* Horizontal Swipe Shelf */
+    .m-shelf-scroll-wrap {
+        width: 100% !important;
+        margin-top: 6px !important;
+        margin-bottom: 12px !important;
+        overflow: hidden !important;
+    }
+
+    .m-shelf-scroll {
+        display: flex !important;
+        gap: 10px !important;
+        overflow-x: auto !important;
+        scrollbar-width: none !important;
+        -webkit-overflow-scrolling: touch !important;
+        padding: 4px 2px 8px 2px !important;
+        scroll-snap-type: x mandatory !important;
+    }
+
+    .m-shelf-scroll::-webkit-scrollbar {
+        display: none !important;
+    }
+
+    /* Shelf Mini Card */
+    .m-shelf-card {
+        flex: 0 0 152px !important;
+        scroll-snap-align: start !important;
+        background: #fbf9f5 !important;
+        border: 1px solid rgba(27, 24, 21, 0.1) !important;
+        border-radius: 12px !important;
+        padding: 10px 8px 10px 8px !important;
+        display: flex !important;
+        flex-direction: column !important;
+        position: relative !important;
+        box-shadow: 0 2px 8px rgba(27, 24, 21, 0.03) !important;
+    }
+
+    .m-card-featured-pick {
+        border-color: rgba(37, 99, 235, 0.4) !important;
+        background: #f8fafc !important;
+    }
+
+    .m-card-badge {
+        font-family: var(--font-mono, monospace) !important;
+        font-size: 0.58rem !important;
+        font-weight: 800 !important;
+        color: #78716c !important;
+        letter-spacing: 0.06em !important;
+        margin-bottom: 4px !important;
+    }
+
+    .badge-pro {
+        color: #2563eb !important;
+    }
+
+    .m-card-img-wrap {
+        width: 100% !important;
+        height: 100px !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        margin-bottom: 6px !important;
+        background: #ffffff !important;
+        border-radius: 8px !important;
+    }
+
+    .m-card-img {
+        max-width: 90% !important;
+        max-height: 90px !important;
+        object-fit: contain !important;
+    }
+
+    .m-card-name {
+        font-family: var(--font-display) !important;
+        font-size: 0.76rem !important;
+        font-weight: 700 !important;
+        color: #1b1815 !important;
+        line-height: 1.25 !important;
+        height: 32px !important;
+        display: -webkit-box !important;
+        -webkit-line-clamp: 2 !important;
+        -webkit-box-orient: vertical !important;
+        overflow: hidden !important;
+        margin-bottom: 6px !important;
+    }
+
+    .m-card-price {
+        font-family: var(--font-display) !important;
+        font-size: 1.05rem !important;
+        font-weight: 800 !important;
+        color: #1b1815 !important;
+        margin-bottom: 8px !important;
+    }
+
+    .m-card-actions {
+        display: grid !important;
+        grid-template-columns: 1fr 1fr !important;
+        gap: 5px !important;
+        margin-top: auto !important;
+    }
+
+    .m-btn-cart,
+    .m-btn-pay {
+        padding: 7px 0 !important;
+        font-size: 0.68rem !important;
+        font-weight: 800 !important;
+        border-radius: 6px !important;
+        cursor: pointer !important;
+        text-align: center !important;
+        letter-spacing: 0.04em !important;
+    }
+
+    .m-btn-cart {
+        background: transparent !important;
+        border: 1px solid rgba(27, 24, 21, 0.25) !important;
+        color: #1b1815 !important;
+    }
+
+    .m-btn-pay {
+        background: #1b1815 !important;
+        border: none !important;
+        color: #ffffff !important;
+    }
+
+    /* Brand Footer Action Button */
+    .m-brand-footer {
+        width: 100% !important;
+        border-top: 1px solid rgba(27, 24, 21, 0.08) !important;
+        padding-top: 10px !important;
+    }
+
+    .m-btn-view-brand {
+        width: 100% !important;
+        background: #ffffff !important;
+        border: 1.5px solid rgba(27, 24, 21, 0.2) !important;
+        color: #1b1815 !important;
+        padding: 9px 12px !important;
+        border-radius: 9999px !important;
+        font-family: var(--font-mono, monospace) !important;
+        font-size: 0.72rem !important;
+        font-weight: 800 !important;
+        letter-spacing: 0.05em !important;
+        cursor: pointer !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        gap: 6px !important;
+        transition: all 0.2s ease !important;
+    }
+
+    .m-btn-view-brand:active {
+        background: #1b1815 !important;
+        color: #ffffff !important;
+    }
+
+    /* iDADA Spotlight Card Tweaks */
+    .m-idada-rate-row {
+        display: flex !important;
+        align-items: baseline !important;
+        gap: 8px !important;
+        margin-top: 6px !important;
+        margin-bottom: 6px !important;
+    }
+
+    .m-idada-mrp {
+        font-size: 0.72rem !important;
+        color: #78716c !important;
+        text-decoration: line-through !important;
+    }
+
+    .m-idada-price {
+        font-size: 1.35rem !important;
+        font-weight: 800 !important;
+        color: #1b1815 !important;
+    }
+
+    .m-idada-save {
+        font-size: 0.65rem !important;
+        font-weight: 800 !important;
+        color: #059669 !important;
+        background: rgba(5, 150, 105, 0.1) !important;
+        padding: 2px 6px !important;
+        border-radius: 4px !important;
+    }
+
+    .m-spotlight-buttons {
+        display: grid !important;
+        grid-template-columns: 1fr 1.2fr !important;
+        gap: 8px !important;
+        width: 100% !important;
+        margin-top: 6px !important;
+    }
+}
