@@ -1267,7 +1267,6 @@ function onFilterCriteriaChange() {
     const isMobile = window.innerWidth <= 768;
     const isSearching = Boolean(query && query.trim().length > 0);
 
-    const expandWrap = document.getElementById('mobile-catalog-expand-wrap');
     const showroomsEl = document.getElementById('mobile-brand-showrooms');
     const statusBar = document.querySelector('.ecom-status-bar');
     const productsHeader = document.querySelector('.products-header');
@@ -1294,14 +1293,12 @@ function onFilterCriteriaChange() {
                 card.style.display = 'flex';
                 grid.appendChild(card);
             });
-            if (expandWrap) expandWrap.style.display = 'none';
         } else {
             // Default Clean Mobile View: Showrooms Only, completely hide crowded hardware listing!
             if (showroomsEl) showroomsEl.style.display = 'flex';
             grid.classList.remove('is-searching');
             grid.style.display = 'none';
             if (statusBar) statusBar.style.display = 'none';
-            if (expandWrap) expandWrap.style.display = 'none';
             matchedCards.forEach(card => {
                 card.style.display = 'none';
             });
@@ -1320,7 +1317,6 @@ function onFilterCriteriaChange() {
             grid.appendChild(card);
         });
         if (statusBar) statusBar.style.display = 'flex';
-        if (expandWrap) expandWrap.style.display = 'none';
         const countElem = document.getElementById('filtered-count-num');
         if (countElem) countElem.textContent = matchedCards.length;
     }
@@ -1990,19 +1986,6 @@ function selectTextBrand(brand, btn) {
 // =============================================================================
 // AMAZON-STYLE MOBILE SEARCH & FILTER ENGINE
 // =============================================================================
-let mobileCatalogExpanded = false;
-
-function toggleMobileCatalogExpand() {
-    mobileCatalogExpanded = !mobileCatalogExpanded;
-    onFilterCriteriaChange();
-    if (!mobileCatalogExpanded) {
-        const catalog = document.getElementById('cameras');
-        if (catalog) {
-            catalog.scrollIntoView({ behavior: 'smooth' });
-        }
-    }
-}
-
 function syncMobileSearch(val) {
     const desktopInput = document.getElementById('camera-search-input');
     const clearBtn = document.getElementById('mobile-search-clear');
