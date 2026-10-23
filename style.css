@@ -7,7 +7,6 @@
 
 :root {
     color-scheme: only light;
-    supported-color-schemes: light;
     /* Unified Jesko Jets Luxury Warm Linen / Sandstone Ivory Theme (#f3f0ea) */
     --base-ivory: #f3f0ea;
     --base-bg: #f3f0ea;
@@ -1996,9 +1995,9 @@ a {
 }
 
 .btn-pay-now-card {
-    background: linear-gradient(135deg, #059669 0%, #047857 100%);
+    background: linear-gradient(135deg, #0f2744 0%, #17375e 100%);
     color: #ffffff;
-    border: 1px solid #047857;
+    border: 1px solid #102d4f;
     height: 35px;
     padding: 0 14px;
     border-radius: 6px;
@@ -2013,7 +2012,7 @@ a {
     justify-content: center;
     gap: 5px;
     box-sizing: border-box;
-    box-shadow: 0 2px 8px rgba(5, 150, 105, 0.28);
+    box-shadow: 0 2px 8px rgba(15, 39, 68, 0.2);
 }
 
 .btn-pay-now-card::after {
@@ -2024,11 +2023,11 @@ a {
 }
 
 .btn-pay-now-card:hover {
-    background: linear-gradient(135deg, #10b981 0%, #059669 100%);
-    border-color: #059669;
+    background: linear-gradient(135deg, #1d4ed8 0%, #1e40af 100%);
+    border-color: #1d4ed8;
     color: #ffffff;
     transform: translateY(-1px);
-    box-shadow: 0 4px 14px rgba(5, 150, 105, 0.42);
+    box-shadow: 0 4px 14px rgba(29, 78, 216, 0.35);
 }
 
 .btn-pay-now-card:hover::after {
@@ -4760,9 +4759,9 @@ a {
 }
 
 .modal-btn-paynow {
-    background: linear-gradient(135deg, #059669 0%, #047857 100%);
+    background: linear-gradient(135deg, #0f2744 0%, #17375e 100%);
     color: #ffffff;
-    border: 1px solid #047857;
+    border: 1px solid #102d4f;
     padding: 13px 16px;
     font-family: var(--font-mono);
     font-size: 0.82rem;
@@ -4772,7 +4771,7 @@ a {
     cursor: pointer;
     transition: all 0.2s ease;
     text-align: center;
-    box-shadow: 0 4px 14px rgba(5, 150, 105, 0.35);
+    box-shadow: 0 4px 14px rgba(15, 39, 68, 0.25);
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -4787,27 +4786,14 @@ a {
 }
 
 .modal-btn-paynow:hover {
-    background: linear-gradient(135deg, #10b981 0%, #059669 100%);
-    border-color: #059669;
+    background: linear-gradient(135deg, #1d4ed8 0%, #1e40af 100%);
+    border-color: #1d4ed8;
     transform: translateY(-1px);
-    box-shadow: 0 6px 18px rgba(5, 150, 105, 0.45);
+    box-shadow: 0 6px 18px rgba(29, 78, 216, 0.4);
 }
 
 .modal-btn-paynow:hover::after {
     transform: translateX(3px);
-}
-    letter-spacing: 0.06em;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: all 0.2s ease;
-    text-align: center;
-}
-
-.modal-btn-whatsapp:hover {
-    background: #128c7e;
-    border-color: #128c7e;
-    transform: translateY(-1px);
-    box-shadow: 0 4px 14px rgba(37, 211, 102, 0.35);
 }
 
 @media (max-width: 640px) {
@@ -5365,6 +5351,7 @@ a {
         margin-bottom: 12px !important;
         display: -webkit-box;
         -webkit-line-clamp: 2;
+        line-clamp: 2;
         -webkit-box-orient: vertical;
         overflow: hidden;
     }
@@ -6028,6 +6015,7 @@ a {
         margin-bottom: 14px !important;
         display: -webkit-box !important;
         -webkit-line-clamp: 2 !important;
+        line-clamp: 2 !important;
         -webkit-box-orient: vertical !important;
         overflow: hidden !important;
     }
@@ -6089,10 +6077,10 @@ a {
     }
 
     .btn-pay-now-card {
-        background: linear-gradient(135deg, #059669 0%, #047857 100%) !important;
+        background: linear-gradient(135deg, #0f2744 0%, #17375e 100%) !important;
         color: #ffffff !important;
         border: none !important;
-        box-shadow: 0 4px 14px rgba(5, 150, 105, 0.28) !important;
+        box-shadow: 0 4px 14px rgba(15, 39, 68, 0.22) !important;
     }
 
 
@@ -6115,6 +6103,7 @@ a {
         line-height: 1.35 !important;
         display: -webkit-box !important;
         -webkit-line-clamp: 2 !important;
+        line-clamp: 2 !important;
         -webkit-box-orient: vertical !important;
         overflow: hidden !important;
     }
@@ -6459,6 +6448,7 @@ a {
         line-height: 1.35 !important;
         display: -webkit-box !important;
         -webkit-line-clamp: 2 !important;
+        line-clamp: 2 !important;
         -webkit-box-orient: vertical !important;
         overflow: hidden !important;
     }
@@ -6600,6 +6590,7 @@ a {
         height: 32px !important;
         display: -webkit-box !important;
         -webkit-line-clamp: 2 !important;
+        line-clamp: 2 !important;
         -webkit-box-orient: vertical !important;
         overflow: hidden !important;
         margin-bottom: 6px !important;
@@ -6832,6 +6823,7 @@ a {
         color: #1b1815 !important;
         display: -webkit-box !important;
         -webkit-line-clamp: 2 !important;
+        line-clamp: 2 !important;
         -webkit-box-orient: vertical !important;
         overflow: hidden !important;
     }
