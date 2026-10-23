@@ -19,16 +19,14 @@
     --base-border: rgba(27, 24, 21, 0.09);
     --base-hover-tint: rgba(27, 24, 21, 0.06);
 
-    /* Calm Executive Security Palette (Peace of Mind & Trust for Commercial & Residential) */
-    --calm-navy-deep: #0e2238;
-    --calm-navy: #153250;
-    --calm-navy-hover: #1c4167;
-    --calm-navy-subtle: #244e7a;
-    --calm-navy-surface: #edf3f8;
-    --calm-navy-border: rgba(21, 50, 80, 0.16);
-    --calm-sage: #236352;
-    --calm-sage-light: rgba(35, 99, 82, 0.1);
-    --calm-sage-border: rgba(35, 99, 82, 0.22);
+    /* Bright & Peaceful Palette (Zero Dark Colors, Luminous & Soothing) */
+    --calm-primary: #0284c7;           /* Bright Sky Azure (Clear, peaceful, friendly & professional) */
+    --calm-primary-hover: #0369a1;     /* Rich Azure Hover */
+    --calm-primary-light: #f0f9ff;     /* Soft Sky Mist Surface */
+    --calm-primary-border: #bae6fd;    /* Gentle Sky Border */
+    --calm-teal: #0d9488;              /* Bright Serene Seafoam/Jade */
+    --calm-teal-light: #f0fdfa;        /* Soft Mint Background */
+    --calm-teal-border: #99f6e4;       /* Gentle Mint Border */
 
     /* Electric Precision Accent */
     --accent-blue: #1d4ed8;
@@ -241,12 +239,12 @@ a {
 }
 
 .header-cta .nav-item.cart-pill {
-    background: var(--calm-navy-deep, #0e2238);
+    background: var(--calm-primary, #0284c7);
     color: var(--base-white);
     border-radius: var(--radius-pill);
     padding: 8px 18px;
     font-weight: 600;
-    box-shadow: 0 4px 12px rgba(14, 34, 56, 0.2);
+    box-shadow: 0 4px 14px rgba(2, 132, 199, 0.3);
 }
 
 .header-cta .nav-item.cart-pill .nav-text {
@@ -254,13 +252,13 @@ a {
 }
 
 .header-cta .nav-item.cart-pill .nav-text.is-2 {
-    color: #93c5fd;
+    color: #e0f2fe;
 }
 
 .header-cta .nav-item.cart-pill:hover {
-    background: var(--calm-navy, #153250);
+    background: var(--calm-primary-hover, #0369a1);
     transform: translateY(-1px);
-    box-shadow: 0 6px 18px rgba(14, 34, 56, 0.28);
+    box-shadow: 0 6px 18px rgba(2, 132, 199, 0.4);
 }
 
 /* Mobile Hamburger Toggle */
@@ -1167,7 +1165,7 @@ a {
 .filter-accent-bar {
     width: 4px;
     height: 18px;
-    background: var(--calm-navy, #153250);
+    background: var(--calm-primary, #0284c7);
     border-radius: 2px;
 }
 
@@ -1184,14 +1182,14 @@ a {
     border: none;
     font-size: 0.78rem;
     font-weight: 600;
-    color: var(--calm-navy, #153250);
+    color: var(--calm-primary, #0284c7);
     cursor: pointer;
     text-decoration: underline;
     transition: var(--transition-smooth);
 }
 
 .filter-reset-link:hover {
-    color: var(--calm-navy-hover, #1c4167);
+    color: var(--calm-primary-hover, #0369a1);
 }
 
 .filter-group {
@@ -1225,7 +1223,7 @@ a {
 }
 
 .custom-checkbox:hover {
-    color: var(--calm-navy, #153250);
+    color: var(--calm-primary, #0284c7);
 }
 
 .custom-checkbox input[type="checkbox"] {
@@ -1249,12 +1247,12 @@ a {
 }
 
 .custom-checkbox:hover input ~ .checkmark {
-    border-color: var(--calm-navy, #153250);
+    border-color: var(--calm-primary, #0284c7);
 }
 
 .custom-checkbox input:checked ~ .checkmark {
-    background-color: var(--calm-navy, #153250);
-    border-color: var(--calm-navy, #153250);
+    background-color: var(--calm-primary, #0284c7);
+    border-color: var(--calm-primary, #0284c7);
 }
 
 .custom-checkbox .checkmark::after {
@@ -1289,7 +1287,7 @@ a {
 
 .price-slider {
     width: 100%;
-    accent-color: var(--calm-navy, #153250);
+    accent-color: var(--calm-primary, #0284c7);
     cursor: pointer;
     height: 6px;
     border-radius: 3px;
@@ -1720,11 +1718,11 @@ a {
     text-transform: uppercase;
 }
 
-.badge-bestseller { background: var(--calm-sage, #236352); color: #ffffff; }
-.badge-discount { background: #b91c1c; color: #ffffff; }
-.badge-flagship { background: var(--calm-navy, #153250); color: #ffffff; }
-.badge-new { background: #334155; color: #ffffff; }
-.badge-popular { background: #b45309; color: #ffffff; }
+.badge-bestseller { background: var(--calm-teal, #0d9488); color: #ffffff; }
+.badge-discount { background: #dc2626; color: #ffffff; }
+.badge-flagship { background: var(--calm-primary, #0284c7); color: #ffffff; }
+.badge-new { background: #475569; color: #ffffff; }
+.badge-popular { background: #d97706; color: #ffffff; }
 
 .product-visual-wrap {
     position: relative;
@@ -1947,9 +1945,9 @@ a {
 .discount-badge {
     font-size: 0.65rem;
     font-weight: 700;
-    color: var(--calm-sage, #236352);
-    background: var(--calm-sage-light, rgba(35, 99, 82, 0.1));
-    border: 1px solid var(--calm-sage-border, rgba(35, 99, 82, 0.22));
+    color: #0369a1;
+    background: #f0f9ff;
+    border: 1px solid #bae6fd;
     padding: 2px 6px;
     border-radius: 4px;
     letter-spacing: 0.02em;
@@ -1966,7 +1964,7 @@ a {
     font-family: var(--font-display);
     font-size: 1.38rem;
     font-weight: 800;
-    color: var(--calm-navy-deep, #0e2238);
+    color: var(--base-dark);
     letter-spacing: -0.02em;
     line-height: 1;
 }
@@ -1989,8 +1987,8 @@ a {
 
 .btn-add-cart {
     background: #ffffff;
-    color: var(--calm-navy-deep, #0e2238);
-    border: 1px solid rgba(14, 34, 56, 0.22);
+    color: var(--calm-primary, #0284c7);
+    border: 1.5px solid var(--calm-primary-border, #bae6fd);
     height: 38px;
     padding: 0 8px;
     border-radius: 7px;
@@ -2008,17 +2006,17 @@ a {
 }
 
 .btn-add-cart:hover {
-    background: var(--calm-navy-surface, #edf3f8);
-    border-color: var(--calm-navy-deep, #0e2238);
-    color: var(--calm-navy-deep, #0e2238);
+    background: var(--calm-primary-light, #f0f9ff);
+    border-color: var(--calm-primary, #0284c7);
+    color: var(--calm-primary-hover, #0369a1);
     transform: translateY(-1px);
-    box-shadow: 0 2px 8px rgba(14, 34, 56, 0.08);
+    box-shadow: 0 2px 8px rgba(2, 132, 199, 0.15);
 }
 
 .btn-pay-now-card {
-    background: linear-gradient(135deg, #0e2238 0%, #17375e 100%);
+    background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);
     color: #ffffff;
-    border: 1px solid #0f2742;
+    border: 1px solid #0284c7;
     height: 38px;
     padding: 0 10px;
     border-radius: 7px;
@@ -2033,7 +2031,7 @@ a {
     justify-content: center;
     gap: 6px;
     box-sizing: border-box;
-    box-shadow: 0 2px 10px rgba(14, 34, 56, 0.22);
+    box-shadow: 0 3px 12px rgba(2, 132, 199, 0.3);
     width: 100%;
 }
 
@@ -2045,11 +2043,11 @@ a {
 }
 
 .btn-pay-now-card:hover {
-    background: linear-gradient(135deg, #153860 0%, #1f4b7a 100%);
-    border-color: #1f4b7a;
+    background: linear-gradient(135deg, #0369a1 0%, #075985 100%);
+    border-color: #0369a1;
     color: #ffffff;
     transform: translateY(-1px);
-    box-shadow: 0 5px 16px rgba(14, 34, 56, 0.32);
+    box-shadow: 0 6px 18px rgba(2, 132, 199, 0.4);
 }
 
 .btn-pay-now-card:hover::after {
@@ -2194,10 +2192,10 @@ a {
 }
 
 .about-cta-btn:hover {
-    background: var(--calm-navy, #153250);
+    background: var(--calm-primary, #0284c7);
     color: #ffffff;
     transform: translateY(-2px);
-    box-shadow: 0 10px 24px rgba(14, 34, 56, 0.28);
+    box-shadow: 0 10px 24px rgba(2, 132, 199, 0.35);
 }
 
 .about-contact-btn {
@@ -4761,8 +4759,8 @@ a {
 
 .modal-btn-cart {
     background: #ffffff;
-    color: var(--calm-navy-deep, #0e2238);
-    border: 1.5px solid rgba(14, 34, 56, 0.25);
+    color: var(--calm-primary, #0284c7);
+    border: 1.5px solid var(--calm-primary-border, #bae6fd);
     padding: 13px 16px;
     font-family: var(--font-mono);
     font-size: 0.82rem;
@@ -4775,15 +4773,16 @@ a {
 }
 
 .modal-btn-cart:hover {
-    background: var(--calm-navy-surface, #edf3f8);
-    border-color: var(--calm-navy-deep, #0e2238);
+    background: var(--calm-primary-light, #f0f9ff);
+    border-color: var(--calm-primary, #0284c7);
+    color: var(--calm-primary-hover, #0369a1);
     transform: translateY(-1px);
 }
 
 .modal-btn-paynow {
-    background: linear-gradient(135deg, #0e2238 0%, #17375e 100%);
+    background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);
     color: #ffffff;
-    border: 1px solid #0f2742;
+    border: 1px solid #0284c7;
     padding: 13px 16px;
     font-family: var(--font-mono);
     font-size: 0.82rem;
@@ -4793,7 +4792,7 @@ a {
     cursor: pointer;
     transition: all 0.2s ease;
     text-align: center;
-    box-shadow: 0 4px 14px rgba(14, 34, 56, 0.25);
+    box-shadow: 0 4px 14px rgba(2, 132, 199, 0.3);
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -4808,10 +4807,10 @@ a {
 }
 
 .modal-btn-paynow:hover {
-    background: linear-gradient(135deg, #153860 0%, #1f4b7a 100%);
-    border-color: #1f4b7a;
+    background: linear-gradient(135deg, #0369a1 0%, #075985 100%);
+    border-color: #0369a1;
     transform: translateY(-1px);
-    box-shadow: 0 6px 18px rgba(14, 34, 56, 0.35);
+    box-shadow: 0 6px 18px rgba(2, 132, 199, 0.4);
 }
 
 .modal-btn-paynow:hover::after {
@@ -5498,7 +5497,7 @@ a {
         position: absolute;
         top: -6px;
         right: -9px;
-        background: var(--calm-navy-deep, #0e2238);
+        background: var(--calm-primary, #0284c7);
         color: #ffffff;
         font-family: var(--font-mono, monospace);
         font-size: 0.62rem;
@@ -5509,7 +5508,7 @@ a {
         min-width: 16px;
         text-align: center;
         display: none;
-        box-shadow: 0 2px 6px rgba(14, 34, 56, 0.35);
+        box-shadow: 0 2px 6px rgba(2, 132, 199, 0.4);
     }
 
     /* Product page: sticky buy bar sits directly above bottom nav */
@@ -5600,14 +5599,14 @@ a {
 }
 
 .text-pill.active {
-    background: var(--calm-navy-deep, #0e2238);
+    background: var(--calm-primary, #0284c7);
     color: #ffffff;
-    border-color: var(--calm-navy-deep, #0e2238);
-    box-shadow: 0 4px 14px rgba(14, 34, 56, 0.22);
+    border-color: var(--calm-primary, #0284c7);
+    box-shadow: 0 4px 14px rgba(2, 132, 199, 0.25);
 }
 
 .text-pill.active:hover {
-    background: var(--calm-navy, #153250);
+    background: var(--calm-primary-hover, #0369a1);
 }
 
 /* About Us Section: Clean Studio Hardware Card (Zero Video) */
@@ -6099,10 +6098,10 @@ a {
     }
 
     .btn-pay-now-card {
-        background: linear-gradient(135deg, #0e2238 0%, #17375e 100%) !important;
+        background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%) !important;
         color: #ffffff !important;
         border: none !important;
-        box-shadow: 0 4px 14px rgba(14, 34, 56, 0.25) !important;
+        box-shadow: 0 4px 14px rgba(2, 132, 199, 0.3) !important;
     }
 
 
