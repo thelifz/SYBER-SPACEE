@@ -934,7 +934,7 @@ const searchSuggestionsData = [
         query: "color-vision",
         tag: "feature",
         tagLabel: "FEATURE",
-        sub: "Dual Smart Illuminators & Starlight Full-Color Night Defense",
+        sub: "Dual Smart Illuminators & Full-Color Night Vision",
         keywords: ["night", "vision", "color", "starlight", "ir", "dual light"]
     },
     {
@@ -1304,7 +1304,7 @@ function onFilterCriteriaChange() {
             });
         }
     } else {
-        // DESKTOP EXPERIENCE (> 768px): 100% FULL ORIGINAL WHOLESALE ARSENAL
+        // DESKTOP EXPERIENCE (> 768px): 100% FULL ORIGINAL PRODUCT CATALOG
         if (showroomsEl) showroomsEl.style.display = 'none';
         if (sidebarFilters) sidebarFilters.style.display = 'block';
         if (productsHeader) productsHeader.style.display = 'flex';
@@ -1825,50 +1825,50 @@ function showSyberToast(title, subtitle) {
 const vibeRecommendations = {
     hotel: {
         name: "Trueview T38119-AE 32Ch 4K NVR",
-        badge: "COMMERCIAL HOSPITALITY & MULTI-CAM DEPLOYMENT",
+        badge: "COMMERCIAL NVR SYSTEM",
         price: "₹7,500",
-        savings: "Save 37% • Direct Partner Rate",
-        desc: "Engineered specifically for hotel owners, commercial properties, and multi-floor installations. High-capacity 32-channel 4K video recording with dual SATA 16TB capacity and smart central management.",
+        savings: "Save 37% • In Stock",
+        desc: "32-channel 4K NVR with dual SATA 16TB capacity for multi-camera commercial setups.",
         searchQuery: "T38119-AE"
     },
     night: {
         name: "iDADA ID-Q2i35S-TD 3MP Smart PT",
-        badge: "#1 BESTSELLING WHOLESALE DEPLOYMENT",
+        badge: "RECOMMENDED SYSTEM",
         price: "₹1,850",
-        savings: "Save 44% • Factory Wholesale Rate",
-        desc: "Top wholesale volume mover. 3MP motorized pan & tilt Wi-Fi camera with clear 2-way audio voice intercom, infrared night vision, and humanoid motion detection straight to your smartphone.",
+        savings: "Save 44% • In Stock",
+        desc: "3MP motorized pan & tilt Wi-Fi camera with two-way audio, infrared night vision, and humanoid motion detection.",
         searchQuery: "iDADA ID-Q2i35S-TD"
     },
     villa: {
         name: "Trueview T18295S 3MP IP66 Bullet",
-        badge: "PERIMETER GATE & YARD ARMOR",
+        badge: "OUTDOOR PERIMETER",
         price: "₹2,250",
-        savings: "Save 39% • Partner Direct Rate",
-        desc: "Heavy-duty outdoor bullet housing with IP66 all-weather protection, dual-source night illumination, and long-range motion detection for driveways, boundary walls, and gates.",
+        savings: "Save 39% • In Stock",
+        desc: "IP66 weatherproof outdoor bullet camera with dual-light night vision and motion alerts.",
         searchQuery: "T18295S"
     },
     apartment: {
         name: "CP PLUS Ezykam CP-E28Q 2MP PT",
-        badge: "DISCREET INDOOR 360° COVERAGE",
+        badge: "INDOOR 360°",
         price: "₹1,980",
-        savings: "Save 36% • Hot Seller",
-        desc: "Ultra-crisp 1080P Full HD with smooth 360° pan & tilt rotation. Real-time two-way talk, smart motion tracking, and flexible microSD / cloud recording.",
+        savings: "Save 36% • In Stock",
+        desc: "1080p Full HD camera with 360° pan-tilt, two-way audio, and motion tracking.",
         searchQuery: "CP PLUS CP-E28Q"
     },
     farm: {
         name: "Trueview T18291SF 4G Mini PT IP65",
-        badge: "100% OFF-GRID 4G/5G CELLULAR PTZ",
+        badge: "4G SIM SOLAR PTZ",
         price: "₹3,200",
-        savings: "Save 36% • Zero Wi-Fi Needed",
-        desc: "Zero Wi-Fi or broadband needed. Insert any 4G SIM card for direct 360° pan-tilt surveillance, full-color starlight night vision, and instant mobile alerts.",
+        savings: "Save 36% • In Stock",
+        desc: "Standalone 4G SIM camera with 360° pan-tilt coverage and full-color night vision without broadband.",
         searchQuery: "T18291SF"
     },
     retail: {
         name: "Trueview T18294S 3MP Smart Dome",
-        badge: "RETAIL & CASH COUNTER CLARITY",
+        badge: "RETAIL & CASH COUNTER",
         price: "₹2,150",
-        savings: "Save 39% • Loss Prevention Pick",
-        desc: "Fixed wide-angle 3MP ceiling dome for billing counters, shops, and storefronts. Crystal-clear resolution with dual audio communication.",
+        savings: "Save 39% • In Stock",
+        desc: "Wide-angle 3MP ceiling dome camera with two-way audio for counters and offices.",
         searchQuery: "T18294S"
     }
 };
@@ -1918,7 +1918,7 @@ function selectVibeOption(spaceKey) {
 
 function inquireVibeWhatsApp() {
     if (!currentVibeMatch) return;
-    const msg = encodeURIComponent(`Hi Syber Space, I was using your 10s Setup Finder and got matched with "${currentVibeMatch.name}" (${currentVibeMatch.price}). Please share wholesale bulk pricing and dispatch details!`);
+    const msg = encodeURIComponent(`Hello Syber Space, I would like to inquire about "${currentVibeMatch.name}" (${currentVibeMatch.price}). Please share pricing and availability.`);
     window.open(`https://wa.me/917511180808?text=${msg}`, '_blank');
 }
 

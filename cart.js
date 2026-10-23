@@ -6,7 +6,7 @@ function normalizeImgPath(src) {
 }
 
 // ==========================================================================
-// SYBER SPACE — Procurement Cart Logic Engine
+// SYBER SPACE — Shopping Cart Logic Engine
 // Strict HDFC Bank SmartGateway™ Multi-Rail Integration
 // ==========================================================================
 
@@ -101,12 +101,12 @@ function renderCart() {
     if (!cart || cart.length === 0) {
         container.innerHTML = `
             <div class="cart-items-panel cart-empty-state">
-                <h2 class="cart-empty-title">Your procurement queue is empty.</h2>
+                <h2 class="cart-empty-title">Your shopping cart is empty</h2>
                 <p class="cart-empty-subtitle">
-                    Select enterprise-grade optical surveillance hardware from our certified fleet to begin procurement.
+                    Explore our collection of CCTV cameras and security accessories.
                 </p>
                 <a href="index.html#cameras" class="cart-empty-cta">
-                    <span>EXPLORE ARSENAL CATALOG</span>
+                    <span>BROWSE CAMERAS</span>
                 </a>
             </div>
         `;
@@ -128,7 +128,7 @@ function renderCart() {
                 </div>
                 <div class="cart-item-info">
                     <h3 class="cart-item-name">${item.name}</h3>
-                    <span class="cart-item-sku">SKU: SS-DIR-${1000 + index} // AUTHORIZED HARDWARE</span>
+                    <span class="cart-item-sku">SKU: SS-${1000 + index} • GENUINE PRODUCT</span>
                     <span class="cart-item-price">₹${item.price.toLocaleString('en-IN')} each</span>
                 </div>
                 <div class="cart-qty-control">
@@ -149,59 +149,59 @@ function renderCart() {
 
     container.innerHTML = `
         <div class="cart-layout">
-            <!-- Left: Cart Items List (Zero Box: Open Canvas) -->
+            <!-- Left: Cart Items List -->
             <div class="cart-items-panel">
                 <div class="cart-items-heading">
-                    Procurement Fleet Queue (${cart.reduce((sum, item) => sum + (item.quantity || 1), 0)} Units Verified)
+                    Cart Items (${cart.reduce((sum, item) => sum + (item.quantity || 1), 0)})
                 </div>
                 <div class="cart-items-list">
                     ${itemsHtml}
                 </div>
             </div>
 
-            <!-- Right: Order Summary & Strict HDFC Checkout Action -->
+            <!-- Right: Order Summary & Checkout -->
             <div class="cart-summary-panel">
-                <h2 class="cart-summary-title">Procurement Summary</h2>
+                <h2 class="cart-summary-title">Order Summary</h2>
                 <div class="cart-summary-rows">
                     <div class="cart-summary-row">
-                        <span>Hardware Taxable Value</span>
+                        <span>Taxable Amount</span>
                         <span>₹${baseAmount.toLocaleString('en-IN')}</span>
                     </div>
                     <div class="cart-summary-row">
-                        <span>GST (18% ITC Tax Invoice)</span>
+                        <span>GST (18% Included)</span>
                         <span>₹${gstAmount.toLocaleString('en-IN')}</span>
                     </div>
                     <div class="cart-summary-row">
-                        <span>Insured Express Courier</span>
-                        <span style="color: #059669; font-weight: 700;">FREE (Included)</span>
+                        <span>Shipping</span>
+                        <span style="color: #059669; font-weight: 700;">FREE</span>
                     </div>
                     <div class="cart-summary-row total-row">
-                        <span>Total Payable (All-Inclusive)</span>
+                        <span>Total Amount</span>
                         <span>₹${grandTotal.toLocaleString('en-IN')}</span>
                     </div>
                 </div>
 
-                <!-- Strict Gateway Checkout Action: Direct to HDFC Bank -->
+                <!-- Checkout Action -->
                 <button type="button" class="cart-checkout-btn" onclick="initiateHdfcCheckout(${grandTotal})">
                     <span>PAY NOW</span>
                 </button>
 
                 <a href="index.html#cameras" class="cart-continue-link">
-                    + Add More Hardware Fleet Units
+                    + Continue Shopping
                 </a>
 
                 <div class="cart-assurance-badges">
                     <div class="cart-assurance-item">
                         <span class="assurance-tag">HDFC 256-BIT</span>
-                        <span>Official HDFC Bank SmartGateway™ Encrypted Payment Terminal.</span>
+                        <span>Encrypted checkout via HDFC Bank SmartGateway™.</span>
                     </div>
                     <div class="cart-assurance-item">
                         <span class="assurance-tag">WARRANTY</span>
-                        <span>2-Year Direct Replacement Warranty with Full GST ITC Invoicing.</span>
+                        <span>Official manufacturer warranty and GST invoice.</span>
                     </div>
                     <div class="cart-assurance-item">
                         <span class="assurance-tag">DELIVERY</span>
-                        <span>Insured Pan-India Courier Delivery within 5 to 7 Business Days.</span>
+                        <span>Insured Pan-India delivery in 5 to 7 business days.</span>
                     </div>
                 </div>
             </div>
@@ -278,40 +278,40 @@ function renderHdfcStep1() {
     body.innerHTML = `
         <div class="hdfc-form-step">
             <div class="hdfc-form-section-title">
-                <span>1. DISPATCH LOGISTICS & TAX INVOICING</span>
-                <span style="color:#059669; font-size:0.7rem; font-weight:700;">STEP 1 OF 2 // VERIFIED</span>
+                <span>1. SHIPPING & BILLING DETAILS</span>
+                <span style="color:#059669; font-size:0.7rem; font-weight:700;">STEP 1 OF 2</span>
             </div>
 
             <form id="hdfc-billing-form" onsubmit="handleBillingSubmit(event)">
                 <div class="hdfc-grid-form">
                     <div class="hdfc-field-group">
-                        <label for="cust-name">Authorized Contact Person *</label>
+                        <label for="cust-name">Full Name *</label>
                         <input type="text" id="cust-name" required placeholder="e.g. Adithyan S." value="Adithyan S.">
                     </div>
 
                     <div class="hdfc-field-group">
-                        <label for="cust-phone">WhatsApp / Mobile Number (+91) *</label>
+                        <label for="cust-phone">Phone Number (+91) *</label>
                         <input type="tel" id="cust-phone" required pattern="[0-9]{10}" placeholder="10-digit mobile" value="9876543210">
                     </div>
 
                     <div class="hdfc-field-group">
-                        <label for="cust-email">Official Invoicing Email *</label>
-                        <input type="email" id="cust-email" required placeholder="name@company.com" value="procurement@syberspace.in">
+                        <label for="cust-email">Email Address *</label>
+                        <input type="email" id="cust-email" required placeholder="name@domain.com" value="orders@syberspace.in">
                     </div>
 
                     <div class="hdfc-field-group">
-                        <label for="cust-company">Company / Organization (Optional)</label>
+                        <label for="cust-company">Company Name (Optional)</label>
                         <input type="text" id="cust-company" placeholder="e.g. Syber Space Systems LLP">
                     </div>
 
                     <div class="hdfc-field-group span-2">
-                        <label for="cust-gstin">GSTIN for 18% Input Tax Credit (ITC) (Optional)</label>
+                        <label for="cust-gstin">GSTIN (Optional)</label>
                         <input type="text" id="cust-gstin" placeholder="15-character GSTIN (e.g. 32AABCU9603R1ZM)" maxlength="15">
                     </div>
 
                     <div class="hdfc-field-group span-2">
-                        <label for="cust-address">Courier Dispatch Address *</label>
-                        <input type="text" id="cust-address" required placeholder="Premises, Street, Industrial Area" value="Tech Zone, Civil Station Road">
+                        <label for="cust-address">Delivery Address *</label>
+                        <input type="text" id="cust-address" required placeholder="Premises, Street, Area" value="Tech Zone, Civil Station Road">
                     </div>
 
                     <div class="hdfc-field-group">
@@ -343,7 +343,7 @@ function renderHdfcStep1() {
                 <div class="hdfc-modal-footer" style="padding-left:0; padding-right:0; margin-top:24px; background:transparent;">
                     <div class="hdfc-security-badge">
                         <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2.5"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-                        <span>256-BIT SSL ENCRYPTED DISPATCH TUNNEL</span>
+                        <span>256-BIT SSL ENCRYPTED</span>
                     </div>
                     <button type="submit" class="hdfc-pay-now-btn">
                         <span>PROCEED TO PAYMENT ›</span>
@@ -404,17 +404,17 @@ function renderHdfcStep2() {
     body.innerHTML = `
         <div class="hdfc-payment-step">
             <div class="hdfc-form-section-title">
-                <span>2. SELECT HDFC BANK PAYMENT RAIL</span>
+                <span>2. PAYMENT METHOD</span>
                 <button type="button" onclick="renderHdfcStep1()" class="hdfc-back-link">
-                    ‹ Edit Shipping Logistics
+                    ‹ Edit Shipping Address
                 </button>
             </div>
 
-            <!-- Payment Rails Tabs (Precision Vector Icons, Zero Emojis) -->
+            <!-- Payment Methods Tabs -->
             <div class="hdfc-rails-tabs" role="tablist">
                 <button type="button" class="hdfc-rail-tab active" onclick="switchHdfcRail('upi', this)">
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
-                    <span>UPI (GPay / PhonePe / VPA)</span>
+                    <span>UPI (GPay / PhonePe / Paytm)</span>
                 </button>
                 <button type="button" class="hdfc-rail-tab" onclick="switchHdfcRail('card', this)">
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
@@ -430,30 +430,30 @@ function renderHdfcStep2() {
                 </button>
             </div>
 
-            <!-- Rail 1: UPI Panel (Dynamic Session Rails, Zero Static QR) -->
+            <!-- Rail 1: UPI Panel -->
             <div id="panel-upi" class="hdfc-rail-panel active">
                 <div class="hdfc-upi-flow-wrap">
-                    <span class="hdfc-field-subheading">Choose Verified UPI Application</span>
+                    <span class="hdfc-field-subheading">Select UPI App</span>
                     <div class="hdfc-upi-apps-grid">
                         <div class="hdfc-upi-app-card selected" onclick="selectUpiApp('gpay', this)">
                             <span class="upi-app-badge">GPAY</span>
                             <span class="upi-app-title">Google Pay</span>
-                            <span class="upi-app-speed">Fast Intent</span>
+                            <span class="upi-app-speed">Fast</span>
                         </div>
                         <div class="hdfc-upi-app-card" onclick="selectUpiApp('phonepe', this)">
                             <span class="upi-app-badge">PHONEPE</span>
                             <span class="upi-app-title">PhonePe</span>
-                            <span class="upi-app-speed">Direct Switch</span>
+                            <span class="upi-app-speed">Instant</span>
                         </div>
                         <div class="hdfc-upi-app-card" onclick="selectUpiApp('paytm', this)">
                             <span class="upi-app-badge">PAYTM</span>
-                            <span class="upi-app-title">Paytm UPI</span>
+                            <span class="upi-app-title">Paytm</span>
                             <span class="upi-app-speed">Instant</span>
                         </div>
                         <div class="hdfc-upi-app-card" onclick="selectUpiApp('bhim', this)">
                             <span class="upi-app-badge">BHIM</span>
                             <span class="upi-app-title">BHIM UPI</span>
-                            <span class="upi-app-speed">NPCI Rail</span>
+                            <span class="upi-app-speed">Direct</span>
                         </div>
                         <div class="hdfc-upi-app-card" onclick="selectUpiApp('cred', this)">
                             <span class="upi-app-badge">CRED</span>
@@ -464,22 +464,22 @@ function renderHdfcStep2() {
 
                     <!-- Direct VPA Input Row -->
                     <div class="hdfc-vpa-container">
-                        <label for="upi-vpa-input" class="hdfc-vpa-label">Or Authorize via Virtual Payment Address (VPA / UPI ID)</label>
+                        <label for="upi-vpa-input" class="hdfc-vpa-label">Or Enter UPI ID / VPA</label>
                         <div class="hdfc-vpa-input-group">
-                            <input type="text" id="upi-vpa-input" placeholder="e.g. mobile@okhdfcbank or merchant@upi" value="procurement@okhdfcbank">
+                            <input type="text" id="upi-vpa-input" placeholder="e.g. mobile@okhdfcbank" value="customer@okhdfcbank">
                             <button type="button" class="hdfc-vpa-btn" onclick="executeHdfcPayment('UPI VPA')">
-                                <span>AUTHORIZE & PAY</span>
+                                <span>PAY NOW</span>
                             </button>
                         </div>
                         <div class="hdfc-vpa-handles">
-                            <span>Supported Handles: @okhdfcbank • @okaxis • @oksbi • @ybl • @paytm • @ibl</span>
+                            <span>Supported: @okhdfcbank • @okaxis • @oksbi • @ybl • @paytm • @ibl</span>
                         </div>
                     </div>
 
-                    <!-- Bank Dynamic Gateway Verification Notice -->
+                    <!-- Bank Notice -->
                     <div class="hdfc-dynamic-notice">
                         <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#004c8f" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
-                        <span>Official HDFC Bank SmartGateway™ Dynamic Session: UPI Collect authorization & dynamic time-limited session tokens are managed securely on HDFC's PCI-DSS Level 1 core banking gateway. Zero static QR exposure.</span>
+                        <span>Secured by HDFC Bank SmartGateway™ with 256-bit SSL encryption and PCI-DSS compliance.</span>
                     </div>
                 </div>
             </div>
@@ -568,7 +568,7 @@ function renderHdfcStep2() {
                         <strong class="emi-rate-callout">₹${Math.round((activeCheckoutTotal * 1.04) / 6).toLocaleString('en-IN')} / mo</strong>
                     </label>
                     <label class="hdfc-emi-option">
-                        <span><input type="radio" name="emi_tenure" value="12"> <strong>12 Months</strong> (Annual Fleet Financing)</span>
+                        <span><input type="radio" name="emi_tenure" value="12"> <strong>12 Months</strong></span>
                         <strong class="emi-rate-callout">₹${Math.round((activeCheckoutTotal * 1.08) / 12).toLocaleString('en-IN')} / mo</strong>
                     </label>
                 </div>
@@ -689,8 +689,8 @@ async function executeHdfcPayment(paymentRail) {
                     <div class="receipt-header-row">
                         <div>
                             <strong style="font-size:1rem; color:var(--base-dark);">SYBER SPACE SECURITY SYSTEMS</strong><br>
-                            Authorized Surveillance Hardware Fleet Distribution<br>
-                            Kerala HQ // GSTIN: 32AABCU9603R1ZM // info@syberspace.in
+                            Authorized CCTV & Surveillance Systems<br>
+                            Kerala HQ • GSTIN: 32AABCU9603R1ZM • info@syberspace.in
                         </div>
                         <div style="text-align:right;">
                             <strong>TAX INVOICE: ${currentOrderRef}</strong><br>
@@ -701,12 +701,12 @@ async function executeHdfcPayment(paymentRail) {
                     </div>
 
                     <div style="margin-bottom:16px;">
-                        <strong>CONSIGNEE / BILLED TO:</strong><br>
-                        ${currentCustomerData ? currentCustomerData.name : 'Authorized Client'}<br>
+                        <strong>BILLED TO:</strong><br>
+                        ${currentCustomerData ? currentCustomerData.name : 'Customer'}<br>
                         ${currentCustomerData && currentCustomerData.company ? currentCustomerData.company + '<br>' : ''}
                         ${currentCustomerData ? currentCustomerData.address + ', ' + currentCustomerData.city + ', ' + currentCustomerData.state + ' - ' + currentCustomerData.pincode : ''}<br>
-                        Phone: +91 ${currentCustomerData ? currentCustomerData.phone : ''} // Email: ${currentCustomerData ? currentCustomerData.email : ''}<br>
-                        ${currentCustomerData && currentCustomerData.gstin ? '<strong>Client GSTIN (ITC Eligible):</strong> ' + currentCustomerData.gstin : '<strong>Client GSTIN:</strong> Unregistered / Retail Wholesale'}
+                        Phone: +91 ${currentCustomerData ? currentCustomerData.phone : ''} • Email: ${currentCustomerData ? currentCustomerData.email : ''}<br>
+                        ${currentCustomerData && currentCustomerData.gstin ? '<strong>GSTIN:</strong> ' + currentCustomerData.gstin : '<strong>GSTIN:</strong> Not Provided'}
                     </div>
 
                     <table class="receipt-table">
@@ -726,16 +726,16 @@ async function executeHdfcPayment(paymentRail) {
 
                     <div style="border-top:1px dashed rgba(27,24,21,0.2); padding-top:12px;">
                         <div class="receipt-totals-row">
-                            <span>Taxable Value (Before GST):</span>
+                            <span>Taxable Value:</span>
                             <span>₹${taxableVal.toLocaleString('en-IN')}</span>
                         </div>
                         <div class="receipt-totals-row">
-                            <span>Integrated GST @ 18% (Full ITC):</span>
+                            <span>GST @ 18%:</span>
                             <span>₹${gstVal.toLocaleString('en-IN')}</span>
                         </div>
                         <div class="receipt-totals-row">
-                            <span>Insured Pan-India Express Courier:</span>
-                            <span style="color:#059669; font-weight:700;">FREE (Included)</span>
+                            <span>Shipping:</span>
+                            <span style="color:#059669; font-weight:700;">FREE</span>
                         </div>
                         <div class="receipt-totals-row grand">
                             <span>TOTAL AMOUNT CHARGED & RECEIVED:</span>
