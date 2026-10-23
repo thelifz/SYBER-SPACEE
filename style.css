@@ -1686,23 +1686,23 @@ a {
     }
 }
 
-/* 4. Product Cards Styling */
+/* 4. Product Cards Styling — Seamless Canvas Integration (Zero Boxes) */
 .product-card {
-    background: #ffffff;
-    border: 1px solid var(--base-border);
-    border-radius: 16px;
-    overflow: hidden;
+    background: transparent;
+    border: none;
+    border-radius: 0;
+    overflow: visible;
     display: flex;
     flex-direction: column;
     position: relative;
-    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease;
-    box-shadow: 0 2px 10px rgba(27, 24, 21, 0.03);
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow: none;
 }
 
 .product-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 16px 36px rgba(27, 24, 21, 0.08);
-    border-color: rgba(27, 24, 21, 0.22);
+    transform: translateY(-4px);
+    box-shadow: none;
+    border-color: transparent;
 }
 
 .product-badge {
@@ -1727,12 +1727,12 @@ a {
 .product-visual-wrap {
     position: relative;
     width: 100%;
-    height: 210px;
-    background: linear-gradient(180deg, #fbf9f5 0%, #eee9df 100%);
+    height: 220px;
+    background: transparent;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 16px;
+    padding: 14px 6px;
     overflow: hidden;
 }
 
@@ -1841,7 +1841,7 @@ a {
 }
 
 .product-info-wrap {
-    padding: 20px;
+    padding: 12px 2px 4px 2px;
     display: flex;
     flex-direction: column;
     flex: 1;
@@ -1850,8 +1850,8 @@ a {
 .product-brand-tag {
     font-size: 0.7rem;
     font-family: var(--font-mono);
-    font-weight: 700;
-    color: #059669;
+    font-weight: 800;
+    color: var(--calm-primary, #0284c7);
     letter-spacing: 0.08em;
     margin-bottom: 4px;
 }
@@ -1905,11 +1905,11 @@ a {
 .product-specs-chips .chip {
     font-size: 0.68rem;
     font-weight: 600;
-    background: var(--base-surface);
+    background: rgba(255, 255, 255, 0.7);
     color: var(--base-dark-muted);
-    padding: 3px 7px;
-    border-radius: 4px;
-    border: 1px solid var(--base-border);
+    padding: 3px 8px;
+    border-radius: 5px;
+    border: 1px solid rgba(27, 24, 21, 0.08);
 }
 
 .product-card-footer {
@@ -4311,13 +4311,13 @@ a {
    ========================================================================== */
 .product-card {
     cursor: pointer;
-    transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s ease, border-color 0.2s ease;
+    transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .product-card:hover {
     transform: translateY(-4px);
-    box-shadow: 0 16px 36px rgba(27, 24, 21, 0.12);
-    border-color: rgba(27, 24, 21, 0.35);
+    box-shadow: none;
+    border-color: transparent;
 }
 
 .product-modal-overlay {
@@ -5981,11 +5981,11 @@ a {
     }
 
     .product-card {
-        background: #ffffff !important;
-        border: 1px solid rgba(27, 24, 21, 0.12) !important;
-        border-radius: 16px !important;
-        box-shadow: 0 4px 18px rgba(27, 24, 21, 0.05) !important;
-        overflow: hidden !important;
+        background: transparent !important;
+        border: none !important;
+        border-radius: 0 !important;
+        box-shadow: none !important;
+        overflow: visible !important;
         width: 100% !important;
         max-width: 100% !important;
         box-sizing: border-box !important;
@@ -5993,13 +5993,13 @@ a {
 
     .product-visual-wrap {
         height: 215px !important;
-        background: #ffffff !important;
+        background: transparent !important;
         display: flex !important;
         align-items: center !important;
         justify-content: center !important;
         padding: 16px !important;
         position: relative !important;
-        border-bottom: 1px solid rgba(27, 24, 21, 0.06) !important;
+        border-bottom: none !important;
     }
 
     .product-card-img {
@@ -6007,12 +6007,12 @@ a {
         width: auto !important;
         max-width: 85% !important;
         object-fit: contain !important;
-        mix-blend-mode: normal !important;
+        mix-blend-mode: multiply !important;
         filter: drop-shadow(0 6px 14px rgba(0, 0, 0, 0.08)) !important;
     }
 
     .product-info-wrap {
-        padding: 18px 16px !important;
+        padding: 14px 4px !important;
     }
 
     .product-brand-tag {
