@@ -2197,14 +2197,11 @@ function openBrandCatalog(brandKey) {
 }
 
 // =============================================================================
-// GSAP & SCROLLTRIGGER ANIMATION ENGINE (APPEARANCES & DISAPPEARANCES)
+// GSAP ANIMATION ENGINE (APPEARANCES & DISAPPEARANCES)
+// Native IntersectionObserver Triggers (Zero Scroll Sensitivity / 100% Native Physics)
 // =============================================================================
 function initGsapMagic() {
     if (typeof gsap === 'undefined') return;
-
-    if (typeof ScrollTrigger !== 'undefined') {
-        gsap.registerPlugin(ScrollTrigger);
-    }
 
     // Respect reduced motion preference
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
@@ -2239,136 +2236,88 @@ function initGsapMagic() {
         }, '-=0.35');
     }
 
-    if (typeof ScrollTrigger === 'undefined') return;
+    // Helper: Observe element and trigger entrance once without touching window scroll
+    const triggerOnScroll = (selector, animateFn, threshold = 0.12) => {
+        const elements = typeof selector === 'string' ? document.querySelectorAll(selector) : [selector];
+        if (!elements || elements.length === 0) return;
 
-    // 2. Mobile Brand Showrooms (ScrollTrigger reveal per card)
-    const showroomCards = document.querySelectorAll('.m-brand-showroom-card');
-    if (showroomCards.length > 0) {
-        showroomCards.forEach(card => {
-            gsap.fromTo(card,
-                { opacity: 0, y: 30 },
-                {
-                    opacity: 1,
-                    y: 0,
-                    duration: 0.6,
-                    ease: 'power2.out',
-                    scrollTrigger: {
-                        trigger: card,
-                        start: 'top 88%',
-                        toggleActions: 'play none none none'
-                    },
-                    clearProps: 'transform,opacity'
+        if (!('IntersectionObserver' in window)) {
+            elements.forEach(animateFn);
+            return;
+        }
+
+        const observer = new IntersectionObserver((entries, obs) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateFn(entry.target);
+                    obs.unobserve(entry.target);
                 }
-            );
+            });
+        }, { threshold });
+
+        elements.forEach(el => {
+            if (el) observer.observe(el);
         });
-    }
+    };
+
+    // 2. Mobile Brand Showrooms (reveal per card)
+    triggerOnScroll('.m-brand-showroom-card', (card) => {
+        gsap.fromTo(card,
+            { opacity: 0, y: 26 },
+            { opacity: 1, y: 0, duration: 0.55, ease: 'power2.out', clearProps: 'transform,opacity' }
+        );
+    }, 0.1);
 
     // 3. About Us Section Split Reveal
     const aboutSection = document.getElementById('about');
     if (aboutSection) {
-        const textCol = aboutSection.querySelector('.about-text-col');
-        const feedCard = aboutSection.querySelector('.about-security-feed');
-
-        if (textCol) {
-            gsap.fromTo(textCol,
-                { opacity: 0, x: -30 },
-                {
-                    opacity: 1,
-                    x: 0,
-                    duration: 0.75,
-                    ease: 'power3.out',
-                    scrollTrigger: {
-                        trigger: aboutSection,
-                        start: 'top 75%',
-                        toggleActions: 'play none none none'
-                    },
-                    clearProps: 'transform,opacity'
-                }
-            );
-        }
-
-        if (feedCard) {
-            gsap.fromTo(feedCard,
-                { opacity: 0, scale: 0.94, y: 25 },
-                {
-                    opacity: 1,
-                    scale: 1,
-                    y: 0,
-                    duration: 0.8,
-                    delay: 0.1,
-                    ease: 'power3.out',
-                    scrollTrigger: {
-                        trigger: aboutSection,
-                        start: 'top 75%',
-                        toggleActions: 'play none none none'
-                    },
-                    clearProps: 'transform,opacity'
-                }
-            );
-        }
+        triggerOnScroll(aboutSection, () => {
+            const textCol = aboutSection.querySelector('.about-text-col');
+            const feedCard = aboutSection.querySelector('.about-security-feed');
+            if (textCol) {
+                gsap.fromTo(textCol,
+                    { opacity: 0, x: -24 },
+                    { opacity: 1, x: 0, duration: 0.7, ease: 'power3.out', clearProps: 'transform,opacity' }
+                );
+            }
+            if (feedCard) {
+                gsap.fromTo(feedCard,
+                    { opacity: 0, scale: 0.95, y: 20 },
+                    { opacity: 1, scale: 1, y: 0, duration: 0.75, delay: 0.1, ease: 'power3.out', clearProps: 'transform,opacity' }
+                );
+            }
+        }, 0.15);
     }
 
     // 4. Why Us / Manifesto 4-Card Staggered Entrance
     const manifestoSection = document.getElementById('why-us');
     if (manifestoSection) {
-        const header = manifestoSection.querySelector('.manifesto-header');
-        const cards = manifestoSection.querySelectorAll('.manifesto-card');
-
-        if (header) {
-            gsap.fromTo(header,
-                { opacity: 0, y: 20 },
-                {
-                    opacity: 1,
-                    y: 0,
-                    duration: 0.6,
-                    ease: 'power2.out',
-                    scrollTrigger: {
-                        trigger: manifestoSection,
-                        start: 'top 80%',
-                        toggleActions: 'play none none none'
-                    },
-                    clearProps: 'transform,opacity'
-                }
-            );
-        }
-
-        if (cards.length > 0) {
-            gsap.fromTo(cards,
-                { opacity: 0, y: 35 },
-                {
-                    opacity: 1,
-                    y: 0,
-                    duration: 0.6,
-                    stagger: 0.08,
-                    ease: 'power2.out',
-                    scrollTrigger: {
-                        trigger: '.manifesto-grid',
-                        start: 'top 82%',
-                        toggleActions: 'play none none none'
-                    },
-                    clearProps: 'transform,opacity'
-                }
-            );
-        }
+        triggerOnScroll(manifestoSection, () => {
+            const header = manifestoSection.querySelector('.manifesto-header');
+            const cards = manifestoSection.querySelectorAll('.manifesto-card');
+            if (header) {
+                gsap.fromTo(header,
+                    { opacity: 0, y: 18 },
+                    { opacity: 1, y: 0, duration: 0.55, ease: 'power2.out', clearProps: 'transform,opacity' }
+                );
+            }
+            if (cards.length > 0) {
+                gsap.fromTo(cards,
+                    { opacity: 0, y: 28 },
+                    { opacity: 1, y: 0, duration: 0.55, stagger: 0.08, ease: 'power2.out', clearProps: 'transform,opacity' }
+                );
+            }
+        }, 0.15);
     }
 
     // 5. Wholesale Concierge Section Reveal
     const wholesaleSection = document.getElementById('wholesale-concierge');
     if (wholesaleSection) {
-        gsap.fromTo(wholesaleSection,
-            { opacity: 0, y: 25 },
-            {
-                opacity: 1,
-                y: 0,
-                duration: 0.65,
-                ease: 'power2.out',
-                scrollTrigger: {
-                    trigger: wholesaleSection,
-                    start: 'top 88%',
-                    toggleActions: 'play none none none'
-                },
-                clearProps: 'transform,opacity'
-            }
-        );
+        triggerOnScroll(wholesaleSection, (el) => {
+            gsap.fromTo(el,
+                { opacity: 0, y: 20 },
+                { opacity: 1, y: 0, duration: 0.6, ease: 'power2.out', clearProps: 'transform,opacity' }
+            );
+        }, 0.12);
     }
 }

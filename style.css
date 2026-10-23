@@ -46,7 +46,6 @@ html {
     overflow-x: clip;
     width: 100%;
     max-width: 100vw;
-    scroll-behavior: smooth;
     font-size: 16px;
     background-color: #f3f0ea;
     -webkit-font-smoothing: antialiased;
@@ -1965,63 +1964,80 @@ a {
 .product-card-actions {
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 7px;
     flex-shrink: 0;
 }
 
 .btn-add-cart {
-    background: transparent;
+    background: #ffffff;
     color: var(--base-dark);
-    border: 1.5px solid rgba(27, 24, 21, 0.28);
-    padding: 8px 13px;
-    border-radius: 8px;
-    font-size: 0.76rem;
+    border: 1px solid rgba(27, 24, 21, 0.22);
+    height: 35px;
+    padding: 0 12px;
+    border-radius: 6px;
+    font-size: 0.72rem;
     font-weight: 700;
     cursor: pointer;
-    letter-spacing: 0.04em;
-    transition: var(--transition-smooth);
+    letter-spacing: 0.03em;
+    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
     white-space: nowrap;
     display: inline-flex;
     align-items: center;
     justify-content: center;
+    box-sizing: border-box;
 }
 
 .btn-add-cart:hover {
-    background: rgba(27, 24, 21, 0.06);
+    background: #f5f2ec;
     border-color: var(--base-dark);
     color: var(--base-dark);
     transform: translateY(-1px);
+    box-shadow: 0 2px 8px rgba(27, 24, 21, 0.08);
 }
 
 .btn-pay-now-card {
-    background: var(--base-dark);
+    background: linear-gradient(135deg, #059669 0%, #047857 100%);
     color: #ffffff;
-    border: 1.5px solid var(--base-dark);
-    padding: 8px 15px;
-    border-radius: 8px;
-    font-size: 0.76rem;
+    border: 1px solid #047857;
+    height: 35px;
+    padding: 0 14px;
+    border-radius: 6px;
+    font-size: 0.73rem;
     font-weight: 700;
     cursor: pointer;
-    letter-spacing: 0.04em;
-    transition: var(--transition-smooth);
+    letter-spacing: 0.03em;
+    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
     white-space: nowrap;
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+    gap: 5px;
+    box-sizing: border-box;
+    box-shadow: 0 2px 8px rgba(5, 150, 105, 0.28);
+}
+
+.btn-pay-now-card::after {
+    content: '→';
+    font-size: 0.85rem;
+    line-height: 1;
+    transition: transform 0.2s ease;
 }
 
 .btn-pay-now-card:hover {
-    background: #059669;
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%);
     border-color: #059669;
     color: #ffffff;
     transform: translateY(-1px);
-    box-shadow: 0 4px 14px rgba(5, 150, 105, 0.35);
+    box-shadow: 0 4px 14px rgba(5, 150, 105, 0.42);
+}
+
+.btn-pay-now-card:hover::after {
+    transform: translateX(2px);
 }
 
 .btn-add-cart:active,
 .btn-pay-now-card:active {
-    transform: scale(0.97);
+    transform: scale(0.96);
 }
 
 
@@ -4723,35 +4739,63 @@ a {
 }
 
 .modal-btn-cart {
-    background: #1b1815;
-    color: #ffffff;
-    border: 1px solid #1b1815;
+    background: #ffffff;
+    color: var(--base-dark);
+    border: 1.5px solid rgba(27, 24, 21, 0.25);
     padding: 13px 16px;
     font-family: var(--font-mono);
     font-size: 0.82rem;
     font-weight: 700;
     letter-spacing: 0.06em;
-    border-radius: 4px;
+    border-radius: 6px;
     cursor: pointer;
     transition: all 0.2s ease;
     text-align: center;
 }
 
 .modal-btn-cart:hover {
-    background: #2b2520;
-    border-color: #2b2520;
+    background: #f4f1ea;
+    border-color: var(--base-dark);
     transform: translateY(-1px);
-    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.18);
 }
 
-.modal-btn-whatsapp {
-    background: #25d366;
+.modal-btn-paynow {
+    background: linear-gradient(135deg, #059669 0%, #047857 100%);
     color: #ffffff;
-    border: 1px solid #25d366;
+    border: 1px solid #047857;
     padding: 13px 16px;
     font-family: var(--font-mono);
     font-size: 0.82rem;
     font-weight: 700;
+    letter-spacing: 0.06em;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-align: center;
+    box-shadow: 0 4px 14px rgba(5, 150, 105, 0.35);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+}
+
+.modal-btn-paynow::after {
+    content: '→';
+    font-size: 0.95rem;
+    line-height: 1;
+    transition: transform 0.2s ease;
+}
+
+.modal-btn-paynow:hover {
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+    border-color: #059669;
+    transform: translateY(-1px);
+    box-shadow: 0 6px 18px rgba(5, 150, 105, 0.45);
+}
+
+.modal-btn-paynow:hover::after {
+    transform: translateX(3px);
+}
     letter-spacing: 0.06em;
     border-radius: 4px;
     cursor: pointer;
@@ -6045,10 +6089,10 @@ a {
     }
 
     .btn-pay-now-card {
-        background: #1b1815 !important;
+        background: linear-gradient(135deg, #059669 0%, #047857 100%) !important;
         color: #ffffff !important;
         border: none !important;
-        box-shadow: 0 4px 14px rgba(27, 24, 21, 0.18) !important;
+        box-shadow: 0 4px 14px rgba(5, 150, 105, 0.28) !important;
     }
 
 
