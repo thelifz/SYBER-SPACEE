@@ -6,7 +6,7 @@
     <meta name="color-scheme" content="only light">
     <meta name="supported-color-schemes" content="light">
     <title>SYBER SPACE — Precision Surveillance Systems</title>
-    <link rel="stylesheet" href="style.css?v=3.7">
+    <link rel="stylesheet" href="style.css?v=3.9">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700;800&display=swap" rel="stylesheet">
@@ -3335,16 +3335,8 @@
                 <!-- Right Column: Clean CCTV Live Monitor Feed -->
                 <div class="about-feed-col">
                     <div class="about-security-feed">
-                        <div class="feed-header-bar">
-                            <div class="feed-header-left">
-                                <span class="feed-rec-dot"></span>
-                                <span class="feed-title">KERALA HQ // LIVE FEED CAM 01</span>
-                            </div>
-                            <span class="feed-badge-rec">REC 60 FPS</span>
-                        </div>
-                        
                         <div class="feed-video-wrap">
-                            <video autoplay loop muted playsinline preload="none" class="about-feed-video">
+                            <video id="about-feed-video" class="about-feed-video" src="cctv_parking_video.mp4" autoplay loop muted playsinline webkit-playsinline preload="auto">
                                 <source src="cctv_parking_video.mp4" type="video/mp4">
                             </video>
                             <div class="feed-scanlines"></div>
@@ -3353,12 +3345,10 @@
                         <div class="feed-telemetry-bar">
                             <span>COORDS: 9.9312° N, 76.2673° E (KOCHI HQ)</span>
                             <span>•</span>
-                            <span>PERIMETER SECURE</span>
-                            <span>•</span>
-                            <span>ZERO BLIND SPOTS</span>
+                            <span>SURVEILLANCE FEED</span>
                         </div>
+                    </div>
                 </div>
-            </div>
         </div>
         </div>
     </section>
@@ -3760,7 +3750,7 @@
     
 
     <script src="cookie-location.js?v=3.6"></script>
-    <script src="script.js?v=3.8"></script>
+    <script src="script.js?v=3.9"></script>
 
     <!-- ======================================================================
          AMAZON-STYLE MOBILE BOTTOM NAVIGATION BAR (PHONE SCREEN ONLY)

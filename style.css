@@ -2225,17 +2225,18 @@ a {
 .feed-video-wrap {
     position: relative;
     width: 100%;
-    height: 380px;
+    aspect-ratio: 16 / 9;
+    min-height: 320px;
     overflow: hidden;
-    background: #000000;
+    background: #0c0e12;
 }
 
 .about-feed-video {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    opacity: 0.9;
-    filter: contrast(1.15) brightness(1.05);
+    opacity: 1;
+    filter: contrast(1.05) brightness(1.02);
 }
 
 .about-target-box {

@@ -12,6 +12,62 @@ function setupImageErrorRecovery() {
     });
 }
 
+// About Us Section Live Feed Video Initialization & Autoplay Assurance
+function initAboutFeedVideo() {
+    const feedVid = document.getElementById('about-feed-video') || document.querySelector('.about-feed-video');
+    if (!feedVid) return;
+
+    feedVid.muted = true;
+    feedVid.defaultMuted = true;
+    feedVid.playsInline = true;
+    feedVid.setAttribute('muted', '');
+    feedVid.setAttribute('playsinline', '');
+
+    const tryPlayFeed = () => {
+        feedVid.muted = true;
+        const playPromise = feedVid.play();
+        if (playPromise !== undefined) {
+            playPromise.catch(() => {
+                // If browser restricts initial autoplay, resume on first user interaction
+                const onUserInteract = () => {
+                    feedVid.muted = true;
+                    feedVid.play().catch(() => {});
+                    window.removeEventListener('click', onUserInteract);
+                    window.removeEventListener('scroll', onUserInteract);
+                    window.removeEventListener('touchstart', onUserInteract);
+                };
+                window.addEventListener('click', onUserInteract, { passive: true, once: true });
+                window.addEventListener('scroll', onUserInteract, { passive: true, once: true });
+                window.addEventListener('touchstart', onUserInteract, { passive: true, once: true });
+            });
+        }
+    };
+
+    if (feedVid.readyState === 0) {
+        feedVid.load();
+    }
+    tryPlayFeed();
+
+    // IntersectionObserver guarantees playback starts when scrolled into view
+    if ('IntersectionObserver' in window) {
+        const obs = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    tryPlayFeed();
+                }
+            });
+        }, { threshold: 0.1 });
+        obs.observe(feedVid);
+    }
+
+    // Resume video playback when tab becomes active again
+    document.addEventListener('visibilitychange', () => {
+        if (!document.hidden && feedVid.paused) {
+            tryPlayFeed();
+        }
+    });
+}
+
 // ==========================================================================
 // SYBER SPACE — Jesko Jets Interaction & Cinematic Surveillance Engine
 // ==========================================================================
@@ -240,6 +296,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     setupImageErrorRecovery();
+    initAboutFeedVideo();
     console.log("SYBER SPACE — Video & Offer Surveillance Engine initialized successfully.");
 });
 
