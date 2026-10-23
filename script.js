@@ -297,6 +297,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     setupImageErrorRecovery();
     initAboutFeedVideo();
+    initGsapMagic();
     console.log("SYBER SPACE — Video & Offer Surveillance Engine initialized successfully.");
 });
 
@@ -1350,6 +1351,13 @@ function onFilterCriteriaChange() {
                 card.style.display = 'flex';
                 grid.appendChild(card);
             });
+            if (typeof gsap !== 'undefined' && matchedCards.length > 0) {
+                gsap.killTweensOf(cards);
+                gsap.fromTo(matchedCards,
+                    { opacity: 0, y: 14 },
+                    { opacity: 1, y: 0, duration: 0.3, stagger: 0.03, ease: 'power2.out', clearProps: 'transform,opacity' }
+                );
+            }
         } else {
             // Default Clean Mobile View: Showrooms Only, completely hide crowded hardware listing!
             if (showroomsEl) showroomsEl.style.display = 'flex';
@@ -1373,6 +1381,13 @@ function onFilterCriteriaChange() {
             card.style.display = 'flex';
             grid.appendChild(card);
         });
+        if (typeof gsap !== 'undefined' && matchedCards.length > 0) {
+            gsap.killTweensOf(cards);
+            gsap.fromTo(matchedCards,
+                { opacity: 0, y: 16 },
+                { opacity: 1, y: 0, duration: 0.35, stagger: 0.025, ease: 'power2.out', clearProps: 'transform,opacity' }
+            );
+        }
         if (statusBar) statusBar.style.display = 'flex';
         const countElem = document.getElementById('filtered-count-num');
         if (countElem) countElem.textContent = matchedCards.length;
@@ -1934,20 +1949,62 @@ let currentVibeMatch = null;
 
 function openVibeCheckModal() {
     const modal = document.getElementById('vibe-modal-overlay');
-    if (modal) modal.classList.add('active');
+    if (!modal) return;
+    modal.classList.add('active');
     resetVibeCheck();
+
+    if (typeof gsap !== 'undefined') {
+        const card = modal.querySelector('.vibe-modal-card');
+        gsap.fromTo(modal, { opacity: 0 }, { opacity: 1, duration: 0.25, ease: 'power2.out' });
+        if (card) {
+            gsap.fromTo(card,
+                { opacity: 0, scale: 0.92, y: 20 },
+                { opacity: 1, scale: 1, y: 0, duration: 0.35, ease: 'back.out(1.3)', clearProps: 'transform,opacity' }
+            );
+        }
+    }
 }
 
 function closeVibeCheckModal(event) {
     if (event && event.target !== event.currentTarget) return;
     const modal = document.getElementById('vibe-modal-overlay');
-    if (modal) modal.classList.remove('active');
+    if (!modal) return;
+
+    if (typeof gsap !== 'undefined') {
+        const card = modal.querySelector('.vibe-modal-card');
+        if (card) {
+            gsap.to(card, {
+                opacity: 0,
+                scale: 0.94,
+                y: 12,
+                duration: 0.2,
+                ease: 'power2.in'
+            });
+        }
+        gsap.to(modal, {
+            opacity: 0,
+            duration: 0.22,
+            ease: 'power2.in',
+            onComplete: () => {
+                modal.classList.remove('active');
+                if (card) gsap.set(card, { clearProps: 'all' });
+                gsap.set(modal, { clearProps: 'all' });
+            }
+        });
+    } else {
+        modal.classList.remove('active');
+    }
 }
 
 function resetVibeCheck() {
     const step1 = document.getElementById('vibe-step-1');
     const resultBox = document.getElementById('vibe-result-box');
-    if (step1) step1.style.display = 'block';
+    if (step1) {
+        step1.style.display = 'block';
+        if (typeof gsap !== 'undefined') {
+            gsap.set(step1, { opacity: 1, y: 0, x: 0 });
+        }
+    }
     if (resultBox) resultBox.style.display = 'none';
     currentVibeMatch = null;
 }
@@ -1964,13 +2021,35 @@ function selectVibeOption(spaceKey) {
     const priceEl = document.getElementById('vibe-match-price');
     const savingsEl = document.getElementById('vibe-match-savings');
 
-    if (step1) step1.style.display = 'none';
-    if (badgeEl) badgeEl.textContent = match.badge;
-    if (nameEl) nameEl.textContent = match.name;
-    if (descEl) descEl.textContent = match.desc;
-    if (priceEl) priceEl.textContent = match.price;
-    if (savingsEl) savingsEl.textContent = match.savings;
-    if (resultBox) resultBox.style.display = 'block';
+    const switchContent = () => {
+        if (step1) step1.style.display = 'none';
+        if (badgeEl) badgeEl.textContent = match.badge;
+        if (nameEl) nameEl.textContent = match.name;
+        if (descEl) descEl.textContent = match.desc;
+        if (priceEl) priceEl.textContent = match.price;
+        if (savingsEl) savingsEl.textContent = match.savings;
+        if (resultBox) {
+            resultBox.style.display = 'block';
+            if (typeof gsap !== 'undefined') {
+                gsap.fromTo(resultBox,
+                    { opacity: 0, y: 16, scale: 0.97 },
+                    { opacity: 1, y: 0, scale: 1, duration: 0.35, ease: 'power2.out', clearProps: 'transform,opacity' }
+                );
+            }
+        }
+    };
+
+    if (typeof gsap !== 'undefined' && step1) {
+        gsap.to(step1, {
+            opacity: 0,
+            y: -10,
+            duration: 0.18,
+            ease: 'power2.in',
+            onComplete: switchContent
+        });
+    } else {
+        switchContent();
+    }
 }
 
 function inquireVibeWhatsApp() {
@@ -2114,5 +2193,182 @@ function openBrandCatalog(brandKey) {
     const gridHeader = document.querySelector('.products-header-left');
     if (gridHeader) {
         gridHeader.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+}
+
+// =============================================================================
+// GSAP & SCROLLTRIGGER ANIMATION ENGINE (APPEARANCES & DISAPPEARANCES)
+// =============================================================================
+function initGsapMagic() {
+    if (typeof gsap === 'undefined') return;
+
+    if (typeof ScrollTrigger !== 'undefined') {
+        gsap.registerPlugin(ScrollTrigger);
+    }
+
+    // Respect reduced motion preference
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        return;
+    }
+
+    // 1. Hero Section Ambient Entrance on Load
+    const heroTl = gsap.timeline({ defaults: { ease: 'power3.out' } });
+    if (document.querySelector('.hero-spec-ticker')) {
+        heroTl.from('.hero-spec-ticker', {
+            opacity: 0,
+            y: -12,
+            duration: 0.6,
+            delay: 0.1,
+            clearProps: 'transform,opacity'
+        });
+    }
+    if (document.querySelector('.hero-title')) {
+        heroTl.from('.hero-title', {
+            opacity: 0,
+            y: 20,
+            duration: 0.7,
+            clearProps: 'transform,opacity'
+        }, '-=0.35');
+    }
+    if (document.querySelector('.hero-footer-row')) {
+        heroTl.from('.hero-footer-row', {
+            opacity: 0,
+            y: 15,
+            duration: 0.6,
+            clearProps: 'transform,opacity'
+        }, '-=0.35');
+    }
+
+    if (typeof ScrollTrigger === 'undefined') return;
+
+    // 2. Mobile Brand Showrooms (ScrollTrigger reveal per card)
+    const showroomCards = document.querySelectorAll('.m-brand-showroom-card');
+    if (showroomCards.length > 0) {
+        showroomCards.forEach(card => {
+            gsap.fromTo(card,
+                { opacity: 0, y: 30 },
+                {
+                    opacity: 1,
+                    y: 0,
+                    duration: 0.6,
+                    ease: 'power2.out',
+                    scrollTrigger: {
+                        trigger: card,
+                        start: 'top 88%',
+                        toggleActions: 'play none none none'
+                    },
+                    clearProps: 'transform,opacity'
+                }
+            );
+        });
+    }
+
+    // 3. About Us Section Split Reveal
+    const aboutSection = document.getElementById('about');
+    if (aboutSection) {
+        const textCol = aboutSection.querySelector('.about-text-col');
+        const feedCard = aboutSection.querySelector('.about-security-feed');
+
+        if (textCol) {
+            gsap.fromTo(textCol,
+                { opacity: 0, x: -30 },
+                {
+                    opacity: 1,
+                    x: 0,
+                    duration: 0.75,
+                    ease: 'power3.out',
+                    scrollTrigger: {
+                        trigger: aboutSection,
+                        start: 'top 75%',
+                        toggleActions: 'play none none none'
+                    },
+                    clearProps: 'transform,opacity'
+                }
+            );
+        }
+
+        if (feedCard) {
+            gsap.fromTo(feedCard,
+                { opacity: 0, scale: 0.94, y: 25 },
+                {
+                    opacity: 1,
+                    scale: 1,
+                    y: 0,
+                    duration: 0.8,
+                    delay: 0.1,
+                    ease: 'power3.out',
+                    scrollTrigger: {
+                        trigger: aboutSection,
+                        start: 'top 75%',
+                        toggleActions: 'play none none none'
+                    },
+                    clearProps: 'transform,opacity'
+                }
+            );
+        }
+    }
+
+    // 4. Why Us / Manifesto 4-Card Staggered Entrance
+    const manifestoSection = document.getElementById('why-us');
+    if (manifestoSection) {
+        const header = manifestoSection.querySelector('.manifesto-header');
+        const cards = manifestoSection.querySelectorAll('.manifesto-card');
+
+        if (header) {
+            gsap.fromTo(header,
+                { opacity: 0, y: 20 },
+                {
+                    opacity: 1,
+                    y: 0,
+                    duration: 0.6,
+                    ease: 'power2.out',
+                    scrollTrigger: {
+                        trigger: manifestoSection,
+                        start: 'top 80%',
+                        toggleActions: 'play none none none'
+                    },
+                    clearProps: 'transform,opacity'
+                }
+            );
+        }
+
+        if (cards.length > 0) {
+            gsap.fromTo(cards,
+                { opacity: 0, y: 35 },
+                {
+                    opacity: 1,
+                    y: 0,
+                    duration: 0.6,
+                    stagger: 0.08,
+                    ease: 'power2.out',
+                    scrollTrigger: {
+                        trigger: '.manifesto-grid',
+                        start: 'top 82%',
+                        toggleActions: 'play none none none'
+                    },
+                    clearProps: 'transform,opacity'
+                }
+            );
+        }
+    }
+
+    // 5. Wholesale Concierge Section Reveal
+    const wholesaleSection = document.getElementById('wholesale-concierge');
+    if (wholesaleSection) {
+        gsap.fromTo(wholesaleSection,
+            { opacity: 0, y: 25 },
+            {
+                opacity: 1,
+                y: 0,
+                duration: 0.65,
+                ease: 'power2.out',
+                scrollTrigger: {
+                    trigger: wholesaleSection,
+                    start: 'top 88%',
+                    toggleActions: 'play none none none'
+                },
+                clearProps: 'transform,opacity'
+            }
+        );
     }
 }

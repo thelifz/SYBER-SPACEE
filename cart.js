@@ -207,6 +207,23 @@ function renderCart() {
             </div>
         </div>
     `;
+
+    if (typeof gsap !== 'undefined') {
+        const rows = container.querySelectorAll('.cart-item-row');
+        if (rows.length > 0) {
+            gsap.fromTo(rows,
+                { opacity: 0, y: 14 },
+                { opacity: 1, y: 0, duration: 0.35, stagger: 0.05, ease: 'power2.out', clearProps: 'transform,opacity' }
+            );
+        }
+        const summaryPanel = container.querySelector('.cart-summary-panel');
+        if (summaryPanel) {
+            gsap.fromTo(summaryPanel,
+                { opacity: 0, x: 20 },
+                { opacity: 1, x: 0, duration: 0.4, delay: 0.08, ease: 'power2.out', clearProps: 'transform,opacity' }
+            );
+        }
+    }
 }
 
 function updateItemQty(index, delta) {
@@ -250,12 +267,41 @@ function initiateHdfcCheckout(total) {
     if (modal) {
         modal.classList.add('active');
         document.body.style.overflow = 'hidden';
+
+        if (typeof gsap !== 'undefined') {
+            const card = modal.querySelector('.hdfc-card');
+            gsap.fromTo(modal, { opacity: 0 }, { opacity: 1, duration: 0.25, ease: 'power2.out' });
+            if (card) {
+                gsap.fromTo(card,
+                    { opacity: 0, scale: 0.94, y: 20 },
+                    { opacity: 1, scale: 1, y: 0, duration: 0.35, ease: 'back.out(1.2)', clearProps: 'transform,opacity' }
+                );
+            }
+        }
     }
 }
 
 function closeHdfcModal() {
     const modal = document.getElementById('hdfc-checkout-modal');
-    if (modal) {
+    if (!modal) return;
+
+    if (typeof gsap !== 'undefined') {
+        const card = modal.querySelector('.hdfc-card');
+        if (card) {
+            gsap.to(card, { opacity: 0, scale: 0.96, y: 10, duration: 0.2, ease: 'power2.in' });
+        }
+        gsap.to(modal, {
+            opacity: 0,
+            duration: 0.22,
+            ease: 'power2.in',
+            onComplete: () => {
+                modal.classList.remove('active');
+                document.body.style.overflow = '';
+                if (card) gsap.set(card, { clearProps: 'all' });
+                gsap.set(modal, { clearProps: 'all' });
+            }
+        });
+    } else {
         modal.classList.remove('active');
         document.body.style.overflow = '';
     }
