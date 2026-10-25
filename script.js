@@ -2613,3 +2613,139 @@ function slideShelf(id, direction) {
     }
 }
 window.slideShelf = slideShelf;
+
+
+// =============================================================================
+// INLINE CAMERA SELECTOR (REAL SCENARIO PHOTOGRAPHS)
+// =============================================================================
+const inlineSelectorData = {
+    farm: {
+        scenario: "Farms & Agricultural Land",
+        name: "Trueview T18291SF Smart 4G Mini PT Camera 3MP IP65",
+        badge: "4G SIM & SOLAR READY",
+        reason: "Engineered specifically for remote plots and agricultural estates without broadband cables. Works 100% independently with any 4G SIM card and solar panel input. Features 360° pan-tilt coverage and human motion tracking.",
+        chips: ["4G LTE SIM", "Solar Ready", "3MP Ultra HD", "IP65 Weatherproof", "Two-Way Audio"],
+        price: 3200,
+        priceFormatted: "₹3,200",
+        mrp: "₹5,000",
+        savings: "Save 36% • In Stock",
+        img: "assets/trueview_t18291sf_1.webp"
+    },
+    retail: {
+        scenario: "Retail Shops & Cash Counters",
+        name: "CP PLUS Ezykam CP-E21Q 2MP Pan & Tilt with LAN",
+        badge: "RETAIL & BILLING COUNTER",
+        reason: "High-reliability surveillance for shop counters and cash drawers. Features direct Ethernet LAN connectivity for zero dropouts, 360° pan-tilt viewing, micro-SD recording, and crystal-clear two-way audio for customer interactions.",
+        chips: ["Ethernet LAN Port", "360° Pan-Tilt", "1080p Full HD", "Two-Way Audio", "Micro SD Backup"],
+        price: 2035,
+        priceFormatted: "₹2,035",
+        mrp: "₹3,200",
+        savings: "Save 36% • In Stock",
+        img: "assets/cp_e21q_1.png"
+    },
+    villa: {
+        scenario: "Villas & Independent Houses",
+        name: "CP PLUS CP-Z45Q 4MP Smart Outdoor Bullet",
+        badge: "OUTDOOR PERIMETER & GATE",
+        reason: "Engineered for perimeter gates, driveways, and villa boundaries. Heavy-duty IP66 weatherproof enclosure with 4MP 2K Ultra HD resolution, infrared night vision up to 30 meters, and instant mobile push alerts.",
+        chips: ["4MP 2K Ultra HD", "IP66 Weatherproof", "30M Night Vision", "Motion Alert Siren", "H.265+ Compression"],
+        price: 3850,
+        priceFormatted: "₹3,850",
+        mrp: "₹5,500",
+        savings: "Save 30% • In Stock",
+        img: "assets/cp_z45q_1.png"
+    },
+    apartment: {
+        scenario: "Apartments & Living Rooms",
+        name: "iDADA ID-Q2i35S-TD 3MP Pan & Tilt Smart Wi-Fi Camera",
+        badge: "COMPACT 360° INDOOR",
+        reason: "Compact, whisper-quiet motorized pan-tilt Wi-Fi camera ideal for apartment living rooms, nurseries, and front entryways. Crystal-clear 3MP resolution with AI humanoid tracking and high-fidelity two-way voice speaker.",
+        chips: ["3MP 2K Resolution", "AI Humanoid Tracking", "Two-Way Talk", "IR Night Vision", "Cloud / SD Support"],
+        price: 1850,
+        priceFormatted: "₹1,850",
+        mrp: "₹3,299",
+        savings: "Save 44% • Factory Direct",
+        img: "assets/idada_q2i35s_1.jpg"
+    },
+    commercial: {
+        scenario: "Hotels & Commercial Buildings",
+        name: "Trueview 8-Port Commercial PoE Switch + 4K NVR System",
+        badge: "MULTI-CAMERA ENTERPRISE",
+        reason: "Designed for commercial facilities, hotels, and multi-tenant offices requiring 8 to 32 continuous IP camera feeds. Enterprise PoE power delivery with 2 Gigabit uplinks and centralized 4K NVR storage.",
+        chips: ["8-Port PoE + 2 Uplink", "Gigabit High-Speed", "4K NVR Compatible", "Metal Enclosure", "Surveillance Rated"],
+        price: 2350,
+        priceFormatted: "₹2,350",
+        mrp: "₹3,800",
+        savings: "Save 38% • Commercial Grade",
+        img: "assets/trueview_poe_front.jpg"
+    },
+    night: {
+        scenario: "24/7 Color Night Vision",
+        name: "CP PLUS EzyLiv EZ-P34Q 3MP Full Color Wi-Fi Camera",
+        badge: "24/7 FULL COLOR NIGHT",
+        reason: "Equipped with dual warm white LEDs and high-sensitivity optical sensor to deliver vivid, full-color surveillance footage even in pitch-black conditions. Ideal for parking bays, yards, and dimly lit perimeter zones.",
+        chips: ["Full Color Night Vision", "3MP 2K Clarity", "Dual Warm LEDs", "Smart Humanoid Alert", "Two-Way Audio"],
+        price: 2070,
+        priceFormatted: "₹2,070",
+        mrp: "₹3,299",
+        savings: "Save 37% • Vivid Color",
+        img: "assets/ez_p34q_1.png"
+    }
+};
+
+let currentInlineMatch = inlineSelectorData.farm;
+
+function selectInlineScenario(key) {
+    const match = inlineSelectorData[key];
+    if (!match) return;
+    currentInlineMatch = match;
+
+    // Update active card
+    document.querySelectorAll('.scenario-card').forEach(card => {
+        card.classList.remove('active');
+        if (card.getAttribute('data-key') === key) {
+            card.classList.add('active');
+        }
+    });
+
+    // Update panel
+    const ribbonEl = document.getElementById('selector-match-ribbon');
+    const imgEl = document.getElementById('selector-match-img');
+    const kickerEl = document.getElementById('selector-match-kicker');
+    const titleEl = document.getElementById('selector-match-title');
+    const reasonEl = document.getElementById('selector-match-reason');
+    const chipsEl = document.getElementById('selector-match-chips');
+    const priceEl = document.getElementById('selector-match-price');
+    const savingsEl = document.getElementById('selector-match-savings');
+    const cartBtn = document.getElementById('selector-btn-cart');
+    const payBtn = document.getElementById('selector-btn-pay');
+    const waBtn = document.getElementById('selector-btn-wa');
+
+    if (ribbonEl) ribbonEl.textContent = match.badge;
+    if (imgEl) {
+        imgEl.src = match.img;
+        imgEl.alt = match.name;
+    }
+    if (kickerEl) kickerEl.textContent = `BEST SOLUTION FOR: ${match.scenario.toUpperCase()}`;
+    if (titleEl) titleEl.textContent = match.name;
+    if (reasonEl) reasonEl.textContent = match.reason;
+    if (priceEl) priceEl.textContent = match.priceFormatted;
+    if (savingsEl) savingsEl.textContent = match.savings;
+
+    if (chipsEl) {
+        chipsEl.innerHTML = match.chips.map(c => `<span class="selector-match-chip">${escapeHtml(c)}</span>`).join('');
+    }
+
+    if (cartBtn) {
+        cartBtn.setAttribute('onclick', `addToCart('${escapeHtml(match.name)}', ${match.price}, '${match.img}')`);
+    }
+    if (payBtn) {
+        payBtn.setAttribute('onclick', `payNowDirect('${escapeHtml(match.name)}', ${match.price}, '${match.img}')`);
+        payBtn.innerHTML = `<span>BUY NOW • ${match.priceFormatted}</span>`;
+    }
+    if (waBtn) {
+        const msg = encodeURIComponent(`Hello Syber Space, I selected the "${match.scenario}" scenario on your website. I would like to inquire about "${match.name}" (${match.priceFormatted}). Please share quotation and delivery details.`);
+        waBtn.href = `https://wa.me/917511180808?text=${msg}`;
+    }
+}
+window.selectInlineScenario = selectInlineScenario;

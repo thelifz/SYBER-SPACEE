@@ -6,7 +6,7 @@
     <meta name="color-scheme" content="only light">
     <meta name="supported-color-schemes" content="light">
     <title>SYBER SPACE — Precision Surveillance Systems</title>
-    <link rel="stylesheet" href="style.css?v=5.8">
+    <link rel="stylesheet" href="style.css?v=5.9">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
@@ -110,6 +110,7 @@
                     <span class="deal-dot"></span> Deals &amp; Offers
                 </a>
                 <a href="#hero-viewport" class="cat-nav-link" onclick="goToSlideAndScroll(0, event)">Live Demo</a>
+                <a href="#camera-selector" class="cat-nav-link">Camera Selector</a>
                 <a href="#why-us" class="cat-nav-link">Why Syber Space</a>
                 <a href="#about" class="cat-nav-link">About Us</a>
             </div>
@@ -145,6 +146,7 @@
     <!-- Mobile Slideout Overlay -->
     <div class="mobile-menu-overlay" id="mobile-menu-overlay">
         <a href="#cameras" class="nav-item mobile-link">Cameras</a>
+        <a href="#camera-selector" class="nav-item mobile-link">Camera Selector</a>
         <a href="#hero-viewport" class="nav-item mobile-link" onclick="goToSlideAndScroll(2, event)">Deals</a>
         <a href="#hero-viewport" class="nav-item mobile-link" onclick="goToSlideAndScroll(0, event)">Live Demo</a>
         <a href="#why-us" class="nav-item mobile-link">Why Syber Space</a>
@@ -306,9 +308,9 @@
                 <a href="#cameras" class="hero-primary-btn">
                     <span>Explore Products</span>
                 </a>
-                <button type="button" class="hero-vibe-btn" onclick="openVibeCheckModal()">
+                <a href="#camera-selector" class="hero-vibe-btn" style="text-decoration: none; display: inline-flex; align-items: center; justify-content: center;">
                     <span>Camera Selector</span>
-                </button>
+                </a>
             </div>
         </div>
     </section>
@@ -915,6 +917,147 @@
     </section>
 
     <!-- ======================================================================
+         INTERACTIVE CAMERA SELECTOR SUITE (PROPERTY SCENARIOS WITH REAL IMAGES)
+         Positioned Above About Us — Instant 1-Click Engineered Recommendations
+         ====================================================================== -->
+    <section class="camera-selector-section" id="camera-selector">
+        <div class="selector-container">
+
+            <!-- Section Header -->
+            <div class="selector-header">
+                <span class="selector-kicker">INTERACTIVE CAMERA SELECTOR</span>
+                <h2 class="selector-title">Not Sure Which Camera Fits Your Space?</h2>
+                <p class="selector-desc">
+                    Tap your property type or specific surveillance requirement below to reveal the exact engineered hardware solution with direct wholesale pricing.
+                </p>
+            </div>
+
+            <!-- 6 Scenario Cards with Real Photographs -->
+            <div class="selector-scenarios-grid">
+                <!-- Scenario 1: Farm & Remote (Default Active) -->
+                <div class="scenario-card active" data-key="farm" onclick="selectInlineScenario('farm')">
+                    <span class="scenario-active-dot"></span>
+                    <div class="scenario-media">
+                        <span class="scenario-tag">NO WI-FI REQUIRED</span>
+                        <img src="assets/scenario_farm.jpg?v=3.6" alt="Farms and Agricultural Land Surveillance" class="scenario-img" loading="lazy">
+                    </div>
+                    <div class="scenario-info">
+                        <span class="scenario-title">Farms &amp; Remote Land</span>
+                        <span class="scenario-sub">4G SIM + Solar standalone setups</span>
+                    </div>
+                </div>
+
+                <!-- Scenario 2: Retail Shop & Cash Counter -->
+                <div class="scenario-card" data-key="retail" onclick="selectInlineScenario('retail')">
+                    <span class="scenario-active-dot"></span>
+                    <div class="scenario-media">
+                        <span class="scenario-tag">BILLING COUNTER</span>
+                        <img src="assets/scenario_retail.jpg?v=3.6" alt="Retail Shop and Cash Counter Surveillance" class="scenario-img" loading="lazy">
+                    </div>
+                    <div class="scenario-info">
+                        <span class="scenario-title">Retail Shops &amp; Counters</span>
+                        <span class="scenario-sub">Ultra-clear cash &amp; face monitoring</span>
+                    </div>
+                </div>
+
+                <!-- Scenario 3: Villa & House -->
+                <div class="scenario-card" data-key="villa" onclick="selectInlineScenario('villa')">
+                    <span class="scenario-active-dot"></span>
+                    <div class="scenario-media">
+                        <span class="scenario-tag">OUTDOOR PERIMETER</span>
+                        <img src="assets/scenario_villa.jpg?v=3.6" alt="Villa and Residential House Perimeter" class="scenario-img" loading="lazy">
+                    </div>
+                    <div class="scenario-info">
+                        <span class="scenario-title">Villas &amp; Homes</span>
+                        <span class="scenario-sub">Weatherproof gate &amp; perimeter view</span>
+                    </div>
+                </div>
+
+                <!-- Scenario 4: Apartment & Indoor -->
+                <div class="scenario-card" data-key="apartment" onclick="selectInlineScenario('apartment')">
+                    <span class="scenario-active-dot"></span>
+                    <div class="scenario-media">
+                        <span class="scenario-tag">COMPACT 360° PTZ</span>
+                        <img src="assets/scenario_apartment.jpg?v=3.6" alt="Apartment and Living Room Interior" class="scenario-img" loading="lazy">
+                    </div>
+                    <div class="scenario-info">
+                        <span class="scenario-title">Apartments &amp; Living Rooms</span>
+                        <span class="scenario-sub">Quiet 360° pan-tilt with 2-way talk</span>
+                    </div>
+                </div>
+
+                <!-- Scenario 5: Hotels & Commercial Buildings -->
+                <div class="scenario-card" data-key="commercial" onclick="selectInlineScenario('commercial')">
+                    <span class="scenario-active-dot"></span>
+                    <div class="scenario-media">
+                        <span class="scenario-tag">MULTI-CAMERA NVR</span>
+                        <img src="assets/scenario_commercial.jpg?v=3.6" alt="Hotels and Commercial Buildings" class="scenario-img" loading="lazy">
+                    </div>
+                    <div class="scenario-info">
+                        <span class="scenario-title">Hotels &amp; Commercial</span>
+                        <span class="scenario-sub">Gigabit PoE switches &amp; 4K NVRs</span>
+                    </div>
+                </div>
+
+                <!-- Scenario 6: 24/7 Color Night Vision -->
+                <div class="scenario-card" data-key="night" onclick="selectInlineScenario('night')">
+                    <span class="scenario-active-dot"></span>
+                    <div class="scenario-media">
+                        <span class="scenario-tag">24/7 VIVID COLOR</span>
+                        <img src="assets/scenario_night.jpg?v=3.6" alt="24/7 Color Night Vision Surveillance" class="scenario-img" loading="lazy">
+                    </div>
+                    <div class="scenario-info">
+                        <span class="scenario-title">24/7 Color Night Vision</span>
+                        <span class="scenario-sub">Low-light full-color nocturnal clarity</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Matched Result Box (Smooth Dynamic Reveal) -->
+            <div class="selector-match-panel" id="selector-match-panel">
+                <div class="selector-match-media">
+                    <span class="selector-match-ribbon" id="selector-match-ribbon">4G SIM &amp; SOLAR READY</span>
+                    <img src="assets/trueview_t18291sf_1.webp?v=3.6" alt="Trueview 4G Mini PT Camera 3MP IP65" class="selector-match-img" id="selector-match-img" loading="eager">
+                </div>
+                <div class="selector-match-content">
+                    <span class="selector-match-kicker" id="selector-match-kicker">BEST SOLUTION FOR: FARMS &amp; AGRICULTURAL LAND</span>
+                    <h3 class="selector-match-title" id="selector-match-title">Trueview T18291SF Smart 4G Mini PT Camera 3MP IP65</h3>
+                    <p class="selector-match-reason" id="selector-match-reason">
+                        Engineered specifically for remote plots and agricultural estates without broadband cables. Works 100% independently with any 4G SIM card and solar panel input. Features 360° pan-tilt coverage and human motion tracking.
+                    </p>
+                    <div class="selector-match-chips" id="selector-match-chips">
+                        <span class="selector-match-chip">4G LTE SIM</span>
+                        <span class="selector-match-chip">Solar Ready</span>
+                        <span class="selector-match-chip">3MP Ultra HD</span>
+                        <span class="selector-match-chip">IP65 Weatherproof</span>
+                        <span class="selector-match-chip">Two-Way Audio</span>
+                    </div>
+                    <div class="selector-match-price-row">
+                        <div class="selector-match-price-wrap">
+                            <span class="selector-match-price-label">WHOLESALE RATE</span>
+                            <span class="selector-match-price" id="selector-match-price">₹3,200</span>
+                        </div>
+                        <span class="selector-match-savings" id="selector-match-savings">Save 36% • In Stock</span>
+                    </div>
+                    <div class="selector-match-actions">
+                        <button type="button" class="btn-selector-cart" id="selector-btn-cart" onclick="addToCart('Trueview T18291SF Smart 4G Mini PT Camera 3MP IP65', 3200, 'assets/trueview_t18291sf_1.webp')">
+                            + ADD TO CART
+                        </button>
+                        <button type="button" class="btn-selector-pay" id="selector-btn-pay" onclick="payNowDirect('Trueview T18291SF Smart 4G Mini PT Camera 3MP IP65', 3200, 'assets/trueview_t18291sf_1.webp')">
+                            <span>BUY NOW • ₹3,200</span>
+                        </button>
+                        <a href="https://wa.me/917511180808?text=Hello%20Syber%20Space%2C%20I%20am%20inquiring%20about%20Trueview%204G%20Mini%20PT%20Camera%203MP%20IP65%20for%20Farm%20surveillance." target="_blank" rel="noopener noreferrer" class="btn-selector-wa" id="selector-btn-wa">
+                            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+                            <span>WhatsApp Quote</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ======================================================================
          ABOUT US SECTION
          ====================================================================== -->
     <section class="about-section" id="about">
@@ -1367,7 +1510,7 @@
     <!-- GSAP Animation Engine -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
     <script src="cookie-location.js?v=3.6"></script>
-    <script src="script.js?v=4.9"></script>
+    <script src="script.js?v=5.0"></script>
 
     <!-- ======================================================================
          AMAZON-STYLE MOBILE BOTTOM NAVIGATION BAR (PHONE SCREEN ONLY)
