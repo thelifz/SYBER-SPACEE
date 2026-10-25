@@ -1,6 +1,6 @@
 /* ==========================================================================
-   SYBER SPACE — Executive Studio Pure White & Black Luxury Aesthetic
-   Inspired by jeskojets.com by The First The Last
+   SYBER SPACE — Executive Studio Pure White, Deep Black & Champagne Gold
+   Official Brand Color System (Black & Champagne Gold Identity)
    ========================================================================== */
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap');
@@ -19,14 +19,22 @@
     --base-border: rgba(15, 23, 42, 0.08);
     --base-hover-tint: rgba(15, 23, 42, 0.04);
 
-    /* Executive Black & Studio Pure White Palette */
-    --calm-primary: #0f172a;           /* Authentic Charcoal Slate Black */
+    /* Executive Black & Faded Champagne Gold Palette (Company Logo Identity) */
+    --calm-primary: #0f172a;           /* Deep Obsidian Slate Black */
     --calm-primary-hover: #000000;     /* Pure Jet Black Hover */
-    --calm-primary-light: #f8fafc;     /* Clean Studio Surface Highlight */
-    --calm-primary-border: rgba(15, 23, 42, 0.22); /* Refined Hairline Border */
+    --calm-primary-light: #faf6ee;     /* Soft Luminous Champagne Tint */
+    --calm-primary-border: rgba(197, 160, 89, 0.38); /* Brushed Gold Hairline Border */
     --calm-teal: #0d9488;              /* Bright Serene Seafoam/Jade */
     --calm-teal-light: #f0fdfa;        /* Soft Mint Background */
     --calm-teal-border: #99f6e4;       /* Gentle Mint Border */
+
+    /* Faded Champagne Gold Tokens (Calm, Prestigious & Authoritative) */
+    --gold-primary: #c5a059;                   /* Brushed Champagne Gold */
+    --gold-hover: #a3823d;                     /* Deep Antique Gold */
+    --gold-light: #faf6ee;                     /* Soft Champagne Mist */
+    --gold-border: rgba(197, 160, 89, 0.38);    /* Refined Hairline Gold Border */
+    --gold-glow: rgba(197, 160, 89, 0.22);      /* Subtle Luminous Gold Glow */
+    --gold-gradient: linear-gradient(135deg, #dfc89d 0%, #c5a059 100%); /* Brushed Metallic Gold */
 
     /* Electric Precision Accent */
     --accent-blue: #1d4ed8;
@@ -225,10 +233,21 @@ a {
 .logo-text {
     font-family: var(--font-display);
     font-size: 1.25rem;
-    font-weight: 700;
+    font-weight: 800;
     letter-spacing: 0.18em;
     text-transform: uppercase;
-    color: var(--base-dark);
+    color: var(--base-dark, #0f172a);
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.logo-text .logo-gold {
+    color: var(--gold-primary, #c5a059);
+    background: var(--gold-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
 }
 
 /* Right: Direct Contact & Cart */
@@ -239,12 +258,14 @@ a {
 }
 
 .header-cta .nav-item.cart-pill {
-    background: var(--base-dark, #1b1815);
-    color: var(--base-white);
+    background: #0f172a;
+    color: #ffffff;
+    border: 1px solid var(--gold-border);
     border-radius: var(--radius-pill);
     padding: 8px 18px;
     font-weight: 600;
-    box-shadow: 0 4px 14px rgba(27, 24, 21, 0.2);
+    box-shadow: 0 4px 14px rgba(15, 23, 42, 0.16);
+    transition: var(--transition-smooth);
 }
 
 .header-cta .nav-item.cart-pill .nav-text {
@@ -252,13 +273,14 @@ a {
 }
 
 .header-cta .nav-item.cart-pill .nav-text.is-2 {
-    color: #d6d3d1;
+    color: var(--gold-primary);
 }
 
 .header-cta .nav-item.cart-pill:hover {
     background: #000000;
+    border-color: var(--gold-primary);
     transform: translateY(-1px);
-    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 6px 18px var(--gold-glow);
 }
 
 /* Mobile Hamburger Toggle */
@@ -1718,11 +1740,25 @@ a {
     text-transform: uppercase;
 }
 
-.badge-bestseller { background: var(--calm-teal, #0d9488); color: #ffffff; }
+.badge-bestseller {
+    background: #0f172a;
+    color: #dfc89d;
+    border: 1px solid rgba(197, 160, 89, 0.45);
+    box-shadow: 0 2px 6px rgba(15, 23, 42, 0.12);
+}
 .badge-discount { background: #dc2626; color: #ffffff; }
-.badge-flagship { background: var(--base-dark, #1b1815); color: #ffffff; }
-.badge-new { background: #475569; color: #ffffff; }
-.badge-popular { background: #d97706; color: #ffffff; }
+.badge-flagship {
+    background: var(--gold-gradient);
+    color: #0f172a;
+    font-weight: 850;
+    box-shadow: 0 2px 8px var(--gold-glow);
+}
+.badge-new { background: #334155; color: #ffffff; }
+.badge-popular {
+    background: #0f172a;
+    color: #dfc89d;
+    border: 1px solid rgba(197, 160, 89, 0.45);
+}
 
 .product-visual-wrap {
     position: relative;
@@ -1875,7 +1911,7 @@ a {
 }
 
 .product-rating-row .stars {
-    color: #f59e0b;
+    color: var(--gold-primary, #c5a059);
     letter-spacing: 1px;
 }
 
@@ -1946,10 +1982,10 @@ a {
 .discount-badge {
     font-size: 0.65rem;
     font-weight: 700;
-    color: var(--base-dark, #1b1815);
-    background: rgba(27, 24, 21, 0.08);
-    border: 1px solid rgba(27, 24, 21, 0.16);
-    padding: 2px 6px;
+    color: #8c6a1a;
+    background: #faf6ee;
+    border: 1px solid rgba(197, 160, 89, 0.35);
+    padding: 2px 7px;
     border-radius: 4px;
     letter-spacing: 0.02em;
 }
@@ -1988,8 +2024,8 @@ a {
 
 .btn-add-cart {
     background: #ffffff;
-    color: var(--base-dark, #1b1815);
-    border: 1.5px solid rgba(27, 24, 21, 0.25);
+    color: var(--base-dark, #0f172a);
+    border: 1.5px solid rgba(15, 23, 42, 0.18);
     height: 38px;
     padding: 0 8px;
     border-radius: 7px;
@@ -2007,17 +2043,17 @@ a {
 }
 
 .btn-add-cart:hover {
-    background: #f1f5f9;
-    border-color: #000000;
-    color: #000000;
+    background: #faf6ee;
+    border-color: var(--gold-primary, #c5a059);
+    color: #0f172a;
     transform: translateY(-1px);
-    box-shadow: 0 2px 8px rgba(15, 23, 42, 0.12);
+    box-shadow: 0 2px 8px rgba(197, 160, 89, 0.18);
 }
 
 .btn-pay-now-card {
-    background: #1b1815;
+    background: #0f172a;
     color: #ffffff;
-    border: 1px solid #1b1815;
+    border: 1px solid rgba(197, 160, 89, 0.45);
     height: 38px;
     padding: 0 10px;
     border-radius: 7px;
@@ -2032,7 +2068,7 @@ a {
     justify-content: center;
     gap: 6px;
     box-sizing: border-box;
-    box-shadow: 0 3px 12px rgba(27, 24, 21, 0.22);
+    box-shadow: 0 3px 12px rgba(15, 23, 42, 0.18);
     width: 100%;
 }
 
@@ -2045,10 +2081,10 @@ a {
 
 .btn-pay-now-card:hover {
     background: #000000;
-    border-color: #000000;
+    border-color: var(--gold-primary, #c5a059);
     color: #ffffff;
     transform: translateY(-1px);
-    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
+    box-shadow: 0 6px 18px rgba(197, 160, 89, 0.32);
 }
 
 .btn-pay-now-card:hover::after {
@@ -2474,7 +2510,7 @@ a {
 }
 
 .footer-contact-link:hover {
-    color: var(--accent-blue);
+    color: var(--gold-primary);
     transform: translateX(4px);
 }
 
@@ -4752,16 +4788,16 @@ a {
     grid-template-columns: 1fr 1fr;
     gap: 12px;
     padding: 16px 24px;
-    background: rgba(253, 251, 247, 0.98);
+    background: rgba(255, 255, 255, 0.98);
     backdrop-filter: blur(12px);
-    border-top: 1px solid rgba(27, 24, 21, 0.12);
+    border-top: 1px solid rgba(15, 23, 42, 0.08);
     flex-shrink: 0;
 }
 
 .modal-btn-cart {
     background: #ffffff;
-    color: var(--base-dark, #1b1815);
-    border: 1.5px solid rgba(27, 24, 21, 0.25);
+    color: var(--base-dark, #0f172a);
+    border: 1.5px solid rgba(15, 23, 42, 0.2);
     padding: 13px 16px;
     font-family: var(--font-mono);
     font-size: 0.82rem;
@@ -4774,16 +4810,17 @@ a {
 }
 
 .modal-btn-cart:hover {
-    background: #f1f5f9;
-    border-color: #000000;
-    color: #000000;
+    background: #faf6ee;
+    border-color: var(--gold-primary, #c5a059);
+    color: #0f172a;
     transform: translateY(-1px);
+    box-shadow: 0 2px 8px rgba(197, 160, 89, 0.18);
 }
 
 .modal-btn-paynow {
-    background: #1b1815;
+    background: #0f172a;
     color: #ffffff;
-    border: 1px solid #1b1815;
+    border: 1px solid var(--gold-border);
     padding: 13px 16px;
     font-family: var(--font-mono);
     font-size: 0.82rem;
@@ -4793,7 +4830,7 @@ a {
     cursor: pointer;
     transition: all 0.2s ease;
     text-align: center;
-    box-shadow: 0 4px 14px rgba(27, 24, 21, 0.25);
+    box-shadow: 0 4px 14px rgba(15, 23, 42, 0.2);
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -4809,9 +4846,9 @@ a {
 
 .modal-btn-paynow:hover {
     background: #000000;
-    border-color: #000000;
+    border-color: var(--gold-primary, #c5a059);
     transform: translateY(-1px);
-    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 6px 18px var(--gold-glow);
 }
 
 .modal-btn-paynow:hover::after {
@@ -5247,9 +5284,9 @@ a {
     }
 
     .ms-btn-cart {
-        background: transparent;
-        color: var(--base-dark, #1b1815);
-        border: 1px solid rgba(27, 24, 21, 0.25);
+        background: #ffffff;
+        color: var(--base-dark, #0f172a);
+        border: 1px solid rgba(15, 23, 42, 0.2);
         padding: 11px 14px;
         border-radius: var(--radius-pill, 9999px);
         font-family: var(--font-mono, monospace);
@@ -5261,13 +5298,14 @@ a {
     }
 
     .ms-btn-cart:active {
-        background: rgba(27, 24, 21, 0.06);
+        background: #faf6ee;
+        border-color: var(--gold-primary);
     }
 
     .ms-btn-pay {
-        background: var(--base-dark, #1b1815);
+        background: #0f172a;
         color: #ffffff;
-        border: none;
+        border: 1px solid var(--gold-border);
         padding: 11px 20px;
         border-radius: var(--radius-pill, 9999px);
         font-family: var(--font-mono, monospace);
@@ -5276,7 +5314,12 @@ a {
         letter-spacing: 0.08em;
         cursor: pointer;
         white-space: nowrap;
-        box-shadow: 0 4px 12px rgba(27, 24, 21, 0.2);
+        box-shadow: 0 4px 12px rgba(15, 23, 42, 0.2);
+    }
+
+    .ms-btn-pay:hover {
+        background: #000000;
+        border-color: var(--gold-primary);
     }
 
     .ms-btn-pay:active {
@@ -5600,14 +5643,15 @@ a {
 }
 
 .text-pill.active {
-    background: var(--base-dark, #1b1815);
+    background: #0f172a;
     color: #ffffff;
-    border-color: var(--base-dark, #1b1815);
-    box-shadow: 0 4px 14px rgba(27, 24, 21, 0.2);
+    border-color: var(--gold-border);
+    box-shadow: 0 4px 14px rgba(15, 23, 42, 0.16), 0 0 0 1px rgba(197, 160, 89, 0.25);
 }
 
 .text-pill.active:hover {
     background: #000000;
+    border-color: var(--gold-primary);
 }
 
 /* About Us Section: Clean Studio Hardware Card (Zero Video) */

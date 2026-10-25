@@ -4,22 +4,25 @@ This file preserves all active and historical color palettes used in the Syber S
 
 ---
 
-## 1. Active Theme: Executive Pure White & Sleek Slate Black
-Designed for **clean corporate authority**, high-legibility executive typography, and pristine contrast for **both residential homeowners and enterprise commercial clients**.
+## 1. Active Theme: Executive Pure White Canvas with Deep Obsidian Black & Faded Champagne Gold
+Aligned directly with the **Company Logo Identity (Black & Gold)**. Designed for **calm corporate prestige**, clean daylight readability for homeowners, and executive credibility for commercial enterprise clients.
 
 ### Typography
-- **Display & Headlines:** `Plus Jakarta Sans` (`font-weight: 600, 700, 800`) — high-prestige, clean, modern executive geometry.
-- **Body & Technical Specs:** `Inter` (`font-weight: 400, 500, 600, 700`) — industry standard clarity and readability.
+- **Display & Headlines:** `Plus Jakarta Sans` (`font-weight: 600, 700, 800`) — high-prestige, clean modern executive geometry.
+- **Body & Technical Specs:** `Inter` (`font-weight: 400, 500, 600, 700, 800`) — industry standard clarity and readability.
 
-### Colors
+### Colors & Tokens
 | Element | Hex Code | RGB | CSS Variable / Class | Visual Role |
 | :--- | :--- | :--- | :--- | :--- |
 | **Pure White Background** | `#ffffff` | `255, 255, 255` | `--base-bg` / `--base-surface` / `html, body` | Main canvas background, product card container fill |
-| **Studio Cool White Surface** | `#f8fafc` | `248, 250, 252` | `--calm-primary-light` / `.product-visual-wrap` | Cool neutral studio backdrop for camera hardware |
-| **Executive Slate Black** | `#0f172a` | `15, 23, 42` | `--base-dark` / `--calm-primary` / `.btn-pay-now-card` | Primary PAY NOW action buttons, header cart pill, main headlines |
+| **Studio Cool White Surface** | `#f8fafc` | `248, 250, 252` | `.product-visual-wrap` / drawer header | Cool neutral studio backdrop for camera hardware |
+| **Deep Obsidian Slate Black** | `#0f172a` | `15, 23, 42` | `--base-dark` / `--calm-primary` / `.btn-pay-now-card` | Primary PAY NOW action buttons, header cart pill, main headlines |
 | **Pure Jet Black** | `#000000` | `0, 0, 0` | `.btn-pay-now-card:hover` / `.text-pill.active:hover` | High-contrast hover states, active button elevation |
-| **Cool Gray Neutral Hover** | `#f1f5f9` | `241, 245, 249` | `.btn-add-cart:hover` / `.text-pill:hover` | Crisp, clean slate hover tint for secondary actions |
-| **Hairline Slate Border** | `rgba(15, 23, 42, 0.08)` | — | `--base-border` | Razor-sharp subtle borders around cards and navigation |
+| **Faded Champagne Gold** | `#c5a059` | `197, 160, 89` | `--gold-primary` / `.logo-gold` / `.stars` | Company logo signature, rating stars, flagship badges |
+| **Champagne Starlight Gradient**| `#dfc89d` to `#c5a059`| — | `--gold-gradient` | Brushed metallic foil for logo and flagship ribbons |
+| **Champagne Mist Background** | `#faf6ee` | `250, 246, 238` | `--gold-light` / `.discount-badge` | Soft calm background for savings chips and button hovers |
+| **Brushed Gold Hairline** | `rgba(197, 160, 89, 0.38)` | — | `--gold-border` | Delicate gold perimeter on black action buttons & cart pill |
+| **Luminous Gold Glow** | `rgba(197, 160, 89, 0.22)` | — | `--gold-glow` | Refined button hover elevation glow |
 | **Muted Slate Gray Text** | `#475569` | `71, 85, 105` | `--base-dark-muted` | Product brand tags, card descriptions, specifications |
 | **Cool Gray 500** | `#64748b` | `100, 116, 139` | `--base-gray-500` | MRP strikethroughs, timestamp labels |
 
@@ -64,20 +67,7 @@ Designed for **clean corporate authority**, high-legibility executive typography
 
 ---
 
-## 5. Legacy Cyber / Terminal Accents
-*High-contrast green and blue accents used in the initial prototype.*
-
-| Element | Hex Code | RGB | Original Usage | Reason Replaced |
-| :--- | :--- | :--- | :--- | :--- |
-| **Electric Emerald** | `#10b981` | `16, 185, 129` | Filter accent bar, checkbox active fills, live HUD dot | Too aggressive/crypto-like; lacked executive tranquility |
-| **Deep Forest Green** | `#059669` | `5, 150, 105` | Bestseller badges, reset links, WhatsApp highlights | High contrast against ivory |
-| **Dark Forest Green** | `#047857` | `4, 120, 87` | Link hover states | Replaced by sky blue |
-| **Electric Precision Blue** | `#1d4ed8` | `29, 78, 216` | Flagship badges, interactive links | Replaced by softer sky blue (`#0284c7`) |
-| **Royal Blue** | `#2563eb` | `37, 99, 235` | Secondary blue links | Preserved as optional blue tone |
-
----
-
-## 6. Bank Rails & Verified Third-Party Colors
+## 5. Bank Rails & Verified Third-Party Colors
 *Mandatory official brand colors for payment gateway and legal compliance.*
 
 | Entity | Hex Code | Purpose |
