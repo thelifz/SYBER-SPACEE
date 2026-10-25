@@ -8,13 +8,13 @@ let CART = [];
 let CURRENT_MODAL_BRAND = '';
 let CURRENT_BRAND_PRODUCTS = [];
 
-// 4 Core Accessories Data for Tile 4 Interactive Switcher
+// 4 Core Accessories Data for Tile 4 Interactive Switcher (Official Product Imagery)
 const ACCESSORY_PREVIEWS = [
     {
         id: 'cctv-smps-power-supply-12v-10a',
         category: '12V 10A CCTV SMPS POWER SUPPLY',
         title: 'Syber Space 12V 10A CCTV SMPS Power Supply',
-        img: 'assets/cctv_smps_power_supply.jpg',
+        img: 'assets/official_accessory_smps_10a.png',
         price: '₹850',
         mrp: '₹1,499',
         feats: [
@@ -28,7 +28,7 @@ const ACCESSORY_PREVIEWS = [
         id: 'cctv-surveillance-hard-drive-4tb',
         category: 'SEAGATE SKYHAWK 4TB SURVEILLANCE HDD',
         title: 'Seagate SkyHawk 4TB 24/7 Surveillance Grade HDD',
-        img: 'assets/cctv_surveillance_hdd.jpg',
+        img: 'assets/official_accessory_hdd_skyhawk.png',
         price: '₹5,400',
         mrp: '₹8,999',
         feats: [
@@ -42,7 +42,7 @@ const ACCESSORY_PREVIEWS = [
         id: 'cctv-cat6-pure-copper-cable-305m',
         category: 'ULTRA-LINK PURE COPPER CAT6 305M REEL',
         title: 'Ultra-Link Pure Copper Cat6 305M Network Reel',
-        img: 'assets/cctv_cat6_cable_drum.jpg',
+        img: 'assets/official_accessory_cat6_cable.png',
         price: '₹4,200',
         mrp: '₹6,999',
         feats: [
@@ -56,7 +56,7 @@ const ACCESSORY_PREVIEWS = [
         id: 'cctv-weatherproof-junction-box-ip66',
         category: 'WEATHERPROOF IP66 CAMERA JUNCTION BOX',
         title: 'Weatherproof IP66 Round CCTV Deep Base Box',
-        img: 'assets/cctv_junction_box.jpg',
+        img: 'assets/official_accessory_junction_box.png',
         price: '₹180',
         mrp: '₹350',
         feats: [

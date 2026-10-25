@@ -955,7 +955,7 @@ const SYBER_PRODUCTS = [
       "Surge Protection"
     ],
     "images": [
-      "assets/cctv_smps_power_supply.jpg"
+      "assets/official_accessory_smps_10a.png"
     ]
   },
   {
@@ -976,7 +976,7 @@ const SYBER_PRODUCTS = [
       "SATA 6Gb/s"
     ],
     "images": [
-      "assets/cctv_surveillance_hdd.jpg"
+      "assets/official_accessory_hdd_skyhawk.png"
     ]
   },
   {
@@ -997,7 +997,7 @@ const SYBER_PRODUCTS = [
       "PoE+ Certified"
     ],
     "images": [
-      "assets/cctv_cat6_cable_drum.jpg"
+      "assets/official_accessory_cat6_cable.png"
     ]
   },
   {
@@ -1018,7 +1018,7 @@ const SYBER_PRODUCTS = [
       "Universal Dome/Bullet"
     ],
     "images": [
-      "assets/cctv_junction_box.jpg"
+      "assets/official_accessory_junction_box.png"
     ]
   }
 ];
