@@ -1,25 +1,24 @@
 /**
  * SYBER SPACE // AUTHORIZED WHOLESALE SURVEILLANCE
- * E-COMMERCE ENGINE, YOUTUBE-STYLE SEARCH & HERO SLIDER CONTROLLER
+ * BRAND BESTSELLER ENGINE, YOUTUBE-STYLE SEARCH & BRAND CATALOG MODAL
  */
 
-// Global Cart State
+// Global Cart & Brand Modal State
 let CART = [];
+let CURRENT_MODAL_BRAND = '';
+let CURRENT_BRAND_PRODUCTS = [];
 
 document.addEventListener('DOMContentLoaded', () => {
     // 1. Initialize Cart from LocalStorage
     initCartState();
 
-    // 2. Initialize Hero Bestseller Slider (Screenshot 1)
+    // 2. Initialize Hero Bestseller Slider
     initHeroSlider();
 
     // 3. Initialize YouTube Search Engine
     initYouTubeSearch();
 
-    // 4. Render Product Catalog
-    initProductCatalog();
-
-    // 5. Initialize GSAP & Scroll Interactions
+    // 4. Initialize GSAP & Scroll Interactions
     if (typeof gsap !== 'undefined') {
         if (typeof ScrollTrigger !== 'undefined') {
             gsap.registerPlugin(ScrollTrigger);
@@ -27,7 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
         initGsapAnimations();
     }
 
-    // 6. Marquee Scroll Boost
+    // 5. Marquee Scroll Boost
     initMarqueeScrollBoost();
 });
 
@@ -36,7 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
    ========================================================================== */
 function initCartState() {
     try {
-        const stored = localStorage.getItem('syber_cart_v10');
+        const stored = localStorage.getItem('syber_cart_v11');
         if (stored) {
             CART = JSON.parse(stored);
         }
@@ -54,7 +53,7 @@ function initCartState() {
 
 function saveCartState() {
     try {
-        localStorage.setItem('syber_cart_v10', JSON.stringify(CART));
+        localStorage.setItem('syber_cart_v11', JSON.stringify(CART));
     } catch (e) {}
     updateCartUI();
 }
@@ -166,7 +165,7 @@ function updateCartUI() {
             <div class="cart-empty-state">
                 <div class="cart-empty-icon">&#128722;</div>
                 <p>Your wholesale cart is empty.</p>
-                <a href="#catalog" class="btn-card-add" onclick="closeCartDrawer()" style="display:inline-block; max-width:200px; text-align:center;">BROWSE CATALOG</a>
+                <a href="#brands" class="btn-co-add-cart" onclick="closeCartDrawer()" style="display:inline-block; max-width:200px; text-align:center;">BROWSE BESTSELLERS</a>
             </div>
         `;
         return;
@@ -249,30 +248,22 @@ function showToast(message) {
 }
 
 /* ==========================================================================
-   2. HERO BESTSELLER SLIDER CONTROLLER (MATCHING SCREENSHOT 1)
+   2. HERO BESTSELLER SLIDER CONTROLLER
    ========================================================================== */
 function initHeroSlider() {
     const slides = document.querySelectorAll('.hero-slide');
-    const prevBtn = document.getElementById('hero-prev-btn');
-    const nextBtn = document.getElementById('hero-next-btn');
-    const activeNum = document.getElementById('active-slide-num');
-    const totalNum = document.getElementById('total-slide-num');
-    const progressBar = document.getElementById('hero-timer-bar');
     const frame = document.querySelector('.hero-slider-frame');
 
     if (!slides.length) return;
 
     let currentIndex = 0;
     const totalSlides = slides.length;
-    if (totalNum) totalNum.textContent = String(totalSlides).padStart(2, '0');
-
     const DURATION = 6000;
     let startTime = performance.now();
     let isPaused = false;
     let animFrame = null;
 
     function goToSlide(index) {
-        // Pause previous video
         const prevVideo = slides[currentIndex].querySelector('video');
         if (prevVideo) prevVideo.pause();
 
@@ -282,15 +273,10 @@ function initHeroSlider() {
         const nextSlide = slides[currentIndex];
         nextSlide.classList.add('active');
 
-        // Play active video if present
         const nextVideo = nextSlide.querySelector('video');
         if (nextVideo) {
             nextVideo.currentTime = 0;
             nextVideo.play().catch(() => {});
-        }
-
-        if (activeNum) {
-            activeNum.textContent = String(currentIndex + 1).padStart(2, '0');
         }
 
         startTime = performance.now();
@@ -300,20 +286,9 @@ function initHeroSlider() {
         goToSlide(currentIndex + 1);
     }
 
-    function prevSlide() {
-        goToSlide(currentIndex - 1);
-    }
-
-    if (nextBtn) nextBtn.addEventListener('click', nextSlide);
-    if (prevBtn) prevBtn.addEventListener('click', prevSlide);
-
-    // Progress Loop
     function loop(now) {
         if (!isPaused) {
             const elapsed = now - startTime;
-            const progress = Math.min((elapsed / DURATION) * 100, 100);
-            if (progressBar) progressBar.style.width = `${progress}%`;
-
             if (elapsed >= DURATION) {
                 nextSlide();
                 return;
@@ -334,7 +309,96 @@ function initHeroSlider() {
 }
 
 /* ==========================================================================
-   3. YOUTUBE-STYLE LIVE SEARCH ENGINE
+   3. COMPANY BRAND CATALOG MODAL ENGINE
+   (Triggered by "EXPLORE ALL PRODUCTS OF [COMPANY] →")
+   ========================================================================== */
+function openBrandModal(brandName) {
+    if (typeof SYBER_PRODUCTS === 'undefined') return;
+
+    CURRENT_MODAL_BRAND = brandName;
+    const modal = document.getElementById('brand-modal');
+    const overlay = document.getElementById('brand-modal-overlay');
+    const titleEl = document.getElementById('bm-brand-title');
+    const countEl = document.getElementById('bm-product-count');
+    const searchInput = document.getElementById('bm-search-input');
+
+    if (searchInput) searchInput.value = '';
+
+    // Filter products matching this company
+    const normalizedTarget = brandName.toUpperCase().replace(/\s+/g, '');
+    CURRENT_BRAND_PRODUCTS = SYBER_PRODUCTS.filter(p => {
+        const b = (p.brand || '').toUpperCase().replace(/\s+/g, '');
+        return b === normalizedTarget;
+    });
+
+    const displayBrand = (brandName === 'CPPLUS' || brandName === 'CP PLUS') ? 'CP PLUS' : brandName;
+    if (titleEl) titleEl.textContent = `ALL PRODUCTS OF ${displayBrand}`;
+    if (countEl) countEl.textContent = `${CURRENT_BRAND_PRODUCTS.length} CERTIFIED WHOLESALE MODELS`;
+
+    renderBrandModalItems(CURRENT_BRAND_PRODUCTS);
+
+    if (modal) modal.classList.add('active');
+    if (overlay) overlay.classList.add('active');
+    document.body.style.overflow = 'hidden';
+}
+
+function closeBrandModal() {
+    const modal = document.getElementById('brand-modal');
+    const overlay = document.getElementById('brand-modal-overlay');
+    if (modal) modal.classList.remove('active');
+    if (overlay) overlay.classList.remove('active');
+    document.body.style.overflow = '';
+}
+
+function filterBrandModalProducts() {
+    const searchInput = document.getElementById('bm-search-input');
+    const query = (searchInput ? searchInput.value : '').trim().toLowerCase();
+
+    if (!query) {
+        renderBrandModalItems(CURRENT_BRAND_PRODUCTS);
+        return;
+    }
+
+    const filtered = CURRENT_BRAND_PRODUCTS.filter(p => {
+        const title = (p.title || '').toLowerCase();
+        const desc = (p.desc || '').toLowerCase();
+        const cat = (p.category || '').toLowerCase();
+        return title.includes(query) || desc.includes(query) || cat.includes(query);
+    });
+
+    renderBrandModalItems(filtered);
+}
+
+function renderBrandModalItems(products) {
+    const container = document.getElementById('bm-products-container');
+    if (!container) return;
+
+    if (!products || products.length === 0) {
+        container.innerHTML = `
+            <div style="grid-column: 1 / -1; padding: 3rem 1rem; text-align: center; color: var(--c-muted);">
+                No models found matching your search in this brand.
+            </div>
+        `;
+        return;
+    }
+
+    container.innerHTML = products.map(p => {
+        const img = (p.images && p.images.length > 0) ? p.images[0] : 'assets/idada_q2i35s_1.jpg';
+        return `
+            <div class="bm-item-card">
+                <img src="${img}" alt="${p.title}" class="bm-item-img" loading="lazy" onerror="this.src='assets/idada_q2i35s_1.jpg'">
+                <h4 class="bm-item-title" title="${p.title}">${p.title}</h4>
+                <div class="bm-item-price-row">
+                    <span class="bm-item-price">&#8377;${Number(p.price).toLocaleString('en-IN')}</span>
+                    <button type="button" class="btn-bm-add" onclick="addToCartById('${p.id}')">[ + ADD ]</button>
+                </div>
+            </div>
+        `;
+    }).join('');
+}
+
+/* ==========================================================================
+   4. YOUTUBE-STYLE LIVE SEARCH ENGINE
    ========================================================================== */
 function initYouTubeSearch() {
     const input = document.getElementById('yt-search-input');
@@ -355,7 +419,6 @@ function initYouTubeSearch() {
             return;
         }
 
-        // Search through products
         const matches = SYBER_PRODUCTS.filter(p => {
             const title = (p.title || '').toLowerCase();
             const brand = (p.brand || '').toLowerCase();
@@ -376,7 +439,7 @@ function initYouTubeSearch() {
             resultsContainer.innerHTML = matches.map(p => {
                 const img = (p.images && p.images.length > 0) ? p.images[0] : 'assets/idada_q2i35s_1.jpg';
                 return `
-                    <div class="dropdown-item" onclick="selectSearchItem('${p.id}')">
+                    <div class="dropdown-item" onclick="handleSearchSelect('${p.id}', '${p.brand}')">
                         <div class="di-left">
                             <img src="${img}" alt="${p.title}" class="di-thumb" onerror="this.src='assets/idada_q2i35s_1.jpg'">
                             <div class="di-info">
@@ -401,21 +464,36 @@ function initYouTubeSearch() {
             input.value = '';
             clearBtn.style.display = 'none';
             if (dropdown) dropdown.style.display = 'none';
-            clearCatalogSearch();
         });
     }
 
-    // Submit form (Enter key) filters catalog
     if (form) {
         form.addEventListener('submit', (e) => {
             e.preventDefault();
-            const query = input.value.trim();
+            const query = input.value.trim().toLowerCase();
+            if (!query) return;
+
             if (dropdown) dropdown.style.display = 'none';
-            filterCatalogBySearch(query);
+
+            // If query matches a company brand, open that company's modal directly
+            if (query.includes('trueview')) {
+                openBrandModal('TRUEVIEW');
+            } else if (query.includes('cp plus') || query.includes('cpplus')) {
+                openBrandModal('CPPLUS');
+            } else if (query.includes('idada')) {
+                openBrandModal('IDADA');
+            } else {
+                // Open first matching brand or Trueview
+                const firstMatch = SYBER_PRODUCTS.find(p => (p.title || '').toLowerCase().includes(query));
+                if (firstMatch && firstMatch.brand) {
+                    openBrandModal(firstMatch.brand);
+                } else {
+                    openBrandModal('TRUEVIEW');
+                }
+            }
         });
     }
 
-    // Close dropdown on outside click
     document.addEventListener('click', (e) => {
         if (dropdown && !e.target.closest('.yt-search-container')) {
             dropdown.style.display = 'none';
@@ -423,140 +501,42 @@ function initYouTubeSearch() {
     });
 }
 
-function selectSearchItem(productId) {
+function handleSearchSelect(productId, brand) {
     const dropdown = document.getElementById('search-dropdown');
     if (dropdown) dropdown.style.display = 'none';
-    filterCatalogBySearch(productId);
-}
-
-/* ==========================================================================
-   4. PRODUCT CATALOG DYNAMIC RENDERER
-   ========================================================================== */
-let CURRENT_CATEGORY = 'all';
-let SEARCH_QUERY = '';
-
-function initProductCatalog() {
-    renderCatalogGrid();
-
-    // Category Tabs
-    const tabBtns = document.querySelectorAll('.cat-tab-btn');
-    tabBtns.forEach(btn => {
-        btn.addEventListener('click', () => {
-            tabBtns.forEach(b => b.classList.remove('active'));
-            btn.classList.add('active');
-            CURRENT_CATEGORY = btn.getAttribute('data-cat');
-            renderCatalogGrid();
-        });
-    });
-}
-
-function filterCatalogBySearch(query) {
-    SEARCH_QUERY = (query || '').toLowerCase();
-    const statusBar = document.getElementById('search-status-bar');
-    const label = document.getElementById('search-query-label');
-
-    if (statusBar && label) {
-        if (SEARCH_QUERY) {
-            statusBar.style.display = 'flex';
-            label.textContent = query;
-        } else {
-            statusBar.style.display = 'none';
-        }
-    }
-
-    renderCatalogGrid();
-
-    // Scroll smoothly to catalog
-    const catalogEl = document.getElementById('catalog');
-    if (catalogEl) {
-        catalogEl.scrollIntoView({ behavior: 'smooth' });
-    }
-}
-
-function clearCatalogSearch() {
-    SEARCH_QUERY = '';
-    const statusBar = document.getElementById('search-status-bar');
-    const input = document.getElementById('yt-search-input');
-    const clearBtn = document.getElementById('search-clear-btn');
-
-    if (statusBar) statusBar.style.display = 'none';
-    if (input) input.value = '';
-    if (clearBtn) clearBtn.style.display = 'none';
-
-    renderCatalogGrid();
-}
-
-function renderCatalogGrid() {
-    const grid = document.getElementById('products-grid');
-    if (!grid || typeof SYBER_PRODUCTS === 'undefined') return;
-
-    let filtered = SYBER_PRODUCTS;
-
-    // Filter by category
-    if (CURRENT_CATEGORY !== 'all') {
-        filtered = filtered.filter(p => (p.category || '').toLowerCase() === CURRENT_CATEGORY.toLowerCase());
-    }
-
-    // Filter by search query
-    if (SEARCH_QUERY) {
-        filtered = filtered.filter(p => {
-            const title = (p.title || '').toLowerCase();
-            const brand = (p.brand || '').toLowerCase();
-            const cat = (p.category || '').toLowerCase();
-            const desc = (p.desc || '').toLowerCase();
-            const id = (p.id || '').toLowerCase();
-            return title.includes(SEARCH_QUERY) || brand.includes(SEARCH_QUERY) || cat.includes(SEARCH_QUERY) || desc.includes(SEARCH_QUERY) || id === SEARCH_QUERY;
-        });
-    }
-
-    if (filtered.length === 0) {
-        grid.innerHTML = `
-            <div style="grid-column: 1 / -1; padding: 4rem 1rem; text-align: center; color: var(--c-muted);">
-                <h3>No wholesale hardware found matching criteria.</h3>
-                <button type="button" class="btn-card-add" onclick="clearCatalogSearch()" style="margin-top: 1rem; display: inline-block; max-width: 200px;">VIEW ALL PRODUCTS</button>
-            </div>
-        `;
-        return;
-    }
-
-    grid.innerHTML = filtered.map(p => {
-        const img = (p.images && p.images.length > 0) ? p.images[0] : 'assets/idada_q2i35s_1.jpg';
-        const chipsHtml = (p.chips || []).slice(0, 3).map(c => `<span class="pchip">${c}</span>`).join('');
-        const badgeHtml = p.badge ? `<span class="pcard-badge">${p.badge}</span>` : '';
-        const mrpHtml = p.mrp ? `<span class="pcard-mrp">${p.mrp}</span>` : '';
-
-        return `
-            <div class="product-card" data-id="${p.id}">
-                <div class="pcard-img-box">
-                    ${badgeHtml}
-                    <span class="pcard-brand">${p.brand || 'SURVEILLANCE'}</span>
-                    <img src="${img}" alt="${p.title}" class="pcard-img" loading="lazy" onerror="this.src='assets/idada_q2i35s_1.jpg'">
-                </div>
-                <div class="pcard-info">
-                    <h3 class="pcard-title" title="${p.title}">${p.title}</h3>
-                    <div class="pcard-chips">${chipsHtml}</div>
-                    <div class="pcard-pricing-row">
-                        <div class="pcard-price-group">
-                            <span class="pcard-wholesale-lbl">WHOLESALE</span>
-                            <span class="pcard-price">&#8377;${Number(p.price).toLocaleString('en-IN')}</span>
-                        </div>
-                        ${mrpHtml}
-                    </div>
-                    <div class="pcard-actions">
-                        <button type="button" class="btn-card-add" onclick="addToCartById('${p.id}')">[ ADD TO CART ]</button>
-                    </div>
-                </div>
-            </div>
-        `;
-    }).join('');
+    openBrandModal(brand);
 }
 
 /* ==========================================================================
    5. GSAP 3 ANIMATIONS & SCROLL INTERACTIONS
-   ========================================================================= */
+   ========================================================================== */
 function initGsapAnimations() {
-    // ScrollTrigger Wholesale Tiers
     if (typeof ScrollTrigger !== 'undefined') {
+        gsap.from('.showcase-header-bar', {
+            scrollTrigger: {
+                trigger: '.company-showcase-section',
+                start: 'top 80%',
+                toggleActions: 'play none none none'
+            },
+            duration: 0.8,
+            opacity: 0,
+            y: 30,
+            ease: 'power3.out'
+        });
+
+        gsap.from('.company-card', {
+            scrollTrigger: {
+                trigger: '.company-cards-grid',
+                start: 'top 80%',
+                toggleActions: 'play none none none'
+            },
+            duration: 0.8,
+            opacity: 0,
+            y: 40,
+            stagger: 0.15,
+            ease: 'power3.out'
+        });
+
         gsap.from('.wholesale-intro-header', {
             scrollTrigger: {
                 trigger: '.observe-wholesale-section',
@@ -582,7 +562,6 @@ function initGsapAnimations() {
             ease: 'power3.out'
         });
 
-        // ScrollTrigger Procurement Hotline
         gsap.from('.procurement-box', {
             scrollTrigger: {
                 trigger: '.observe-contact-section',
