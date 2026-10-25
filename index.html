@@ -6,7 +6,7 @@
     <meta name="color-scheme" content="only light">
     <meta name="supported-color-schemes" content="light">
     <title>SYBER SPACE — Precision Surveillance Systems</title>
-    <link rel="stylesheet" href="style.css?v=5.9">
+    <link rel="stylesheet" href="style.css?v=6.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
@@ -935,8 +935,8 @@
             <!-- 6 Scenario Cards with Real Photographs -->
             <div class="selector-scenarios-grid">
                 <!-- Scenario 1: Farm & Remote (Default Active) -->
-                <div class="scenario-card active" data-key="farm" onclick="selectInlineScenario('farm')">
-                    <span class="scenario-active-dot"></span>
+                <div class="scenario-card active" data-key="farm" onclick="selectInlineScenario('farm')" role="button" tabindex="0" aria-label="Farm and Agricultural Land surveillance setup">
+                    <span class="scenario-active-badge">SELECTED</span>
                     <div class="scenario-media">
                         <span class="scenario-tag">NO WI-FI REQUIRED</span>
                         <img src="assets/scenario_farm.jpg?v=3.6" alt="Farms and Agricultural Land Surveillance" class="scenario-img" loading="lazy">
@@ -944,12 +944,13 @@
                     <div class="scenario-info">
                         <span class="scenario-title">Farms &amp; Remote Land</span>
                         <span class="scenario-sub">4G SIM + Solar standalone setups</span>
+                        <span class="scenario-cta">VIEW HARDWARE &darr;</span>
                     </div>
                 </div>
 
                 <!-- Scenario 2: Retail Shop & Cash Counter -->
-                <div class="scenario-card" data-key="retail" onclick="selectInlineScenario('retail')">
-                    <span class="scenario-active-dot"></span>
+                <div class="scenario-card" data-key="retail" onclick="selectInlineScenario('retail')" role="button" tabindex="0" aria-label="Retail Shop and Cash Counter surveillance setup">
+                    <span class="scenario-active-badge">SELECTED</span>
                     <div class="scenario-media">
                         <span class="scenario-tag">BILLING COUNTER</span>
                         <img src="assets/scenario_retail.jpg?v=3.6" alt="Retail Shop and Cash Counter Surveillance" class="scenario-img" loading="lazy">
@@ -957,12 +958,13 @@
                     <div class="scenario-info">
                         <span class="scenario-title">Retail Shops &amp; Counters</span>
                         <span class="scenario-sub">Ultra-clear cash &amp; face monitoring</span>
+                        <span class="scenario-cta">VIEW HARDWARE &darr;</span>
                     </div>
                 </div>
 
                 <!-- Scenario 3: Villa & House -->
-                <div class="scenario-card" data-key="villa" onclick="selectInlineScenario('villa')">
-                    <span class="scenario-active-dot"></span>
+                <div class="scenario-card" data-key="villa" onclick="selectInlineScenario('villa')" role="button" tabindex="0" aria-label="Villa and Residential House Perimeter surveillance setup">
+                    <span class="scenario-active-badge">SELECTED</span>
                     <div class="scenario-media">
                         <span class="scenario-tag">OUTDOOR PERIMETER</span>
                         <img src="assets/scenario_villa.jpg?v=3.6" alt="Villa and Residential House Perimeter" class="scenario-img" loading="lazy">
@@ -970,12 +972,13 @@
                     <div class="scenario-info">
                         <span class="scenario-title">Villas &amp; Homes</span>
                         <span class="scenario-sub">Weatherproof gate &amp; perimeter view</span>
+                        <span class="scenario-cta">VIEW HARDWARE &darr;</span>
                     </div>
                 </div>
 
                 <!-- Scenario 4: Apartment & Indoor -->
-                <div class="scenario-card" data-key="apartment" onclick="selectInlineScenario('apartment')">
-                    <span class="scenario-active-dot"></span>
+                <div class="scenario-card" data-key="apartment" onclick="selectInlineScenario('apartment')" role="button" tabindex="0" aria-label="Apartment and Living Room Interior surveillance setup">
+                    <span class="scenario-active-badge">SELECTED</span>
                     <div class="scenario-media">
                         <span class="scenario-tag">COMPACT 360° PTZ</span>
                         <img src="assets/scenario_apartment.jpg?v=3.6" alt="Apartment and Living Room Interior" class="scenario-img" loading="lazy">
@@ -983,12 +986,13 @@
                     <div class="scenario-info">
                         <span class="scenario-title">Apartments &amp; Living Rooms</span>
                         <span class="scenario-sub">Quiet 360° pan-tilt with 2-way talk</span>
+                        <span class="scenario-cta">VIEW HARDWARE &darr;</span>
                     </div>
                 </div>
 
                 <!-- Scenario 5: Hotels & Commercial Buildings -->
-                <div class="scenario-card" data-key="commercial" onclick="selectInlineScenario('commercial')">
-                    <span class="scenario-active-dot"></span>
+                <div class="scenario-card" data-key="commercial" onclick="selectInlineScenario('commercial')" role="button" tabindex="0" aria-label="Hotels and Commercial Buildings surveillance setup">
+                    <span class="scenario-active-badge">SELECTED</span>
                     <div class="scenario-media">
                         <span class="scenario-tag">MULTI-CAMERA NVR</span>
                         <img src="assets/scenario_commercial.jpg?v=3.6" alt="Hotels and Commercial Buildings" class="scenario-img" loading="lazy">
@@ -996,12 +1000,13 @@
                     <div class="scenario-info">
                         <span class="scenario-title">Hotels &amp; Commercial</span>
                         <span class="scenario-sub">Gigabit PoE switches &amp; 4K NVRs</span>
+                        <span class="scenario-cta">VIEW HARDWARE &darr;</span>
                     </div>
                 </div>
 
                 <!-- Scenario 6: 24/7 Color Night Vision -->
-                <div class="scenario-card" data-key="night" onclick="selectInlineScenario('night')">
-                    <span class="scenario-active-dot"></span>
+                <div class="scenario-card" data-key="night" onclick="selectInlineScenario('night')" role="button" tabindex="0" aria-label="24/7 Color Night Vision surveillance setup">
+                    <span class="scenario-active-badge">SELECTED</span>
                     <div class="scenario-media">
                         <span class="scenario-tag">24/7 VIVID COLOR</span>
                         <img src="assets/scenario_night.jpg?v=3.6" alt="24/7 Color Night Vision Surveillance" class="scenario-img" loading="lazy">
@@ -1009,12 +1014,17 @@
                     <div class="scenario-info">
                         <span class="scenario-title">24/7 Color Night Vision</span>
                         <span class="scenario-sub">Low-light full-color nocturnal clarity</span>
+                        <span class="scenario-cta">VIEW HARDWARE &darr;</span>
                     </div>
                 </div>
             </div>
 
             <!-- Matched Result Box (Smooth Dynamic Reveal) -->
             <div class="selector-match-panel" id="selector-match-panel">
+                <div class="selector-match-header-bar">
+                    <span class="selector-match-icon">&#10003;</span>
+                    <span class="selector-match-header-text">RECOMMENDED HARDWARE MATCH FOR: <strong id="selector-match-target-name">FARMS &amp; AGRICULTURAL LAND</strong></span>
+                </div>
                 <div class="selector-match-media">
                     <span class="selector-match-ribbon" id="selector-match-ribbon">4G SIM &amp; SOLAR READY</span>
                     <img src="assets/trueview_t18291sf_1.webp?v=3.6" alt="Trueview 4G Mini PT Camera 3MP IP65" class="selector-match-img" id="selector-match-img" loading="eager">
@@ -1510,7 +1520,7 @@
     <!-- GSAP Animation Engine -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
     <script src="cookie-location.js?v=3.6"></script>
-    <script src="script.js?v=5.0"></script>
+    <script src="script.js?v=5.1"></script>
 
     <!-- ======================================================================
          AMAZON-STYLE MOBILE BOTTOM NAVIGATION BAR (PHONE SCREEN ONLY)

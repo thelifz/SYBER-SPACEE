@@ -8628,21 +8628,45 @@ a {
     line-height: 1.35;
 }
 
-.scenario-active-dot {
+/* Scenario Active Badge (Monochrome Obsidian - Replaces Green Dot) */
+.scenario-active-badge {
     display: none;
-    width: 7px;
-    height: 7px;
-    border-radius: 50%;
-    background: #059669;
     position: absolute;
     top: 8px;
     right: 8px;
-    z-index: 2;
-    box-shadow: 0 0 0 2px #ffffff;
+    background: #0f172a;
+    color: #ffffff;
+    font-family: var(--font-mono, monospace);
+    font-size: 0.52rem;
+    font-weight: 800;
+    letter-spacing: 0.06em;
+    padding: 2.5px 7px;
+    border-radius: 4px;
+    z-index: 3;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.18);
+    text-transform: uppercase;
+    line-height: 1.2;
 }
 
-.scenario-card.active .scenario-active-dot {
+.scenario-card.active .scenario-active-badge {
+    display: inline-block;
+}
+
+.scenario-cta {
     display: block;
+    margin-top: 6px;
+    font-family: var(--font-mono, monospace);
+    font-size: 0.62rem;
+    font-weight: 800;
+    color: #0f172a;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    transition: color 0.18s ease;
+}
+
+.scenario-card.active .scenario-cta {
+    color: #0f172a;
+    font-weight: 900;
 }
 
 /* Matched Product Reveal Panel */
@@ -8650,13 +8674,87 @@ a {
     background: #f8fafc;
     border: 1.5px solid rgba(15, 23, 42, 0.12);
     border-radius: 16px;
-    padding: 26px 30px;
+    padding: 24px 28px;
     display: grid;
     grid-template-columns: 280px 1fr;
-    gap: 32px;
+    gap: 28px;
     align-items: center;
     box-shadow: 0 4px 20px rgba(15, 23, 42, 0.04);
-    transition: all 0.25s ease;
+    transition: border-color 0.25s ease, box-shadow 0.25s ease;
+    position: relative;
+}
+
+/* Match Panel Header Bar (Clearly ties clicked scenario to the hardware result) */
+.selector-match-header-bar {
+    grid-column: 1 / -1;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid rgba(15, 23, 42, 0.08);
+    font-family: var(--font-mono, monospace);
+    font-size: 0.68rem;
+    font-weight: 800;
+    letter-spacing: 0.06em;
+    color: #475569;
+    text-transform: uppercase;
+}
+
+.selector-match-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: #0f172a;
+    color: #ffffff;
+    font-size: 0.6rem;
+    font-weight: 900;
+}
+
+.selector-match-header-text strong {
+    color: #0f172a;
+    font-weight: 900;
+}
+
+/* Instant Animated Reveal on Click */
+@keyframes matchPanelFlash {
+    0% {
+        opacity: 0.45;
+        transform: translateY(8px) scale(0.995);
+        border-color: #0f172a;
+        box-shadow: 0 0 0 3px rgba(15, 23, 42, 0.18), 0 12px 30px rgba(15, 23, 42, 0.12);
+    }
+    40% {
+        border-color: #0f172a;
+        box-shadow: 0 0 0 2px rgba(15, 23, 42, 0.1), 0 8px 24px rgba(15, 23, 42, 0.08);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+        border-color: rgba(15, 23, 42, 0.12);
+        box-shadow: 0 4px 20px rgba(15, 23, 42, 0.04);
+    }
+}
+
+.selector-match-panel.panel-updating {
+    animation: matchPanelFlash 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes matchImgPop {
+    0% {
+        transform: scale(0.92);
+        opacity: 0.4;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.selector-match-panel.panel-updating .selector-match-img {
+    animation: matchImgPop 0.32s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 .selector-match-media {
@@ -8708,8 +8806,8 @@ a {
     font-family: var(--font-mono, monospace);
     font-size: 0.66rem;
     font-weight: 800;
-    color: #059669;
-    letter-spacing: 0.1em;
+    color: #0f172a;
+    letter-spacing: 0.08em;
     text-transform: uppercase;
 }
 
@@ -8781,9 +8879,9 @@ a {
     font-family: var(--font-mono, monospace);
     font-size: 0.72rem;
     font-weight: 800;
-    color: #059669;
-    background: #ecfdf5;
-    border: 1px solid rgba(5, 150, 105, 0.2);
+    color: #0f172a;
+    background: #ffffff;
+    border: 1px solid rgba(15, 23, 42, 0.15);
     padding: 4px 10px;
     border-radius: 9999px;
 }

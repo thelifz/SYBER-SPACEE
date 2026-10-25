@@ -2700,15 +2700,22 @@ function selectInlineScenario(key) {
     if (!match) return;
     currentInlineMatch = match;
 
-    // Update active card
+    // Update active card & scroll clicked card into view horizontally if on mobile
     document.querySelectorAll('.scenario-card').forEach(card => {
-        card.classList.remove('active');
-        if (card.getAttribute('data-key') === key) {
-            card.classList.add('active');
+        const isMatch = card.getAttribute('data-key') === key;
+        card.classList.toggle('active', isMatch);
+        if (isMatch) {
+            try {
+                card.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+            } catch (e) {}
         }
     });
 
-    // Update panel
+    // Update Header Target Name
+    const targetNameEl = document.getElementById('selector-match-target-name');
+    if (targetNameEl) targetNameEl.textContent = match.scenario.toUpperCase();
+
+    // Update panel fields
     const ribbonEl = document.getElementById('selector-match-ribbon');
     const imgEl = document.getElementById('selector-match-img');
     const kickerEl = document.getElementById('selector-match-kicker');
@@ -2726,7 +2733,7 @@ function selectInlineScenario(key) {
         imgEl.src = match.img;
         imgEl.alt = match.name;
     }
-    if (kickerEl) kickerEl.textContent = `BEST SOLUTION FOR: ${match.scenario.toUpperCase()}`;
+    if (kickerEl) kickerEl.textContent = `ENGINEERED SOLUTION: ${match.scenario.toUpperCase()}`;
     if (titleEl) titleEl.textContent = match.name;
     if (reasonEl) reasonEl.textContent = match.reason;
     if (priceEl) priceEl.textContent = match.priceFormatted;
@@ -2741,11 +2748,28 @@ function selectInlineScenario(key) {
     }
     if (payBtn) {
         payBtn.setAttribute('onclick', `payNowDirect('${escapeHtml(match.name)}', ${match.price}, '${match.img}')`);
-        payBtn.innerHTML = `<span>BUY NOW • ${match.priceFormatted}</span>`;
+        payBtn.innerHTML = `<span>BUY NOW &bull; ${match.priceFormatted}</span>`;
     }
     if (waBtn) {
         const msg = encodeURIComponent(`Hello Syber Space, I selected the "${match.scenario}" scenario on your website. I would like to inquire about "${match.name}" (${match.priceFormatted}). Please share quotation and delivery details.`);
         waBtn.href = `https://wa.me/917511180808?text=${msg}`;
+    }
+
+    // Trigger instant visual pulse/animation on the match panel
+    const panel = document.getElementById('selector-match-panel');
+    if (panel) {
+        panel.classList.remove('panel-updating');
+        void panel.offsetWidth; // Force DOM reflow to re-trigger CSS keyframe
+        panel.classList.add('panel-updating');
+
+        // Smoothly bring the recommendation panel into clear view so the user immediately sees the hardware
+        setTimeout(() => {
+            const rect = panel.getBoundingClientRect();
+            const isInView = (rect.top >= 60 && rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) - 30);
+            if (!isInView || window.innerWidth <= 860) {
+                panel.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            }
+        }, 60);
     }
 }
 window.selectInlineScenario = selectInlineScenario;
