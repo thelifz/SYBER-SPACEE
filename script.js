@@ -245,6 +245,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Deep-link auto-navigation for slide and viewport scroll
     const urlParams = new URLSearchParams(window.location.search);
+    const searchParam = urlParams.get('search');
+    if (searchParam) {
+        setTimeout(() => {
+            completeHeaderSearch(searchParam);
+        }, 150);
+    }
     const slideParam = urlParams.get('slide');
     if (slideParam !== null) {
         const slideIdx = parseInt(slideParam, 10);
@@ -1031,7 +1037,230 @@ const searchSuggestionsData = [
 
 let activeSuggestionIndex = -1;
 
+
+// =============================================================================
+// GLOBAL HEADER QUICK SEARCH BAR ENGINE & INTERACTIVE SUGGESTIONS
+// =============================================================================
+let headerActiveSuggestionIndex = -1;
+
+function onHeaderSearchInput(val) {
+    const clearBtn = document.getElementById('header-search-clear-btn');
+    if (clearBtn) {
+        clearBtn.style.display = val ? 'flex' : 'none';
+    }
+    const cameraInput = document.getElementById('camera-search-input');
+    if (cameraInput && cameraInput.value !== val) {
+        cameraInput.value = val;
+    }
+    const cameraClear = document.getElementById('search-clear-btn');
+    if (cameraClear) {
+        cameraClear.style.display = val ? 'inline-flex' : 'none';
+    }
+    onFilterCriteriaChange();
+    renderHeaderSearchSuggestions(val);
+}
+
+function onHeaderSearchFocus() {
+    const input = document.getElementById('header-search-input');
+    renderHeaderSearchSuggestions(input ? input.value : '');
+}
+
+function renderHeaderSearchSuggestions(query) {
+    const dropdown = document.getElementById('header-search-dropdown');
+    const input = document.getElementById('header-search-input');
+    if (!dropdown || !input) return;
+
+    const q = (query || '').trim().toLowerCase();
+    headerActiveSuggestionIndex = -1;
+
+    let matches = [];
+    let headerText = 'RECOMMENDED SEARCHES';
+    let headerHint = 'Click or press Enter';
+
+    if (!q) {
+        headerText = 'POPULAR SEARCHES';
+        headerHint = 'Quick filters';
+        matches = [
+            searchSuggestionsData[0],  // iDADA ID-Q2i35S-TD Bestseller
+            searchSuggestionsData[30], // Trueview Brand
+            searchSuggestionsData[33], // Wi-Fi Cameras
+            searchSuggestionsData[34], // 4G SIM Cameras
+            searchSuggestionsData[35], // PoE Switches
+            searchSuggestionsData[1],  // CP PLUS CP-E28Q
+            searchSuggestionsData[39]  // Night Vision
+        ];
+    } else {
+        headerText = `SUGGESTIONS FOR "${q.toUpperCase()}"`;
+        headerHint = 'Navigate with Arrow keys';
+        matches = searchSuggestionsData.filter(item => {
+            if (item.title.toLowerCase().includes(q)) return true;
+            if (item.query.toLowerCase().includes(q)) return true;
+            if (item.sub.toLowerCase().includes(q)) return true;
+            return item.keywords.some(kw => kw.includes(q));
+        });
+    }
+
+    if (matches.length === 0) {
+        dropdown.innerHTML = `
+            <div class="suggestion-header">
+                <span>NO DIRECT MATCHES</span>
+                <span class="suggestion-header-hint">Press Enter</span>
+            </div>
+            <div class="suggestion-empty" style="padding: 16px; font-size: 0.82rem; color: #64748b; text-align: center;">
+                No products found directly matching "<strong>${escapeHtml(q)}</strong>".<br>
+                <div style="margin-top: 10px;">
+                    <button type="button" class="slide-buy-btn" style="font-size: 0.72rem; padding: 6px 14px; background: var(--base-dark); color: #ffffff;" onclick="completeHeaderSearch('${escapeHtml(q)}')">
+                        <span>SEARCH WHOLE CATALOG</span>
+                    </button>
+                </div>
+            </div>
+        `;
+        dropdown.classList.add('open');
+        input.setAttribute('aria-expanded', 'true');
+        return;
+    }
+
+    const itemsHtml = matches.slice(0, 7).map((item, index) => {
+        const highlightedTitle = highlightSearchQuery(item.title, q);
+        return `
+            <div class="suggestion-item" role="option" id="header-suggestion-opt-${index}" data-index="${index}" data-query="${escapeHtml(item.query)}" onclick="completeHeaderSearch('${escapeHtml(item.query)}')">
+                <div class="suggestion-left">
+                    <span class="suggestion-tag tag-${item.tag}">[ ${item.tagLabel} ]</span>
+                    <div class="suggestion-text-wrap">
+                        <span class="suggestion-title">${highlightedTitle}</span>
+                        <span class="suggestion-sub">${escapeHtml(item.sub)}</span>
+                    </div>
+                </div>
+                <span class="suggestion-action-hint">SELECT</span>
+            </div>
+        `;
+    }).join('');
+
+    dropdown.innerHTML = `
+        <div class="suggestion-header">
+            <span>${headerText}</span>
+            <span class="suggestion-header-hint">${headerHint}</span>
+        </div>
+        <div class="suggestion-list">
+            ${itemsHtml}
+        </div>
+    `;
+
+    dropdown.classList.add('open');
+    input.setAttribute('aria-expanded', 'true');
+}
+
+function completeHeaderSearch(query) {
+    const headerInput = document.getElementById('header-search-input');
+    if (headerInput) headerInput.value = query;
+    const cameraInput = document.getElementById('camera-search-input');
+    if (cameraInput) cameraInput.value = query;
+    const mobileInput = document.getElementById('mobile-search-input');
+    if (mobileInput) mobileInput.value = query;
+
+    const clearBtn = document.getElementById('header-search-clear-btn');
+    if (clearBtn) clearBtn.style.display = query ? 'flex' : 'none';
+    const cameraClear = document.getElementById('search-clear-btn');
+    if (cameraClear) cameraClear.style.display = query ? 'inline-flex' : 'none';
+
+    closeHeaderSearchSuggestions();
+    closeSearchSuggestions();
+    onFilterCriteriaChange();
+
+    const camerasSection = document.getElementById('cameras');
+    if (camerasSection) {
+        camerasSection.scrollIntoView({ behavior: 'smooth' });
+    }
+}
+
+function closeHeaderSearchSuggestions() {
+    const dropdown = document.getElementById('header-search-dropdown');
+    const input = document.getElementById('header-search-input');
+    if (dropdown) dropdown.classList.remove('open');
+    if (input) input.setAttribute('aria-expanded', 'false');
+    headerActiveSuggestionIndex = -1;
+}
+
+function clearHeaderSearch() {
+    const headerInput = document.getElementById('header-search-input');
+    const cameraInput = document.getElementById('camera-search-input');
+    const clearBtn = document.getElementById('header-search-clear-btn');
+    const cameraClear = document.getElementById('search-clear-btn');
+
+    if (headerInput) headerInput.value = '';
+    if (cameraInput) cameraInput.value = '';
+    if (clearBtn) clearBtn.style.display = 'none';
+    if (cameraClear) cameraClear.style.display = 'none';
+
+    closeHeaderSearchSuggestions();
+    onFilterCriteriaChange();
+}
+
+function onHeaderSearchKeyDown(e) {
+    const dropdown = document.getElementById('header-search-dropdown');
+    if (!dropdown || !dropdown.classList.contains('open')) {
+        if (e.key === 'Enter') {
+            e.preventDefault();
+            const input = document.getElementById('header-search-input');
+            const q = input ? input.value.trim() : '';
+            if (q) completeHeaderSearch(q);
+        }
+        return;
+    }
+
+    const items = dropdown.querySelectorAll('.suggestion-item');
+    if (items.length === 0) return;
+
+    if (e.key === 'ArrowDown') {
+        e.preventDefault();
+        headerActiveSuggestionIndex = (headerActiveSuggestionIndex + 1) % items.length;
+        updateHeaderSuggestionFocus(items);
+    } else if (e.key === 'ArrowUp') {
+        e.preventDefault();
+        headerActiveSuggestionIndex = (headerActiveSuggestionIndex - 1 + items.length) % items.length;
+        updateHeaderSuggestionFocus(items);
+    } else if (e.key === 'Enter') {
+        e.preventDefault();
+        if (headerActiveSuggestionIndex >= 0 && headerActiveSuggestionIndex < items.length) {
+            const query = items[headerActiveSuggestionIndex].getAttribute('data-query');
+            completeHeaderSearch(query);
+        } else {
+            const input = document.getElementById('header-search-input');
+            const q = input ? input.value.trim() : '';
+            if (q) {
+                completeHeaderSearch(q);
+            } else {
+                closeHeaderSearchSuggestions();
+            }
+        }
+    } else if (e.key === 'Escape') {
+        closeHeaderSearchSuggestions();
+    }
+}
+
+function updateHeaderSuggestionFocus(items) {
+    items.forEach((item, idx) => {
+        if (idx === headerActiveSuggestionIndex) {
+            item.classList.add('is-focused');
+            item.scrollIntoView({ block: 'nearest' });
+            const previewQuery = item.getAttribute('data-query');
+            const input = document.getElementById('header-search-input');
+            if (input && previewQuery) {
+                input.value = previewQuery;
+            }
+        } else {
+            item.classList.remove('is-focused');
+        }
+    });
+}
+
 function onSearchInput(val) {
+    const headerInput = document.getElementById('header-search-input');
+    if (headerInput && headerInput.value !== val) {
+        headerInput.value = val;
+    }
+    const headerClear = document.getElementById('header-search-clear-btn');
+    if (headerClear) headerClear.style.display = val ? 'flex' : 'none';
     onFilterCriteriaChange();
     renderSearchSuggestions(val);
 }
@@ -1129,10 +1358,16 @@ function renderSearchSuggestions(query) {
 
 function completeSearch(query) {
     const input = document.getElementById('camera-search-input');
-    if (input) {
-        input.value = query;
-    }
+    if (input) input.value = query;
+    const headerInput = document.getElementById('header-search-input');
+    if (headerInput) headerInput.value = query;
+    const clearBtn = document.getElementById('header-search-clear-btn');
+    if (clearBtn) clearBtn.style.display = query ? 'flex' : 'none';
+    const cameraClear = document.getElementById('search-clear-btn');
+    if (cameraClear) cameraClear.style.display = query ? 'inline-flex' : 'none';
+
     closeSearchSuggestions();
+    closeHeaderSearchSuggestions();
     onFilterCriteriaChange();
 
     const camerasSection = document.getElementById('cameras');
@@ -1228,6 +1463,9 @@ function escapeHtml(str) {
 
 // Close search suggestions on clicking outside
 document.addEventListener('click', (e) => {
+    if (!e.target.closest('.header-search-field')) {
+        closeHeaderSearchSuggestions();
+    }
     if (!e.target.closest('.filter-search-field')) {
         closeSearchSuggestions();
     }

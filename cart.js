@@ -808,3 +808,23 @@ async function executeHdfcPayment(paymentRail) {
 
     }, 1400);
 }
+
+// =============================================================================
+// GLOBAL HEADER SEARCH NAVIGATION FROM SUBPAGES
+// =============================================================================
+function onSubpageSearchKeyDown(e) {
+    if (e.key === 'Enter') {
+        e.preventDefault();
+        onSubpageSearchSubmit();
+    }
+}
+
+function onSubpageSearchSubmit() {
+    const input = document.getElementById('header-search-input');
+    const query = input ? input.value.trim() : '';
+    if (query) {
+        window.location.href = `index.html?search=${encodeURIComponent(query)}#cameras`;
+    } else {
+        window.location.href = 'index.html#cameras';
+    }
+}

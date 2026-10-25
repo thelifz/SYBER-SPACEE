@@ -4,8 +4,8 @@ This file preserves all active and historical color palettes used in the Syber S
 
 ---
 
-## 1. Active Theme: Executive Deep Obsidian Luxury Black & Brushed Champagne Gold
-Designed for **maximum high-security authority**, defense-contractor prestige, and architectural luxury. Grounded directly in the company's **Black & Gold Logo Identity**.
+## 1. Active Theme: Executive Studio Pure White with Deep Obsidian Black & Brushed Champagne Gold (v5.1)
+Designed for **maximum clarity, daylight readability, and executive prestige**. Grounded directly in the company's **Black & Champagne Gold Logo Identity** against a clean Pure White backdrop.
 
 ### Typography
 - **Display & Headlines:** `Plus Jakarta Sans` (`font-weight: 600, 700, 800`) — high-prestige, modern corporate geometry.
@@ -14,28 +14,30 @@ Designed for **maximum high-security authority**, defense-contractor prestige, a
 ### Colors & Tokens
 | Element | Hex Code | RGB | CSS Variable / Class | Visual Role |
 | :--- | :--- | :--- | :--- | :--- |
-| **Deep Obsidian Black** | `#0a0d14` | `10, 13, 20` | `--base-bg` / `html, body` | Main full canvas backdrop, luxury velvet dark space |
-| **Dark Slate Card Surface** | `#111827` | `17, 24, 39` | `--base-surface` / `.product-card` | High-tech card containers, elevated hardware stage |
-| **Cinematic Studio Stage** | `#1e293b` to `#0f172a` | — | `.product-visual-wrap` | Radial studio pedestal for floating hardware |
-| **High-Legibility Text** | `#f8fafc` | `248, 250, 252` | `--base-dark` / headlines | Crisp white typography for maximum legibility on black |
+| **Pure White Canvas** | `#ffffff` | `255, 255, 255` | `--base-bg` / `html, body` | Main full canvas backdrop, pristine daylight clarity |
+| **White Card Surface** | `#ffffff` | `255, 255, 255` | `--base-surface` / `.product-card` | Clean white card containers with subtle hairline borders |
+| **Studio Pedestal Gradient** | `#f8fafc` to `#f1f5f9` | `248, 250, 252` | `.product-visual-wrap` | Studio light-gray gradient stage showcasing floating hardware |
+| **Deep Obsidian Slate Black** | `#0f172a` | `15, 23, 42` | `--base-dark` / headlines | Authoritative, razor-sharp typography and primary action fills |
 | **Brushed Champagne Gold** | `#c5a059` | `197, 160, 89` | `--gold-primary` / `.stars` / logo | Company logo signature, rating stars, active indicators |
-| **Champagne Starlight Gold** | `#dfc89d` to `#c5a059` | — | `--gold-gradient` / `.btn-pay-now-card` | Luminous metallic gold for PAY NOW button & flagship badges |
-| **Dark Glass + Gold Border** | `rgba(255, 255, 255, 0.05)` | — | `.btn-add-cart` | Dark glass secondary action buttons with subtle border |
-| **Soft Gold Mist Glow** | `rgba(197, 160, 89, 0.15)` | — | `.discount-badge` / `.btn-add-cart:hover` | Soft gold highlight for savings chips and hover fills |
-| **Subtle Glass Hairline** | `rgba(255, 255, 255, 0.08)` | — | `--base-border` | Razor-sharp architectural division lines |
-| **Balanced Slate Gray** | `#94a3b8` | `148, 163, 184` | `--base-dark-muted` | Product descriptions, subtext, technical microcopy |
+| **Champagne Starlight Gold** | `#dfc89d` to `#c5a059` | — | `--gold-gradient` | Metallic gold for logo mark and badge accents |
+| **Pay Now Obsidian Black** | `#0f172a` | `15, 23, 42` | `.btn-pay-now-card` | Deep black button with 1px brushed Champagne Gold border |
+| **Add to Cart Pure White** | `#ffffff` | `255, 255, 255` | `.btn-add-cart` | Clean white secondary action button hovering to Champagne mist |
+| **Soft Champagne Mist** | `#faf6ee` | `250, 246, 238` | `--calm-primary-light` / hover | Subtle luxury champagne hover wash |
+| **Subtle Slate Hairline** | `rgba(15, 23, 42, 0.08)` | — | `--base-border` | Razor-sharp architectural division lines |
+| **Balanced Slate Gray** | `#475569` | `71, 85, 105` | `--base-dark-muted` | Product descriptions, subtext, technical microcopy |
 | **Muted Slate 500** | `#64748b` | `100, 116, 139` | `--base-gray-500` | MRP strikethroughs, timestamp labels |
 
 ---
 
-## 2. Executive White Canvas + Black & Gold Accents (Preserved Reference)
-*The daylight clarity palette tested in v4.9.*
+## 2. Executive Deep Obsidian Luxury Black (Tested in v5.0, Preserved Reference)
+*The dark velvet security theme tested in v5.0.*
 
 | Element | Hex Code | RGB | Role in Theme |
 | :--- | :--- | :--- | :--- |
-| **Pure White Canvas** | `#ffffff` | `255, 255, 255` | Full canvas bright background |
-| **Obsidian Slate Black** | `#0f172a` | `15, 23, 42` | Primary buttons and headlines |
-| **Champagne Gold** | `#c5a059` | `197, 160, 89` | Accent badges and logo |
+| **Deep Obsidian Black** | `#0a0d14` | `10, 13, 20` | Full canvas velvet backdrop |
+| **Dark Slate Card Fill** | `#111827` | `17, 24, 39` | Elevated dark card containers |
+| **High-Legibility Text** | `#f8fafc` | `248, 250, 252` | Crisp white typography on dark surfaces |
+| **Brushed Champagne Gold** | `#c5a059` | `197, 160, 89` | Luminous gold metallic accents and buttons |
 
 ---
 
