@@ -2586,3 +2586,23 @@ function initGsapMagic() {
         }, 0.12);
     }
 }
+window.returnToShowrooms = function() {
+    window.forceFullCatalogGrid = false;
+    const headerInput = document.getElementById('header-search-input');
+    if (headerInput) headerInput.value = '';
+    const cameraInput = document.getElementById('camera-search-input');
+    if (cameraInput) cameraInput.value = '';
+    const mobileInput = document.getElementById('mobile-search-input');
+    if (mobileInput) mobileInput.value = '';
+    
+    document.querySelectorAll('.cat-nav-link').forEach(l => l.classList.remove('active'));
+    const allLink = document.querySelector('.cat-nav-link');
+    if (allLink) allLink.classList.add('active');
+    
+    selectTextCategory('all', null);
+    
+    const camerasEl = document.getElementById('cameras');
+    if (camerasEl) {
+        camerasEl.scrollIntoView({ behavior: 'smooth' });
+    }
+};

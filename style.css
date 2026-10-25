@@ -6550,12 +6550,18 @@ a {
     }
 
     .ecom-layout {
-        display: flex !important;
-        flex-direction: row !important;
-        align-items: flex-start !important;
-        gap: 40px !important;
+        display: block !important;
+        width: 100% !important;
+        max-width: 1440px !important;
+        margin: 0 auto !important;
         overflow: visible !important;
         position: relative !important;
+    }
+
+    .ecom-main {
+        width: 100% !important;
+        max-width: 100% !important;
+        margin: 0 auto !important;
     }
 
     .mobile-top-search-strip,
@@ -6572,43 +6578,28 @@ a {
         pointer-events: none !important;
     }
 
-    .sidebar-filters {
-        display: block !important;
-        visibility: visible !important;
-        position: -webkit-sticky !important;
-        position: sticky !important;
-        top: 96px !important;
-        align-self: flex-start !important;
-        width: 290px !important;
-        flex-shrink: 0 !important;
-        max-height: calc(100vh - 110px) !important;
-        overflow-y: auto !important;
-        overscroll-behavior: contain !important;
-        z-index: 40 !important;
-    }
-
-    .products-header {
-        display: flex !important;
-        visibility: visible !important;
-    }
-
+    /* Completely hide sidebars & redundant duplicate filters so the store stays spacious & uncrowded */
+    .sidebar-filters,
+    .products-header,
     #text-filter-suite,
     .text-filter-suite {
-        display: flex !important;
-        visibility: visible !important;
+        display: none !important;
+        visibility: hidden !important;
+        height: 0 !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        overflow: hidden !important;
     }
 
+    /* Results Status Bar only when actively filtering */
     .ecom-status-bar {
-        display: flex !important;
-        visibility: visible !important;
+        display: none;
     }
 
     .ecom-grid,
     #products-grid {
-        display: grid !important;
         grid-template-columns: repeat(3, 1fr) !important;
-        gap: 24px !important;
-        visibility: visible !important;
+        gap: 20px !important;
     }
 
     .header-nav,
@@ -7688,4 +7679,34 @@ a {
     background: #000000;
     box-shadow: 0 6px 20px rgba(15, 23, 42, 0.22);
     transform: translateY(-2px);
+}
+
+@media (min-width: 1200px) {
+    .ecom-grid,
+    #products-grid {
+        grid-template-columns: repeat(4, 1fr) !important;
+        gap: 22px !important;
+    }
+}
+
+.btn-back-showrooms {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: #f1f5f9;
+    border: 1.5px solid rgba(15, 23, 42, 0.12);
+    color: #0f172a;
+    padding: 7px 16px;
+    border-radius: 9999px;
+    font-family: var(--font-display);
+    font-size: 0.8rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.btn-back-showrooms:hover {
+    background: #0f172a;
+    color: #ffffff;
+    border-color: #0f172a;
 }
