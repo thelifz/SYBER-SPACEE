@@ -8162,3 +8162,325 @@ a {
         font-size: 0.95rem !important;
     }
 }
+
+
+/* ==========================================================================
+   SHOWROOM SLIDER & "EXPLORE ALL PRODUCTS" BUTTON
+   Slide all products below bestseller + Explore full catalog in new window
+   ========================================================================== */
+
+.showroom-slider-wrap {
+    width: 100%;
+    margin-top: 10px;
+    padding-top: 14px;
+    border-top: 1px dashed rgba(15, 23, 42, 0.1);
+}
+
+.slider-header-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 12px;
+}
+
+.slider-kicker {
+    font-family: var(--font-mono, monospace);
+    font-size: 0.68rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    color: #64748b;
+    text-transform: uppercase;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.slider-arrow-nav {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.slider-arrow-btn {
+    background: #ffffff;
+    border: 1px solid rgba(15, 23, 42, 0.15);
+    color: #0f172a;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: 0 2px 6px rgba(15, 23, 42, 0.04);
+}
+
+.slider-arrow-btn:hover {
+    background: #0f172a;
+    border-color: #0f172a;
+    color: #ffffff;
+    transform: scale(1.05);
+}
+
+/* Horizontal Sliding Track */
+.showroom-shelf-slider {
+    display: flex !important;
+    gap: 12px !important;
+    overflow-x: auto !important;
+    scroll-behavior: smooth !important;
+    scroll-snap-type: x mandatory !important;
+    padding: 4px 2px 14px 2px !important;
+    scrollbar-width: thin !important;
+    scrollbar-color: rgba(15, 23, 42, 0.2) transparent !important;
+    -webkit-overflow-scrolling: touch !important;
+}
+
+.showroom-shelf-slider::-webkit-scrollbar {
+    height: 4px !important;
+}
+
+.showroom-shelf-slider::-webkit-scrollbar-track {
+    background: transparent !important;
+}
+
+.showroom-shelf-slider::-webkit-scrollbar-thumb {
+    background: rgba(15, 23, 42, 0.18) !important;
+    border-radius: 9999px !important;
+}
+
+.showroom-shelf-card {
+    flex: 0 0 175px !important;
+    scroll-snap-align: start !important;
+    background: #f8fafc !important;
+    border: 1px solid rgba(15, 23, 42, 0.08) !important;
+    border-radius: 12px !important;
+    padding: 12px 10px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: space-between !important;
+    position: relative !important;
+    box-shadow: 0 2px 8px rgba(15, 23, 42, 0.02) !important;
+    transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease !important;
+}
+
+.showroom-shelf-card:hover {
+    transform: translateY(-2px) !important;
+    border-color: rgba(15, 23, 42, 0.2) !important;
+    box-shadow: 0 6px 16px rgba(15, 23, 42, 0.06) !important;
+}
+
+.showroom-shelf-badge {
+    position: absolute !important;
+    top: 8px !important;
+    left: 8px !important;
+    font-family: var(--font-mono, monospace) !important;
+    font-size: 0.55rem !important;
+    font-weight: 800 !important;
+    background: #ffffff !important;
+    border: 1px solid rgba(15, 23, 42, 0.09) !important;
+    color: #0f172a !important;
+    padding: 2px 6px !important;
+    border-radius: 4px !important;
+    letter-spacing: 0.04em !important;
+    z-index: 2 !important;
+}
+
+.showroom-shelf-img-wrap {
+    width: 100% !important;
+    height: 110px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    background: #ffffff !important;
+    border-radius: 8px !important;
+    padding: 6px !important;
+    margin: 14px 0 8px 0 !important;
+}
+
+.showroom-shelf-img {
+    max-width: 100% !important;
+    max-height: 95px !important;
+    object-fit: contain !important;
+    transition: transform 0.2s ease !important;
+}
+
+.showroom-shelf-card:hover .showroom-shelf-img {
+    transform: scale(1.04) !important;
+}
+
+.showroom-shelf-name {
+    font-family: var(--font-body) !important;
+    font-size: 0.76rem !important;
+    font-weight: 700 !important;
+    color: #0f172a !important;
+    line-height: 1.25 !important;
+    min-height: 32px !important;
+    display: -webkit-box !important;
+    -webkit-line-clamp: 2 !important;
+    line-clamp: 2 !important;
+    -webkit-box-orient: vertical !important;
+    overflow: hidden !important;
+    margin-bottom: 6px !important;
+}
+
+.showroom-shelf-price {
+    font-family: var(--font-display) !important;
+    font-size: 1.05rem !important;
+    font-weight: 900 !important;
+    color: #0f172a !important;
+    margin-bottom: 8px !important;
+}
+
+.showroom-shelf-actions {
+    display: flex !important;
+    gap: 6px !important;
+}
+
+.showroom-shelf-actions .m-btn-cart {
+    flex: 1 !important;
+    font-family: var(--font-mono, monospace) !important;
+    font-size: 0.65rem !important;
+    font-weight: 800 !important;
+    background: #ffffff !important;
+    border: 1px solid #0f172a !important;
+    color: #0f172a !important;
+    padding: 6px 4px !important;
+    border-radius: 6px !important;
+    cursor: pointer !important;
+    text-align: center !important;
+    transition: all 0.15s ease !important;
+}
+
+.showroom-shelf-actions .m-btn-cart:hover {
+    background: #0f172a !important;
+    color: #ffffff !important;
+}
+
+.showroom-shelf-actions .m-btn-pay {
+    flex: 1 !important;
+    font-family: var(--font-mono, monospace) !important;
+    font-size: 0.65rem !important;
+    font-weight: 800 !important;
+    background: #0f172a !important;
+    border: 1px solid #0f172a !important;
+    color: #ffffff !important;
+    padding: 6px 4px !important;
+    border-radius: 6px !important;
+    cursor: pointer !important;
+    text-align: center !important;
+    transition: all 0.15s ease !important;
+}
+
+.showroom-shelf-actions .m-btn-pay:hover {
+    background: #1e293b !important;
+}
+
+/* Explore All Products Button Box */
+.showroom-explore-wrap {
+    width: 100%;
+    margin-top: 14px;
+}
+
+.showroom-explore-btn {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #0f172a;
+    color: #ffffff;
+    text-decoration: none;
+    border-radius: 12px;
+    padding: 16px 22px;
+    border: 1.5px solid #0f172a;
+    transition: all 0.22s ease;
+    box-shadow: 0 4px 14px rgba(15, 23, 42, 0.12);
+}
+
+.showroom-explore-btn:hover {
+    background: #000000;
+    border-color: #000000;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(15, 23, 42, 0.2);
+}
+
+.explore-btn-content {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.explore-btn-kicker {
+    font-family: var(--font-mono, monospace);
+    font-size: 0.62rem;
+    font-weight: 800;
+    letter-spacing: 0.1em;
+    color: #10b981;
+    text-transform: uppercase;
+}
+
+.explore-btn-title {
+    font-family: var(--font-display);
+    font-size: 1.05rem;
+    font-weight: 800;
+    color: #ffffff;
+    letter-spacing: -0.01em;
+}
+
+.explore-btn-action {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--font-mono, monospace);
+    font-size: 0.76rem;
+    font-weight: 800;
+    color: #ffffff;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 8px 16px;
+    border-radius: 9999px;
+    transition: background 0.2s ease;
+}
+
+.showroom-explore-btn:hover .explore-btn-action {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+@media (max-width: 768px) {
+    .showroom-explore-btn {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+        padding: 14px 16px;
+    }
+
+    .explore-btn-title {
+        font-size: 0.95rem;
+    }
+
+    .explore-btn-action {
+        width: 100%;
+        justify-content: center;
+        box-sizing: border-box;
+    }
+
+    .showroom-shelf-card {
+        flex: 0 0 152px !important;
+        padding: 10px 8px !important;
+    }
+
+    .showroom-shelf-img-wrap {
+        height: 95px !important;
+    }
+
+    .showroom-shelf-img {
+        max-height: 80px !important;
+    }
+
+    .showroom-shelf-name {
+        font-size: 0.72rem !important;
+    }
+
+    .showroom-shelf-price {
+        font-size: 0.95rem !important;
+    }
+}

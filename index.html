@@ -6,7 +6,7 @@
     <meta name="color-scheme" content="only light">
     <meta name="supported-color-schemes" content="light">
     <title>SYBER SPACE — Precision Surveillance Systems</title>
-    <link rel="stylesheet" href="style.css?v=5.7">
+    <link rel="stylesheet" href="style.css?v=5.8">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
@@ -383,44 +383,153 @@
                         </div>
                     </div>
 
-                    <!-- BELOW: EXACTLY 2 PRODUCTS OF THE COMPANY -->
-                    <div class="showroom-secondary-wrap">
-                        <div class="secondary-header-row">
-                            <span class="secondary-kicker">MORE FROM TRUEVIEW (2 POPULAR SYSTEMS)</span>
+                    <!-- SLIDE ALL PRODUCTS BELOW BESTSELLER -->
+                    <div class="showroom-slider-wrap">
+                        <div class="slider-header-row">
+                            <span class="slider-kicker">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"></circle><polyline points="12 8 8 12 12 16"></polyline><line x1="16" y1="12" x2="8" y2="12"></line></svg>
+                                MORE TRUEVIEW SYSTEMS (SLIDE TO VIEW)
+                            </span>
+                            <div class="slider-arrow-nav">
+                                <button type="button" class="slider-arrow-btn" onclick="slideShelf('shelf-trueview', -1)" aria-label="Previous Trueview Products">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"></polyline></svg>
+                                </button>
+                                <button type="button" class="slider-arrow-btn" onclick="slideShelf('shelf-trueview', 1)" aria-label="Next Trueview Products">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                                </button>
+                            </div>
                         </div>
-                        <div class="showroom-secondary-grid">
-                            <!-- Product 1: 8-Port Commercial PoE -->
-                            <div class="secondary-card">
-                                <span class="secondary-card-badge">8-PORT POE</span>
-                                <div class="secondary-img-wrap">
-                                    <img src="assets/trueview_poe_front.jpg?v=3.6" alt="Trueview 8-Port Commercial PoE Switch" class="secondary-img" loading="eager">
+                        <div class="showroom-shelf-slider" id="shelf-trueview">
+                            <!-- Trueview Pick 1: 8-Port Commercial PoE -->
+                            <div class="showroom-shelf-card">
+                                <span class="showroom-shelf-badge">8-PORT POE</span>
+                                <div class="showroom-shelf-img-wrap">
+                                    <img src="assets/trueview_poe_front.jpg?v=3.6" alt="Trueview 8-Port Commercial PoE" class="showroom-shelf-img" loading="lazy">
                                 </div>
-                                <div class="secondary-info">
-                                    <div class="secondary-name">Trueview 8-Port Commercial PoE Switch</div>
-                                    <div class="secondary-price">₹2,350</div>
-                                    <div class="secondary-actions">
-                                        <button type="button" class="m-btn-cart" onclick="addToCart('Trueview 8-Port Fast Ethernet PoE Switch with 2 Gigabit Uplink', 2350, 'assets/trueview_poe_front.jpg')">+ CART</button>
-                                        <button type="button" class="m-btn-pay" onclick="payNowDirect('Trueview 8-Port Fast Ethernet PoE Switch with 2 Gigabit Uplink', 2350, 'assets/trueview_poe_front.jpg')">PAY</button>
-                                    </div>
+                                <div class="showroom-shelf-name">Trueview 8-Port Commercial PoE Switch</div>
+                                <div class="showroom-shelf-price">₹2,350</div>
+                                <div class="showroom-shelf-actions">
+                                    <button type="button" class="m-btn-cart" onclick="addToCart('Trueview 8-Port Fast Ethernet PoE Switch with 2 Gigabit Uplink', 2350, 'assets/trueview_poe_front.jpg')">+ CART</button>
+                                    <button type="button" class="m-btn-pay" onclick="payNowDirect('Trueview 8-Port Fast Ethernet PoE Switch with 2 Gigabit Uplink', 2350, 'assets/trueview_poe_front.jpg')">PAY</button>
                                 </div>
                             </div>
 
-                            <!-- Product 2: 4G Surveillance Router -->
-                            <div class="secondary-card">
-                                <span class="secondary-card-badge">4G ROUTER</span>
-                                <div class="secondary-img-wrap">
-                                    <img src="assets/trueview_router_angle.jpg?v=3.6" alt="Trueview 4G LTE SIM Router" class="secondary-img" loading="eager">
+                            <!-- Trueview Pick 2: 4G Router -->
+                            <div class="showroom-shelf-card">
+                                <span class="showroom-shelf-badge">4G ROUTER</span>
+                                <div class="showroom-shelf-img-wrap">
+                                    <img src="assets/trueview_router_angle.jpg?v=3.6" alt="Trueview 4G LTE SIM Router" class="showroom-shelf-img" loading="lazy">
                                 </div>
-                                <div class="secondary-info">
-                                    <div class="secondary-name">Trueview 4G LTE High-Gain SIM Router</div>
-                                    <div class="secondary-price">₹1,900</div>
-                                    <div class="secondary-actions">
-                                        <button type="button" class="m-btn-cart" onclick="addToCart('Trueview 4G LTE High-Gain Dual Antenna SIM Surveillance Router', 1900, 'assets/trueview_router_angle.jpg')">+ CART</button>
-                                        <button type="button" class="m-btn-pay" onclick="payNowDirect('Trueview 4G LTE High-Gain Dual Antenna SIM Surveillance Router', 1900, 'assets/trueview_router_angle.jpg')">PAY</button>
-                                    </div>
+                                <div class="showroom-shelf-name">Trueview 4G LTE High-Gain SIM Router</div>
+                                <div class="showroom-shelf-price">₹1,900</div>
+                                <div class="showroom-shelf-actions">
+                                    <button type="button" class="m-btn-cart" onclick="addToCart('Trueview 4G LTE High-Gain Dual Antenna SIM Surveillance Router', 1900, 'assets/trueview_router_angle.jpg')">+ CART</button>
+                                    <button type="button" class="m-btn-pay" onclick="payNowDirect('Trueview 4G LTE High-Gain Dual Antenna SIM Surveillance Router', 1900, 'assets/trueview_router_angle.jpg')">PAY</button>
+                                </div>
+                            </div>
+
+                            <!-- Trueview Pick 3: Wi-Fi Robot PT -->
+                            <div class="showroom-shelf-card">
+                                <span class="showroom-shelf-badge">WI-FI PTZ</span>
+                                <div class="showroom-shelf-img-wrap">
+                                    <img src="assets/trueview_t18296s_1.webp?v=3.6" alt="Trueview T18296S 3MP Robot PT" class="showroom-shelf-img" loading="lazy">
+                                </div>
+                                <div class="showroom-shelf-name">Trueview T18296S 3MP Robot PT</div>
+                                <div class="showroom-shelf-price">₹1,725</div>
+                                <div class="showroom-shelf-actions">
+                                    <button type="button" class="m-btn-cart" onclick="addToCart('Trueview T18296S Smart Wi-Fi Robot PT Camera 3MP', 1725, 'assets/trueview_t18296s_1.webp')">+ CART</button>
+                                    <button type="button" class="m-btn-pay" onclick="payNowDirect('Trueview T18296S Smart Wi-Fi Robot PT Camera 3MP', 1725, 'assets/trueview_t18296s_1.webp')">PAY</button>
+                                </div>
+                            </div>
+
+                            <!-- Trueview Pick 4: 16CH NVR -->
+                            <div class="showroom-shelf-card">
+                                <span class="showroom-shelf-badge">4K NVR</span>
+                                <div class="showroom-shelf-img-wrap">
+                                    <img src="assets/trueview_t38118ae.webp?v=3.6" alt="Trueview 16CH 4K Ultra NVR" class="showroom-shelf-img" loading="lazy">
+                                </div>
+                                <div class="showroom-shelf-name">Trueview 16CH 4K Ultra NVR</div>
+                                <div class="showroom-shelf-price">₹4,850</div>
+                                <div class="showroom-shelf-actions">
+                                    <button type="button" class="m-btn-cart" onclick="addToCart('Trueview T38118-AE 16Ch 4K Network Video Recorder (NVR)', 4850, 'assets/trueview_t38118ae.webp')">+ CART</button>
+                                    <button type="button" class="m-btn-pay" onclick="payNowDirect('Trueview T38118-AE 16Ch 4K Network Video Recorder (NVR)', 4850, 'assets/trueview_t38118ae.webp')">PAY</button>
+                                </div>
+                            </div>
+
+                            <!-- Trueview Pick 5: Solar Power Hub -->
+                            <div class="showroom-shelf-card">
+                                <span class="showroom-shelf-badge">OFF-GRID</span>
+                                <div class="showroom-shelf-img-wrap">
+                                    <img src="assets/trueview_solar_hub_1.webp?v=3.6" alt="Trueview Solar Power Hub 120W" class="showroom-shelf-img" loading="lazy">
+                                </div>
+                                <div class="showroom-shelf-name">Trueview Solar Power Hub 120W 40AH</div>
+                                <div class="showroom-shelf-price">₹10,500</div>
+                                <div class="showroom-shelf-actions">
+                                    <button type="button" class="m-btn-cart" onclick="addToCart('Trueview Solar Power System 120W 40AH Surveillance Hub', 10500, 'assets/trueview_solar_hub_1.webp')">+ CART</button>
+                                    <button type="button" class="m-btn-pay" onclick="payNowDirect('Trueview Solar Power System 120W 40AH Surveillance Hub', 10500, 'assets/trueview_solar_hub_1.webp')">PAY</button>
+                                </div>
+                            </div>
+
+                            <!-- Trueview Pick 6: 4G Dual Lens PT -->
+                            <div class="showroom-shelf-card">
+                                <span class="showroom-shelf-badge">DUAL LENS</span>
+                                <div class="showroom-shelf-img-wrap">
+                                    <img src="assets/trueview_t18293sf_1.webp?v=3.6" alt="Trueview 4G Dual Lens PT 4MP" class="showroom-shelf-img" loading="lazy">
+                                </div>
+                                <div class="showroom-shelf-name">Trueview 4G Dual Lens PT 4MP</div>
+                                <div class="showroom-shelf-price">₹3,850</div>
+                                <div class="showroom-shelf-actions">
+                                    <button type="button" class="m-btn-cart" onclick="addToCart('Trueview T18293SF 4G Dual Lens Pan-Tilt Surveillance Camera', 3850, 'assets/trueview_t18293sf_1.webp')">+ CART</button>
+                                    <button type="button" class="m-btn-pay" onclick="payNowDirect('Trueview T18293SF 4G Dual Lens Pan-Tilt Surveillance Camera', 3850, 'assets/trueview_t18293sf_1.webp')">PAY</button>
+                                </div>
+                            </div>
+
+                            <!-- Trueview Pick 7: 2MP Indoor PTZ -->
+                            <div class="showroom-shelf-card">
+                                <span class="showroom-shelf-badge">2MP WI-FI</span>
+                                <div class="showroom-shelf-img-wrap">
+                                    <img src="assets/trueview_t18290s_1.webp?v=3.6" alt="Trueview T18290S 2MP Wi-Fi PTZ" class="showroom-shelf-img" loading="lazy">
+                                </div>
+                                <div class="showroom-shelf-name">Trueview T18290S 2MP Wi-Fi PTZ</div>
+                                <div class="showroom-shelf-price">₹1,650</div>
+                                <div class="showroom-shelf-actions">
+                                    <button type="button" class="m-btn-cart" onclick="addToCart('Trueview T18290S Smart 2MP Indoor Pan & Tilt Wi-Fi Camera', 1650, 'assets/trueview_t18290s_1.webp')">+ CART</button>
+                                    <button type="button" class="m-btn-pay" onclick="payNowDirect('Trueview T18290S Smart 2MP Indoor Pan & Tilt Wi-Fi Camera', 1650, 'assets/trueview_t18290s_1.webp')">PAY</button>
+                                </div>
+                            </div>
+
+                            <!-- Trueview Pick 8: 4-Port PoE Switch -->
+                            <div class="showroom-shelf-card">
+                                <span class="showroom-shelf-badge">4-PORT POE</span>
+                                <div class="showroom-shelf-img-wrap">
+                                    <img src="assets/trueview_poe_front.jpg?v=3.6" alt="Trueview 4-Port Fast Ethernet PoE" class="showroom-shelf-img" loading="lazy">
+                                </div>
+                                <div class="showroom-shelf-name">Trueview 4-Port Commercial PoE Switch</div>
+                                <div class="showroom-shelf-price">₹1,450</div>
+                                <div class="showroom-shelf-actions">
+                                    <button type="button" class="m-btn-cart" onclick="addToCart('Trueview 4-Port Fast Ethernet PoE Switch with 2 Uplink', 1450, 'assets/trueview_poe_front.jpg')">+ CART</button>
+                                    <button type="button" class="m-btn-pay" onclick="payNowDirect('Trueview 4-Port Fast Ethernet PoE Switch with 2 Uplink', 1450, 'assets/trueview_poe_front.jpg')">PAY</button>
                                 </div>
                             </div>
                         </div>
+                    </div>
+
+                    <!-- EXPLORE ALL PRODUCTS OF TRUEVIEW (NEW WINDOW) -->
+                    <div class="showroom-explore-wrap">
+                        <a href="brand.html?brand=trueview" target="_blank" class="showroom-explore-btn">
+                            <div class="explore-btn-content">
+                                <span class="explore-btn-kicker">AUTHORIZED WHOLESALE CATALOG</span>
+                                <span class="explore-btn-title">Explore All 31 Products of TRUEVIEW</span>
+                            </div>
+                            <div class="explore-btn-action">
+                                <span>Open Full Catalog</span>
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                                    <polyline points="15 3 21 3 21 9"></polyline>
+                                    <line x1="10" y1="14" x2="21" y2="3"></line>
+                                </svg>
+                            </div>
+                        </a>
                     </div>
                 </div>
 
@@ -476,44 +585,125 @@
                         </div>
                     </div>
 
-                    <!-- BELOW: EXACTLY 2 PRODUCTS OF THE COMPANY -->
-                    <div class="showroom-secondary-wrap">
-                        <div class="secondary-header-row">
-                            <span class="secondary-kicker">MORE FROM CP PLUS (2 POPULAR SYSTEMS)</span>
+                    <!-- SLIDE ALL PRODUCTS BELOW BESTSELLER -->
+                    <div class="showroom-slider-wrap">
+                        <div class="slider-header-row">
+                            <span class="slider-kicker">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"></circle><polyline points="12 8 8 12 12 16"></polyline><line x1="16" y1="12" x2="8" y2="12"></line></svg>
+                                MORE CP PLUS SYSTEMS (SLIDE TO VIEW)
+                            </span>
+                            <div class="slider-arrow-nav">
+                                <button type="button" class="slider-arrow-btn" onclick="slideShelf('shelf-cpplus', -1)" aria-label="Previous CP PLUS Products">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"></polyline></svg>
+                                </button>
+                                <button type="button" class="slider-arrow-btn" onclick="slideShelf('shelf-cpplus', 1)" aria-label="Next CP PLUS Products">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                                </button>
+                            </div>
                         </div>
-                        <div class="showroom-secondary-grid">
-                            <!-- Product 1: Ezykam with LAN -->
-                            <div class="secondary-card">
-                                <span class="secondary-card-badge">LAN + WI-FI</span>
-                                <div class="secondary-img-wrap">
-                                    <img src="assets/cp_e21q_1.png?v=3.6" alt="CP PLUS Ezykam CP-E21Q 2MP" class="secondary-img" loading="eager">
+                        <div class="showroom-shelf-slider" id="shelf-cpplus">
+                            <!-- CP PLUS Pick 1: Ezykam 3MP -->
+                            <div class="showroom-shelf-card">
+                                <span class="showroom-shelf-badge">3MP 2K</span>
+                                <div class="showroom-shelf-img-wrap">
+                                    <img src="assets/cp_e38q_1.jpg?v=3.6" alt="CP PLUS Ezykam CP-E38Q 3MP" class="showroom-shelf-img" loading="lazy">
                                 </div>
-                                <div class="secondary-info">
-                                    <div class="secondary-name">CP PLUS Ezykam 2MP with Ethernet LAN</div>
-                                    <div class="secondary-price">₹2,035</div>
-                                    <div class="secondary-actions">
-                                        <button type="button" class="m-btn-cart" onclick="addToCart('CP PLUS Ezykam CP-E21Q 2MP Pan & Tilt Wi-Fi Camera with LAN', 2035, 'assets/cp_e21q_1.png')">+ CART</button>
-                                        <button type="button" class="m-btn-pay" onclick="payNowDirect('CP PLUS Ezykam CP-E21Q 2MP Pan & Tilt Wi-Fi Camera with LAN', 2035, 'assets/cp_e21q_1.png')">PAY</button>
-                                    </div>
+                                <div class="showroom-shelf-name">CP PLUS Ezykam 3MP 2K Pan-Tilt</div>
+                                <div class="showroom-shelf-price">₹2,235</div>
+                                <div class="showroom-shelf-actions">
+                                    <button type="button" class="m-btn-cart" onclick="addToCart('CP PLUS Ezykam CP-E38Q 3MP Pan & Tilt Wi-Fi Camera', 2235, 'assets/cp_e38q_1.jpg')">+ CART</button>
+                                    <button type="button" class="m-btn-pay" onclick="payNowDirect('CP PLUS Ezykam CP-E38Q 3MP Pan & Tilt Wi-Fi Camera', 2235, 'assets/cp_e38q_1.jpg')">PAY</button>
                                 </div>
                             </div>
 
-                            <!-- Product 2: 4MP Outdoor Bullet -->
-                            <div class="secondary-card">
-                                <span class="secondary-card-badge">4MP ULTRA BULLET</span>
-                                <div class="secondary-img-wrap">
-                                    <img src="assets/cp_z45q_1.png?v=3.6" alt="CP PLUS CP-Z45Q 4MP" class="secondary-img" loading="eager">
+                            <!-- CP PLUS Pick 2: Ezykam with LAN -->
+                            <div class="showroom-shelf-card">
+                                <span class="showroom-shelf-badge">LAN + WI-FI</span>
+                                <div class="showroom-shelf-img-wrap">
+                                    <img src="assets/cp_e21q_1.png?v=3.6" alt="CP PLUS Ezykam CP-E21Q 2MP" class="showroom-shelf-img" loading="lazy">
                                 </div>
-                                <div class="secondary-info">
-                                    <div class="secondary-name">CP PLUS CP-Z45Q 4MP Smart Outdoor Bullet</div>
-                                    <div class="secondary-price">₹3,850</div>
-                                    <div class="secondary-actions">
-                                        <button type="button" class="m-btn-cart" onclick="addToCart('CP PLUS CP-Z45Q 4MP Smart Outdoor Bullet Camera', 3850, 'assets/cp_z45q_1.png')">+ CART</button>
-                                        <button type="button" class="m-btn-pay" onclick="payNowDirect('CP PLUS CP-Z45Q 4MP Smart Outdoor Bullet Camera', 3850, 'assets/cp_z45q_1.png')">PAY</button>
-                                    </div>
+                                <div class="showroom-shelf-name">CP PLUS Ezykam 2MP with LAN</div>
+                                <div class="showroom-shelf-price">₹2,035</div>
+                                <div class="showroom-shelf-actions">
+                                    <button type="button" class="m-btn-cart" onclick="addToCart('CP PLUS Ezykam CP-E21Q 2MP Pan & Tilt Wi-Fi Camera with LAN', 2035, 'assets/cp_e21q_1.png')">+ CART</button>
+                                    <button type="button" class="m-btn-pay" onclick="payNowDirect('CP PLUS Ezykam CP-E21Q 2MP Pan & Tilt Wi-Fi Camera with LAN', 2035, 'assets/cp_e21q_1.png')">PAY</button>
+                                </div>
+                            </div>
+
+                            <!-- CP PLUS Pick 3: EzyLiv Full Color -->
+                            <div class="showroom-shelf-card">
+                                <span class="showroom-shelf-badge">COLOR NIGHT</span>
+                                <div class="showroom-shelf-img-wrap">
+                                    <img src="assets/ez_p34q_1.png?v=3.6" alt="CP PLUS EzyLiv Full Color" class="showroom-shelf-img" loading="lazy">
+                                </div>
+                                <div class="showroom-shelf-name">CP PLUS EzyLiv 3MP Full Color</div>
+                                <div class="showroom-shelf-price">₹2,070</div>
+                                <div class="showroom-shelf-actions">
+                                    <button type="button" class="m-btn-cart" onclick="addToCart('CP PLUS EzyLiv EZ-P34Q 3MP Full Color Wi-Fi Camera', 2070, 'assets/ez_p34q_1.png')">+ CART</button>
+                                    <button type="button" class="m-btn-pay" onclick="payNowDirect('CP PLUS EzyLiv EZ-P34Q 3MP Full Color Wi-Fi Camera', 2070, 'assets/ez_p34q_1.png')">PAY</button>
+                                </div>
+                            </div>
+
+                            <!-- CP PLUS Pick 4: 4G Bullet -->
+                            <div class="showroom-shelf-card">
+                                <span class="showroom-shelf-badge">4G SIM</span>
+                                <div class="showroom-shelf-img-wrap">
+                                    <img src="assets/cp_z43q_1.jpg?v=3.6" alt="CP PLUS 4G Bullet" class="showroom-shelf-img" loading="lazy">
+                                </div>
+                                <div class="showroom-shelf-name">CP PLUS 4G Outdoor SIM Bullet</div>
+                                <div class="showroom-shelf-price">₹3,450</div>
+                                <div class="showroom-shelf-actions">
+                                    <button type="button" class="m-btn-cart" onclick="addToCart('CP PLUS CP-Z43Q 4MP 4G Outdoor Bullet Camera', 3450, 'assets/cp_z43q_1.jpg')">+ CART</button>
+                                    <button type="button" class="m-btn-pay" onclick="payNowDirect('CP PLUS CP-Z43Q 4MP 4G Outdoor Bullet Camera', 3450, 'assets/cp_z43q_1.jpg')">PAY</button>
+                                </div>
+                            </div>
+
+                            <!-- CP PLUS Pick 5: 4MP Bullet -->
+                            <div class="showroom-shelf-card">
+                                <span class="showroom-shelf-badge">4MP ULTRA</span>
+                                <div class="showroom-shelf-img-wrap">
+                                    <img src="assets/cp_z45q_1.png?v=3.6" alt="CP PLUS CP-Z45Q 4MP" class="showroom-shelf-img" loading="lazy">
+                                </div>
+                                <div class="showroom-shelf-name">CP PLUS CP-Z45Q 4MP Smart Bullet</div>
+                                <div class="showroom-shelf-price">₹3,850</div>
+                                <div class="showroom-shelf-actions">
+                                    <button type="button" class="m-btn-cart" onclick="addToCart('CP PLUS CP-Z45Q 4MP Smart Outdoor Bullet Camera', 3850, 'assets/cp_z45q_1.png')">+ CART</button>
+                                    <button type="button" class="m-btn-pay" onclick="payNowDirect('CP PLUS CP-Z45Q 4MP Smart Outdoor Bullet Camera', 3850, 'assets/cp_z45q_1.png')">PAY</button>
+                                </div>
+                            </div>
+
+                            <!-- CP PLUS Pick 6: 4MP Pan-Tilt -->
+                            <div class="showroom-shelf-card">
+                                <span class="showroom-shelf-badge">4MP PTZ</span>
+                                <div class="showroom-shelf-img-wrap">
+                                    <img src="assets/cp_e38q_1.jpg?v=3.6" alt="CP PLUS Ezykam CP-E48Q 4MP" class="showroom-shelf-img" loading="lazy">
+                                </div>
+                                <div class="showroom-shelf-name">CP PLUS Ezykam CP-E48Q 4MP Pan-Tilt</div>
+                                <div class="showroom-shelf-price">₹2,525</div>
+                                <div class="showroom-shelf-actions">
+                                    <button type="button" class="m-btn-cart" onclick="addToCart('CP PLUS Ezykam CP-E48Q 4MP Pan & Tilt Wi-Fi Camera', 2525, 'assets/cp_e38q_1.jpg')">+ CART</button>
+                                    <button type="button" class="m-btn-pay" onclick="payNowDirect('CP PLUS Ezykam CP-E48Q 4MP Pan & Tilt Wi-Fi Camera', 2525, 'assets/cp_e38q_1.jpg')">PAY</button>
                                 </div>
                             </div>
                         </div>
+                    </div>
+
+                    <!-- EXPLORE ALL PRODUCTS OF CP PLUS (NEW WINDOW) -->
+                    <div class="showroom-explore-wrap">
+                        <a href="brand.html?brand=cpplus" target="_blank" class="showroom-explore-btn">
+                            <div class="explore-btn-content">
+                                <span class="explore-btn-kicker">OFFICIAL DISTRIBUTOR CATALOG</span>
+                                <span class="explore-btn-title">Explore All 9 Products of CP PLUS</span>
+                            </div>
+                            <div class="explore-btn-action">
+                                <span>Open Full Catalog</span>
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                                    <polyline points="15 3 21 3 21 9"></polyline>
+                                    <line x1="10" y1="14" x2="21" y2="3"></line>
+                                </svg>
+                            </div>
+                        </a>
                     </div>
                 </div>
 
@@ -626,44 +816,97 @@
                         </div>
                     </div>
 
-                    <!-- BELOW: EXACTLY 2 PRODUCTS OF THE COMPANY -->
-                    <div class="showroom-secondary-wrap">
-                        <div class="secondary-header-row">
-                            <span class="secondary-kicker">MORE CCTV ACCESSORIES (2 POPULAR ESSENTIALS)</span>
+                    <!-- SLIDE ALL PRODUCTS BELOW BESTSELLER -->
+                    <div class="showroom-slider-wrap">
+                        <div class="slider-header-row">
+                            <span class="slider-kicker">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"></circle><polyline points="12 8 8 12 12 16"></polyline><line x1="16" y1="12" x2="8" y2="12"></line></svg>
+                                MORE ACCESSORIES (SLIDE TO VIEW)
+                            </span>
+                            <div class="slider-arrow-nav">
+                                <button type="button" class="slider-arrow-btn" onclick="slideShelf('shelf-accessories', -1)" aria-label="Previous Accessories">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"></polyline></svg>
+                                </button>
+                                <button type="button" class="slider-arrow-btn" onclick="slideShelf('shelf-accessories', 1)" aria-label="Next Accessories">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                                </button>
+                            </div>
                         </div>
-                        <div class="showroom-secondary-grid">
-                            <!-- Product 1: 12V 10A Central SMPS -->
-                            <div class="secondary-card">
-                                <span class="secondary-card-badge">POWER SUPPLY</span>
-                                <div class="secondary-img-wrap">
-                                    <img src="assets/cctv_smps_power_supply.jpg?v=3.6" alt="12V 10A Central CCTV SMPS" class="secondary-img" loading="eager">
+                        <div class="showroom-shelf-slider" id="shelf-accessories">
+                            <!-- Acc 1: 12V 10A Central SMPS -->
+                            <div class="showroom-shelf-card">
+                                <span class="showroom-shelf-badge">POWER SUPPLY</span>
+                                <div class="showroom-shelf-img-wrap">
+                                    <img src="assets/cctv_smps_power_supply.jpg?v=3.6" alt="12V 10A Central CCTV SMPS" class="showroom-shelf-img" loading="lazy">
                                 </div>
-                                <div class="secondary-info">
-                                    <div class="secondary-name">Central 12V 10A CCTV SMPS Power Supply</div>
-                                    <div class="secondary-price">₹850</div>
-                                    <div class="secondary-actions">
-                                        <button type="button" class="m-btn-cart" onclick="addToCart('Central 12V 10A CCTV SMPS Metal Enclosure Power Supply Unit', 850, 'assets/cctv_smps_power_supply.jpg')">+ CART</button>
-                                        <button type="button" class="m-btn-pay" onclick="payNowDirect('Central 12V 10A CCTV SMPS Metal Enclosure Power Supply Unit', 850, 'assets/cctv_smps_power_supply.jpg')">PAY</button>
-                                    </div>
+                                <div class="showroom-shelf-name">Central 12V 10A CCTV SMPS Power Supply</div>
+                                <div class="showroom-shelf-price">₹850</div>
+                                <div class="showroom-shelf-actions">
+                                    <button type="button" class="m-btn-cart" onclick="addToCart('Central 12V 10A CCTV SMPS Metal Enclosure Power Supply Unit', 850, 'assets/cctv_smps_power_supply.jpg')">+ CART</button>
+                                    <button type="button" class="m-btn-pay" onclick="payNowDirect('Central 12V 10A CCTV SMPS Metal Enclosure Power Supply Unit', 850, 'assets/cctv_smps_power_supply.jpg')">PAY</button>
                                 </div>
                             </div>
 
-                            <!-- Product 2: Surveillance Hard Drive -->
-                            <div class="secondary-card">
-                                <span class="secondary-card-badge">SURVEILLANCE HDD</span>
-                                <div class="secondary-img-wrap">
-                                    <img src="assets/cctv_surveillance_hdd.jpg?v=3.6" alt="3.5-Inch Internal Surveillance Hard Drive" class="secondary-img" loading="eager">
+                            <!-- Acc 2: Surveillance Hard Drive -->
+                            <div class="showroom-shelf-card">
+                                <span class="showroom-shelf-badge">SURVEILLANCE HDD</span>
+                                <div class="showroom-shelf-img-wrap">
+                                    <img src="assets/cctv_surveillance_hdd.jpg?v=3.6" alt="3.5-Inch Internal Surveillance Hard Drive" class="showroom-shelf-img" loading="lazy">
                                 </div>
-                                <div class="secondary-info">
-                                    <div class="secondary-name">3.5-Inch Internal Surveillance Hard Drive</div>
-                                    <div class="secondary-price">₹3,400</div>
-                                    <div class="secondary-actions">
-                                        <button type="button" class="m-btn-cart" onclick="addToCart('3.5-Inch Internal Surveillance CCTV Hard Drive (SkyHawk / WD Purple)', 3400, 'assets/cctv_surveillance_hdd.jpg')">+ CART</button>
-                                        <button type="button" class="m-btn-pay" onclick="payNowDirect('3.5-Inch Internal Surveillance CCTV Hard Drive (SkyHawk / WD Purple)', 3400, 'assets/cctv_surveillance_hdd.jpg')">PAY</button>
-                                    </div>
+                                <div class="showroom-shelf-name">3.5-Inch Internal Surveillance Hard Drive</div>
+                                <div class="showroom-shelf-price">₹3,400</div>
+                                <div class="showroom-shelf-actions">
+                                    <button type="button" class="m-btn-cart" onclick="addToCart('3.5-Inch Internal Surveillance CCTV Hard Drive (SkyHawk / WD Purple)', 3400, 'assets/cctv_surveillance_hdd.jpg')">+ CART</button>
+                                    <button type="button" class="m-btn-pay" onclick="payNowDirect('3.5-Inch Internal Surveillance CCTV Hard Drive (SkyHawk / WD Purple)', 3400, 'assets/cctv_surveillance_hdd.jpg')">PAY</button>
+                                </div>
+                            </div>
+
+                            <!-- Acc 3: Weatherproof Junction Box -->
+                            <div class="showroom-shelf-card">
+                                <span class="showroom-shelf-badge">JUNCTION BOX</span>
+                                <div class="showroom-shelf-img-wrap">
+                                    <img src="assets/cctv_junction_box.jpg?v=3.6" alt="Weatherproof IP66 Junction Box" class="showroom-shelf-img" loading="lazy">
+                                </div>
+                                <div class="showroom-shelf-name">IP66 Weatherproof Round CCTV Junction Box</div>
+                                <div class="showroom-shelf-price">₹180</div>
+                                <div class="showroom-shelf-actions">
+                                    <button type="button" class="m-btn-cart" onclick="addToCart('Weatherproof IP66 Round CCTV Deep Base Camera Junction Box', 180, 'assets/cctv_junction_box.jpg')">+ CART</button>
+                                    <button type="button" class="m-btn-pay" onclick="payNowDirect('Weatherproof IP66 Round CCTV Deep Base Camera Junction Box', 180, 'assets/cctv_junction_box.jpg')">PAY</button>
+                                </div>
+                            </div>
+
+                            <!-- Acc 4: Seagate SkyHawk 4TB -->
+                            <div class="showroom-shelf-card">
+                                <span class="showroom-shelf-badge">4TB SURVEILLANCE</span>
+                                <div class="showroom-shelf-img-wrap">
+                                    <img src="assets/cctv_surveillance_hdd.jpg?v=3.6" alt="Seagate SkyHawk 4TB Surveillance Hard Drive" class="showroom-shelf-img" loading="lazy">
+                                </div>
+                                <div class="showroom-shelf-name">Seagate SkyHawk 4TB 24/7 Surveillance HDD</div>
+                                <div class="showroom-shelf-price">₹5,400</div>
+                                <div class="showroom-shelf-actions">
+                                    <button type="button" class="m-btn-cart" onclick="addToCart('Seagate SkyHawk 4TB 24/7 Surveillance Grade Hard Drive', 5400, 'assets/cctv_surveillance_hdd.jpg')">+ CART</button>
+                                    <button type="button" class="m-btn-pay" onclick="payNowDirect('Seagate SkyHawk 4TB 24/7 Surveillance Grade Hard Drive', 5400, 'assets/cctv_surveillance_hdd.jpg')">PAY</button>
                                 </div>
                             </div>
                         </div>
+                    </div>
+
+                    <!-- EXPLORE ALL CCTV ACCESSORIES (NEW WINDOW) -->
+                    <div class="showroom-explore-wrap">
+                        <a href="brand.html?brand=accessories" target="_blank" class="showroom-explore-btn">
+                            <div class="explore-btn-content">
+                                <span class="explore-btn-kicker">CONTRACTOR ESSENTIALS &amp; CABLING</span>
+                                <span class="explore-btn-title">Explore All CCTV Accessories &amp; Hardware</span>
+                            </div>
+                            <div class="explore-btn-action">
+                                <span>Open Full Catalog</span>
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                                    <polyline points="15 3 21 3 21 9"></polyline>
+                                    <line x1="10" y1="14" x2="21" y2="3"></line>
+                                </svg>
+                            </div>
+                        </a>
                     </div>
                 </div>
 
@@ -1124,7 +1367,7 @@
     <!-- GSAP Animation Engine -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
     <script src="cookie-location.js?v=3.6"></script>
-    <script src="script.js?v=4.8"></script>
+    <script src="script.js?v=4.9"></script>
 
     <!-- ======================================================================
          AMAZON-STYLE MOBILE BOTTOM NAVIGATION BAR (PHONE SCREEN ONLY)

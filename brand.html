@@ -1,0 +1,1069 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brand Catalog — SYBER SPACE Precision Surveillance</title>
+    <!-- Google Fonts: Plus Jakarta Sans & Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css?v=5.8">
+    <style>
+        /* ======================================================================
+           BRAND SHOWCASE CATALOG PAGE STYLING
+           Executive Obsidian & Pure White Aesthetic - Zero Clutter
+           ====================================================================== */
+        body {
+            background-color: #ffffff;
+            color: #0f172a;
+            font-family: var(--font-body, 'Inter', sans-serif);
+            margin: 0;
+            padding: 0;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .brand-page-wrap {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Top Brand Navigation Bar */
+        .brand-top-nav {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(255, 255, 255, 0.96);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(15, 23, 42, 0.08);
+            padding: 12px 4%;
+        }
+
+        .brand-top-nav-inner {
+            max-width: 1440px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+        }
+
+        .brand-nav-left {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .brand-nav-back {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-family: var(--font-mono, monospace);
+            font-size: 0.78rem;
+            font-weight: 800;
+            color: #0f172a;
+            text-decoration: none;
+            background: #f1f5f9;
+            padding: 8px 14px;
+            border-radius: 9999px;
+            border: 1px solid rgba(15, 23, 42, 0.08);
+            transition: all 0.2s ease;
+        }
+
+        .brand-nav-back:hover {
+            background: #0f172a;
+            color: #ffffff;
+        }
+
+        .brand-nav-logo {
+            font-family: var(--font-display);
+            font-weight: 900;
+            font-size: 1.15rem;
+            letter-spacing: -0.02em;
+            color: #0f172a;
+            text-decoration: none;
+        }
+
+        .brand-nav-right {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .brand-nav-cart {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: #0f172a;
+            color: #ffffff;
+            text-decoration: none;
+            padding: 8px 16px;
+            border-radius: 9999px;
+            font-family: var(--font-mono, monospace);
+            font-size: 0.76rem;
+            font-weight: 800;
+            letter-spacing: 0.04em;
+            transition: background 0.2s ease;
+        }
+
+        .brand-nav-cart:hover {
+            background: #1e293b;
+        }
+
+        .brand-nav-cart-badge {
+            background: #059669;
+            color: #ffffff;
+            font-size: 0.7rem;
+            font-weight: 900;
+            padding: 1px 7px;
+            border-radius: 9999px;
+        }
+
+        /* Brand Banner / Hero */
+        .brand-hero-section {
+            background: linear-gradient(180deg, #f8fafc 0%, #ffffff 100%);
+            border-bottom: 1px solid rgba(15, 23, 42, 0.06);
+            padding: 48px 4% 36px 4%;
+        }
+
+        .brand-hero-container {
+            max-width: 1440px;
+            margin: 0 auto;
+        }
+
+        .brand-hero-kicker-row {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 12px;
+            flex-wrap: wrap;
+        }
+
+        .brand-hero-badge {
+            font-family: var(--font-mono, monospace);
+            font-size: 0.68rem;
+            font-weight: 800;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            padding: 4px 10px;
+            border-radius: 6px;
+            background: #059669;
+            color: #ffffff;
+        }
+
+        .brand-count-pill {
+            font-family: var(--font-mono, monospace);
+            font-size: 0.72rem;
+            font-weight: 800;
+            background: #ffffff;
+            color: #0f172a;
+            border: 1px solid rgba(15, 23, 42, 0.12);
+            padding: 4px 12px;
+            border-radius: 9999px;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .brand-count-pill svg {
+            color: #059669;
+        }
+
+        .brand-hero-title {
+            font-family: var(--font-display);
+            font-size: 2.3rem;
+            font-weight: 900;
+            color: #0f172a;
+            letter-spacing: -0.03em;
+            line-height: 1.15;
+            margin: 0 0 12px 0;
+        }
+
+        .brand-hero-desc {
+            font-size: 0.95rem;
+            color: #475569;
+            line-height: 1.5;
+            max-width: 780px;
+            margin: 0 0 20px 0;
+        }
+
+        .brand-hero-features {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .brand-feat-chip {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-family: var(--font-mono, monospace);
+            font-size: 0.72rem;
+            font-weight: 700;
+            color: #334155;
+            background: #ffffff;
+            border: 1px solid rgba(15, 23, 42, 0.08);
+            padding: 5px 12px;
+            border-radius: 6px;
+        }
+
+        .brand-feat-chip svg {
+            color: #059669;
+        }
+
+        /* Catalog Toolbar (Search, Filter Pills, Sort) */
+        .brand-catalog-section {
+            padding: 32px 4% 80px 4%;
+            flex: 1;
+        }
+
+        .brand-catalog-container {
+            max-width: 1440px;
+            margin: 0 auto;
+        }
+
+        .brand-toolbar {
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+            margin-bottom: 28px;
+            background: #ffffff;
+            border: 1px solid rgba(15, 23, 42, 0.08);
+            border-radius: 14px;
+            padding: 16px 20px;
+            box-shadow: 0 2px 12px rgba(15, 23, 42, 0.02);
+        }
+
+        .brand-toolbar-row-top {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .brand-search-wrap {
+            position: relative;
+            flex: 1;
+            min-width: 260px;
+            max-width: 480px;
+        }
+
+        .brand-search-icon {
+            position: absolute;
+            left: 14px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #94a3b8;
+            pointer-events: none;
+        }
+
+        .brand-search-input {
+            width: 100%;
+            background: #f8fafc;
+            border: 1px solid rgba(15, 23, 42, 0.12);
+            border-radius: 8px;
+            padding: 10px 14px 10px 40px;
+            font-family: var(--font-body);
+            font-size: 0.85rem;
+            color: #0f172a;
+            box-sizing: border-box;
+            outline: none;
+            transition: all 0.2s ease;
+        }
+
+        .brand-search-input:focus {
+            background: #ffffff;
+            border-color: #0f172a;
+            box-shadow: 0 0 0 3px rgba(15, 23, 42, 0.08);
+        }
+
+        .brand-sort-wrap {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .brand-sort-label {
+            font-family: var(--font-mono, monospace);
+            font-size: 0.72rem;
+            font-weight: 800;
+            color: #64748b;
+            text-transform: uppercase;
+        }
+
+        .brand-sort-select {
+            background: #f8fafc;
+            border: 1px solid rgba(15, 23, 42, 0.12);
+            border-radius: 8px;
+            padding: 8px 14px;
+            font-family: var(--font-body);
+            font-size: 0.82rem;
+            font-weight: 600;
+            color: #0f172a;
+            cursor: pointer;
+            outline: none;
+        }
+
+        .brand-sort-select:focus {
+            border-color: #0f172a;
+        }
+
+        /* Filter Pills Row */
+        .brand-filter-chips {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            overflow-x: auto;
+            scrollbar-width: none;
+            padding-bottom: 2px;
+        }
+
+        .brand-filter-chips::-webkit-scrollbar {
+            display: none;
+        }
+
+        .brand-chip-btn {
+            background: #ffffff;
+            border: 1px solid rgba(15, 23, 42, 0.12);
+            color: #475569;
+            font-family: var(--font-mono, monospace);
+            font-size: 0.72rem;
+            font-weight: 700;
+            padding: 6px 14px;
+            border-radius: 9999px;
+            cursor: pointer;
+            white-space: nowrap;
+            transition: all 0.18s ease;
+        }
+
+        .brand-chip-btn:hover {
+            border-color: #0f172a;
+            color: #0f172a;
+        }
+
+        .brand-chip-btn.active {
+            background: #0f172a;
+            border-color: #0f172a;
+            color: #ffffff;
+        }
+
+        /* Results Status Bar */
+        .brand-results-count {
+            font-family: var(--font-mono, monospace);
+            font-size: 0.76rem;
+            font-weight: 800;
+            color: #64748b;
+            margin-bottom: 18px;
+        }
+
+        /* Product Grid */
+        .brand-products-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        @media (max-width: 1200px) {
+            .brand-products-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        @media (max-width: 860px) {
+            .brand-products-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 14px;
+            }
+        }
+
+        @media (max-width: 520px) {
+            .brand-products-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Product Card */
+        .brand-item-card {
+            background: #ffffff;
+            border: 1px solid rgba(15, 23, 42, 0.09);
+            border-radius: 14px;
+            padding: 16px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: relative;
+            box-shadow: 0 2px 10px rgba(15, 23, 42, 0.02);
+            transition: transform 0.22s ease, border-color 0.22s ease, box-shadow 0.22s ease;
+        }
+
+        .brand-item-card:hover {
+            transform: translateY(-3px);
+            border-color: rgba(15, 23, 42, 0.25);
+            box-shadow: 0 10px 24px rgba(15, 23, 42, 0.08);
+        }
+
+        .brand-item-badge {
+            position: absolute;
+            top: 12px;
+            left: 12px;
+            background: #f1f5f9;
+            color: #0f172a;
+            border: 1px solid rgba(15, 23, 42, 0.09);
+            font-family: var(--font-mono, monospace);
+            font-size: 0.58rem;
+            font-weight: 800;
+            letter-spacing: 0.04em;
+            padding: 3px 8px;
+            border-radius: 4px;
+            z-index: 2;
+        }
+
+        .brand-item-img-wrap {
+            width: 100%;
+            height: 180px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #ffffff;
+            border-radius: 10px;
+            padding: 12px;
+            margin: 18px 0 14px 0;
+            overflow: hidden;
+        }
+
+        .brand-item-img {
+            max-width: 100%;
+            max-height: 160px;
+            object-fit: contain;
+            filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.06));
+            transition: transform 0.25s ease;
+        }
+
+        .brand-item-card:hover .brand-item-img {
+            transform: scale(1.05);
+        }
+
+        .brand-item-details {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            flex: 1;
+        }
+
+        .brand-item-title {
+            font-family: var(--font-body);
+            font-size: 0.88rem;
+            font-weight: 700;
+            color: #0f172a;
+            line-height: 1.35;
+            min-height: 44px;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            margin: 0;
+        }
+
+        .brand-item-chips {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 4px;
+            margin: 2px 0 6px 0;
+        }
+
+        .brand-item-chip {
+            font-family: var(--font-mono, monospace);
+            font-size: 0.58rem;
+            font-weight: 700;
+            background: #f8fafc;
+            color: #475569;
+            border: 1px solid rgba(15, 23, 42, 0.06);
+            padding: 2px 6px;
+            border-radius: 4px;
+        }
+
+        .brand-item-price-row {
+            display: flex;
+            align-items: baseline;
+            justify-content: space-between;
+            padding-top: 10px;
+            border-top: 1px solid rgba(15, 23, 42, 0.06);
+            margin-top: auto;
+        }
+
+        .brand-price-left {
+            display: flex;
+            align-items: baseline;
+            gap: 6px;
+        }
+
+        .brand-item-price {
+            font-family: var(--font-display);
+            font-size: 1.25rem;
+            font-weight: 900;
+            color: #0f172a;
+            letter-spacing: -0.01em;
+        }
+
+        .brand-item-mrp {
+            font-size: 0.76rem;
+            color: #94a3b8;
+            text-decoration: line-through;
+        }
+
+        .brand-item-save {
+            font-family: var(--font-mono, monospace);
+            font-size: 0.62rem;
+            font-weight: 800;
+            color: #059669;
+            background: #ecfdf5;
+            padding: 1px 5px;
+            border-radius: 4px;
+        }
+
+        .brand-item-actions {
+            display: flex;
+            gap: 8px;
+            margin-top: 12px;
+        }
+
+        .btn-card-cart {
+            flex: 1;
+            background: #ffffff;
+            border: 1.5px solid #0f172a;
+            color: #0f172a;
+            font-family: var(--font-mono, monospace);
+            font-size: 0.72rem;
+            font-weight: 800;
+            padding: 9px 8px;
+            border-radius: 6px;
+            cursor: pointer;
+            text-align: center;
+            transition: all 0.18s ease;
+        }
+
+        .btn-card-cart:hover {
+            background: #0f172a;
+            color: #ffffff;
+        }
+
+        .btn-card-buy {
+            flex: 1.2;
+            background: #0f172a;
+            border: 1.5px solid #0f172a;
+            color: #ffffff;
+            font-family: var(--font-mono, monospace);
+            font-size: 0.72rem;
+            font-weight: 800;
+            padding: 9px 8px;
+            border-radius: 6px;
+            cursor: pointer;
+            text-align: center;
+            transition: all 0.18s ease;
+        }
+
+        .btn-card-buy:hover {
+            background: #1e293b;
+            border-color: #1e293b;
+        }
+
+        /* Empty State */
+        .brand-empty-state {
+            text-align: center;
+            padding: 60px 20px;
+            color: #64748b;
+        }
+
+        .brand-empty-title {
+            font-family: var(--font-display);
+            font-size: 1.3rem;
+            font-weight: 800;
+            color: #0f172a;
+            margin-bottom: 8px;
+        }
+
+        /* Floating Notification Toast */
+        .brand-toast {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            background: #0f172a;
+            color: #ffffff;
+            padding: 14px 20px;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            font-family: var(--font-mono, monospace);
+            font-size: 0.8rem;
+            font-weight: 700;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transform: translateY(100px);
+            opacity: 0;
+            transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease;
+            pointer-events: none;
+        }
+
+        .brand-toast.show {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        /* Footer */
+        .brand-footer {
+            border-top: 1px solid rgba(15, 23, 42, 0.08);
+            background: #f8fafc;
+            padding: 36px 4%;
+            text-align: center;
+        }
+
+        .brand-footer-text {
+            font-size: 0.82rem;
+            color: #64748b;
+            margin: 0 0 10px 0;
+        }
+
+        .brand-footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 18px;
+            flex-wrap: wrap;
+        }
+
+        .brand-footer-links a {
+            color: #0f172a;
+            text-decoration: none;
+            font-family: var(--font-mono, monospace);
+            font-size: 0.74rem;
+            font-weight: 700;
+        }
+
+        .brand-footer-links a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="brand-page-wrap">
+        <!-- Top Navigation -->
+        <header class="brand-top-nav">
+            <div class="brand-top-nav-inner">
+                <div class="brand-nav-left">
+                    <a href="index.html#cameras" class="brand-nav-back">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="19" y1="12" x2="5" y2="12"></line>
+                            <polyline points="12 19 5 12 12 5"></polyline>
+                        </svg>
+                        <span>Main Store</span>
+                    </a>
+                    <a href="index.html" class="brand-nav-logo">SYBER SPACE</a>
+                </div>
+                <div class="brand-nav-right">
+                    <a href="cart.html" class="brand-nav-cart" aria-label="View Shopping Cart">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="9" cy="21" r="1"></circle>
+                            <circle cx="20" cy="21" r="1"></circle>
+                            <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                        </svg>
+                        <span>Cart</span>
+                        <span class="brand-nav-cart-badge" id="brand-nav-cart-badge">0</span>
+                    </a>
+                </div>
+            </div>
+        </header>
+
+        <!-- Brand Hero Header -->
+        <section class="brand-hero-section">
+            <div class="brand-hero-container">
+                <div class="brand-hero-kicker-row">
+                    <span class="brand-hero-badge" id="brand-hero-badge">AUTHORIZED PARTNER</span>
+                    <div class="brand-count-pill" id="brand-count-pill">
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+                        <span id="brand-count-text">Catalog</span>
+                    </div>
+                </div>
+                <h1 class="brand-hero-title" id="brand-hero-title">Brand Wholesale Catalog</h1>
+                <p class="brand-hero-desc" id="brand-hero-desc">
+                    Official surveillance hardware with direct partner pricing, manufacturer warranty, and verified GST billing.
+                </p>
+                <div class="brand-hero-features">
+                    <div class="brand-feat-chip">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                        <span>100% Genuine Sealed Stock</span>
+                    </div>
+                    <div class="brand-feat-chip">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                        <span>1 Year Official Warranty</span>
+                    </div>
+                    <div class="brand-feat-chip">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                        <span>GST Tax Invoice Included</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Catalog Body -->
+        <main class="brand-catalog-section">
+            <div class="brand-catalog-container">
+
+                <!-- Filter & Search Toolbar -->
+                <div class="brand-toolbar">
+                    <div class="brand-toolbar-row-top">
+                        <div class="brand-search-wrap">
+                            <svg class="brand-search-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="11" cy="11" r="8"></circle>
+                                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                            </svg>
+                            <input type="text" id="brand-search-input" class="brand-search-input" placeholder="Search models, specs, resolution..." oninput="onFilterChange()" autocomplete="off">
+                        </div>
+                        <div class="brand-sort-wrap">
+                            <label for="brand-sort-select" class="brand-sort-label">Sort:</label>
+                            <select id="brand-sort-select" class="brand-sort-select" onchange="onFilterChange()">
+                                <option value="featured">Featured First</option>
+                                <option value="price-asc">Price: Low to High</option>
+                                <option value="price-desc">Price: High to Low</option>
+                                <option value="rating">Top Rated</option>
+                            </select>
+                        </div>
+                    </div>
+                    <!-- Category Pills -->
+                    <div class="brand-filter-chips" id="brand-category-chips">
+                        <!-- Populated by JavaScript -->
+                    </div>
+                </div>
+
+                <!-- Results Count -->
+                <div class="brand-results-count" id="brand-results-count">
+                    Loading products...
+                </div>
+
+                <!-- Products Grid -->
+                <div class="brand-products-grid" id="brand-products-grid">
+                    <!-- Populated by JavaScript -->
+                </div>
+
+            </div>
+        </main>
+
+        <!-- Notification Toast -->
+        <div class="brand-toast" id="brand-toast">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+            <span id="brand-toast-text">Added to cart</span>
+        </div>
+
+        <!-- Footer -->
+        <footer class="brand-footer">
+            <p class="brand-footer-text">
+                SYBER SPACE CCTV Wholesale Distribution • Authorized Trueview, iDADA &amp; CP PLUS Partner.
+            </p>
+            <div class="brand-footer-links">
+                <a href="index.html#cameras">Main Store</a>
+                <a href="cart.html">View Cart</a>
+                <a href="tel:+917511180808">Contact: +91 75111 80808</a>
+                <a href="privacy.html">Privacy Policy</a>
+                <a href="terms.html">Terms &amp; Conditions</a>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Product Database -->
+    <script src="products_data.js?v=3.5"></script>
+
+    <script>
+        // =====================================================================
+        // BRAND CATALOG ENGINE
+        // Reads URL query ?brand=trueview | cpplus | accessories
+        // Renders all products of that company with instant search & filters
+        // =====================================================================
+
+        const BRAND_CONFIGS = {
+            'trueview': {
+                name: 'TRUEVIEW',
+                title: 'TRUEVIEW® Commercial Surveillance Catalog',
+                badge: 'AUTHORIZED WHOLESALE PARTNER',
+                desc: 'Complete factory wholesale inventory of 31 Trueview systems: 4G Solar PTZ cameras, commercial PoE switches, high-gain SIM routers, and 4K ultra-definition NVRs with official 1-year warranty.',
+                countLabel: '31 Products in Inventory',
+                matchFn: (p) => p.brand === 'TRUEVIEW'
+            },
+            'cpplus': {
+                name: 'CP PLUS',
+                title: 'CP PLUS® Security Cameras & Ezykam Systems',
+                badge: 'OFFICIAL DISTRIBUTOR',
+                desc: 'Complete catalog of 9 genuine CP PLUS systems: Ezykam motorized Wi-Fi PTZ cameras, weatherproof outdoor bullets, and full-color 2K night vision systems.',
+                countLabel: '9 Products in Inventory',
+                matchFn: (p) => p.brand === 'CPPLUS'
+            },
+            'accessories': {
+                name: 'CCTV ACCESSORIES',
+                title: 'CCTV Accessories & Contractor Hardware',
+                badge: 'ESSENTIALS & CABLING',
+                desc: 'Heavy-duty surveillance network cabling, pure copper 305M drums, central SMPS power units, internal surveillance hard drives, and IP66 junction boxes.',
+                countLabel: '4 Hardware Essentials',
+                matchFn: (p) => p.category === 'accessory' || p.brand === 'SYBER SPACE' || p.brand === 'SEAGATE' || p.brand === 'ULTRA-LINK'
+            }
+        };
+
+        let currentBrandKey = 'trueview';
+        let currentProducts = [];
+        let activeCategory = 'all';
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const params = new URLSearchParams(window.location.search);
+            const requestedBrand = (params.get('brand') || 'trueview').toLowerCase();
+
+            if (BRAND_CONFIGS[requestedBrand]) {
+                currentBrandKey = requestedBrand;
+            } else if (requestedBrand === 'cp-plus' || requestedBrand === 'cp_plus') {
+                currentBrandKey = 'cpplus';
+            } else if (requestedBrand === 'accessory') {
+                currentBrandKey = 'accessories';
+            } else {
+                currentBrandKey = 'trueview';
+            }
+
+            initBrandPage();
+            updateCartDisplay();
+        });
+
+        function initBrandPage() {
+            const config = BRAND_CONFIGS[currentBrandKey];
+            if (!config) return;
+
+            // Set document title
+            document.title = `${config.name} Catalog — SYBER SPACE`;
+
+            // Update Hero Elements
+            document.getElementById('brand-hero-badge').textContent = config.badge;
+            document.getElementById('brand-hero-title').textContent = config.title;
+            document.getElementById('brand-hero-desc').textContent = config.desc;
+            document.getElementById('brand-count-text').textContent = config.countLabel;
+
+            // Filter products
+            if (typeof SYBER_PRODUCTS !== 'undefined') {
+                currentProducts = SYBER_PRODUCTS.filter(config.matchFn);
+            } else {
+                currentProducts = [];
+            }
+
+            // Build Category Chips
+            buildCategoryChips();
+
+            // Render Product Grid
+            renderGrid();
+        }
+
+        function buildCategoryChips() {
+            const chipsContainer = document.getElementById('brand-category-chips');
+            if (!chipsContainer) return;
+
+            const cats = {};
+            currentProducts.forEach(p => {
+                const c = p.category || 'other';
+                cats[c] = (cats[c] || 0) + 1;
+            });
+
+            const catLabels = {
+                'wifi-camera': 'Wi-Fi Cameras',
+                '4g-camera': '4G SIM Cameras',
+                'poe-switch': 'PoE Switches',
+                'nvr-dvr': 'NVRs & Recorders',
+                'router': 'SIM Routers',
+                'solar-hub': 'Solar Power',
+                'ahd-camera': 'Analog HD',
+                'doorbell': 'Doorbells',
+                'accessory': 'Accessories'
+            };
+
+            let html = `<button type="button" class="brand-chip-btn active" data-cat="all" onclick="selectCategory('all', this)">All (${currentProducts.length})</button>`;
+
+            Object.keys(cats).forEach(catKey => {
+                const label = catLabels[catKey] || catKey.toUpperCase();
+                html += `<button type="button" class="brand-chip-btn" data-cat="${catKey}" onclick="selectCategory('${catKey}', this)">${label} (${cats[catKey]})</button>`;
+            });
+
+            chipsContainer.innerHTML = html;
+        }
+
+        function selectCategory(cat, btn) {
+            activeCategory = cat;
+            document.querySelectorAll('.brand-chip-btn').forEach(b => b.classList.remove('active'));
+            if (btn) btn.classList.add('active');
+            renderGrid();
+        }
+
+        function onFilterChange() {
+            renderGrid();
+        }
+
+        function renderGrid() {
+            const grid = document.getElementById('brand-products-grid');
+            const countEl = document.getElementById('brand-results-count');
+            const searchInput = document.getElementById('brand-search-input');
+            const sortSelect = document.getElementById('brand-sort-select');
+
+            if (!grid) return;
+
+            const q = (searchInput ? searchInput.value : '').trim().toLowerCase();
+            const sortVal = sortSelect ? sortSelect.value : 'featured';
+
+            let filtered = currentProducts.filter(p => {
+                // Category match
+                if (activeCategory !== 'all' && p.category !== activeCategory) {
+                    return false;
+                }
+                // Search match
+                if (q) {
+                    const title = (p.title || '').toLowerCase();
+                    const desc = (p.desc || '').toLowerCase();
+                    const chips = (p.chips || []).join(' ').toLowerCase();
+                    const badge = (p.badge || '').toLowerCase();
+                    if (!title.includes(q) && !desc.includes(q) && !chips.includes(q) && !badge.includes(q)) {
+                        return false;
+                    }
+                }
+                return true;
+            });
+
+            // Sorting
+            if (sortVal === 'price-asc') {
+                filtered.sort((a, b) => (a.price || 0) - (b.price || 0));
+            } else if (sortVal === 'price-desc') {
+                filtered.sort((a, b) => (b.price || 0) - (a.price || 0));
+            } else if (sortVal === 'rating') {
+                filtered.sort((a, b) => parseFloat(b.rating || '0') - parseFloat(a.rating || '0'));
+            }
+
+            // Results count
+            if (countEl) {
+                countEl.textContent = `SHOWING ${filtered.length} OF ${currentProducts.length} PRODUCTS`;
+            }
+
+            if (filtered.length === 0) {
+                grid.innerHTML = `
+                    <div class="brand-empty-state" style="grid-column: 1 / -1;">
+                        <h3 class="brand-empty-title">No products match your search</h3>
+                        <p>Try clearing your search terms or picking another category.</p>
+                        <button type="button" class="btn-card-cart" style="display: inline-block; width: auto; padding: 8px 20px; margin-top: 10px;" onclick="resetFilters()">Reset Filters</button>
+                    </div>
+                `;
+                return;
+            }
+
+            const html = filtered.map(item => {
+                const img = (item.images && item.images.length > 0) ? item.images[0] : 'assets/trueview_t18291sf_1.webp';
+                const chipsHtml = (item.chips || []).slice(0, 3).map(ch => `<span class="brand-item-chip">${escapeHtml(ch)}</span>`).join('');
+                const mrpHtml = item.mrp ? `<span class="brand-item-mrp">${escapeHtml(item.mrp)}</span>` : '';
+                const saveHtml = item.save ? `<span class="brand-item-save">${escapeHtml(item.save)}</span>` : '';
+                const badgeText = item.badge || (item.category ? item.category.toUpperCase() : 'SYSTEM');
+
+                return `
+                    <div class="brand-item-card">
+                        <span class="brand-item-badge">${escapeHtml(badgeText)}</span>
+                        <div class="brand-item-img-wrap">
+                            <img src="${img}" alt="${escapeHtml(item.title)}" class="brand-item-img" loading="lazy">
+                        </div>
+                        <div class="brand-item-details">
+                            <h4 class="brand-item-title" title="${escapeHtml(item.title)}">${escapeHtml(item.title)}</h4>
+                            <div class="brand-item-chips">
+                                ${chipsHtml}
+                            </div>
+                            <div class="brand-item-price-row">
+                                <div class="brand-price-left">
+                                    <span class="brand-item-price">₹${Number(item.price).toLocaleString('en-IN')}</span>
+                                    ${mrpHtml}
+                                </div>
+                                ${saveHtml}
+                            </div>
+                            <div class="brand-item-actions">
+                                <button type="button" class="btn-card-cart" onclick="addBrandProductToCart('${escapeHtml(item.title)}', ${item.price}, '${img}')">+ CART</button>
+                                <button type="button" class="btn-card-buy" onclick="buyBrandProductDirect('${escapeHtml(item.title)}', ${item.price}, '${img}')">BUY NOW</button>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+
+            grid.innerHTML = html;
+        }
+
+        function resetFilters() {
+            const searchInput = document.getElementById('brand-search-input');
+            if (searchInput) searchInput.value = '';
+            selectCategory('all', document.querySelector('.brand-chip-btn'));
+        }
+
+        function addBrandProductToCart(title, price, img) {
+            try {
+                const cartStr = localStorage.getItem('syber_cart') || '[]';
+                let cart = JSON.parse(cartStr);
+
+                const existing = cart.find(item => item.name === title);
+                if (existing) {
+                    existing.quantity = (existing.quantity || 1) + 1;
+                } else {
+                    cart.push({
+                        name: title,
+                        price: price,
+                        img: img,
+                        quantity: 1
+                    });
+                }
+
+                localStorage.setItem('syber_cart', JSON.stringify(cart));
+                updateCartDisplay();
+                showToast(`Added to cart: ${title}`);
+            } catch (e) {
+                console.error('Error adding to cart:', e);
+            }
+        }
+
+        function buyBrandProductDirect(title, price, img) {
+            addBrandProductToCart(title, price, img);
+            window.location.href = 'cart.html?checkout=1';
+        }
+
+        function updateCartDisplay() {
+            try {
+                const cartStr = localStorage.getItem('syber_cart') || '[]';
+                const cart = JSON.parse(cartStr);
+                const total = cart.reduce((sum, item) => sum + (item.quantity || 1), 0);
+                const badge = document.getElementById('brand-nav-cart-badge');
+                if (badge) badge.textContent = total;
+            } catch (e) {
+                console.error(e);
+            }
+        }
+
+        let toastTimer = null;
+        function showToast(msg) {
+            const toast = document.getElementById('brand-toast');
+            const text = document.getElementById('brand-toast-text');
+            if (!toast || !text) return;
+
+            text.textContent = msg;
+            toast.classList.add('show');
+
+            if (toastTimer) clearTimeout(toastTimer);
+            toastTimer = setTimeout(() => {
+                toast.classList.remove('show');
+            }, 3000);
+        }
+
+        function escapeHtml(str) {
+            if (!str) return '';
+            return String(str)
+                .replace(/&/g, '&amp;')
+                .replace(/</g, '&lt;')
+                .replace(/>/g, '&gt;')
+                .replace(/"/g, '&quot;')
+                .replace(/'/g, '&#39;');
+        }
+    </script>
+</body>
+</html>

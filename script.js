@@ -2600,3 +2600,16 @@ window.returnToShowrooms = function() {
     if (mobileInput) mobileInput.value = '';
     scrollToShowroom('all', null, null);
 };
+
+
+// =============================================================================
+// HORIZONTAL SHOWROOM SHELF SLIDER CONTROLS
+// =============================================================================
+function slideShelf(id, direction) {
+    const el = document.getElementById(id);
+    if (el) {
+        const scrollAmount = Math.max(el.clientWidth * 0.75, 260);
+        el.scrollBy({ left: direction * scrollAmount, behavior: 'smooth' });
+    }
+}
+window.slideShelf = slideShelf;
