@@ -7,7 +7,7 @@ function normalizeImgPath(src) {
 
 // ==========================================================================
 // SYBER SPACE — Shopping Cart Logic Engine
-// Strict HDFC Bank SmartGateway™ Multi-Rail Integration
+// Strict HDFC Bank SmartGateway&trade; Multi-Rail Integration
 // ==========================================================================
 
 let activeCheckoutTotal = 0;
@@ -69,14 +69,11 @@ function saveCart(cart) {
 function updateNavCartCount() {
     const cart = getCart();
     const totalItems = cart.reduce((sum, item) => sum + (item.quantity || 1), 0);
-    const counterLabels = document.querySelectorAll('.cart-counter-label');
-    counterLabels.forEach(label => {
-        if (label.classList.contains('mobile-link')) {
-            label.textContent = `Shopping Cart (${totalItems})`;
-        } else {
-            label.textContent = `Cart (${totalItems})`;
-        }
-    });
+
+    const desktopBadge = document.getElementById('header-cart-badge');
+    if (desktopBadge) {
+        desktopBadge.textContent = String(totalItems);
+    }
 
     const mbBadge = document.getElementById('mb-cart-badge');
     if (mbBadge) {
@@ -89,6 +86,16 @@ function updateNavCartCount() {
         headerBadge.textContent = String(totalItems);
         headerBadge.style.display = totalItems > 0 ? 'inline-flex' : 'none';
     }
+
+    const counterLabels = document.querySelectorAll('.cart-counter-label');
+    counterLabels.forEach(label => {
+        if (label.id === 'header-cart-badge' || label.id === 'mobile-header-cart-badge' || label.id === 'mb-cart-badge') return;
+        if (label.classList.contains('mobile-link')) {
+            label.textContent = `Shopping Cart (${totalItems})`;
+        } else {
+            label.textContent = `Cart (${totalItems})`;
+        }
+    });
 }
 
 function renderCart() {
@@ -101,12 +108,19 @@ function renderCart() {
     if (!cart || cart.length === 0) {
         container.innerHTML = `
             <div class="cart-items-panel cart-empty-state">
+                <div class="cart-empty-icon-wrap">
+                    <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="9" cy="21" r="1"></circle>
+                        <circle cx="20" cy="21" r="1"></circle>
+                        <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                    </svg>
+                </div>
                 <h2 class="cart-empty-title">Your shopping cart is empty</h2>
                 <p class="cart-empty-subtitle">
-                    Explore our collection of CCTV cameras and security accessories.
+                    Explore our collection of precision CCTV cameras, 4G solar systems, and surveillance accessories at direct wholesale rates.
                 </p>
                 <a href="index.html#cameras" class="cart-empty-cta">
-                    <span>BROWSE CAMERAS</span>
+                    <span>EXPLORE ALL CAMERAS &rarr;</span>
                 </a>
             </div>
         `;
@@ -122,23 +136,38 @@ function renderCart() {
         subtotal += itemTotal;
 
         itemsHtml += `
-            <div class="cart-item-row">
+            <div class="cart-item-row" data-index="${index}">
                 <div class="cart-item-img-box">
-                    <img src="${normalizeImgPath(item.img || item.image)}" onerror="this.onerror=null;this.src='assets/idada_q2i35s_1.jpg';" alt="${item.name}" class="cart-item-img">
+                    <img src="${normalizeImgPath(item.img || item.image)}" onerror="this.onerror=null;this.src='assets/idada_q2i35s_1.jpg';" alt="${escapeHtml(item.name)}" class="cart-item-img">
                 </div>
                 <div class="cart-item-info">
-                    <h3 class="cart-item-name">${item.name}</h3>
-                    <span class="cart-item-sku">SKU: SS-${1000 + index} • GENUINE PRODUCT</span>
-                    <span class="cart-item-price">₹${item.price.toLocaleString('en-IN')} each</span>
+                    <div class="cart-item-badge-wrap">
+                        <span class="cart-item-badge">GENUINE HARDWARE</span>
+                    </div>
+                    <h3 class="cart-item-name">${escapeHtml(item.name)}</h3>
+                    <div class="cart-item-meta">
+                        <span class="cart-item-unit-price">&#8377;${item.price.toLocaleString('en-IN')} each</span>
+                        <span class="cart-item-warranty">&bull; Official 1-Yr Warranty</span>
+                    </div>
                 </div>
-                <div class="cart-qty-control">
-                    <button type="button" class="cart-qty-btn" onclick="updateItemQty(${index}, -1)" aria-label="Decrease quantity">−</button>
-                    <span class="cart-qty-val">${qty}</span>
-                    <button type="button" class="cart-qty-btn" onclick="updateItemQty(${index}, 1)" aria-label="Increase quantity">+</button>
+                <div class="cart-item-actions-cell">
+                    <div class="cart-qty-control">
+                        <button type="button" class="cart-qty-btn minus" onclick="updateItemQty(${index}, -1)" aria-label="Decrease quantity">&minus;</button>
+                        <span class="cart-qty-val">${qty}</span>
+                        <button type="button" class="cart-qty-btn plus" onclick="updateItemQty(${index}, 1)" aria-label="Increase quantity">+</button>
+                    </div>
+                    <div class="cart-item-subtotal-cell">
+                        <span class="cart-item-subtotal-label">Subtotal</span>
+                        <span class="cart-item-subtotal-amount">&#8377;${itemTotal.toLocaleString('en-IN')}</span>
+                    </div>
+                    <button type="button" class="cart-item-remove-btn" onclick="removeItem(${index})" title="Remove item" aria-label="Remove item">
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="3 6 5 6 21 6"></polyline>
+                            <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
+                        </svg>
+                        <span>Remove</span>
+                    </button>
                 </div>
-                <button type="button" class="cart-item-remove-btn" onclick="removeItem(${index})" title="Remove item" aria-label="Remove item">
-                    ✕
-                </button>
             </div>
         `;
     });
@@ -151,57 +180,76 @@ function renderCart() {
         <div class="cart-layout">
             <!-- Left: Cart Items List -->
             <div class="cart-items-panel">
-                <div class="cart-items-heading">
-                    Cart Items (${cart.reduce((sum, item) => sum + (item.quantity || 1), 0)})
+                <div class="cart-items-header-bar">
+                    <span class="cart-items-heading">Cart Items (${cart.reduce((sum, item) => sum + (item.quantity || 1), 0)})</span>
+                    <a href="index.html#cameras" class="cart-add-more-link">+ Add More Products</a>
                 </div>
                 <div class="cart-items-list">
                     ${itemsHtml}
+                </div>
+                <div class="cart-guarantee-bar">
+                    <div class="guarantee-pill">
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                        <span>100% Genuine Certified Hardware</span>
+                    </div>
+                    <div class="guarantee-pill">
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="3" width="15" height="13"></rect><polygon points="16 8 20 8 23 11 23 16 16 16 8"></polygon><circle cx="5.5" cy="18.5" r="2.5"></circle><circle cx="18.5" cy="18.5" r="2.5"></circle></svg>
+                        <span>Free Insured Pan-India Express Delivery</span>
+                    </div>
+                    <div class="guarantee-pill">
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+                        <span>Official GST Tax Invoice Included</span>
+                    </div>
                 </div>
             </div>
 
             <!-- Right: Order Summary & Checkout -->
             <div class="cart-summary-panel">
-                <h2 class="cart-summary-title">Order Summary</h2>
-                <div class="cart-summary-rows">
-                    <div class="cart-summary-row">
-                        <span>Taxable Amount</span>
-                        <span>₹${baseAmount.toLocaleString('en-IN')}</span>
+                <div class="cart-summary-card">
+                    <h2 class="cart-summary-title">Order Summary</h2>
+                    <div class="cart-summary-rows">
+                        <div class="cart-summary-row">
+                            <span>Taxable Subtotal</span>
+                            <span class="summary-val">&#8377;${baseAmount.toLocaleString('en-IN')}</span>
+                        </div>
+                        <div class="cart-summary-row">
+                            <span>GST (18% Included)</span>
+                            <span class="summary-val">&#8377;${gstAmount.toLocaleString('en-IN')}</span>
+                        </div>
+                        <div class="cart-summary-row">
+                            <span>Insured Pan-India Delivery</span>
+                            <span class="summary-val free-delivery">FREE</span>
+                        </div>
+                        <div class="cart-summary-row total-row">
+                            <span>Total Payable</span>
+                            <span class="summary-total-val">&#8377;${grandTotal.toLocaleString('en-IN')}</span>
+                        </div>
                     </div>
-                    <div class="cart-summary-row">
-                        <span>GST (18% Included)</span>
-                        <span>₹${gstAmount.toLocaleString('en-IN')}</span>
-                    </div>
-                    <div class="cart-summary-row">
-                        <span>Shipping</span>
-                        <span style="color: #059669; font-weight: 700;">FREE</span>
-                    </div>
-                    <div class="cart-summary-row total-row">
-                        <span>Total Amount</span>
-                        <span>₹${grandTotal.toLocaleString('en-IN')}</span>
-                    </div>
-                </div>
 
-                <!-- Checkout Action -->
-                <button type="button" class="cart-checkout-btn" onclick="initiateHdfcCheckout(${grandTotal})">
-                    <span>PAY NOW</span>
-                </button>
+                    <!-- Checkout Actions -->
+                    <button type="button" class="cart-checkout-btn" onclick="initiateHdfcCheckout(${grandTotal})">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+                        <span>PROCEED TO SECURE CHECKOUT</span>
+                    </button>
 
-                <a href="index.html#cameras" class="cart-continue-link">
-                    + Continue Shopping
-                </a>
+                    <a href="https://wa.me/917511180808?text=${encodeURIComponent('Hello Syber Space, I am reviewing my shopping cart with total ' + '₹' + grandTotal.toLocaleString('en-IN') + '. Please assist me with this order.')}" target="_blank" rel="noopener noreferrer" class="cart-whatsapp-btn">
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+                        <span>WhatsApp Quick Assistance</span>
+                    </a>
 
-                <div class="cart-assurance-badges">
-                    <div class="cart-assurance-item">
-                        <span class="assurance-tag">HDFC 256-BIT</span>
-                        <span>Encrypted checkout via HDFC Bank SmartGateway™.</span>
-                    </div>
-                    <div class="cart-assurance-item">
-                        <span class="assurance-tag">WARRANTY</span>
-                        <span>Official manufacturer warranty and GST invoice.</span>
-                    </div>
-                    <div class="cart-assurance-item">
-                        <span class="assurance-tag">DELIVERY</span>
-                        <span>Insured Pan-India delivery in 5 to 7 business days.</span>
+                    <div class="cart-trust-badges-box">
+                        <div class="trust-badge-row">
+                            <span class="trust-badge-tag">HDFC BANK</span>
+                            <span>256-Bit SSL SmartGateway&reg; Checkout</span>
+                        </div>
+                        <div class="trust-badge-row">
+                            <span class="trust-badge-tag">WARRANTY</span>
+                            <span>100% Original Manufacturer Warranty</span>
+                        </div>
+                        <div class="trust-badge-row">
+                            <span class="trust-badge-tag">DISPATCH</span>
+                            <span>Insured Pan-India Express Delivery</span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -212,15 +260,15 @@ function renderCart() {
         const rows = container.querySelectorAll('.cart-item-row');
         if (rows.length > 0) {
             gsap.fromTo(rows,
-                { opacity: 0, y: 14 },
-                { opacity: 1, y: 0, duration: 0.35, stagger: 0.05, ease: 'power2.out', clearProps: 'transform,opacity' }
+                { opacity: 0, y: 12 },
+                { opacity: 1, y: 0, duration: 0.3, stagger: 0.04, ease: 'power2.out', clearProps: 'transform,opacity' }
             );
         }
         const summaryPanel = container.querySelector('.cart-summary-panel');
         if (summaryPanel) {
             gsap.fromTo(summaryPanel,
-                { opacity: 0, x: 20 },
-                { opacity: 1, x: 0, duration: 0.4, delay: 0.08, ease: 'power2.out', clearProps: 'transform,opacity' }
+                { opacity: 0, y: 14 },
+                { opacity: 1, y: 0, duration: 0.35, delay: 0.05, ease: 'power2.out', clearProps: 'transform,opacity' }
             );
         }
     }
@@ -259,7 +307,7 @@ function initiateHdfcCheckout(total) {
     const totalAmountEl = document.getElementById('hdfc-total-amount');
 
     if (orderRefEl) orderRefEl.textContent = currentOrderRef;
-    if (totalAmountEl) totalAmountEl.textContent = `₹${total.toLocaleString('en-IN')}`;
+    if (totalAmountEl) totalAmountEl.innerHTML = `&#8377;${total.toLocaleString('en-IN')}`;
 
     // Render Step 1: Dispatch & Invoicing Details Form
     renderHdfcStep1();
@@ -392,7 +440,7 @@ function renderHdfcStep1() {
                         <span>256-BIT SSL ENCRYPTED</span>
                     </div>
                     <button type="submit" class="hdfc-pay-now-btn">
-                        <span>PROCEED TO PAYMENT ›</span>
+                        <span>PROCEED TO PAYMENT &rarr;</span>
                     </button>
                 </div>
             </form>
@@ -452,7 +500,7 @@ function renderHdfcStep2() {
             <div class="hdfc-form-section-title">
                 <span>2. PAYMENT METHOD</span>
                 <button type="button" onclick="renderHdfcStep1()" class="hdfc-back-link">
-                    ‹ Edit Shipping Address
+                    &larr; Edit Shipping Address
                 </button>
             </div>
 
@@ -518,14 +566,14 @@ function renderHdfcStep2() {
                             </button>
                         </div>
                         <div class="hdfc-vpa-handles">
-                            <span>Supported: @okhdfcbank • @okaxis • @oksbi • @ybl • @paytm • @ibl</span>
+                            <span>Supported: @okhdfcbank &bull; @okaxis &bull; @oksbi &bull; @ybl &bull; @paytm &bull; @ibl</span>
                         </div>
                     </div>
 
                     <!-- Bank Notice -->
                     <div class="hdfc-dynamic-notice">
                         <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#004c8f" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
-                        <span>Secured by HDFC Bank SmartGateway™ with 256-bit SSL encryption and PCI-DSS compliance.</span>
+                        <span>Secured by HDFC Bank SmartGateway&trade; with 256-bit SSL encryption and PCI-DSS compliance.</span>
                     </div>
                 </div>
             </div>
@@ -796,7 +844,7 @@ async function executeHdfcPayment(paymentRail) {
                         <span>PRINT / SAVE TAX INVOICE (PDF)</span>
                     </button>
                     <a href="index.html#cameras" class="hdfc-pay-now-btn" style="text-decoration:none; text-align:center;">
-                        <span>CONTINUE SHOPPING ›</span>
+                        <span>CONTINUE SHOPPING &rarr;</span>
                     </a>
                 </div>
             </div>

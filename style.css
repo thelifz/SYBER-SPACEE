@@ -40,9 +40,11 @@
     --accent-blue: #1d4ed8;
     --accent-blue-soft: #2563eb;
 
-    /* Professional Executive Typography */
+    /* Professional Executive Typography (Clean, Luxury, Commercial) */
     --font-main: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    --font-body: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
     --font-display: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    --font-mono: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 
     /* Radii & Transitions */
     --radius-pill: 9999px;
@@ -175,7 +177,7 @@ a {
 }
 
 .brand-tagline {
-    font-family: var(--font-mono, monospace);
+    font-family: var(--font-body);
     font-size: 0.6rem;
     font-weight: 700;
     letter-spacing: 0.18em;
@@ -372,7 +374,7 @@ a {
     right: -3px;
     background: #0f172a;
     color: #ffffff;
-    font-family: var(--font-mono, monospace);
+    font-family: var(--font-body);
     font-size: 0.65rem;
     font-weight: 800;
     min-width: 18px;
@@ -754,7 +756,7 @@ a {
     justify-content: center;
     background: #ffffff;
     color: #000000;
-    font-family: var(--font-mono), monospace;
+    font-family: var(--font-body);
     font-weight: 700;
     font-size: 0.92rem;
     letter-spacing: 0.12em;
@@ -843,7 +845,7 @@ a {
 }
 
 .hud-chip.mono {
-    font-family: var(--font-mono), monospace;
+    font-family: var(--font-body);
     font-variant-numeric: tabular-nums;
     letter-spacing: 0.12em;
 }
@@ -883,7 +885,7 @@ a {
     cursor: pointer;
     transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
     user-select: none;
-    font-family: var(--font-mono), monospace;
+    font-family: var(--font-body);
 }
 
 .hud-btn:hover,
@@ -976,7 +978,7 @@ a {
     background: transparent;
     border: none;
     color: #ffffff;
-    font-family: var(--font-mono), monospace;
+    font-family: var(--font-body);
     font-size: 0.88rem;
     font-weight: 700;
     letter-spacing: 0.12em;
@@ -999,7 +1001,7 @@ a {
 .hud-nav-counter,
 .hero-nav-counter {
     color: #9ca3af;
-    font-family: var(--font-mono), monospace;
+    font-family: var(--font-body);
     font-size: 0.88rem;
     font-weight: 600;
     letter-spacing: 0.14em;
@@ -1502,7 +1504,7 @@ a {
 .filter-item-count {
     margin-left: auto;
     font-size: 0.74rem;
-    font-family: var(--font-mono);
+    font-family: var(--font-body);
     color: var(--base-gray-500);
 }
 
@@ -1524,7 +1526,7 @@ a {
     display: flex;
     justify-content: space-between;
     font-size: 0.8rem;
-    font-family: var(--font-mono);
+    font-family: var(--font-body);
     color: var(--base-dark-muted);
 }
 
@@ -1691,7 +1693,7 @@ a {
 }
 
 .suggestion-header {
-    font-family: var(--font-mono), monospace;
+    font-family: var(--font-body);
     font-size: 0.68rem;
     font-weight: 700;
     color: #9ca3af;
@@ -1736,7 +1738,7 @@ a {
 }
 
 .suggestion-tag {
-    font-family: var(--font-mono), monospace;
+    font-family: var(--font-body);
     font-size: 0.64rem;
     font-weight: 700;
     padding: 2px 6px;
@@ -1797,7 +1799,7 @@ a {
 }
 
 .suggestion-action-hint {
-    font-family: var(--font-mono), monospace;
+    font-family: var(--font-body);
     font-size: 0.68rem;
     font-weight: 700;
     color: #9ca3af;
@@ -2031,7 +2033,7 @@ a {
     justify-content: center;
     font-size: 0.8rem;
     font-weight: 700;
-    font-family: var(--font-mono), monospace;
+    font-family: var(--font-body);
     color: var(--base-dark);
     cursor: pointer;
     opacity: 0;
@@ -2068,7 +2070,7 @@ a {
 }
 
 .gallery-thumb {
-    font-family: var(--font-mono), monospace;
+    font-family: var(--font-body);
     font-size: 0.62rem;
     font-weight: 700;
     color: var(--base-dark);
@@ -2097,7 +2099,7 @@ a {
 
 .product-brand-tag {
     font-size: 0.7rem;
-    font-family: var(--font-mono);
+    font-family: var(--font-body);
     font-weight: 800;
     color: var(--base-dark-muted, #57534e);
     letter-spacing: 0.08em;
@@ -2356,7 +2358,7 @@ a {
 }
 
 .about-title {
-    font-family: var(--font-mono);
+    font-family: var(--font-body);
     font-size: 0.96rem;
     font-weight: 700;
     color: var(--calm-navy, #153250);
@@ -2390,7 +2392,7 @@ a {
 }
 
 .about-connector {
-    font-family: var(--font-mono);
+    font-family: var(--font-body);
     font-size: 1.02rem;
     font-weight: 600;
     color: var(--base-dark);
@@ -2478,7 +2480,7 @@ a {
     justify-content: space-between;
     align-items: center;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    font-family: var(--font-mono);
+    font-family: var(--font-body);
     font-size: 0.74rem;
     color: #ffffff;
 }
@@ -2548,7 +2550,7 @@ a {
     left: 0;
     background: rgba(0, 0, 0, 0.88);
     color: #ef4444;
-    font-family: var(--font-mono);
+    font-family: var(--font-body);
     font-size: 0.62rem;
     font-weight: 700;
     padding: 2px 6px;
@@ -2578,7 +2580,7 @@ a {
     background: rgba(12, 14, 18, 0.96);
     padding: 10px 18px;
     border-top: 1px solid rgba(255, 255, 255, 0.1);
-    font-family: var(--font-mono);
+    font-family: var(--font-body);
     font-size: 0.7rem;
     color: #9ca3af;
     display: flex;
@@ -2788,115 +2790,142 @@ a {
 }
 
 /* ==========================================================================
-   JESKO JETS BRIGHT CART & PROCUREMENT REVIEW
+   COMMERCIAL SHOPPING CART (EXECUTIVE OBSIDIAN & CRISP SLATE DESIGN)
    ========================================================================== */
 .cart-page-section {
     background: #ffffff;
-    min-height: 82vh;
-    padding: 130px 6% 120px 6%;
+    min-height: 85vh;
+    padding: 120px 5% 100px 5%;
 }
 
 .cart-page-container {
-    max-width: 1400px;
+    max-width: 1280px;
     margin: 0 auto;
 }
 
 .cart-header-block {
-    margin-bottom: 44px;
+    margin-bottom: 32px;
 }
 
 .cart-kicker {
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    background: transparent;
-    border: none;
-    padding: 0;
-    font-family: var(--font-mono, monospace);
-    font-size: 0.74rem;
-    font-weight: 700;
-    letter-spacing: 0.14em;
+    font-family: var(--font-body);
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
     text-transform: uppercase;
-    color: var(--base-dark, #0f172a);
-    margin-bottom: 16px;
+    color: #0f172a;
+    margin-bottom: 8px;
 }
 
 .cart-title {
     font-family: var(--font-display, 'Plus Jakarta Sans', 'Inter', sans-serif);
-    font-size: clamp(2.4rem, 4vw, 3.4rem);
+    font-size: clamp(2rem, 3.5vw, 2.75rem);
     font-weight: 800;
-    letter-spacing: -0.02em;
-    color: var(--base-dark, #0f172a);
-    line-height: 1.1;
-    margin-bottom: 12px;
+    letter-spacing: -0.025em;
+    color: #0f172a;
+    line-height: 1.15;
+    margin-bottom: 8px;
 }
 
 .cart-desc {
-    color: var(--base-dark-muted, #5e574d);
-    font-size: 1.02rem;
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    color: #64748b;
     max-width: 640px;
-    line-height: 1.6;
+    line-height: 1.5;
 }
 
 .cart-layout {
     display: grid;
-    grid-template-columns: 1.7fr 1.1fr;
-    gap: 56px;
+    grid-template-columns: 1fr 380px;
+    gap: 36px;
     align-items: flex-start;
 }
 
-/* Zero-Box Cart Items Panel: Seamless Sand Typography */
+/* Cart Items Panel */
 .cart-items-panel {
-    background: transparent;
-    border: none;
-    border-radius: 0;
-    padding: 0;
-    box-shadow: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.cart-items-header-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 12px;
+    border-bottom: 1.5px solid rgba(15, 23, 42, 0.08);
+    margin-bottom: 4px;
 }
 
 .cart-items-heading {
-    font-family: var(--font-mono, monospace);
+    font-family: var(--font-display, 'Plus Jakarta Sans', sans-serif);
+    font-size: 1.05rem;
+    font-weight: 800;
+    color: #0f172a;
+}
+
+.cart-add-more-link {
+    font-family: var(--font-body);
     font-size: 0.78rem;
     font-weight: 700;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--base-dark-muted, #5e574d);
-    padding-bottom: 16px;
-    border-bottom: 1px solid rgba(27, 24, 21, 0.12);
-    margin-bottom: 8px;
+    color: #0f172a;
+    text-decoration: none;
+    padding: 5px 12px;
+    border: 1px solid rgba(15, 23, 42, 0.15);
+    border-radius: 6px;
+    transition: all 0.2s ease;
 }
 
+.cart-add-more-link:hover {
+    background: #0f172a;
+    color: #ffffff;
+}
+
+/* Cart Item Row Card */
 .cart-item-row {
     display: grid;
-    grid-template-columns: 88px 1fr auto auto;
+    grid-template-columns: 88px 1fr auto;
+    gap: 20px;
     align-items: center;
-    gap: 24px;
-    padding: 24px 0;
-    border-bottom: 1px solid rgba(27, 24, 21, 0.1);
+    background: #ffffff;
+    border: 1.5px solid rgba(15, 23, 42, 0.08);
+    border-radius: 12px;
+    padding: 18px 20px;
+    box-shadow: 0 2px 8px rgba(15, 23, 42, 0.02);
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
-.cart-item-row:last-child {
-    border-bottom: none;
+.cart-item-row:hover {
+    border-color: rgba(15, 23, 42, 0.18);
+    box-shadow: 0 6px 18px rgba(15, 23, 42, 0.05);
 }
 
 .cart-item-img-box {
     width: 88px;
     height: 88px;
-    background: transparent;
-    border: none;
-    border-radius: 0;
+    background: #f8fafc;
+    border: 1px solid rgba(15, 23, 42, 0.06);
+    border-radius: 8px;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 0;
+    padding: 6px;
     overflow: hidden;
 }
 
 .cart-item-img {
-    width: 100%;
-    height: 100%;
+    max-width: 100%;
+    max-height: 100%;
     object-fit: contain;
-    mix-blend-mode: multiply;
+    transition: transform 0.2s ease;
+}
+
+.cart-item-row:hover .cart-item-img {
+    transform: scale(1.04);
 }
 
 .cart-item-info {
@@ -2905,245 +2934,385 @@ a {
     gap: 4px;
 }
 
+.cart-item-badge-wrap {
+    margin-bottom: 2px;
+}
+
+.cart-item-badge {
+    font-family: var(--font-body);
+    font-size: 0.58rem;
+    font-weight: 800;
+    background: #0f172a;
+    color: #ffffff;
+    padding: 2px 6px;
+    border-radius: 4px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    display: inline-block;
+}
+
 .cart-item-name {
-    font-family: var(--font-display, 'Plus Jakarta Sans', 'Inter', sans-serif);
-    font-size: 1.1rem;
+    font-family: var(--font-display, 'Plus Jakarta Sans', sans-serif);
+    font-size: 0.98rem;
     font-weight: 700;
-    color: var(--base-dark, #0f172a);
+    color: #0f172a;
+    line-height: 1.3;
+    margin: 0;
 }
 
-.cart-item-sku {
-    font-size: 0.75rem;
-    color: var(--base-dark-muted, #5e574d);
-    font-family: var(--font-mono, monospace);
+.cart-item-meta {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--font-body);
+    font-size: 0.78rem;
+    color: #64748b;
 }
 
-.cart-item-price {
-    font-family: var(--font-mono, monospace);
-    font-size: 0.95rem;
+.cart-item-unit-price {
     font-weight: 700;
-    color: var(--base-dark, #1b1815);
+    color: #0f172a;
 }
 
+.cart-item-actions-cell {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+/* Stepper Quantity Control */
 .cart-qty-control {
     display: inline-flex;
     align-items: center;
-    border: 1px solid rgba(27, 24, 21, 0.2);
-    border-radius: 3px;
+    border: 1.5px solid rgba(15, 23, 42, 0.12);
+    border-radius: 6px;
+    background: #ffffff;
     overflow: hidden;
-    background: transparent;
 }
 
 .cart-qty-btn {
-    background: transparent;
-    border: none;
-    width: 32px;
-    height: 32px;
+    width: 30px;
+    height: 30px;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-family: var(--font-mono, monospace);
+    background: transparent;
+    border: none;
+    font-family: var(--font-body);
     font-size: 1rem;
     font-weight: 700;
+    color: #0f172a;
     cursor: pointer;
-    color: var(--base-dark, #1b1815);
-    transition: all 0.2s ease;
+    transition: all 0.15s ease;
+    user-select: none;
 }
 
 .cart-qty-btn:hover {
-    background: var(--base-dark, #1b1815);
+    background: #0f172a;
     color: #ffffff;
 }
 
 .cart-qty-val {
-    padding: 0 10px;
-    font-family: var(--font-mono, monospace);
+    min-width: 28px;
+    text-align: center;
+    font-family: var(--font-display, 'Plus Jakarta Sans', sans-serif);
     font-size: 0.88rem;
-    font-weight: 700;
-    color: var(--base-dark, #1b1815);
+    font-weight: 800;
+    color: #0f172a;
 }
 
+/* Subtotal per item */
+.cart-item-subtotal-cell {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    min-width: 85px;
+}
+
+.cart-item-subtotal-label {
+    font-family: var(--font-body);
+    font-size: 0.58rem;
+    font-weight: 700;
+    color: #94a3b8;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+
+.cart-item-subtotal-amount {
+    font-family: var(--font-display, 'Plus Jakarta Sans', sans-serif);
+    font-size: 1.15rem;
+    font-weight: 900;
+    color: #0f172a;
+    line-height: 1.1;
+}
+
+/* Remove button */
 .cart-item-remove-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
     background: transparent;
     border: none;
-    color: #ef4444;
+    color: #94a3b8;
+    font-family: var(--font-body);
+    font-size: 0.72rem;
+    font-weight: 600;
     cursor: pointer;
-    font-size: 1.1rem;
-    padding: 6px;
-    transition: color 0.2s ease;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    padding: 6px 8px;
+    border-radius: 6px;
+    transition: all 0.18s ease;
 }
 
 .cart-item-remove-btn:hover {
-    color: #b91c1c;
+    color: #ef4444;
+    background: #fef2f2;
+}
+
+/* Guarantee Bar */
+.cart-guarantee-bar {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin-top: 14px;
+}
+
+.guarantee-pill {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: #f8fafc;
+    border: 1px solid rgba(15, 23, 42, 0.06);
+    padding: 10px 14px;
+    border-radius: 8px;
+    font-family: var(--font-body);
+    font-size: 0.72rem;
+    font-weight: 600;
+    color: #475569;
+}
+
+.guarantee-pill svg {
+    color: #0f172a;
+    flex-shrink: 0;
 }
 
 /* Empty Cart State */
 .cart-empty-state {
     text-align: center;
-    padding: 60px 20px;
+    padding: 64px 20px;
+    background: #ffffff;
+    border: 1.5px solid rgba(15, 23, 42, 0.08);
+    border-radius: 14px;
+}
+
+.cart-empty-icon-wrap {
+    width: 76px;
+    height: 76px;
+    border-radius: 50%;
+    background: #f8fafc;
+    border: 1px solid rgba(15, 23, 42, 0.08);
+    color: #0f172a;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px auto;
 }
 
 .cart-empty-title {
-    font-family: var(--font-display, 'Plus Jakarta Sans', 'Inter', sans-serif);
-    font-size: 1.8rem;
-    font-weight: 700;
-    color: var(--base-dark, #0f172a);
-    margin-bottom: 12px;
+    font-family: var(--font-display, 'Plus Jakarta Sans', sans-serif);
+    font-size: 1.6rem;
+    font-weight: 800;
+    color: #0f172a;
+    margin-bottom: 8px;
 }
 
 .cart-empty-subtitle {
-    font-size: 0.98rem;
-    color: var(--base-dark-muted, #5e574d);
-    margin-bottom: 28px;
+    font-family: var(--font-body);
+    font-size: 0.92rem;
+    color: #64748b;
+    max-width: 500px;
+    margin: 0 auto 24px auto;
+    line-height: 1.5;
 }
 
 .cart-empty-cta {
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    background: var(--base-dark, #1b1815);
+    background: #0f172a;
     color: #ffffff;
-    padding: 14px 28px;
-    border-radius: 4px;
-    font-family: var(--font-mono, monospace);
-    font-weight: 700;
-    font-size: 0.85rem;
-    letter-spacing: 0.05em;
+    padding: 13px 26px;
+    border-radius: 8px;
+    font-family: var(--font-body);
+    font-weight: 800;
+    font-size: 0.82rem;
+    letter-spacing: 0.04em;
     text-decoration: none;
     transition: all 0.2s ease;
+    box-shadow: 0 4px 12px rgba(15, 23, 42, 0.15);
 }
 
 .cart-empty-cta:hover {
-    background: #004c8f;
+    background: #1e293b;
     transform: translateY(-2px);
 }
 
-/* Summary Panel: Unboxed Right Column with Left Hairline Divider */
+/* Summary Panel */
 .cart-summary-panel {
-    background: transparent;
-    border: none;
-    border-left: 1px solid rgba(27, 24, 21, 0.15);
-    border-radius: 0;
-    padding: 0 0 0 44px;
-    box-shadow: none;
     position: sticky;
-    top: 110px;
+    top: 100px;
+}
+
+.cart-summary-card {
+    background: #f8fafc;
+    border: 1.5px solid rgba(15, 23, 42, 0.1);
+    border-radius: 14px;
+    padding: 24px;
+    box-shadow: 0 4px 16px rgba(15, 23, 42, 0.03);
 }
 
 .cart-summary-title {
-    font-family: var(--font-display, 'Plus Jakarta Sans', 'Inter', sans-serif);
-    font-size: 1.4rem;
-    font-weight: 700;
-    color: var(--base-dark, #0f172a);
-    margin-bottom: 24px;
-    padding-bottom: 16px;
-    border-bottom: 1px solid rgba(27, 24, 21, 0.12);
+    font-family: var(--font-display, 'Plus Jakarta Sans', sans-serif);
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: #0f172a;
+    margin: 0 0 18px 0;
+    padding-bottom: 12px;
+    border-bottom: 1px solid rgba(15, 23, 42, 0.08);
 }
 
 .cart-summary-rows {
     display: flex;
     flex-direction: column;
-    gap: 14px;
-    margin-bottom: 24px;
+    gap: 12px;
+    margin-bottom: 22px;
 }
 
 .cart-summary-row {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    font-size: 0.92rem;
-    color: var(--base-dark-muted, #5e574d);
+    font-family: var(--font-body);
+    font-size: 0.88rem;
+    color: #475569;
+}
+
+.summary-val {
+    font-weight: 700;
+    color: #0f172a;
+    font-family: var(--font-display, 'Plus Jakarta Sans', sans-serif);
+}
+
+.summary-val.free-delivery {
+    background: #0f172a;
+    color: #ffffff;
+    font-family: var(--font-body);
+    font-size: 0.65rem;
+    font-weight: 800;
+    padding: 2px 7px;
+    border-radius: 4px;
+    letter-spacing: 0.04em;
 }
 
 .cart-summary-row.total-row {
-    font-family: var(--font-display, 'Plus Jakarta Sans', 'Inter', sans-serif);
-    font-size: 1.45rem;
+    padding-top: 14px;
+    border-top: 1px solid rgba(15, 23, 42, 0.1);
+    font-size: 1.05rem;
     font-weight: 800;
-    color: var(--base-dark, #0f172a);
-    padding-top: 16px;
-    border-top: 1px solid rgba(27, 24, 21, 0.12);
+    color: #0f172a;
 }
 
-/* HDFC Bank Gateway Official Button */
+.summary-total-val {
+    font-family: var(--font-display, 'Plus Jakarta Sans', sans-serif);
+    font-size: 1.6rem;
+    font-weight: 900;
+    color: #0f172a;
+}
+
+/* Primary Checkout Button */
 .cart-checkout-btn {
     width: 100%;
-    background: #004c8f; /* HDFC Bank Signature Blue */
-    color: #ffffff;
-    padding: 17px 24px;
-    border-radius: 4px;
-    font-family: var(--font-mono, monospace);
-    font-size: 0.88rem;
-    font-weight: 700;
-    letter-spacing: 0.05em;
-    border: 1px solid #004c8f;
-    cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 12px;
+    gap: 8px;
+    background: #0f172a;
+    color: #ffffff;
+    font-family: var(--font-body);
+    font-size: 0.82rem;
+    font-weight: 800;
+    letter-spacing: 0.04em;
+    padding: 14px;
+    border-radius: 8px;
+    border: 1.5px solid #0f172a;
+    cursor: pointer;
     transition: all 0.2s ease;
-    box-shadow: 0 4px 14px rgba(0, 76, 143, 0.25);
-    margin-bottom: 14px;
+    box-shadow: 0 4px 14px rgba(15, 23, 42, 0.15);
+    box-sizing: border-box;
 }
 
 .cart-checkout-btn:hover {
-    background: #003366;
-    border-color: #003366;
-    transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(0, 76, 143, 0.35);
+    background: #1e293b;
+    border-color: #1e293b;
 }
 
-.hdfc-badge-pill {
+.cart-checkout-btn svg {
+    color: #ffffff;
+}
+
+/* WhatsApp Assistance Button */
+.cart-whatsapp-btn {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
     background: #ffffff;
-    color: #004c8f;
-    font-size: 0.7rem;
-    font-weight: 800;
-    padding: 2px 7px;
-    border-radius: 2px;
-    letter-spacing: 0.08em;
-}
-
-.cart-continue-link {
-    display: block;
-    text-align: center;
-    font-family: var(--font-mono, monospace);
-    font-size: 0.82rem;
-    color: var(--base-dark-muted, #5e574d);
-    font-weight: 600;
+    color: #15803d;
+    border: 1.5px solid #22c55e;
+    font-family: var(--font-body);
+    font-size: 0.78rem;
+    font-weight: 700;
+    padding: 11px;
+    border-radius: 8px;
+    margin-top: 10px;
     text-decoration: none;
-    transition: color 0.2s ease;
+    transition: all 0.2s ease;
+    box-sizing: border-box;
 }
 
-.cart-continue-link:hover {
-    color: #004c8f;
+.cart-whatsapp-btn:hover {
+    background: #f0fdf4;
+    border-color: #16a34a;
 }
 
-.cart-assurance-badges {
-    margin-top: 24px;
-    padding-top: 20px;
-    border-top: 1px solid rgba(27, 24, 21, 0.12);
+.cart-trust-badges-box {
+    margin-top: 18px;
+    padding-top: 14px;
+    border-top: 1px solid rgba(15, 23, 42, 0.08);
     display: flex;
     flex-direction: column;
-    gap: 12px;
-    font-size: 0.82rem;
-    color: var(--base-dark, #1b1815);
+    gap: 8px;
 }
 
-.cart-assurance-item {
+.trust-badge-row {
     display: flex;
-    align-items: flex-start;
-    gap: 10px;
-    line-height: 1.4;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--font-body);
+    font-size: 0.7rem;
+    color: #64748b;
 }
 
-.assurance-tag {
-    font-family: var(--font-mono, monospace);
-    font-size: 0.72rem;
-    font-weight: 700;
-    color: #059669;
+.trust-badge-tag {
+    font-family: var(--font-body);
+    font-size: 0.56rem;
+    font-weight: 800;
+    background: #ffffff;
+    border: 1px solid rgba(15, 23, 42, 0.12);
+    color: #0f172a;
+    padding: 2px 6px;
+    border-radius: 3px;
+    letter-spacing: 0.04em;
     flex-shrink: 0;
 }
 
@@ -3227,7 +3396,7 @@ a {
 }
 
 .hdfc-title-main {
-    font-family: var(--font-mono, monospace);
+    font-family: var(--font-body);
     font-size: 0.82rem;
     font-weight: 700;
     letter-spacing: 0.06em;
@@ -3244,7 +3413,7 @@ a {
     background: rgba(255, 255, 255, 0.08);
     border: 1px solid rgba(255, 255, 255, 0.15);
     color: #ffffff;
-    font-family: var(--font-mono, monospace);
+    font-family: var(--font-body);
     font-size: 0.78rem;
     font-weight: 700;
     cursor: pointer;
@@ -3266,7 +3435,7 @@ a {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    font-family: var(--font-mono, monospace);
+    font-family: var(--font-body);
     font-size: 0.76rem;
     color: #4b453d;
     flex-shrink: 0;
@@ -3299,7 +3468,7 @@ a {
 
 /* Form Titles & Back Link */
 .hdfc-form-section-title {
-    font-family: var(--font-mono, monospace);
+    font-family: var(--font-body);
     font-size: 0.78rem;
     font-weight: 700;
     letter-spacing: 0.08em;
@@ -3316,7 +3485,7 @@ a {
 .hdfc-back-link {
     background: transparent;
     border: none;
-    font-family: var(--font-mono, monospace);
+    font-family: var(--font-body);
     font-size: 0.72rem;
     color: #004c8f;
     cursor: pointer;
@@ -3331,7 +3500,7 @@ a {
 
 .hdfc-field-subheading {
     display: block;
-    font-family: var(--font-mono, monospace);
+    font-family: var(--font-body);
     font-size: 0.72rem;
     font-weight: 700;
     letter-spacing: 0.06em;
@@ -3358,7 +3527,7 @@ a {
 }
 
 .hdfc-field-group label {
-    font-family: var(--font-mono, monospace);
+    font-family: var(--font-body);
     font-size: 0.72rem;
     font-weight: 700;
     color: #4b453d;
@@ -3400,7 +3569,7 @@ a {
     border: none;
     border-bottom: 2px solid transparent;
     padding: 10px 14px;
-    font-family: var(--font-mono, monospace);
+    font-family: var(--font-body);
     font-size: 0.76rem;
     font-weight: 700;
     letter-spacing: 0.04em;
@@ -3479,7 +3648,7 @@ a {
 }
 
 .upi-app-badge {
-    font-family: var(--font-mono, monospace);
+    font-family: var(--font-body);
     font-size: 0.68rem;
     font-weight: 800;
     background: #111622;
@@ -3496,7 +3665,7 @@ a {
 }
 
 .upi-app-speed {
-    font-family: var(--font-mono, monospace);
+    font-family: var(--font-body);
     font-size: 0.64rem;
     color: #059669;
     font-weight: 600;
@@ -3514,7 +3683,7 @@ a {
 }
 
 .hdfc-vpa-label {
-    font-family: var(--font-mono, monospace);
+    font-family: var(--font-body);
     font-size: 0.72rem;
     font-weight: 700;
     color: #4b453d;
@@ -3549,7 +3718,7 @@ a {
     color: #ffffff;
     border: 1px solid #004c8f;
     padding: 10px 18px;
-    font-family: var(--font-mono, monospace);
+    font-family: var(--font-body);
     font-size: 0.74rem;
     font-weight: 700;
     letter-spacing: 0.04em;
@@ -3565,7 +3734,7 @@ a {
 }
 
 .hdfc-vpa-handles {
-    font-family: var(--font-mono, monospace);
+    font-family: var(--font-body);
     font-size: 0.68rem;
     color: #736c61;
 }
@@ -3598,7 +3767,7 @@ a {
 }
 
 .card-brand-pill {
-    font-family: var(--font-mono, monospace);
+    font-family: var(--font-body);
     font-size: 0.7rem;
     font-weight: 800;
     color: #3b352e;
@@ -3611,7 +3780,7 @@ a {
     grid-column: span 2;
     font-size: 0.76rem;
     color: #059669;
-    font-family: var(--font-mono, monospace);
+    font-family: var(--font-body);
     font-weight: 600;
     display: flex;
     align-items: center;
@@ -3629,7 +3798,7 @@ a {
     background: #ffffff;
     border: 1px solid rgba(27, 24, 21, 0.16);
     padding: 12px 10px;
-    font-family: var(--font-mono, monospace);
+    font-family: var(--font-body);
     font-size: 0.76rem;
     font-weight: 700;
     color: #12100e;
@@ -3680,7 +3849,7 @@ a {
 }
 
 .emi-rate-callout {
-    font-family: var(--font-mono, monospace);
+    font-family: var(--font-body);
     font-size: 0.95rem;
     color: #004c8f;
 }
@@ -3702,7 +3871,7 @@ a {
     display: flex;
     align-items: center;
     gap: 8px;
-    font-family: var(--font-mono, monospace);
+    font-family: var(--font-body);
     font-size: 0.72rem;
     color: #059669;
     font-weight: 700;
@@ -3713,7 +3882,7 @@ a {
     color: #ffffff;
     border: 1px solid #004c8f;
     padding: 14px 28px;
-    font-family: var(--font-mono, monospace);
+    font-family: var(--font-body);
     font-size: 0.85rem;
     font-weight: 700;
     letter-spacing: 0.06em;
@@ -3788,7 +3957,7 @@ a {
     background: #ffffff;
     border-radius: 4px;
     padding: 24px;
-    font-family: var(--font-mono, monospace);
+    font-family: var(--font-body);
     font-size: 0.8rem;
     line-height: 1.6;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
@@ -3851,7 +4020,7 @@ a {
     display: flex;
     align-items: center;
     gap: 8px;
-    font-family: var(--font-mono, monospace);
+    font-family: var(--font-body);
     font-size: 0.68rem;
     font-weight: 700;
     color: #4b453d;
@@ -3882,7 +4051,7 @@ a {
 
 .cookie-btn {
     border: none;
-    font-family: var(--font-mono, monospace);
+    font-family: var(--font-body);
     font-size: 0.74rem;
     font-weight: 700;
     padding: 8px 16px;
@@ -4031,7 +4200,7 @@ a {
 }
 
 .assurance-tag {
-    font-family: var(--font-mono), monospace;
+    font-family: var(--font-body);
     font-size: 0.72rem;
     font-weight: 700;
     letter-spacing: 0.08em;
@@ -4102,7 +4271,7 @@ a {
 }
 
 .manifesto-card-num {
-    font-family: var(--font-mono);
+    font-family: var(--font-body);
     font-size: 0.95rem;
     font-weight: 700;
     color: var(--base-gray-500);
@@ -4141,7 +4310,7 @@ a {
 }
 
 .manifesto-card-footer .check-tag {
-    font-family: var(--font-mono);
+    font-family: var(--font-body);
     font-size: 0.78rem;
     font-weight: 700;
     color: #059669;
@@ -4203,7 +4372,7 @@ a {
 }
 
 .vibe-modal-kicker {
-    font-family: var(--font-mono);
+    font-family: var(--font-body);
     font-size: 0.72rem;
     font-weight: 700;
     letter-spacing: 0.12em;
@@ -4341,7 +4510,7 @@ a {
     padding: 6px 16px;
     border-radius: var(--radius-pill);
     margin-bottom: 14px;
-    font-family: var(--font-mono), monospace;
+    font-family: var(--font-body);
     font-size: 0.88rem;
 }
 
@@ -4642,7 +4811,7 @@ a {
 }
 
 .drawer-telemetry {
-    font-family: var(--font-mono);
+    font-family: var(--font-body);
     font-size: 0.72rem;
     font-weight: 700;
     letter-spacing: 0.12em;
@@ -4659,7 +4828,7 @@ a {
     background: rgba(255, 255, 255, 0.9);
     border: 1px solid rgba(27, 24, 21, 0.16);
     color: var(--base-dark);
-    font-family: var(--font-mono);
+    font-family: var(--font-body);
     font-size: 0.72rem;
     font-weight: 700;
     letter-spacing: 0.05em;
@@ -4679,7 +4848,7 @@ a {
     background: rgba(27, 24, 21, 0.06);
     border: 1px solid rgba(27, 24, 21, 0.15);
     color: var(--base-dark);
-    font-family: var(--font-mono);
+    font-family: var(--font-body);
     font-size: 0.75rem;
     font-weight: 700;
     letter-spacing: 0.05em;
@@ -4751,7 +4920,7 @@ a {
     background: transparent;
     border: none;
     color: var(--base-dark);
-    font-family: var(--font-mono);
+    font-family: var(--font-body);
     font-weight: 700;
     font-size: 1.3rem;
     width: 40px;
@@ -4786,7 +4955,7 @@ a {
     bottom: 4px;
     left: 50%;
     transform: translateX(-50%);
-    font-family: var(--font-mono);
+    font-family: var(--font-body);
     font-size: 0.72rem;
     font-weight: 700;
     letter-spacing: 0.1em;
@@ -4854,7 +5023,7 @@ a {
 }
 
 .modal-brand-tag {
-    font-family: var(--font-mono);
+    font-family: var(--font-body);
     font-size: 0.75rem;
     font-weight: 700;
     letter-spacing: 0.1em;
@@ -4865,7 +5034,7 @@ a {
 .modal-status-badge {
     background: rgba(0, 76, 143, 0.08);
     color: #004c8f;
-    font-family: var(--font-mono);
+    font-family: var(--font-body);
     font-size: 0.68rem;
     font-weight: 700;
     letter-spacing: 0.08em;
@@ -4921,7 +5090,7 @@ a {
 }
 
 .modal-mrp {
-    font-family: var(--font-mono);
+    font-family: var(--font-body);
     font-size: 0.88rem;
     color: var(--base-gray-500);
     text-decoration: line-through;
@@ -4930,7 +5099,7 @@ a {
 .modal-save-badge {
     background: var(--calm-sage, #236352);
     color: #ffffff;
-    font-family: var(--font-mono);
+    font-family: var(--font-body);
     font-size: 0.72rem;
     font-weight: 700;
     padding: 2px 8px;
@@ -4952,7 +5121,7 @@ a {
 }
 
 .modal-tax-note {
-    font-family: var(--font-mono);
+    font-family: var(--font-body);
     font-size: 0.76rem;
     color: var(--base-dark-muted);
 }
@@ -4965,7 +5134,7 @@ a {
 }
 
 .modal-specs-chips .chip {
-    font-family: var(--font-mono);
+    font-family: var(--font-body);
     font-size: 0.72rem;
     background: rgba(27, 24, 21, 0.05);
     border: 1px solid rgba(27, 24, 21, 0.12);
@@ -5024,7 +5193,7 @@ a {
     color: var(--base-dark, #0f172a);
     border: 1.5px solid rgba(15, 23, 42, 0.2);
     padding: 13px 16px;
-    font-family: var(--font-mono);
+    font-family: var(--font-body);
     font-size: 0.82rem;
     font-weight: 700;
     letter-spacing: 0.06em;
@@ -5047,7 +5216,7 @@ a {
     color: #ffffff;
     border: 1px solid var(--gold-border);
     padding: 13px 16px;
-    font-family: var(--font-mono);
+    font-family: var(--font-body);
     font-size: 0.82rem;
     font-weight: 700;
     letter-spacing: 0.06em;
@@ -5123,7 +5292,7 @@ a {
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    font-family: var(--font-mono, monospace);
+    font-family: var(--font-body);
     font-size: 0.72rem;
     font-weight: 700;
     letter-spacing: 0.12em;
@@ -5147,7 +5316,7 @@ a {
     align-items: center;
     gap: 16px;
     flex-wrap: wrap;
-    font-family: var(--font-mono, monospace);
+    font-family: var(--font-body);
     font-size: 0.76rem;
     color: var(--base-dark-muted, #57534e);
 }
@@ -5188,7 +5357,7 @@ a {
 }
 
 .legal-card-num {
-    font-family: var(--font-mono, monospace);
+    font-family: var(--font-body);
     font-size: 0.8rem;
     color: var(--accent-blue, #1d4ed8);
     font-weight: 700;
@@ -5249,7 +5418,7 @@ a {
     color: var(--base-dark, #1b1815);
     margin-bottom: 6px;
     text-transform: uppercase;
-    font-family: var(--font-mono, monospace);
+    font-family: var(--font-body);
     letter-spacing: 0.04em;
 }
 
@@ -5279,7 +5448,7 @@ a {
 }
 
 .schemes-left-title {
-    font-family: var(--font-mono, monospace);
+    font-family: var(--font-body);
     font-size: 0.72rem;
     font-weight: 700;
     letter-spacing: 0.08em;
@@ -5299,7 +5468,7 @@ a {
     border: 1px solid rgba(27, 24, 21, 0.14);
     padding: 4px 10px;
     border-radius: 3px;
-    font-family: var(--font-mono, monospace);
+    font-family: var(--font-body);
     font-size: 0.68rem;
     font-weight: 700;
     letter-spacing: 0.05em;
@@ -5366,7 +5535,7 @@ a {
 }
 
 .footer-whatsapp-kicker {
-    font-family: var(--font-mono, monospace);
+    font-family: var(--font-body);
     font-size: 0.74rem;
     font-weight: 700;
     letter-spacing: 0.14em;
@@ -5408,7 +5577,7 @@ a {
     color: #ffffff;
     padding: 16px 28px;
     border-radius: var(--radius-pill, 9999px);
-    font-family: var(--font-mono, monospace);
+    font-family: var(--font-body);
     font-size: 0.88rem;
     font-weight: 800;
     letter-spacing: 0.08em;
@@ -5429,7 +5598,7 @@ a {
 }
 
 .whatsapp-concierge-note {
-    font-family: var(--font-mono, monospace);
+    font-family: var(--font-body);
     font-size: 0.72rem;
     color: var(--base-dark-muted, #57534e);
     letter-spacing: 0.04em;
@@ -5494,7 +5663,7 @@ a {
     }
 
     .ms-tax-note {
-        font-family: var(--font-mono, monospace);
+        font-family: var(--font-body);
         font-size: 0.65rem;
         font-weight: 700;
         color: #059669;
@@ -5514,7 +5683,7 @@ a {
         border: 1px solid rgba(15, 23, 42, 0.2);
         padding: 11px 14px;
         border-radius: var(--radius-pill, 9999px);
-        font-family: var(--font-mono, monospace);
+        font-family: var(--font-body);
         font-size: 0.74rem;
         font-weight: 700;
         letter-spacing: 0.06em;
@@ -5533,7 +5702,7 @@ a {
         border: 1px solid var(--gold-border);
         padding: 11px 20px;
         border-radius: var(--radius-pill, 9999px);
-        font-family: var(--font-mono, monospace);
+        font-family: var(--font-body);
         font-size: 0.78rem;
         font-weight: 800;
         letter-spacing: 0.08em;
@@ -5748,7 +5917,7 @@ a {
     }
 
     .mb-nav-label {
-        font-family: var(--font-mono, monospace);
+        font-family: var(--font-body);
         font-size: 0.65rem;
         font-weight: 700;
         letter-spacing: 0.04em;
@@ -5768,7 +5937,7 @@ a {
         right: -9px;
         background: var(--base-dark, #1b1815);
         color: #ffffff;
-        font-family: var(--font-mono, monospace);
+        font-family: var(--font-body);
         font-size: 0.62rem;
         font-weight: 800;
         line-height: 1;
@@ -5814,7 +5983,7 @@ a {
     display: flex;
     align-items: center;
     gap: 6px;
-    font-family: var(--font-mono, monospace);
+    font-family: var(--font-body);
     font-size: 0.74rem;
     font-weight: 800;
     letter-spacing: 0.1em;
@@ -5849,7 +6018,7 @@ a {
     border: 1px solid rgba(27, 24, 21, 0.16);
     border-radius: var(--radius-pill, 9999px);
     padding: 7px 15px;
-    font-family: var(--font-mono, monospace);
+    font-family: var(--font-body);
     font-size: 0.72rem;
     font-weight: 700;
     letter-spacing: 0.05em;
@@ -5894,7 +6063,7 @@ a {
     justify-content: space-between;
     align-items: center;
     margin-bottom: 16px;
-    font-family: var(--font-mono, monospace);
+    font-family: var(--font-body);
     font-size: 0.72rem;
     font-weight: 800;
     letter-spacing: 0.08em;
@@ -5937,7 +6106,7 @@ a {
     display: flex;
     flex-direction: column;
     gap: 8px;
-    font-family: var(--font-mono, monospace);
+    font-family: var(--font-body);
     font-size: 0.76rem;
     font-weight: 700;
     color: #059669;
@@ -6090,9 +6259,11 @@ a {
         position: absolute !important;
         top: 0 !important;
         right: 0 !important;
-        background: #059669 !important;
+        background: #0f172a !important;
+        border: 2px solid #ffffff !important;
+        box-shadow: 0 2px 6px rgba(0,0,0,0.18) !important;
         color: #ffffff !important;
-        font-family: var(--font-mono, monospace) !important;
+        font-family: var(--font-body) !important;
         font-size: 0.62rem !important;
         font-weight: 800 !important;
         line-height: 1 !important;
@@ -6201,7 +6372,7 @@ a {
         color: #44403c !important;
         padding: 6px 13px !important;
         border-radius: 9999px !important;
-        font-family: var(--font-mono, monospace) !important;
+        font-family: var(--font-body) !important;
         font-size: 0.72rem !important;
         font-weight: 700 !important;
         white-space: nowrap !important;
@@ -6490,9 +6661,11 @@ a {
         position: absolute !important;
         top: 2px !important;
         right: 0px !important;
-        background: #059669 !important;
+        background: #0f172a !important;
+        border: 2px solid #ffffff !important;
+        box-shadow: 0 2px 6px rgba(0,0,0,0.18) !important;
         color: #ffffff !important;
-        font-family: var(--font-mono, monospace) !important;
+        font-family: var(--font-body) !important;
         font-size: 0.65rem !important;
         font-weight: 800 !important;
         line-height: 1 !important;
@@ -6628,7 +6801,7 @@ a {
     }
 
     .m-showrooms-kicker {
-        font-family: var(--font-mono, monospace) !important;
+        font-family: var(--font-body) !important;
         font-size: 0.68rem !important;
         font-weight: 800 !important;
         letter-spacing: 0.1em !important;
@@ -6683,7 +6856,7 @@ a {
     }
 
     .m-brand-badge {
-        font-family: var(--font-mono, monospace) !important;
+        font-family: var(--font-body) !important;
         font-size: 0.62rem !important;
         font-weight: 800 !important;
         letter-spacing: 0.08em !important;
@@ -6718,7 +6891,7 @@ a {
         border: 1px solid rgba(15, 23, 42, 0.08) !important;
         border-radius: 9999px !important;
         padding: 4px 10px !important;
-        font-family: var(--font-mono, monospace) !important;
+        font-family: var(--font-body) !important;
         font-size: 0.68rem !important;
         font-weight: 800 !important;
         color: #0f172a !important;
@@ -6764,7 +6937,7 @@ a {
         top: -6px !important;
         background: #059669 !important;
         color: #ffffff !important;
-        font-family: var(--font-mono, monospace) !important;
+        font-family: var(--font-body) !important;
         font-size: 0.55rem !important;
         font-weight: 800 !important;
         letter-spacing: 0.06em !important;
@@ -6786,7 +6959,7 @@ a {
     }
 
     .m-bestseller-name {
-        font-family: var(--font-mono, monospace) !important;
+        font-family: var(--font-body) !important;
         font-size: 0.62rem !important;
         font-weight: 700 !important;
         color: #1b1815 !important;
@@ -6840,7 +7013,7 @@ a {
     }
 
     .m-card-badge {
-        font-family: var(--font-mono, monospace) !important;
+        font-family: var(--font-body) !important;
         font-size: 0.58rem !important;
         font-weight: 800 !important;
         color: #78716c !important;
@@ -6936,7 +7109,7 @@ a {
         color: #1b1815 !important;
         padding: 9px 12px !important;
         border-radius: 9999px !important;
-        font-family: var(--font-mono, monospace) !important;
+        font-family: var(--font-body) !important;
         font-size: 0.72rem !important;
         font-weight: 800 !important;
         letter-spacing: 0.05em !important;
@@ -7018,82 +7191,77 @@ a {
 
     /* ==========================================================
        MOBILE CART & PROCUREMENT PAGE ENHANCEMENTS (@media max-width: 768px)
-       Pure crisp white background, touch-first card layout, zero horizontal cramping
+       Pure crisp white background, touch-first card layout, Obsidian accents
        ========================================================== */
     .cart-page-section {
         background: #ffffff !important;
-        padding: 76px 16px 110px 16px !important;
+        padding: 70px 4% 90px 4% !important;
         min-height: calc(100vh - 120px) !important;
     }
 
     .cart-header-block {
-        margin-bottom: 22px !important;
+        margin-bottom: 20px !important;
     }
 
     .cart-kicker {
         font-size: 0.65rem !important;
-        letter-spacing: 0.1em !important;
-        margin-bottom: 6px !important;
+        margin-bottom: 4px !important;
     }
 
     .cart-title {
-        font-size: 1.55rem !important;
-        line-height: 1.18 !important;
-        letter-spacing: -0.02em !important;
-        margin-bottom: 8px !important;
+        font-size: 1.65rem !important;
+        line-height: 1.2 !important;
+        margin-bottom: 6px !important;
     }
 
     .cart-desc {
-        font-size: 0.8rem !important;
-        line-height: 1.4 !important;
-        color: #57534e !important;
+        font-size: 0.84rem !important;
+        line-height: 1.45 !important;
+        color: #64748b !important;
     }
 
     .cart-layout {
         display: flex !important;
         flex-direction: column !important;
-        gap: 24px !important;
+        gap: 20px !important;
+    }
+
+    .cart-items-header-bar {
+        padding-bottom: 10px !important;
     }
 
     .cart-items-heading {
-        font-size: 0.72rem !important;
-        padding-bottom: 12px !important;
-        border-bottom: 1px solid rgba(27, 24, 21, 0.1) !important;
-        margin-bottom: 4px !important;
+        font-size: 0.95rem !important;
     }
 
     .cart-item-row {
         display: grid !important;
-        grid-template-columns: 82px 1fr !important;
+        grid-template-columns: 76px 1fr !important;
         grid-template-areas:
             "img info"
             "img actions" !important;
-        gap: 8px 14px !important;
+        gap: 8px 12px !important;
         align-items: center !important;
-        padding: 16px 0 !important;
-        border-bottom: 1px solid rgba(27, 24, 21, 0.1) !important;
+        padding: 14px !important;
+        border: 1.5px solid rgba(15, 23, 42, 0.09) !important;
+        border-radius: 12px !important;
         position: relative !important;
     }
 
     .cart-item-img-box {
         grid-area: img !important;
-        width: 82px !important;
-        height: 82px !important;
-        background: #fdfcfb !important;
-        border: 1px solid rgba(27, 24, 21, 0.1) !important;
-        border-radius: 12px !important;
-        padding: 6px !important;
-        box-sizing: border-box !important;
-        display: flex !important;
-        align-items: center !important;
-        justify-content: center !important;
+        width: 76px !important;
+        height: 76px !important;
+        background: #f8fafc !important;
+        border: 1px solid rgba(15, 23, 42, 0.08) !important;
+        border-radius: 8px !important;
+        padding: 4px !important;
     }
 
     .cart-item-img {
         width: 100% !important;
         height: 100% !important;
         object-fit: contain !important;
-        mix-blend-mode: normal !important;
     }
 
     .cart-item-info {
@@ -7101,135 +7269,81 @@ a {
         display: flex !important;
         flex-direction: column !important;
         gap: 3px !important;
-        padding-right: 32px !important;
+        padding-right: 0 !important;
     }
 
     .cart-item-name {
         font-size: 0.88rem !important;
         line-height: 1.25 !important;
         font-weight: 700 !important;
-        color: #1b1815 !important;
-        display: -webkit-box !important;
-        -webkit-line-clamp: 2 !important;
-        line-clamp: 2 !important;
-        -webkit-box-orient: vertical !important;
-        overflow: hidden !important;
+        color: #0f172a !important;
     }
 
-    .cart-item-sku {
-        font-size: 0.64rem !important;
-        color: #78716c !important;
-        font-family: var(--font-mono, monospace) !important;
+    .cart-item-meta {
+        font-size: 0.74rem !important;
     }
 
-    .cart-item-price {
-        font-size: 0.95rem !important;
-        font-weight: 800 !important;
-        color: #1b1815 !important;
-        font-family: var(--font-display, sans-serif) !important;
+    .cart-item-actions-cell {
+        grid-area: actions !important;
+        display: flex !important;
+        justify-content: space-between !important;
+        align-items: center !important;
+        width: 100% !important;
+        gap: 10px !important;
+        margin-top: 4px !important;
     }
 
     .cart-qty-control {
-        grid-area: actions !important;
-        display: inline-flex !important;
-        align-items: center !important;
-        width: fit-content !important;
-        border: 1px solid rgba(27, 24, 21, 0.2) !important;
-        border-radius: 8px !important;
-        background: #ffffff !important;
-        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04) !important;
-        margin-top: 2px !important;
+        border-radius: 6px !important;
     }
 
     .cart-qty-btn {
-        width: 34px !important;
-        height: 34px !important;
-        font-size: 1.05rem !important;
-        font-weight: 700 !important;
-        display: flex !important;
-        align-items: center !important;
-        justify-content: center !important;
-        cursor: pointer !important;
+        width: 28px !important;
+        height: 28px !important;
     }
 
     .cart-qty-val {
-        padding: 0 10px !important;
-        font-size: 0.88rem !important;
-        font-weight: 700 !important;
+        font-size: 0.82rem !important;
+        min-width: 24px !important;
+    }
+
+    .cart-item-subtotal-cell {
+        align-items: flex-end !important;
+    }
+
+    .cart-item-subtotal-amount {
+        font-size: 1.05rem !important;
     }
 
     .cart-item-remove-btn {
-        position: absolute !important;
-        top: 14px !important;
-        right: 0 !important;
-        width: 32px !important;
-        height: 32px !important;
-        font-size: 1.1rem !important;
-        color: #ef4444 !important;
-        display: flex !important;
-        align-items: center !important;
-        justify-content: center !important;
-        background: transparent !important;
-        border: none !important;
-        padding: 0 !important;
-        cursor: pointer !important;
+        padding: 4px 6px !important;
+        font-size: 0.68rem !important;
+    }
+
+    .cart-guarantee-bar {
+        grid-template-columns: 1fr !important;
+        gap: 8px !important;
     }
 
     .cart-summary-panel {
-        border-left: none !important;
-        border-top: 1px solid rgba(27, 24, 21, 0.12) !important;
-        padding: 22px 0 0 0 !important;
         position: static !important;
         width: 100% !important;
-        box-sizing: border-box !important;
+    }
+
+    .cart-summary-card {
+        padding: 18px !important;
     }
 
     .cart-summary-title {
-        font-size: 1.25rem !important;
-        margin-bottom: 16px !important;
-        padding-bottom: 12px !important;
-    }
-
-    .cart-summary-rows {
-        gap: 12px !important;
-        margin-bottom: 20px !important;
-    }
-
-    .cart-summary-row {
-        font-size: 0.85rem !important;
-    }
-
-    .cart-summary-row.total-row {
         font-size: 1.15rem !important;
-        font-weight: 800 !important;
-        padding-top: 12px !important;
-        border-top: 1px solid rgba(27, 24, 21, 0.15) !important;
-    }
-
-    .cart-checkout-btn {
-        width: 100% !important;
-        padding: 15px 20px !important;
-        font-size: 0.95rem !important;
-        font-weight: 800 !important;
-        letter-spacing: 0.05em !important;
-        border-radius: 9999px !important;
-        background: #1b1815 !important;
-        color: #ffffff !important;
-        box-shadow: 0 4px 16px rgba(27, 24, 21, 0.2) !important;
-        display: flex !important;
-        align-items: center !important;
-        justify-content: center !important;
         margin-bottom: 14px !important;
     }
 
-    .cart-continue-link {
-        display: block !important;
-        text-align: center !important;
+    .cart-checkout-btn {
+        padding: 14px !important;
+        border-radius: 8px !important;
+        background: #0f172a !important;
         font-size: 0.82rem !important;
-        font-weight: 700 !important;
-        color: #004c8f !important;
-        margin-bottom: 22px !important;
-        text-decoration: underline !important;
     }
 
     .cart-assurance-badges {
@@ -7354,7 +7468,7 @@ a {
     }
 
     .m-showrooms-kicker {
-        font-family: var(--font-mono, monospace) !important;
+        font-family: var(--font-body) !important;
         font-size: 0.72rem !important;
         font-weight: 800 !important;
         letter-spacing: 0.12em !important;
@@ -7419,7 +7533,7 @@ a {
         border: 1px solid rgba(15, 23, 42, 0.08) !important;
         border-radius: 9999px !important;
         padding: 4px 12px !important;
-        font-family: var(--font-mono, monospace) !important;
+        font-family: var(--font-body) !important;
         font-size: 0.72rem !important;
         font-weight: 800 !important;
         color: #0f172a !important;
@@ -7453,7 +7567,7 @@ a {
         top: -8px !important;
         background: #0f172a !important;
         color: #ffffff !important;
-        font-family: var(--font-mono, monospace) !important;
+        font-family: var(--font-body) !important;
         font-size: 0.62rem !important;
         font-weight: 800 !important;
         padding: 2px 8px !important;
@@ -7473,7 +7587,7 @@ a {
     }
 
     .m-bestseller-name {
-        font-family: var(--font-mono, monospace) !important;
+        font-family: var(--font-body) !important;
         font-size: 0.72rem !important;
         font-weight: 700 !important;
         color: #0f172a !important;
@@ -7515,7 +7629,7 @@ a {
     }
 
     .m-card-badge {
-        font-family: var(--font-mono, monospace) !important;
+        font-family: var(--font-body) !important;
         font-size: 0.62rem !important;
         font-weight: 800 !important;
         color: #64748b !important;
@@ -7768,7 +7882,7 @@ a {
     left: 12px;
     background: #0f172a;
     color: #ffffff;
-    font-family: var(--font-mono, monospace);
+    font-family: var(--font-body);
     font-size: 0.65rem;
     font-weight: 800;
     letter-spacing: 0.06em;
@@ -7798,7 +7912,7 @@ a {
 }
 
 .bestseller-hero-kicker {
-    font-family: var(--font-mono, monospace);
+    font-family: var(--font-body);
     font-size: 0.65rem;
     font-weight: 800;
     letter-spacing: 0.1em;
@@ -7824,7 +7938,7 @@ a {
 }
 
 .hero-spec-tag {
-    font-family: var(--font-mono, monospace);
+    font-family: var(--font-body);
     font-size: 0.62rem;
     font-weight: 700;
     background: #f1f5f9;
@@ -7858,7 +7972,7 @@ a {
 }
 
 .bestseller-price-label {
-    font-family: var(--font-mono, monospace);
+    font-family: var(--font-body);
     font-size: 0.62rem;
     font-weight: 800;
     letter-spacing: 0.06em;
@@ -7878,7 +7992,7 @@ a {
     display: inline-flex;
     align-items: center;
     gap: 6px;
-    font-family: var(--font-mono, monospace);
+    font-family: var(--font-body);
     font-size: 0.68rem;
     font-weight: 700;
     color: #059669;
@@ -7899,7 +8013,7 @@ a {
     background: #ffffff;
     border: 1.5px solid #0f172a;
     color: #0f172a;
-    font-family: var(--font-mono, monospace);
+    font-family: var(--font-body);
     font-size: 0.78rem;
     font-weight: 800;
     letter-spacing: 0.04em;
@@ -7922,7 +8036,7 @@ a {
     background: #0f172a;
     border: 1.5px solid #0f172a;
     color: #ffffff;
-    font-family: var(--font-mono, monospace);
+    font-family: var(--font-body);
     font-size: 0.78rem;
     font-weight: 800;
     letter-spacing: 0.04em;
@@ -7955,7 +8069,7 @@ a {
 }
 
 .secondary-kicker {
-    font-family: var(--font-mono, monospace);
+    font-family: var(--font-body);
     font-size: 0.65rem;
     font-weight: 800;
     letter-spacing: 0.08em;
@@ -7992,7 +8106,7 @@ a {
     position: absolute;
     top: 10px;
     left: 10px;
-    font-family: var(--font-mono, monospace);
+    font-family: var(--font-body);
     font-size: 0.58rem;
     font-weight: 800;
     background: #ffffff;
@@ -8062,7 +8176,7 @@ a {
 
 .secondary-actions .m-btn-cart {
     flex: 1;
-    font-family: var(--font-mono, monospace);
+    font-family: var(--font-body);
     font-size: 0.68rem;
     font-weight: 800;
     background: #ffffff;
@@ -8082,7 +8196,7 @@ a {
 
 .secondary-actions .m-btn-pay {
     flex: 1;
-    font-family: var(--font-mono, monospace);
+    font-family: var(--font-body);
     font-size: 0.68rem;
     font-weight: 800;
     background: #0f172a;
@@ -8184,7 +8298,7 @@ a {
 }
 
 .slider-kicker {
-    font-family: var(--font-mono, monospace);
+    font-family: var(--font-body);
     font-size: 0.68rem;
     font-weight: 800;
     letter-spacing: 0.08em;
@@ -8274,7 +8388,7 @@ a {
     position: absolute !important;
     top: 8px !important;
     left: 8px !important;
-    font-family: var(--font-mono, monospace) !important;
+    font-family: var(--font-body) !important;
     font-size: 0.55rem !important;
     font-weight: 800 !important;
     background: #ffffff !important;
@@ -8339,7 +8453,7 @@ a {
 
 .showroom-shelf-actions .m-btn-cart {
     flex: 1 !important;
-    font-family: var(--font-mono, monospace) !important;
+    font-family: var(--font-body) !important;
     font-size: 0.65rem !important;
     font-weight: 800 !important;
     background: #ffffff !important;
@@ -8359,7 +8473,7 @@ a {
 
 .showroom-shelf-actions .m-btn-pay {
     flex: 1 !important;
-    font-family: var(--font-mono, monospace) !important;
+    font-family: var(--font-body) !important;
     font-size: 0.65rem !important;
     font-weight: 800 !important;
     background: #0f172a !important;
@@ -8410,7 +8524,7 @@ a {
 }
 
 .explore-btn-kicker {
-    font-family: var(--font-mono, monospace);
+    font-family: var(--font-body);
     font-size: 0.62rem;
     font-weight: 800;
     letter-spacing: 0.1em;
@@ -8430,7 +8544,7 @@ a {
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    font-family: var(--font-mono, monospace);
+    font-family: var(--font-body);
     font-size: 0.76rem;
     font-weight: 800;
     color: #ffffff;
@@ -8509,7 +8623,7 @@ a {
 }
 
 .selector-kicker {
-    font-family: var(--font-mono, monospace);
+    font-family: var(--font-body);
     font-size: 0.72rem;
     font-weight: 800;
     letter-spacing: 0.12em;
@@ -8597,7 +8711,7 @@ a {
     background: rgba(15, 23, 42, 0.88);
     backdrop-filter: blur(4px);
     color: #ffffff;
-    font-family: var(--font-mono, monospace);
+    font-family: var(--font-body);
     font-size: 0.54rem;
     font-weight: 800;
     padding: 2px 6px;
@@ -8636,7 +8750,7 @@ a {
     right: 8px;
     background: #0f172a;
     color: #ffffff;
-    font-family: var(--font-mono, monospace);
+    font-family: var(--font-body);
     font-size: 0.52rem;
     font-weight: 800;
     letter-spacing: 0.06em;
@@ -8655,7 +8769,7 @@ a {
 .scenario-cta {
     display: block;
     margin-top: 6px;
-    font-family: var(--font-mono, monospace);
+    font-family: var(--font-body);
     font-size: 0.62rem;
     font-weight: 800;
     color: #0f172a;
@@ -8692,7 +8806,7 @@ a {
     gap: 8px;
     padding-bottom: 12px;
     border-bottom: 1px solid rgba(15, 23, 42, 0.08);
-    font-family: var(--font-mono, monospace);
+    font-family: var(--font-body);
     font-size: 0.68rem;
     font-weight: 800;
     letter-spacing: 0.06em;
@@ -8775,7 +8889,7 @@ a {
     left: 10px;
     background: #0f172a;
     color: #ffffff;
-    font-family: var(--font-mono, monospace);
+    font-family: var(--font-body);
     font-size: 0.62rem;
     font-weight: 800;
     padding: 3px 8px;
@@ -8803,7 +8917,7 @@ a {
 }
 
 .selector-match-kicker {
-    font-family: var(--font-mono, monospace);
+    font-family: var(--font-body);
     font-size: 0.66rem;
     font-weight: 800;
     color: #0f172a;
@@ -8834,7 +8948,7 @@ a {
 }
 
 .selector-match-chip {
-    font-family: var(--font-mono, monospace);
+    font-family: var(--font-body);
     font-size: 0.62rem;
     font-weight: 700;
     background: #ffffff;
@@ -8860,7 +8974,7 @@ a {
 }
 
 .selector-match-price-label {
-    font-family: var(--font-mono, monospace);
+    font-family: var(--font-body);
     font-size: 0.6rem;
     font-weight: 800;
     letter-spacing: 0.06em;
@@ -8876,7 +8990,7 @@ a {
 }
 
 .selector-match-savings {
-    font-family: var(--font-mono, monospace);
+    font-family: var(--font-body);
     font-size: 0.72rem;
     font-weight: 800;
     color: #0f172a;
@@ -8899,7 +9013,7 @@ a {
     background: #ffffff;
     border: 1.5px solid #0f172a;
     color: #0f172a;
-    font-family: var(--font-mono, monospace);
+    font-family: var(--font-body);
     font-size: 0.76rem;
     font-weight: 800;
     padding: 11px 16px;
@@ -8923,7 +9037,7 @@ a {
     background: #0f172a;
     border: 1.5px solid #0f172a;
     color: #ffffff;
-    font-family: var(--font-mono, monospace);
+    font-family: var(--font-body);
     font-size: 0.76rem;
     font-weight: 800;
     padding: 11px 16px;
@@ -8948,7 +9062,7 @@ a {
     gap: 6px;
     background: #25d366;
     color: #ffffff;
-    font-family: var(--font-mono, monospace);
+    font-family: var(--font-body);
     font-size: 0.74rem;
     font-weight: 800;
     padding: 11px 16px;

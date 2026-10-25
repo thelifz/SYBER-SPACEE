@@ -2157,10 +2157,9 @@ function updateCartCountDisplay() {
         const cart = JSON.parse(cartStr);
         const totalItems = cart.reduce((sum, item) => sum + (item.quantity || 1), 0);
 
-        const mbBadge = document.getElementById('mb-cart-badge');
-        if (mbBadge) {
-            mbBadge.textContent = String(totalItems);
-            mbBadge.style.display = totalItems > 0 ? 'inline-flex' : 'none';
+        const desktopBadge = document.getElementById('header-cart-badge');
+        if (desktopBadge) {
+            desktopBadge.textContent = String(totalItems);
         }
 
         const headerBadge = document.getElementById('mobile-header-cart-badge');
@@ -2168,9 +2167,15 @@ function updateCartCountDisplay() {
             headerBadge.textContent = String(totalItems);
         }
 
+        const mbBadge = document.getElementById('mb-cart-badge');
+        if (mbBadge) {
+            mbBadge.textContent = String(totalItems);
+            mbBadge.style.display = totalItems > 0 ? 'inline-flex' : 'none';
+        }
+
         const counterLabels = document.querySelectorAll('.cart-counter-label');
         counterLabels.forEach(label => {
-            if (label.id === 'mobile-header-cart-badge') return;
+            if (label.id === 'header-cart-badge' || label.id === 'mobile-header-cart-badge' || label.id === 'mb-cart-badge') return;
             if (label.classList.contains('mobile-link')) {
                 label.textContent = `Shopping Cart (${totalItems})`;
             } else {
