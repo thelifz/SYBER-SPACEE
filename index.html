@@ -4,68 +4,40 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="color-scheme" content="dark">
-    <title>SYBER SPACE // Advanced Surveillance Systems</title>
-    <!-- Google Fonts: Plus Jakarta Sans & Inter -->
+    <title>SYBER SPACE // Authorized Wholesale Surveillance</title>
+    <!-- Google Fonts: Plus Jakarta Sans & Inter & Space Grotesk -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700;800;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css?v=8.0">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@700;800;900&family=Space+Grotesk:wght@700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css?v=9.1">
 </head>
-<body class="rog-theme">
+<body class="observe-body">
 
-    <!-- Interactive Tactical Reticle (Custom HUD Cursor) -->
+    <!-- Interactive Tactical Reticle Cursor -->
     <div class="hud-reticle" id="hud-reticle">
-        <div class="reticle-crosshair"></div>
-        <div class="reticle-tag">SYS // REC</div>
+        <div class="reticle-ring"></div>
+        <div class="reticle-dot"></div>
+        <div class="reticle-label">REC ●</div>
     </div>
 
-    <!-- ASUS ROG Technical Navigation Bar -->
-    <header class="rog-header" id="main-header">
-        <div class="header-inner">
-            <a href="#hero" class="rog-brand" aria-label="Syber Space Home">
-                <div class="brand-crest">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                        <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
-                        <polyline points="2 17 12 22 22 17"></polyline>
-                        <polyline points="2 12 12 17 22 12"></polyline>
-                    </svg>
-                </div>
-                <div class="brand-meta">
-                    <span class="brand-name">SYBER SPACE</span>
-                    <span class="brand-sub">SURVEILLANCE SYSTEMS</span>
-                </div>
+    <!-- ======================================================================
+         OBSERVE-STYLE BRUTALIST MINIMAL HEADER
+         ====================================================================== -->
+    <header class="observe-header">
+        <div class="header-container">
+            <a href="#hero" class="observe-brand">
+                <span class="brand-heavy">SYBER SPACE.</span>
             </a>
 
-            <!-- Central ROG Telemetry Status -->
-            <div class="telemetry-bar">
-                <div class="telemetry-pill">
-                    <span class="pulse-dot"></span>
-                    <span class="telemetry-text">CH-32 LIVE</span>
-                </div>
-                <div class="telemetry-divider"></div>
-                <div class="telemetry-item">
-                    <span class="t-label">FPS</span>
-                    <span class="t-val" id="telemetry-fps">60.0</span>
-                </div>
-                <div class="telemetry-divider"></div>
-                <div class="telemetry-item">
-                    <span class="t-label">ENCRYPTION</span>
-                    <span class="t-val">AES-256</span>
-                </div>
-                <div class="telemetry-divider"></div>
-                <div class="telemetry-item">
-                    <span class="t-label">TIME</span>
-                    <span class="t-val" id="telemetry-clock">00:00:00.00</span>
-                </div>
-            </div>
+            <nav class="observe-nav">
+                <a href="#deployments" class="nav-item">DEPLOYMENTS</a>
+                <a href="#wholesale" class="nav-item">WHOLESALE TIERS</a>
+                <a href="#procurement" class="nav-item">PROCUREMENT</a>
+            </nav>
 
-            <!-- Right: Tactical Hotline -->
-            <div class="header-actions">
-                <a href="https://wa.me/917511180808?text=Hello%20Syber%20Space%2C%20requesting%20technical%20procurement%20quotation." target="_blank" rel="noopener noreferrer" class="rog-btn rog-btn-sm">
-                    <span class="btn-chamfer"></span>
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
-                    <span>TACTICAL HOTLINE</span>
-                </a>
+            <div class="header-clock-box">
+                <span class="clock-live-dot"></span>
+                <span class="hud-time" id="hud-clock">12:18:08:44</span>
             </div>
         </div>
     </header>
@@ -73,302 +45,249 @@
     <main id="app-root">
 
         <!-- ==================================================================
-             SECTION 1: HERO ROG SURVEILLANCE COMMAND VIEWPORT
+             SECTION 1: HERO VIEWPORT (OBSERVE BRUTALIST AESTHETIC)
              ================================================================== -->
-        <section class="rog-hero-section" id="hero">
-            <div class="hero-bg-grid"></div>
-
-            <div class="hero-command-container">
-                <!-- Tactical Spec Kicker -->
-                <div class="hero-tactical-header">
-                    <div class="hud-corner-tag">
-                        <span class="tag-accent">TACTICAL // SPEC</span>
-                        <span class="tag-code">MIL-STD 810H // IP67 DEPLOYMENT</span>
-                    </div>
-                    <div class="hud-coordinates">
-                        <span>LAT 9.9312° N</span>
-                        <span class="coord-sep">//</span>
-                        <span>LON 76.2673° E</span>
-                        <span class="coord-sep">//</span>
-                        <span>ALT 14.2M</span>
-                    </div>
-                </div>
-
-                <!-- Live Stream Multi-Feed Monitor Frame -->
-                <div class="rog-monitor-frame" id="monitor-frame">
-                    <!-- HUD Reticle Corners -->
-                    <div class="hud-bracket top-left"></div>
-                    <div class="hud-bracket top-right"></div>
-                    <div class="hud-bracket bottom-left"></div>
-                    <div class="hud-bracket bottom-right"></div>
-
-                    <!-- Scanline & Glitch Layer -->
-                    <div class="scanlines"></div>
-
-                    <!-- Top Stream Telemetry Overlay -->
-                    <div class="monitor-overlay-top">
-                        <div class="stream-info">
-                            <span class="stream-rec-dot"></span>
-                            <span class="stream-channel" id="active-stream-channel">CAM 01 // PARKING PERIMETER</span>
-                            <span class="stream-badge">3840 × 2160 UHD</span>
+        <section class="observe-hero-section" id="hero">
+            <div class="hero-viewport-frame">
+                <!-- Outer CCTV Monitor Container -->
+                <div class="cctv-monitor-window">
+                    
+                    <!-- Top Monitor Telemetry Strip -->
+                    <div class="cctv-telemetry-top">
+                        <div class="cam-id">
+                            <span class="cam-code">CAM-01 [MAIN ENTRANCE]</span>
                         </div>
-                        <div class="stream-bitrate">
-                            <span>BITRATE: <strong id="stream-bitrate-val">8420 KBPS</strong></span>
-                            <span>H.265+</span>
+                        <div class="cam-status">
+                            <span class="rec-beacon">●</span>
+                            <span class="live-label">LIVE</span>
                         </div>
                     </div>
 
-                    <!-- Real Surveillance Video Feeds -->
-                    <div class="monitor-video-wrap">
-                        <video id="stream-video-1" class="stream-video active" autoplay loop muted playsinline preload="auto">
+                    <!-- Reticle on Left (Exact match to screenshot 2) -->
+                    <div class="cctv-reticle-left">
+                        <div class="radar-scope">
+                            <span class="radar-ping"></span>
+                        </div>
+                        <span class="radar-txt">REC</span>
+                    </div>
+
+                    <!-- CCTV Live Video Background -->
+                    <div class="cctv-feed-viewport">
+                        <video id="cctv-video-stream" class="cctv-video-elem" autoplay loop muted playsinline preload="auto">
                             <source src="cctv_parking_video.mp4" type="video/mp4">
                         </video>
-                        <video id="stream-video-2" class="stream-video" loop muted playsinline preload="none">
-                            <source src="cctv_aisle_video.mp4" type="video/mp4">
-                        </video>
+                        <div class="cctv-scanlines-layer"></div>
+                        <div class="cctv-vignette-layer"></div>
                     </div>
 
-                    <!-- Bottom Stream Tactical Switcher Controls -->
-                    <div class="monitor-controls-bar">
-                        <div class="feed-buttons">
-                            <button type="button" class="feed-btn active" id="btn-feed-1" onclick="switchVideoFeed(1)">
-                                <span class="feed-btn-num">01</span>
-                                <span class="feed-btn-label">PERIMETER GATE</span>
-                            </button>
-                            <button type="button" class="feed-btn" id="btn-feed-2" onclick="switchVideoFeed(2)">
-                                <span class="feed-btn-num">02</span>
-                                <span class="feed-btn-label">LOGISTICS BAY</span>
-                            </button>
-                        </div>
-
-                        <div class="feed-status-indicators">
-                            <div class="sensor-pill">
-                                <span class="sensor-label">OPTICAL SENSOR</span>
-                                <span class="sensor-state">SONY STARVIS 2</span>
-                            </div>
-                            <div class="sensor-pill">
-                                <span class="sensor-label">AI TRACKING</span>
-                                <span class="sensor-state text-cyan">LOCK ACTIVE</span>
-                            </div>
+                    <!-- Massive Metallic/Chromatic Aberration Glitch Headline -->
+                    <div class="cctv-hero-content">
+                        <h1 class="observe-title glitch-effect" data-text="WE ARE WATCHING">
+                            WE ARE<br>WATCHING
+                        </h1>
+                        <p class="observe-kicker-sub">
+                            NEXT-GEN SURVEILLANCE FOR COMMERCIAL &amp; RESIDENTIAL PROPERTIES.<br>
+                            DIRECT AUTHORIZED WHOLESALE PROCUREMENT.
+                        </p>
+                        <div class="hero-actions-row">
+                            <a href="#wholesale" class="btn-observe-box">
+                                <span>GET WHOLESALE PRICING &rarr;</span>
+                            </a>
                         </div>
                     </div>
                 </div>
+            </div>
 
-                <!-- Punchy ROG Headline (Minimal Words, Maximum Impact) -->
-                <div class="hero-impact-strip">
-                    <div class="impact-kicker">
-                        <span class="kicker-line"></span>
-                        <span class="kicker-text">PRECISION OPTICS // AUTONOMOUS SURVEILLANCE</span>
-                    </div>
-                    <h1 class="impact-title">
-                        ZERO BLIND SPOTS.<br>
-                        ABSOLUTE CLARITY.
-                    </h1>
+            <!-- Angled Radioactive Neon Green Slanted Ribbon (Exact match to screenshot 2) -->
+            <div class="neon-slanted-ribbon">
+                <div class="ribbon-marquee-track">
+                    <span class="marquee-text">// WHOLESALE DISCOUNTS // DIRECT AUTHORIZED DISTRIBUTOR // CP PLUS &amp; TRUEVIEW // 100% GENUINE WARRANTY // BULK PROCUREMENT RATES // NO MIDDLEMEN // PAN-INDIA DISPATCH // ZERO BLIND SPOTS // EYES ON EVERYTHING //</span>
+                    <span class="marquee-text">// WHOLESALE DISCOUNTS // DIRECT AUTHORIZED DISTRIBUTOR // CP PLUS &amp; TRUEVIEW // 100% GENUINE WARRANTY // BULK PROCUREMENT RATES // NO MIDDLEMEN // PAN-INDIA DISPATCH // ZERO BLIND SPOTS // EYES ON EVERYTHING //</span>
                 </div>
             </div>
         </section>
 
 
         <!-- ==================================================================
-             SECTION 2: TACTICAL DEPLOYMENT ZONES (REAL SCENARIO PHOTOGRAPHS)
+             SECTION 2: MISSION DEPLOYMENTS (NO FARM - HOMES, OFFICES, COMMERCIAL)
              ================================================================== -->
-        <section class="rog-zones-section" id="deployment-zones">
-            <div class="section-container">
-                <div class="section-hud-header">
-                    <div class="hud-sec-meta">
-                        <span class="sec-num">01 // PROFILES</span>
-                        <h2 class="sec-title">MISSION DEPLOYMENTS</h2>
+        <section class="observe-deployments-section" id="deployments">
+            <div class="deployments-wrapper">
+                <div class="deployments-top-bar">
+                    <div class="dtb-title-group">
+                        <span class="dtb-kicker">ENGINEERED SPACES</span>
+                        <h2 class="dtb-title">MISSION DEPLOYMENTS</h2>
                     </div>
-                    <div class="sec-desc-block">
-                        <p class="sec-desc">
-                            Engineered hardware calibrated for extreme operational environments. Zero bandwidth dependence. High-torque perimeter coverage.
+                    <div class="dtb-desc-group">
+                        <p class="dtb-desc">
+                            High-precision surveillance architecture for luxury homes, corporate towers, tech workspaces, and retail chains. Procure directly at authorized wholesale volume rates with verified GST tax invoice.
                         </p>
                     </div>
                 </div>
 
-                <!-- 4 Tactical Deployment Cards with Real Images -->
-                <div class="zones-grid">
-                    <!-- Zone 1: Remote Agriculture & Farm -->
-                    <div class="zone-card" data-zone="farm">
-                        <div class="zone-media">
-                            <img src="assets/scenario_farm.jpg" alt="Autonomous Farm Surveillance Setup" class="zone-img" loading="lazy">
-                            <div class="zone-overlay-hud">
-                                <span class="zone-badge">4G SOLAR STANDALONE</span>
-                                <span class="zone-coord">GRID 01 // REMOTE</span>
+                <!-- 4 Real Space Cards (No Farm) -->
+                <div class="deployments-cards-grid">
+                    
+                    <!-- Space 1: Modern Luxury Residence & Villa -->
+                    <div class="deploy-card" data-space="home">
+                        <div class="card-media-box">
+                            <img src="assets/scenario_luxury_home.jpg" alt="Luxury Architectural Home & Villa Surveillance" class="card-img" loading="lazy">
+                            <div class="card-hud-overlay">
+                                <span class="hud-badge">RESIDENTIAL WHOLESALE // 5+ UNITS</span>
+                                <span class="hud-coord">GRID 01 // RESIDENCE</span>
                             </div>
                         </div>
-                        <div class="zone-body">
-                            <div class="zone-telemetry-row">
-                                <span class="zone-spec-pill">ZERO WI-FI REQUIRED</span>
-                                <span class="zone-spec-pill">100% SOLAR</span>
+                        <div class="card-info-box">
+                            <div class="card-tags-row">
+                                <span class="tag-pill accent">WHOLESALE DISCOUNT: 35% OFF</span>
+                                <span class="tag-pill">IP66 WEATHERPROOF</span>
                             </div>
-                            <h3 class="zone-title">FARMS &amp; AGRICULTURAL ESTATES</h3>
-                            <div class="zone-specs-list">
-                                <div class="z-spec-item">
-                                    <span class="z-label">CELLULAR UPLINK</span>
-                                    <span class="z-val">4G LTE HIGH-GAIN DUAL ANTENNA</span>
+                            <h3 class="card-heading">MODERN RESIDENCE &amp; LUXURY HOMES</h3>
+                            <div class="card-specs-matrix">
+                                <div class="c-spec-row">
+                                    <span class="cs-label">PERIMETER DEFENSE</span>
+                                    <span class="cs-val">4MP 2K ULTRA HD + ACTIVE MOTION SIREN</span>
                                 </div>
-                                <div class="z-spec-item">
-                                    <span class="z-label">POWER RESERVE</span>
-                                    <span class="z-val">MONOCRYSTALLINE 60W SOLAR ARRAY</span>
+                                <div class="c-spec-row">
+                                    <span class="cs-label">LOW-LIGHT ILLUMINATION</span>
+                                    <span class="cs-val">30M INFRARED MATRIX NIGHT CLARITY</span>
                                 </div>
-                                <div class="z-spec-item">
-                                    <span class="z-label">SURVEILLANCE FOV</span>
-                                    <span class="z-val">360° PAN-TILT + HUMAN DETECTION</span>
+                                <div class="c-spec-row">
+                                    <span class="cs-label">ENCLOSURE SPEC</span>
+                                    <span class="cs-val">HEAVY-DUTY DIE-CAST ALL-WEATHER SEAL</span>
                                 </div>
                             </div>
-                        </div>
-                    </div>
-
-                    <!-- Zone 2: Commercial & High-Rise Facility -->
-                    <div class="zone-card" data-zone="commercial">
-                        <div class="zone-media">
-                            <img src="assets/scenario_commercial.jpg" alt="Commercial Enterprise Infrastructure" class="zone-img" loading="lazy">
-                            <div class="zone-overlay-hud">
-                                <span class="zone-badge">MULTI-CHANNEL NVR</span>
-                                <span class="zone-coord">GRID 02 // ENTERPRISE</span>
-                            </div>
-                        </div>
-                        <div class="zone-body">
-                            <div class="zone-telemetry-row">
-                                <span class="zone-spec-pill">GIGABIT POE SWITCH</span>
-                                <span class="zone-spec-pill">4K RECORDING</span>
-                            </div>
-                            <h3 class="zone-title">HOTELS &amp; COMMERCIAL TOWERS</h3>
-                            <div class="zone-specs-list">
-                                <div class="z-spec-item">
-                                    <span class="z-label">SWITCH ARCHITECTURE</span>
-                                    <span class="z-val">8-PORT POE + 2 GIGABIT UPLINKS</span>
+                            <div class="card-bottom-action">
+                                <div class="wholesale-hint">
+                                    <span class="wh-top">WHOLESALE TIER:</span>
+                                    <span class="wh-bottom">MIN 5 UNITS &bull; GST BILLING</span>
                                 </div>
-                                <div class="z-spec-item">
-                                    <span class="z-label">STORAGE CAPACITY</span>
-                                    <span class="z-val">DUAL SATA 16TB 4K CONTINUOUS</span>
-                                </div>
-                                <div class="z-spec-item">
-                                    <span class="z-label">THROUGHPUT</span>
-                                    <span class="z-val">10/100/1000 MBPS SURVEILLANCE CLASS</span>
-                                </div>
+                                <a href="https://wa.me/917511180808?text=Hello%20Syber%20Space%2C%20I%20am%20inquiring%20about%20Wholesale%20Discount%20pricing%20for%20Luxury%20Home%20surveillance%20hardware." target="_blank" rel="noopener noreferrer" class="card-wholesale-btn">
+                                    <span>GET WHOLESALE DISCOUNT &rarr;</span>
+                                </a>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Zone 3: Residential Perimeter & Villa -->
-                    <div class="zone-card" data-zone="villa">
-                        <div class="zone-media">
-                            <img src="assets/scenario_villa.jpg" alt="Villa Perimeter Surveillance" class="zone-img" loading="lazy">
-                            <div class="zone-overlay-hud">
-                                <span class="zone-badge">IP66 WEATHERPROOF</span>
-                                <span class="zone-coord">GRID 03 // RESIDENTIAL</span>
+                    <!-- Space 2: Commercial Buildings & Corporate Towers -->
+                    <div class="deploy-card" data-space="commercial">
+                        <div class="card-media-box">
+                            <img src="assets/scenario_commercial.jpg" alt="Hotels and Commercial Towers Surveillance Backbone" class="card-img" loading="lazy">
+                            <div class="card-hud-overlay">
+                                <span class="hud-badge">ENTERPRISE WHOLESALE // 10+ UNITS</span>
+                                <span class="hud-coord">GRID 02 // COMMERCIAL</span>
                             </div>
                         </div>
-                        <div class="zone-body">
-                            <div class="zone-telemetry-row">
-                                <span class="zone-spec-pill">4MP 2K RESOLUTION</span>
-                                <span class="zone-spec-pill">SIREN DETERRENT</span>
+                        <div class="card-info-box">
+                            <div class="card-tags-row">
+                                <span class="tag-pill accent">WHOLESALE DISCOUNT: 40% OFF</span>
+                                <span class="tag-pill">GIGABIT POE SWITCH</span>
                             </div>
-                            <h3 class="zone-title">VILLAS &amp; PERIMETER GATES</h3>
-                            <div class="zone-specs-list">
-                                <div class="z-spec-item">
-                                    <span class="z-label">ENCLOSURE SPEC</span>
-                                    <span class="z-val">MIL-STD IP66 HEAVY-DUTY DIE-CAST</span>
+                            <h3 class="card-heading">HOTELS &amp; COMMERCIAL TOWERS</h3>
+                            <div class="card-specs-matrix">
+                                <div class="c-spec-row">
+                                    <span class="cs-label">SWITCH ARCHITECTURE</span>
+                                    <span class="cs-val">8-PORT POE + 2 GIGABIT HIGH-SPEED UPLINKS</span>
                                 </div>
-                                <div class="z-spec-item">
-                                    <span class="z-label">IR NIGHT VISION</span>
-                                    <span class="z-val">30 METERS ULTRA-LOW LUX ILLUMINATION</span>
+                                <div class="c-spec-row">
+                                    <span class="cs-label">NVR STORAGE BACKBONE</span>
+                                    <span class="cs-val">DUAL SATA 16TB 4K 32-CHANNEL CONTINUOUS</span>
                                 </div>
-                                <div class="z-spec-item">
-                                    <span class="z-label">PERIMETER DEFENSE</span>
-                                    <span class="z-val">ACTIVE MOTION SIREN + FLOODLIGHT</span>
+                                <div class="c-spec-row">
+                                    <span class="cs-label">THROUGHPUT CLASS</span>
+                                    <span class="cs-val">10/100/1000 MBPS SURVEILLANCE CLASS</span>
                                 </div>
+                            </div>
+                            <div class="card-bottom-action">
+                                <div class="wholesale-hint">
+                                    <span class="wh-top">WHOLESALE TIER:</span>
+                                    <span class="wh-bottom">COMMERCIAL TENDER &bull; BOQ READY</span>
+                                </div>
+                                <a href="https://wa.me/917511180808?text=Hello%20Syber%20Space%2C%20I%20am%20inquiring%20about%20Wholesale%20Discount%20pricing%20for%20Commercial%20Building%20PoE%20and%20NVR%20systems." target="_blank" rel="noopener noreferrer" class="card-wholesale-btn">
+                                    <span>GET WHOLESALE DISCOUNT &rarr;</span>
+                                </a>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Zone 4: 24/7 Color Night Surveillance -->
-                    <div class="zone-card" data-zone="night">
-                        <div class="zone-media">
-                            <img src="assets/scenario_night.jpg" alt="Full Color Night Vision Surveillance" class="zone-img" loading="lazy">
-                            <div class="zone-overlay-hud">
-                                <span class="zone-badge">FULL-COLOR NOCTURNAL</span>
-                                <span class="zone-coord">GRID 04 // ZERO-LUX</span>
+                    <!-- Space 3: Corporate Tech Offices & Workspaces -->
+                    <div class="deploy-card" data-space="office">
+                        <div class="card-media-box">
+                            <img src="assets/scenario_office.jpg" alt="Corporate Tech Office and Workstation Surveillance" class="card-img" loading="lazy">
+                            <div class="card-hud-overlay">
+                                <span class="hud-badge">OFFICE WHOLESALE // 5+ UNITS</span>
+                                <span class="hud-coord">GRID 03 // WORKSPACE</span>
                             </div>
                         </div>
-                        <div class="zone-body">
-                            <div class="zone-telemetry-row">
-                                <span class="zone-spec-pill">DUAL WARM LEDS</span>
-                                <span class="zone-spec-pill">VIVID 24/7 COLOR</span>
+                        <div class="card-info-box">
+                            <div class="card-tags-row">
+                                <span class="tag-pill accent">WHOLESALE DISCOUNT: 38% OFF</span>
+                                <span class="tag-pill">360° AI PTZ</span>
                             </div>
-                            <h3 class="zone-title">PITCH-BLACK NOCTURNAL CLARITY</h3>
-                            <div class="zone-specs-list">
-                                <div class="z-spec-item">
-                                    <span class="z-label">OPTICAL SENSITIVITY</span>
-                                    <span class="z-val">F/1.0 APERTURE COLOR SENSOR</span>
+                            <h3 class="card-heading">CORPORATE TECH OFFICES &amp; WORKSPACES</h3>
+                            <div class="card-specs-matrix">
+                                <div class="c-spec-row">
+                                    <span class="cs-label">AUDIO INTERCOM</span>
+                                    <span class="cs-val">2-WAY NOISE-CANCELLING VOICE MIC &amp; SPEAKER</span>
                                 </div>
-                                <div class="z-spec-item">
-                                    <span class="z-label">LIGHTING ARRAY</span>
-                                    <span class="z-val">DUAL WARM LIGHT 3000K PENETRATING BEAM</span>
+                                <div class="c-spec-row">
+                                    <span class="cs-label">PAN-TILT DRIVE</span>
+                                    <span class="cs-val">WHISPER-QUIET MOTORIZED 360° AI HUMAN TRACKING</span>
                                 </div>
-                                <div class="z-spec-item">
-                                    <span class="z-label">VIDEO FEED</span>
-                                    <span class="z-val">3MP CRYSTAL IDENTIFICATION AT 0 LUX</span>
+                                <div class="c-spec-row">
+                                    <span class="cs-label">HUMANOID AI ENGINE</span>
+                                    <span class="cs-val">ZERO FALSE ALARMS &bull; INSTANT MOBILE NOTIFICATION</span>
                                 </div>
+                            </div>
+                            <div class="card-bottom-action">
+                                <div class="wholesale-hint">
+                                    <span class="wh-top">WHOLESALE TIER:</span>
+                                    <span class="wh-bottom">FLOORPACK BUNDLE &bull; GST BILLING</span>
+                                </div>
+                                <a href="https://wa.me/917511180808?text=Hello%20Syber%20Space%2C%20I%20am%20inquiring%20about%20Wholesale%20Discount%20pricing%20for%20Corporate%20Office%20surveillance." target="_blank" rel="noopener noreferrer" class="card-wholesale-btn">
+                                    <span>GET WHOLESALE DISCOUNT &rarr;</span>
+                                </a>
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
-        </section>
 
-
-        <!-- ==================================================================
-             SECTION 3: FLAGSHIP HARDWARE PINNED GSAP SHOWCASE
-             ================================================================== -->
-        <section class="rog-hardware-section" id="hardware-showcase">
-            <div class="section-container">
-                <div class="section-hud-header text-center">
-                    <span class="sec-num">02 // HARDWARE ARCHITECTURE</span>
-                    <h2 class="sec-title">ENGINEERED FOR RIGOROUS DEPLOYMENT</h2>
-                </div>
-
-                <div class="hardware-pinned-wrapper" id="pinned-hardware">
-                    <!-- Central Camera Visual -->
-                    <div class="hardware-visual-core">
-                        <div class="radar-scan-ring"></div>
-                        <div class="radar-scan-ring outer"></div>
-                        <img src="assets/trueview_t18291sf_1.webp" alt="Trueview 4G Mini PT Smart Camera" class="hardware-core-img" id="core-camera-img">
-                    </div>
-
-                    <!-- Pinned Technical Laser Callouts (Animated via GSAP) -->
-                    <div class="callouts-grid">
-                        <div class="callout-node callout-tl">
-                            <div class="callout-num">01</div>
-                            <div class="callout-content">
-                                <span class="callout-label">DUAL-AXIS HIGH TORQUE GIMBAL</span>
-                                <span class="callout-desc">360° continuous pan with 90° tilt. Zero dead-angles.</span>
+                    <!-- Space 4: Retail Stores & Cash Counters -->
+                    <div class="deploy-card" data-space="retail">
+                        <div class="card-media-box">
+                            <img src="assets/scenario_retail.jpg" alt="Retail Stores & Cash Counter Face Monitoring" class="card-img" loading="lazy">
+                            <div class="card-hud-overlay">
+                                <span class="hud-badge">RETAIL WHOLESALE // 5+ UNITS</span>
+                                <span class="hud-coord">GRID 04 // RETAIL</span>
                             </div>
                         </div>
-
-                        <div class="callout-node callout-tr">
-                            <div class="callout-num">02</div>
-                            <div class="callout-content">
-                                <span class="callout-label">AUTONOMOUS 4G CELLULAR CORE</span>
-                                <span class="callout-desc">Integrated SIM slot. Instant cloud link without broadband wiring.</span>
+                        <div class="card-info-box">
+                            <div class="card-tags-row">
+                                <span class="tag-pill accent">WHOLESALE DISCOUNT: 36% OFF</span>
+                                <span class="tag-pill">ETHERNET LAN PORT</span>
                             </div>
-                        </div>
-
-                        <div class="callout-node callout-bl">
-                            <div class="callout-num">03</div>
-                            <div class="callout-content">
-                                <span class="callout-label">NEURAL AI MOTION DISCRIMINATOR</span>
-                                <span class="callout-desc">Filters foliage and insect noise. 99.4% humanoid accuracy.</span>
+                            <h3 class="card-heading">RETAIL SHOPS &amp; CASH COUNTERS</h3>
+                            <div class="card-specs-matrix">
+                                <div class="c-spec-row">
+                                    <span class="cs-label">CURRENCY MONITORING</span>
+                                    <span class="cs-val">CRISP BILLING COUNTER &amp; FACIAL RECORDING</span>
+                                </div>
+                                <div class="c-spec-row">
+                                    <span class="cs-label">HYBRID NETWORK</span>
+                                    <span class="cs-val">DIRECT WIRED LAN PORT + WI-FI FALLBACK</span>
+                                </div>
+                                <div class="c-spec-row">
+                                    <span class="cs-label">NOCTURNAL CLARITY</span>
+                                    <span class="cs-val">24/7 VIVID COLOR LOW-LUX SENSING AT 0 LUX</span>
+                                </div>
                             </div>
-                        </div>
-
-                        <div class="callout-node callout-br">
-                            <div class="callout-num">04</div>
-                            <div class="callout-content">
-                                <span class="callout-label">ALL-WEATHER DIELECTRIC SEAL</span>
-                                <span class="callout-desc">IP65 certified against tropical rainstorms and dust incursions.</span>
+                            <div class="card-bottom-action">
+                                <div class="wholesale-hint">
+                                    <span class="wh-top">WHOLESALE TIER:</span>
+                                    <span class="wh-bottom">MULTI-STORE PACK &bull; 1-YR WARRANTY</span>
+                                </div>
+                                <a href="https://wa.me/917511180808?text=Hello%20Syber%20Space%2C%20I%20am%20inquiring%20about%20Wholesale%20Discount%20pricing%20for%20Retail%20Store%20surveillance." target="_blank" rel="noopener noreferrer" class="card-wholesale-btn">
+                                    <span>GET WHOLESALE DISCOUNT &rarr;</span>
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -378,65 +297,101 @@
 
 
         <!-- ==================================================================
-             SECTION 4: TECHNICAL SPECIFICATION MATRIX
+             SECTION 3: WHOLESALE DISCOUNT TIERS (BUY IN WHOLESALE)
              ================================================================== -->
-        <section class="rog-matrix-section">
-            <div class="section-container">
-                <div class="matrix-grid">
-                    <div class="matrix-card">
-                        <span class="matrix-code">SYS // 01</span>
-                        <div class="matrix-big-stat">4K UHD</div>
-                        <div class="matrix-name">Optical Sensor Resolution</div>
-                        <div class="matrix-sub">Sony Starvis CMOS optical arrays with ultra-low noise image signal processing.</div>
-                    </div>
-
-                    <div class="matrix-card">
-                        <span class="matrix-code">SYS // 02</span>
-                        <div class="matrix-big-stat">0.001 LUX</div>
-                        <div class="matrix-name">Ultra-Low Light Sensitivity</div>
-                        <div class="matrix-sub">Full-color nocturnal recording capability without relying on black-and-white infrared cut.</div>
-                    </div>
-
-                    <div class="matrix-card">
-                        <span class="matrix-code">SYS // 03</span>
-                        <div class="matrix-big-stat">H.265+</div>
-                        <div class="matrix-name">Compression Efficiency</div>
-                        <div class="matrix-sub">Up to 70% bandwidth and storage reduction with zero frame drop or artifact degradation.</div>
-                    </div>
-
-                    <div class="matrix-card">
-                        <span class="matrix-code">SYS // 04</span>
-                        <div class="matrix-big-stat">AES-256</div>
-                        <div class="matrix-name">Hardware Cryptography</div>
-                        <div class="matrix-sub">Military-grade end-to-end stream encryption preventing unauthorized network interception.</div>
-                    </div>
+        <section class="observe-wholesale-section" id="wholesale">
+            <div class="wholesale-wrapper">
+                <div class="wholesale-intro-header">
+                    <span class="wih-badge">AUTHORIZED B2B WHOLESALE PROCUREMENT</span>
+                    <h2 class="wih-title">BUY DIRECT IN WHOLESALE. SAVE UP TO 45%.</h2>
+                    <p class="wih-desc">
+                        Direct wholesale distribution for security installers, corporate enterprises, and electrical contractors. No intermediaries. Verified GST input tax credit with same-day Kerala dispatch.
+                    </p>
                 </div>
-            </div>
-        </section>
 
-
-        <!-- ==================================================================
-             SECTION 5: TACTICAL PROCUREMENT ACTION BAR
-             ================================================================== -->
-        <section class="rog-procurement-section">
-            <div class="procurement-card">
-                <div class="procurement-inner">
-                    <div class="procurement-meta">
-                        <span class="procurement-tag">AUTHORIZED WHOLESALE PROCUREMENT</span>
-                        <h2 class="procurement-title">DEPLOY SURVEILLANCE HARDWARE</h2>
-                        <p class="procurement-desc">
-                            Direct authorized distribution for Trueview, CP PLUS, and iDADA. Official manufacturer warranty, Kerala HQ logistics, and GST input tax credit billing.
-                        </p>
-                    </div>
-
-                    <div class="procurement-actions">
-                        <a href="https://wa.me/917511180808?text=Hello%20Syber%20Space%2C%20I%20am%20requesting%20a%20project%20quotation%20for%20surveillance%20hardware%20procurement." target="_blank" rel="noopener noreferrer" class="rog-cta-btn">
-                            <span class="btn-chamfer"></span>
-                            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
-                            <span>DISPATCH HARDWARE QUOTE</span>
+                <div class="wholesale-cards-row">
+                    <!-- Tier 1 -->
+                    <div class="tier-box">
+                        <div class="tier-header-bar">
+                            <span class="t-tier-num">TIER 01</span>
+                            <span class="t-tier-rate">25% OFF</span>
+                        </div>
+                        <h3 class="t-tier-title">INSTALLER STARTER</h3>
+                        <div class="t-tier-units">MINIMUM 5 TO 10 UNITS</div>
+                        <p class="t-tier-summary">Designed for local CCTV installers, small offices, and multi-point residential projects.</p>
+                        <div class="t-tier-checklist">
+                            <div class="check-item">&check; Direct Wholesale Price Schedule</div>
+                            <div class="check-item">&check; Official 1-Year Manufacturer Replacement</div>
+                            <div class="check-item">&check; 18% GST Input Credit Tax Invoice</div>
+                            <div class="check-item">&check; Fast Pan-India Insured Dispatch</div>
+                        </div>
+                        <a href="https://wa.me/917511180808?text=Hello%20Syber%20Space%2C%20I%20want%20to%20apply%20for%20Tier%201%20Installer%20Wholesale%20Discount%20(5-10%20units)." target="_blank" rel="noopener noreferrer" class="tier-cta-button">
+                            <span>APPLY FOR TIER 1 WHOLESALE &rarr;</span>
                         </a>
-                        <a href="tel:+917511180808" class="rog-call-btn">
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                    </div>
+
+                    <!-- Tier 2 (Featured) -->
+                    <div class="tier-box featured">
+                        <div class="featured-tag">POPULAR FOR CONTRACTORS</div>
+                        <div class="tier-header-bar">
+                            <span class="t-tier-num">TIER 02</span>
+                            <span class="t-tier-rate text-lime">35% OFF</span>
+                        </div>
+                        <h3 class="t-tier-title">COMMERCIAL CONTRACTOR</h3>
+                        <div class="t-tier-units">MINIMUM 10 TO 30 UNITS</div>
+                        <p class="t-tier-summary">Optimized for commercial infrastructure, residential builders, hotels, and retail chains.</p>
+                        <div class="t-tier-checklist">
+                            <div class="check-item">&check; Priority Tier 2 Wholesale Pricing</div>
+                            <div class="check-item">&check; Dedicated Commercial Technical Advisor</div>
+                            <div class="check-item">&check; Pre-Configured PoE &amp; NVR Bundles</div>
+                            <div class="check-item">&check; Free Express Pan-India Courier</div>
+                        </div>
+                        <a href="https://wa.me/917511180808?text=Hello%20Syber%20Space%2C%20I%20want%20to%20apply%20for%20Tier%202%20Commercial%20Wholesale%20Discount%20(10-30%20units)." target="_blank" rel="noopener noreferrer" class="tier-cta-button featured">
+                            <span>APPLY FOR TIER 2 WHOLESALE &rarr;</span>
+                        </a>
+                    </div>
+
+                    <!-- Tier 3 -->
+                    <div class="tier-box">
+                        <div class="tier-header-bar">
+                            <span class="t-tier-num">TIER 03</span>
+                            <span class="t-tier-rate text-cyan">45% OFF</span>
+                        </div>
+                        <h3 class="t-tier-title">ENTERPRISE &amp; TENDER BOQ</h3>
+                        <div class="t-tier-units">30+ UNITS OR PROJECT BOQ</div>
+                        <p class="t-tier-summary">For large institutional facilities, high-rise campuses, and government tender projects.</p>
+                        <div class="t-tier-checklist">
+                            <div class="check-item">&check; Maximum Authorized Direct Wholesale Rates</div>
+                            <div class="check-item">&check; Custom BOQ &amp; Compliance Datasheets</div>
+                            <div class="check-item">&check; Manufacturer Authorization Letter (MAF)</div>
+                            <div class="check-item">&check; Dedicated Executive Account Desk</div>
+                        </div>
+                        <a href="https://wa.me/917511180808?text=Hello%20Syber%20Space%2C%20I%20have%20an%20Enterprise%20Tender%20BOQ%20requirement%20(30%2B%20units)%20for%20wholesale%20procurement." target="_blank" rel="noopener noreferrer" class="tier-cta-button">
+                            <span>SUBMIT BOQ FOR TENDER RATES &rarr;</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ==================================================================
+             SECTION 4: TACTICAL PROCUREMENT HOTLINE
+             ================================================================== -->
+        <section class="observe-contact-section" id="procurement">
+            <div class="procurement-container">
+                <div class="procurement-box">
+                    <span class="p-kicker">DIRECT WHOLESALE DISTRIBUTION // KERALA HQ</span>
+                    <h2 class="p-title">READY TO PROCURE IN WHOLESALE?</h2>
+                    <p class="p-desc">
+                        Connect directly with our commercial wholesale desk for bulk stock availability, authorized quotations, and expedited dispatch.
+                    </p>
+                    <div class="p-actions">
+                        <a href="https://wa.me/917511180808?text=Hello%20Syber%20Space%2C%20I%20am%20ready%20to%20buy%20in%20wholesale.%20Please%20share%20the%20complete%20wholesale%20catalog%20and%20price%20sheet." target="_blank" rel="noopener noreferrer" class="btn-whatsapp-wholesale">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+                            <span>GET WHOLESALE RATE CARD ON WHATSAPP</span>
+                        </a>
+                        <a href="tel:+917511180808" class="btn-phone-call">
                             <span>+91 75111 80808</span>
                         </a>
                     </div>
@@ -446,16 +401,16 @@
 
     </main>
 
-    <!-- Technical Footer -->
-    <footer class="rog-footer">
-        <div class="footer-inner">
-            <div class="footer-brand-col">
-                <span class="f-brand">SYBER SPACE</span>
-                <span class="f-desc">Precision Surveillance &amp; Enterprise Security Engineering. Authorized Distributor for Trueview, CP PLUS, and iDADA.</span>
+    <!-- Technical Minimal Footer -->
+    <footer class="observe-footer">
+        <div class="footer-wrap">
+            <div class="footer-left">
+                <span class="f-logo-txt">SYBER SPACE.</span>
+                <span class="f-tagline">AUTHORIZED WHOLESALE SURVEILLANCE SYSTEMS</span>
             </div>
-            <div class="footer-telemetry-col">
-                <span>TERMINAL: SS-HQ-01 // COCHIN, KERALA</span>
-                <span>GST COMPLIANT // OFFICIAL WARRANTY BACKED</span>
+            <div class="footer-right">
+                <span>TRUEVIEW &bull; CP PLUS &bull; IDADA AUTHORIZED DISTRIBUTOR</span>
+                <span>COCHIN, KERALA // PAN-INDIA EXPRESS DISPATCH</span>
             </div>
         </div>
     </footer>
@@ -463,6 +418,6 @@
     <!-- GSAP 3 Core & ScrollTrigger -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-    <script src="script.js?v=8.0"></script>
+    <script src="script.js?v=9.1"></script>
 </body>
 </html>

@@ -1,6 +1,6 @@
 /**
- * SYBER SPACE — ADVANCED SURVEILLANCE SYSTEMS
- * ASUS ROG HIGH-PRECISION CYBERNETIC GSAP CONTROLLER
+ * SYBER SPACE // AUTHORIZED WHOLESALE SURVEILLANCE
+ * GSAP 3 CYBERNETIC MOTION CONTROLLER
  */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -9,50 +9,33 @@ document.addEventListener('DOMContentLoaded', () => {
         if (typeof ScrollTrigger !== 'undefined') {
             gsap.registerPlugin(ScrollTrigger);
         }
-        initRogAnimations();
+        initGsapMotion();
     }
 
     // 2. Initialize Telemetry Engines
-    initTelemetryClock();
-    initBitrateMonitor();
+    initHudClock();
     initReticleCursor();
-    initAutoplayVideos();
+    initVideoAutoplay();
+    initMarqueeScrollBoost();
 });
 
 /* ==========================================================================
-   1. TELEMETRY CLOCK & BITRATE SIMULATOR
+   1. REAL-TIME HUD CLOCK (Exact match to screenshot 2: 12:18:08:44)
    ========================================================================== */
-function initTelemetryClock() {
-    const clockEl = document.getElementById('telemetry-clock');
+function initHudClock() {
+    const clockEl = document.getElementById('hud-clock');
     if (!clockEl) return;
 
-    function update() {
+    function renderTime() {
         const now = new Date();
         const h = String(now.getHours()).padStart(2, '0');
         const m = String(now.getMinutes()).padStart(2, '0');
         const s = String(now.getSeconds()).padStart(2, '0');
-        const ms = String(Math.floor(now.getMilliseconds() / 10)).padStart(2, '0');
-        clockEl.textContent = `${h}:${m}:${s}.${ms}`;
-        requestAnimationFrame(update);
+        const cs = String(Math.floor(now.getMilliseconds() / 10)).padStart(2, '0');
+        clockEl.textContent = `${h}:${m}:${s}:${cs}`;
+        requestAnimationFrame(renderTime);
     }
-    requestAnimationFrame(update);
-}
-
-function initBitrateMonitor() {
-    const bitrateEl = document.getElementById('stream-bitrate-val');
-    const fpsEl = document.getElementById('telemetry-fps');
-    if (!bitrateEl) return;
-
-    setInterval(() => {
-        const base = 8400;
-        const variance = Math.floor(Math.random() * 320) - 160;
-        bitrateEl.textContent = `${base + variance} KBPS`;
-
-        if (fpsEl) {
-            const fpsVar = (59.8 + Math.random() * 0.4).toFixed(1);
-            fpsEl.textContent = fpsVar;
-        }
-    }, 1200);
+    requestAnimationFrame(renderTime);
 }
 
 /* ==========================================================================
@@ -64,183 +47,224 @@ function initReticleCursor() {
 
     let mouseX = window.innerWidth / 2;
     let mouseY = window.innerHeight / 2;
+    let currentX = mouseX;
+    let currentY = mouseY;
+    let isHovering = false;
 
     window.addEventListener('mousemove', (e) => {
+        document.body.classList.add('cursor-active');
         mouseX = e.clientX;
         mouseY = e.clientY;
     });
 
-    gsap.ticker.add(() => {
-        gsap.to(reticle, {
-            x: mouseX,
-            y: mouseY,
-            duration: 0.12,
-            ease: 'power2.out',
-            overwrite: 'auto'
-        });
-    });
-
-    // Hover reactions on interactive elements
-    const interactives = document.querySelectorAll('button, a, .zone-card, .matrix-card, .feed-btn');
-    interactives.forEach(el => {
+    // Check hover states on interactive elements
+    const interactiveElements = document.querySelectorAll('a, button, .deploy-card, .tier-box, .btn-observe-box');
+    interactiveElements.forEach((el) => {
         el.addEventListener('mouseenter', () => {
-            gsap.to(reticle, { scale: 1.4, duration: 0.2 });
-            reticle.style.borderColor = '#00f0ff';
+            isHovering = true;
+            reticle.style.width = '52px';
+            reticle.style.height = '52px';
+            const ring = reticle.querySelector('.reticle-ring');
+            if (ring) {
+                ring.style.borderColor = 'rgba(0, 255, 102, 0.9)';
+                ring.style.borderStyle = 'solid';
+            }
         });
         el.addEventListener('mouseleave', () => {
-            gsap.to(reticle, { scale: 1, duration: 0.2 });
-            reticle.style.borderColor = '#ff0037';
+            isHovering = false;
+            reticle.style.width = '36px';
+            reticle.style.height = '36px';
+            const ring = reticle.querySelector('.reticle-ring');
+            if (ring) {
+                ring.style.borderColor = 'rgba(0, 255, 102, 0.45)';
+                ring.style.borderStyle = 'dashed';
+            }
         });
     });
+
+    // Smooth animation loop
+    function updateReticle() {
+        const ease = 0.28;
+        currentX += (mouseX - currentX) * ease;
+        currentY += (mouseY - currentY) * ease;
+        reticle.style.transform = `translate(${currentX}px, ${currentY}px)`;
+        requestAnimationFrame(updateReticle);
+    }
+    requestAnimationFrame(updateReticle);
 }
 
 /* ==========================================================================
-   3. MULTI-FEED VIDEO STREAM SWITCHER
+   3. GSAP 3 ANIMATIONS & SCROLLTRIGGERS
    ========================================================================== */
-function switchVideoFeed(index) {
-    const vid1 = document.getElementById('stream-video-1');
-    const vid2 = document.getElementById('stream-video-2');
-    const btn1 = document.getElementById('btn-feed-1');
-    const btn2 = document.getElementById('btn-feed-2');
-    const channelLabel = document.getElementById('active-stream-channel');
-    const monitorFrame = document.getElementById('monitor-frame');
-
-    if (!vid1 || !vid2) return;
-
-    // Tactical Glitch Flash on Switch
-    if (typeof gsap !== 'undefined') {
-        gsap.fromTo(monitorFrame, 
-            { filter: 'brightness(2.2) contrast(1.5)' },
-            { filter: 'brightness(1) contrast(1)', duration: 0.35, ease: 'power2.out' }
-        );
-    }
-
-    if (index === 1) {
-        vid2.classList.remove('active');
-        vid2.pause();
-        vid1.classList.add('active');
-        vid1.play().catch(() => {});
-
-        if (btn1) btn1.classList.add('active');
-        if (btn2) btn2.classList.remove('active');
-        if (channelLabel) channelLabel.textContent = 'CAM 01 // PARKING PERIMETER';
-    } else {
-        vid1.classList.remove('active');
-        vid1.pause();
-        vid2.classList.add('active');
-        vid2.play().catch(() => {});
-
-        if (btn2) btn2.classList.add('active');
-        if (btn1) btn1.classList.remove('active');
-        if (channelLabel) channelLabel.textContent = 'CAM 02 // LOGISTICS BAY';
-    }
-}
-window.switchVideoFeed = switchVideoFeed;
-
-function initAutoplayVideos() {
-    const vid1 = document.getElementById('stream-video-1');
-    if (vid1) {
-        vid1.play().catch(e => {
-            console.log('Autoplay deferred until user interaction');
-        });
-    }
-}
-
-/* ==========================================================================
-   4. GSAP 3 & SCROLLTRIGGER ARCHITECTURE
-   ========================================================================== */
-function initRogAnimations() {
-    // 1. Hero Monitor Entrance Timeline
+function initGsapMotion() {
+    // Hero Entrance Timeline
     const heroTl = gsap.timeline({ defaults: { ease: 'power3.out' } });
 
-    heroTl.from('.rog-header', {
-        y: -40,
+    heroTl.from('.cctv-monitor-window', {
+        duration: 1.2,
+        scale: 0.96,
         opacity: 0,
-        duration: 0.8
-    })
-    .from('.hero-tactical-header', {
+        y: 25
+    });
+
+    heroTl.from('.cctv-telemetry-top', {
+        duration: 0.7,
         opacity: 0,
-        y: -10,
-        duration: 0.5
-    }, '-=0.4')
-    .from('.rog-monitor-frame', {
-        scale: 0.95,
+        y: -15
+    }, '-=0.6');
+
+    heroTl.from('.observe-title.glitch-effect', {
+        duration: 0.9,
         opacity: 0,
-        duration: 1,
-        ease: 'power2.out'
-    }, '-=0.3')
-    .from('.hero-impact-strip', {
-        y: 30,
+        y: 35,
+        skewX: -4
+    }, '-=0.5');
+
+    heroTl.from('.observe-kicker-sub', {
+        duration: 0.7,
         opacity: 0,
-        duration: 0.8
+        y: 15
     }, '-=0.4');
 
-    // 2. ScrollTrigger: Tactical Deployment Cards Stagger
-    if (document.querySelector('.zones-grid')) {
-        gsap.from('.zone-card', {
+    heroTl.from('.btn-observe-box', {
+        duration: 0.6,
+        opacity: 0,
+        scale: 0.9
+    }, '-=0.3');
+
+    // Hero Glitch Jitter Effect
+    const glitchTitle = document.querySelector('.observe-title.glitch-effect');
+    if (glitchTitle) {
+        setInterval(() => {
+            if (Math.random() > 0.65) {
+                gsap.to(glitchTitle, {
+                    x: (Math.random() - 0.5) * 6,
+                    skewX: (Math.random() - 0.5) * 4,
+                    duration: 0.08,
+                    yoyo: true,
+                    repeat: 1,
+                    ease: 'rough'
+                });
+            }
+        }, 3200);
+    }
+
+    // ScrollTrigger: Mission Deployments Section
+    if (typeof ScrollTrigger !== 'undefined') {
+        gsap.from('.deployments-top-bar', {
             scrollTrigger: {
-                trigger: '.rog-zones-section',
-                start: 'top 75%',
+                trigger: '.observe-deployments-section',
+                start: 'top 80%',
                 toggleActions: 'play none none none'
             },
-            y: 50,
+            duration: 0.9,
             opacity: 0,
+            y: 40,
+            ease: 'power3.out'
+        });
+
+        // Stagger Cards Reveal
+        gsap.from('.deploy-card', {
+            scrollTrigger: {
+                trigger: '.deployments-cards-grid',
+                start: 'top 82%',
+                toggleActions: 'play none none none'
+            },
             duration: 0.8,
+            opacity: 0,
+            y: 50,
+            stagger: 0.18,
+            ease: 'power3.out'
+        });
+
+        // ScrollTrigger: Wholesale Tiers
+        gsap.from('.wholesale-intro-header', {
+            scrollTrigger: {
+                trigger: '.observe-wholesale-section',
+                start: 'top 80%',
+                toggleActions: 'play none none none'
+            },
+            duration: 0.8,
+            opacity: 0,
+            y: 30,
+            ease: 'power3.out'
+        });
+
+        gsap.from('.tier-box', {
+            scrollTrigger: {
+                trigger: '.wholesale-cards-row',
+                start: 'top 80%',
+                toggleActions: 'play none none none'
+            },
+            duration: 0.8,
+            opacity: 0,
+            y: 45,
             stagger: 0.15,
             ease: 'power3.out'
         });
-    }
 
-    // 3. ScrollTrigger: Flagship Hardware Architecture & Callouts
-    if (document.querySelector('#pinned-hardware')) {
-        const hwTl = gsap.timeline({
+        // ScrollTrigger: Procurement Hotline
+        gsap.from('.procurement-box', {
             scrollTrigger: {
-                trigger: '.rog-hardware-section',
-                start: 'top 70%',
+                trigger: '.observe-contact-section',
+                start: 'top 82%',
                 toggleActions: 'play none none none'
-            }
-        });
-
-        hwTl.from('.hardware-visual-core', {
-            scale: 0.85,
-            opacity: 0,
+            },
             duration: 0.9,
-            ease: 'back.out(1.4)'
-        })
-        .from('.callout-tl', { x: -40, opacity: 0, duration: 0.5 }, '-=0.3')
-        .from('.callout-tr', { x: 40, opacity: 0, duration: 0.5 }, '-=0.4')
-        .from('.callout-bl', { x: -40, opacity: 0, duration: 0.5 }, '-=0.4')
-        .from('.callout-br', { x: 40, opacity: 0, duration: 0.5 }, '-=0.4');
-    }
-
-    // 4. ScrollTrigger: Technical Specification Matrix
-    if (document.querySelector('.matrix-grid')) {
-        gsap.from('.matrix-card', {
-            scrollTrigger: {
-                trigger: '.rog-matrix-section',
-                start: 'top 80%',
-                toggleActions: 'play none none none'
-            },
-            y: 30,
             opacity: 0,
-            duration: 0.6,
-            stagger: 0.1,
-            ease: 'power2.out'
+            scale: 0.96,
+            ease: 'power3.out'
         });
     }
+}
 
-    // 5. ScrollTrigger: Procurement Action Card Reveal
-    if (document.querySelector('.procurement-card')) {
-        gsap.from('.procurement-card', {
-            scrollTrigger: {
-                trigger: '.rog-procurement-section',
-                start: 'top 80%',
-                toggleActions: 'play none none none'
-            },
-            scale: 0.96,
-            opacity: 0,
-            duration: 0.8,
-            ease: 'power2.out'
+/* ==========================================================================
+   4. MARQUEE SCROLL VELOCITY BOOST
+   ========================================================================== */
+function initMarqueeScrollBoost() {
+    const track = document.querySelector('.ribbon-marquee-track');
+    if (!track) return;
+
+    let lastScrollY = window.scrollY;
+    let scrollVelocity = 0;
+
+    window.addEventListener('scroll', () => {
+        const delta = Math.abs(window.scrollY - lastScrollY);
+        scrollVelocity = Math.min(delta * 0.15, 2.5);
+        lastScrollY = window.scrollY;
+
+        track.style.animationDuration = `${Math.max(12, 32 - scrollVelocity * 8)}s`;
+
+        clearTimeout(track._timeout);
+        track._timeout = setTimeout(() => {
+            track.style.animationDuration = '32s';
+        }, 150);
+    }, { passive: true });
+}
+
+/* ==========================================================================
+   5. VIDEO AUTOPLAY FALLBACK & SMOOTH PLAY
+   ========================================================================== */
+function initVideoAutoplay() {
+    const video = document.getElementById('cctv-video-stream');
+    if (!video) return;
+
+    video.muted = true;
+    video.playsInline = true;
+
+    const playPromise = video.play();
+    if (playPromise !== undefined) {
+        playPromise.catch(() => {
+            // If autoplay is blocked by browser policy, play on first user interaction
+            const resumePlay = () => {
+                video.play();
+                window.removeEventListener('click', resumePlay);
+                window.removeEventListener('scroll', resumePlay);
+                window.removeEventListener('touchstart', resumePlay);
+            };
+            window.addEventListener('click', resumePlay);
+            window.addEventListener('scroll', resumePlay);
+            window.addEventListener('touchstart', resumePlay);
         });
     }
 }
