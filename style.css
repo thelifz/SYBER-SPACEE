@@ -6613,7 +6613,8 @@ a {
    Prominent Bestseller Photos, Exact Verified Counts, Horizontal Swipe Shelves
    ========================================================================== */
 @media (max-width: 768px) {
-    .mobile-brand-showrooms {
+    .mobile-brand-showrooms,
+    .brand-showrooms-wrap {
         display: flex !important;
         flex-direction: column !important;
         gap: 20px !important;
@@ -7337,7 +7338,8 @@ a {
    Curated Showroom Experience: Prominent Bestseller Spotlight + Uncrowded Shelves
    ========================================================================== */
 @media (min-width: 769px) {
-    .mobile-brand-showrooms {
+    .mobile-brand-showrooms,
+    .brand-showrooms-wrap {
         display: flex !important;
         flex-direction: column !important;
         gap: 32px !important;
@@ -7709,4 +7711,12 @@ a {
     background: #0f172a;
     color: #ffffff;
     border-color: #0f172a;
+}
+
+/* Direct Anchor Scroll Offset for Fixed 2-Tier Header */
+#showroom-trueview,
+#showroom-cpplus,
+#showroom-idada,
+#showroom-accessories {
+    scroll-margin-top: 110px;
 }

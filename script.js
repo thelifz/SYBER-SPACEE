@@ -1053,34 +1053,63 @@ function onHeaderSearchSubmit() {
     if (q) {
         completeHeaderSearch(q);
     } else {
-        const camerasSection = document.getElementById('cameras');
-        if (camerasSection) camerasSection.scrollIntoView({ behavior: 'smooth' });
+        scrollToShowroom('all', null, null);
+    }
+}
+
+function scrollToShowroom(brandKey, linkEl, event) {
+    if (event) {
+        event.preventDefault();
+    }
+    const key = (brandKey || 'all').toLowerCase();
+
+    // 1. Update navigation active styles across desktop header and mobile quick-chips
+    document.querySelectorAll('.cat-nav-link').forEach(link => {
+        link.classList.remove('active');
+        const href = (link.getAttribute('href') || '').toLowerCase();
+        const onclickAttr = (link.getAttribute('onclick') || '').toLowerCase();
+        if (key === 'all' && (href === '#cameras' || onclickAttr.includes("'all'"))) {
+            link.classList.add('active');
+        } else if ((key === 'trueview' && (href.includes('trueview') || onclickAttr.includes('trueview'))) ||
+                   ((key === 'cpplus' || key === 'cp-plus') && (href.includes('cpplus') || onclickAttr.includes('cpplus'))) ||
+                   (key === 'idada' && (href.includes('idada') || onclickAttr.includes('idada'))) ||
+                   ((key === 'accessories' || key === 'accessory') && (href.includes('accessories') || onclickAttr.includes('accessories')))) {
+            link.classList.add('active');
+        }
+    });
+
+    document.querySelectorAll('.m-cat-pill').forEach(pill => {
+        pill.classList.remove('active');
+        const onclickAttr = (pill.getAttribute('onclick') || '').toLowerCase();
+        if (key === 'all' && onclickAttr.includes("'all'")) {
+            pill.classList.add('active');
+        } else if ((key === 'trueview' && onclickAttr.includes('trueview')) ||
+                   ((key === 'cpplus' || key === 'cp-plus') && onclickAttr.includes('cpplus')) ||
+                   (key === 'idada' && onclickAttr.includes('idada')) ||
+                   ((key === 'accessories' || key === 'accessory') && onclickAttr.includes('accessories'))) {
+            pill.classList.add('active');
+        }
+    });
+
+    if (linkEl) {
+        linkEl.classList.add('active');
+    }
+
+    // 2. Resolve target showroom element
+    let targetId = 'cameras';
+    if (key === 'trueview') targetId = 'showroom-trueview';
+    else if (key === 'cpplus' || key === 'cp-plus') targetId = 'showroom-cpplus';
+    else if (key === 'idada') targetId = 'showroom-idada';
+    else if (key === 'accessories' || key === 'accessory') targetId = 'showroom-accessories';
+
+    const targetEl = document.getElementById(targetId) || document.getElementById('cameras');
+    if (targetEl) {
+        targetEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
 }
 
 function filterCatalogByNav(cat, linkEl, event) {
-    if (event) event.preventDefault();
-    document.querySelectorAll('.cat-nav-link').forEach(l => l.classList.remove('active'));
-    if (linkEl) linkEl.classList.add('active');
-    
-    if (cat === 'all') {
-        window.forceFullCatalogGrid = false;
-        const headerInput = document.getElementById('header-search-input');
-        if (headerInput) headerInput.value = '';
-        const cameraInput = document.getElementById('camera-search-input');
-        if (cameraInput) cameraInput.value = '';
-        const mobileInput = document.getElementById('mobile-search-input');
-        if (mobileInput) mobileInput.value = '';
-        selectTextCategory('all', null);
-    } else {
-        window.forceFullCatalogGrid = true;
-        quickFilterCategory(cat, null);
-    }
-    
-    const camerasEl = document.getElementById('cameras');
-    if (camerasEl) {
-        camerasEl.scrollIntoView({ behavior: 'smooth' });
-    }
+    scrollToShowroom(cat, linkEl, event);
 }
 
 function onHeaderSearchInput(val) {
@@ -1191,26 +1220,37 @@ function renderHeaderSearchSuggestions(query) {
 }
 
 function completeHeaderSearch(query) {
+    const q = (query || '').trim();
+    const qLower = q.toLowerCase();
+
     const headerInput = document.getElementById('header-search-input');
-    if (headerInput) headerInput.value = query;
+    if (headerInput) headerInput.value = q;
     const cameraInput = document.getElementById('camera-search-input');
-    if (cameraInput) cameraInput.value = query;
+    if (cameraInput) cameraInput.value = q;
     const mobileInput = document.getElementById('mobile-search-input');
-    if (mobileInput) mobileInput.value = query;
+    if (mobileInput) mobileInput.value = q;
 
     const clearBtn = document.getElementById('header-search-clear-btn');
-    if (clearBtn) clearBtn.style.display = query ? 'flex' : 'none';
+    if (clearBtn) clearBtn.style.display = q ? 'flex' : 'none';
     const cameraClear = document.getElementById('search-clear-btn');
-    if (cameraClear) cameraClear.style.display = query ? 'inline-flex' : 'none';
+    if (cameraClear) cameraClear.style.display = q ? 'inline-flex' : 'none';
 
     closeHeaderSearchSuggestions();
     closeSearchSuggestions();
-    onFilterCriteriaChange();
 
-    const camerasSection = document.getElementById('cameras');
-    if (camerasSection) {
-        camerasSection.scrollIntoView({ behavior: 'smooth' });
+    // Map search query to best showroom
+    let targetBrand = 'all';
+    if (/trueview|t18291|solar|poe|switch|router|4k nvr|4g mini/.test(qLower)) {
+        targetBrand = 'trueview';
+    } else if (/cp\s*plus|cpplus|ezykam|cp-e|cp-z|z45q|e21q|e28q|bullet/.test(qLower)) {
+        targetBrand = 'cpplus';
+    } else if (/idada|q2i35s|1850|3mp smart|smart pt/.test(qLower)) {
+        targetBrand = 'idada';
+    } else if (/cable|cat6|wire|smps|power|hard drive|hdd|box|junction|accessories|accessory|drum|reel/.test(qLower)) {
+        targetBrand = 'accessories';
     }
+
+    scrollToShowroom(targetBrand, null, null);
 }
 
 function closeHeaderSearchSuggestions() {
@@ -2379,19 +2419,22 @@ function selectTextBrand(brand, btn) {
 // =============================================================================
 function syncMobileSearch(val) {
     const desktopInput = document.getElementById('camera-search-input');
+    const headerInput = document.getElementById('header-search-input');
     const clearBtn = document.getElementById('mobile-search-clear');
     if (desktopInput) desktopInput.value = val;
+    if (headerInput) headerInput.value = val;
     if (clearBtn) clearBtn.style.display = val ? 'inline-flex' : 'none';
 
-    onFilterCriteriaChange();
+    if (val && val.trim().length >= 2) {
+        const qLower = val.trim().toLowerCase();
+        let targetBrand = null;
+        if (/trueview|t18291|solar|poe|switch|router/.test(qLower)) targetBrand = 'trueview';
+        else if (/cp\s*plus|cpplus|ezykam|cp-e|cp-z/.test(qLower)) targetBrand = 'cpplus';
+        else if (/idada|q2i35s|1850/.test(qLower)) targetBrand = 'idada';
+        else if (/cable|cat6|smps|hdd|hard drive|junction|accessory|accessories/.test(qLower)) targetBrand = 'accessories';
 
-    if (val && val.trim().length >= 2 && window.innerWidth <= 768) {
-        const catalog = document.getElementById('cameras');
-        if (catalog) {
-            const rect = catalog.getBoundingClientRect();
-            if (rect.top > 140) {
-                window.scrollTo({ top: window.pageYOffset + rect.top - 120, behavior: 'smooth' });
-            }
+        if (targetBrand) {
+            scrollToShowroom(targetBrand, null, null);
         }
     }
 }
@@ -2399,66 +2442,28 @@ function syncMobileSearch(val) {
 function clearMobileSearch() {
     const mobileInput = document.getElementById('mobile-search-input');
     const desktopInput = document.getElementById('camera-search-input');
+    const headerInput = document.getElementById('header-search-input');
     const clearBtn = document.getElementById('mobile-search-clear');
     if (mobileInput) mobileInput.value = '';
     if (desktopInput) desktopInput.value = '';
+    if (headerInput) headerInput.value = '';
     if (clearBtn) clearBtn.style.display = 'none';
-    onFilterCriteriaChange();
+    scrollToShowroom('all', null, null);
 }
 
 function quickFilterCategory(cat, btn) {
-    document.querySelectorAll('.m-cat-pill').forEach(b => b.classList.remove('active'));
-    if (btn) btn.classList.add('active');
-
-    // Also sync desktop text filter pills if present
-    document.querySelectorAll('.text-cat-pill').forEach(b => {
-        const bText = b.textContent.toLowerCase();
-        if (cat === 'all' && bText.includes('all')) {
-            b.classList.add('active');
-        } else if (cat !== 'all' && bText.includes(cat.split('-')[0])) {
-            b.classList.add('active');
-        } else {
-            b.classList.remove('active');
-        }
-    });
-
-    selectTextCategory(cat, null);
-
-    if (window.innerWidth <= 768) {
-        const catalog = document.getElementById('cameras');
-        if (catalog) {
-            const rect = catalog.getBoundingClientRect();
-            if (rect.top > 140 || rect.top < -100) {
-                window.scrollTo({ top: window.pageYOffset + rect.top - 120, behavior: 'smooth' });
-            }
-        }
-    }
+    scrollToShowroom(cat, btn, null);
 }
 
 // =============================================================================
 // MOBILE BRAND SHOWROOM EXPLORATION & AUTO-TOGGLE
 // =============================================================================
 function openBrandCatalog(brandKey) {
-    window.forceFullCatalogGrid = true;
-    if (brandKey === 'accessory') {
-        selectTextCategory('accessory', null);
-    } else {
-        selectTextBrand(brandKey, null);
-    }
-
-    const gridHeader = document.querySelector('.products-header-left') || document.getElementById('cameras');
-    if (gridHeader) {
-        gridHeader.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
+    scrollToShowroom(brandKey, null, null);
 }
 
 window.viewAllProductsInGrid = function() {
-    window.forceFullCatalogGrid = true;
-    selectTextCategory('all', null);
-    const gridHeader = document.querySelector('.products-header-left') || document.getElementById('cameras');
-    if (gridHeader) {
-        gridHeader.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
+    scrollToShowroom('all', null, null);
 };
 
 // =============================================================================
@@ -2587,22 +2592,11 @@ function initGsapMagic() {
     }
 }
 window.returnToShowrooms = function() {
-    window.forceFullCatalogGrid = false;
     const headerInput = document.getElementById('header-search-input');
     if (headerInput) headerInput.value = '';
     const cameraInput = document.getElementById('camera-search-input');
     if (cameraInput) cameraInput.value = '';
     const mobileInput = document.getElementById('mobile-search-input');
     if (mobileInput) mobileInput.value = '';
-    
-    document.querySelectorAll('.cat-nav-link').forEach(l => l.classList.remove('active'));
-    const allLink = document.querySelector('.cat-nav-link');
-    if (allLink) allLink.classList.add('active');
-    
-    selectTextCategory('all', null);
-    
-    const camerasEl = document.getElementById('cameras');
-    if (camerasEl) {
-        camerasEl.scrollIntoView({ behavior: 'smooth' });
-    }
+    scrollToShowroom('all', null, null);
 };
