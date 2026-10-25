@@ -18,7 +18,7 @@ const SYBER_PRODUCTS = [
       "Night Vision"
     ],
     "images": [
-      "assets/idada_q2i35s_1.jpg",
+      "assets/official_bestseller_idada_q2i_transparent.png",
       "assets/idada_q2i35s_2.jpg",
       "assets/idada_q2i35s_3.jpg"
     ]
@@ -65,7 +65,7 @@ const SYBER_PRODUCTS = [
       "Siren Alert"
     ],
     "images": [
-      "assets/cp_e38q_1.jpg",
+      "assets/official_bestseller_cpplus_e38q_transparent.png",
       "assets/cp_e38q_2.jpg",
       "assets/cp_e38q_3.jpg"
     ]
