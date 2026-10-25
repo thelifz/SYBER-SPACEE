@@ -1784,47 +1784,36 @@ body.observe-body {
 }
 
 /* ==========================================================================
-   SMART CAMERA FINDER WIZARD STYLES
+   SMART CAMERA FINDER WIZARD STYLES (UNBOXED & CINEMATIC ARCHITECTURAL)
    ========================================================================== */
 .camera-finder-section {
-    padding: 5rem 1.5rem;
-    background: #f8fafc;
+    padding: 5.5rem 1.5rem 6.5rem 1.5rem;
+    background: #ffffff;
     border-top: 1px solid var(--c-border);
-    border-bottom: 1px solid var(--c-border);
 }
 
 .finder-header-bar {
     text-align: center;
-    margin-bottom: 2.5rem;
+    margin-bottom: 3rem;
 }
 
-.finder-card {
-    background: #ffffff;
-    border: 1px solid var(--c-border);
-    border-radius: var(--radius-lg);
-    box-shadow: 0 15px 45px rgba(0, 0, 0, 0.05);
-    padding: 2.5rem;
-    max-width: 1160px;
-    margin: 0 auto;
-}
-
-/* Stepper Bar */
+/* Stepper Bar (Unboxed & Floating) */
 .finder-stepper {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 1rem;
+    gap: 1.25rem;
     padding-bottom: 2rem;
-    margin-bottom: 2.5rem;
+    margin-bottom: 3rem;
     border-bottom: 1px solid var(--c-border);
 }
 
 .f-step {
     display: flex;
     align-items: center;
-    gap: 0.6rem;
+    gap: 0.65rem;
     cursor: pointer;
-    opacity: 0.5;
+    opacity: 0.45;
     transition: all 0.25s ease;
 }
 
@@ -1833,64 +1822,67 @@ body.observe-body {
 }
 
 .f-step-num {
-    width: 28px;
-    height: 28px;
+    width: 30px;
+    height: 30px;
     border-radius: 50%;
     background: #e2e8f0;
     color: var(--c-dark);
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 0.8rem;
+    font-size: 0.82rem;
     font-weight: 800;
 }
 
 .f-step.active .f-step-num {
     background: var(--c-asus-blue);
     color: #ffffff;
-    box-shadow: 0 2px 8px rgba(0, 98, 210, 0.35);
+    box-shadow: 0 2px 10px rgba(0, 98, 210, 0.4);
 }
 
 .f-step-label {
     font-size: 0.85rem;
     font-weight: 800;
-    letter-spacing: 0.04em;
+    letter-spacing: 0.05em;
     color: var(--c-black);
     text-transform: uppercase;
 }
 
 .f-step-divider {
-    width: 40px;
+    width: 45px;
     height: 2px;
     background: #e2e8f0;
 }
 
 /* Step Panes */
 .finder-step-pane {
-    animation: fadeInPane 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    animation: fadeInFinderPane 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
-@keyframes fadeInPane {
-    from { opacity: 0; transform: translateY(10px); }
+@keyframes fadeInFinderPane {
+    from { opacity: 0; transform: translateY(12px); }
     to { opacity: 1; transform: translateY(0); }
 }
 
 .f-pane-header {
     text-align: center;
-    margin-bottom: 2.25rem;
+    margin-bottom: 2.75rem;
 }
 
 .f-pane-title {
     font-family: var(--font-heading);
-    font-size: 1.65rem;
+    font-size: 1.75rem;
     font-weight: 900;
     color: var(--c-black);
-    margin-bottom: 0.4rem;
+    margin-bottom: 0.45rem;
+    letter-spacing: -0.01em;
 }
 
 .f-pane-sub {
-    font-size: 0.92rem;
+    font-size: 0.95rem;
     color: var(--c-muted);
+    max-width: 600px;
+    margin: 0 auto;
 }
 
 .f-selection-badge {
@@ -1899,11 +1891,11 @@ body.observe-body {
     gap: 0.5rem;
     background: #f1f5f9;
     border: 1px solid var(--c-border);
-    padding: 0.4rem 1rem;
+    padding: 0.4rem 1.1rem;
     border-radius: var(--radius-pill);
     font-size: 0.82rem;
     color: var(--c-dark);
-    margin-bottom: 1rem;
+    margin-bottom: 1.25rem;
 }
 
 .f-selection-badge strong {
@@ -1924,7 +1916,9 @@ body.observe-body {
     color: var(--c-asus-blue);
 }
 
-/* Environment Grid */
+/* ==========================================================================
+   STEP 1: FULL-BLEED CINEMATIC ENVIRONMENT PORTALS
+   ========================================================================== */
 .f-env-grid {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
@@ -1932,27 +1926,32 @@ body.observe-body {
 }
 
 .f-env-card {
-    background: #ffffff;
-    border: 1px solid var(--c-border);
+    position: relative;
+    height: 380px;
     border-radius: var(--radius-md);
     overflow: hidden;
-    text-align: left;
+    background: #0a0e17;
+    border: 1.5px solid rgba(0, 0, 0, 0.08);
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    padding: 0;
     display: flex;
     flex-direction: column;
-    cursor: pointer;
-    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-    padding: 0;
+    justify-content: flex-end;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.06);
 }
 
 .f-env-card:hover {
     border-color: var(--c-asus-blue);
-    transform: translateY(-5px);
-    box-shadow: 0 12px 30px rgba(0, 98, 210, 0.12);
+    transform: translateY(-8px);
+    box-shadow: 0 20px 45px rgba(0, 98, 210, 0.22);
 }
 
-.f-env-img-wrap {
-    position: relative;
-    height: 125px;
+.f-env-media {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
     overflow: hidden;
 }
 
@@ -1960,65 +1959,97 @@ body.observe-body {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 0.45s ease;
+    filter: brightness(0.92);
+    transition: transform 0.65s cubic-bezier(0.16, 1, 0.3, 1), filter 0.4s ease;
 }
 
 .f-env-card:hover .f-env-img {
     transform: scale(1.08);
+    filter: brightness(1.02);
 }
 
-.f-env-overlay {
+.f-env-gradient {
     position: absolute;
     inset: 0;
-    background: linear-gradient(180deg, transparent 40%, rgba(0, 0, 0, 0.45) 100%);
+    background: linear-gradient(180deg, rgba(0,0,0,0.35) 0%, transparent 35%, rgba(0,0,0,0.65) 65%, rgba(0,0,0,0.95) 100%);
+    pointer-events: none;
 }
 
-.f-env-body {
-    padding: 1.25rem;
+.f-env-top-tag {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    background: rgba(255, 255, 255, 0.18);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: #ffffff;
+    font-size: 0.68rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    padding: 0.25rem 0.65rem;
+    border-radius: var(--radius-pill);
+    text-transform: uppercase;
+    z-index: 2;
+    pointer-events: none;
+}
+
+.f-env-content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 1.4rem;
     display: flex;
     flex-direction: column;
-    flex: 1;
-}
-
-.f-env-icon {
-    font-size: 1.35rem;
-    margin-bottom: 0.4rem;
+    z-index: 2;
+    text-align: left;
+    pointer-events: none;
 }
 
 .f-env-name {
     font-family: var(--font-heading);
-    font-size: 1rem;
-    font-weight: 800;
-    color: var(--c-black);
+    font-size: 1.12rem;
+    font-weight: 900;
+    color: #ffffff;
     margin-bottom: 0.35rem;
     line-height: 1.25;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.6);
 }
 
 .f-env-desc {
     font-size: 0.78rem;
-    color: var(--c-muted);
+    color: rgba(255, 255, 255, 0.82);
     line-height: 1.4;
-    margin-bottom: 0.75rem;
+    margin-bottom: 0.85rem;
+    text-shadow: 0 1px 4px rgba(0,0,0,0.5);
 }
 
-.f-env-action {
-    margin-top: auto;
-    font-size: 0.75rem;
-    font-weight: 800;
-    color: var(--c-asus-blue);
+.f-env-cta {
     display: inline-flex;
     align-items: center;
-    gap: 0.3rem;
-    letter-spacing: 0.04em;
+    gap: 0.35rem;
+    font-size: 0.75rem;
+    font-weight: 800;
+    color: #38bdf8;
     text-transform: uppercase;
+    letter-spacing: 0.06em;
+    transition: gap 0.2s ease, color 0.2s ease;
 }
 
-/* Feature Toggle Grid */
+.f-env-card:hover .f-env-cta {
+    gap: 0.6rem;
+    color: #7dd3fc;
+}
+
+/* ==========================================================================
+   STEP 2: FEATURE TOGGLE TILES (UNBOXED)
+   ========================================================================== */
 .f-features-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 1rem;
-    margin-bottom: 2.5rem;
+    gap: 1.15rem;
+    max-width: 960px;
+    margin: 0 auto 3rem auto;
 }
 
 .f-feature-toggle {
@@ -2037,38 +2068,42 @@ body.observe-body {
     display: flex;
     align-items: center;
     gap: 1rem;
-    padding: 1.1rem 1.25rem;
+    padding: 1.15rem 1.35rem;
     background: #ffffff;
     border: 1.5px solid var(--c-border);
     border-radius: var(--radius-sm);
-    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+    transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .f-feature-toggle:hover .f-feat-box {
     border-color: #cbd5e1;
     background: #f8fafc;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.06);
 }
 
 .f-feature-toggle input[type="checkbox"]:checked + .f-feat-box {
     border-color: var(--c-asus-blue);
     background: rgba(0, 98, 210, 0.04);
-    box-shadow: 0 4px 15px rgba(0, 98, 210, 0.08);
+    box-shadow: 0 6px 20px rgba(0, 98, 210, 0.12);
 }
 
 .f-feat-icon {
     font-size: 1.5rem;
-    width: 36px;
-    height: 36px;
+    width: 40px;
+    height: 40px;
     display: flex;
     align-items: center;
     justify-content: center;
     background: #f1f5f9;
     border-radius: 8px;
     flex-shrink: 0;
+    transition: background 0.2s ease;
 }
 
 .f-feature-toggle input[type="checkbox"]:checked + .f-feat-box .f-feat-icon {
-    background: rgba(0, 98, 210, 0.12);
+    background: rgba(0, 98, 210, 0.14);
 }
 
 .f-feat-details {
@@ -2078,7 +2113,7 @@ body.observe-body {
 .f-feat-title {
     display: block;
     font-family: var(--font-heading);
-    font-size: 0.95rem;
+    font-size: 0.96rem;
     font-weight: 800;
     color: var(--c-black);
     margin-bottom: 0.2rem;
@@ -2092,8 +2127,8 @@ body.observe-body {
 }
 
 .f-feat-check {
-    width: 22px;
-    height: 22px;
+    width: 24px;
+    height: 24px;
     border-radius: 50%;
     border: 2px solid #cbd5e1;
     display: flex;
@@ -2115,6 +2150,8 @@ body.observe-body {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    max-width: 960px;
+    margin: 0 auto;
     padding-top: 1.5rem;
     border-top: 1px solid var(--c-border);
 }
@@ -2139,7 +2176,7 @@ body.observe-body {
     display: inline-flex;
     align-items: center;
     gap: 0.6rem;
-    padding: 0.85rem 2rem;
+    padding: 0.85rem 2.25rem;
     background: var(--c-asus-blue);
     color: #ffffff;
     font-family: var(--font-heading);
@@ -2159,53 +2196,56 @@ body.observe-body {
     box-shadow: 0 8px 25px rgba(0, 98, 210, 0.35);
 }
 
-/* Step 3: Match Results */
+/* ==========================================================================
+   STEP 3: MATCH RESULTS (EDITORIAL UNBOXED SHOWCASE)
+   ========================================================================== */
 .f-result-container {
-    padding: 1rem 0;
+    max-width: 1040px;
+    margin: 0 auto;
 }
 
 .f-result-header {
     text-align: center;
-    margin-bottom: 2rem;
+    margin-bottom: 2.5rem;
 }
 
 .f-match-badge {
     display: inline-block;
-    padding: 0.35rem 1rem;
+    padding: 0.35rem 1.15rem;
     background: rgba(0, 98, 210, 0.1);
     color: var(--c-asus-blue);
-    font-size: 0.78rem;
+    font-size: 0.8rem;
     font-weight: 800;
     letter-spacing: 0.08em;
     border-radius: var(--radius-pill);
-    margin-bottom: 0.75rem;
+    margin-bottom: 0.85rem;
     text-transform: uppercase;
 }
 
 .f-result-title {
     font-family: var(--font-heading);
-    font-size: 1.85rem;
+    font-size: 2rem;
     font-weight: 900;
     color: var(--c-black);
-    margin-bottom: 0.4rem;
+    margin-bottom: 0.45rem;
 }
 
 .f-result-sub {
-    font-size: 0.95rem;
+    font-size: 0.98rem;
     color: var(--c-muted);
 }
 
 /* Hero Match Card */
 .f-hero-match-card {
     display: grid;
-    grid-template-columns: 360px 1fr;
-    gap: 2.5rem;
+    grid-template-columns: 380px 1fr;
+    gap: 2.75rem;
     background: #ffffff;
-    border: 2px solid var(--c-asus-blue);
+    border: 1.5px solid var(--c-border);
     border-radius: var(--radius-md);
-    padding: 2.25rem;
-    box-shadow: 0 10px 35px rgba(0, 98, 210, 0.1);
-    margin-bottom: 2.5rem;
+    padding: 2.5rem;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.06);
+    margin-bottom: 3rem;
     align-items: center;
 }
 
@@ -2216,12 +2256,12 @@ body.observe-body {
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 320px;
-    border: 1px solid rgba(0, 0, 0, 0.05);
+    height: 330px;
+    border: 1px solid rgba(0, 0, 0, 0.04);
 }
 
 .fhm-img {
-    max-height: 260px;
+    max-height: 270px;
     max-width: 100%;
     object-fit: contain;
     filter: drop-shadow(0 15px 30px rgba(0, 0, 0, 0.1));
@@ -2256,7 +2296,7 @@ body.observe-body {
 
 .fhm-title {
     font-family: var(--font-heading);
-    font-size: 1.65rem;
+    font-size: 1.75rem;
     font-weight: 900;
     color: var(--c-black);
     line-height: 1.25;
@@ -2264,22 +2304,22 @@ body.observe-body {
 }
 
 .fhm-pitch {
-    font-size: 0.92rem;
+    font-size: 0.94rem;
     color: var(--c-dark);
     line-height: 1.55;
-    margin-bottom: 1.25rem;
+    margin-bottom: 1.35rem;
 }
 
 .fhm-chips {
     display: flex;
     flex-wrap: wrap;
-    gap: 0.4rem;
-    margin-bottom: 1.5rem;
+    gap: 0.45rem;
+    margin-bottom: 1.6rem;
 }
 
 .fhm-chip {
     background: #f1f5f9;
-    padding: 0.35rem 0.75rem;
+    padding: 0.35rem 0.8rem;
     border-radius: var(--radius-pill);
     font-size: 0.78rem;
     font-weight: 700;
@@ -2291,7 +2331,7 @@ body.observe-body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding-top: 1.25rem;
+    padding-top: 1.35rem;
     border-top: 1px solid var(--c-border);
     flex-wrap: wrap;
     gap: 1rem;
@@ -2305,7 +2345,7 @@ body.observe-body {
 
 .fhm-price {
     font-family: var(--font-heading);
-    font-size: 1.85rem;
+    font-size: 1.95rem;
     font-weight: 900;
     color: var(--c-black);
 }
@@ -2321,7 +2361,7 @@ body.observe-body {
     color: #137333;
     font-size: 0.78rem;
     font-weight: 800;
-    padding: 0.2rem 0.6rem;
+    padding: 0.2rem 0.65rem;
     border-radius: 4px;
 }
 
@@ -2332,15 +2372,15 @@ body.observe-body {
 }
 
 .fhm-btn-cart {
-    padding: 0.75rem 1.5rem;
-    font-size: 0.9rem;
+    padding: 0.8rem 1.6rem;
+    font-size: 0.92rem;
 }
 
 .btn-whatsapp-sm {
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
-    padding: 0.75rem 1.25rem;
+    padding: 0.8rem 1.35rem;
     background: #25D366;
     color: #ffffff;
     font-family: var(--font-heading);
@@ -2359,7 +2399,7 @@ body.observe-body {
 /* Alternatives */
 .f-alts-section {
     padding-top: 1.5rem;
-    margin-bottom: 2rem;
+    margin-bottom: 2.5rem;
 }
 
 .f-alts-heading {
@@ -2367,36 +2407,37 @@ body.observe-body {
     font-size: 1rem;
     font-weight: 800;
     color: var(--c-black);
-    margin-bottom: 1rem;
+    margin-bottom: 1.15rem;
     text-transform: uppercase;
-    letter-spacing: 0.04em;
+    letter-spacing: 0.05em;
 }
 
 .f-alts-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 1.25rem;
+    gap: 1.35rem;
 }
 
 .f-alt-card {
     display: flex;
     align-items: center;
-    gap: 1.25rem;
+    gap: 1.35rem;
     background: #ffffff;
     border: 1px solid var(--c-border);
     border-radius: var(--radius-sm);
-    padding: 1.25rem;
+    padding: 1.35rem;
     transition: all 0.25s ease;
 }
 
 .f-alt-card:hover {
     border-color: #cbd5e1;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05);
+    transform: translateY(-2px);
 }
 
 .f-alt-img {
-    width: 80px;
-    height: 80px;
+    width: 85px;
+    height: 85px;
     object-fit: contain;
     flex-shrink: 0;
 }
@@ -2413,11 +2454,11 @@ body.observe-body {
 }
 
 .f-alt-title {
-    font-size: 0.92rem;
+    font-size: 0.94rem;
     font-weight: 800;
     color: var(--c-black);
     line-height: 1.3;
-    margin-bottom: 0.4rem;
+    margin-bottom: 0.45rem;
 }
 
 .f-alt-price-row {
@@ -2428,18 +2469,18 @@ body.observe-body {
 
 .f-alt-price {
     font-weight: 800;
-    font-size: 1rem;
+    font-size: 1.05rem;
     color: var(--c-black);
 }
 
 .btn-f-alt-add {
-    padding: 0.35rem 0.75rem;
+    padding: 0.35rem 0.85rem;
     background: var(--c-asus-blue);
     color: #ffffff;
     border: none;
     border-radius: 4px;
     font-weight: 700;
-    font-size: 0.75rem;
+    font-size: 0.78rem;
     cursor: pointer;
     transition: background 0.2s ease;
 }
@@ -2457,7 +2498,7 @@ body.observe-body {
 .btn-f-restart {
     background: none;
     border: 1px solid var(--c-border);
-    padding: 0.6rem 1.5rem;
+    padding: 0.65rem 1.75rem;
     border-radius: var(--radius-pill);
     color: var(--c-muted);
     font-family: var(--font-heading);
@@ -2470,7 +2511,7 @@ body.observe-body {
 .btn-f-restart:hover {
     border-color: var(--c-dark);
     color: var(--c-black);
-    background: #ffffff;
+    background: #f8fafc;
 }
 
 /* Responsive adjustments */
@@ -2479,20 +2520,20 @@ body.observe-body {
         grid-template-columns: repeat(3, 1fr);
     }
 
+    .f-env-card {
+        height: 320px;
+    }
+
     .f-hero-match-card {
         grid-template-columns: 1fr;
     }
 
     .fhm-media {
-        height: 240px;
+        height: 250px;
     }
 }
 
 @media (max-width: 768px) {
-    .finder-card {
-        padding: 1.5rem 1rem;
-    }
-
     .finder-stepper {
         gap: 0.4rem;
     }
@@ -2507,6 +2548,10 @@ body.observe-body {
 
     .f-env-grid {
         grid-template-columns: 1fr;
+    }
+
+    .f-env-card {
+        height: 280px;
     }
 
     .f-features-grid {
