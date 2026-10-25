@@ -595,18 +595,20 @@ function initGsapAnimations() {
             ease: 'power3.out'
         });
 
-        gsap.from('.acc-product-card', {
-            scrollTrigger: {
-                trigger: '.accessories-cards-grid',
-                start: 'top 80%',
-                toggleActions: 'play none none none'
-            },
-            duration: 0.75,
-            opacity: 0,
-            y: 35,
-            stagger: 0.12,
-            ease: 'power3.out'
-        });
+        if (document.querySelector('.accessories-cards-grid')) {
+            gsap.from('.acc-product-card', {
+                scrollTrigger: {
+                    trigger: '.accessories-cards-grid',
+                    start: 'top 80%',
+                    toggleActions: 'play none none none'
+                },
+                duration: 0.75,
+                opacity: 0,
+                y: 35,
+                stagger: 0.12,
+                ease: 'power3.out'
+            });
+        }
 
         gsap.from('.procurement-box', {
             scrollTrigger: {
