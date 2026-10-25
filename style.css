@@ -1,31 +1,34 @@
 /* ==========================================================================
    SYBER SPACE // AUTHORIZED WHOLESALE SURVEILLANCE
-   STEALTH BLACK CYBERNETIC DESIGN SYSTEM & COMPANY BESTSELLER SHOWCASE
+   PRISTINE HIGH-KEY "EVERYTHING WHITE" ARCHITECTURAL DESIGN SYSTEM
    ========================================================================== */
 
 :root {
-    /* Base Void & Carbon Palette (Back to Stealth Black) */
-    --c-void: #060709;
-    --c-carbon: #0a0d14;
-    --c-surface: #0f131d;
-    --c-elevated: #151b27;
-    --c-border: rgba(255, 255, 255, 0.08);
-    --c-border-bright: rgba(255, 255, 255, 0.16);
-    --c-border-hover: rgba(0, 255, 102, 0.4);
+    /* Pristine White Luxury Palette */
+    --c-void: #ffffff;
+    --c-canvas: #ffffff;
+    --c-subtle-bg: #f8f9fb;
+    --c-elevated-bg: #f1f3f6;
+    --c-surface: #ffffff;
+    --c-border: rgba(0, 0, 0, 0.08);
+    --c-border-subtle: rgba(0, 0, 0, 0.05);
+    --c-border-hover: rgba(0, 0, 0, 0.22);
 
-    /* Cyber & Wholesale Accents */
-    --c-neon-green: #00ff66;
-    --c-neon-green-glow: rgba(0, 255, 102, 0.3);
+    /* Accents */
+    --c-neon-green: #00c853;
+    --c-neon-green-glow: rgba(0, 200, 83, 0.25);
+    --c-ribbon-green: #00ff66;
     --c-orange: #ff5500;
-    --c-orange-glow: rgba(255, 85, 0, 0.35);
-    --c-cyan: #00f0ff;
-    --c-crimson: #ff0037;
+    --c-orange-glow: rgba(255, 85, 0, 0.25);
+    --c-cyan: #0284c7;
+    --c-crimson: #e11d48;
 
     /* High-Contrast Monochromes */
-    --c-white: #ffffff;
-    --c-silver: #e2e8f0;
-    --c-muted: #8e9bb0;
-    --c-dim: #4d596e;
+    --c-black: #0a0b0d;
+    --c-dark: #12141a;
+    --c-charcoal: #2d3139;
+    --c-muted: #64748b;
+    --c-dim: #94a3b8;
 
     /* Typography */
     --font-heading: 'Space Grotesk', 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
@@ -43,24 +46,24 @@
 html {
     font-size: 16px;
     scroll-behavior: smooth;
-    background-color: var(--c-void);
-    color: var(--c-silver);
+    background-color: #ffffff;
+    color: var(--c-dark);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
 
 body.observe-body {
     font-family: var(--font-mono);
-    background-color: var(--c-void);
-    color: var(--c-silver);
+    background-color: #ffffff;
+    color: var(--c-dark);
     line-height: 1.5;
     overflow-x: hidden;
     position: relative;
 }
 
 ::selection {
-    background: var(--c-neon-green);
-    color: #000000;
+    background: #000000;
+    color: #ffffff;
 }
 
 a {
@@ -74,7 +77,7 @@ img, video {
 }
 
 /* ==========================================================================
-   YOUTUBE-STYLE FULL-WIDTH HEADER (~80% SEARCH BAR + HOME + CART)
+   YOUTUBE-STYLE FULL-WIDTH HEADER (PRISTINE FROSTED WHITE GLASS)
    ========================================================================== */
 .yt-header {
     position: fixed;
@@ -82,9 +85,9 @@ img, video {
     left: 0;
     right: 0;
     z-index: 1000;
-    background: rgba(6, 7, 9, 0.94);
-    backdrop-filter: blur(14px);
-    -webkit-backdrop-filter: blur(14px);
+    background: rgba(255, 255, 255, 0.94);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
     border-bottom: 1px solid var(--c-border);
     height: 64px;
     display: flex;
@@ -95,11 +98,11 @@ img, video {
     width: 100%;
     max-width: 1600px;
     margin: 0 auto;
-    padding: 0 1.25rem;
+    padding: 0 1.5rem;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 1.25rem;
+    gap: 1.5rem;
 }
 
 /* Left: Logo */
@@ -115,15 +118,15 @@ img, video {
     height: 9px;
     background: var(--c-neon-green);
     border-radius: 50%;
-    box-shadow: 0 0 10px var(--c-neon-green);
+    box-shadow: 0 0 10px rgba(0, 200, 83, 0.5);
 }
 
 .logo-text {
     font-family: var(--font-heading);
     font-size: 1.25rem;
     font-weight: 900;
-    letter-spacing: 0.08em;
-    color: var(--c-white);
+    letter-spacing: 0.06em;
+    color: var(--c-black);
     text-transform: uppercase;
     white-space: nowrap;
 }
@@ -140,15 +143,16 @@ img, video {
     align-items: center;
     width: 100%;
     border-radius: 40px;
-    background: #0f131a;
-    border: 1px solid rgba(255, 255, 255, 0.16);
-    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    background: #f1f3f6;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    transition: all 0.2s ease;
     overflow: hidden;
 }
 
 .yt-search-form:focus-within {
-    border-color: var(--c-neon-green);
-    box-shadow: 0 0 16px rgba(0, 255, 102, 0.22);
+    background: #ffffff;
+    border-color: #000000;
+    box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.08);
 }
 
 .yt-search-box {
@@ -161,7 +165,7 @@ img, video {
 }
 
 .search-lens-icon {
-    color: var(--c-muted);
+    color: #64748b;
     flex-shrink: 0;
     margin-right: 0.65rem;
 }
@@ -171,11 +175,10 @@ img, video {
     background: transparent;
     border: none;
     outline: none;
-    color: var(--c-white);
+    color: #000000;
     font-family: var(--font-mono);
     font-size: 0.88rem;
     font-weight: 500;
-    letter-spacing: 0.01em;
 }
 
 .yt-search-input::placeholder {
@@ -186,16 +189,15 @@ img, video {
 .yt-clear-btn {
     background: none;
     border: none;
-    color: var(--c-muted);
+    color: #64748b;
     font-size: 1.2rem;
     cursor: pointer;
     padding: 0.2rem 0.5rem;
     line-height: 1;
-    transition: color 0.2s ease;
 }
 
 .yt-clear-btn:hover {
-    color: var(--c-white);
+    color: #000000;
 }
 
 .yt-search-submit-btn {
@@ -204,17 +206,17 @@ img, video {
     justify-content: center;
     width: 58px;
     height: 40px;
-    background: rgba(255, 255, 255, 0.06);
+    background: #e4e7ec;
     border: none;
-    border-left: 1px solid rgba(255, 255, 255, 0.14);
-    color: var(--c-silver);
+    border-left: 1px solid rgba(0, 0, 0, 0.08);
+    color: #475467;
     cursor: pointer;
     transition: background 0.2s ease, color 0.2s ease;
 }
 
 .yt-search-submit-btn:hover {
-    background: rgba(0, 255, 102, 0.15);
-    color: var(--c-neon-green);
+    background: #000000;
+    color: #ffffff;
 }
 
 /* YouTube-Style Dropdown Results */
@@ -223,10 +225,10 @@ img, video {
     top: calc(100% + 6px);
     left: 0;
     right: 0;
-    background: #0d1118;
-    border: 1px solid rgba(255, 255, 255, 0.18);
+    background: #ffffff;
+    border: 1px solid rgba(0, 0, 0, 0.1);
     border-radius: 8px;
-    box-shadow: 0 16px 36px rgba(0, 0, 0, 0.85);
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.12);
     z-index: 1100;
     max-height: 420px;
     overflow-y: auto;
@@ -237,7 +239,7 @@ img, video {
     justify-content: space-between;
     align-items: center;
     padding: 0.65rem 1rem;
-    background: rgba(255, 255, 255, 0.03);
+    background: #f8f9fb;
     border-bottom: 1px solid var(--c-border);
     font-size: 0.68rem;
     font-weight: 800;
@@ -250,14 +252,14 @@ img, video {
     align-items: center;
     justify-content: space-between;
     padding: 0.65rem 1rem;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
     cursor: pointer;
     transition: background 0.15s ease;
     gap: 1rem;
 }
 
 .dropdown-item:hover {
-    background: rgba(0, 255, 102, 0.08);
+    background: #f1f5f9;
 }
 
 .di-left {
@@ -273,6 +275,7 @@ img, video {
     object-fit: contain;
     border-radius: 4px;
     background: #ffffff;
+    border: 1px solid var(--c-border);
     flex-shrink: 0;
     padding: 2px;
 }
@@ -286,7 +289,7 @@ img, video {
 .di-title {
     font-size: 0.82rem;
     font-weight: 700;
-    color: var(--c-white);
+    color: #0a0b0d;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -315,9 +318,9 @@ img, video {
 
 .di-add-btn {
     padding: 0.35rem 0.65rem;
-    background: transparent;
-    border: 1px solid var(--c-neon-green);
-    color: var(--c-neon-green);
+    background: #000000;
+    border: none;
+    color: #ffffff;
     font-size: 0.68rem;
     font-weight: 800;
     border-radius: 3px;
@@ -345,15 +348,15 @@ img, video {
     font-size: 0.78rem;
     font-weight: 800;
     letter-spacing: 0.08em;
-    color: var(--c-silver);
+    color: #344054;
     padding: 0.45rem 0.75rem;
     border-radius: 4px;
     transition: all 0.2s ease;
 }
 
 .yt-action-link:hover {
-    color: var(--c-neon-green);
-    background: rgba(255, 255, 255, 0.05);
+    color: #000000;
+    background: #f1f3f6;
 }
 
 .yt-cart-btn {
@@ -361,9 +364,9 @@ img, video {
     align-items: center;
     gap: 0.5rem;
     padding: 0.5rem 0.95rem;
-    background: rgba(0, 255, 102, 0.1);
-    border: 1px solid var(--c-neon-green);
-    color: var(--c-neon-green);
+    background: #000000;
+    border: none;
+    color: #ffffff;
     font-family: var(--font-mono);
     font-size: 0.78rem;
     font-weight: 800;
@@ -374,44 +377,43 @@ img, video {
 }
 
 .yt-cart-btn:hover {
-    background: var(--c-neon-green);
-    color: #000000;
-    box-shadow: 0 0 16px var(--c-neon-green-glow);
+    background: var(--c-orange);
+    box-shadow: 0 4px 16px var(--c-orange-glow);
 }
 
 .cart-count-badge {
-    background: #000000;
-    color: var(--c-neon-green);
+    background: #ffffff;
+    color: #000000;
     font-size: 0.72rem;
     font-weight: 900;
     padding: 0.1rem 0.45rem;
     border-radius: 10px;
-    border: 1px solid var(--c-neon-green);
 }
 
 /* ==========================================================================
-   SECTION 1: HERO WHOLESALE BESTSELLER SLIDER (MATCHING SCREENSHOT 1)
+   SECTION 1: HERO VIEWPORT (HIGH-KEY CLEAN WHITE STUDIO SHOWCASE)
    ========================================================================== */
 .hero-bestseller-viewport {
     position: relative;
     padding-top: 64px;
     overflow: hidden;
-    background: var(--c-void);
+    background: #ffffff;
 }
 
 .hero-slider-frame {
     position: relative;
     width: 100%;
-    min-height: 580px;
-    background: #000000;
+    min-height: 560px;
+    background: #fbfbfd;
     overflow: hidden;
+    border-bottom: 1px solid var(--c-border);
 }
 
 .hero-slides-wrapper {
     position: relative;
     width: 100%;
     height: 100%;
-    min-height: 580px;
+    min-height: 560px;
 }
 
 .hero-slide {
@@ -420,7 +422,7 @@ img, video {
     left: 0;
     width: 100%;
     height: 100%;
-    min-height: 580px;
+    min-height: 560px;
     opacity: 0;
     pointer-events: none;
     transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1);
@@ -449,13 +451,13 @@ img, video {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    filter: brightness(0.38) contrast(1.15) grayscale(0.5);
+    filter: brightness(0.92) contrast(1.05) grayscale(0.2);
     transform: scale(1);
     transition: transform 7s ease-out;
 }
 
 .hero-slide.active .slide-media-elem {
-    transform: scale(1.05);
+    transform: scale(1.04);
 }
 
 .slide-grain-overlay {
@@ -466,8 +468,8 @@ img, video {
     height: 100%;
     background: repeating-linear-gradient(
         0deg,
-        rgba(0, 0, 0, 0.28) 0px,
-        rgba(0, 0, 0, 0.28) 1.5px,
+        rgba(0, 0, 0, 0.03) 0px,
+        rgba(0, 0, 0, 0.03) 1.5px,
         transparent 1.5px,
         transparent 3px
     );
@@ -481,7 +483,7 @@ img, video {
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(90deg, rgba(6, 7, 9, 0.95) 0%, rgba(6, 7, 9, 0.8) 45%, rgba(6, 7, 9, 0.35) 100%);
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0.98) 0%, rgba(255, 255, 255, 0.88) 45%, rgba(255, 255, 255, 0.3) 100%);
     pointer-events: none;
     z-index: 3;
 }
@@ -489,7 +491,7 @@ img, video {
 .slide-content-layer {
     position: relative;
     z-index: 10;
-    max-width: 760px;
+    max-width: 780px;
     padding: 4.5rem 3.5rem;
     display: flex;
     flex-direction: column;
@@ -498,8 +500,8 @@ img, video {
 
 .hero-bestseller-badge {
     display: inline-block;
-    background: #00c853;
-    color: #000000;
+    background: var(--c-neon-green);
+    color: #ffffff;
     font-family: var(--font-mono);
     font-size: 0.72rem;
     font-weight: 900;
@@ -515,7 +517,7 @@ img, video {
     font-size: clamp(2.4rem, 5.2vw, 4.4rem);
     font-weight: 900;
     letter-spacing: -0.03em;
-    color: var(--c-white);
+    color: var(--c-black);
     line-height: 1;
     margin-bottom: 1rem;
     text-transform: uppercase;
@@ -547,7 +549,7 @@ img, video {
 
 .hero-product-desc {
     font-size: 0.95rem;
-    color: #cbd5e1;
+    color: var(--c-charcoal);
     line-height: 1.6;
     max-width: 580px;
     margin-bottom: 2rem;
@@ -565,23 +567,22 @@ img, video {
     align-items: center;
     justify-content: center;
     padding: 0.95rem 2rem;
-    background: var(--c-white);
-    color: #000000;
+    background: #000000;
+    color: #ffffff;
     border: none;
     font-family: var(--font-mono);
     font-size: 0.85rem;
     font-weight: 900;
     letter-spacing: 0.12em;
     cursor: pointer;
-    border-radius: 3px;
+    border-radius: 4px;
     transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
-    box-shadow: 0 4px 20px rgba(255, 255, 255, 0.2);
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.2);
 }
 
 .btn-add-cart-hero:hover {
-    background: var(--c-neon-green);
-    color: #000000;
-    box-shadow: 0 0 25px var(--c-neon-green-glow);
+    background: var(--c-orange);
+    box-shadow: 0 8px 24px var(--c-orange-glow);
     transform: translateY(-2px);
 }
 
@@ -590,20 +591,20 @@ img, video {
     align-items: center;
     justify-content: center;
     padding: 0.95rem 1.65rem;
-    background: transparent;
-    color: var(--c-white);
-    border: 1px solid var(--c-border-bright);
+    background: #ffffff;
+    color: #000000;
+    border: 1px solid rgba(0, 0, 0, 0.18);
     font-family: var(--font-mono);
     font-size: 0.78rem;
     font-weight: 800;
     letter-spacing: 0.08em;
-    border-radius: 3px;
+    border-radius: 4px;
     transition: all 0.2s ease;
 }
 
 .btn-wholesale-quote-hero:hover {
-    border-color: var(--c-white);
-    background: rgba(255, 255, 255, 0.08);
+    border-color: #000000;
+    background: #f1f3f6;
 }
 
 /* ==========================================================================
@@ -613,15 +614,15 @@ img, video {
     position: relative;
     width: 110vw;
     left: -5vw;
-    background-color: var(--c-neon-green);
+    background-color: var(--c-ribbon-green);
     color: #000000;
     transform: rotate(-2.2deg);
     margin-top: 2rem;
-    margin-bottom: 4rem;
+    margin-bottom: 4.5rem;
     padding: 0.85rem 0;
     overflow: hidden;
     z-index: 25;
-    box-shadow: 0 8px 30px rgba(0, 255, 102, 0.22);
+    box-shadow: 0 8px 28px rgba(0, 255, 102, 0.25);
 }
 
 .ribbon-marquee-track {
@@ -652,12 +653,12 @@ img, video {
 }
 
 /* ==========================================================================
-   SECTION 2: COMPANY BESTSELLERS (STEALTH BLACK SHOWCASE)
+   SECTION 2: COMPANY BESTSELLERS (PRISTINE WHITE STUDIO ARCHITECTURE)
    ========================================================================== */
 .company-showcase-section {
-    padding: 4rem 1.5rem 6rem 1.5rem;
+    padding: 4rem 1.5rem 6.5rem 1.5rem;
     position: relative;
-    background: var(--c-void); /* STEALTH BLACK */
+    background: #ffffff;
 }
 
 .showcase-container {
@@ -668,7 +669,7 @@ img, video {
 .showcase-header-bar {
     text-align: center;
     max-width: 820px;
-    margin: 0 auto 3.5rem auto;
+    margin: 0 auto 4rem auto;
 }
 
 .shb-badge {
@@ -676,7 +677,7 @@ img, video {
     font-size: 0.72rem;
     font-weight: 800;
     letter-spacing: 0.2em;
-    color: var(--c-neon-green);
+    color: var(--c-orange);
     margin-bottom: 0.6rem;
     text-transform: uppercase;
 }
@@ -686,7 +687,7 @@ img, video {
     font-size: clamp(2.2rem, 4.5vw, 3.4rem);
     font-weight: 900;
     letter-spacing: -0.03em;
-    color: var(--c-white);
+    color: var(--c-black);
     margin-bottom: 1rem;
     line-height: 1;
     text-transform: uppercase;
@@ -702,39 +703,38 @@ img, video {
 .company-cards-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 2rem;
+    gap: 2.25rem;
     align-items: stretch;
 }
 
 .company-card {
-    background: var(--c-surface);
-    border: 1px solid var(--c-border);
-    border-radius: 10px;
+    background: #ffffff;
+    border: 1px solid rgba(0, 0, 0, 0.09);
+    border-radius: 12px;
     overflow: hidden;
     display: flex;
     flex-direction: column;
     transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease, box-shadow 0.3s ease;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.05);
 }
 
 .company-card:hover {
     transform: translateY(-6px);
-    border-color: var(--c-border-hover);
-    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.9), 0 0 25px rgba(0, 255, 102, 0.12);
+    border-color: rgba(0, 0, 0, 0.25);
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.1);
 }
 
 .company-top-strip {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem 1.25rem;
-    background: rgba(255, 255, 255, 0.02);
-    border-bottom: 1px solid var(--c-border);
+    padding: 1rem 1.5rem;
+    background: #fbfbfd;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
 }
 
 .co-badge {
-    background: rgba(0, 255, 102, 0.12);
-    border: 1px solid rgba(0, 255, 102, 0.45);
+    background: rgba(0, 200, 83, 0.1);
     color: var(--c-neon-green);
     font-size: 0.62rem;
     font-weight: 900;
@@ -749,20 +749,21 @@ img, video {
     font-size: 0.85rem;
     font-weight: 900;
     letter-spacing: 0.1em;
-    color: var(--c-white);
+    color: var(--c-black);
     text-transform: uppercase;
 }
 
 .company-media-box {
     position: relative;
     width: 100%;
-    aspect-ratio: 16 / 11;
-    background: #ffffff; /* Studio White Backdrop for camera photos */
+    aspect-ratio: 1 / 1;
+    background: #ffffff;
     display: flex;
     align-items: center;
     justify-content: center;
     padding: 1.5rem;
     overflow: hidden;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
 }
 
 .co-img {
@@ -773,7 +774,7 @@ img, video {
 }
 
 .company-card:hover .co-img {
-    transform: scale(1.08);
+    transform: scale(1.06);
 }
 
 .company-details {
@@ -781,21 +782,22 @@ img, video {
     display: flex;
     flex-direction: column;
     flex-grow: 1;
+    background: #ffffff;
 }
 
 .co-model-title {
     font-family: var(--font-heading);
-    font-size: 1.2rem;
+    font-size: 1.25rem;
     font-weight: 800;
     letter-spacing: -0.02em;
-    color: var(--c-white);
+    color: var(--c-black);
     margin-bottom: 0.65rem;
     text-transform: uppercase;
 }
 
 .co-summary {
     font-size: 0.85rem;
-    color: var(--c-muted);
+    color: var(--c-charcoal);
     line-height: 1.6;
     margin-bottom: 1.25rem;
 }
@@ -811,9 +813,8 @@ img, video {
     font-size: 0.65rem;
     font-weight: 700;
     letter-spacing: 0.04em;
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    color: #cbd5e1;
+    background: #f1f3f6;
+    color: #475467;
     padding: 0.22rem 0.55rem;
     border-radius: 3px;
 }
@@ -824,7 +825,7 @@ img, video {
     align-items: baseline;
     margin-top: auto;
     padding-top: 1.25rem;
-    border-top: 1px solid var(--c-border);
+    border-top: 1px solid rgba(0, 0, 0, 0.08);
     margin-bottom: 1.25rem;
 }
 
@@ -835,7 +836,7 @@ img, video {
 
 .co-price-lbl {
     font-size: 0.62rem;
-    font-weight: 800;
+    font-weight: 900;
     letter-spacing: 0.14em;
     color: var(--c-orange);
 }
@@ -844,7 +845,7 @@ img, video {
     font-family: var(--font-heading);
     font-size: 1.65rem;
     font-weight: 900;
-    color: var(--c-white);
+    color: var(--c-black);
 }
 
 .co-mrp-val {
@@ -860,8 +861,8 @@ img, video {
 .btn-co-add-cart {
     width: 100%;
     padding: 0.85rem;
-    background: var(--c-white);
-    color: #000000;
+    background: #000000;
+    color: #ffffff;
     border: none;
     font-family: var(--font-mono);
     font-size: 0.78rem;
@@ -871,12 +872,12 @@ img, video {
     cursor: pointer;
     transition: all 0.2s ease;
     text-transform: uppercase;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
 }
 
 .btn-co-add-cart:hover {
-    background: var(--c-neon-green);
-    color: #000000;
-    box-shadow: 0 0 18px var(--c-neon-green-glow);
+    background: var(--c-orange);
+    box-shadow: 0 6px 20px var(--c-orange-glow);
 }
 
 /* Primary "Explore All Products of [Company]" Button */
@@ -886,9 +887,9 @@ img, video {
     justify-content: center;
     width: 100%;
     padding: 0.85rem;
-    background: rgba(255, 255, 255, 0.04);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    color: var(--c-white);
+    background: #f8f9fb;
+    border: 1px solid rgba(0, 0, 0, 0.14);
+    color: #000000;
     font-family: var(--font-mono);
     font-size: 0.75rem;
     font-weight: 800;
@@ -900,15 +901,14 @@ img, video {
 }
 
 .btn-explore-company:hover {
-    border-color: var(--c-cyan);
-    color: var(--c-cyan);
-    background: rgba(0, 240, 255, 0.08);
-    box-shadow: 0 0 16px var(--c-cyan-glow);
+    border-color: #000000;
+    background: #000000;
+    color: #ffffff;
     transform: translateY(-1px);
 }
 
 /* ==========================================================================
-   FULL BRAND CATALOG MODAL (STEALTH BLACK)
+   FULL BRAND CATALOG MODAL (PRISTINE FROSTED WHITE DIALOG)
    ========================================================================== */
 .brand-modal-overlay {
     position: fixed;
@@ -916,7 +916,7 @@ img, video {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.85);
+    background: rgba(0, 0, 0, 0.5);
     backdrop-filter: blur(8px);
     z-index: 2500;
     opacity: 0;
@@ -937,13 +937,13 @@ img, video {
     width: 92%;
     max-width: 1200px;
     max-height: 88vh;
-    background: #0c0f17;
-    border: 1px solid rgba(255, 255, 255, 0.18);
-    border-radius: 10px;
+    background: #ffffff;
+    border: 1px solid rgba(0, 0, 0, 0.12);
+    border-radius: 12px;
     z-index: 2501;
     display: flex;
     flex-direction: column;
-    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.95);
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.2);
     opacity: 0;
     visibility: hidden;
     transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
@@ -961,7 +961,7 @@ img, video {
     align-items: center;
     padding: 1.5rem 2rem;
     border-bottom: 1px solid var(--c-border);
-    background: rgba(6, 7, 9, 0.7);
+    background: #fbfbfd;
 }
 
 .bm-title-group {
@@ -974,7 +974,7 @@ img, video {
     font-size: 0.65rem;
     font-weight: 800;
     letter-spacing: 0.18em;
-    color: var(--c-neon-green);
+    color: var(--c-orange);
     text-transform: uppercase;
 }
 
@@ -982,7 +982,7 @@ img, video {
     font-family: var(--font-heading);
     font-size: 1.4rem;
     font-weight: 900;
-    color: var(--c-white);
+    color: var(--c-black);
     letter-spacing: -0.02em;
     text-transform: uppercase;
 }
@@ -997,7 +997,7 @@ img, video {
 .bm-close-btn {
     background: none;
     border: none;
-    color: var(--c-muted);
+    color: #64748b;
     font-size: 2rem;
     line-height: 1;
     cursor: pointer;
@@ -1005,22 +1005,22 @@ img, video {
 }
 
 .bm-close-btn:hover {
-    color: var(--c-white);
+    color: #000000;
 }
 
 .bm-search-bar-wrap {
     padding: 0.85rem 2rem;
     border-bottom: 1px solid var(--c-border);
-    background: rgba(255, 255, 255, 0.02);
+    background: #ffffff;
 }
 
 .bm-search-input {
     width: 100%;
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.12);
+    background: #f1f3f6;
+    border: 1px solid rgba(0, 0, 0, 0.08);
     padding: 0.65rem 1rem;
     border-radius: 4px;
-    color: var(--c-white);
+    color: #000000;
     font-family: var(--font-mono);
     font-size: 0.82rem;
     outline: none;
@@ -1028,7 +1028,8 @@ img, video {
 }
 
 .bm-search-input:focus {
-    border-color: var(--c-neon-green);
+    border-color: #000000;
+    background: #ffffff;
 }
 
 .bm-body {
@@ -1038,21 +1039,24 @@ img, video {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 1.25rem;
+    background: #ffffff;
 }
 
 .bm-item-card {
-    background: var(--c-surface);
-    border: 1px solid var(--c-border);
-    border-radius: 6px;
-    padding: 1rem;
+    background: #ffffff;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    border-radius: 8px;
+    padding: 1.25rem;
     display: flex;
     flex-direction: column;
     gap: 0.75rem;
-    transition: border-color 0.2s ease;
+    transition: all 0.2s ease;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
 }
 
 .bm-item-card:hover {
-    border-color: rgba(255, 255, 255, 0.25);
+    border-color: rgba(0, 0, 0, 0.25);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
 }
 
 .bm-item-img {
@@ -1067,7 +1071,7 @@ img, video {
 .bm-item-title {
     font-size: 0.85rem;
     font-weight: 800;
-    color: var(--c-white);
+    color: var(--c-black);
     line-height: 1.3;
     display: -webkit-box;
     -webkit-line-clamp: 2;
@@ -1082,39 +1086,38 @@ img, video {
     align-items: baseline;
     margin-top: auto;
     padding-top: 0.5rem;
-    border-top: 1px solid var(--c-border);
+    border-top: 1px solid rgba(0, 0, 0, 0.06);
 }
 
 .bm-item-price {
     font-family: var(--font-heading);
     font-size: 1.15rem;
     font-weight: 900;
-    color: var(--c-white);
+    color: var(--c-black);
 }
 
 .btn-bm-add {
     padding: 0.5rem 0.85rem;
-    background: var(--c-white);
-    color: #000000;
+    background: #000000;
+    color: #ffffff;
     border: none;
     font-size: 0.72rem;
     font-weight: 800;
-    border-radius: 3px;
+    border-radius: 4px;
     cursor: pointer;
     transition: all 0.2s ease;
 }
 
 .btn-bm-add:hover {
-    background: var(--c-neon-green);
-    color: #000000;
+    background: var(--c-orange);
 }
 
 /* ==========================================================================
-   SECTION 3: WHOLESALE DISCOUNT TIERS (STEALTH BLACK)
+   SECTION 3: WHOLESALE DISCOUNT TIERS (PRISTINE WHITE CARDS)
    ========================================================================== */
 .observe-wholesale-section {
     padding: 6rem 1.5rem;
-    background: var(--c-carbon);
+    background: #f8f9fb;
     border-top: 1px solid var(--c-border);
     border-bottom: 1px solid var(--c-border);
 }
@@ -1135,7 +1138,7 @@ img, video {
     font-size: 0.75rem;
     font-weight: 800;
     letter-spacing: 0.18em;
-    color: var(--c-neon-green);
+    color: var(--c-orange);
     margin-bottom: 0.75rem;
     text-transform: uppercase;
 }
@@ -1145,7 +1148,7 @@ img, video {
     font-size: clamp(2.2rem, 4.5vw, 3.4rem);
     font-weight: 900;
     letter-spacing: -0.03em;
-    color: var(--c-white);
+    color: var(--c-black);
     margin-bottom: 1.25rem;
     line-height: 1.05;
     text-transform: uppercase;
@@ -1165,26 +1168,27 @@ img, video {
 }
 
 .tier-box {
-    background: var(--c-surface);
-    border: 1px solid var(--c-border);
-    border-radius: 8px;
+    background: #ffffff;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    border-radius: 10px;
     padding: 2.25rem;
     display: flex;
     flex-direction: column;
     position: relative;
     transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
 }
 
 .tier-box:hover {
     transform: translateY(-5px);
-    border-color: var(--c-border-bright);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+    border-color: rgba(0, 0, 0, 0.25);
+    box-shadow: 0 16px 36px rgba(0, 0, 0, 0.08);
 }
 
 .tier-box.featured {
-    border-color: var(--c-neon-green);
-    background: linear-gradient(180deg, rgba(0, 255, 102, 0.04) 0%, var(--c-surface) 100%);
-    box-shadow: 0 10px 30px rgba(0, 255, 102, 0.12);
+    border-color: var(--c-orange);
+    background: #ffffff;
+    box-shadow: 0 8px 30px rgba(255, 85, 0, 0.12);
 }
 
 .featured-tag {
@@ -1192,8 +1196,8 @@ img, video {
     top: -12px;
     left: 50%;
     transform: translateX(-50%);
-    background: var(--c-neon-green);
-    color: #000000;
+    background: var(--c-orange);
+    color: #ffffff;
     font-size: 0.62rem;
     font-weight: 900;
     letter-spacing: 0.14em;
@@ -1208,7 +1212,7 @@ img, video {
     align-items: center;
     margin-bottom: 1.25rem;
     padding-bottom: 1rem;
-    border-bottom: 1px solid var(--c-border);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
 }
 
 .t-tier-num {
@@ -1223,7 +1227,7 @@ img, video {
     font-size: 1.5rem;
     font-weight: 900;
     letter-spacing: -0.02em;
-    color: var(--c-white);
+    color: var(--c-black);
 }
 
 .t-tier-rate.text-lime {
@@ -1239,7 +1243,7 @@ img, video {
     font-size: 1.25rem;
     font-weight: 800;
     letter-spacing: -0.02em;
-    color: var(--c-white);
+    color: var(--c-black);
     margin-bottom: 0.4rem;
     text-transform: uppercase;
 }
@@ -1271,7 +1275,7 @@ img, video {
 .check-item {
     font-size: 0.78rem;
     font-weight: 600;
-    color: var(--c-silver);
+    color: var(--c-charcoal);
     display: flex;
     align-items: center;
     gap: 0.5rem;
@@ -1283,9 +1287,9 @@ img, video {
     justify-content: center;
     width: 100%;
     padding: 0.85rem 1.25rem;
-    background: transparent;
-    border: 1px solid var(--c-border-bright);
-    color: var(--c-white);
+    background: #000000;
+    border: none;
+    color: #ffffff;
     font-size: 0.75rem;
     font-weight: 800;
     letter-spacing: 0.12em;
@@ -1295,30 +1299,26 @@ img, video {
 }
 
 .tier-cta-button:hover {
-    background: var(--c-white);
-    color: #000000;
-    border-color: var(--c-white);
+    background: var(--c-orange);
+    color: #ffffff;
 }
 
 .tier-cta-button.featured {
-    background: var(--c-neon-green);
-    border-color: var(--c-neon-green);
-    color: #000000;
+    background: var(--c-orange);
+    color: #ffffff;
 }
 
 .tier-cta-button.featured:hover {
-    background: #ffffff;
-    border-color: #ffffff;
-    color: #000000;
-    box-shadow: 0 0 25px rgba(255, 255, 255, 0.35);
+    background: #000000;
+    color: #ffffff;
 }
 
 /* ==========================================================================
-   SECTION 4: TACTICAL PROCUREMENT HOTLINE (STEALTH BLACK)
+   SECTION 4: TACTICAL PROCUREMENT HOTLINE (CLEAN WHITE CARD)
    ========================================================================== */
 .observe-contact-section {
     padding: 6rem 1.5rem;
-    background: var(--c-void);
+    background: #ffffff;
 }
 
 .procurement-container {
@@ -1327,13 +1327,13 @@ img, video {
 }
 
 .procurement-box {
-    background: var(--c-surface);
-    border: 1px solid var(--c-border-bright);
-    border-radius: 10px;
+    background: #fbfbfd;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    border-radius: 12px;
     padding: 4rem 3rem;
     text-align: center;
     position: relative;
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7);
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.04);
 }
 
 .p-kicker {
@@ -1341,7 +1341,7 @@ img, video {
     font-size: 0.75rem;
     font-weight: 800;
     letter-spacing: 0.2em;
-    color: var(--c-neon-green);
+    color: var(--c-orange);
     margin-bottom: 0.75rem;
     text-transform: uppercase;
 }
@@ -1351,7 +1351,7 @@ img, video {
     font-size: clamp(2.2rem, 4vw, 3.2rem);
     font-weight: 900;
     letter-spacing: -0.03em;
-    color: var(--c-white);
+    color: var(--c-black);
     margin-bottom: 1.25rem;
     text-transform: uppercase;
 }
@@ -1386,22 +1386,22 @@ img, video {
     text-transform: uppercase;
     border-radius: 4px;
     transition: all 0.25s ease;
-    box-shadow: 0 8px 24px rgba(37, 211, 102, 0.35);
+    box-shadow: 0 8px 24px rgba(37, 211, 102, 0.25);
 }
 
 .btn-whatsapp-wholesale:hover {
     background: #20ba5a;
     transform: translateY(-2px);
-    box-shadow: 0 12px 30px rgba(37, 211, 102, 0.45);
+    box-shadow: 0 12px 30px rgba(37, 211, 102, 0.35);
 }
 
 .btn-phone-call {
     display: inline-flex;
     align-items: center;
     padding: 1rem 2rem;
-    background: transparent;
-    border: 1px solid var(--c-border-bright);
-    color: var(--c-white);
+    background: #ffffff;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    color: #000000;
     font-family: var(--font-mono);
     font-size: 0.82rem;
     font-weight: 800;
@@ -1411,12 +1411,12 @@ img, video {
 }
 
 .btn-phone-call:hover {
-    border-color: var(--c-white);
-    background: rgba(255, 255, 255, 0.05);
+    border-color: #000000;
+    background: #f1f3f6;
 }
 
 /* ==========================================================================
-   INTERACTIVE SLIDE-OUT CART DRAWER
+   INTERACTIVE SLIDE-OUT CART DRAWER (WHITE FROSTED GLASS)
    ========================================================================== */
 .cart-drawer-overlay {
     position: fixed;
@@ -1424,7 +1424,7 @@ img, video {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.75);
+    background: rgba(0, 0, 0, 0.5);
     backdrop-filter: blur(4px);
     z-index: 2000;
     opacity: 0;
@@ -1444,14 +1444,14 @@ img, video {
     width: 440px;
     max-width: 100vw;
     height: 100%;
-    background: #0d1017;
-    border-left: 1px solid var(--c-border-bright);
+    background: #ffffff;
+    border-left: 1px solid rgba(0, 0, 0, 0.08);
     z-index: 2001;
     display: flex;
     flex-direction: column;
     transform: translateX(100%);
     transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-    box-shadow: -15px 0 45px rgba(0, 0, 0, 0.85);
+    box-shadow: -15px 0 45px rgba(0, 0, 0, 0.12);
 }
 
 .cart-drawer.active {
@@ -1464,7 +1464,7 @@ img, video {
     align-items: center;
     padding: 1.25rem 1.5rem;
     border-bottom: 1px solid var(--c-border);
-    background: rgba(6, 7, 9, 0.8);
+    background: #fbfbfd;
 }
 
 .cd-title-group {
@@ -1477,20 +1477,20 @@ img, video {
     font-family: var(--font-heading);
     font-size: 1rem;
     font-weight: 900;
-    color: var(--c-white);
+    color: var(--c-black);
     letter-spacing: 0.04em;
 }
 
 .cd-items-badge {
     font-size: 0.68rem;
     font-weight: 800;
-    color: var(--c-neon-green);
+    color: var(--c-orange);
 }
 
 .cd-close-btn {
     background: none;
     border: none;
-    color: var(--c-muted);
+    color: #64748b;
     font-size: 1.6rem;
     cursor: pointer;
     line-height: 1;
@@ -1498,17 +1498,17 @@ img, video {
 }
 
 .cd-close-btn:hover {
-    color: var(--c-white);
+    color: #000000;
 }
 
 .cd-wholesale-hint {
-    background: rgba(0, 255, 102, 0.08);
-    border-bottom: 1px solid rgba(0, 255, 102, 0.2);
+    background: rgba(255, 85, 0, 0.08);
+    border-bottom: 1px solid rgba(255, 85, 0, 0.15);
     padding: 0.6rem 1.25rem;
     font-size: 0.68rem;
     font-weight: 800;
     letter-spacing: 0.06em;
-    color: var(--c-neon-green);
+    color: var(--c-orange);
     text-align: center;
 }
 
@@ -1519,6 +1519,7 @@ img, video {
     display: flex;
     flex-direction: column;
     gap: 1rem;
+    background: #ffffff;
 }
 
 .cart-empty-state {
@@ -1528,23 +1529,23 @@ img, video {
     justify-content: center;
     height: 100%;
     text-align: center;
-    color: var(--c-dim);
+    color: var(--c-muted);
     gap: 1rem;
     padding: 2rem;
 }
 
 .cart-empty-icon {
     font-size: 3rem;
-    opacity: 0.4;
+    opacity: 0.3;
 }
 
 .cd-item {
     display: flex;
     gap: 1rem;
     padding: 1rem;
-    background: rgba(255, 255, 255, 0.03);
-    border: 1px solid var(--c-border);
-    border-radius: 6px;
+    background: #f8f9fb;
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    border-radius: 8px;
     align-items: center;
 }
 
@@ -1556,6 +1557,7 @@ img, video {
     background: #ffffff;
     flex-shrink: 0;
     padding: 2px;
+    border: 1px solid rgba(0, 0, 0, 0.06);
 }
 
 .cd-item-details {
@@ -1569,7 +1571,7 @@ img, video {
 .cd-item-title {
     font-size: 0.82rem;
     font-weight: 800;
-    color: var(--c-white);
+    color: var(--c-black);
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -1591,9 +1593,9 @@ img, video {
 .cd-qty-btn {
     width: 24px;
     height: 24px;
-    background: rgba(255, 255, 255, 0.08);
-    border: 1px solid var(--c-border);
-    color: var(--c-white);
+    background: #ffffff;
+    border: 1px solid rgba(0, 0, 0, 0.12);
+    color: #000000;
     border-radius: 3px;
     cursor: pointer;
     font-weight: 800;
@@ -1603,8 +1605,8 @@ img, video {
 }
 
 .cd-qty-btn:hover {
-    background: var(--c-white);
-    color: #000;
+    background: #000000;
+    color: #ffffff;
 }
 
 .cd-qty-val {
@@ -1617,7 +1619,7 @@ img, video {
 .cd-item-remove {
     background: none;
     border: none;
-    color: var(--c-dim);
+    color: #94a3b8;
     cursor: pointer;
     font-size: 1.1rem;
     padding: 0.25rem;
@@ -1629,7 +1631,7 @@ img, video {
 
 .cd-footer {
     padding: 1.25rem 1.5rem;
-    background: rgba(6, 7, 9, 0.95);
+    background: #fbfbfd;
     border-top: 1px solid var(--c-border);
     display: flex;
     flex-direction: column;
@@ -1652,15 +1654,15 @@ img, video {
 .cd-summary-row.final-row {
     font-size: 0.95rem;
     font-weight: 900;
-    color: var(--c-white);
+    color: var(--c-black);
     padding-top: 0.5rem;
-    border-top: 1px solid var(--c-border);
+    border-top: 1px solid rgba(0, 0, 0, 0.08);
 }
 
 .cd-final-price {
     font-family: var(--font-heading);
     font-size: 1.35rem;
-    color: var(--c-neon-green);
+    color: var(--c-orange);
 }
 
 .btn-checkout-whatsapp {
@@ -1680,13 +1682,13 @@ img, video {
     border: none;
     cursor: pointer;
     transition: all 0.2s ease;
-    box-shadow: 0 6px 20px rgba(37, 211, 102, 0.35);
+    box-shadow: 0 6px 20px rgba(37, 211, 102, 0.25);
 }
 
 .btn-checkout-whatsapp:hover {
     background: #20ba5a;
     transform: translateY(-2px);
-    box-shadow: 0 10px 25px rgba(37, 211, 102, 0.45);
+    box-shadow: 0 10px 25px rgba(37, 211, 102, 0.35);
 }
 
 /* Notification Toast */
@@ -1694,16 +1696,15 @@ img, video {
     position: fixed;
     bottom: 2rem;
     right: 2rem;
-    background: rgba(13, 16, 23, 0.95);
-    border: 1px solid var(--c-neon-green);
-    color: var(--c-white);
+    background: #000000;
+    color: #ffffff;
     padding: 0.85rem 1.35rem;
     border-radius: 6px;
     font-size: 0.82rem;
     font-weight: 700;
     letter-spacing: 0.04em;
     z-index: 3000;
-    box-shadow: 0 12px 30px rgba(0, 255, 102, 0.25);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
     transform: translateY(120%);
     opacity: 0;
     transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
@@ -1716,12 +1717,12 @@ img, video {
 }
 
 /* ==========================================================================
-   TECHNICAL MINIMAL FOOTER
+   TECHNICAL MINIMAL FOOTER (CLEAN WHITE ARCHITECTURE)
    ========================================================================== */
 .observe-footer {
     border-top: 1px solid var(--c-border);
     padding: 2.5rem 1.5rem;
-    background: var(--c-void);
+    background: #ffffff;
 }
 
 .footer-wrap {
@@ -1733,7 +1734,7 @@ img, video {
     flex-wrap: wrap;
     gap: 1.5rem;
     font-size: 0.72rem;
-    color: var(--c-dim);
+    color: var(--c-muted);
     letter-spacing: 0.08em;
 }
 
@@ -1747,7 +1748,7 @@ img, video {
     font-family: var(--font-heading);
     font-size: 1.1rem;
     font-weight: 900;
-    color: var(--c-white);
+    color: var(--c-black);
     letter-spacing: 0.06em;
 }
 
