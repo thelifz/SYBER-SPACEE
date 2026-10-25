@@ -194,6 +194,12 @@ a {
 }
 
 /* Helper to hide secondary contact on tight desktop viewports */
+@media (max-width: 1400px) {
+    .header-email-link {
+        display: none !important;
+    }
+}
+
 @media (max-width: 1280px) {
     .header-email-link {
         display: none !important;
@@ -202,11 +208,15 @@ a {
         gap: 16px;
     }
     .nav-item {
-        padding: 6px 9px;
+        padding: 6px 8px;
         font-size: 0.8rem;
     }
     .header-search-wrap {
-        max-width: 320px;
+        max-width: 500px;
+        min-width: 280px;
+    }
+    .delivery-location-nav-item {
+        display: none !important;
     }
 }
 
@@ -269,16 +279,20 @@ a {
 }
 
 /* ==========================================================================
-   CENTER: EXECUTIVE HEADER SEARCH BAR REPLACEMENT
+   STRETCHED EXECUTIVE SEARCH BAR WITH INTEGRATED BRAND BADGE
    ========================================================================== */
+.mobile-logo-brand {
+    display: none;
+}
+
 .header-search-wrap {
-    flex: 1;
-    max-width: 480px;
-    min-width: 200px;
+    flex: 1 1 540px;
+    max-width: 660px;
+    min-width: 320px;
     display: flex;
-    justify-content: center;
+    align-items: center;
     position: relative;
-    margin: 0 16px;
+    margin: 0 16px 0 0;
 }
 
 .header-search-field {
@@ -290,7 +304,7 @@ a {
     border: 1.5px solid rgba(15, 23, 42, 0.12);
     border-radius: var(--radius-pill, 9999px);
     padding: 0 16px;
-    height: 42px;
+    height: 44px;
     transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
     box-shadow: 0 1px 4px rgba(15, 23, 42, 0.03);
 }
@@ -307,12 +321,56 @@ a {
     box-shadow: 0 4px 18px rgba(15, 23, 42, 0.08), 0 0 0 3px rgba(197, 160, 89, 0.2);
 }
 
+/* Integrated Brand Badge Inside the Search Bar */
+.search-brand-badge {
+    display: inline-flex;
+    align-items: center;
+    flex-shrink: 0;
+    margin-right: 14px;
+    text-decoration: none;
+    transition: opacity 0.2s ease;
+    user-select: none;
+}
+
+.search-brand-badge:hover {
+    opacity: 0.75;
+}
+
+.search-brand-badge .logo-text {
+    font-family: var(--font-display);
+    font-size: 0.96rem;
+    font-weight: 800;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--base-dark, #0f172a);
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    line-height: 1;
+}
+
+.search-brand-badge .logo-text .logo-gold {
+    color: var(--gold-primary, #c5a059);
+    background: var(--gold-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.search-brand-divider {
+    width: 1px;
+    height: 20px;
+    background: rgba(15, 23, 42, 0.16);
+    margin-right: 12px;
+    flex-shrink: 0;
+}
+
 .header-search-field .search-icon-svg {
     width: 16px;
     height: 16px;
     color: #94a3b8;
     flex-shrink: 0;
-    margin-right: 10px;
+    margin-right: 8px;
     transition: color 0.2s ease, transform 0.2s ease;
 }
 
@@ -325,7 +383,8 @@ a {
     border: none;
     outline: none;
     background: transparent;
-    width: 100%;
+    flex: 1;
+    min-width: 140px;
     font-family: inherit;
     font-size: 0.88rem;
     font-weight: 500;
@@ -370,7 +429,7 @@ a {
     left: 0;
     right: 0;
     width: 100%;
-    min-width: 320px;
+    min-width: 380px;
     background: #ffffff;
     border: 1px solid var(--base-border);
     border-radius: 14px;
@@ -378,7 +437,7 @@ a {
     padding: 8px 0;
     z-index: 1000;
     display: none;
-    max-height: 380px;
+    max-height: 400px;
     overflow-y: auto;
 }
 
@@ -1828,6 +1887,12 @@ a {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 24px;
+}
+
+@media (max-width: 1400px) {
+    .header-email-link {
+        display: none !important;
+    }
 }
 
 @media (max-width: 1280px) {
@@ -4363,6 +4428,12 @@ a {
 /* ==========================================================================
    RESPONSIVE
    ========================================================================== */
+@media (max-width: 1400px) {
+    .header-email-link {
+        display: none !important;
+    }
+}
+
 @media (max-width: 1280px) {
     .products-grid {
         grid-template-columns: repeat(3, 1fr);
@@ -4371,8 +4442,14 @@ a {
 }
 
 @media (max-width: 1024px) {
+    .header-search-wrap {
+        display: none !important;
+    }
     .header-nav, .header-cta {
-        display: none;
+        display: none !important;
+    }
+    .mobile-logo-brand {
+        display: inline-flex !important;
     }
     .btn-menu {
         display: flex;
