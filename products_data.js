@@ -1398,6 +1398,28 @@ const SYBER_PRODUCTS = [
       "images": [
           "assets/acc_rj45_crimping_tool.jpg"
       ]
+  },
+  {
+      "id": "trueview-solar-4g-sim-outdoor-pan-tilt-camera",
+      "index": 64,
+      "title": "Trueview 4G Solar Smart PTZ Camera (100% Wire-Free Off-Grid)",
+      "brand": "TRUEVIEW",
+      "category": "4g-camera",
+      "price": 4950,
+      "mrp": "\u20b98,999",
+      "save": "Save 45%",
+      "rating": "5.0",
+      "badge": "#1 BESTSELLER",
+      "desc": "100% autonomous off-grid security with high-efficiency solar panel, rechargeable battery bank, and integrated 4G SIM slot. Full color night vision and active deterrence.",
+      "chips": [
+          "100% Wire-Free",
+          "4G SIM Data",
+          "Solar Powered",
+          "Color Night Vision"
+      ],
+      "images": [
+          "assets/official_trueview_solar_T18149-01.png"
+      ]
   }
 ];
 if (typeof module !== "undefined") module.exports = SYBER_PRODUCTS;

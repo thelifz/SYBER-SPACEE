@@ -1782,3 +1782,755 @@ body.observe-body {
         align-items: flex-start;
     }
 }
+
+/* ==========================================================================
+   SMART CAMERA FINDER WIZARD STYLES
+   ========================================================================== */
+.camera-finder-section {
+    padding: 5rem 1.5rem;
+    background: #f8fafc;
+    border-top: 1px solid var(--c-border);
+    border-bottom: 1px solid var(--c-border);
+}
+
+.finder-header-bar {
+    text-align: center;
+    margin-bottom: 2.5rem;
+}
+
+.finder-card {
+    background: #ffffff;
+    border: 1px solid var(--c-border);
+    border-radius: var(--radius-lg);
+    box-shadow: 0 15px 45px rgba(0, 0, 0, 0.05);
+    padding: 2.5rem;
+    max-width: 1160px;
+    margin: 0 auto;
+}
+
+/* Stepper Bar */
+.finder-stepper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    padding-bottom: 2rem;
+    margin-bottom: 2.5rem;
+    border-bottom: 1px solid var(--c-border);
+}
+
+.f-step {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    cursor: pointer;
+    opacity: 0.5;
+    transition: all 0.25s ease;
+}
+
+.f-step.active {
+    opacity: 1;
+}
+
+.f-step-num {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: #e2e8f0;
+    color: var(--c-dark);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
+    font-weight: 800;
+}
+
+.f-step.active .f-step-num {
+    background: var(--c-asus-blue);
+    color: #ffffff;
+    box-shadow: 0 2px 8px rgba(0, 98, 210, 0.35);
+}
+
+.f-step-label {
+    font-size: 0.85rem;
+    font-weight: 800;
+    letter-spacing: 0.04em;
+    color: var(--c-black);
+    text-transform: uppercase;
+}
+
+.f-step-divider {
+    width: 40px;
+    height: 2px;
+    background: #e2e8f0;
+}
+
+/* Step Panes */
+.finder-step-pane {
+    animation: fadeInPane 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes fadeInPane {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.f-pane-header {
+    text-align: center;
+    margin-bottom: 2.25rem;
+}
+
+.f-pane-title {
+    font-family: var(--font-heading);
+    font-size: 1.65rem;
+    font-weight: 900;
+    color: var(--c-black);
+    margin-bottom: 0.4rem;
+}
+
+.f-pane-sub {
+    font-size: 0.92rem;
+    color: var(--c-muted);
+}
+
+.f-selection-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: #f1f5f9;
+    border: 1px solid var(--c-border);
+    padding: 0.4rem 1rem;
+    border-radius: var(--radius-pill);
+    font-size: 0.82rem;
+    color: var(--c-dark);
+    margin-bottom: 1rem;
+}
+
+.f-selection-badge strong {
+    color: var(--c-asus-blue);
+}
+
+.btn-f-change {
+    background: none;
+    border: none;
+    color: var(--c-muted);
+    font-size: 0.78rem;
+    cursor: pointer;
+    text-decoration: underline;
+    padding: 0;
+}
+
+.btn-f-change:hover {
+    color: var(--c-asus-blue);
+}
+
+/* Environment Grid */
+.f-env-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 1.25rem;
+}
+
+.f-env-card {
+    background: #ffffff;
+    border: 1px solid var(--c-border);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    padding: 0;
+}
+
+.f-env-card:hover {
+    border-color: var(--c-asus-blue);
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px rgba(0, 98, 210, 0.12);
+}
+
+.f-env-img-wrap {
+    position: relative;
+    height: 125px;
+    overflow: hidden;
+}
+
+.f-env-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.45s ease;
+}
+
+.f-env-card:hover .f-env-img {
+    transform: scale(1.08);
+}
+
+.f-env-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, transparent 40%, rgba(0, 0, 0, 0.45) 100%);
+}
+
+.f-env-body {
+    padding: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.f-env-icon {
+    font-size: 1.35rem;
+    margin-bottom: 0.4rem;
+}
+
+.f-env-name {
+    font-family: var(--font-heading);
+    font-size: 1rem;
+    font-weight: 800;
+    color: var(--c-black);
+    margin-bottom: 0.35rem;
+    line-height: 1.25;
+}
+
+.f-env-desc {
+    font-size: 0.78rem;
+    color: var(--c-muted);
+    line-height: 1.4;
+    margin-bottom: 0.75rem;
+}
+
+.f-env-action {
+    margin-top: auto;
+    font-size: 0.75rem;
+    font-weight: 800;
+    color: var(--c-asus-blue);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+}
+
+/* Feature Toggle Grid */
+.f-features-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    margin-bottom: 2.5rem;
+}
+
+.f-feature-toggle {
+    display: block;
+    cursor: pointer;
+    position: relative;
+}
+
+.f-feature-toggle input[type="checkbox"] {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.f-feat-box {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.1rem 1.25rem;
+    background: #ffffff;
+    border: 1.5px solid var(--c-border);
+    border-radius: var(--radius-sm);
+    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.f-feature-toggle:hover .f-feat-box {
+    border-color: #cbd5e1;
+    background: #f8fafc;
+}
+
+.f-feature-toggle input[type="checkbox"]:checked + .f-feat-box {
+    border-color: var(--c-asus-blue);
+    background: rgba(0, 98, 210, 0.04);
+    box-shadow: 0 4px 15px rgba(0, 98, 210, 0.08);
+}
+
+.f-feat-icon {
+    font-size: 1.5rem;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f1f5f9;
+    border-radius: 8px;
+    flex-shrink: 0;
+}
+
+.f-feature-toggle input[type="checkbox"]:checked + .f-feat-box .f-feat-icon {
+    background: rgba(0, 98, 210, 0.12);
+}
+
+.f-feat-details {
+    flex: 1;
+}
+
+.f-feat-title {
+    display: block;
+    font-family: var(--font-heading);
+    font-size: 0.95rem;
+    font-weight: 800;
+    color: var(--c-black);
+    margin-bottom: 0.2rem;
+}
+
+.f-feat-desc {
+    display: block;
+    font-size: 0.78rem;
+    color: var(--c-muted);
+    line-height: 1.35;
+}
+
+.f-feat-check {
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    border: 2px solid #cbd5e1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.75rem;
+    color: transparent;
+    transition: all 0.2s ease;
+    flex-shrink: 0;
+}
+
+.f-feature-toggle input[type="checkbox"]:checked + .f-feat-box .f-feat-check {
+    border-color: var(--c-asus-blue);
+    background: var(--c-asus-blue);
+    color: #ffffff;
+}
+
+.f-step-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--c-border);
+}
+
+.btn-f-back {
+    background: none;
+    border: none;
+    color: var(--c-dark);
+    font-family: var(--font-heading);
+    font-size: 0.88rem;
+    font-weight: 700;
+    cursor: pointer;
+    padding: 0.6rem 1rem;
+    transition: color 0.2s ease;
+}
+
+.btn-f-back:hover {
+    color: var(--c-asus-blue);
+}
+
+.btn-f-reveal {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.85rem 2rem;
+    background: var(--c-asus-blue);
+    color: #ffffff;
+    font-family: var(--font-heading);
+    font-size: 0.92rem;
+    font-weight: 800;
+    letter-spacing: 0.04em;
+    border: none;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0, 98, 210, 0.25);
+    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.btn-f-reveal:hover {
+    background: var(--c-asus-blue-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 98, 210, 0.35);
+}
+
+/* Step 3: Match Results */
+.f-result-container {
+    padding: 1rem 0;
+}
+
+.f-result-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.f-match-badge {
+    display: inline-block;
+    padding: 0.35rem 1rem;
+    background: rgba(0, 98, 210, 0.1);
+    color: var(--c-asus-blue);
+    font-size: 0.78rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    border-radius: var(--radius-pill);
+    margin-bottom: 0.75rem;
+    text-transform: uppercase;
+}
+
+.f-result-title {
+    font-family: var(--font-heading);
+    font-size: 1.85rem;
+    font-weight: 900;
+    color: var(--c-black);
+    margin-bottom: 0.4rem;
+}
+
+.f-result-sub {
+    font-size: 0.95rem;
+    color: var(--c-muted);
+}
+
+/* Hero Match Card */
+.f-hero-match-card {
+    display: grid;
+    grid-template-columns: 360px 1fr;
+    gap: 2.5rem;
+    background: #ffffff;
+    border: 2px solid var(--c-asus-blue);
+    border-radius: var(--radius-md);
+    padding: 2.25rem;
+    box-shadow: 0 10px 35px rgba(0, 98, 210, 0.1);
+    margin-bottom: 2.5rem;
+    align-items: center;
+}
+
+.fhm-media {
+    background: #f8fafc;
+    border-radius: var(--radius-sm);
+    padding: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 320px;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.fhm-img {
+    max-height: 260px;
+    max-width: 100%;
+    object-fit: contain;
+    filter: drop-shadow(0 15px 30px rgba(0, 0, 0, 0.1));
+}
+
+.fhm-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.fhm-top {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 0.5rem;
+}
+
+.fhm-badge {
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    color: var(--c-asus-blue);
+    text-transform: uppercase;
+}
+
+.fhm-tagline {
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: var(--c-muted);
+    text-transform: uppercase;
+}
+
+.fhm-title {
+    font-family: var(--font-heading);
+    font-size: 1.65rem;
+    font-weight: 900;
+    color: var(--c-black);
+    line-height: 1.25;
+    margin-bottom: 0.85rem;
+}
+
+.fhm-pitch {
+    font-size: 0.92rem;
+    color: var(--c-dark);
+    line-height: 1.55;
+    margin-bottom: 1.25rem;
+}
+
+.fhm-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin-bottom: 1.5rem;
+}
+
+.fhm-chip {
+    background: #f1f5f9;
+    padding: 0.35rem 0.75rem;
+    border-radius: var(--radius-pill);
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: var(--c-dark);
+    border: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.fhm-pricing-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 1.25rem;
+    border-top: 1px solid var(--c-border);
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.fhm-prices {
+    display: flex;
+    align-items: baseline;
+    gap: 0.75rem;
+}
+
+.fhm-price {
+    font-family: var(--font-heading);
+    font-size: 1.85rem;
+    font-weight: 900;
+    color: var(--c-black);
+}
+
+.fhm-mrp {
+    font-size: 1rem;
+    color: var(--c-muted);
+    text-decoration: line-through;
+}
+
+.fhm-save {
+    background: #e6f4ea;
+    color: #137333;
+    font-size: 0.78rem;
+    font-weight: 800;
+    padding: 0.2rem 0.6rem;
+    border-radius: 4px;
+}
+
+.fhm-actions {
+    display: flex;
+    gap: 0.75rem;
+    align-items: center;
+}
+
+.fhm-btn-cart {
+    padding: 0.75rem 1.5rem;
+    font-size: 0.9rem;
+}
+
+.btn-whatsapp-sm {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.25rem;
+    background: #25D366;
+    color: #ffffff;
+    font-family: var(--font-heading);
+    font-size: 0.85rem;
+    font-weight: 800;
+    border-radius: var(--radius-sm);
+    text-decoration: none;
+    transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.btn-whatsapp-sm:hover {
+    background: #1eb956;
+    transform: translateY(-2px);
+}
+
+/* Alternatives */
+.f-alts-section {
+    padding-top: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.f-alts-heading {
+    font-family: var(--font-heading);
+    font-size: 1rem;
+    font-weight: 800;
+    color: var(--c-black);
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+
+.f-alts-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem;
+}
+
+.f-alt-card {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    background: #ffffff;
+    border: 1px solid var(--c-border);
+    border-radius: var(--radius-sm);
+    padding: 1.25rem;
+    transition: all 0.25s ease;
+}
+
+.f-alt-card:hover {
+    border-color: #cbd5e1;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+.f-alt-img {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+    flex-shrink: 0;
+}
+
+.f-alt-info {
+    flex: 1;
+}
+
+.f-alt-brand {
+    font-size: 0.68rem;
+    font-weight: 800;
+    color: var(--c-asus-blue);
+    text-transform: uppercase;
+}
+
+.f-alt-title {
+    font-size: 0.92rem;
+    font-weight: 800;
+    color: var(--c-black);
+    line-height: 1.3;
+    margin-bottom: 0.4rem;
+}
+
+.f-alt-price-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.f-alt-price {
+    font-weight: 800;
+    font-size: 1rem;
+    color: var(--c-black);
+}
+
+.btn-f-alt-add {
+    padding: 0.35rem 0.75rem;
+    background: var(--c-asus-blue);
+    color: #ffffff;
+    border: none;
+    border-radius: 4px;
+    font-weight: 700;
+    font-size: 0.75rem;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.btn-f-alt-add:hover {
+    background: var(--c-asus-blue-hover);
+}
+
+/* Restart Bar */
+.f-restart-bar {
+    text-align: center;
+    padding-top: 1rem;
+}
+
+.btn-f-restart {
+    background: none;
+    border: 1px solid var(--c-border);
+    padding: 0.6rem 1.5rem;
+    border-radius: var(--radius-pill);
+    color: var(--c-muted);
+    font-family: var(--font-heading);
+    font-size: 0.85rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.btn-f-restart:hover {
+    border-color: var(--c-dark);
+    color: var(--c-black);
+    background: #ffffff;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1080px) {
+    .f-env-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .f-hero-match-card {
+        grid-template-columns: 1fr;
+    }
+
+    .fhm-media {
+        height: 240px;
+    }
+}
+
+@media (max-width: 768px) {
+    .finder-card {
+        padding: 1.5rem 1rem;
+    }
+
+    .finder-stepper {
+        gap: 0.4rem;
+    }
+
+    .f-step-label {
+        font-size: 0.7rem;
+    }
+
+    .f-step-divider {
+        width: 15px;
+    }
+
+    .f-env-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .f-features-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .f-alts-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .fhm-pricing-row {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .fhm-actions {
+        width: 100%;
+        flex-direction: column;
+    }
+
+    .fhm-btn-cart,
+    .btn-whatsapp-sm {
+        width: 100%;
+        justify-content: center;
+        text-align: center;
+    }
+}

@@ -623,3 +623,277 @@ function initGsapAnimations() {
         });
     }
 }
+
+/* ==========================================================================
+   7. AI CAMERA FINDER RECOMMENDATION ENGINE
+   ========================================================================== */
+let FINDER_STATE = {
+    env: 'home',
+    envLabel: 'Home & Apartment',
+    features: []
+};
+
+const FINDER_CAMERA_DB = [
+    {
+        id: "trueview-solar-4g-sim-outdoor-pan-tilt-camera",
+        title: "TRUEVIEW 4G SOLAR SMART PTZ",
+        brand: "TRUEVIEW",
+        badge: "#1 BESTSELLER // OFF-GRID LEADER",
+        tagline: "INCREDIBLE WIRE-FREE SECURITY",
+        price: 4950,
+        mrp: "₹8,999",
+        save: "Save 45%",
+        img: "assets/official_trueview_solar_T18149-01.png",
+        chips: ["100% Wire-Free", "4G SIM Data", "Solar Powered", "Color Night Vision"],
+        environments: ["farm", "commercial", "home"],
+        features: ["solar", "4g", "night_vision", "pan_tilt", "waterproof", "audio", "ai_tracking"],
+        pitch: "100% autonomous off-grid security with high-efficiency solar panel, rechargeable battery bank, and integrated 4G SIM slot. Zero wiring or external power required."
+    },
+    {
+        id: "cp-plus-ezykam-cp-e38q-3mp-pan-tilt-wi-fi-camera",
+        title: "CP PLUS EZYKAM CP-E38Q 3MP WI-FI",
+        brand: "CP PLUS",
+        badge: "#1 BESTSELLER // INDOOR CHAMPION",
+        tagline: "INCREDIBLE ROOM CLARITY",
+        price: 2235,
+        mrp: "₹3,900",
+        save: "Save 43%",
+        img: "assets/official_bestseller_cpplus_e38q_transparent.png",
+        chips: ["3MP 2K Ultra HD", "360° Motorized", "2-Way Audio", "Motion Tracking"],
+        environments: ["office", "home", "retail"],
+        features: ["4k_hd", "night_vision", "pan_tilt", "audio", "ai_tracking"],
+        pitch: "Motorized 360° pan & tilt with crystal 2K clarity, active humanoid detection, and built-in siren tailored for indoor workspaces, living rooms, and cabins."
+    },
+    {
+        id: "idada-id-q2i35s-td-3mp-pan-tilt-smart-wi-fi-camera",
+        title: "IDADA ID-Q2I35S-TD 3MP WI-FI",
+        brand: "IDADA",
+        badge: "#1 BESTSELLER // BEST VALUE",
+        tagline: "INCREDIBLE RELIABILITY",
+        price: 1850,
+        mrp: "₹3,299",
+        save: "Save 44%",
+        img: "assets/official_bestseller_idada_q2i_transparent.png",
+        chips: ["3MP Ultra HD", "Motorized Pan/Tilt", "2-Way Talkback", "SD up to 256GB"],
+        environments: ["home", "retail", "office"],
+        features: ["4k_hd", "night_vision", "pan_tilt", "audio", "ai_tracking"],
+        pitch: "High-velocity motorized 3MP pan & tilt smart camera with crystal 2-way talkback, IR night clarity, and AI humanoid alerts engineered for residences and retail counters."
+    },
+    {
+        id: "cp-plus-ezykam-cp-z45q-4mp-outdoor-full-color-wi-fi-pt-camera",
+        title: "CP PLUS EZYKAM CP-Z45Q 4MP OUTDOOR PT",
+        brand: "CP PLUS",
+        badge: "PRO OUTDOOR // 4MP QUAD HD",
+        tagline: "INCREDIBLE SWEEPING COVERAGE",
+        price: 3425,
+        mrp: "₹5,999",
+        save: "Save 43%",
+        img: "assets/cp_z45q_1.png",
+        chips: ["4MP Quad HD", "Full Color Night", "360° Sweeping", "IP65 Weatherproof"],
+        environments: ["commercial", "retail", "farm", "home"],
+        features: ["4k_hd", "night_vision", "pan_tilt", "waterproof", "audio", "ai_tracking"],
+        pitch: "Commercial-grade 4MP Quad HD outdoor motorized camera with vivid full-color night illumination and all-weather casing for expansive warehouses and perimeter fences."
+    },
+    {
+        id: "trueview-t18292sf-smart-4g-bullet-camera-3mp-ip66",
+        title: "TRUEVIEW T18292SF SMART 4G BULLET CAMERA 3MP",
+        brand: "TRUEVIEW",
+        badge: "CELLULAR PERIMETER // IP66",
+        tagline: "INCREDIBLE PERIMETER DEFENSE",
+        price: 2600,
+        mrp: "₹4,800",
+        save: "Save 46%",
+        img: "assets/trueview_t18292sf_1.webp",
+        chips: ["4G SIM Slot", "IP66 Weatherproof", "Dual Light Night", "3MP HD"],
+        environments: ["farm", "commercial", "home"],
+        features: ["4g", "4k_hd", "night_vision", "waterproof", "audio"],
+        pitch: "Rugged fixed outdoor bullet camera with mobile 4G connectivity, IP66 heavy rain resistance, and dual-light night vision for perimeter boundaries and gates."
+    },
+    {
+        id: "cp-plus-ezykam-cp-e31q-3mp-pan-tilt-wi-fi-camera-with-lan",
+        title: "CP PLUS EZYKAM CP-E31Q 3MP (LAN + WI-FI)",
+        brand: "CP PLUS",
+        badge: "DUAL CONNECTIVITY // RJ45 LAN",
+        tagline: "INCREDIBLE NETWORK STABILITY",
+        price: 2290,
+        mrp: "₹4,100",
+        save: "Save 44%",
+        img: "assets/cp_e31q_1.png",
+        chips: ["3MP 2K", "LAN RJ45", "Motion Tracking", "Private Mode"],
+        environments: ["office", "commercial", "retail"],
+        features: ["4k_hd", "night_vision", "pan_tilt", "audio", "ai_tracking"],
+        pitch: "Dual connectivity featuring both high-speed Wi-Fi and an RJ45 ethernet LAN port for stable, zero-latency indoor surveillance in enterprise offices and server rooms."
+    }
+];
+
+function selectFinderEnv(envKey, envLabel) {
+    FINDER_STATE.env = envKey;
+    FINDER_STATE.envLabel = envLabel;
+
+    const labelEl = document.getElementById('f-env-label');
+    if (labelEl) labelEl.textContent = envLabel;
+
+    goToFinderStep(2);
+}
+
+function goToFinderStep(stepNum) {
+    // Update panes
+    const pane1 = document.getElementById('finder-step-1');
+    const pane2 = document.getElementById('finder-step-2');
+    const pane3 = document.getElementById('finder-step-3');
+
+    if (pane1) pane1.style.display = (stepNum === 1) ? 'block' : 'none';
+    if (pane2) pane2.style.display = (stepNum === 2) ? 'block' : 'none';
+    if (pane3) pane3.style.display = (stepNum === 3) ? 'block' : 'none';
+
+    // Update stepper indicators
+    for (let i = 1; i <= 3; i++) {
+        const ind = document.getElementById(`f-step-${i}-ind`);
+        if (ind) {
+            if (i <= stepNum) ind.classList.add('active');
+            else ind.classList.remove('active');
+        }
+    }
+
+    // Scroll to section smoothly
+    const section = document.getElementById('camera-finder');
+    if (section) {
+        const yOffset = -70;
+        const y = section.getBoundingClientRect().top + window.pageYOffset + yOffset;
+        window.scrollTo({ top: y, behavior: 'smooth' });
+    }
+}
+
+function updateFinderFeatures() {
+    const checkboxes = document.querySelectorAll('input[name="finder_feature"]:checked');
+    FINDER_STATE.features = Array.from(checkboxes).map(cb => cb.value);
+}
+
+function calculateFinderMatch() {
+    updateFinderFeatures();
+
+    const selectedEnv = FINDER_STATE.env;
+    const selectedFeats = FINDER_STATE.features;
+
+    // Calculate score for each camera
+    const scored = FINDER_CAMERA_DB.map(cam => {
+        let score = 0;
+        if (cam.environments.includes(selectedEnv)) score += 4;
+        
+        selectedFeats.forEach(f => {
+            if (cam.features.includes(f)) {
+                score += 3;
+                if (f === 'solar') score += 6;
+                if (f === '4g') score += 4;
+            }
+        });
+
+        return { cam, score };
+    });
+
+    scored.sort((a, b) => b.score - a.score);
+
+    const best = scored[0].cam;
+    const alts = scored.slice(1, 3).map(s => s.cam);
+
+    // Calculate match percentage
+    let matchPct = 96;
+    if (selectedFeats.length > 0) {
+        const matchingFeats = selectedFeats.filter(f => best.features.includes(f));
+        matchPct = Math.min(99, 90 + Math.round((matchingFeats.length / selectedFeats.length) * 9));
+    }
+
+    // Generate feature summary text
+    const featNames = {
+        '4k_hd': '4K/3MP Ultra HD',
+        'night_vision': 'Color Night Vision',
+        'pan_tilt': '360° Motorized Pan & Tilt',
+        'solar': 'Solar Power',
+        '4g': '4G SIM Connectivity',
+        'audio': '2-Way Audio',
+        'waterproof': 'IP66 Waterproofing',
+        'ai_tracking': 'AI Human Tracking'
+    };
+
+    const featText = selectedFeats.length > 0 
+        ? selectedFeats.map(f => featNames[f] || f).join(', ')
+        : 'Essential 24/7 Security Coverage';
+
+    const pane3 = document.getElementById('finder-step-3');
+    if (!pane3) return;
+
+    pane3.innerHTML = `
+        <div class="f-result-container">
+            <div class="f-result-header">
+                <span class="f-match-badge">&#9733; ${matchPct}% TAILORED MATCH FOR ${FINDER_STATE.envLabel.toUpperCase()}</span>
+                <h3 class="f-result-title">YOUR PERFECT SURVEILLANCE CAMERA</h3>
+                <p class="f-result-sub">Calculated specifically for <strong>${FINDER_STATE.envLabel}</strong> requiring <strong>${featText}</strong>.</p>
+            </div>
+
+            <!-- Hero Match Card -->
+            <div class="f-hero-match-card">
+                <div class="fhm-media">
+                    <img src="${best.img}" alt="${best.title}" class="fhm-img">
+                </div>
+                <div class="fhm-info">
+                    <div class="fhm-top">
+                        <span class="fhm-badge">${best.badge}</span>
+                        <span class="fhm-tagline">${best.tagline}</span>
+                    </div>
+                    <h4 class="fhm-title">${best.title}</h4>
+                    <p class="fhm-pitch">${best.pitch}</p>
+                    
+                    <div class="fhm-chips">
+                        ${best.chips.map(c => `<span class="fhm-chip">${c}</span>`).join('')}
+                    </div>
+
+                    <div class="fhm-pricing-row">
+                        <div class="fhm-prices">
+                            <span class="fhm-price">&#8377;${Number(best.price).toLocaleString('en-IN')}</span>
+                            <span class="fhm-mrp">${best.mrp}</span>
+                            <span class="fhm-save">${best.save}</span>
+                        </div>
+                        <div class="fhm-actions">
+                            <button type="button" class="btn-asus-cart fhm-btn-cart" onclick="addToCartById('${best.id}')">
+                                [ ADD TO CART ]
+                            </button>
+                            <a href="https://wa.me/917511180808?text=${encodeURIComponent('Hello Syber Space, I used the Camera Finder for my ' + FINDER_STATE.envLabel + ' and was recommended ' + best.title + ' (Rs ' + best.price + '). I would like to order it.')}" target="_blank" rel="noopener noreferrer" class="btn-whatsapp-sm">
+                                <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+                                <span>CHAT &amp; ORDER</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Alternative Matches -->
+            <div class="f-alts-section">
+                <h4 class="f-alts-heading">Other Recommended Options for ${FINDER_STATE.envLabel}:</h4>
+                <div class="f-alts-grid">
+                    ${alts.map(alt => `
+                        <div class="f-alt-card">
+                            <img src="${alt.img}" alt="${alt.title}" class="f-alt-img" loading="lazy">
+                            <div class="f-alt-info">
+                                <span class="f-alt-brand">${alt.brand}</span>
+                                <h5 class="f-alt-title">${alt.title}</h5>
+                                <div class="f-alt-price-row">
+                                    <span class="f-alt-price">&#8377;${Number(alt.price).toLocaleString('en-IN')}</span>
+                                    <button type="button" class="btn-f-alt-add" onclick="addToCartById('${alt.id}')">[ + ADD ]</button>
+                                </div>
+                            </div>
+                        </div>
+                    `).join('')}
+                </div>
+            </div>
+
+            <!-- Restart Bar -->
+            <div class="f-restart-bar">
+                <button type="button" class="btn-f-restart" onclick="goToFinderStep(1)">
+                    <span>&#8634; Find Another Camera / Start Over</span>
+                </button>
+            </div>
+        </div>
+    `;
+
+    goToFinderStep(3);
+}

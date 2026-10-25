@@ -66,6 +66,9 @@
                 <a href="#brands" class="yt-action-link desktop-only">
                     <span>BESTSELLERS</span>
                 </a>
+                <a href="#camera-finder" class="yt-action-link desktop-only">
+                    <span>CAMERA FINDER</span>
+                </a>
                 <a href="#accessories" class="yt-action-link desktop-only">
                     <span>ACCESSORIES</span>
                 </a>
@@ -527,6 +530,255 @@
             </div>
         </section>
 
+
+        <!-- ==================================================================
+             SECTION 3: AI CAMERA FINDER (CAN'T FIND APPROPRIATE CAMERA?)
+             (Interactive 3-Step Scenario & Feature Recommendation Engine)
+             ================================================================== -->
+        <section class="camera-finder-section" id="camera-finder">
+            <div class="asus-container">
+
+                <div class="asus-header-bar finder-header-bar">
+                    <span class="ahb-kicker">SMART SURVEILLANCE ADVISOR</span>
+                    <h2 class="ahb-title">CAN'T FIND THE APPROPRIATE CAMERA? LET US HELP YOU</h2>
+                    <p class="ahb-desc">
+                        Select your property type and essential requirements &mdash; our recommendation engine will calculate and reveal the perfect camera engineered for your space.
+                    </p>
+                </div>
+
+                <!-- The Interactive Finder Card Container -->
+                <div class="finder-card">
+
+                    <!-- Stepper Progress Header -->
+                    <div class="finder-stepper">
+                        <div class="f-step active" id="f-step-1-ind" onclick="goToFinderStep(1)">
+                            <span class="f-step-num">1</span>
+                            <span class="f-step-label">Select Environment</span>
+                        </div>
+                        <div class="f-step-divider"></div>
+                        <div class="f-step" id="f-step-2-ind" onclick="goToFinderStep(2)">
+                            <span class="f-step-num">2</span>
+                            <span class="f-step-label">Required Features</span>
+                        </div>
+                        <div class="f-step-divider"></div>
+                        <div class="f-step" id="f-step-3-ind">
+                            <span class="f-step-num">3</span>
+                            <span class="f-step-label">Perfect Match</span>
+                        </div>
+                    </div>
+
+                    <!-- STEP 1: CHOOSE ENVIRONMENT -->
+                    <div class="finder-step-pane active" id="finder-step-1">
+                        <div class="f-pane-header">
+                            <h3 class="f-pane-title">Where will this camera be installed?</h3>
+                            <p class="f-pane-sub">Choose your installation environment to tailor optimal coverage, range, and mounting style.</p>
+                        </div>
+
+                        <div class="f-env-grid">
+                            <button type="button" class="f-env-card" onclick="selectFinderEnv('home', 'Home &amp; Apartment')">
+                                <div class="f-env-img-wrap">
+                                    <img src="assets/scenario_luxury_home.jpg" alt="Home &amp; Apartment" class="f-env-img" loading="lazy">
+                                    <div class="f-env-overlay"></div>
+                                </div>
+                                <div class="f-env-body">
+                                    <span class="f-env-icon">🏠</span>
+                                    <h4 class="f-env-name">Home &amp; Apartment</h4>
+                                    <p class="f-env-desc">Living spaces, entrance gates, baby monitoring &amp; family safety.</p>
+                                    <span class="f-env-action">Select Environment &rarr;</span>
+                                </div>
+                            </button>
+
+                            <button type="button" class="f-env-card" onclick="selectFinderEnv('commercial', 'Commercial &amp; Warehouse')">
+                                <div class="f-env-img-wrap">
+                                    <img src="assets/scenario_commercial.jpg" alt="Commercial &amp; Warehouse" class="f-env-img" loading="lazy">
+                                    <div class="f-env-overlay"></div>
+                                </div>
+                                <div class="f-env-body">
+                                    <span class="f-env-icon">🏭</span>
+                                    <h4 class="f-env-name">Commercial &amp; Warehouse</h4>
+                                    <p class="f-env-desc">Expansive inventory bays, loading docks, perimeter fences &amp; heavy duty.</p>
+                                    <span class="f-env-action">Select Environment &rarr;</span>
+                                </div>
+                            </button>
+
+                            <button type="button" class="f-env-card" onclick="selectFinderEnv('office', 'Office &amp; Workplace')">
+                                <div class="f-env-img-wrap">
+                                    <img src="assets/scenario_office.jpg" alt="Office &amp; Workplace" class="f-env-img" loading="lazy">
+                                    <div class="f-env-overlay"></div>
+                                </div>
+                                <div class="f-env-body">
+                                    <span class="f-env-icon">🏢</span>
+                                    <h4 class="f-env-name">Office &amp; Workplace</h4>
+                                    <p class="f-env-desc">Reception lobbies, staff cabins, meeting rooms &amp; asset security.</p>
+                                    <span class="f-env-action">Select Environment &rarr;</span>
+                                </div>
+                            </button>
+
+                            <button type="button" class="f-env-card" onclick="selectFinderEnv('retail', 'Retail Store &amp; Showroom')">
+                                <div class="f-env-img-wrap">
+                                    <img src="assets/scenario_retail.jpg" alt="Retail Store &amp; Showroom" class="f-env-img" loading="lazy">
+                                    <div class="f-env-overlay"></div>
+                                </div>
+                                <div class="f-env-body">
+                                    <span class="f-env-icon">🏪</span>
+                                    <h4 class="f-env-name">Retail Store &amp; Showroom</h4>
+                                    <p class="f-env-desc">Cash billing counters, customer aisles, shopfronts &amp; loss prevention.</p>
+                                    <span class="f-env-action">Select Environment &rarr;</span>
+                                </div>
+                            </button>
+
+                            <button type="button" class="f-env-card" onclick="selectFinderEnv('farm', 'Farm &amp; Outdoor Estate')">
+                                <div class="f-env-img-wrap">
+                                    <img src="assets/scenario_farm.jpg" alt="Farm &amp; Outdoor Estate" class="f-env-img" loading="lazy">
+                                    <div class="f-env-overlay"></div>
+                                </div>
+                                <div class="f-env-body">
+                                    <span class="f-env-icon">🌾</span>
+                                    <h4 class="f-env-name">Farm &amp; Outdoor Estate</h4>
+                                    <p class="f-env-desc">Off-grid acreage, agricultural lands, farmhouses &amp; construction sites.</p>
+                                    <span class="f-env-action">Select Environment &rarr;</span>
+                                </div>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- STEP 2: CHOOSE FEATURES -->
+                    <div class="finder-step-pane" id="finder-step-2" style="display: none;">
+                        <div class="f-pane-header">
+                            <div class="f-selection-badge" id="f-selected-env-pill">
+                                <span>Environment:</span> <strong id="f-env-label">Home &amp; Apartment</strong>
+                                <button type="button" class="btn-f-change" onclick="goToFinderStep(1)">(Change)</button>
+                            </div>
+                            <h3 class="f-pane-title">Which capabilities does this camera need?</h3>
+                            <p class="f-pane-sub">Select your priority features (choose one or more), then calculate your tailored match.</p>
+                        </div>
+
+                        <div class="f-features-grid">
+                            <!-- Feature 1: 4K / Ultra HD -->
+                            <label class="f-feature-toggle">
+                                <input type="checkbox" name="finder_feature" value="4k_hd" onchange="updateFinderFeatures()">
+                                <div class="f-feat-box">
+                                    <div class="f-feat-icon">🎥</div>
+                                    <div class="f-feat-details">
+                                        <span class="f-feat-title">4K / 3MP Ultra HD Clarity</span>
+                                        <span class="f-feat-desc">High pixel density to clearly read license plates &amp; facial features.</span>
+                                    </div>
+                                    <div class="f-feat-check">&#10003;</div>
+                                </div>
+                            </label>
+
+                            <!-- Feature 2: Color Night Vision -->
+                            <label class="f-feature-toggle">
+                                <input type="checkbox" name="finder_feature" value="night_vision" onchange="updateFinderFeatures()">
+                                <div class="f-feat-box">
+                                    <div class="f-feat-icon">🌙</div>
+                                    <div class="f-feat-details">
+                                        <span class="f-feat-title">Color Night Vision / Dual Light</span>
+                                        <span class="f-feat-desc">White warm LEDs produce full color illumination in total darkness.</span>
+                                    </div>
+                                    <div class="f-feat-check">&#10003;</div>
+                                </div>
+                            </label>
+
+                            <!-- Feature 3: 360 Pan & Tilt -->
+                            <label class="f-feature-toggle">
+                                <input type="checkbox" name="finder_feature" value="pan_tilt" onchange="updateFinderFeatures()">
+                                <div class="f-feat-box">
+                                    <div class="f-feat-icon">🔄</div>
+                                    <div class="f-feat-details">
+                                        <span class="f-feat-title">360&deg; Motorized Pan &amp; Tilt</span>
+                                        <span class="f-feat-desc">Full room motorized rotation with zero blind spots, controlled from phone.</span>
+                                    </div>
+                                    <div class="f-feat-check">&#10003;</div>
+                                </div>
+                            </label>
+
+                            <!-- Feature 4: Solar Powered -->
+                            <label class="f-feature-toggle">
+                                <input type="checkbox" name="finder_feature" value="solar" onchange="updateFinderFeatures()">
+                                <div class="f-feat-box">
+                                    <div class="f-feat-icon">☀️</div>
+                                    <div class="f-feat-details">
+                                        <span class="f-feat-title">Solar Powered (100% Wire-Free)</span>
+                                        <span class="f-feat-desc">Equipped with solar panel &amp; internal battery bank for zero-cable off-grid running.</span>
+                                    </div>
+                                    <div class="f-feat-check">&#10003;</div>
+                                </div>
+                            </label>
+
+                            <!-- Feature 5: 4G SIM Cellular -->
+                            <label class="f-feature-toggle">
+                                <input type="checkbox" name="finder_feature" value="4g" onchange="updateFinderFeatures()">
+                                <div class="f-feat-box">
+                                    <div class="f-feat-icon">📶</div>
+                                    <div class="f-feat-details">
+                                        <span class="f-feat-title">4G / 5G SIM Slot (No Wi-Fi Needed)</span>
+                                        <span class="f-feat-desc">Direct mobile network SIM connectivity for locations without broadband or Wi-Fi.</span>
+                                    </div>
+                                    <div class="f-feat-check">&#10003;</div>
+                                </div>
+                            </label>
+
+                            <!-- Feature 6: 2-Way Audio -->
+                            <label class="f-feature-toggle">
+                                <input type="checkbox" name="finder_feature" value="audio" onchange="updateFinderFeatures()">
+                                <div class="f-feat-box">
+                                    <div class="f-feat-icon">🎙️</div>
+                                    <div class="f-feat-details">
+                                        <span class="f-feat-title">Two-Way Talkback Audio &amp; Siren</span>
+                                        <span class="f-feat-desc">Integrated high-gain microphone and loud speaker for live two-way talk.</span>
+                                    </div>
+                                    <div class="f-feat-check">&#10003;</div>
+                                </div>
+                            </label>
+
+                            <!-- Feature 7: IP66 Weatherproof -->
+                            <label class="f-feature-toggle">
+                                <input type="checkbox" name="finder_feature" value="waterproof" onchange="updateFinderFeatures()">
+                                <div class="f-feat-box">
+                                    <div class="f-feat-icon">☔</div>
+                                    <div class="f-feat-details">
+                                        <span class="f-feat-title">IP66 All-Weather Waterproofing</span>
+                                        <span class="f-feat-desc">Tested against harsh monsoon rain, extreme heat, and heavy dust ingress.</span>
+                                    </div>
+                                    <div class="f-feat-check">&#10003;</div>
+                                </div>
+                            </label>
+
+                            <!-- Feature 8: AI Human Tracking -->
+                            <label class="f-feature-toggle">
+                                <input type="checkbox" name="finder_feature" value="ai_tracking" onchange="updateFinderFeatures()">
+                                <div class="f-feat-box">
+                                    <div class="f-feat-icon">🧠</div>
+                                    <div class="f-feat-details">
+                                        <span class="f-feat-title">AI Humanoid &amp; Auto-Motion Tracking</span>
+                                        <span class="f-feat-desc">Filters false alerts from trees/pets and automatically pivots to follow intruders.</span>
+                                    </div>
+                                    <div class="f-feat-check">&#10003;</div>
+                                </div>
+                            </label>
+                        </div>
+
+                        <div class="f-step-actions">
+                            <button type="button" class="btn-f-back" onclick="goToFinderStep(1)">
+                                &larr; Back to Environments
+                            </button>
+                            <button type="button" class="btn-f-reveal" onclick="calculateFinderMatch()">
+                                <span>REVEAL PERFECT CAMERA</span>
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- STEP 3: PERFECT CAMERA RESULT -->
+                    <div class="finder-step-pane" id="finder-step-3" style="display: none;">
+                        <!-- Dynamically filled by calculateFinderMatch() -->
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
 
         <!-- ==================================================================
              SECTION 4: DIRECT CONSULTATION & ENTERPRISE PROCUREMENT
