@@ -14,7 +14,7 @@ const ACCESSORY_PREVIEWS = [
         id: 'cctv-smps-power-supply-12v-10a',
         category: '12V 10A CCTV SMPS POWER SUPPLY',
         title: 'Syber Space 12V 10A CCTV SMPS Power Supply',
-        img: 'assets/official_accessory_smps_10a.png',
+        img: 'assets/acc_official_smps.png',
         price: '₹850',
         mrp: '₹1,499',
         feats: [
@@ -28,7 +28,7 @@ const ACCESSORY_PREVIEWS = [
         id: 'cctv-surveillance-hard-drive-4tb',
         category: 'SEAGATE SKYHAWK 4TB SURVEILLANCE HDD',
         title: 'Seagate SkyHawk 4TB 24/7 Surveillance Grade HDD',
-        img: 'assets/official_accessory_hdd_skyhawk.png',
+        img: 'assets/acc_official_skyhawk_hdd.png',
         price: '₹5,400',
         mrp: '₹8,999',
         feats: [
@@ -42,7 +42,7 @@ const ACCESSORY_PREVIEWS = [
         id: 'cctv-cat6-pure-copper-cable-305m',
         category: 'ULTRA-LINK PURE COPPER CAT6 305M REEL',
         title: 'Ultra-Link Pure Copper Cat6 305M Network Reel',
-        img: 'assets/official_accessory_cat6_cable.png',
+        img: 'assets/acc_official_cat6_drum.png',
         price: '₹4,200',
         mrp: '₹6,999',
         feats: [
@@ -56,7 +56,7 @@ const ACCESSORY_PREVIEWS = [
         id: 'cctv-weatherproof-junction-box-ip66',
         category: 'WEATHERPROOF IP66 CAMERA JUNCTION BOX',
         title: 'Weatherproof IP66 Round CCTV Deep Base Box',
-        img: 'assets/official_accessory_junction_box.png',
+        img: 'assets/acc_official_junction_box.png',
         price: '₹180',
         mrp: '₹350',
         feats: [
