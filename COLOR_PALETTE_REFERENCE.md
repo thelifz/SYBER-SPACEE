@@ -4,31 +4,42 @@ This file preserves all active and historical color palettes used in the Syber S
 
 ---
 
-## 1. Active Theme: Executive Pure White Canvas with Deep Obsidian Black & Faded Champagne Gold
-Aligned directly with the **Company Logo Identity (Black & Gold)**. Designed for **calm corporate prestige**, clean daylight readability for homeowners, and executive credibility for commercial enterprise clients.
+## 1. Active Theme: Executive Deep Obsidian Luxury Black & Brushed Champagne Gold
+Designed for **maximum high-security authority**, defense-contractor prestige, and architectural luxury. Grounded directly in the company's **Black & Gold Logo Identity**.
 
 ### Typography
-- **Display & Headlines:** `Plus Jakarta Sans` (`font-weight: 600, 700, 800`) — high-prestige, clean modern executive geometry.
-- **Body & Technical Specs:** `Inter` (`font-weight: 400, 500, 600, 700, 800`) — industry standard clarity and readability.
+- **Display & Headlines:** `Plus Jakarta Sans` (`font-weight: 600, 700, 800`) — high-prestige, modern corporate geometry.
+- **Body & Technical Specs:** `Inter` (`font-weight: 400, 500, 600, 700, 800`) — crisp daylight readability standard.
 
 ### Colors & Tokens
 | Element | Hex Code | RGB | CSS Variable / Class | Visual Role |
 | :--- | :--- | :--- | :--- | :--- |
-| **Pure White Background** | `#ffffff` | `255, 255, 255` | `--base-bg` / `--base-surface` / `html, body` | Main canvas background, product card container fill |
-| **Studio Cool White Surface** | `#f8fafc` | `248, 250, 252` | `.product-visual-wrap` / drawer header | Cool neutral studio backdrop for camera hardware |
-| **Deep Obsidian Slate Black** | `#0f172a` | `15, 23, 42` | `--base-dark` / `--calm-primary` / `.btn-pay-now-card` | Primary PAY NOW action buttons, header cart pill, main headlines |
-| **Pure Jet Black** | `#000000` | `0, 0, 0` | `.btn-pay-now-card:hover` / `.text-pill.active:hover` | High-contrast hover states, active button elevation |
-| **Faded Champagne Gold** | `#c5a059` | `197, 160, 89` | `--gold-primary` / `.logo-gold` / `.stars` | Company logo signature, rating stars, flagship badges |
-| **Champagne Starlight Gradient**| `#dfc89d` to `#c5a059`| — | `--gold-gradient` | Brushed metallic foil for logo and flagship ribbons |
-| **Champagne Mist Background** | `#faf6ee` | `250, 246, 238` | `--gold-light` / `.discount-badge` | Soft calm background for savings chips and button hovers |
-| **Brushed Gold Hairline** | `rgba(197, 160, 89, 0.38)` | — | `--gold-border` | Delicate gold perimeter on black action buttons & cart pill |
-| **Luminous Gold Glow** | `rgba(197, 160, 89, 0.22)` | — | `--gold-glow` | Refined button hover elevation glow |
-| **Muted Slate Gray Text** | `#475569` | `71, 85, 105` | `--base-dark-muted` | Product brand tags, card descriptions, specifications |
-| **Cool Gray 500** | `#64748b` | `100, 116, 139` | `--base-gray-500` | MRP strikethroughs, timestamp labels |
+| **Deep Obsidian Black** | `#0a0d14` | `10, 13, 20` | `--base-bg` / `html, body` | Main full canvas backdrop, luxury velvet dark space |
+| **Dark Slate Card Surface** | `#111827` | `17, 24, 39` | `--base-surface` / `.product-card` | High-tech card containers, elevated hardware stage |
+| **Cinematic Studio Stage** | `#1e293b` to `#0f172a` | — | `.product-visual-wrap` | Radial studio pedestal for floating hardware |
+| **High-Legibility Text** | `#f8fafc` | `248, 250, 252` | `--base-dark` / headlines | Crisp white typography for maximum legibility on black |
+| **Brushed Champagne Gold** | `#c5a059` | `197, 160, 89` | `--gold-primary` / `.stars` / logo | Company logo signature, rating stars, active indicators |
+| **Champagne Starlight Gold** | `#dfc89d` to `#c5a059` | — | `--gold-gradient` / `.btn-pay-now-card` | Luminous metallic gold for PAY NOW button & flagship badges |
+| **Dark Glass + Gold Border** | `rgba(255, 255, 255, 0.05)` | — | `.btn-add-cart` | Dark glass secondary action buttons with subtle border |
+| **Soft Gold Mist Glow** | `rgba(197, 160, 89, 0.15)` | — | `.discount-badge` / `.btn-add-cart:hover` | Soft gold highlight for savings chips and hover fills |
+| **Subtle Glass Hairline** | `rgba(255, 255, 255, 0.08)` | — | `--base-border` | Razor-sharp architectural division lines |
+| **Balanced Slate Gray** | `#94a3b8` | `148, 163, 184` | `--base-dark-muted` | Product descriptions, subtext, technical microcopy |
+| **Muted Slate 500** | `#64748b` | `100, 116, 139` | `--base-gray-500` | MRP strikethroughs, timestamp labels |
 
 ---
 
-## 2. Sandstone Linen & Ivory Palette (Preserved Reference)
+## 2. Executive White Canvas + Black & Gold Accents (Preserved Reference)
+*The daylight clarity palette tested in v4.9.*
+
+| Element | Hex Code | RGB | Role in Theme |
+| :--- | :--- | :--- | :--- |
+| **Pure White Canvas** | `#ffffff` | `255, 255, 255` | Full canvas bright background |
+| **Obsidian Slate Black** | `#0f172a` | `15, 23, 42` | Primary buttons and headlines |
+| **Champagne Gold** | `#c5a059` | `197, 160, 89` | Accent badges and logo |
+
+---
+
+## 3. Sandstone Linen & Ivory Palette (Preserved Reference)
 *The warm linen / ivory palette tested in v4.7.*
 
 | Element | Hex Code | RGB | Role in Theme |
@@ -40,7 +51,7 @@ Aligned directly with the **Company Logo Identity (Black & Gold)**. Designed for
 
 ---
 
-## 3. Sky Blue & White Palette (Preserved Reference)
+## 4. Sky Blue & White Palette (Preserved Reference)
 *The daylight clarity and peace palette tested in v4.4.*
 
 | Element | Hex Code | RGB | Role in Theme |
@@ -51,19 +62,6 @@ Aligned directly with the **Company Logo Identity (Black & Gold)**. Designed for
 | **Soft Sky Mist Tint** | `#f0f9ff` | `240, 249, 255` | Savings chip background, button hover fill |
 | **Sky Hairline Border** | `#bae6fd` | `186, 230, 253` | Secondary button outline, badge borders |
 | **Ice Blue Highlight** | `#e0f2fe` | `224, 242, 254` | Rolling nav hover highlight |
-
----
-
-## 4. Deep Oceanic Navy & Nordic Sage (Preserved Reference)
-*The corporate security palette tested in v4.3.*
-
-| Element | Hex Code | RGB | Role in Theme |
-| :--- | :--- | :--- | :--- |
-| **Deep Ocean Navy** | `#0e2238` | `14, 34, 56` | Primary action button gradient start, cart pill |
-| **Marine Navy** | `#17375e` | `23, 55, 94` | Primary action button gradient end |
-| **Executive Slate Navy**| `#153250` | `21, 50, 80` | Sidebar filter borders, title highlights |
-| **Nordic Sage Green** | `#236352` | `35, 99, 82` | Calm authentic badges, savings indicators |
-| **Nordic Sage Light** | `rgba(35, 99, 82, 0.1)` | — | Savings chip background |
 
 ---
 
