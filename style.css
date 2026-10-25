@@ -616,64 +616,6 @@ img, video {
     background: rgba(255, 255, 255, 0.08);
 }
 
-/* Bottom Strip: [ PREV ] 01 // 05 [ NEXT ] */
-.hero-bottom-nav-strip {
-    position: absolute;
-    bottom: 2rem;
-    left: 3.5rem;
-    z-index: 20;
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    background: rgba(6, 7, 9, 0.75);
-    border: 1px solid rgba(255, 255, 255, 0.15);
-    padding: 0.5rem 1rem;
-    border-radius: 4px;
-    backdrop-filter: blur(8px);
-}
-
-.btn-hero-nav {
-    background: transparent;
-    border: none;
-    color: var(--c-white);
-    font-family: var(--font-mono);
-    font-size: 0.78rem;
-    font-weight: 800;
-    letter-spacing: 0.14em;
-    cursor: pointer;
-    transition: color 0.2s ease;
-}
-
-.btn-hero-nav:hover {
-    color: var(--c-neon-green);
-}
-
-.hero-slide-counter {
-    font-family: var(--font-mono);
-    font-size: 0.82rem;
-    font-weight: 800;
-    color: var(--c-silver);
-    letter-spacing: 0.12em;
-    padding: 0 0.5rem;
-    border-left: 1px solid rgba(255, 255, 255, 0.15);
-    border-right: 1px solid rgba(255, 255, 255, 0.15);
-}
-
-.hero-timer-progress {
-    width: 60px;
-    height: 3px;
-    background: rgba(255, 255, 255, 0.15);
-    border-radius: 2px;
-    overflow: hidden;
-}
-
-.hero-timer-bar {
-    width: 0%;
-    height: 100%;
-    background: var(--c-neon-green);
-    box-shadow: 0 0 6px var(--c-neon-green);
-}
-
 /* ==========================================================================
    SLANTED RADIOACTIVE CYBER-GREEN MARQUEE BANNER
    ========================================================================== */
@@ -1695,11 +1637,6 @@ img, video {
 @media (max-width: 768px) {
     .slide-content-layer {
         padding: 3rem 1.5rem;
-    }
-
-    .hero-bottom-nav-strip {
-        left: 1.5rem;
-        bottom: 1.5rem;
     }
 
     .yt-search-container {
