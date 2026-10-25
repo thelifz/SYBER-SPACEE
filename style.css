@@ -87,14 +87,18 @@ a {
 /* ==========================================================================
    EXECUTIVE STUDIO PURE WHITE HEADER
    ========================================================================== */
+/* ==========================================================================
+   PROFESSIONAL E-COMMERCE 2-TIER HEADER (MATCHES OFFICIAL DESIGN REFERENCE)
+   Logo on Left, Search Bar in Middle, WhatsApp/Phone/Cart on Right, Nav Strip Below
+   ========================================================================== */
 .header {
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
     z-index: 999;
-    padding: 24px 6%;
-    background: rgba(255, 255, 255, 0.90);
+    padding: 0;
+    background: rgba(255, 255, 255, 0.98);
     backdrop-filter: blur(18px);
     -webkit-backdrop-filter: blur(18px);
     border-bottom: 1px solid var(--base-border);
@@ -102,175 +106,67 @@ a {
 }
 
 .header.scrolled {
-    padding: 16px 6%;
-    background: rgba(255, 255, 255, 0.98);
-    box-shadow: 0 4px 20px rgba(15, 23, 42, 0.05);
+    background: rgba(255, 255, 255, 0.99);
+    box-shadow: 0 4px 20px rgba(15, 23, 42, 0.08);
 }
 
-.header-container {
+/* Tier 1: Main Commercial Bar */
+.header-top-bar {
     max-width: 1560px;
     margin: 0 auto;
+    padding: 10px 4%;
     display: flex;
+    align-items: center;
     justify-content: space-between;
-    align-items: center;
-    gap: 20px;
-}
-
-/* Left: Brand Logo & Navigation Capsule */
-.header-left {
-    display: flex;
-    align-items: center;
     gap: 24px;
-    flex-shrink: 0;
 }
 
-/* Left: Navigation Items */
-.header-nav {
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    flex-shrink: 0;
-}
-
-.nav-item-list {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-}
-
-/* Jesko Jets Signature Dual-Text Roll Nav Link */
-.nav-item {
-    position: relative;
+/* Brand Logo (Left) */
+.header-brand {
     display: inline-flex;
     align-items: center;
-    padding: 7px 12px;
-    border-radius: var(--radius-nav-btn);
-    background: transparent;
-    font-size: 0.85rem;
-    font-weight: 500;
-    letter-spacing: -0.01em;
-    color: var(--base-dark);
-    cursor: pointer;
-    overflow: hidden;
-    transition: var(--transition-smooth);
-    white-space: nowrap;
+    gap: 12px;
+    text-decoration: none;
     flex-shrink: 0;
+    transition: opacity 0.2s ease;
 }
 
-.nav-item_label {
-    position: relative;
-    overflow: hidden;
-    height: 18px;
-    line-height: 18px;
+.header-brand:hover {
+    opacity: 0.85;
+}
+
+.brand-crest {
+    width: 38px;
+    height: 38px;
+    border-radius: 8px;
+    background: #0f172a;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--gold-primary, #c5a059);
+    flex-shrink: 0;
+    box-shadow: 0 2px 8px rgba(15, 23, 42, 0.15);
+}
+
+.brand-text-block {
     display: flex;
     flex-direction: column;
-    z-index: 1;
-    white-space: nowrap;
 }
 
-.nav-text {
-    display: block;
-    transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
-    color: var(--base-dark);
-    white-space: nowrap;
-}
-
-.nav-text.is-2 {
-    position: absolute;
-    top: 0;
-    left: 0;
-    transform: translateY(100%);
-    color: var(--accent-blue);
-    font-weight: 600;
-    white-space: nowrap;
-}
-
-.nav-item:hover .nav-text:first-child {
-    transform: translateY(-100%);
-}
-
-.nav-item:hover .nav-text.is-2 {
-    transform: translateY(0);
-}
-
-/* Helper to hide secondary contact on tight desktop viewports */
-@media (max-width: 1400px) {
-    .header-email-link {
-        display: none !important;
-    }
-}
-
-@media (max-width: 1280px) {
-    .header-email-link {
-        display: none !important;
-    }
-    .header-left {
-        gap: 16px;
-    }
-    .nav-item {
-        padding: 6px 8px;
-        font-size: 0.8rem;
-    }
-    .header-search-wrap {
-        max-width: 500px;
-        min-width: 280px;
-    }
-    .delivery-location-nav-item {
-        display: none !important;
-    }
-}
-
-.nav-item_bg {
-    position: absolute;
-    inset: 0;
-    border-radius: var(--radius-nav-btn);
-    overflow: hidden;
-    z-index: 0;
-    pointer-events: none;
-}
-
-.nav-item_bg_hover {
-    position: absolute;
-    inset: 100% 0% 0%;
-    background: var(--base-hover-tint);
-    border-radius: var(--radius-nav-btn);
-    transition: var(--transition-smooth);
-}
-
-.nav-item:hover .nav-item_bg_hover {
-    inset: 0% 0% 0%;
-}
-
-/* Center: Jesko Jets Style Editorial Logo */
-.header-logo {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.link-logo {
-    display: inline-flex;
-    align-items: center;
-    transition: var(--transition-smooth);
-}
-
-.link-logo:hover {
-    opacity: 0.75;
-}
-
-.logo-text {
+.brand-title {
     font-family: var(--font-display);
     font-size: 1.25rem;
     font-weight: 800;
-    letter-spacing: 0.18em;
+    letter-spacing: 0.12em;
     text-transform: uppercase;
     color: var(--base-dark, #0f172a);
-    display: inline-flex;
+    line-height: 1.1;
+    display: flex;
     align-items: center;
     gap: 4px;
 }
 
-.logo-text .logo-gold {
+.brand-title .logo-gold {
     color: var(--gold-primary, #c5a059);
     background: var(--gold-gradient);
     -webkit-background-clip: text;
@@ -278,105 +174,47 @@ a {
     background-clip: text;
 }
 
-/* ==========================================================================
-   STRETCHED EXECUTIVE SEARCH BAR WITH INTEGRATED BRAND BADGE
-   ========================================================================== */
-.mobile-logo-brand {
-    display: none;
+.brand-tagline {
+    font-family: var(--font-mono, monospace);
+    font-size: 0.6rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #94a3b8;
+    margin-top: 2px;
 }
 
+/* Middle: Stretched Search Bar */
 .header-search-wrap {
-    flex: 1 1 540px;
-    max-width: 660px;
-    min-width: 320px;
-    display: flex;
-    align-items: center;
+    flex: 1 1 500px;
+    max-width: 680px;
+    min-width: 280px;
     position: relative;
-    margin: 0 16px 0 0;
+    margin: 0 auto;
 }
 
-.header-search-field {
+.header-search-form {
     position: relative;
     width: 100%;
     display: flex;
     align-items: center;
-    background: #f8fafc;
-    border: 1.5px solid rgba(15, 23, 42, 0.12);
-    border-radius: var(--radius-pill, 9999px);
-    padding: 0 16px;
+    background: #ffffff;
+    border: 1.5px solid rgba(15, 23, 42, 0.16);
+    border-radius: 8px;
     height: 44px;
+    overflow: hidden;
     transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-    box-shadow: 0 1px 4px rgba(15, 23, 42, 0.03);
+    box-shadow: 0 2px 6px rgba(15, 23, 42, 0.04);
 }
 
-.header-search-field:hover {
-    background: #ffffff;
-    border-color: rgba(197, 160, 89, 0.55);
+.header-search-form:hover {
+    border-color: rgba(197, 160, 89, 0.5);
     box-shadow: 0 3px 12px rgba(197, 160, 89, 0.12);
 }
 
-.header-search-field:focus-within {
-    background: #ffffff;
-    border-color: #0f172a;
-    box-shadow: 0 4px 18px rgba(15, 23, 42, 0.08), 0 0 0 3px rgba(197, 160, 89, 0.2);
-}
-
-/* Integrated Brand Badge Inside the Search Bar */
-.search-brand-badge {
-    display: inline-flex;
-    align-items: center;
-    flex-shrink: 0;
-    margin-right: 14px;
-    text-decoration: none;
-    transition: opacity 0.2s ease;
-    user-select: none;
-}
-
-.search-brand-badge:hover {
-    opacity: 0.75;
-}
-
-.search-brand-badge .logo-text {
-    font-family: var(--font-display);
-    font-size: 0.96rem;
-    font-weight: 800;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: var(--base-dark, #0f172a);
-    display: inline-flex;
-    align-items: center;
-    gap: 4px;
-    line-height: 1;
-}
-
-.search-brand-badge .logo-text .logo-gold {
-    color: var(--gold-primary, #c5a059);
-    background: var(--gold-gradient);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-}
-
-.search-brand-divider {
-    width: 1px;
-    height: 20px;
-    background: rgba(15, 23, 42, 0.16);
-    margin-right: 12px;
-    flex-shrink: 0;
-}
-
-.header-search-field .search-icon-svg {
-    width: 16px;
-    height: 16px;
-    color: #94a3b8;
-    flex-shrink: 0;
-    margin-right: 8px;
-    transition: color 0.2s ease, transform 0.2s ease;
-}
-
-.header-search-field:focus-within .search-icon-svg {
-    color: #0f172a;
-    transform: scale(1.08);
+.header-search-form:focus-within {
+    border-color: var(--gold-primary, #c5a059);
+    box-shadow: 0 4px 18px rgba(15, 23, 42, 0.08), 0 0 0 3px rgba(197, 160, 89, 0.18);
 }
 
 .header-search-input {
@@ -385,16 +223,16 @@ a {
     background: transparent;
     flex: 1;
     min-width: 140px;
+    padding: 0 16px;
     font-family: inherit;
-    font-size: 0.88rem;
+    font-size: 0.9rem;
     font-weight: 500;
     color: var(--base-dark, #0f172a);
-    padding: 0;
 }
 
 .header-search-input::placeholder {
     color: #94a3b8;
-    font-size: 0.84rem;
+    font-size: 0.86rem;
     font-weight: 500;
 }
 
@@ -412,7 +250,7 @@ a {
     color: #475569;
     cursor: pointer;
     flex-shrink: 0;
-    margin-left: 8px;
+    margin-right: 8px;
     transition: all 0.2s ease;
     padding: 0;
 }
@@ -420,7 +258,25 @@ a {
 .header-search-clear-btn:hover {
     background: #0f172a;
     color: #ffffff;
-    transform: scale(1.1);
+}
+
+.header-search-submit-btn {
+    width: 50px;
+    height: 100%;
+    border: none;
+    background: var(--gold-gradient);
+    color: #0f172a;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    flex-shrink: 0;
+    transition: all 0.2s ease;
+}
+
+.header-search-submit-btn:hover {
+    filter: brightness(1.08);
+    color: #000000;
 }
 
 .header-search-dropdown {
@@ -432,7 +288,7 @@ a {
     min-width: 380px;
     background: #ffffff;
     border: 1px solid var(--base-border);
-    border-radius: 14px;
+    border-radius: 12px;
     box-shadow: 0 16px 40px rgba(15, 23, 42, 0.12), 0 2px 8px rgba(15, 23, 42, 0.04);
     padding: 8px 0;
     z-index: 1000;
@@ -446,8 +302,157 @@ a {
     animation: dropdownFadeIn 0.2s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
+/* Right: Actions (WhatsApp, Phone, Cart) */
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex-shrink: 0;
+}
 
-/* Right: Direct Contact & Cart */
+.header-action-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    color: var(--base-dark, #0f172a);
+    padding: 6px 10px;
+    border-radius: 6px;
+    transition: all 0.2s ease;
+}
+
+.header-action-item:hover {
+    background: rgba(15, 23, 42, 0.04);
+}
+
+.wa-icon {
+    color: #25d366;
+}
+
+.action-text-block {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.2;
+}
+
+.action-sub {
+    font-size: 0.68rem;
+    font-weight: 500;
+    color: #64748b;
+}
+
+.action-main {
+    font-size: 0.84rem;
+    font-weight: 700;
+    color: var(--base-dark, #0f172a);
+    white-space: nowrap;
+}
+
+.cart-icon-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: #f1f5f9;
+    color: #0f172a;
+    transition: all 0.2s ease;
+}
+
+.header-action-item.cart-action:hover .cart-icon-wrapper {
+    background: #0f172a;
+    color: #ffffff;
+}
+
+.cart-badge-count {
+    position: absolute;
+    top: -3px;
+    right: -3px;
+    background: var(--gold-gradient);
+    color: #0f172a;
+    font-family: var(--font-mono, monospace);
+    font-size: 0.65rem;
+    font-weight: 800;
+    min-width: 18px;
+    height: 18px;
+    border-radius: 9999px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 4px;
+    border: 1.5px solid #ffffff;
+}
+
+/* Tier 2: Category Navigation Strip (Row 2) */
+.header-nav-strip {
+    background: #ffffff;
+    border-top: 1px solid rgba(15, 23, 42, 0.06);
+}
+
+.header-nav-strip-inner {
+    max-width: 1560px;
+    margin: 0 auto;
+    padding: 0 4%;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    overflow-x: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.header-nav-strip-inner::-webkit-scrollbar {
+    display: none;
+}
+
+.cat-nav-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 9px 14px;
+    font-size: 0.84rem;
+    font-weight: 600;
+    color: #475569;
+    text-decoration: none;
+    white-space: nowrap;
+    border-bottom: 2.5px solid transparent;
+    transition: all 0.2s ease;
+}
+
+.cat-nav-link:hover {
+    color: #0f172a;
+    border-bottom-color: var(--gold-primary, #c5a059);
+}
+
+.cat-nav-link.active {
+    color: #0f172a;
+    font-weight: 700;
+    border-bottom-color: var(--gold-primary, #c5a059);
+}
+
+.cat-nav-link.deal-link {
+    color: #b45309;
+}
+
+.cat-nav-link.deal-link:hover {
+    color: #d97706;
+}
+
+.deal-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #f59e0b;
+    display: inline-block;
+}
+
+/* Fallback for legacy class references */
+.header-container {
+    display: none;
+}
+
 .header-cta {
     display: flex;
     align-items: center;
@@ -4442,11 +4447,14 @@ a {
 }
 
 @media (max-width: 1024px) {
-    .header-search-wrap {
-        display: none !important;
-    }
     .header-nav, .header-cta {
         display: none !important;
+    }
+    .header-actions .phone-action {
+        display: none;
+    }
+    .header-actions .action-text-block {
+        display: none;
     }
     .mobile-logo-brand {
         display: inline-flex !important;
@@ -6033,13 +6041,20 @@ a {
         border-bottom: 1px solid rgba(27, 24, 21, 0.08) !important;
     }
 
-    .header-container {
-        padding: 10px 16px !important;
-        height: 52px !important;
+    .header-container,
+    .header-top-bar {
+        padding: 8px 16px !important;
+        min-height: 52px !important;
         display: flex !important;
         justify-content: space-between !important;
         align-items: center !important;
         border-bottom: 1px solid rgba(27, 24, 21, 0.05) !important;
+    }
+
+    .header-search-wrap,
+    .header-actions,
+    .header-nav-strip {
+        display: none !important;
     }
 
     .mobile-top-search-strip {

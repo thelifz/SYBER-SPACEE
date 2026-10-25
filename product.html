@@ -8,7 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css?v=5.2">
+    <link rel="stylesheet" href="style.css?v=5.3">
     <style>
         /* ======================================================================
            WHOLE-WINDOW PRODUCT PAGE: NO BOXES — PURE JESKO JETS EDITORIAL FLOW
@@ -22,7 +22,7 @@
         .p-page-container {
             max-width: 1440px;
             margin: 0 auto;
-            padding: 36px 4% 60px 4%;
+            padding: 110px 4% 60px 4%;
         }
 
         /* Breadcrumbs: Clean Minimalist Line */
@@ -790,92 +790,102 @@
 <body>
 
     <!-- Symmetrical Jesko Jets Header -->
-    <header class="header" id="main-header">
-        <div class="header-container">
-            <!-- Mobile Brand Logo (Visible only on mobile/tablet <= 1024px) -->
-            <a href="index.html" class="link-logo mobile-logo-brand" title="SYBER SPACE">
-                <span class="logo-text">SYBER <span class="logo-gold">SPACE</span></span>
+        <header class="header" id="main-header">
+        <!-- Tier 1: Main Commercial Bar -->
+        <div class="header-top-bar">
+            <!-- Brand Logo (Left) -->
+            <a href="index.html" class="header-brand" title="SYBER SPACE - The Surveillance Store">
+                <div class="brand-crest">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                        <circle cx="12" cy="11" r="3"/>
+                        <line x1="12" y1="8" x2="12" y2="8.01"/>
+                    </svg>
+                </div>
+                <div class="brand-text-block">
+                    <span class="brand-title">SYBER <span class="logo-gold">SPACE</span></span>
+                    <span class="brand-tagline">THE SURVEILLANCE STORE</span>
+                </div>
             </a>
 
-            <!-- Stretched Search Bar with Integrated SYBER SPACE Brand Badge -->
+            <!-- Search Bar in the Middle (Wide, Stretched, Professional) -->
             <div class="header-search-wrap">
-                <form class="header-search-field" onsubmit="event.preventDefault(); onSubpageSearchSubmit();">
-                    <a href="index.html" class="search-brand-badge" title="SYBER SPACE - Home">
-                        <span class="logo-text">SYBER <span class="logo-gold">SPACE</span></span>
-                    </a>
-                    <span class="search-brand-divider" aria-hidden="true"></span>
-                    <svg class="search-icon-svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                        <circle cx="11" cy="11" r="8"></circle>
-                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-                    </svg>
-                    <input type="text" id="header-search-input" class="header-search-input" placeholder="Search Syber Space for Trueview, iDADA, PoE, 4G, NVR..." onkeydown="onSubpageSearchKeyDown(event)" autocomplete="off" spellcheck="false">
+                <form class="header-search-form" onsubmit="event.preventDefault(); onHeaderSearchSubmit();">
+                    <input type="text" id="header-search-input" class="header-search-input" placeholder="Search for products, brands, categories, Trueview, iDADA..." onkeydown="onSubpageSearchKeyDown(event)" autocomplete="off" spellcheck="false">
+                    <button type="submit" class="header-search-submit-btn" aria-label="Search Catalog">
+                        <svg class="search-submit-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="11" cy="11" r="8"></circle>
+                            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                        </svg>
+                    </button>
                 </form>
             </div>
 
-            <!-- Navigation Links -->
-            <nav class="header-nav">
-                <div class="nav-item-list">
-                    <a href="index.html#cameras" class="nav-item">
-                        <div class="nav-item_label">
-                            <span class="nav-text">Cameras</span>
-                            <span class="nav-text is-2">Cameras</span>
-                        </div>
-                        <div class="nav-item_bg"><div class="nav-item_bg_hover"></div></div>
-                    </a>
-                    <a href="index.html?slide=2#hero-viewport" class="nav-item">
-                        <div class="nav-item_label">
-                            <span class="nav-text">Deals</span>
-                            <span class="nav-text is-2">Deals</span>
-                        </div>
-                        <div class="nav-item_bg"><div class="nav-item_bg_hover"></div></div>
-                    </a>
-                    <a href="index.html?slide=0#hero-viewport" class="nav-item">
-                        <div class="nav-item_label">
-                            <span class="nav-text">Live Demo</span>
-                            <span class="nav-text is-2">Live Demo</span>
-                        </div>
-                        <div class="nav-item_bg"><div class="nav-item_bg_hover"></div></div>
-                    </a>
-                    <a href="index.html#why-us" class="nav-item">
-                        <div class="nav-item_label">
-                            <span class="nav-text">Why Syber Space</span>
-                            <span class="nav-text is-2">Why Syber Space</span>
-                        </div>
-                        <div class="nav-item_bg"><div class="nav-item_bg_hover"></div></div>
-                    </a>
-                    <a href="index.html#about" class="nav-item">
-                        <div class="nav-item_label">
-                            <span class="nav-text">About Us</span>
-                            <span class="nav-text is-2">About Us</span>
-                        </div>
-                        <div class="nav-item_bg"><div class="nav-item_bg_hover"></div></div>
-                    </a>
-                </div>
-            </nav>
+            <!-- Commercial Actions (Right: WhatsApp, Phone, Cart) -->
+            <div class="header-actions">
+                <a href="https://wa.me/917511180808?text=Hello%20Syber%20Space%2C%20I%20have%20an%20inquiry." target="_blank" rel="noopener noreferrer" class="header-action-item whatsapp-action">
+                    <svg class="action-icon wa-icon" width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
+                    </svg>
+                    <div class="action-text-block">
+                        <span class="action-sub">WhatsApp</span>
+                        <span class="action-main">Get Support</span>
+                    </div>
+                </a>
+                <a href="tel:+917511180808" class="header-action-item phone-action">
+                    <div class="action-text-block">
+                        <span class="action-sub">Call Us</span>
+                        <span class="action-main">+91 75111 80808</span>
+                    </div>
+                </a>
+                <a href="cart.html" class="header-action-item cart-action" aria-label="Shopping Cart">
+                    <div class="cart-icon-wrapper">
+                        <svg class="cart-action-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="9" cy="21" r="1"></circle>
+                            <circle cx="20" cy="21" r="1"></circle>
+                            <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                        </svg>
+                        <span class="cart-badge-count cart-counter-label" id="header-cart-badge">0</span>
+                    </div>
+                    <div class="action-text-block cart-text-block">
+                        <span class="action-sub">Shopping</span>
+                        <span class="action-main">Cart</span>
+                    </div>
+                </a>
+            </div>
 
-            <div class="header-cta">
-                <div class="nav-item-list">
-                    <a href="tel:+917511180808" class="nav-item">
-                        <div class="nav-item_label">
-                            <span class="nav-text">+91 75111 80808</span>
-                            <span class="nav-text is-2">+91 75111 80808</span>
-                        </div>
-                        <div class="nav-item_bg"><div class="nav-item_bg_hover"></div></div>
-                    </a>
-                    <a href="mailto:info@syberspace.in" class="nav-item header-email-link">
-                        <div class="nav-item_label">
-                            <span class="nav-text">info@syberspace.in</span>
-                            <span class="nav-text is-2">info@syberspace.in</span>
-                        </div>
-                        <div class="nav-item_bg"><div class="nav-item_bg_hover"></div></div>
-                    </a>
-                    <a href="cart.html" class="nav-item cart-pill">
-                        <div class="nav-item_label">
-                            <span class="nav-text cart-counter-label">Cart (0)</span>
-                            <span class="nav-text is-2 cart-counter-label">Cart (0)</span>
-                        </div>
-                    </a>
-                </div>
+            <!-- Mobile Header Actions (Cart Icon & Hamburger) -->
+            <div class="mobile-header-actions">
+                <a href="cart.html" class="mobile-header-cart-icon" aria-label="View Shopping Cart">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="9" cy="21" r="1"></circle>
+                        <circle cx="20" cy="21" r="1"></circle>
+                        <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                    </svg>
+                    <span class="mobile-header-cart-badge" id="mobile-header-cart-badge">0</span>
+                </a>
+                <button class="btn-menu" id="mobile-menu-toggle" aria-label="Toggle navigation menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Tier 2: Category Navigation Strip (Row 2) -->
+        <div class="header-nav-strip">
+            <div class="header-nav-strip-inner">
+                <a href="index.html#cameras" class="cat-nav-link active">All Cameras</a>
+                <a href="index.html#cameras" class="cat-nav-link">Wi-Fi Cameras</a>
+                <a href="index.html#cameras" class="cat-nav-link">4G SIM Cameras</a>
+                <a href="index.html#cameras" class="cat-nav-link">PoE Switches</a>
+                <a href="index.html#cameras" class="cat-nav-link">NVR &amp; DVR</a>
+                <a href="index.html?slide=2#hero-viewport" class="cat-nav-link deal-link">
+                    <span class="deal-dot"></span> Deals &amp; Offers
+                </a>
+                <a href="index.html?slide=0#hero-viewport" class="cat-nav-link">Live Demo</a>
+                <a href="index.html#why-us" class="cat-nav-link">Why Syber Space</a>
+                <a href="index.html#about" class="cat-nav-link">About Us</a>
             </div>
         </div>
     </header>
@@ -1566,11 +1576,11 @@
         function onSubpageSearchKeyDown(e) {
             if (e.key === 'Enter') {
                 e.preventDefault();
-                onSubpageSearchSubmit();
+                onHeaderSearchSubmit();
             }
         }
 
-        function onSubpageSearchSubmit() {
+        function onHeaderSearchSubmit() {
             const input = document.getElementById('header-search-input');
             const query = input ? input.value.trim() : '';
             if (query) {
@@ -1578,6 +1588,10 @@
             } else {
                 window.location.href = 'index.html#cameras';
             }
+        }
+
+        function onSubpageSearchSubmit() {
+            onHeaderSearchSubmit();
         }
     </script>
 

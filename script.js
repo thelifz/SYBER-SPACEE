@@ -1043,6 +1043,35 @@ let activeSuggestionIndex = -1;
 // =============================================================================
 let headerActiveSuggestionIndex = -1;
 
+
+// =============================================================================
+// PROFESSIONAL E-COMMERCE SEARCH & CATEGORY NAVIGATION
+// =============================================================================
+function onHeaderSearchSubmit() {
+    const input = document.getElementById('header-search-input');
+    const q = input ? input.value.trim() : '';
+    if (q) {
+        completeHeaderSearch(q);
+    } else {
+        const camerasSection = document.getElementById('cameras');
+        if (camerasSection) camerasSection.scrollIntoView({ behavior: 'smooth' });
+    }
+}
+
+function filterCatalogByNav(cat, linkEl, event) {
+    if (event) event.preventDefault();
+    document.querySelectorAll('.cat-nav-link').forEach(l => l.classList.remove('active'));
+    if (linkEl) linkEl.classList.add('active');
+    
+    // Trigger catalog category selection
+    quickFilterCategory(cat, null);
+    
+    const camerasEl = document.getElementById('cameras');
+    if (camerasEl) {
+        camerasEl.scrollIntoView({ behavior: 'smooth' });
+    }
+}
+
 function onHeaderSearchInput(val) {
     const clearBtn = document.getElementById('header-search-clear-btn');
     if (clearBtn) {

@@ -828,3 +828,14 @@ function onSubpageSearchSubmit() {
         window.location.href = 'index.html#cameras';
     }
 }
+
+
+function onHeaderSearchSubmit() {
+    const input = document.getElementById('header-search-input');
+    const query = input ? input.value.trim() : '';
+    if (query) {
+        window.location.href = `index.html?search=${encodeURIComponent(query)}#cameras`;
+    } else {
+        window.location.href = 'index.html#cameras';
+    }
+}
