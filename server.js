@@ -411,7 +411,7 @@ const server = http.createServer((req, res) => {
                     'Content-Type': 'text/html; charset=utf-8',
                     ...SECURITY_HEADERS
                 });
-                res.end(`<!DOCTYPE html><html><head><title>404 Not Found</title><link rel="stylesheet" href="style.css"></head><body style="background:#f3f0ea; display:flex; align-items:center; justify-content:center; height:100vh; font-family:sans-serif; text-align:center;"><div><h1 style="font-size:3rem; margin-bottom:12px;">404 // NOT FOUND</h1><p style="color:#57534e; margin-bottom:20px;">The requested surveillance portal resource does not exist.</p><a href="/" style="font-family:monospace; text-decoration:none; background:#1b1815; color:#fff; padding:10px 20px; border-radius:4px;">[ RETURN TO HEADQUARTERS ]</a></div></body></html>`);
+                res.end(`<!DOCTYPE html><html><head><title>404 Not Found</title><link rel="stylesheet" href="style.css"></head><body style="background:#ffffff; display:flex; align-items:center; justify-content:center; height:100vh; font-family:'Plus Jakarta Sans',sans-serif; text-align:center;"><div><h1 style="font-size:3rem; margin-bottom:12px;">404 // NOT FOUND</h1><p style="color:#475569; margin-bottom:20px;">The requested surveillance portal resource does not exist.</p><a href="/" style="font-family:monospace; text-decoration:none; background:#0f172a; color:#fff; padding:10px 20px; border-radius:4px;">[ RETURN TO HEADQUARTERS ]</a></div></body></html>`);
             } else {
                 res.writeHead(500, { 'Content-Type': 'text/plain' });
                 res.end(`Internal Server Error: ${statErr.code}`);

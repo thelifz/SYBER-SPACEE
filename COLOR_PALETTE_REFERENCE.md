@@ -4,23 +4,40 @@ This file preserves all active and historical color palettes used in the Syber S
 
 ---
 
-## 1. Active Color Palette: Monochrome Luxury & Warm Linen ("Unboxed Studio")
-Designed for **editorial minimalism**, zero box clutter, and high-contrast luxury appeal for both **residential home buyers** and **commercial B2B clients**.
+## 1. Active Theme: Executive Pure White & Sleek Slate Black
+Designed for **clean corporate authority**, high-legibility executive typography, and pristine contrast for **both residential homeowners and enterprise commercial clients**.
 
+### Typography
+- **Display & Headlines:** `Plus Jakarta Sans` (`font-weight: 600, 700, 800`) — high-prestige, clean, modern executive geometry.
+- **Body & Technical Specs:** `Inter` (`font-weight: 400, 500, 600, 700`) — industry standard clarity and readability.
+
+### Colors
 | Element | Hex Code | RGB | CSS Variable / Class | Visual Role |
 | :--- | :--- | :--- | :--- | :--- |
-| **Charcoal Black** | `#1b1815` | `27, 24, 21` | `--base-dark` / `.btn-pay-now-card` | Primary PAY NOW action buttons, header cart pill, main headlines |
-| **Pure Jet Black** | `#000000` | `0, 0, 0` | `.btn-pay-now-card:hover` | High-contrast hover states, active button elevation |
-| **Crisp Pure White** | `#ffffff` | `255, 255, 255` | `.btn-add-cart` | + CART button background, button text on black |
-| **Studio Warm Linen** | `#f3f0ea` | `243, 240, 234` | `--base-ivory` / `--base-bg` | Full canvas background, seamless unboxed product backdrop |
-| **Subtle Hairline Border**| `rgba(27, 24, 21, 0.08)` | — | `--base-border` | Delicate divider hairlines between sections and card footers |
-| **Warm Sand Hover** | `#ede8de` | `237, 232, 222` | `.btn-add-cart:hover` | Soft neutral hover tint for secondary actions |
-| **Charcoal Muted Text**| `#57534e` | `87, 83, 78` | `--base-dark-muted` | Product brand tags, card descriptions, specifications |
-| **Stone Gray 500** | `#78716c` | `120, 113, 108` | `--base-gray-500` | MRP strikethroughs, timestamp labels |
+| **Pure White Background** | `#ffffff` | `255, 255, 255` | `--base-bg` / `--base-surface` / `html, body` | Main canvas background, product card container fill |
+| **Studio Cool White Surface** | `#f8fafc` | `248, 250, 252` | `--calm-primary-light` / `.product-visual-wrap` | Cool neutral studio backdrop for camera hardware |
+| **Executive Slate Black** | `#0f172a` | `15, 23, 42` | `--base-dark` / `--calm-primary` / `.btn-pay-now-card` | Primary PAY NOW action buttons, header cart pill, main headlines |
+| **Pure Jet Black** | `#000000` | `0, 0, 0` | `.btn-pay-now-card:hover` / `.text-pill.active:hover` | High-contrast hover states, active button elevation |
+| **Cool Gray Neutral Hover** | `#f1f5f9` | `241, 245, 249` | `.btn-add-cart:hover` / `.text-pill:hover` | Crisp, clean slate hover tint for secondary actions |
+| **Hairline Slate Border** | `rgba(15, 23, 42, 0.08)` | — | `--base-border` | Razor-sharp subtle borders around cards and navigation |
+| **Muted Slate Gray Text** | `#475569` | `71, 85, 105` | `--base-dark-muted` | Product brand tags, card descriptions, specifications |
+| **Cool Gray 500** | `#64748b` | `100, 116, 139` | `--base-gray-500` | MRP strikethroughs, timestamp labels |
 
 ---
 
-## 2. Sky Blue & White Palette (Preserved Reference)
+## 2. Sandstone Linen & Ivory Palette (Preserved Reference)
+*The warm linen / ivory palette tested in v4.7.*
+
+| Element | Hex Code | RGB | Role in Theme |
+| :--- | :--- | :--- | :--- |
+| **Studio Warm Linen / Ivory** | `#f3f0ea` | `243, 240, 234` | Full canvas warm background |
+| **Warm Sand Hover** | `#ede8de` | `237, 232, 222` | Soft neutral hover tint |
+| **Charcoal Black** | `#1b1815` | `27, 24, 21` | Action buttons and dark text |
+| **Charcoal Muted Text** | `#57534e` | `87, 83, 78` | Subtext and secondary labels |
+
+---
+
+## 3. Sky Blue & White Palette (Preserved Reference)
 *The daylight clarity and peace palette tested in v4.4.*
 
 | Element | Hex Code | RGB | Role in Theme |
@@ -34,7 +51,7 @@ Designed for **editorial minimalism**, zero box clutter, and high-contrast luxur
 
 ---
 
-## 3. Deep Oceanic Navy & Nordic Sage (Preserved Reference)
+## 4. Deep Oceanic Navy & Nordic Sage (Preserved Reference)
 *The corporate security palette tested in v4.3.*
 
 | Element | Hex Code | RGB | Role in Theme |
@@ -47,7 +64,7 @@ Designed for **editorial minimalism**, zero box clutter, and high-contrast luxur
 
 ---
 
-## 4. Legacy Cyber / Terminal Accents
+## 5. Legacy Cyber / Terminal Accents
 *High-contrast green and blue accents used in the initial prototype.*
 
 | Element | Hex Code | RGB | Original Usage | Reason Replaced |
@@ -60,7 +77,7 @@ Designed for **editorial minimalism**, zero box clutter, and high-contrast luxur
 
 ---
 
-## 5. Bank Rails & Verified Third-Party Colors
+## 6. Bank Rails & Verified Third-Party Colors
 *Mandatory official brand colors for payment gateway and legal compliance.*
 
 | Entity | Hex Code | Purpose |
