@@ -4,155 +4,309 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="color-scheme" content="dark">
-    <title>SYBER SPACE // Authorized Wholesale Surveillance</title>
-    <!-- Google Fonts: Plus Jakarta Sans & Inter & Space Grotesk -->
+    <title>SYBER SPACE // Authorized Wholesale Surveillance &amp; CCTV</title>
+    <!-- Google Fonts: Space Grotesk, Plus Jakarta Sans, Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@700;800;900&family=Space+Grotesk:wght@700;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css?v=9.2">
+    <link rel="stylesheet" href="style.css?v=10.0">
 </head>
 <body class="observe-body">
 
     <!-- ======================================================================
-         OBSERVE-STYLE BRUTALIST MINIMAL HEADER
+         YOUTUBE-STYLE FULL-WIDTH HEADER (~80% SEARCH BAR + HOME + CART)
          ====================================================================== -->
-    <header class="observe-header">
-        <div class="header-container">
-            <a href="#hero" class="observe-brand">
-                <span class="brand-heavy">SYBER SPACE.</span>
+    <header class="yt-header" id="yt-header">
+        <div class="yt-header-inner">
+            
+            <!-- Left: Brand Logo -->
+            <a href="#hero" class="yt-logo" aria-label="Syber Space Home">
+                <span class="logo-accent-dot"></span>
+                <span class="logo-text">SYBER SPACE.</span>
             </a>
 
-            <nav class="observe-nav">
-                <a href="#hero" class="nav-item">LIVE CAMERAS</a>
-                <a href="#wholesale" class="nav-item">WHOLESALE TIERS</a>
-                <a href="#procurement" class="nav-item">PROCUREMENT</a>
-            </nav>
+            <!-- Center: ~80% YouTube-Style Search Bar -->
+            <div class="yt-search-container">
+                <form class="yt-search-form" id="search-form" onsubmit="event.preventDefault();">
+                    <div class="yt-search-box">
+                        <svg class="search-lens-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                        <input 
+                            type="text" 
+                            id="yt-search-input" 
+                            class="yt-search-input" 
+                            placeholder="Search wholesale CCTV, IP cameras, 4G solar, PoE switches, DVR, NVR, cables..." 
+                            autocomplete="off"
+                            spellcheck="false"
+                        >
+                        <button type="button" class="yt-clear-btn" id="search-clear-btn" aria-label="Clear search query" style="display: none;">
+                            &times;
+                        </button>
+                    </div>
+                    <button type="submit" class="yt-search-submit-btn" id="search-submit-btn" aria-label="Submit search">
+                        <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                    </button>
+                </form>
 
-            <div class="header-clock-box">
-                <span class="clock-live-dot"></span>
-                <span class="hud-time" id="hud-clock">20:22:06:66</span>
+                <!-- YouTube-Style Live Dropdown Results -->
+                <div class="yt-search-dropdown" id="search-dropdown" style="display: none;">
+                    <div class="dropdown-header">
+                        <span class="dh-title">MATCHING WHOLESALE HARDWARE</span>
+                        <span class="dh-count" id="search-match-count">0 RESULTS</span>
+                    </div>
+                    <div class="dropdown-results-list" id="dropdown-results"></div>
+                </div>
             </div>
+
+            <!-- Right: Home Option & Cart Option -->
+            <div class="yt-nav-actions">
+                <a href="#hero" class="yt-action-link" id="nav-home-btn">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+                    <span>HOME</span>
+                </a>
+                <a href="#catalog" class="yt-action-link desktop-only">
+                    <span>CATALOG</span>
+                </a>
+                <button type="button" class="yt-cart-btn" id="cart-toggle-btn" aria-label="Open Shopping Cart">
+                    <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
+                    <span>CART</span>
+                    <span class="cart-count-badge" id="cart-counter">0</span>
+                </button>
+            </div>
+
         </div>
     </header>
 
     <main id="app-root">
 
         <!-- ==================================================================
-             SECTION 1: HERO VIEWPORT WITH MULTI-FEED CINEMATIC SLIDESHOW
+             SECTION 1: HERO WHOLESALE BESTSELLER SLIDER
+             (Matching Screenshot 1: #1 BESTSELLER, IDADA, ORANGE WHOLESALE ₹1,850,
+              [ADD TO CART], [PREV] 01 // 05 [NEXT] with live CCTV video & images)
              ================================================================== -->
-        <section class="observe-hero-section" id="hero">
-            <div class="hero-viewport-frame">
-                <!-- Outer CCTV Monitor Container -->
-                <div class="cctv-monitor-window">
-                    
-                    <!-- Top Monitor Telemetry Strip -->
-                    <div class="cctv-telemetry-top">
-                        <div class="cam-id-group">
-                            <span class="cam-code" id="active-cam-title">CAM-01 [PARKING ENTRANCE]</span>
-                            <span class="cam-specs-pill" id="active-cam-specs">4MP ULTRA HD &bull; 60 FPS &bull; IR NIGHT VISION</span>
-                        </div>
-                        <div class="cam-status">
-                            <span class="rec-beacon">●</span>
-                            <span class="live-label">LIVE</span>
-                        </div>
-                    </div>
+        <section class="hero-bestseller-viewport" id="hero">
+            <div class="hero-slider-frame">
+                
+                <!-- Slide Container -->
+                <div class="hero-slides-wrapper" id="hero-slider">
 
-                    <!-- CCTV Slideshow Viewport -->
-                    <div class="cctv-feed-viewport" id="cctv-slideshow">
-                        
-                        <!-- Slide 1: Live Parking Lot Video -->
-                        <div class="cctv-slide active" data-index="0" data-cam="CAM-01 [PARKING ENTRANCE]" data-specs="4MP ULTRA HD &bull; 60 FPS &bull; IR NIGHT VISION">
-                            <video class="cctv-slide-media" autoplay loop muted playsinline preload="auto">
-                                <source src="cctv_parking_video.mp4" type="video/mp4">
-                            </video>
-                        </div>
-
-                        <!-- Slide 2: Luxury Residence Architectural Image -->
-                        <div class="cctv-slide" data-index="1" data-cam="CAM-02 [LUXURY RESIDENCE]" data-specs="2K ULTRA HD &bull; IP66 ALL-WEATHER &bull; PERIMETER SIREN">
-                            <img src="assets/scenario_luxury_home.jpg" alt="Luxury Architectural Residence Surveillance" class="cctv-slide-media" loading="eager">
-                        </div>
-
-                        <!-- Slide 3: Commercial Glass Towers Image -->
-                        <div class="cctv-slide" data-index="2" data-cam="CAM-03 [COMMERCIAL TOWERS]" data-specs="GIGABIT POE BACKBONE &bull; DUAL SATA 16TB 4K NVR">
-                            <img src="assets/scenario_commercial.jpg" alt="Commercial Towers Surveillance Backbone" class="cctv-slide-media" loading="lazy">
-                        </div>
-
-                        <!-- Slide 4: Corporate Tech Office Image -->
-                        <div class="cctv-slide" data-index="3" data-cam="CAM-04 [CORPORATE OFFICES]" data-specs="360° AI PTZ &bull; 2-WAY NOISE-CANCEL AUDIO &bull; HUMAN TRACKING">
-                            <img src="assets/scenario_office.jpg" alt="Corporate Tech Office Surveillance" class="cctv-slide-media" loading="lazy">
-                        </div>
-
-                        <!-- Slide 5: Retail Shops & Cash Counter Image -->
-                        <div class="cctv-slide" data-index="4" data-cam="CAM-05 [RETAIL CASH COUNTER]" data-specs="CURRENCY MONITORING &bull; 0-LUX COLOR &bull; LAN PORT">
-                            <img src="assets/scenario_retail.jpg" alt="Retail Shops and Cash Counter Monitoring" class="cctv-slide-media" loading="lazy">
-                        </div>
-
-                        <!-- Slide 6: Live Aisle Motion Video -->
-                        <div class="cctv-slide" data-index="5" data-cam="CAM-06 [AISLE MOTION FEED]" data-specs="HIGH-TRAFFIC SENSOR &bull; SMART MOTION EVENT RECORDING">
-                            <video class="cctv-slide-media" loop muted playsinline preload="none">
+                    <!-- Slide 1: iDADA ID-Q2i35S-TD (Matching Screenshot 1 exactly) -->
+                    <div class="hero-slide active" data-index="0" data-id="idada-id-q2i35s-td-3mp-pan-tilt-smart-wi-fi-camera">
+                        <div class="slide-media-layer">
+                            <video class="slide-media-elem" autoplay loop muted playsinline preload="auto">
                                 <source src="cctv_aisle_video.mp4" type="video/mp4">
                             </video>
+                            <div class="slide-grain-overlay"></div>
+                            <div class="slide-gradient-overlay"></div>
                         </div>
-
-                        <!-- CRT Scanlines & Surveillance Vignette Layers -->
-                        <div class="cctv-scanlines-layer"></div>
-                        <div class="cctv-vignette-layer"></div>
-                    </div>
-
-                    <!-- Slide Navigation Arrows -->
-                    <button class="cctv-arrow cctv-prev" id="cctv-prev-btn" aria-label="Previous Camera Feed">
-                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"></polyline></svg>
-                    </button>
-                    <button class="cctv-arrow cctv-next" id="cctv-next-btn" aria-label="Next Camera Feed">
-                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
-                    </button>
-
-                    <!-- Massive Metallic/Chromatic Aberration Glitch Headline -->
-                    <div class="cctv-hero-content">
-                        <h1 class="observe-title glitch-effect" data-text="WE ARE WATCHING">
-                            WE ARE<br>WATCHING
-                        </h1>
-                        <p class="observe-kicker-sub">
-                            NEXT-GEN SURVEILLANCE FOR COMMERCIAL &amp; RESIDENTIAL SITES.<br>
-                            DIRECT AUTHORIZED WHOLESALE PROCUREMENT.
-                        </p>
-                        <div class="hero-actions-row">
-                            <a href="#wholesale" class="btn-observe-box">
-                                <span>GET WHOLESALE DISCOUNT &rarr;</span>
-                            </a>
+                        <div class="slide-content-layer">
+                            <span class="hero-bestseller-badge">#1 BESTSELLER WHOLESALE</span>
+                            <h1 class="hero-product-title">IDADA ID-Q2I35S-TD</h1>
+                            <div class="hero-price-block">
+                                <span class="hp-wholesale-tag">WHOLESALE</span>
+                                <span class="hp-wholesale-val">&#8377;1,850</span>
+                            </div>
+                            <p class="hero-product-desc">
+                                3MP motorized pan &amp; tilt smart Wi-Fi camera with crystal 2-way talkback and humanoid AI detection.
+                            </p>
+                            <div class="hero-cta-group">
+                                <button type="button" class="btn-add-cart-hero" onclick="addToCartById('idada-id-q2i35s-td-3mp-pan-tilt-smart-wi-fi-camera')">
+                                    <span>[ ADD TO CART ]</span>
+                                </button>
+                                <a href="https://wa.me/917511180808?text=Hello%20Syber%20Space%2C%20I%20want%20to%20order%20the%20iDADA%20ID-Q2i35S-TD%20at%20Wholesale%20rate%20(Rs%201850)." target="_blank" rel="noopener noreferrer" class="btn-wholesale-quote-hero">
+                                    <span>BUY WHOLESALE VIA WHATSAPP &rarr;</span>
+                                </a>
+                            </div>
                         </div>
                     </div>
 
-                    <!-- Bottom Camera Switcher & Progress Bar -->
-                    <div class="cctv-bottom-bar">
-                        <div class="cam-switcher-tabs" id="cam-tabs">
-                            <button class="cam-tab-btn active" data-index="0">CAM 01</button>
-                            <button class="cam-tab-btn" data-index="1">CAM 02</button>
-                            <button class="cam-tab-btn" data-index="2">CAM 03</button>
-                            <button class="cam-tab-btn" data-index="3">CAM 04</button>
-                            <button class="cam-tab-btn" data-index="4">CAM 05</button>
-                            <button class="cam-tab-btn" data-index="5">CAM 06</button>
+                    <!-- Slide 2: CP PLUS Ezykam CP-E38Q -->
+                    <div class="hero-slide" data-index="1" data-id="cp-plus-ezykam-cp-e38q-3mp-pan-tilt-wi-fi-camera">
+                        <div class="slide-media-layer">
+                            <img src="assets/scenario_office.jpg" alt="CP Plus Ezykam Corporate Surveillance" class="slide-media-elem" loading="eager">
+                            <div class="slide-grain-overlay"></div>
+                            <div class="slide-gradient-overlay"></div>
                         </div>
-                        <div class="slideshow-progress-track">
-                            <div class="slideshow-progress-bar" id="slide-progress"></div>
+                        <div class="slide-content-layer">
+                            <span class="hero-bestseller-badge">TOP CORPORATE CHOICE</span>
+                            <h1 class="hero-product-title">CP PLUS EZYKAM CP-E38Q</h1>
+                            <div class="hero-price-block">
+                                <span class="hp-wholesale-tag">WHOLESALE</span>
+                                <span class="hp-wholesale-val">&#8377;2,235</span>
+                            </div>
+                            <p class="hero-product-desc">
+                                3MP 2K Ultra HD motorized pan-tilt Wi-Fi camera with 360&deg; room coverage, privacy mode, and motion tracking.
+                            </p>
+                            <div class="hero-cta-group">
+                                <button type="button" class="btn-add-cart-hero" onclick="addToCartById('cp-plus-ezykam-cp-e38q-3mp-pan-tilt-wi-fi-camera')">
+                                    <span>[ ADD TO CART ]</span>
+                                </button>
+                                <a href="https://wa.me/917511180808?text=Hello%20Syber%20Space%2C%20I%20want%20to%20order%20the%20CP%20PLUS%20Ezykam%20CP-E38Q%20at%20Wholesale%20rate%20(Rs%202235)." target="_blank" rel="noopener noreferrer" class="btn-wholesale-quote-hero">
+                                    <span>BUY WHOLESALE VIA WHATSAPP &rarr;</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Slide 3: Trueview 3MP Smart Dual Lens PT -->
+                    <div class="hero-slide" data-index="2" data-id="trueview-3mp-smart-dual-lens-pan-tilt-camera">
+                        <div class="slide-media-layer">
+                            <img src="assets/scenario_commercial.jpg" alt="Trueview Dual Lens Surveillance" class="slide-media-elem" loading="lazy">
+                            <div class="slide-grain-overlay"></div>
+                            <div class="slide-gradient-overlay"></div>
+                        </div>
+                        <div class="slide-content-layer">
+                            <span class="hero-bestseller-badge">DUAL-LENS AI RADAR</span>
+                            <h1 class="hero-product-title">TRUEVIEW DUAL-LENS 3MP PT</h1>
+                            <div class="hero-price-block">
+                                <span class="hp-wholesale-tag">WHOLESALE</span>
+                                <span class="hp-wholesale-val">&#8377;2,750</span>
+                            </div>
+                            <p class="hero-product-desc">
+                                Dual-sensor motorized smart surveillance: simultaneously captures wide-angle field and telephoto zoom tracking.
+                            </p>
+                            <div class="hero-cta-group">
+                                <button type="button" class="btn-add-cart-hero" onclick="addToCartById('trueview-3mp-smart-dual-lens-pan-tilt-camera')">
+                                    <span>[ ADD TO CART ]</span>
+                                </button>
+                                <a href="https://wa.me/917511180808?text=Hello%20Syber%20Space%2C%20I%20want%20to%20order%20the%20Trueview%20Dual-Lens%20PT%20at%20Wholesale%20rate%20(Rs%202750)." target="_blank" rel="noopener noreferrer" class="btn-wholesale-quote-hero">
+                                    <span>BUY WHOLESALE VIA WHATSAPP &rarr;</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Slide 4: Trueview 4G Solar Smart PT -->
+                    <div class="hero-slide" data-index="3" data-id="trueview-solar-4g-sim-outdoor-pan-tilt-camera">
+                        <div class="slide-media-layer">
+                            <img src="assets/scenario_luxury_home.jpg" alt="Off-Grid 4G Solar Surveillance" class="slide-media-elem" loading="lazy">
+                            <div class="slide-grain-overlay"></div>
+                            <div class="slide-gradient-overlay"></div>
+                        </div>
+                        <div class="slide-content-layer">
+                            <span class="hero-bestseller-badge">OFF-GRID 4G SOLAR</span>
+                            <h1 class="hero-product-title">TRUEVIEW 4G SOLAR PTZ</h1>
+                            <div class="hero-price-block">
+                                <span class="hp-wholesale-tag">WHOLESALE</span>
+                                <span class="hp-wholesale-val">&#8377;4,950</span>
+                            </div>
+                            <p class="hero-product-desc">
+                                100% wire-free outdoor perimeter camera with high-capacity solar battery &amp; integrated 4G SIM data connectivity.
+                            </p>
+                            <div class="hero-cta-group">
+                                <button type="button" class="btn-add-cart-hero" onclick="addToCartById('trueview-solar-4g-sim-outdoor-pan-tilt-camera')">
+                                    <span>[ ADD TO CART ]</span>
+                                </button>
+                                <a href="https://wa.me/917511180808?text=Hello%20Syber%20Space%2C%20I%20want%20to%20order%20the%20Trueview%204G%20Solar%20Camera%20at%20Wholesale%20rate%20(Rs%204950)." target="_blank" rel="noopener noreferrer" class="btn-wholesale-quote-hero">
+                                    <span>BUY WHOLESALE VIA WHATSAPP &rarr;</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Slide 5: Live Parking CCTV Video / PoE Switch -->
+                    <div class="hero-slide" data-index="4" data-id="trueview-8-port-poe-switch-gigabit-uplink">
+                        <div class="slide-media-layer">
+                            <video class="slide-media-elem" loop muted playsinline preload="none">
+                                <source src="cctv_parking_video.mp4" type="video/mp4">
+                            </video>
+                            <div class="slide-grain-overlay"></div>
+                            <div class="slide-gradient-overlay"></div>
+                        </div>
+                        <div class="slide-content-layer">
+                            <span class="hero-bestseller-badge">ENTERPRISE INFRASTRUCTURE</span>
+                            <h1 class="hero-product-title">TRUEVIEW 8-PORT POE SWITCH</h1>
+                            <div class="hero-price-block">
+                                <span class="hp-wholesale-tag">WHOLESALE</span>
+                                <span class="hp-wholesale-val">&#8377;3,450</span>
+                            </div>
+                            <p class="hero-product-desc">
+                                Surveillance-grade 8-Port PoE + 2 Gigabit uplinks with 250-meter long-distance CCTV power transmission.
+                            </p>
+                            <div class="hero-cta-group">
+                                <button type="button" class="btn-add-cart-hero" onclick="addToCartById('trueview-8-port-poe-switch-gigabit-uplink')">
+                                    <span>[ ADD TO CART ]</span>
+                                </button>
+                                <a href="https://wa.me/917511180808?text=Hello%20Syber%20Space%2C%20I%20want%20to%20order%20the%20Trueview%208-Port%20PoE%20Switch%20at%20Wholesale%20rate%20(Rs%203450)." target="_blank" rel="noopener noreferrer" class="btn-wholesale-quote-hero">
+                                    <span>BUY WHOLESALE VIA WHATSAPP &rarr;</span>
+                                </a>
+                            </div>
                         </div>
                     </div>
 
                 </div>
+
+                <!-- Bottom Tactical Carousel Navigation: [ PREV ]  01 // 05  [ NEXT ] -->
+                <div class="hero-bottom-nav-strip">
+                    <button type="button" class="btn-hero-nav" id="hero-prev-btn">
+                        <span>[ PREV ]</span>
+                    </button>
+                    <div class="hero-slide-counter">
+                        <span id="active-slide-num">01</span> // <span id="total-slide-num">05</span>
+                    </div>
+                    <button type="button" class="btn-hero-nav" id="hero-next-btn">
+                        <span>[ NEXT ]</span>
+                    </button>
+                    <div class="hero-timer-progress">
+                        <div class="hero-timer-bar" id="hero-timer-bar"></div>
+                    </div>
+                </div>
+
             </div>
 
-            <!-- Angled Radioactive Neon Green Slanted Ribbon -->
+            <!-- ==============================================================
+                 SLANTED RADIOACTIVE CYBER-GREEN MARQUEE BANNER
+                 ("THE BANNER IS A GO" - USER APPROVED)
+                 ============================================================== -->
             <div class="neon-slanted-ribbon">
                 <div class="ribbon-marquee-track">
-                    <span class="marquee-text">// GET WHOLESALE DISCOUNT // BUY DIRECT IN WHOLESALE // AUTHORIZED DISTRIBUTOR // CP PLUS &amp; TRUEVIEW // 100% GENUINE WARRANTY // BULK PROCUREMENT RATES // NO MIDDLEMEN // PAN-INDIA DISPATCH // ZERO BLIND SPOTS //</span>
-                    <span class="marquee-text">// GET WHOLESALE DISCOUNT // BUY DIRECT IN WHOLESALE // AUTHORIZED DISTRIBUTOR // CP PLUS &amp; TRUEVIEW // 100% GENUINE WARRANTY // BULK PROCUREMENT RATES // NO MIDDLEMEN // PAN-INDIA DISPATCH // ZERO BLIND SPOTS //</span>
+                    <span class="marquee-text">// GET WHOLESALE DISCOUNT // BUY DIRECT IN WHOLESALE // AUTHORIZED DISTRIBUTOR // CP PLUS &amp; TRUEVIEW &amp; IDADA // 100% GENUINE WARRANTY // BULK PROCUREMENT RATES // NO MIDDLEMEN // PAN-INDIA DISPATCH // ZERO BLIND SPOTS //</span>
+                    <span class="marquee-text">// GET WHOLESALE DISCOUNT // BUY DIRECT IN WHOLESALE // AUTHORIZED DISTRIBUTOR // CP PLUS &amp; TRUEVIEW &amp; IDADA // 100% GENUINE WARRANTY // BULK PROCUREMENT RATES // NO MIDDLEMEN // PAN-INDIA DISPATCH // ZERO BLIND SPOTS //</span>
                 </div>
             </div>
         </section>
 
 
         <!-- ==================================================================
-             SECTION 2: WHOLESALE DISCOUNT TIERS (BUY IN WHOLESALE)
+             SECTION 2: PRODUCT CATALOG & CATEGORY FILTER
+             ================================================================== -->
+        <section class="catalog-section" id="catalog">
+            <div class="catalog-container">
+                
+                <!-- Catalog Section Header -->
+                <div class="catalog-header-bar">
+                    <div class="chb-left">
+                        <span class="chb-badge">AUTHORIZED WHOLESALE STOCK</span>
+                        <h2 class="chb-title">HARDWARE CATALOG</h2>
+                    </div>
+                    <div class="chb-right">
+                        <div class="category-tabs-row" id="category-tabs">
+                            <button class="cat-tab-btn active" data-cat="all">ALL (45)</button>
+                            <button class="cat-tab-btn" data-cat="wifi-camera">WI-FI CAMERAS</button>
+                            <button class="cat-tab-btn" data-cat="ip-poe">IP &amp; POE</button>
+                            <button class="cat-tab-btn" data-cat="4g-solar">4G SOLAR</button>
+                            <button class="cat-tab-btn" data-cat="nvr-dvr">NVR &amp; DVR</button>
+                            <button class="cat-tab-btn" data-cat="accessories">ACCESSORIES</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Live Search Status Indicator (When filtered) -->
+                <div class="search-status-bar" id="search-status-bar" style="display: none;">
+                    <span>Showing results for: <strong id="search-query-label"></strong></span>
+                    <button type="button" class="btn-clear-filter" onclick="clearCatalogSearch()">CLEAR SEARCH &times;</button>
+                </div>
+
+                <!-- Dynamic Product Grid -->
+                <div class="products-grid" id="products-grid">
+                    <!-- Populated dynamically via script.js from products_data.js -->
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- ==================================================================
+             SECTION 3: WHOLESALE DISCOUNT TIERS (BUY IN WHOLESALE)
              ================================================================== -->
         <section class="observe-wholesale-section" id="wholesale">
             <div class="wholesale-wrapper">
@@ -231,7 +385,7 @@
 
 
         <!-- ==================================================================
-             SECTION 3: TACTICAL PROCUREMENT HOTLINE
+             SECTION 4: TACTICAL PROCUREMENT HOTLINE
              ================================================================== -->
         <section class="observe-contact-section" id="procurement">
             <div class="procurement-container">
@@ -256,23 +410,72 @@
 
     </main>
 
+    <!-- ======================================================================
+         INTERACTIVE SLIDE-OUT CART DRAWER
+         ====================================================================== -->
+    <div class="cart-drawer-overlay" id="cart-drawer-overlay" onclick="closeCartDrawer()"></div>
+    <aside class="cart-drawer" id="cart-drawer">
+        <div class="cd-header">
+            <div class="cd-title-group">
+                <span class="cd-title">WHOLESALE PROCUREMENT CART</span>
+                <span class="cd-items-badge" id="cd-items-count">0 ITEMS</span>
+            </div>
+            <button type="button" class="cd-close-btn" onclick="closeCartDrawer()" aria-label="Close cart">&times;</button>
+        </div>
+
+        <div class="cd-wholesale-hint" id="cd-discount-banner">
+            <span>&bull; ORDER 5+ UNITS FOR TIER 1 WHOLESALE DISCOUNT (25% OFF)</span>
+        </div>
+
+        <div class="cd-body" id="cart-items-container">
+            <!-- Dynamic Cart Items Rendered Here -->
+        </div>
+
+        <div class="cd-footer">
+            <div class="cd-summary-row">
+                <span>SUBTOTAL (INCL. GST):</span>
+                <span class="cd-total-price" id="cd-subtotal">&#8377;0</span>
+            </div>
+            <div class="cd-summary-row discount-row" id="cd-discount-row" style="display: none;">
+                <span>VOLUME DISCOUNT:</span>
+                <span class="cd-discount-val" id="cd-discount-val">-&#8377;0</span>
+            </div>
+            <div class="cd-summary-row final-row">
+                <span>ESTIMATED PAYABLE:</span>
+                <span class="cd-final-price" id="cd-final-price">&#8377;0</span>
+            </div>
+
+            <div class="cd-actions">
+                <button type="button" class="btn-checkout-whatsapp" onclick="checkoutWhatsApp()">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+                    <span>CHECKOUT VIA WHATSAPP (INSTANT INVOICE)</span>
+                </button>
+            </div>
+        </div>
+    </aside>
+
+    <!-- Notification Toast -->
+    <div class="cart-toast" id="cart-toast"></div>
+
     <!-- Technical Minimal Footer -->
     <footer class="observe-footer">
         <div class="footer-wrap">
             <div class="footer-left">
                 <span class="f-logo-txt">SYBER SPACE.</span>
-                <span class="f-tagline">AUTHORIZED WHOLESALE SURVEILLANCE SYSTEMS</span>
+                <span class="f-tagline">AUTHORIZED WHOLESALE SURVEILLANCE &bull; PAN-INDIA DISTRIBUTOR</span>
             </div>
             <div class="footer-right">
-                <span>TRUEVIEW &bull; CP PLUS &bull; IDADA AUTHORIZED DISTRIBUTOR</span>
-                <span>COCHIN, KERALA // PAN-INDIA EXPRESS DISPATCH</span>
+                <span>TRUEVIEW &bull; CP PLUS &bull; IDADA AUTHORIZED PARTNER</span>
+                <span>COCHIN, KERALA // SAME-DAY DISPATCH // VERIFIED GST CREDIT</span>
             </div>
         </div>
     </footer>
 
+    <!-- Products Data File -->
+    <script src="products_data.js"></script>
     <!-- GSAP 3 Core & ScrollTrigger -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-    <script src="script.js?v=9.2"></script>
+    <script src="script.js?v=10.0"></script>
 </body>
 </html>
