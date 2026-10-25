@@ -6,7 +6,7 @@
     <meta name="color-scheme" content="only light">
     <meta name="supported-color-schemes" content="light">
     <title>SYBER SPACE — Precision Surveillance Systems</title>
-    <link rel="stylesheet" href="style.css?v=5.3">
+    <link rel="stylesheet" href="style.css?v=5.4">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
@@ -477,7 +477,7 @@
                          MOBILE BRAND SHOWROOMS: AUTHORIZED BRANDS
                          Clean horizontal swipe carousels per brand with verified inventories
                          ========================================================================= -->
-                    <div class="mobile-brand-showrooms" id="mobile-brand-showrooms" style="display: none;">
+                    <div class="mobile-brand-showrooms brand-showrooms-catalog" id="mobile-brand-showrooms">
 
                         <!-- SECTION HEADER -->
                         <div class="m-showrooms-header">
@@ -579,6 +579,11 @@
                                     </div>
                                 </div>
                             </div>
+                            <div class="m-brand-footer">
+                                <button type="button" class="m-btn-view-brand" onclick="openBrandCatalog('trueview')">
+                                    Explore All 31 Trueview Cameras &rarr;
+                                </button>
+                            </div>
                         </div>
 
                         <!-- 2. CP PLUS SHOWROOM -->
@@ -659,6 +664,11 @@
                                         </div>
                                     </div>
                                 </div>
+                            </div>
+                            <div class="m-brand-footer">
+                                <button type="button" class="m-btn-view-brand" onclick="openBrandCatalog('cpplus')">
+                                    Explore All 9 CP PLUS Cameras &rarr;
+                                </button>
                             </div>
                         </div>
 
@@ -775,6 +785,18 @@
                                     </div>
                                 </div>
                             </div>
+                            <div class="m-brand-footer">
+                                <button type="button" class="m-btn-view-brand" onclick="openBrandCatalog('accessory')">
+                                    Explore All CCTV Accessories &rarr;
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Global Showrooms Bottom Action Bar -->
+                        <div class="showrooms-global-footer">
+                            <button type="button" class="btn-view-all-catalog" onclick="viewAllProductsInGrid()">
+                                View All 41 Wholesale Systems in Full Grid &rarr;
+                            </button>
                         </div>
 
                     </div>
@@ -3758,7 +3780,7 @@
     <!-- GSAP Animation Engine -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
     <script src="cookie-location.js?v=3.6"></script>
-    <script src="script.js?v=4.4"></script>
+    <script src="script.js?v=4.5"></script>
 
     <!-- ======================================================================
          AMAZON-STYLE MOBILE BOTTOM NAVIGATION BAR (PHONE SCREEN ONLY)

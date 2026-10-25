@@ -28,13 +28,13 @@
     --calm-teal-light: #f0fdfa;        /* Soft Mint Background */
     --calm-teal-border: #99f6e4;       /* Gentle Mint Border */
 
-    /* Faded Champagne Gold Tokens (Calm, Prestigious & Authoritative) */
-    --gold-primary: #c5a059;                   /* Brushed Champagne Gold */
-    --gold-hover: #a3823d;                     /* Deep Antique Gold */
-    --gold-light: #faf6ee;                     /* Soft Champagne Mist */
-    --gold-border: rgba(197, 160, 89, 0.38);    /* Refined Hairline Gold Border */
-    --gold-glow: rgba(197, 160, 89, 0.22);      /* Subtle Luminous Gold Glow */
-    --gold-gradient: linear-gradient(135deg, #dfc89d 0%, #c5a059 100%); /* Brushed Metallic Gold */
+    /* Executive Obsidian Black & Slate Accents (No Gold - Clean, Professional & Authoritative) */
+    --gold-primary: #0f172a;                   /* Deep Obsidian Black */
+    --gold-hover: #000000;                     /* Pure Black */
+    --gold-light: #f8fafc;                     /* Crisp Neutral Slate */
+    --gold-border: rgba(15, 23, 42, 0.12);     /* Crisp Slate Border */
+    --gold-glow: rgba(15, 23, 42, 0.06);       /* Subtle Soft Elevation Shadow */
+    --gold-gradient: #0f172a;                  /* Sleek Obsidian Black */
 
     /* Electric Precision Accent */
     --accent-blue: #1d4ed8;
@@ -143,7 +143,7 @@ a {
     display: flex;
     align-items: center;
     justify-content: center;
-    color: var(--gold-primary, #c5a059);
+    color: #ffffff;
     flex-shrink: 0;
     box-shadow: 0 2px 8px rgba(15, 23, 42, 0.15);
 }
@@ -167,11 +167,11 @@ a {
 }
 
 .brand-title .logo-gold {
-    color: var(--gold-primary, #c5a059);
-    background: var(--gold-gradient);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    color: #0f172a;
+    background: none;
+    -webkit-background-clip: unset;
+    -webkit-text-fill-color: initial;
+    background-clip: unset;
 }
 
 .brand-tagline {
@@ -213,7 +213,7 @@ a {
 }
 
 .header-search-form:focus-within {
-    border-color: var(--gold-primary, #c5a059);
+    border-color: var(--gold-primary, #0f172a);
     box-shadow: 0 4px 18px rgba(15, 23, 42, 0.08), 0 0 0 3px rgba(197, 160, 89, 0.18);
 }
 
@@ -264,8 +264,8 @@ a {
     width: 50px;
     height: 100%;
     border: none;
-    background: var(--gold-gradient);
-    color: #0f172a;
+    background: #0f172a;
+    color: #ffffff;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -275,8 +275,8 @@ a {
 }
 
 .header-search-submit-btn:hover {
-    filter: brightness(1.08);
-    color: #000000;
+    background: #000000;
+    color: #ffffff;
 }
 
 .header-search-dropdown {
@@ -370,8 +370,8 @@ a {
     position: absolute;
     top: -3px;
     right: -3px;
-    background: var(--gold-gradient);
-    color: #0f172a;
+    background: #0f172a;
+    color: #ffffff;
     font-family: var(--font-mono, monospace);
     font-size: 0.65rem;
     font-weight: 800;
@@ -423,28 +423,28 @@ a {
 
 .cat-nav-link:hover {
     color: #0f172a;
-    border-bottom-color: var(--gold-primary, #c5a059);
+    border-bottom-color: #0f172a;
 }
 
 .cat-nav-link.active {
     color: #0f172a;
     font-weight: 700;
-    border-bottom-color: var(--gold-primary, #c5a059);
+    border-bottom-color: #0f172a;
 }
 
 .cat-nav-link.deal-link {
-    color: #b45309;
+    color: #0f172a;
 }
 
 .cat-nav-link.deal-link:hover {
-    color: #d97706;
+    color: #000000;
 }
 
 .deal-dot {
     width: 6px;
     height: 6px;
     border-radius: 50%;
-    background: #f59e0b;
+    background: #059669;
     display: inline-block;
 }
 
@@ -732,7 +732,7 @@ a {
     text-transform: uppercase;
     letter-spacing: -0.01em;
     /* Cinematic Anamorphic Molten Gold & Luminous Amber */
-    background: linear-gradient(135deg, #ffffff 0%, #f7f3ec 25%, #e8e0d0 50%, #c5a059 100%);
+    background: linear-gradient(135deg, #ffffff 0%, #f7f3ec 25%, #e8e0d0 50%, #0f172a 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -987,7 +987,7 @@ a {
 
 .hud-nav-btn:hover,
 .hero-nav-btn:hover {
-    color: #c5a059;
+    color: #0f172a;
     transform: scale(1.06);
 }
 
@@ -1953,7 +1953,7 @@ a {
 
 .badge-bestseller {
     background: #0f172a;
-    color: #dfc89d;
+    color: #0f172a;
     border: 1px solid rgba(197, 160, 89, 0.45);
     box-shadow: 0 2px 6px rgba(15, 23, 42, 0.12);
 }
@@ -1967,7 +1967,7 @@ a {
 .badge-new { background: #334155; color: #ffffff; }
 .badge-popular {
     background: #0f172a;
-    color: #dfc89d;
+    color: #0f172a;
     border: 1px solid rgba(197, 160, 89, 0.45);
 }
 
@@ -2122,7 +2122,7 @@ a {
 }
 
 .product-rating-row .stars {
-    color: var(--gold-primary, #c5a059);
+    color: var(--gold-primary, #0f172a);
     letter-spacing: 1px;
 }
 
@@ -2136,18 +2136,17 @@ a {
 }
 
 .product-card-desc {
-    font-size: 0.82rem;
-    line-height: 1.5;
-    color: var(--base-dark-muted);
-    margin-bottom: 12px;
-    flex: 1;
+    display: none !important;
 }
 
 .product-specs-chips {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 5px;
-    margin-bottom: 16px;
+    display: none !important;
+}
+
+.gallery-thumbnails,
+.product-quick-specs,
+.product-rating-row {
+    display: none !important;
 }
 
 .product-specs-chips .chip {
@@ -2255,7 +2254,7 @@ a {
 
 .btn-add-cart:hover {
     background: #faf6ee;
-    border-color: var(--gold-primary, #c5a059);
+    border-color: var(--gold-primary, #0f172a);
     color: #0f172a;
     transform: translateY(-1px);
     box-shadow: 0 2px 8px rgba(197, 160, 89, 0.18);
@@ -2292,7 +2291,7 @@ a {
 
 .btn-pay-now-card:hover {
     background: #000000;
-    border-color: var(--gold-primary, #c5a059);
+    border-color: var(--gold-primary, #0f172a);
     color: #ffffff;
     transform: translateY(-1px);
     box-shadow: 0 6px 18px rgba(197, 160, 89, 0.32);
@@ -5037,7 +5036,7 @@ a {
 
 .modal-btn-cart:hover {
     background: #faf6ee;
-    border-color: var(--gold-primary, #c5a059);
+    border-color: var(--gold-primary, #0f172a);
     color: #0f172a;
     transform: translateY(-1px);
     box-shadow: 0 2px 8px rgba(197, 160, 89, 0.18);
@@ -5072,7 +5071,7 @@ a {
 
 .modal-btn-paynow:hover {
     background: #000000;
-    border-color: var(--gold-primary, #c5a059);
+    border-color: var(--gold-primary, #0f172a);
     transform: translateY(-1px);
     box-shadow: 0 6px 18px var(--gold-glow);
 }
@@ -6559,14 +6558,11 @@ a {
         position: relative !important;
     }
 
-    .mobile-brand-showrooms,
-    #mobile-brand-showrooms,
     .mobile-top-search-strip,
     #mobile-top-search-strip,
     .mobile-header-actions,
     .mobile-bottom-nav,
-    #mobile-bottom-nav,
-    .m-brand-footer {
+    #mobile-bottom-nav {
         display: none !important;
         visibility: hidden !important;
         height: 0 !important;
@@ -7344,4 +7340,352 @@ a {
         font-size: 0.95rem !important;
         border-radius: 9999px !important;
     }
+}
+/* ==========================================================================
+   BRAND SHOWROOMS ARCHITECTURE (DESKTOP & TABLET >= 769px)
+   Curated Showroom Experience: Prominent Bestseller Spotlight + Uncrowded Shelves
+   ========================================================================== */
+@media (min-width: 769px) {
+    .mobile-brand-showrooms {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 32px !important;
+        margin-bottom: 40px !important;
+        width: 100% !important;
+    }
+
+    .m-showrooms-header {
+        padding: 6px 0 14px 0 !important;
+        border-bottom: 1px solid rgba(15, 23, 42, 0.08) !important;
+        margin-bottom: 8px !important;
+    }
+
+    .m-showrooms-kicker {
+        font-family: var(--font-mono, monospace) !important;
+        font-size: 0.72rem !important;
+        font-weight: 800 !important;
+        letter-spacing: 0.12em !important;
+        color: #059669 !important;
+        text-transform: uppercase !important;
+        display: block !important;
+        margin-bottom: 4px !important;
+    }
+
+    .m-showrooms-title {
+        font-family: var(--font-display) !important;
+        font-size: 1.85rem !important;
+        font-weight: 800 !important;
+        color: #0f172a !important;
+        letter-spacing: -0.02em !important;
+        margin-bottom: 6px !important;
+    }
+
+    .m-showrooms-desc {
+        font-size: 0.9rem !important;
+        color: #64748b !important;
+        line-height: 1.4 !important;
+    }
+
+    .m-brand-showroom-card {
+        background: #ffffff !important;
+        border: 1px solid rgba(15, 23, 42, 0.10) !important;
+        border-radius: 16px !important;
+        padding: 26px 30px !important;
+        box-shadow: 0 4px 20px rgba(15, 23, 42, 0.04) !important;
+        width: 100% !important;
+    }
+
+    .m-brand-banner-row {
+        display: flex !important;
+        justify-content: space-between !important;
+        align-items: center !important;
+        gap: 28px !important;
+        margin-bottom: 22px !important;
+        padding-bottom: 18px !important;
+        border-bottom: 1px solid rgba(15, 23, 42, 0.06) !important;
+    }
+
+    .m-brand-banner-info {
+        flex: 1 !important;
+    }
+
+    .m-brand-title {
+        font-family: var(--font-display) !important;
+        font-size: 1.75rem !important;
+        font-weight: 800 !important;
+        color: #0f172a !important;
+        letter-spacing: -0.01em !important;
+        margin-bottom: 6px !important;
+    }
+
+    .m-brand-inventory-pill {
+        display: inline-flex !important;
+        align-items: center !important;
+        gap: 6px !important;
+        background: #f1f5f9 !important;
+        border: 1px solid rgba(15, 23, 42, 0.08) !important;
+        border-radius: 9999px !important;
+        padding: 4px 12px !important;
+        font-family: var(--font-mono, monospace) !important;
+        font-size: 0.72rem !important;
+        font-weight: 800 !important;
+        color: #0f172a !important;
+        margin-bottom: 8px !important;
+    }
+
+    .m-brand-snippet {
+        font-size: 0.88rem !important;
+        color: #64748b !important;
+        line-height: 1.45 !important;
+    }
+
+    .m-brand-bestseller-box {
+        width: 170px !important;
+        flex-shrink: 0 !important;
+        background: #f8fafc !important;
+        border: 1px solid rgba(15, 23, 42, 0.08) !important;
+        border-radius: 12px !important;
+        padding: 12px 10px !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: center !important;
+        text-align: center !important;
+        position: relative !important;
+        box-shadow: 0 4px 12px rgba(15, 23, 42, 0.04) !important;
+    }
+
+    .m-bestseller-ribbon {
+        position: absolute !important;
+        top: -8px !important;
+        background: #0f172a !important;
+        color: #ffffff !important;
+        font-family: var(--font-mono, monospace) !important;
+        font-size: 0.62rem !important;
+        font-weight: 800 !important;
+        padding: 2px 8px !important;
+        border-radius: 4px !important;
+        white-space: nowrap !important;
+    }
+
+    .ribbon-gold {
+        background: #0f172a !important;
+    }
+
+    .m-bestseller-img {
+        width: 110px !important;
+        height: 110px !important;
+        object-fit: contain !important;
+        margin: 6px 0 6px 0 !important;
+    }
+
+    .m-bestseller-name {
+        font-family: var(--font-mono, monospace) !important;
+        font-size: 0.72rem !important;
+        font-weight: 700 !important;
+        color: #0f172a !important;
+        white-space: nowrap !important;
+        overflow: hidden !important;
+        text-overflow: ellipsis !important;
+        max-width: 150px !important;
+    }
+
+    /* Desktop Shelf Cards Grid */
+    .m-shelf-scroll-wrap {
+        width: 100% !important;
+        margin: 10px 0 16px 0 !important;
+    }
+
+    .m-shelf-scroll {
+        display: grid !important;
+        grid-template-columns: repeat(auto-fill, minmax(185px, 1fr)) !important;
+        gap: 16px !important;
+        overflow: visible !important;
+        padding: 4px 0 !important;
+    }
+
+    .m-shelf-card {
+        background: #ffffff !important;
+        border: 1px solid rgba(15, 23, 42, 0.09) !important;
+        border-radius: 12px !important;
+        padding: 14px 12px !important;
+        display: flex !important;
+        flex-direction: column !important;
+        position: relative !important;
+        transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease !important;
+    }
+
+    .m-shelf-card:hover {
+        transform: translateY(-3px) !important;
+        box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08) !important;
+        border-color: rgba(15, 23, 42, 0.22) !important;
+    }
+
+    .m-card-badge {
+        font-family: var(--font-mono, monospace) !important;
+        font-size: 0.62rem !important;
+        font-weight: 800 !important;
+        color: #64748b !important;
+        letter-spacing: 0.06em !important;
+        margin-bottom: 6px !important;
+        text-transform: uppercase !important;
+    }
+
+    .m-card-img-wrap {
+        width: 100% !important;
+        height: 120px !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        background: #f8fafc !important;
+        border-radius: 8px !important;
+        margin-bottom: 10px !important;
+    }
+
+    .m-card-img {
+        max-width: 90% !important;
+        max-height: 110px !important;
+        object-fit: contain !important;
+    }
+
+    .m-card-name {
+        font-family: var(--font-display) !important;
+        font-size: 0.84rem !important;
+        font-weight: 700 !important;
+        color: #0f172a !important;
+        line-height: 1.3 !important;
+        height: 36px !important;
+        display: -webkit-box !important;
+        -webkit-line-clamp: 2 !important;
+        line-clamp: 2 !important;
+        -webkit-box-orient: vertical !important;
+        overflow: hidden !important;
+        margin-bottom: 8px !important;
+    }
+
+    .m-card-price {
+        font-family: var(--font-display) !important;
+        font-size: 1.15rem !important;
+        font-weight: 800 !important;
+        color: #0f172a !important;
+        margin-bottom: 10px !important;
+    }
+
+    .m-card-actions {
+        display: grid !important;
+        grid-template-columns: 1fr 1fr !important;
+        gap: 6px !important;
+        margin-top: auto !important;
+    }
+
+    .m-btn-cart {
+        background: #ffffff !important;
+        border: 1.5px solid rgba(15, 23, 42, 0.22) !important;
+        color: #0f172a !important;
+        padding: 7px 0 !important;
+        font-size: 0.72rem !important;
+        font-weight: 700 !important;
+        border-radius: 6px !important;
+        cursor: pointer !important;
+        text-align: center !important;
+        transition: all 0.2s ease !important;
+    }
+
+    .m-btn-cart:hover {
+        background: #f8fafc !important;
+        border-color: #0f172a !important;
+    }
+
+    .m-btn-pay {
+        background: #0f172a !important;
+        border: none !important;
+        color: #ffffff !important;
+        padding: 7px 0 !important;
+        font-size: 0.72rem !important;
+        font-weight: 800 !important;
+        border-radius: 6px !important;
+        cursor: pointer !important;
+        text-align: center !important;
+        transition: all 0.2s ease !important;
+    }
+
+    .m-btn-pay:hover {
+        background: #000000 !important;
+    }
+
+    /* Brand Footer Action Link */
+    .m-brand-footer {
+        display: flex !important;
+        justify-content: flex-end !important;
+        border-top: 1px solid rgba(15, 23, 42, 0.06) !important;
+        padding-top: 14px !important;
+        margin-top: 6px !important;
+    }
+
+    .m-btn-view-brand {
+        display: inline-flex !important;
+        align-items: center !important;
+        gap: 8px !important;
+        background: #f8fafc !important;
+        border: 1.5px solid rgba(15, 23, 42, 0.16) !important;
+        color: #0f172a !important;
+        padding: 9px 20px !important;
+        border-radius: 9999px !important;
+        font-family: var(--font-display) !important;
+        font-size: 0.82rem !important;
+        font-weight: 700 !important;
+        cursor: pointer !important;
+        transition: all 0.2s ease !important;
+    }
+
+    .m-btn-view-brand:hover {
+        background: #0f172a !important;
+        color: #ffffff !important;
+        border-color: #0f172a !important;
+    }
+
+    /* iDADA Spotlight card on Desktop */
+    .m-idada-spotlight-card .m-brand-banner-row {
+        border-bottom: none !important;
+        margin-bottom: 0 !important;
+        padding-bottom: 0 !important;
+    }
+
+    .m-idada-spotlight-card .m-spotlight-buttons {
+        display: flex !important;
+        gap: 12px !important;
+        margin-top: 16px !important;
+        max-width: 440px !important;
+    }
+}
+
+.showrooms-global-footer {
+    display: flex;
+    justify-content: center;
+    padding: 28px 0 16px 0;
+    width: 100%;
+}
+
+.btn-view-all-catalog {
+    background: #0f172a;
+    color: #ffffff;
+    border: none;
+    border-radius: 9999px;
+    padding: 13px 32px;
+    font-family: var(--font-display);
+    font-size: 0.88rem;
+    font-weight: 700;
+    letter-spacing: 0.03em;
+    cursor: pointer;
+    box-shadow: 0 4px 14px rgba(15, 23, 42, 0.12);
+    transition: all 0.25s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.btn-view-all-catalog:hover {
+    background: #000000;
+    box-shadow: 0 6px 20px rgba(15, 23, 42, 0.22);
+    transform: translateY(-2px);
 }

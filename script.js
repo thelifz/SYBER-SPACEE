@@ -1063,8 +1063,19 @@ function filterCatalogByNav(cat, linkEl, event) {
     document.querySelectorAll('.cat-nav-link').forEach(l => l.classList.remove('active'));
     if (linkEl) linkEl.classList.add('active');
     
-    // Trigger catalog category selection
-    quickFilterCategory(cat, null);
+    if (cat === 'all') {
+        window.forceFullCatalogGrid = false;
+        const headerInput = document.getElementById('header-search-input');
+        if (headerInput) headerInput.value = '';
+        const cameraInput = document.getElementById('camera-search-input');
+        if (cameraInput) cameraInput.value = '';
+        const mobileInput = document.getElementById('mobile-search-input');
+        if (mobileInput) mobileInput.value = '';
+        selectTextCategory('all', null);
+    } else {
+        window.forceFullCatalogGrid = true;
+        quickFilterCategory(cat, null);
+    }
     
     const camerasEl = document.getElementById('cameras');
     if (camerasEl) {
@@ -1588,9 +1599,13 @@ function onFilterCriteriaChange() {
         matchedCards.sort((a, b) => (a.getAttribute('data-name') || '').localeCompare(b.getAttribute('data-name') || ''));
     }
 
-    // Strict Separation: Desktop (>768px) vs Mobile Phone (<=768px)
-    const isMobile = window.innerWidth <= 768;
+    // Unified Clean Architecture (Desktop & Mobile): Brand Showrooms by Default, Uncrowded Grid when Filtering
     const isSearching = Boolean(query && query.trim().length > 0);
+    const hasCategoryFilter = selectedCategories.length > 0 && !selectedCategories.includes('all');
+    const hasBrandFilter = selectedBrands.length > 0 && !selectedBrands.includes('all');
+    const hasFeatureFilter = selectedFeatures.length > 0;
+    const hasPriceFilter = maxPrice < 50000;
+    const isFiltering = isSearching || hasCategoryFilter || hasBrandFilter || hasFeatureFilter || hasPriceFilter || Boolean(window.forceFullCatalogGrid);
 
     const showroomsEl = document.getElementById('mobile-brand-showrooms');
     const statusBar = document.querySelector('.ecom-status-bar');
@@ -1598,66 +1613,39 @@ function onFilterCriteriaChange() {
     const textFilterSuite = document.getElementById('text-filter-suite');
     const sidebarFilters = document.querySelector('.sidebar-filters');
 
-    if (isMobile) {
-        // MOBILE PHONE EXPERIENCE:
-        if (sidebarFilters) sidebarFilters.style.display = 'none';
-        if (productsHeader) productsHeader.style.display = 'none';
-        if (textFilterSuite) textFilterSuite.style.display = 'none';
-
-        if (isSearching) {
-            // User is actively searching on mobile: Show matching search results, hide showrooms
-            if (showroomsEl) showroomsEl.style.display = 'none';
-            grid.classList.add('is-searching');
-            grid.style.display = 'grid';
-            if (statusBar) {
-                statusBar.style.display = 'flex';
-                const countElem = document.getElementById('filtered-count-num');
-                if (countElem) countElem.textContent = matchedCards.length + ' matching';
-            }
-            matchedCards.forEach(card => {
-                card.style.display = 'flex';
-                grid.appendChild(card);
-            });
-            if (typeof gsap !== 'undefined' && matchedCards.length > 0) {
-                gsap.killTweensOf(cards);
-                gsap.fromTo(matchedCards,
-                    { opacity: 0, y: 14 },
-                    { opacity: 1, y: 0, duration: 0.3, stagger: 0.03, ease: 'power2.out', clearProps: 'transform,opacity' }
-                );
-            }
-        } else {
-            // Default Clean Mobile View: Showrooms Only, completely hide crowded hardware listing!
-            if (showroomsEl) showroomsEl.style.display = 'flex';
-            grid.classList.remove('is-searching');
-            grid.style.display = 'none';
-            if (statusBar) statusBar.style.display = 'none';
-            matchedCards.forEach(card => {
-                card.style.display = 'none';
-            });
-        }
-    } else {
-        // DESKTOP EXPERIENCE (> 768px): 100% FULL ORIGINAL PRODUCT CATALOG
+    if (isFiltering) {
+        // User is searching or filtering: Show clean uncrowded product grid, hide showrooms
         if (showroomsEl) showroomsEl.style.display = 'none';
-        if (sidebarFilters) sidebarFilters.style.display = 'block';
-        if (productsHeader) productsHeader.style.display = 'flex';
-        if (textFilterSuite) textFilterSuite.style.display = 'flex';
-
-        grid.classList.remove('is-searching');
         grid.style.display = 'grid';
+        grid.classList.add('is-searching');
+        if (statusBar) {
+            statusBar.style.display = 'flex';
+            const countElem = document.getElementById('filtered-count-num');
+            if (countElem) countElem.textContent = matchedCards.length;
+        }
         matchedCards.forEach(card => {
             card.style.display = 'flex';
             grid.appendChild(card);
         });
+        cards.forEach(card => {
+            if (!matchedCards.includes(card)) card.style.display = 'none';
+        });
         if (typeof gsap !== 'undefined' && matchedCards.length > 0) {
             gsap.killTweensOf(cards);
             gsap.fromTo(matchedCards,
-                { opacity: 0, y: 16 },
-                { opacity: 1, y: 0, duration: 0.35, stagger: 0.025, ease: 'power2.out', clearProps: 'transform,opacity' }
+                { opacity: 0, y: 14 },
+                { opacity: 1, y: 0, duration: 0.3, stagger: 0.02, ease: 'power2.out', clearProps: 'transform,opacity' }
             );
         }
-        if (statusBar) statusBar.style.display = 'flex';
-        const countElem = document.getElementById('filtered-count-num');
-        if (countElem) countElem.textContent = matchedCards.length;
+    } else {
+        // Default Clean View: Show Curated Brand Showrooms, Hide Giant Crowded Listing
+        if (showroomsEl) showroomsEl.style.display = 'flex';
+        grid.style.display = 'none';
+        grid.classList.remove('is-searching');
+        if (statusBar) statusBar.style.display = 'none';
+        cards.forEach(card => {
+            card.style.display = 'none';
+        });
     }
 
     const emptyNotice = document.getElementById('catalog-no-results');
@@ -2451,17 +2439,27 @@ function quickFilterCategory(cat, btn) {
 // MOBILE BRAND SHOWROOM EXPLORATION & AUTO-TOGGLE
 // =============================================================================
 function openBrandCatalog(brandKey) {
+    window.forceFullCatalogGrid = true;
     if (brandKey === 'accessory') {
         selectTextCategory('accessory', null);
     } else {
         selectTextBrand(brandKey, null);
     }
 
-    const gridHeader = document.querySelector('.products-header-left');
+    const gridHeader = document.querySelector('.products-header-left') || document.getElementById('cameras');
     if (gridHeader) {
         gridHeader.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
 }
+
+window.viewAllProductsInGrid = function() {
+    window.forceFullCatalogGrid = true;
+    selectTextCategory('all', null);
+    const gridHeader = document.querySelector('.products-header-left') || document.getElementById('cameras');
+    if (gridHeader) {
+        gridHeader.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+};
 
 // =============================================================================
 // GSAP ANIMATION ENGINE (APPEARANCES & DISAPPEARANCES)
