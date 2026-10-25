@@ -9,16 +9,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@700;800;900&family=Space+Grotesk:wght@700;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css?v=9.1">
+    <link rel="stylesheet" href="style.css?v=9.2">
 </head>
 <body class="observe-body">
-
-    <!-- Interactive Tactical Reticle Cursor -->
-    <div class="hud-reticle" id="hud-reticle">
-        <div class="reticle-ring"></div>
-        <div class="reticle-dot"></div>
-        <div class="reticle-label">REC ●</div>
-    </div>
 
     <!-- ======================================================================
          OBSERVE-STYLE BRUTALIST MINIMAL HEADER
@@ -30,14 +23,14 @@
             </a>
 
             <nav class="observe-nav">
-                <a href="#deployments" class="nav-item">DEPLOYMENTS</a>
+                <a href="#hero" class="nav-item">LIVE CAMERAS</a>
                 <a href="#wholesale" class="nav-item">WHOLESALE TIERS</a>
                 <a href="#procurement" class="nav-item">PROCUREMENT</a>
             </nav>
 
             <div class="header-clock-box">
                 <span class="clock-live-dot"></span>
-                <span class="hud-time" id="hud-clock">12:18:08:44</span>
+                <span class="hud-time" id="hud-clock">20:22:06:66</span>
             </div>
         </div>
     </header>
@@ -45,7 +38,7 @@
     <main id="app-root">
 
         <!-- ==================================================================
-             SECTION 1: HERO VIEWPORT (OBSERVE BRUTALIST AESTHETIC)
+             SECTION 1: HERO VIEWPORT WITH MULTI-FEED CINEMATIC SLIDESHOW
              ================================================================== -->
         <section class="observe-hero-section" id="hero">
             <div class="hero-viewport-frame">
@@ -54,8 +47,9 @@
                     
                     <!-- Top Monitor Telemetry Strip -->
                     <div class="cctv-telemetry-top">
-                        <div class="cam-id">
-                            <span class="cam-code">CAM-01 [MAIN ENTRANCE]</span>
+                        <div class="cam-id-group">
+                            <span class="cam-code" id="active-cam-title">CAM-01 [PARKING ENTRANCE]</span>
+                            <span class="cam-specs-pill" id="active-cam-specs">4MP ULTRA HD &bull; 60 FPS &bull; IR NIGHT VISION</span>
                         </div>
                         <div class="cam-status">
                             <span class="rec-beacon">●</span>
@@ -63,22 +57,55 @@
                         </div>
                     </div>
 
-                    <!-- Reticle on Left (Exact match to screenshot 2) -->
-                    <div class="cctv-reticle-left">
-                        <div class="radar-scope">
-                            <span class="radar-ping"></span>
+                    <!-- CCTV Slideshow Viewport -->
+                    <div class="cctv-feed-viewport" id="cctv-slideshow">
+                        
+                        <!-- Slide 1: Live Parking Lot Video -->
+                        <div class="cctv-slide active" data-index="0" data-cam="CAM-01 [PARKING ENTRANCE]" data-specs="4MP ULTRA HD &bull; 60 FPS &bull; IR NIGHT VISION">
+                            <video class="cctv-slide-media" autoplay loop muted playsinline preload="auto">
+                                <source src="cctv_parking_video.mp4" type="video/mp4">
+                            </video>
                         </div>
-                        <span class="radar-txt">REC</span>
-                    </div>
 
-                    <!-- CCTV Live Video Background -->
-                    <div class="cctv-feed-viewport">
-                        <video id="cctv-video-stream" class="cctv-video-elem" autoplay loop muted playsinline preload="auto">
-                            <source src="cctv_parking_video.mp4" type="video/mp4">
-                        </video>
+                        <!-- Slide 2: Luxury Residence Architectural Image -->
+                        <div class="cctv-slide" data-index="1" data-cam="CAM-02 [LUXURY RESIDENCE]" data-specs="2K ULTRA HD &bull; IP66 ALL-WEATHER &bull; PERIMETER SIREN">
+                            <img src="assets/scenario_luxury_home.jpg" alt="Luxury Architectural Residence Surveillance" class="cctv-slide-media" loading="eager">
+                        </div>
+
+                        <!-- Slide 3: Commercial Glass Towers Image -->
+                        <div class="cctv-slide" data-index="2" data-cam="CAM-03 [COMMERCIAL TOWERS]" data-specs="GIGABIT POE BACKBONE &bull; DUAL SATA 16TB 4K NVR">
+                            <img src="assets/scenario_commercial.jpg" alt="Commercial Towers Surveillance Backbone" class="cctv-slide-media" loading="lazy">
+                        </div>
+
+                        <!-- Slide 4: Corporate Tech Office Image -->
+                        <div class="cctv-slide" data-index="3" data-cam="CAM-04 [CORPORATE OFFICES]" data-specs="360° AI PTZ &bull; 2-WAY NOISE-CANCEL AUDIO &bull; HUMAN TRACKING">
+                            <img src="assets/scenario_office.jpg" alt="Corporate Tech Office Surveillance" class="cctv-slide-media" loading="lazy">
+                        </div>
+
+                        <!-- Slide 5: Retail Shops & Cash Counter Image -->
+                        <div class="cctv-slide" data-index="4" data-cam="CAM-05 [RETAIL CASH COUNTER]" data-specs="CURRENCY MONITORING &bull; 0-LUX COLOR &bull; LAN PORT">
+                            <img src="assets/scenario_retail.jpg" alt="Retail Shops and Cash Counter Monitoring" class="cctv-slide-media" loading="lazy">
+                        </div>
+
+                        <!-- Slide 6: Live Aisle Motion Video -->
+                        <div class="cctv-slide" data-index="5" data-cam="CAM-06 [AISLE MOTION FEED]" data-specs="HIGH-TRAFFIC SENSOR &bull; SMART MOTION EVENT RECORDING">
+                            <video class="cctv-slide-media" loop muted playsinline preload="none">
+                                <source src="cctv_aisle_video.mp4" type="video/mp4">
+                            </video>
+                        </div>
+
+                        <!-- CRT Scanlines & Surveillance Vignette Layers -->
                         <div class="cctv-scanlines-layer"></div>
                         <div class="cctv-vignette-layer"></div>
                     </div>
+
+                    <!-- Slide Navigation Arrows -->
+                    <button class="cctv-arrow cctv-prev" id="cctv-prev-btn" aria-label="Previous Camera Feed">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"></polyline></svg>
+                    </button>
+                    <button class="cctv-arrow cctv-next" id="cctv-next-btn" aria-label="Next Camera Feed">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                    </button>
 
                     <!-- Massive Metallic/Chromatic Aberration Glitch Headline -->
                     <div class="cctv-hero-content">
@@ -86,218 +113,46 @@
                             WE ARE<br>WATCHING
                         </h1>
                         <p class="observe-kicker-sub">
-                            NEXT-GEN SURVEILLANCE FOR COMMERCIAL &amp; RESIDENTIAL PROPERTIES.<br>
+                            NEXT-GEN SURVEILLANCE FOR COMMERCIAL &amp; RESIDENTIAL SITES.<br>
                             DIRECT AUTHORIZED WHOLESALE PROCUREMENT.
                         </p>
                         <div class="hero-actions-row">
                             <a href="#wholesale" class="btn-observe-box">
-                                <span>GET WHOLESALE PRICING &rarr;</span>
+                                <span>GET WHOLESALE DISCOUNT &rarr;</span>
                             </a>
                         </div>
                     </div>
+
+                    <!-- Bottom Camera Switcher & Progress Bar -->
+                    <div class="cctv-bottom-bar">
+                        <div class="cam-switcher-tabs" id="cam-tabs">
+                            <button class="cam-tab-btn active" data-index="0">CAM 01</button>
+                            <button class="cam-tab-btn" data-index="1">CAM 02</button>
+                            <button class="cam-tab-btn" data-index="2">CAM 03</button>
+                            <button class="cam-tab-btn" data-index="3">CAM 04</button>
+                            <button class="cam-tab-btn" data-index="4">CAM 05</button>
+                            <button class="cam-tab-btn" data-index="5">CAM 06</button>
+                        </div>
+                        <div class="slideshow-progress-track">
+                            <div class="slideshow-progress-bar" id="slide-progress"></div>
+                        </div>
+                    </div>
+
                 </div>
             </div>
 
-            <!-- Angled Radioactive Neon Green Slanted Ribbon (Exact match to screenshot 2) -->
+            <!-- Angled Radioactive Neon Green Slanted Ribbon -->
             <div class="neon-slanted-ribbon">
                 <div class="ribbon-marquee-track">
-                    <span class="marquee-text">// WHOLESALE DISCOUNTS // DIRECT AUTHORIZED DISTRIBUTOR // CP PLUS &amp; TRUEVIEW // 100% GENUINE WARRANTY // BULK PROCUREMENT RATES // NO MIDDLEMEN // PAN-INDIA DISPATCH // ZERO BLIND SPOTS // EYES ON EVERYTHING //</span>
-                    <span class="marquee-text">// WHOLESALE DISCOUNTS // DIRECT AUTHORIZED DISTRIBUTOR // CP PLUS &amp; TRUEVIEW // 100% GENUINE WARRANTY // BULK PROCUREMENT RATES // NO MIDDLEMEN // PAN-INDIA DISPATCH // ZERO BLIND SPOTS // EYES ON EVERYTHING //</span>
+                    <span class="marquee-text">// GET WHOLESALE DISCOUNT // BUY DIRECT IN WHOLESALE // AUTHORIZED DISTRIBUTOR // CP PLUS &amp; TRUEVIEW // 100% GENUINE WARRANTY // BULK PROCUREMENT RATES // NO MIDDLEMEN // PAN-INDIA DISPATCH // ZERO BLIND SPOTS //</span>
+                    <span class="marquee-text">// GET WHOLESALE DISCOUNT // BUY DIRECT IN WHOLESALE // AUTHORIZED DISTRIBUTOR // CP PLUS &amp; TRUEVIEW // 100% GENUINE WARRANTY // BULK PROCUREMENT RATES // NO MIDDLEMEN // PAN-INDIA DISPATCH // ZERO BLIND SPOTS //</span>
                 </div>
             </div>
         </section>
 
 
         <!-- ==================================================================
-             SECTION 2: MISSION DEPLOYMENTS (NO FARM - HOMES, OFFICES, COMMERCIAL)
-             ================================================================== -->
-        <section class="observe-deployments-section" id="deployments">
-            <div class="deployments-wrapper">
-                <div class="deployments-top-bar">
-                    <div class="dtb-title-group">
-                        <span class="dtb-kicker">ENGINEERED SPACES</span>
-                        <h2 class="dtb-title">MISSION DEPLOYMENTS</h2>
-                    </div>
-                    <div class="dtb-desc-group">
-                        <p class="dtb-desc">
-                            High-precision surveillance architecture for luxury homes, corporate towers, tech workspaces, and retail chains. Procure directly at authorized wholesale volume rates with verified GST tax invoice.
-                        </p>
-                    </div>
-                </div>
-
-                <!-- 4 Real Space Cards (No Farm) -->
-                <div class="deployments-cards-grid">
-                    
-                    <!-- Space 1: Modern Luxury Residence & Villa -->
-                    <div class="deploy-card" data-space="home">
-                        <div class="card-media-box">
-                            <img src="assets/scenario_luxury_home.jpg" alt="Luxury Architectural Home & Villa Surveillance" class="card-img" loading="lazy">
-                            <div class="card-hud-overlay">
-                                <span class="hud-badge">RESIDENTIAL WHOLESALE // 5+ UNITS</span>
-                                <span class="hud-coord">GRID 01 // RESIDENCE</span>
-                            </div>
-                        </div>
-                        <div class="card-info-box">
-                            <div class="card-tags-row">
-                                <span class="tag-pill accent">WHOLESALE DISCOUNT: 35% OFF</span>
-                                <span class="tag-pill">IP66 WEATHERPROOF</span>
-                            </div>
-                            <h3 class="card-heading">MODERN RESIDENCE &amp; LUXURY HOMES</h3>
-                            <div class="card-specs-matrix">
-                                <div class="c-spec-row">
-                                    <span class="cs-label">PERIMETER DEFENSE</span>
-                                    <span class="cs-val">4MP 2K ULTRA HD + ACTIVE MOTION SIREN</span>
-                                </div>
-                                <div class="c-spec-row">
-                                    <span class="cs-label">LOW-LIGHT ILLUMINATION</span>
-                                    <span class="cs-val">30M INFRARED MATRIX NIGHT CLARITY</span>
-                                </div>
-                                <div class="c-spec-row">
-                                    <span class="cs-label">ENCLOSURE SPEC</span>
-                                    <span class="cs-val">HEAVY-DUTY DIE-CAST ALL-WEATHER SEAL</span>
-                                </div>
-                            </div>
-                            <div class="card-bottom-action">
-                                <div class="wholesale-hint">
-                                    <span class="wh-top">WHOLESALE TIER:</span>
-                                    <span class="wh-bottom">MIN 5 UNITS &bull; GST BILLING</span>
-                                </div>
-                                <a href="https://wa.me/917511180808?text=Hello%20Syber%20Space%2C%20I%20am%20inquiring%20about%20Wholesale%20Discount%20pricing%20for%20Luxury%20Home%20surveillance%20hardware." target="_blank" rel="noopener noreferrer" class="card-wholesale-btn">
-                                    <span>GET WHOLESALE DISCOUNT &rarr;</span>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Space 2: Commercial Buildings & Corporate Towers -->
-                    <div class="deploy-card" data-space="commercial">
-                        <div class="card-media-box">
-                            <img src="assets/scenario_commercial.jpg" alt="Hotels and Commercial Towers Surveillance Backbone" class="card-img" loading="lazy">
-                            <div class="card-hud-overlay">
-                                <span class="hud-badge">ENTERPRISE WHOLESALE // 10+ UNITS</span>
-                                <span class="hud-coord">GRID 02 // COMMERCIAL</span>
-                            </div>
-                        </div>
-                        <div class="card-info-box">
-                            <div class="card-tags-row">
-                                <span class="tag-pill accent">WHOLESALE DISCOUNT: 40% OFF</span>
-                                <span class="tag-pill">GIGABIT POE SWITCH</span>
-                            </div>
-                            <h3 class="card-heading">HOTELS &amp; COMMERCIAL TOWERS</h3>
-                            <div class="card-specs-matrix">
-                                <div class="c-spec-row">
-                                    <span class="cs-label">SWITCH ARCHITECTURE</span>
-                                    <span class="cs-val">8-PORT POE + 2 GIGABIT HIGH-SPEED UPLINKS</span>
-                                </div>
-                                <div class="c-spec-row">
-                                    <span class="cs-label">NVR STORAGE BACKBONE</span>
-                                    <span class="cs-val">DUAL SATA 16TB 4K 32-CHANNEL CONTINUOUS</span>
-                                </div>
-                                <div class="c-spec-row">
-                                    <span class="cs-label">THROUGHPUT CLASS</span>
-                                    <span class="cs-val">10/100/1000 MBPS SURVEILLANCE CLASS</span>
-                                </div>
-                            </div>
-                            <div class="card-bottom-action">
-                                <div class="wholesale-hint">
-                                    <span class="wh-top">WHOLESALE TIER:</span>
-                                    <span class="wh-bottom">COMMERCIAL TENDER &bull; BOQ READY</span>
-                                </div>
-                                <a href="https://wa.me/917511180808?text=Hello%20Syber%20Space%2C%20I%20am%20inquiring%20about%20Wholesale%20Discount%20pricing%20for%20Commercial%20Building%20PoE%20and%20NVR%20systems." target="_blank" rel="noopener noreferrer" class="card-wholesale-btn">
-                                    <span>GET WHOLESALE DISCOUNT &rarr;</span>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Space 3: Corporate Tech Offices & Workspaces -->
-                    <div class="deploy-card" data-space="office">
-                        <div class="card-media-box">
-                            <img src="assets/scenario_office.jpg" alt="Corporate Tech Office and Workstation Surveillance" class="card-img" loading="lazy">
-                            <div class="card-hud-overlay">
-                                <span class="hud-badge">OFFICE WHOLESALE // 5+ UNITS</span>
-                                <span class="hud-coord">GRID 03 // WORKSPACE</span>
-                            </div>
-                        </div>
-                        <div class="card-info-box">
-                            <div class="card-tags-row">
-                                <span class="tag-pill accent">WHOLESALE DISCOUNT: 38% OFF</span>
-                                <span class="tag-pill">360° AI PTZ</span>
-                            </div>
-                            <h3 class="card-heading">CORPORATE TECH OFFICES &amp; WORKSPACES</h3>
-                            <div class="card-specs-matrix">
-                                <div class="c-spec-row">
-                                    <span class="cs-label">AUDIO INTERCOM</span>
-                                    <span class="cs-val">2-WAY NOISE-CANCELLING VOICE MIC &amp; SPEAKER</span>
-                                </div>
-                                <div class="c-spec-row">
-                                    <span class="cs-label">PAN-TILT DRIVE</span>
-                                    <span class="cs-val">WHISPER-QUIET MOTORIZED 360° AI HUMAN TRACKING</span>
-                                </div>
-                                <div class="c-spec-row">
-                                    <span class="cs-label">HUMANOID AI ENGINE</span>
-                                    <span class="cs-val">ZERO FALSE ALARMS &bull; INSTANT MOBILE NOTIFICATION</span>
-                                </div>
-                            </div>
-                            <div class="card-bottom-action">
-                                <div class="wholesale-hint">
-                                    <span class="wh-top">WHOLESALE TIER:</span>
-                                    <span class="wh-bottom">FLOORPACK BUNDLE &bull; GST BILLING</span>
-                                </div>
-                                <a href="https://wa.me/917511180808?text=Hello%20Syber%20Space%2C%20I%20am%20inquiring%20about%20Wholesale%20Discount%20pricing%20for%20Corporate%20Office%20surveillance." target="_blank" rel="noopener noreferrer" class="card-wholesale-btn">
-                                    <span>GET WHOLESALE DISCOUNT &rarr;</span>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Space 4: Retail Stores & Cash Counters -->
-                    <div class="deploy-card" data-space="retail">
-                        <div class="card-media-box">
-                            <img src="assets/scenario_retail.jpg" alt="Retail Stores & Cash Counter Face Monitoring" class="card-img" loading="lazy">
-                            <div class="card-hud-overlay">
-                                <span class="hud-badge">RETAIL WHOLESALE // 5+ UNITS</span>
-                                <span class="hud-coord">GRID 04 // RETAIL</span>
-                            </div>
-                        </div>
-                        <div class="card-info-box">
-                            <div class="card-tags-row">
-                                <span class="tag-pill accent">WHOLESALE DISCOUNT: 36% OFF</span>
-                                <span class="tag-pill">ETHERNET LAN PORT</span>
-                            </div>
-                            <h3 class="card-heading">RETAIL SHOPS &amp; CASH COUNTERS</h3>
-                            <div class="card-specs-matrix">
-                                <div class="c-spec-row">
-                                    <span class="cs-label">CURRENCY MONITORING</span>
-                                    <span class="cs-val">CRISP BILLING COUNTER &amp; FACIAL RECORDING</span>
-                                </div>
-                                <div class="c-spec-row">
-                                    <span class="cs-label">HYBRID NETWORK</span>
-                                    <span class="cs-val">DIRECT WIRED LAN PORT + WI-FI FALLBACK</span>
-                                </div>
-                                <div class="c-spec-row">
-                                    <span class="cs-label">NOCTURNAL CLARITY</span>
-                                    <span class="cs-val">24/7 VIVID COLOR LOW-LUX SENSING AT 0 LUX</span>
-                                </div>
-                            </div>
-                            <div class="card-bottom-action">
-                                <div class="wholesale-hint">
-                                    <span class="wh-top">WHOLESALE TIER:</span>
-                                    <span class="wh-bottom">MULTI-STORE PACK &bull; 1-YR WARRANTY</span>
-                                </div>
-                                <a href="https://wa.me/917511180808?text=Hello%20Syber%20Space%2C%20I%20am%20inquiring%20about%20Wholesale%20Discount%20pricing%20for%20Retail%20Store%20surveillance." target="_blank" rel="noopener noreferrer" class="card-wholesale-btn">
-                                    <span>GET WHOLESALE DISCOUNT &rarr;</span>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-
-        <!-- ==================================================================
-             SECTION 3: WHOLESALE DISCOUNT TIERS (BUY IN WHOLESALE)
+             SECTION 2: WHOLESALE DISCOUNT TIERS (BUY IN WHOLESALE)
              ================================================================== -->
         <section class="observe-wholesale-section" id="wholesale">
             <div class="wholesale-wrapper">
@@ -376,13 +231,13 @@
 
 
         <!-- ==================================================================
-             SECTION 4: TACTICAL PROCUREMENT HOTLINE
+             SECTION 3: TACTICAL PROCUREMENT HOTLINE
              ================================================================== -->
         <section class="observe-contact-section" id="procurement">
             <div class="procurement-container">
                 <div class="procurement-box">
                     <span class="p-kicker">DIRECT WHOLESALE DISTRIBUTION // KERALA HQ</span>
-                    <h2 class="p-title">READY TO PROCURE IN WHOLESALE?</h2>
+                    <h2 class="p-title">READY TO BUY IN WHOLESALE?</h2>
                     <p class="p-desc">
                         Connect directly with our commercial wholesale desk for bulk stock availability, authorized quotations, and expedited dispatch.
                     </p>
@@ -418,6 +273,6 @@
     <!-- GSAP 3 Core & ScrollTrigger -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-    <script src="script.js?v=9.1"></script>
+    <script src="script.js?v=9.2"></script>
 </body>
 </html>

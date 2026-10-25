@@ -1,6 +1,6 @@
 /**
  * SYBER SPACE // AUTHORIZED WHOLESALE SURVEILLANCE
- * GSAP 3 CYBERNETIC MOTION CONTROLLER
+ * GSAP 3 MOTION CONTROLLER & CCTV MULTI-FEED SLIDESHOW
  */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -12,15 +12,14 @@ document.addEventListener('DOMContentLoaded', () => {
         initGsapMotion();
     }
 
-    // 2. Initialize Telemetry Engines
+    // 2. Initialize Core Systems
     initHudClock();
-    initReticleCursor();
-    initVideoAutoplay();
+    initCctvSlideshow();
     initMarqueeScrollBoost();
 });
 
 /* ==========================================================================
-   1. REAL-TIME HUD CLOCK (Exact match to screenshot 2: 12:18:08:44)
+   1. REAL-TIME HUD CLOCK (20:22:06:66)
    ========================================================================== */
 function initHudClock() {
     const clockEl = document.getElementById('hud-clock');
@@ -39,58 +38,158 @@ function initHudClock() {
 }
 
 /* ==========================================================================
-   2. INTERACTIVE TACTICAL RETICLE CURSOR
+   2. HIGH-DEFINITION CCTV MULTI-FEED SLIDESHOW CONTROLLER
    ========================================================================== */
-function initReticleCursor() {
-    const reticle = document.getElementById('hud-reticle');
-    if (!reticle || window.matchMedia('(pointer: coarse)').matches) return;
+function initCctvSlideshow() {
+    const slides = document.querySelectorAll('.cctv-slide');
+    const tabs = document.querySelectorAll('.cam-tab-btn');
+    const prevBtn = document.getElementById('cctv-prev-btn');
+    const nextBtn = document.getElementById('cctv-next-btn');
+    const titleEl = document.getElementById('active-cam-title');
+    const specsEl = document.getElementById('active-cam-specs');
+    const progressBar = document.getElementById('slide-progress');
+    const monitor = document.querySelector('.cctv-monitor-window');
 
-    let mouseX = window.innerWidth / 2;
-    let mouseY = window.innerHeight / 2;
-    let currentX = mouseX;
-    let currentY = mouseY;
-    let isHovering = false;
+    if (!slides.length) return;
 
-    window.addEventListener('mousemove', (e) => {
-        document.body.classList.add('cursor-active');
-        mouseX = e.clientX;
-        mouseY = e.clientY;
-    });
+    let currentIndex = 0;
+    const totalSlides = slides.length;
+    const SLIDE_DURATION = 5500; // 5.5 seconds per feed
+    let slideTimer = null;
+    let progressStartTime = 0;
+    let isPaused = false;
+    let animFrame = null;
 
-    // Check hover states on interactive elements
-    const interactiveElements = document.querySelectorAll('a, button, .deploy-card, .tier-box, .btn-observe-box');
-    interactiveElements.forEach((el) => {
-        el.addEventListener('mouseenter', () => {
-            isHovering = true;
-            reticle.style.width = '52px';
-            reticle.style.height = '52px';
-            const ring = reticle.querySelector('.reticle-ring');
-            if (ring) {
-                ring.style.borderColor = 'rgba(0, 255, 102, 0.9)';
-                ring.style.borderStyle = 'solid';
+    function goToSlide(newIndex) {
+        if (newIndex === currentIndex && slides[currentIndex].classList.contains('active')) {
+            return;
+        }
+
+        // Pause previous video if it exists
+        const prevVideo = slides[currentIndex].querySelector('video');
+        if (prevVideo) {
+            prevVideo.pause();
+        }
+
+        // Deactivate current slide & tab
+        slides[currentIndex].classList.remove('active');
+        if (tabs[currentIndex]) {
+            tabs[currentIndex].classList.remove('active');
+        }
+
+        // Update index (wraps around)
+        currentIndex = (newIndex + totalSlides) % totalSlides;
+
+        const nextSlide = slides[currentIndex];
+        nextSlide.classList.add('active');
+
+        if (tabs[currentIndex]) {
+            tabs[currentIndex].classList.add('active');
+        }
+
+        // Play active video if it exists
+        const nextVideo = nextSlide.querySelector('video');
+        if (nextVideo) {
+            nextVideo.currentTime = 0;
+            const playPromise = nextVideo.play();
+            if (playPromise !== undefined) {
+                playPromise.catch(() => {
+                    // Browser policy fallback
+                });
             }
-        });
-        el.addEventListener('mouseleave', () => {
-            isHovering = false;
-            reticle.style.width = '36px';
-            reticle.style.height = '36px';
-            const ring = reticle.querySelector('.reticle-ring');
-            if (ring) {
-                ring.style.borderColor = 'rgba(0, 255, 102, 0.45)';
-                ring.style.borderStyle = 'dashed';
-            }
-        });
-    });
+        }
 
-    // Smooth animation loop
-    function updateReticle() {
-        const ease = 0.28;
-        currentX += (mouseX - currentX) * ease;
-        currentY += (mouseY - currentY) * ease;
-        reticle.style.transform = `translate(${currentX}px, ${currentY}px)`;
-        requestAnimationFrame(updateReticle);
+        // Update Top Telemetry Bar smoothly
+        const camTitle = nextSlide.getAttribute('data-cam');
+        const camSpecs = nextSlide.getAttribute('data-specs');
+
+        if (titleEl && camTitle) {
+            titleEl.textContent = camTitle;
+        }
+        if (specsEl && camSpecs) {
+            specsEl.innerHTML = camSpecs;
+        }
+
+        resetProgress();
     }
-    requestAnimationFrame(updateReticle);
+
+    function nextSlide() {
+        goToSlide(currentIndex + 1);
+    }
+
+    function prevSlide() {
+        goToSlide(currentIndex - 1);
+    }
+
+    // Progress Bar Animation Loop
+    function updateProgress(now) {
+        if (!isPaused && progressStartTime > 0) {
+            const elapsed = now - progressStartTime;
+            const progress = Math.min((elapsed / SLIDE_DURATION) * 100, 100);
+            if (progressBar) {
+                progressBar.style.width = `${progress}%`;
+            }
+
+            if (elapsed >= SLIDE_DURATION) {
+                nextSlide();
+                return;
+            }
+        }
+        animFrame = requestAnimationFrame(updateProgress);
+    }
+
+    function resetProgress() {
+        progressStartTime = performance.now();
+        if (progressBar) {
+            progressBar.style.width = '0%';
+        }
+    }
+
+    // Event Listeners
+    if (nextBtn) nextBtn.addEventListener('click', nextSlide);
+    if (prevBtn) prevBtn.addEventListener('click', prevSlide);
+
+    tabs.forEach((tab) => {
+        tab.addEventListener('click', () => {
+            const idx = parseInt(tab.getAttribute('data-index'), 10);
+            goToSlide(idx);
+        });
+    });
+
+    // Pause on Hover
+    if (monitor) {
+        monitor.addEventListener('mouseenter', () => {
+            isPaused = true;
+        });
+        monitor.addEventListener('mouseleave', () => {
+            isPaused = false;
+            progressStartTime = performance.now();
+        });
+    }
+
+    // Keyboard Navigation
+    window.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowRight') nextSlide();
+        if (e.key === 'ArrowLeft') prevSlide();
+    });
+
+    // Touch Swipe Navigation for Mobile
+    let touchStartX = 0;
+    if (monitor) {
+        monitor.addEventListener('touchstart', (e) => {
+            touchStartX = e.changedTouches[0].screenX;
+        }, { passive: true });
+
+        monitor.addEventListener('touchend', (e) => {
+            const touchEndX = e.changedTouches[0].screenX;
+            if (touchStartX - touchEndX > 50) nextSlide();
+            if (touchEndX - touchStartX > 50) prevSlide();
+        }, { passive: true });
+    }
+
+    // Start slideshow
+    resetProgress();
+    animFrame = requestAnimationFrame(updateProgress);
 }
 
 /* ==========================================================================
@@ -101,14 +200,14 @@ function initGsapMotion() {
     const heroTl = gsap.timeline({ defaults: { ease: 'power3.out' } });
 
     heroTl.from('.cctv-monitor-window', {
-        duration: 1.2,
-        scale: 0.96,
+        duration: 1.1,
+        scale: 0.97,
         opacity: 0,
-        y: 25
+        y: 20
     });
 
     heroTl.from('.cctv-telemetry-top', {
-        duration: 0.7,
+        duration: 0.6,
         opacity: 0,
         y: -15
     }, '-=0.6');
@@ -116,12 +215,12 @@ function initGsapMotion() {
     heroTl.from('.observe-title.glitch-effect', {
         duration: 0.9,
         opacity: 0,
-        y: 35,
-        skewX: -4
+        y: 30,
+        skewX: -3
     }, '-=0.5');
 
     heroTl.from('.observe-kicker-sub', {
-        duration: 0.7,
+        duration: 0.6,
         opacity: 0,
         y: 15
     }, '-=0.4');
@@ -129,55 +228,28 @@ function initGsapMotion() {
     heroTl.from('.btn-observe-box', {
         duration: 0.6,
         opacity: 0,
-        scale: 0.9
+        scale: 0.92
     }, '-=0.3');
 
-    // Hero Glitch Jitter Effect
+    // Subtle Glitch Jitter on Headline
     const glitchTitle = document.querySelector('.observe-title.glitch-effect');
     if (glitchTitle) {
         setInterval(() => {
             if (Math.random() > 0.65) {
                 gsap.to(glitchTitle, {
-                    x: (Math.random() - 0.5) * 6,
-                    skewX: (Math.random() - 0.5) * 4,
+                    x: (Math.random() - 0.5) * 5,
+                    skewX: (Math.random() - 0.5) * 3,
                     duration: 0.08,
                     yoyo: true,
                     repeat: 1,
                     ease: 'rough'
                 });
             }
-        }, 3200);
+        }, 3400);
     }
 
-    // ScrollTrigger: Mission Deployments Section
+    // ScrollTrigger: Wholesale Tiers
     if (typeof ScrollTrigger !== 'undefined') {
-        gsap.from('.deployments-top-bar', {
-            scrollTrigger: {
-                trigger: '.observe-deployments-section',
-                start: 'top 80%',
-                toggleActions: 'play none none none'
-            },
-            duration: 0.9,
-            opacity: 0,
-            y: 40,
-            ease: 'power3.out'
-        });
-
-        // Stagger Cards Reveal
-        gsap.from('.deploy-card', {
-            scrollTrigger: {
-                trigger: '.deployments-cards-grid',
-                start: 'top 82%',
-                toggleActions: 'play none none none'
-            },
-            duration: 0.8,
-            opacity: 0,
-            y: 50,
-            stagger: 0.18,
-            ease: 'power3.out'
-        });
-
-        // ScrollTrigger: Wholesale Tiers
         gsap.from('.wholesale-intro-header', {
             scrollTrigger: {
                 trigger: '.observe-wholesale-section',
@@ -203,7 +275,7 @@ function initGsapMotion() {
             ease: 'power3.out'
         });
 
-        // ScrollTrigger: Procurement Hotline
+        // ScrollTrigger: Procurement Box
         gsap.from('.procurement-box', {
             scrollTrigger: {
                 trigger: '.observe-contact-section',
@@ -240,31 +312,4 @@ function initMarqueeScrollBoost() {
             track.style.animationDuration = '32s';
         }, 150);
     }, { passive: true });
-}
-
-/* ==========================================================================
-   5. VIDEO AUTOPLAY FALLBACK & SMOOTH PLAY
-   ========================================================================== */
-function initVideoAutoplay() {
-    const video = document.getElementById('cctv-video-stream');
-    if (!video) return;
-
-    video.muted = true;
-    video.playsInline = true;
-
-    const playPromise = video.play();
-    if (playPromise !== undefined) {
-        playPromise.catch(() => {
-            // If autoplay is blocked by browser policy, play on first user interaction
-            const resumePlay = () => {
-                video.play();
-                window.removeEventListener('click', resumePlay);
-                window.removeEventListener('scroll', resumePlay);
-                window.removeEventListener('touchstart', resumePlay);
-            };
-            window.addEventListener('click', resumePlay);
-            window.addEventListener('scroll', resumePlay);
-            window.addEventListener('touchstart', resumePlay);
-        });
-    }
 }

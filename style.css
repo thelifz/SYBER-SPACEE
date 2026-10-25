@@ -56,7 +56,6 @@ body.observe-body {
     line-height: 1.5;
     overflow-x: hidden;
     position: relative;
-    cursor: default;
 }
 
 ::selection {
@@ -72,68 +71,6 @@ a {
 img, video {
     max-width: 100%;
     display: block;
-}
-
-/* ==========================================================================
-   INTERACTIVE TACTICAL RETICLE CURSOR
-   ========================================================================== */
-.hud-reticle {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 36px;
-    height: 36px;
-    pointer-events: none;
-    z-index: 9999;
-    transform: translate(-50%, -50%);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: width 0.2s ease, height 0.2s ease, opacity 0.2s ease;
-    opacity: 0;
-}
-
-body.cursor-active .hud-reticle {
-    opacity: 1;
-}
-
-.reticle-ring {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    border: 1px dashed rgba(0, 255, 102, 0.45);
-    border-radius: 50%;
-    animation: reticleSpin 12s linear infinite;
-}
-
-@keyframes reticleSpin {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
-}
-
-.reticle-dot {
-    width: 4px;
-    height: 4px;
-    background-color: var(--c-neon-green);
-    border-radius: 50%;
-    box-shadow: 0 0 8px var(--c-neon-green);
-}
-
-.reticle-label {
-    position: absolute;
-    top: -16px;
-    right: -24px;
-    font-size: 0.6rem;
-    font-weight: 700;
-    letter-spacing: 0.1em;
-    color: var(--c-crimson);
-    white-space: nowrap;
-}
-
-@media (hover: none) and (pointer: coarse) {
-    .hud-reticle {
-        display: none !important;
-    }
 }
 
 /* ==========================================================================
@@ -244,26 +181,26 @@ body.cursor-active .hud-reticle {
 }
 
 /* ==========================================================================
-   SECTION 1: HERO VIEWPORT (OBSERVE BRUTALIST AESTHETIC)
+   SECTION 1: HERO VIEWPORT WITH MULTI-FEED CINEMATIC SLIDESHOW
    ========================================================================== */
 .observe-hero-section {
     position: relative;
     padding-top: 5.5rem;
-    padding-bottom: 3rem;
+    padding-bottom: 2.5rem;
     overflow: hidden;
 }
 
 .hero-viewport-frame {
     max-width: 1360px;
     margin: 0 auto;
-    padding: 1.5rem 1.25rem;
+    padding: 1.25rem;
 }
 
 /* CCTV Monitor Frame Box */
 .cctv-monitor-window {
     position: relative;
     width: 100%;
-    min-height: 580px;
+    min-height: 600px;
     background: var(--c-carbon);
     border: 1px solid rgba(255, 255, 255, 0.14);
     border-radius: 10px;
@@ -274,7 +211,7 @@ body.cursor-active .hud-reticle {
     box-shadow: 0 25px 60px rgba(0, 0, 0, 0.85);
 }
 
-/* Monitor Corner Crosshair Accents */
+/* Corner Technical Accents */
 .cctv-monitor-window::before,
 .cctv-monitor-window::after {
     content: '';
@@ -282,7 +219,7 @@ body.cursor-active .hud-reticle {
     width: 18px;
     height: 18px;
     pointer-events: none;
-    z-index: 20;
+    z-index: 25;
 }
 
 .cctv-monitor-window::before {
@@ -302,21 +239,40 @@ body.cursor-active .hud-reticle {
 /* Top Telemetry Strip */
 .cctv-telemetry-top {
     position: relative;
-    z-index: 15;
+    z-index: 20;
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 1rem 1.5rem;
     border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-    background: linear-gradient(180deg, rgba(6, 7, 9, 0.8) 0%, rgba(6, 7, 9, 0.2) 100%);
+    background: linear-gradient(180deg, rgba(6, 7, 9, 0.85) 0%, rgba(6, 7, 9, 0.25) 100%);
 }
 
-.cam-id {
-    font-size: 0.75rem;
-    font-weight: 700;
-    letter-spacing: 0.14em;
+.cam-id-group {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.cam-code {
+    font-size: 0.82rem;
+    font-weight: 800;
+    letter-spacing: 0.12em;
     color: var(--c-cyan);
     font-family: var(--font-mono);
+    text-transform: uppercase;
+}
+
+.cam-specs-pill {
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    color: var(--c-muted);
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    padding: 0.25rem 0.6rem;
+    border-radius: 3px;
 }
 
 .cam-status {
@@ -338,69 +294,7 @@ body.cursor-active .hud-reticle {
     color: var(--c-white);
 }
 
-/* Reticle Scope on Left (Exact match to screenshot 2) */
-.cctv-reticle-left {
-    position: absolute;
-    top: 50%;
-    left: 2rem;
-    transform: translateY(-50%);
-    z-index: 15;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0.5rem;
-    opacity: 0.7;
-    pointer-events: none;
-}
-
-.radar-scope {
-    width: 44px;
-    height: 44px;
-    border: 1px solid rgba(255, 255, 255, 0.25);
-    border-radius: 50%;
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.radar-scope::before {
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 1px;
-    background: rgba(255, 255, 255, 0.18);
-}
-
-.radar-scope::after {
-    content: '';
-    position: absolute;
-    height: 100%;
-    width: 1px;
-    background: rgba(255, 255, 255, 0.18);
-}
-
-.radar-ping {
-    width: 8px;
-    height: 8px;
-    border: 1px solid var(--c-crimson);
-    border-radius: 50%;
-    animation: radarPulse 2s ease-out infinite;
-}
-
-@keyframes radarPulse {
-    0% { transform: scale(0.6); opacity: 1; }
-    100% { transform: scale(3.5); opacity: 0; }
-}
-
-.radar-txt {
-    font-size: 0.62rem;
-    font-weight: 800;
-    letter-spacing: 0.2em;
-    color: var(--c-crimson);
-}
-
-/* Live Video Feed Background & Overlays */
+/* Slideshow Viewport */
 .cctv-feed-viewport {
     position: absolute;
     top: 0;
@@ -411,13 +305,38 @@ body.cursor-active .hud-reticle {
     overflow: hidden;
 }
 
-.cctv-video-elem {
+.cctv-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    z-index: 1;
+}
+
+.cctv-slide.active {
+    opacity: 1;
+    pointer-events: auto;
+    z-index: 2;
+}
+
+.cctv-slide-media {
     width: 100%;
     height: 100%;
     object-fit: cover;
     filter: brightness(0.48) contrast(1.15) saturate(0.85);
+    transform: scale(1);
+    transition: transform 6s ease-out;
 }
 
+.cctv-slide.active .cctv-slide-media {
+    transform: scale(1.04);
+}
+
+/* CRT Scanlines & Surveillance Vignette */
 .cctv-scanlines-layer {
     position: absolute;
     top: 0;
@@ -446,11 +365,46 @@ body.cursor-active .hud-reticle {
     z-index: 7;
 }
 
+/* Tactical Nav Arrows */
+.cctv-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 44px;
+    height: 44px;
+    background: rgba(6, 7, 9, 0.65);
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    color: var(--c-white);
+    border-radius: 4px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 22;
+    transition: all 0.2s ease;
+    backdrop-filter: blur(8px);
+}
+
+.cctv-arrow:hover {
+    background: rgba(0, 255, 102, 0.2);
+    border-color: var(--c-neon-green);
+    color: var(--c-neon-green);
+    box-shadow: 0 0 15px var(--c-neon-green-glow);
+}
+
+.cctv-prev {
+    left: 1.25rem;
+}
+
+.cctv-next {
+    right: 1.25rem;
+}
+
 /* CCTV Hero Content (Center) */
 .cctv-hero-content {
     position: relative;
-    z-index: 15;
-    padding: 5rem 2rem 4rem 2rem;
+    z-index: 18;
+    padding: 4.5rem 2rem 3.5rem 2rem;
     text-align: center;
     display: flex;
     flex-direction: column;
@@ -460,7 +414,7 @@ body.cursor-active .hud-reticle {
     margin: 0 auto;
 }
 
-/* Chromatic Aberration Glitch Headline (Exact match to screenshot 2) */
+/* Chromatic Aberration Glitch Headline */
 .observe-title.glitch-effect {
     font-family: var(--font-heading);
     font-size: clamp(3.2rem, 7.5vw, 6.4rem);
@@ -549,9 +503,69 @@ body.cursor-active .hud-reticle {
     color: #000000;
 }
 
+/* Bottom Camera Switcher Bar & Slide Timer */
+.cctv-bottom-bar {
+    position: relative;
+    z-index: 20;
+    display: flex;
+    flex-direction: column;
+    background: linear-gradient(0deg, rgba(6, 7, 9, 0.92) 0%, rgba(6, 7, 9, 0.3) 100%);
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.cam-switcher-tabs {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    flex-wrap: wrap;
+}
+
+.cam-tab-btn {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    color: var(--c-muted);
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    font-weight: 800;
+    letter-spacing: 0.1em;
+    padding: 0.4rem 0.85rem;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.cam-tab-btn:hover {
+    color: var(--c-white);
+    border-color: rgba(255, 255, 255, 0.3);
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.cam-tab-btn.active {
+    background: rgba(0, 255, 102, 0.12);
+    border-color: var(--c-neon-green);
+    color: var(--c-neon-green);
+    box-shadow: 0 0 12px var(--c-neon-green-glow);
+}
+
+.slideshow-progress-track {
+    width: 100%;
+    height: 3px;
+    background: rgba(255, 255, 255, 0.08);
+    overflow: hidden;
+}
+
+.slideshow-progress-bar {
+    width: 0%;
+    height: 100%;
+    background: var(--c-neon-green);
+    box-shadow: 0 0 8px var(--c-neon-green);
+    transition: width 0.05s linear;
+}
+
 /* ==========================================================================
    ANGLED RADIOACTIVE NEON GREEN MARQUEE RIBBON
-   (Exact match to screenshot 2: slanted ribbon spanning across screen)
    ========================================================================== */
 .neon-slanted-ribbon {
     position: relative;
@@ -560,7 +574,7 @@ body.cursor-active .hud-reticle {
     background-color: var(--c-neon-green);
     color: #000000;
     transform: rotate(-2.2deg);
-    margin-top: 1.5rem;
+    margin-top: 1.75rem;
     margin-bottom: 2rem;
     padding: 0.85rem 0;
     overflow: hidden;
@@ -596,264 +610,7 @@ body.cursor-active .hud-reticle {
 }
 
 /* ==========================================================================
-   SECTION 2: MISSION DEPLOYMENTS (NO FARM - HOMES, COMMERCIAL, OFFICE, RETAIL)
-   (Matching screenshot 3 with ultra-cinematic architectural images)
-   ========================================================================== */
-.observe-deployments-section {
-    padding: 6rem 1.5rem;
-    position: relative;
-    background: radial-gradient(circle at 50% 0%, rgba(15, 19, 28, 0.6) 0%, transparent 60%);
-}
-
-.deployments-wrapper {
-    max-width: 1360px;
-    margin: 0 auto;
-}
-
-.deployments-top-bar {
-    display: grid;
-    grid-template-columns: 1fr 1.2fr;
-    gap: 3rem;
-    align-items: flex-end;
-    margin-bottom: 3.5rem;
-    padding-bottom: 2rem;
-    border-bottom: 1px solid var(--c-border);
-}
-
-.dtb-kicker {
-    display: block;
-    font-size: 0.75rem;
-    font-weight: 800;
-    letter-spacing: 0.2em;
-    color: var(--c-neon-green);
-    margin-bottom: 0.5rem;
-    text-transform: uppercase;
-}
-
-.dtb-title {
-    font-family: var(--font-heading);
-    font-size: clamp(2.2rem, 4.5vw, 3.6rem);
-    font-weight: 900;
-    letter-spacing: -0.03em;
-    color: var(--c-white);
-    line-height: 1;
-    text-transform: uppercase;
-}
-
-.dtb-desc {
-    font-size: 0.95rem;
-    color: var(--c-muted);
-    line-height: 1.7;
-    max-width: 580px;
-}
-
-/* Deployments Cards Grid (4 Cards: Luxury Home, Commercial, Tech Office, Retail) */
-.deployments-cards-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 2rem;
-}
-
-.deploy-card {
-    background: var(--c-surface);
-    border: 1px solid var(--c-border);
-    border-radius: 8px;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease, box-shadow 0.3s ease;
-}
-
-.deploy-card:hover {
-    transform: translateY(-4px);
-    border-color: var(--c-border-hover);
-    box-shadow: 0 16px 36px rgba(0, 0, 0, 0.5), 0 0 20px rgba(0, 255, 102, 0.12);
-}
-
-.card-media-box {
-    position: relative;
-    width: 100%;
-    aspect-ratio: 16 / 10;
-    overflow: hidden;
-    background: #000;
-}
-
-.card-img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), filter 0.6s ease;
-    filter: brightness(0.9) contrast(1.05);
-}
-
-.deploy-card:hover .card-img {
-    transform: scale(1.04);
-    filter: brightness(1) contrast(1.08);
-}
-
-.card-hud-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    padding: 1rem 1.25rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    background: linear-gradient(180deg, rgba(6, 7, 9, 0.75) 0%, rgba(6, 7, 9, 0) 50%, rgba(6, 7, 9, 0.8) 100%);
-    pointer-events: none;
-}
-
-.hud-badge {
-    font-size: 0.65rem;
-    font-weight: 800;
-    letter-spacing: 0.12em;
-    color: #ffffff;
-    background: rgba(0, 0, 0, 0.65);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    padding: 0.3rem 0.6rem;
-    border-radius: 3px;
-    backdrop-filter: blur(4px);
-}
-
-.hud-coord {
-    font-size: 0.65rem;
-    font-weight: 700;
-    letter-spacing: 0.1em;
-    color: var(--c-cyan);
-    font-family: var(--font-mono);
-}
-
-.card-info-box {
-    padding: 1.75rem;
-    display: flex;
-    flex-direction: column;
-    flex-grow: 1;
-}
-
-.card-tags-row {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-    margin-bottom: 1rem;
-}
-
-.tag-pill {
-    font-size: 0.65rem;
-    font-weight: 800;
-    letter-spacing: 0.08em;
-    padding: 0.25rem 0.65rem;
-    border-radius: 3px;
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.12);
-    color: var(--c-silver);
-    text-transform: uppercase;
-}
-
-.tag-pill.accent {
-    background: rgba(0, 255, 102, 0.12);
-    border-color: rgba(0, 255, 102, 0.45);
-    color: var(--c-neon-green);
-    font-weight: 900;
-}
-
-.card-heading {
-    font-family: var(--font-heading);
-    font-size: 1.35rem;
-    font-weight: 800;
-    letter-spacing: -0.02em;
-    color: var(--c-white);
-    margin-bottom: 1.25rem;
-    text-transform: uppercase;
-}
-
-/* Specs Matrix */
-.card-specs-matrix {
-    display: flex;
-    flex-direction: column;
-    gap: 0.65rem;
-    margin-bottom: 1.75rem;
-    padding-bottom: 1.5rem;
-    border-bottom: 1px solid var(--c-border);
-}
-
-.c-spec-row {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-size: 0.72rem;
-    gap: 1rem;
-}
-
-.cs-label {
-    color: var(--c-dim);
-    font-weight: 700;
-    letter-spacing: 0.08em;
-    white-space: nowrap;
-}
-
-.cs-val {
-    color: #cbd5e1;
-    font-weight: 600;
-    text-align: right;
-    letter-spacing: 0.02em;
-}
-
-/* Card Bottom Action: Prominent Wholesale Discount Trigger */
-.card-bottom-action {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 1rem;
-    margin-top: auto;
-}
-
-.wholesale-hint {
-    display: flex;
-    flex-direction: column;
-}
-
-.wh-top {
-    font-size: 0.62rem;
-    font-weight: 800;
-    letter-spacing: 0.14em;
-    color: var(--c-neon-green);
-}
-
-.wh-bottom {
-    font-size: 0.72rem;
-    font-weight: 700;
-    color: var(--c-silver);
-    letter-spacing: 0.04em;
-}
-
-.card-wholesale-btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0.65rem 1.15rem;
-    background: transparent;
-    border: 1px solid var(--c-neon-green);
-    color: var(--c-neon-green);
-    font-size: 0.72rem;
-    font-weight: 800;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    border-radius: 4px;
-    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
-    white-space: nowrap;
-}
-
-.card-wholesale-btn:hover {
-    background: var(--c-neon-green);
-    color: #000000;
-    box-shadow: 0 0 18px var(--c-neon-green-glow);
-    transform: translateY(-1px);
-}
-
-/* ==========================================================================
-   SECTION 3: WHOLESALE DISCOUNT TIERS (BUY IN WHOLESALE)
+   SECTION 2: WHOLESALE DISCOUNT TIERS (BUY IN WHOLESALE)
    ========================================================================== */
 .observe-wholesale-section {
     padding: 6rem 1.5rem;
@@ -1057,7 +814,7 @@ body.cursor-active .hud-reticle {
 }
 
 /* ==========================================================================
-   SECTION 4: TACTICAL PROCUREMENT HOTLINE
+   SECTION 3: TACTICAL PROCUREMENT HOTLINE
    ========================================================================== */
 .observe-contact-section {
     padding: 6rem 1.5rem;
@@ -1210,17 +967,8 @@ body.cursor-active .hud-reticle {
    RESPONSIVE BREAKPOINTS
    ========================================================================== */
 @media (max-width: 1024px) {
-    .deployments-cards-grid {
-        grid-template-columns: 1fr;
-    }
-
     .wholesale-cards-row {
         grid-template-columns: 1fr;
-    }
-
-    .deployments-top-bar {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
     }
 
     .footer-right {
@@ -1233,12 +981,25 @@ body.cursor-active .hud-reticle {
         display: none;
     }
 
-    .cctv-reticle-left {
-        display: none;
-    }
-
     .cctv-monitor-window {
         min-height: 480px;
+    }
+
+    .cctv-arrow {
+        width: 36px;
+        height: 36px;
+    }
+
+    .cctv-prev {
+        left: 0.5rem;
+    }
+
+    .cctv-next {
+        right: 0.5rem;
+    }
+
+    .cam-specs-pill {
+        display: none;
     }
 
     .cctv-hero-content {
@@ -1253,13 +1014,8 @@ body.cursor-active .hud-reticle {
         padding: 2.5rem 1.5rem;
     }
 
-    .card-bottom-action {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 0.75rem;
-    }
-
-    .card-wholesale-btn {
-        width: 100%;
+    .cam-tab-btn {
+        font-size: 0.62rem;
+        padding: 0.35rem 0.6rem;
     }
 }
