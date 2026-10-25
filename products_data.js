@@ -1020,6 +1020,384 @@ const SYBER_PRODUCTS = [
     "images": [
       "assets/acc_official_junction_box.png"
     ]
+  },
+  {
+      "id": "cctv-smps-power-supply-12v-5a",
+      "index": 46,
+      "title": "Syber Space 12V 5A CCTV SMPS Power Supply (4-Channel Metal Cage)",
+      "brand": "SYBER SPACE",
+      "category": "accessory",
+      "price": 520,
+      "mrp": "\u20b9999",
+      "save": "Save 48%",
+      "rating": "4.8",
+      "badge": "ESSENTIAL POWER",
+      "desc": "Compact 4-channel 12V 5A stabilized CCTV switching power supply in perforated aluminum housing with individual fuse protection and LED status indicator.",
+      "chips": [
+          "12V 5A Output",
+          "4 Camera Channels",
+          "Short-Circuit Protection"
+      ],
+      "images": [
+          "assets/acc_smps_5a.jpg"
+      ]
+  },
+  {
+      "id": "cctv-smps-power-supply-12v-20a",
+      "index": 47,
+      "title": "Syber Space 12V 20A CCTV SMPS Power Supply (16-Channel Metal Cage)",
+      "brand": "SYBER SPACE",
+      "category": "accessory",
+      "price": 1450,
+      "mrp": "\u20b92,499",
+      "save": "Save 42%",
+      "rating": "4.9",
+      "badge": "HIGH CAPACITY",
+      "desc": "Heavy-duty 16-channel 240W surveillance power supply with integrated cooling fan, EMI filtering, and dedicated screw-down terminals for large camera installations.",
+      "chips": [
+          "12V 20A (240W)",
+          "16 Camera Channels",
+          "Active Cooling Fan"
+      ],
+      "images": [
+          "assets/acc_smps_20a.jpg"
+      ]
+  },
+  {
+      "id": "cctv-power-adapter-12v-2a",
+      "index": 48,
+      "title": "Syber Space 12V 2A Regulated DC Power Adapter for CCTV & DVR",
+      "brand": "SYBER SPACE",
+      "category": "accessory",
+      "price": 240,
+      "mrp": "\u20b9499",
+      "save": "Save 52%",
+      "rating": "4.8",
+      "badge": "HIGH EFFICIENCY",
+      "desc": "Precision 12V 2A DC regulated wall adapter with 5.5x2.1mm DC plug, copper core cable, and overload protection for standalone IP cameras, DVRs, and PTZs.",
+      "chips": [
+          "12V 2A DC Output",
+          "5.5x2.1mm Jack",
+          "Surge Protected"
+      ],
+      "images": [
+          "assets/acc_adapter_12v_2a.jpg"
+      ]
+  },
+  {
+      "id": "cctv-skyhawk-hard-drive-1tb",
+      "index": 49,
+      "title": "Seagate SkyHawk 1TB 24/7 Surveillance Grade Hard Drive SATA 6Gb/s",
+      "brand": "SEAGATE",
+      "category": "accessory",
+      "price": 3350,
+      "mrp": "\u20b95,200",
+      "save": "Save 36%",
+      "rating": "4.8",
+      "badge": "SURVEILLANCE GRADE",
+      "desc": "Purpose-built 1TB surveillance hard drive with ImagePerfect firmware, supporting up to 64 HD video camera streams with zero dropped frames.",
+      "chips": [
+          "1TB Surveillance Storage",
+          "Up to 64 Cameras",
+          "3-Year Warranty"
+      ],
+      "images": [
+          "assets/acc_skyhawk_1tb.jpg"
+      ]
+  },
+  {
+      "id": "cctv-skyhawk-hard-drive-2tb",
+      "index": 50,
+      "title": "Seagate SkyHawk 2TB 24/7 Surveillance Grade Hard Drive SATA 6Gb/s",
+      "brand": "SEAGATE",
+      "category": "accessory",
+      "price": 4250,
+      "mrp": "\u20b96,800",
+      "save": "Save 38%",
+      "rating": "4.9",
+      "badge": "SURVEILLANCE GRADE",
+      "desc": "Enterprise-grade 2TB surveillance drive designed for 24/7 continuous DVR/NVR recording workloads with 1M hours MTBF and vibration tolerance.",
+      "chips": [
+          "2TB Surveillance Storage",
+          "24/7 DVR/NVR Duty",
+          "ImagePerfect Firmware"
+      ],
+      "images": [
+          "assets/acc_skyhawk_2tb.jpg"
+      ]
+  },
+  {
+      "id": "cctv-sandisk-high-endurance-128gb",
+      "index": 51,
+      "title": "SanDisk High Endurance 128GB Surveillance MicroSDXC UHS-I Card",
+      "brand": "SANDISK",
+      "category": "accessory",
+      "price": 1290,
+      "mrp": "\u20b92,200",
+      "save": "Save 41%",
+      "rating": "4.9",
+      "badge": "HIGH ENDURANCE",
+      "desc": "Built specifically for home security cameras and dashcams. Engineered to record continuously for up to 10,000 hours with temperature and water proofing.",
+      "chips": [
+          "128GB Storage",
+          "10,000 Hours Recording",
+          "Up to 100MB/s Read"
+      ],
+      "images": [
+          "assets/acc_sandisk_128gb.jpg"
+      ]
+  },
+  {
+      "id": "cctv-sandisk-high-endurance-256gb",
+      "index": 52,
+      "title": "SanDisk High Endurance 256GB Surveillance MicroSDXC UHS-I Card",
+      "brand": "SANDISK",
+      "category": "accessory",
+      "price": 2390,
+      "mrp": "\u20b93,999",
+      "save": "Save 40%",
+      "rating": "5.0",
+      "badge": "MAX RECORDING",
+      "desc": "Maximum continuous video endurance for Wi-Fi and 4G smart cameras. Up to 20,000 hours of 24/7 Full HD video recording with weather-proof reliability.",
+      "chips": [
+          "256GB Storage",
+          "20,000 Hours Recording",
+          "Full HD / 4K Video"
+      ],
+      "images": [
+          "assets/acc_sandisk_256gb.jpg"
+      ]
+  },
+  {
+      "id": "cctv-coaxial-cable-3-1-90m",
+      "index": 53,
+      "title": "Syber Pro 3+1 Pure Copper CCTV Coaxial Cable (90M Coil)",
+      "brand": "SYBER SPACE",
+      "category": "accessory",
+      "price": 1350,
+      "mrp": "\u20b92,299",
+      "save": "Save 41%",
+      "rating": "4.8",
+      "badge": "PURE COPPER",
+      "desc": "Heavy-duty 90-meter 3+1 CCTV composite cable with RG-59 video coaxial conductor plus 3 insulated power cores for analog and AHD HD camera setups.",
+      "chips": [
+          "90 Meters (100 Yards)",
+          "Solid Bare Copper",
+          "Weatherproof PVC"
+      ],
+      "images": [
+          "assets/acc_cable_coaxial_3_1_90m.jpg"
+      ]
+  },
+  {
+      "id": "cctv-coaxial-cable-3-1-180m",
+      "index": 54,
+      "title": "Syber Pro 3+1 Pure Copper CCTV Coaxial Cable (180M Reel)",
+      "brand": "SYBER SPACE",
+      "category": "accessory",
+      "price": 2490,
+      "mrp": "\u20b94,199",
+      "save": "Save 41%",
+      "rating": "4.9",
+      "badge": "PRO GRADE",
+      "desc": "Long-range 180-meter pure copper 3+1 CCTV coaxial cable drum with low attenuation, braided aluminum shielding, and flame-retardant outer sheath.",
+      "chips": [
+          "180 Meters Reel",
+          "Low Attenuation",
+          "Flame Retardant"
+      ],
+      "images": [
+          "assets/acc_cable_coaxial_3_1_180m.jpg"
+      ]
+  },
+  {
+      "id": "cctv-hdmi-cable-5m-4k",
+      "index": 55,
+      "title": "Ultra-Link 4K Ultra HD High-Speed Gold-Plated HDMI Cable (5M)",
+      "brand": "ULTRA-LINK",
+      "category": "accessory",
+      "price": 480,
+      "mrp": "\u20b9999",
+      "save": "Save 52%",
+      "rating": "4.8",
+      "badge": "4K ULTRA HD",
+      "desc": "Heavy-duty 5-meter HDMI 2.0 cable with 24K gold-plated connectors, nylon braided jacket, and 18Gbps bandwidth for connecting DVR/NVR to 4K surveillance displays.",
+      "chips": [
+          "5 Meters Length",
+          "4K 60Hz HDR",
+          "Gold-Plated Connectors"
+      ],
+      "images": [
+          "assets/acc_hdmi_5m.jpg"
+      ]
+  },
+  {
+      "id": "cctv-cat6-patch-cord-3m",
+      "index": 56,
+      "title": "Ultra-Link Molded Cat6 Gigabit RJ45 Snagless Patch Cord (3M)",
+      "brand": "ULTRA-LINK",
+      "category": "accessory",
+      "price": 160,
+      "mrp": "\u20b9350",
+      "save": "Save 54%",
+      "rating": "4.9",
+      "badge": "GIGABIT CERTIFIED",
+      "desc": "Factory-molded 3-meter Cat6 UTP patch cord with 50-micron gold-plated RJ45 plugs and strain relief boots for interconnecting PoE switches, NVRs, and routers.",
+      "chips": [
+          "3 Meters (10 FT)",
+          "1000Mbps Gigabit",
+          "Snagless Strain Relief"
+      ],
+      "images": [
+          "assets/acc_cat6_patch_cord_3m.jpg"
+      ]
+  },
+  {
+      "id": "cctv-dvr-rack-2u",
+      "index": 57,
+      "title": "Syber Space 2U Wall-Mount CCTV DVR/NVR Metal Rack (Glass Door & Lock)",
+      "brand": "SYBER SPACE",
+      "category": "accessory",
+      "price": 1450,
+      "mrp": "\u20b92,699",
+      "save": "Save 46%",
+      "rating": "4.9",
+      "badge": "TAMPER-PROOF",
+      "desc": "Sturdy powder-coated CRCA steel 2U enclosure with toughened glass front door, dual key lock, integrated cable entry grommets, and DVR mounting brackets.",
+      "chips": [
+          "2U Wall-Mount",
+          "Toughened Glass Door",
+          "Dual Key Lock"
+      ],
+      "images": [
+          "assets/acc_dvr_rack_2u.jpg"
+      ]
+  },
+  {
+      "id": "cctv-server-rack-4u",
+      "index": 58,
+      "title": "Syber Space 4U Wall-Mount Network & Server Rack Cabinet (With Power Strip)",
+      "brand": "SYBER SPACE",
+      "category": "accessory",
+      "price": 2350,
+      "mrp": "\u20b94,200",
+      "save": "Save 44%",
+      "rating": "5.0",
+      "badge": "ENTERPRISE GRADE",
+      "desc": "Spacious 4U wall-mount telecommunications rack with cooling fan cutout, glass front panel, pre-installed 3-way power distribution socket, and top/bottom cable entry.",
+      "chips": [
+          "4U Standard 19-Inch",
+          "Built-In Power Strip",
+          "Cooling Fan Vent"
+      ],
+      "images": [
+          "assets/acc_server_rack_4u.jpg"
+      ]
+  },
+  {
+      "id": "cctv-pole-mount-bracket",
+      "index": 59,
+      "title": "Universal Heavy-Duty CCTV Pole Mount Bracket with Dual Steel Clamps",
+      "brand": "SYBER SPACE",
+      "category": "accessory",
+      "price": 390,
+      "mrp": "\u20b9750",
+      "save": "Save 48%",
+      "rating": "4.8",
+      "badge": "WEATHER RESISTANT",
+      "desc": "Heavy-gauge galvanized steel bracket for mounting PTZ, dome, or bullet cameras onto vertical poles, lampposts, and pipes up to 200mm diameter.",
+      "chips": [
+          "Universal Mounting Plate",
+          "Adjustable Steel Clamps",
+          "Anti-Corrosion Finish"
+      ],
+      "images": [
+          "assets/acc_pole_mount_bracket.jpg"
+      ]
+  },
+  {
+      "id": "cctv-bnc-connectors-pack-10",
+      "index": 60,
+      "title": "Premium BNC Push-On Spring-Relief Video Connectors (Pack of 10)",
+      "brand": "SYBER SPACE",
+      "category": "accessory",
+      "price": 220,
+      "mrp": "\u20b9450",
+      "save": "Save 51%",
+      "rating": "4.8",
+      "badge": "CONTRACTOR PACK",
+      "desc": "Professional solderless copper BNC male connectors with heavy coil spring cable relief and gold-plated center pins for clean, noise-free analog HD video transmission.",
+      "chips": [
+          "Pack of 10 Pcs",
+          "Gold-Plated Center Pin",
+          "Solderless Screw Terminal"
+      ],
+      "images": [
+          "assets/acc_bnc_connectors_pack.jpg"
+      ]
+  },
+  {
+      "id": "cctv-dc-power-connectors-pack-10",
+      "index": 61,
+      "title": "Heavy-Duty 12V DC Male Power Pigtail Connectors (Pack of 10)",
+      "brand": "SYBER SPACE",
+      "category": "accessory",
+      "price": 180,
+      "mrp": "\u20b9380",
+      "save": "Save 53%",
+      "rating": "4.8",
+      "badge": "CONTRACTOR PACK",
+      "desc": "Pre-tinned copper wire 12V 2.1x5.5mm DC male power plugs for CCTV camera power termination and direct hookup to central SMPS units.",
+      "chips": [
+          "Pack of 10 Pcs",
+          "Standard 2.1x5.5mm",
+          "Pre-Tinned Pure Copper"
+      ],
+      "images": [
+          "assets/acc_dc_connectors_pack.jpg"
+      ]
+  },
+  {
+      "id": "cctv-rj45-connectors-cat6-pack-50",
+      "index": 62,
+      "title": "Ultra-Link Cat6 RJ45 Gold Modular Crimp Plugs (Pack of 50)",
+      "brand": "ULTRA-LINK",
+      "category": "accessory",
+      "price": 350,
+      "mrp": "\u20b9699",
+      "save": "Save 50%",
+      "rating": "4.9",
+      "badge": "CONTRACTOR PACK",
+      "desc": "High-clarity polycarbonate 8P8C Cat6 RJ45 modular plugs with 3-prong 50-micron gold-plated contacts for gigabit data transmission and PoE+ powering.",
+      "chips": [
+          "Pack of 50 Pcs",
+          "50u Gold Contacts",
+          "Cat6 8P8C Standard"
+      ],
+      "images": [
+          "assets/acc_rj45_connectors_pack.jpg"
+      ]
+  },
+  {
+      "id": "cctv-rj45-crimping-tool-kit",
+      "index": 63,
+      "title": "Professional Modular RJ45 / RJ11 Ratcheting Network Crimping Tool Kit",
+      "brand": "ULTRA-LINK",
+      "category": "accessory",
+      "price": 890,
+      "mrp": "\u20b91,699",
+      "save": "Save 48%",
+      "rating": "4.9",
+      "badge": "PRO INSTALLER TOOL",
+      "desc": "Heavy-duty carbon steel ratcheting crimper with built-in wire stripper and cutter for Cat5e/Cat6 RJ45 (8P8C) and telephone RJ11/RJ12 (6P) connectors.",
+      "chips": [
+          "All-in-One Crimp & Strip",
+          "Precision Ratchet Cycle",
+          "Ergonomic Cushion Grip"
+      ],
+      "images": [
+          "assets/acc_rj45_crimping_tool.jpg"
+      ]
   }
 ];
 if (typeof module !== "undefined") module.exports = SYBER_PRODUCTS;

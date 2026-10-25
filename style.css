@@ -1147,6 +1147,47 @@ body.observe-body {
     background: var(--c-asus-blue-hover);
 }
 
+/* Accessories Showcase Full Catalog CTA */
+.accessories-footer-cta {
+    display: flex;
+    justify-content: center;
+    margin-top: 3.5rem;
+    padding: 1rem 0;
+}
+
+.btn-asus-explore-large {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 1rem 2.25rem;
+    background: #ffffff;
+    color: var(--c-asus-blue);
+    font-family: var(--font-heading);
+    font-size: 0.95rem;
+    font-weight: 800;
+    letter-spacing: 0.05em;
+    border: 2px solid var(--c-asus-blue);
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0, 98, 210, 0.1);
+    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.btn-asus-explore-large svg {
+    transition: transform 0.25s ease;
+}
+
+.btn-asus-explore-large:hover {
+    background: var(--c-asus-blue);
+    color: #ffffff;
+    box-shadow: 0 8px 25px rgba(0, 98, 210, 0.25);
+    transform: translateY(-2px);
+}
+
+.btn-asus-explore-large:hover svg {
+    transform: translateX(4px);
+}
+
 /* ==========================================================================
    SECTION 4: DIRECT CONSULTATION & ENTERPRISE PROCUREMENT
    ========================================================================== */
@@ -1722,9 +1763,11 @@ body.observe-body {
     }
 
     .btn-asus-cart,
-    .btn-asus-explore {
+    .btn-asus-explore,
+    .btn-asus-explore-large {
         width: 100%;
         text-align: center;
+        justify-content: center;
     }
 
     .accessories-cards-grid {

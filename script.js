@@ -393,9 +393,15 @@ function openBrandModal(brandName) {
 
     // Support ACCESSORIES category filter
     if (normalizedTarget === 'ACCESSORIES' || normalizedTarget === 'ACCESSORY') {
-        CURRENT_BRAND_PRODUCTS = SYBER_PRODUCTS.filter(p => (p.category || '').toLowerCase() === 'accessory');
-        if (titleEl) titleEl.textContent = `ESSENTIAL SURVEILLANCE ACCESSORIES`;
-        if (countEl) countEl.textContent = `${CURRENT_BRAND_PRODUCTS.length} CORE HARDWARE ITEMS`;
+        const accCategories = ['accessory', 'poe-switch', 'router', 'solar-hub'];
+        CURRENT_BRAND_PRODUCTS = SYBER_PRODUCTS.filter(p => accCategories.includes((p.category || '').toLowerCase()));
+        CURRENT_BRAND_PRODUCTS.sort((a, b) => {
+            if (a.category === 'accessory' && b.category !== 'accessory') return -1;
+            if (a.category !== 'accessory' && b.category === 'accessory') return 1;
+            return 0;
+        });
+        if (titleEl) titleEl.textContent = `ALL SURVEILLANCE ACCESSORIES & HARDWARE`;
+        if (countEl) countEl.textContent = `${CURRENT_BRAND_PRODUCTS.length} HARDWARE ITEMS AVAILABLE`;
     } else {
         CURRENT_BRAND_PRODUCTS = SYBER_PRODUCTS.filter(p => {
             const b = (p.brand || '').toUpperCase().replace(/\s+/g, '');
@@ -550,7 +556,8 @@ function handleSearchSelect(productId, brand, category) {
     const dropdown = document.getElementById('search-dropdown');
     if (dropdown) dropdown.style.display = 'none';
 
-    if (category === 'accessory') {
+    const accCategories = ['accessory', 'poe-switch', 'router', 'solar-hub'];
+    if (accCategories.includes((category || '').toLowerCase())) {
         openBrandModal('ACCESSORIES');
     } else {
         openBrandModal(brand);
