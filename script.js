@@ -1,18 +1,78 @@
 /**
- * SYBER SPACE // AUTHORIZED WHOLESALE SURVEILLANCE
- * BRAND BESTSELLER ENGINE, YOUTUBE-STYLE SEARCH & BRAND CATALOG MODAL
+ * SYBER SPACE // AUTHORIZED SURVEILLANCE SYSTEMS
+ * ASUS-INSPIRED 2x2 EDITORIAL SHOWCASE, YOUTUBE-STYLE SEARCH & DIRECT PROCUREMENT
  */
 
-// Global Cart & Brand Modal State
+// Global State
 let CART = [];
 let CURRENT_MODAL_BRAND = '';
 let CURRENT_BRAND_PRODUCTS = [];
 
+// 4 Core Accessories Data for Tile 4 Interactive Switcher
+const ACCESSORY_PREVIEWS = [
+    {
+        id: 'cctv-smps-power-supply-12v-10a',
+        category: '12V 10A CCTV SMPS POWER SUPPLY',
+        title: 'Syber Space 12V 10A CCTV SMPS Power Supply',
+        img: 'assets/cctv_smps_power_supply.jpg',
+        price: '₹850',
+        mrp: '₹1,499',
+        feats: [
+            { title: '12V 10A Output', desc: 'Central power distribution box supporting up to 9 CCTV cameras simultaneously.' },
+            { title: 'Surge & Overload Protection', desc: 'Automatic thermal reset and short-circuit isolation for every channel.' },
+            { title: 'Perforated Metal Enclosure', desc: 'Heavy-duty heat dissipation cage built for 24/7 continuous duty.' },
+            { title: 'Certified Compatibility', desc: 'Works with all analog HD, AHD, and IP CCTV camera systems.' }
+        ]
+    },
+    {
+        id: 'cctv-surveillance-hard-drive-4tb',
+        category: 'SEAGATE SKYHAWK 4TB SURVEILLANCE HDD',
+        title: 'Seagate SkyHawk 4TB 24/7 Surveillance Grade HDD',
+        img: 'assets/cctv_surveillance_hdd.jpg',
+        price: '₹5,400',
+        mrp: '₹8,999',
+        feats: [
+            { title: '4TB Storage Capacity', desc: 'Stores up to 60+ days of continuous high-bitrate multi-camera recordings.' },
+            { title: '24/7 CCTV Workload Rating', desc: 'Rated for 180TB/year workload, 3x higher than desktop PC hard drives.' },
+            { title: 'ImagePerfect Firmware', desc: 'Minimizes frame drops and optimizes multi-stream security writes.' },
+            { title: '1 Million Hours MTBF', desc: 'Industrial durability with built-in rotational vibration sensors.' }
+        ]
+    },
+    {
+        id: 'cctv-cat6-pure-copper-cable-305m',
+        category: 'ULTRA-LINK PURE COPPER CAT6 305M REEL',
+        title: 'Ultra-Link Pure Copper Cat6 305M Network Reel',
+        img: 'assets/cctv_cat6_cable_drum.jpg',
+        price: '₹4,200',
+        mrp: '₹6,999',
+        feats: [
+            { title: '305 Meters (1000 FT) Reel', desc: 'Continuous unshielded twisted pair on heavy-duty wooden installation drum.' },
+            { title: '100% Solid Bare Copper', desc: '23AWG pure copper conductors offering maximum conductivity and signal strength.' },
+            { title: 'PoE+ Long-Distance Certified', desc: 'Delivers full gigabit data and power up to 250 meters without voltage drop.' },
+            { title: 'Weather & Tangle Resistant', desc: 'Flame-retardant PVC jacket with easy-pull payout hole.' }
+        ]
+    },
+    {
+        id: 'cctv-weatherproof-junction-box-ip66',
+        category: 'WEATHERPROOF IP66 CAMERA JUNCTION BOX',
+        title: 'Weatherproof IP66 Round CCTV Deep Base Box',
+        img: 'assets/cctv_junction_box.jpg',
+        price: '₹180',
+        mrp: '₹350',
+        feats: [
+            { title: 'IP66 Weatherproof Seal', desc: 'Waterproof silicone rubber gasket prevents rain, moisture, and dust ingress.' },
+            { title: 'Conceals BNC & RJ45 Cables', desc: 'Deep interior chamber keeps power and video connectors completely sheltered.' },
+            { title: 'Universal Camera Mount', desc: 'Pre-drilled mounting patterns fit all major dome and bullet camera bases.' },
+            { title: 'Threaded Cable Gland', desc: 'Includes watertight compression fitting for clean conduit integration.' }
+        ]
+    }
+];
+
 document.addEventListener('DOMContentLoaded', () => {
-    // 1. Initialize Cart from LocalStorage
+    // 1. Initialize Cart
     initCartState();
 
-    // 2. Initialize Hero Bestseller Slider
+    // 2. Initialize Hero Cinematic Slider
     initHeroSlider();
 
     // 3. Initialize YouTube Search Engine
@@ -25,17 +85,14 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         initGsapAnimations();
     }
-
-    // 5. Marquee Scroll Boost
-    initMarqueeScrollBoost();
 });
 
 /* ==========================================================================
-   1. CART STATE & LOCAL STORAGE ENGINE
+   1. SHOPPING CART ENGINE & LOCAL STORAGE
    ========================================================================== */
 function initCartState() {
     try {
-        const stored = localStorage.getItem('syber_cart_v11');
+        const stored = localStorage.getItem('syber_cart_v12');
         if (stored) {
             CART = JSON.parse(stored);
         }
@@ -44,7 +101,6 @@ function initCartState() {
     }
     updateCartUI();
 
-    // Cart Drawer Toggle
     const cartBtn = document.getElementById('cart-toggle-btn');
     if (cartBtn) {
         cartBtn.addEventListener('click', openCartDrawer);
@@ -53,7 +109,7 @@ function initCartState() {
 
 function saveCartState() {
     try {
-        localStorage.setItem('syber_cart_v11', JSON.stringify(CART));
+        localStorage.setItem('syber_cart_v12', JSON.stringify(CART));
     } catch (e) {}
     updateCartUI();
 }
@@ -78,7 +134,7 @@ function addToCartById(productId) {
     }
 
     saveCartState();
-    showToast(`Added to Wholesale Cart: ${product.title}`);
+    showToast(`Added to Cart: ${product.title}`);
     openCartDrawer();
 }
 
@@ -102,88 +158,48 @@ function updateCartUI() {
     const totalQty = CART.reduce((sum, item) => sum + item.qty, 0);
     const subtotal = CART.reduce((sum, item) => sum + (item.price * item.qty), 0);
 
-    // Update Counter Badges
     const counterEl = document.getElementById('cart-counter');
     const itemsCountEl = document.getElementById('cd-items-count');
     if (counterEl) counterEl.textContent = totalQty;
     if (itemsCountEl) itemsCountEl.textContent = `${totalQty} ITEMS`;
 
-    // Wholesale Tier Discount Calculator
-    let discountPct = 0;
-    let tierName = '';
-    let nextTierHint = '';
-
-    if (totalQty >= 30) {
-        discountPct = 0.45;
-        tierName = 'Tier 3 Enterprise (45% OFF)';
-        nextTierHint = 'MAXIMUM WHOLESALE TIER APPLIED (45% OFF)';
-    } else if (totalQty >= 10) {
-        discountPct = 0.35;
-        tierName = 'Tier 2 Contractor (35% OFF)';
-        nextTierHint = `Add ${30 - totalQty} more units for Tier 3 (45% OFF)`;
-    } else if (totalQty >= 5) {
-        discountPct = 0.25;
-        tierName = 'Tier 1 Installer (25% OFF)';
-        nextTierHint = `Add ${10 - totalQty} more units for Tier 2 (35% OFF)`;
-    } else {
-        discountPct = 0;
-        nextTierHint = `Order ${5 - totalQty} more units for Tier 1 Wholesale (25% OFF)`;
-    }
-
-    const discountAmount = Math.round(subtotal * discountPct);
-    const finalPrice = subtotal - discountAmount;
-
-    // Update Totals
     const subtotalEl = document.getElementById('cd-subtotal');
-    const discountRowEl = document.getElementById('cd-discount-row');
-    const discountValEl = document.getElementById('cd-discount-val');
     const finalPriceEl = document.getElementById('cd-final-price');
-    const bannerEl = document.getElementById('cd-discount-banner');
 
     if (subtotalEl) subtotalEl.innerHTML = `&#8377;${subtotal.toLocaleString('en-IN')}`;
-    if (finalPriceEl) finalPriceEl.innerHTML = `&#8377;${finalPrice.toLocaleString('en-IN')}`;
+    if (finalPriceEl) finalPriceEl.innerHTML = `&#8377;${subtotal.toLocaleString('en-IN')}`;
 
-    if (discountRowEl && discountValEl) {
-        if (discountPct > 0) {
-            discountRowEl.style.display = 'flex';
-            discountValEl.innerHTML = `-${tierName} (-&#8377;${discountAmount.toLocaleString('en-IN')})`;
-        } else {
-            discountRowEl.style.display = 'none';
-        }
-    }
-
-    if (bannerEl) {
-        bannerEl.textContent = `• ${nextTierHint.toUpperCase()}`;
-    }
-
-    // Render Cart Items
+    // Render cart items
     const container = document.getElementById('cart-items-container');
     if (!container) return;
 
     if (CART.length === 0) {
         container.innerHTML = `
-            <div class="cart-empty-state">
-                <div class="cart-empty-icon">&#128722;</div>
-                <p>Your wholesale cart is empty.</p>
-                <a href="#brands" class="btn-co-add-cart" onclick="closeCartDrawer()" style="display:inline-block; max-width:200px; text-align:center;">BROWSE BESTSELLERS</a>
+            <div class="cd-empty-state">
+                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
+                <p>Your shopping cart is currently empty.</p>
+                <span>Add any flagship camera or accessory to request instant order dispatch.</span>
             </div>
         `;
         return;
     }
 
     container.innerHTML = CART.map(item => `
-        <div class="cd-item">
-            <img src="${item.image}" alt="${item.title}" class="cd-item-img" onerror="this.src='assets/idada_q2i35s_1.jpg'">
-            <div class="cd-item-details">
-                <span class="cd-item-title">${item.title}</span>
-                <span class="cd-item-price">&#8377;${item.price.toLocaleString('en-IN')} / unit</span>
-                <div class="cd-qty-row">
-                    <button type="button" class="cd-qty-btn" onclick="updateCartQty('${item.id}', -1)">-</button>
-                    <span class="cd-qty-val">${item.qty}</span>
-                    <button type="button" class="cd-qty-btn" onclick="updateCartQty('${item.id}', 1)">+</button>
+        <div class="cart-item-row" data-id="${item.id}">
+            <img src="${item.image}" alt="${item.title}" class="ci-thumb" onerror="this.src='assets/idada_q2i35s_1.jpg'">
+            <div class="ci-details">
+                <span class="ci-title">${item.title}</span>
+                <span class="ci-unit-price">&#8377;${item.price.toLocaleString('en-IN')} each</span>
+                <div class="ci-qty-row">
+                    <div class="ci-qty-controls">
+                        <button type="button" class="btn-qty" onclick="updateCartQty('${item.id}', -1)" aria-label="Decrease">&minus;</button>
+                        <span class="ci-qty-val">${item.qty}</span>
+                        <button type="button" class="btn-qty" onclick="updateCartQty('${item.id}', 1)" aria-label="Increase">&#43;</button>
+                    </div>
+                    <span class="ci-item-total">&#8377;${(item.price * item.qty).toLocaleString('en-IN')}</span>
                 </div>
             </div>
-            <button type="button" class="cd-item-remove" onclick="removeCartItem('${item.id}')" aria-label="Remove item">&times;</button>
+            <button type="button" class="btn-remove-item" onclick="removeCartItem('${item.id}')" aria-label="Remove item">&times;</button>
         </div>
     `).join('');
 }
@@ -206,33 +222,28 @@ function closeCartDrawer() {
 
 function checkoutWhatsApp() {
     if (CART.length === 0) {
-        alert('Please add items to your cart before checking out.');
+        alert('Your cart is empty. Please add items to proceed.');
         return;
     }
 
     const totalQty = CART.reduce((sum, item) => sum + item.qty, 0);
     const subtotal = CART.reduce((sum, item) => sum + (item.price * item.qty), 0);
 
-    let discountPct = 0;
-    if (totalQty >= 30) discountPct = 0.45;
-    else if (totalQty >= 10) discountPct = 0.35;
-    else if (totalQty >= 5) discountPct = 0.25;
+    let message = `*SYBER SPACE // DIRECT CCTV ORDER INQUIRY*\n`;
+    message += `Date: ${new Date().toLocaleDateString('en-IN')}\n\n`;
+    message += `*ORDER ITEMS (${totalQty} units total):*\n`;
 
-    const discountAmount = Math.round(subtotal * discountPct);
-    const finalPrice = subtotal - discountAmount;
+    CART.forEach((item, index) => {
+        message += `${index + 1}. *${item.title}*\n`;
+        message += `   Qty: ${item.qty} | Price: Rs ${item.price.toLocaleString('en-IN')} | Total: Rs ${(item.price * item.qty).toLocaleString('en-IN')}\n`;
+    });
 
-    let itemsList = CART.map((i, idx) => `${idx + 1}. ${i.title}\n   Qty: ${i.qty} units @ Rs ${i.price} = Rs ${i.price * i.qty}`).join('\n');
+    message += `\n*TOTAL PAYABLE: Rs ${subtotal.toLocaleString('en-IN')}*\n\n`;
+    message += `Please confirm stock availability, delivery timeline, and share the official invoice. Thank you!`;
 
-    let msg = `*SYBER SPACE WHOLESALE PROCUREMENT INVOICE REQUEST*\n\n` +
-              `*ITEMS ORDERED:*\n${itemsList}\n\n` +
-              `*Total Units:* ${totalQty} units\n` +
-              `*Gross Subtotal:* Rs ${subtotal.toLocaleString('en-IN')}\n` +
-              (discountPct > 0 ? `*Wholesale Discount:* -Rs ${discountAmount.toLocaleString('en-IN')} (${discountPct * 100}% OFF)\n` : '') +
-              `*Net Payable:* Rs ${finalPrice.toLocaleString('en-IN')}\n\n` +
-              `Please share stock confirmation, official 18% GST invoice, and Kerala/Pan-India dispatch schedule.`;
-
-    const encoded = encodeURIComponent(msg);
-    window.open(`https://wa.me/917511180808?text=${encoded}`, '_blank');
+    const encoded = encodeURIComponent(message);
+    const waUrl = `https://wa.me/917511180808?text=${encoded}`;
+    window.open(waUrl, '_blank');
 }
 
 function showToast(message) {
@@ -240,77 +251,131 @@ function showToast(message) {
     if (!toast) return;
 
     toast.textContent = message;
-    toast.classList.add('active');
+    toast.classList.add('visible');
+
     clearTimeout(toast._timeout);
     toast._timeout = setTimeout(() => {
-        toast.classList.remove('active');
+        toast.classList.remove('visible');
     }, 2800);
 }
 
 /* ==========================================================================
-   2. HERO BESTSELLER SLIDER CONTROLLER
+   2. HERO BESTSELLER CINEMATIC SLIDER
    ========================================================================== */
+let HERO_CURRENT_INDEX = 0;
+let HERO_AUTO_TIMER = null;
+
 function initHeroSlider() {
     const slides = document.querySelectorAll('.hero-slide');
-    const frame = document.querySelector('.hero-slider-frame');
+    const dotsContainer = document.getElementById('hero-dots');
+    if (!slides || slides.length === 0) return;
 
-    if (!slides.length) return;
-
-    let currentIndex = 0;
-    const totalSlides = slides.length;
-    const DURATION = 6000;
-    let startTime = performance.now();
-    let isPaused = false;
-    let animFrame = null;
-
-    function goToSlide(index) {
-        const prevVideo = slides[currentIndex].querySelector('video');
-        if (prevVideo) prevVideo.pause();
-
-        slides[currentIndex].classList.remove('active');
-        currentIndex = (index + totalSlides) % totalSlides;
-
-        const nextSlide = slides[currentIndex];
-        nextSlide.classList.add('active');
-
-        const nextVideo = nextSlide.querySelector('video');
-        if (nextVideo) {
-            nextVideo.currentTime = 0;
-            nextVideo.play().catch(() => {});
-        }
-
-        startTime = performance.now();
+    if (dotsContainer) {
+        dotsContainer.innerHTML = Array.from(slides).map((_, i) => `
+            <button type="button" class="hero-dot ${i === 0 ? 'active' : ''}" onclick="goToHeroSlide(${i})" aria-label="Slide ${i+1}"></button>
+        `).join('');
     }
 
-    function nextSlide() {
-        goToSlide(currentIndex + 1);
-    }
+    resetHeroAutoTimer();
 
-    function loop(now) {
-        if (!isPaused) {
-            const elapsed = now - startTime;
-            if (elapsed >= DURATION) {
-                nextSlide();
-                return;
+    const sliderFrame = document.querySelector('.hero-slider-frame');
+    if (sliderFrame) {
+        sliderFrame.addEventListener('mouseenter', () => clearInterval(HERO_AUTO_TIMER));
+        sliderFrame.addEventListener('mouseleave', () => resetHeroAutoTimer());
+    }
+}
+
+function goToHeroSlide(index) {
+    const slides = document.querySelectorAll('.hero-slide');
+    const dots = document.querySelectorAll('.hero-dot');
+    if (!slides || slides.length === 0) return;
+
+    if (index >= slides.length) index = 0;
+    if (index < 0) index = slides.length - 1;
+
+    HERO_CURRENT_INDEX = index;
+
+    slides.forEach((slide, i) => {
+        if (i === index) {
+            slide.classList.add('active');
+            const vid = slide.querySelector('video');
+            if (vid) {
+                vid.currentTime = 0;
+                vid.play().catch(() => {});
             }
+        } else {
+            slide.classList.remove('active');
+            const vid = slide.querySelector('video');
+            if (vid) vid.pause();
         }
-        animFrame = requestAnimationFrame(loop);
-    }
+    });
 
-    if (frame) {
-        frame.addEventListener('mouseenter', () => { isPaused = true; });
-        frame.addEventListener('mouseleave', () => { 
-            isPaused = false; 
-            startTime = performance.now(); 
-        });
-    }
+    dots.forEach((dot, i) => {
+        if (i === index) dot.classList.add('active');
+        else dot.classList.remove('active');
+    });
 
-    animFrame = requestAnimationFrame(loop);
+    resetHeroAutoTimer();
+}
+
+function changeHeroSlide(direction) {
+    goToHeroSlide(HERO_CURRENT_INDEX + direction);
+}
+
+function resetHeroAutoTimer() {
+    clearInterval(HERO_AUTO_TIMER);
+    HERO_AUTO_TIMER = setInterval(() => {
+        changeHeroSlide(1);
+    }, 6500);
 }
 
 /* ==========================================================================
-   3. COMPANY BRAND CATALOG MODAL ENGINE
-   (Triggered by "EXPLORE ALL PRODUCTS OF [COMPANY] →")
+   3. TILE 4 INTERACTIVE ACCESSORIES SWITCHER
+   ========================================================================== */
+function switchAccPreview(index) {
+    const item = ACCESSORY_PREVIEWS[index];
+    if (!item) return;
+
+    // Update active tab button
+    const tabs = document.querySelectorAll('.acc-tab-btn');
+    tabs.forEach((t, i) => {
+        if (i === index) t.classList.add('active');
+        else t.classList.remove('active');
+    });
+
+    // Update image
+    const imgEl = document.getElementById('acc-preview-img');
+    if (imgEl) {
+        imgEl.style.opacity = '0';
+        setTimeout(() => {
+            imgEl.src = item.img;
+            imgEl.alt = item.title;
+            imgEl.style.opacity = '1';
+        }, 150);
+    }
+
+    // Update Category Label & Prices
+    const catEl = document.getElementById('acc-preview-category');
+    const priceEl = document.getElementById('acc-preview-price');
+    const mrpEl = document.getElementById('acc-preview-mrp');
+    const addBtn = document.getElementById('btn-acc-add-cart');
+
+    if (catEl) catEl.textContent = item.category;
+    if (priceEl) priceEl.innerHTML = `&#8377;${item.price.replace('₹', '')}`;
+    if (mrpEl) mrpEl.innerHTML = `&#8377;${item.mrp.replace('₹', '')}`;
+    if (addBtn) addBtn.setAttribute('onclick', `addToCartById('${item.id}')`);
+
+    // Update Feature items
+    for (let i = 0; i < 4; i++) {
+        const featEl = document.getElementById(`acc-feat-${i+1}`);
+        if (featEl && item.feats[i]) {
+            featEl.innerHTML = `<strong>${item.feats[i].title}:</strong> ${item.feats[i].desc}`;
+        }
+    }
+}
+
+/* ==========================================================================
+   4. FULL BRAND CATALOG MODAL ENGINE
    ========================================================================== */
 function openBrandModal(brandName) {
     if (typeof SYBER_PRODUCTS === 'undefined') return;
@@ -324,16 +389,23 @@ function openBrandModal(brandName) {
 
     if (searchInput) searchInput.value = '';
 
-    // Filter products matching this company
     const normalizedTarget = brandName.toUpperCase().replace(/\s+/g, '');
-    CURRENT_BRAND_PRODUCTS = SYBER_PRODUCTS.filter(p => {
-        const b = (p.brand || '').toUpperCase().replace(/\s+/g, '');
-        return b === normalizedTarget;
-    });
 
-    const displayBrand = (brandName === 'CPPLUS' || brandName === 'CP PLUS') ? 'CP PLUS' : brandName;
-    if (titleEl) titleEl.textContent = `ALL PRODUCTS OF ${displayBrand}`;
-    if (countEl) countEl.textContent = `${CURRENT_BRAND_PRODUCTS.length} CERTIFIED WHOLESALE MODELS`;
+    // Support ACCESSORIES category filter
+    if (normalizedTarget === 'ACCESSORIES' || normalizedTarget === 'ACCESSORY') {
+        CURRENT_BRAND_PRODUCTS = SYBER_PRODUCTS.filter(p => (p.category || '').toLowerCase() === 'accessory');
+        if (titleEl) titleEl.textContent = `ESSENTIAL SURVEILLANCE ACCESSORIES`;
+        if (countEl) countEl.textContent = `${CURRENT_BRAND_PRODUCTS.length} CORE HARDWARE ITEMS`;
+    } else {
+        CURRENT_BRAND_PRODUCTS = SYBER_PRODUCTS.filter(p => {
+            const b = (p.brand || '').toUpperCase().replace(/\s+/g, '');
+            return b === normalizedTarget;
+        });
+
+        const displayBrand = (brandName === 'CPPLUS' || brandName === 'CP PLUS') ? 'CP PLUS' : brandName;
+        if (titleEl) titleEl.textContent = `ALL PRODUCTS OF ${displayBrand}`;
+        if (countEl) countEl.textContent = `${CURRENT_BRAND_PRODUCTS.length} CERTIFIED MODELS AVAILABLE`;
+    }
 
     renderBrandModalItems(CURRENT_BRAND_PRODUCTS);
 
@@ -376,7 +448,7 @@ function renderBrandModalItems(products) {
     if (!products || products.length === 0) {
         container.innerHTML = `
             <div style="grid-column: 1 / -1; padding: 3rem 1rem; text-align: center; color: var(--c-muted);">
-                No models found matching your search in this brand.
+                No models found matching your search.
             </div>
         `;
         return;
@@ -398,7 +470,7 @@ function renderBrandModalItems(products) {
 }
 
 /* ==========================================================================
-   4. YOUTUBE-STYLE LIVE SEARCH ENGINE
+   5. YOUTUBE-STYLE LIVE SEARCH ENGINE
    ========================================================================== */
 function initYouTubeSearch() {
     const input = document.getElementById('yt-search-input');
@@ -406,7 +478,6 @@ function initYouTubeSearch() {
     const dropdown = document.getElementById('search-dropdown');
     const resultsContainer = document.getElementById('dropdown-results');
     const countLabel = document.getElementById('search-match-count');
-    const form = document.getElementById('search-form');
 
     if (!input || typeof SYBER_PRODUCTS === 'undefined') return;
 
@@ -432,14 +503,14 @@ function initYouTubeSearch() {
         if (matches.length === 0) {
             resultsContainer.innerHTML = `
                 <div style="padding: 1.25rem; text-align: center; color: var(--c-muted); font-size: 0.82rem;">
-                    No wholesale hardware matching "${query}"
+                    No hardware found matching "${query}"
                 </div>
             `;
         } else {
             resultsContainer.innerHTML = matches.map(p => {
                 const img = (p.images && p.images.length > 0) ? p.images[0] : 'assets/idada_q2i35s_1.jpg';
                 return `
-                    <div class="dropdown-item" onclick="handleSearchSelect('${p.id}', '${p.brand}')">
+                    <div class="dropdown-item" onclick="handleSearchSelect('${p.id}', '${p.brand}', '${p.category}')">
                         <div class="di-left">
                             <img src="${img}" alt="${p.title}" class="di-thumb" onerror="this.src='assets/idada_q2i35s_1.jpg'">
                             <div class="di-info">
@@ -449,7 +520,7 @@ function initYouTubeSearch() {
                         </div>
                         <div class="di-right">
                             <span class="di-price">&#8377;${Number(p.price).toLocaleString('en-IN')}</span>
-                            <button type="button" class="di-add-btn" onclick="event.stopPropagation(); addToCartById('${p.id}')">+ ADD</button>
+                            <button type="button" class="btn-di-add" onclick="event.stopPropagation(); addToCartById('${p.id}');">[ + ]</button>
                         </div>
                     </div>
                 `;
@@ -464,101 +535,69 @@ function initYouTubeSearch() {
             input.value = '';
             clearBtn.style.display = 'none';
             if (dropdown) dropdown.style.display = 'none';
-        });
-    }
-
-    if (form) {
-        form.addEventListener('submit', (e) => {
-            e.preventDefault();
-            const query = input.value.trim().toLowerCase();
-            if (!query) return;
-
-            if (dropdown) dropdown.style.display = 'none';
-
-            // If query matches a company brand, open that company's modal directly
-            if (query.includes('trueview')) {
-                openBrandModal('TRUEVIEW');
-            } else if (query.includes('cp plus') || query.includes('cpplus')) {
-                openBrandModal('CPPLUS');
-            } else if (query.includes('idada')) {
-                openBrandModal('IDADA');
-            } else {
-                // Open first matching brand or Trueview
-                const firstMatch = SYBER_PRODUCTS.find(p => (p.title || '').toLowerCase().includes(query));
-                if (firstMatch && firstMatch.brand) {
-                    openBrandModal(firstMatch.brand);
-                } else {
-                    openBrandModal('TRUEVIEW');
-                }
-            }
+            input.focus();
         });
     }
 
     document.addEventListener('click', (e) => {
-        if (dropdown && !e.target.closest('.yt-search-container')) {
-            dropdown.style.display = 'none';
+        if (!e.target.closest('.yt-search-container')) {
+            if (dropdown) dropdown.style.display = 'none';
         }
     });
 }
 
-function handleSearchSelect(productId, brand) {
+function handleSearchSelect(productId, brand, category) {
     const dropdown = document.getElementById('search-dropdown');
     if (dropdown) dropdown.style.display = 'none';
-    openBrandModal(brand);
+
+    if (category === 'accessory') {
+        openBrandModal('ACCESSORIES');
+    } else {
+        openBrandModal(brand);
+    }
 }
 
 /* ==========================================================================
-   5. GSAP 3 ANIMATIONS & SCROLL INTERACTIONS
+   6. GSAP 3 ANIMATIONS & SCROLL INTERACTIONS
    ========================================================================== */
 function initGsapAnimations() {
     if (typeof ScrollTrigger !== 'undefined') {
-        gsap.from('.showcase-header-bar', {
+        gsap.from('.ahb-title, .ahb-desc', {
             scrollTrigger: {
-                trigger: '.company-showcase-section',
+                trigger: '.asus-showcase-section',
                 start: 'top 80%',
                 toggleActions: 'play none none none'
             },
             duration: 0.8,
             opacity: 0,
             y: 30,
+            stagger: 0.1,
             ease: 'power3.out'
         });
 
-        gsap.from('.company-card', {
+        gsap.from('.asus-tile', {
             scrollTrigger: {
-                trigger: '.company-cards-grid',
+                trigger: '.asus-editorial-grid',
                 start: 'top 80%',
                 toggleActions: 'play none none none'
             },
-            duration: 0.8,
+            duration: 0.85,
             opacity: 0,
             y: 40,
             stagger: 0.15,
             ease: 'power3.out'
         });
 
-        gsap.from('.wholesale-intro-header', {
+        gsap.from('.acc-product-card', {
             scrollTrigger: {
-                trigger: '.observe-wholesale-section',
+                trigger: '.accessories-cards-grid',
                 start: 'top 80%',
                 toggleActions: 'play none none none'
             },
-            duration: 0.8,
+            duration: 0.75,
             opacity: 0,
-            y: 30,
-            ease: 'power3.out'
-        });
-
-        gsap.from('.tier-box', {
-            scrollTrigger: {
-                trigger: '.wholesale-cards-row',
-                start: 'top 80%',
-                toggleActions: 'play none none none'
-            },
-            duration: 0.8,
-            opacity: 0,
-            y: 40,
-            stagger: 0.15,
+            y: 35,
+            stagger: 0.12,
             ease: 'power3.out'
         });
 
@@ -574,28 +613,4 @@ function initGsapAnimations() {
             ease: 'power3.out'
         });
     }
-}
-
-/* ==========================================================================
-   6. MARQUEE SCROLL BOOST
-   ========================================================================== */
-function initMarqueeScrollBoost() {
-    const track = document.querySelector('.ribbon-marquee-track');
-    if (!track) return;
-
-    let lastScrollY = window.scrollY;
-    let scrollVelocity = 0;
-
-    window.addEventListener('scroll', () => {
-        const delta = Math.abs(window.scrollY - lastScrollY);
-        scrollVelocity = Math.min(delta * 0.15, 2.5);
-        lastScrollY = window.scrollY;
-
-        track.style.animationDuration = `${Math.max(12, 32 - scrollVelocity * 8)}s`;
-
-        clearTimeout(track._timeout);
-        track._timeout = setTimeout(() => {
-            track.style.animationDuration = '32s';
-        }, 150);
-    }, { passive: true });
 }
