@@ -24,19 +24,19 @@
         }
 
         .product-page-main {
-            padding-top: 86px; /* Clearance for floating header */
+            padding-top: 74px; /* Precision clearance for floating header */
         }
 
         /* Breadcrumbs Bar */
         .p-breadcrumbs-bar {
             max-width: 1400px;
             margin: 0 auto;
-            padding: 1.25rem 2rem 0.5rem;
+            padding: 0.35rem 2rem 0.15rem;
             display: flex;
             align-items: center;
-            gap: 0.6rem;
+            gap: 0.45rem;
             font-family: 'Space Mono', monospace;
-            font-size: 0.76rem;
+            font-size: 0.72rem;
             color: #64748b;
             flex-wrap: wrap;
         }
@@ -228,6 +228,13 @@
                 padding: 1.5rem;
             }
         }
+
+        /* Dynamic HUD Pointers */
+        .pointer-stage-0 { bottom: 75px; left: 10px; }
+        .pointer-stage-1 { top: 95px; right: 15px; }
+        .pointer-stage-2 { top: 20px; left: 15px; }
+        .pointer-stage-3 { top: 165px; right: 10px; }
+        .pointer-stage-4 { bottom: 40px; right: 20px; }
     </style>
 </head>
 <body class="jeko-theme-white">
@@ -698,56 +705,338 @@
         // ======================================================================
         let currentProduct = null;
         let currentShowcaseIndex = 0;
-
-        const SHOWCASE_FEATURE_DATA = [
-            {
-                title: "01 // DUAL-AXIS GIMBAL ACTIVE",
-                rotateY: 0,
-                rotateZ: 0,
-                scale: 1,
-                pointerId: "ptr-0"
-            },
-            {
-                title: "02 // 4G LTE CELLULAR MODEM",
-                rotateY: 22,
-                rotateZ: -2,
-                scale: 1.05,
-                pointerId: "ptr-1"
-            },
-            {
-                title: "03 // 7.8W SOLAR + 12000mAh LITHIUM",
-                rotateY: -16,
-                rotateZ: 3,
-                scale: 1.08,
-                pointerId: "ptr-2"
-            },
-            {
-                title: "04 // NEURAL AI DUAL-OPTICS 2K",
-                rotateY: 14,
-                rotateZ: -1,
-                scale: 1.12,
-                pointerId: "ptr-3"
-            },
-            {
-                title: "05 // IP66 DIELECTRIC MONSOON SEAL",
-                rotateY: 0,
-                rotateZ: 0,
-                scale: 1.02,
-                pointerId: "ptr-4"
-            }
-        ];
+        let SHOWCASE_FEATURE_DATA = [];
+        let showcaseTl = null;
 
         document.addEventListener('DOMContentLoaded', () => {
             initCartCounter();
             loadProductFromUrl();
-            initAsusShowcaseScroll();
         });
+
+        // ----------------------------------------------------------------------
+        // DYNAMIC TELEMETRY & 5-STAGE FEATURE GENERATOR FOR ALL PRODUCTS
+        // ----------------------------------------------------------------------
+        function getProductTelemetryAndFeatures(p) {
+            const title = (p.title || '').toLowerCase();
+            const cat = (p.category || '').toLowerCase();
+            const brand = (p.brand || 'SYBER').toUpperCase();
+
+            // 1. Storage Products (Seagate SkyHawk, SanDisk MicroSD, Hard Disks)
+            if (cat === 'accessory' && (title.includes('hard disk') || title.includes('skyhawk') || title.includes('sandisk') || title.includes('microsd') || title.includes('terabyte') || title.includes('tb') || title.includes('gb'))) {
+                const isSD = title.includes('microsd') || title.includes('sandisk');
+                return {
+                    telemetry: [
+                        { label: 'DEVICE', val: `${brand} SURVEILLANCE CLASS` },
+                        { label: 'WORKLOAD', val: isSD ? '24/7 EDGE VIDEO RECORDING' : '180 TB/YEAR CONTINUOUS' },
+                        { label: 'INTERFACE', val: isSD ? 'UHS-I U3 V30 HIGH SPEED' : 'SATA III 6Gb/s' },
+                        { label: 'FIRMWARE', val: isSD ? 'HIGH ENDURANCE FLASH' : 'IMAGEPERFECT™ ZERO-DROP' },
+                        { label: 'RELIABILITY', val: isSD ? '10,000 P/E WRITE CYCLES' : '1,000,000h MTBF' }
+                    ],
+                    modelCode: `MODEL: ${brand}-SURVEILLANCE • 24/7 CONTINUOUS CLASS`,
+                    features: [
+                        {
+                            index: '01',
+                            kicker: 'SURVEILLANCE OPTIMIZED',
+                            title: '24/7 Continuous Recording Firmware',
+                            desc: 'Custom video streaming firmware prioritizes continuous sequential write operations, preventing frame drops across multi-channel high-definition cameras.',
+                            specs: [{ label: 'Duty Cycle', val: '24/7 Always-On' }, { label: 'Workload', val: isSD ? 'High Endurance' : '180TB/Year' }, { label: 'Latency', val: 'Low Jitter' }],
+                            status: 'STREAM FIRMWARE ACTIVE',
+                            pointerLabel: '01 // SURVEILLANCE FIRMWARE',
+                            motion: { rotateY: 0, rotateZ: 0, scale: 1 }
+                        },
+                        {
+                            index: '02',
+                            kicker: 'VIBRATION RESISTANCE',
+                            title: 'Rotational Vibration Sensors & Tolerance',
+                            desc: 'Integrated environmental sensors maintain precision read/write performance within multi-drive surveillance cabinets and DVR enclosures.',
+                            specs: [{ label: 'Sensors', val: 'Dual RV Active' }, { label: 'Bays', val: isSD ? 'Edge MicroSD' : '1 - 16 Bay Ready' }, { label: 'Acoustic', val: 'Silent Seek' }],
+                            status: 'RV TOLERANCE CALIBRATED',
+                            pointerLabel: '02 // RV TOLERANCE ARMED',
+                            motion: { rotateY: 18, rotateZ: -2, scale: 1.05 }
+                        },
+                        {
+                            index: '03',
+                            kicker: 'EXTENDED RELIABILITY',
+                            title: '1,000,000 Hours MTBF Field Reliability',
+                            desc: 'Engineered for uninterrupted operation in 24/7 surveillance installations with low power consumption and high thermal durability.',
+                            specs: [{ label: 'MTBF', val: isSD ? '30,000 Hours Record' : '1,000,000 Hours' }, { label: 'Warranty', val: '3-Year Official' }, { label: 'Grade', val: 'Surveillance' }],
+                            status: 'DRIVE HEALTH OPTIMAL',
+                            pointerLabel: '03 // 1M HOURS MTBF',
+                            motion: { rotateY: -16, rotateZ: 2, scale: 1.08 }
+                        },
+                        {
+                            index: '04',
+                            kicker: 'HIGH BANDWIDTH ARCHITECTURE',
+                            title: 'High-Throughput Storage Interface',
+                            desc: 'High-speed storage bus delivers sustained write throughput capable of recording up to 64 concurrent high-definition video camera feeds.',
+                            specs: [{ label: 'Bus', val: isSD ? 'UHS Speed Class 3' : 'SATA 6Gb/s' }, { label: 'Channels', val: 'Up to 64 HD Cams' }, { label: 'Transfer', val: isSD ? 'Up to 100MB/s' : 'Up to 180MB/s' }],
+                            status: 'HIGH-BANDWIDTH BUS READY',
+                            pointerLabel: '04 // HIGH-SPEED BUS',
+                            motion: { rotateY: 14, rotateZ: -1, scale: 1.1 }
+                        },
+                        {
+                            index: '05',
+                            kicker: 'THERMAL RESILIENCE',
+                            title: 'Low Power & Cool Running Design',
+                            desc: 'Advanced power management reduces heat dissipation, ensuring reliable operation even inside compact, unventilated surveillance boxes.',
+                            specs: [{ label: 'Temp Range', val: '0°C to 70°C' }, { label: 'Power', val: 'Surveillance Eco' }, { label: 'Shock', val: '300G Operating' }],
+                            status: 'THERMAL ARCHITECTURE SECURE',
+                            pointerLabel: '05 // LOW-HEAT DESIGN',
+                            motion: { rotateY: 0, rotateZ: 0, scale: 1.02 }
+                        }
+                    ],
+                    specsTable: [
+                        { key: 'FORM FACTOR', val: isSD ? 'MicroSDXC Class 10 / UHS-I U3 V30' : '3.5-inch Internal SATA Surveillance HDD' },
+                        { key: 'SURVEILLANCE WORKLOAD', val: isSD ? 'High Endurance Continuous Loop' : '180 TB / Year 24/7 Workload Rating' },
+                        { key: 'INTERFACE SPEED', val: isSD ? 'Read 100MB/s, Write 40MB/s' : 'SATA 6.0 Gb/s High Speed' },
+                        { key: 'CONCURRENT CAMERAS', val: 'Up to 64 High-Definition CCTV Streams' },
+                        { key: 'DRIVE BAYS SUPPORTED', val: isSD ? 'Direct Camera TF Slot' : '1 to 16 Drive Enclosures' },
+                        { key: 'CACHE BUFFER', val: 'Surveillance Stream Buffer Cache' },
+                        { key: 'RELIABILITY RATING', val: isSD ? 'High Endurance Flash Grade' : '1,000,000 Hours MTBF Field Tested' },
+                        { key: 'POWER PROFILE', val: 'Surveillance-Optimized Low Heat Draw' },
+                        { key: 'OPERATING TEMPERATURE', val: '0°C to 70°C Case Temperature' },
+                        { key: 'MANUFACTURER WARRANTY', val: 'Official Brand Replacement Warranty' }
+                    ]
+                };
+            }
+
+            // 2. Power Supply & SMPS
+            if (cat === 'accessory' && (title.includes('smps') || title.includes('power supply') || title.includes('12v') || title.includes('adapter'))) {
+                return {
+                    telemetry: [
+                        { label: 'OUTPUT', val: '12V REGULATED DC' },
+                        { label: 'EFFICIENCY', val: '>85% HIGH EFFICIENCY' },
+                        { label: 'PROTECTION', val: 'SHORT-CIRCUIT & OVERVOLTAGE' },
+                        { label: 'CHASSIS', val: 'PERFORATED ALUMINUM' },
+                        { label: 'INPUT', val: '100V - 265V AC WIDE' }
+                    ],
+                    modelCode: `MODEL: ${brand}-SMPS-PRO • HEAVY DUTY INDUSTRIAL`,
+                    features: [
+                        {
+                            index: '01',
+                            kicker: 'CLEAN REGULATED VOLTAGE',
+                            title: 'Ultra-Stable 12V DC Output',
+                            desc: 'Delivers pure, ripple-free 12V DC power to eliminate camera video rolling lines, signal hum, and optical sensor flickering on connected cameras.',
+                            specs: [{ label: 'Voltage', val: '12V DC Regulated' }, { label: 'Ripple', val: '<50mV Ultra Low' }, { label: 'Efficiency', val: '>85%' }],
+                            status: 'VOLTAGE REGULATION ARMED',
+                            pointerLabel: '01 // 12V REGULATED OUTPUT',
+                            motion: { rotateY: 0, rotateZ: 0, scale: 1 }
+                        },
+                        {
+                            index: '02',
+                            kicker: 'TRIPLE-LAYER PROTECTION',
+                            title: 'Automatic Surge & Short-Circuit Cutoff',
+                            desc: 'High-speed protective circuit instantly cuts power during electrical surges, short circuits, or heavy overloads, auto-recovering when resolved.',
+                            specs: [{ label: 'Surge', val: '4KV Spike Guard' }, { label: 'Short Circuit', val: 'Auto-Recovery' }, { label: 'Overload', val: '115%-135% Cutoff' }],
+                            status: 'PROTECTION CIRCUITS ONLINE',
+                            pointerLabel: '02 // SURGE SUPPRESSION',
+                            motion: { rotateY: 18, rotateZ: -2, scale: 1.05 }
+                        },
+                        {
+                            index: '03',
+                            kicker: 'PASSIVE CONVECTION COOLING',
+                            title: 'Honeycomb Perforated Metal Enclosure',
+                            desc: 'Heavy-gauge aluminum alloy chassis with precision hexagonal ventilation vents dissipates thermal buildup naturally without noisy mechanical fans.',
+                            specs: [{ label: 'Material', val: 'Aviation Aluminum' }, { label: 'Cooling', val: 'Natural Convection' }, { label: 'Acoustic', val: '0dB Pure Silence' }],
+                            status: 'HEAT DISSIPATION OPTIMAL',
+                            pointerLabel: '03 // HONEYCOMB CHASSIS',
+                            motion: { rotateY: -16, rotateZ: 2, scale: 1.08 }
+                        },
+                        {
+                            index: '04',
+                            kicker: 'ORGANIZED WIRING',
+                            title: 'Multi-Channel Screw Terminal Blocks',
+                            desc: 'Dedicated positive and negative terminal blocks with insulating covers provide firm, vibration-proof connections for all camera power runs.',
+                            specs: [{ label: 'Terminals', val: 'Multi-Way Barrier' }, { label: 'Indicator', val: 'LED Output Light' }, { label: 'Clamp', val: 'Anti-Vibration' }],
+                            status: 'TERMINAL BUS ACTIVE',
+                            pointerLabel: '04 // SCREW TERMINAL BUS',
+                            motion: { rotateY: 12, rotateZ: -1, scale: 1.1 }
+                        },
+                        {
+                            index: '05',
+                            kicker: 'INDUSTRIAL RELIABILITY',
+                            title: '100% Full-Load Factory Burn-In Tested',
+                            desc: 'Every single power supply unit undergoes 100% full-load burn-in testing under elevated temperatures to guarantee flawless 24/7 surveillance life.',
+                            specs: [{ label: 'Burn-In', val: '100% Full Load' }, { label: 'Standard', val: 'Surveillance Certified' }, { label: 'MTBF', val: '>50,000 Hours' }],
+                            status: 'FACTORY BURN-IN CERTIFIED',
+                            pointerLabel: '05 // 100% BURN-IN TESTED',
+                            motion: { rotateY: 0, rotateZ: 0, scale: 1.02 }
+                        }
+                    ],
+                    specsTable: [
+                        { key: 'INPUT VOLTAGE', val: '100V - 265V AC 50/60Hz (Wide Range)' },
+                        { key: 'OUTPUT VOLTAGE', val: '12V DC Constant Regulated (+/- 5% Adj)' },
+                        { key: 'OUTPUT CURRENT', val: title.includes('10a') ? '10 Amperes (120W)' : title.includes('20a') ? '20 Amperes (240W)' : '5 Amperes (60W)' },
+                        { key: 'OVERLOAD PROTECTION', val: '105% - 150% Hiccup Mode Auto-Recovery' },
+                        { key: 'OVERVOLTAGE PROTECTION', val: '115% - 135% Rated Output Voltage' },
+                        { key: 'COOLING METHOD', val: 'Free Air Convection Perforated Metal' },
+                        { key: 'WORKING TEMPERATURE', val: '-10°C to +60°C Operating' },
+                        { key: 'SAFETY STANDARDS', val: 'Surveillance CCTV Certified CE / RoHS' },
+                        { key: 'TERMINAL CONNECTIONS', val: 'Heavy Duty Multi-Terminal Barrier Strip' },
+                        { key: 'WARRANTY', val: '1-Year Official Replacement Guarantee' }
+                    ]
+                };
+            }
+
+            // 3. Solar & 4G Cellular Cameras (Trueview Solar, 4G PTZ)
+            if (cat === '4g-camera' || cat === 'solar-hub' || title.includes('solar') || title.includes('4g sim')) {
+                return {
+                    telemetry: [
+                        { label: 'DATA', val: 'CAT-4 4G LTE SIM' },
+                        { label: 'POWER', val: 'MONOCRYSTALLINE SOLAR + LITHIUM' },
+                        { label: 'OPTICS', val: '2K/4MP DUAL-LENS PTZ' },
+                        { label: 'SEAL', val: 'IP66 DIELECTRIC MONSOON' },
+                        { label: 'NIGHT', val: 'COLOR SMART ILLUMINATION' }
+                    ],
+                    modelCode: `MODEL: ${brand}-4G-SOLAR • 100% WIRE-FREE OFF-GRID`,
+                    features: [
+                        {
+                            index: '01',
+                            kicker: '360° PRECISION GIMBAL',
+                            title: 'Dual-Axis High Torque Gimbal',
+                            desc: 'High-torque brushless DC servo core allows 355° continuous horizontal rotation and 90° vertical tilt with zero dead-angles and silent optical tracking.',
+                            specs: [{ label: 'Pan / Tilt', val: '355° / 90°' }, { label: 'Drive', val: 'Brushless DC' }, { label: 'Reaction', val: '<0.1s Zero-Lag' }],
+                            status: 'SERVO MECHANICS ARMED',
+                            pointerLabel: '01 // BRUSHLESS GIMBAL',
+                            motion: { rotateY: 0, rotateZ: 0, scale: 1 }
+                        },
+                        {
+                            index: '02',
+                            kicker: 'ZERO WI-FI CELLULAR',
+                            title: 'Autonomous 4G Cellular Core',
+                            desc: 'Integrated 4G Nano-SIM slot with dual high-gain LDS antennas. Stream live 2K video and receive instant cloud push notifications anywhere without broadband wiring.',
+                            specs: [{ label: 'Modem', val: '4G LTE Cat-4' }, { label: 'Slot', val: 'Nano-SIM Direct' }, { label: 'Bands', val: 'B1/B3/B5/B8/B40' }],
+                            status: 'CELLULAR LINK STANDBY',
+                            pointerLabel: '02 // 4G LTE CORE',
+                            motion: { rotateY: 20, rotateZ: -2, scale: 1.05 }
+                        },
+                        {
+                            index: '03',
+                            kicker: '100% OFF-GRID ENDURANCE',
+                            title: 'Monocrystalline Solar + Lithium Array',
+                            desc: 'High-efficiency monocrystalline solar panel coupled with a high-capacity lithium power reservoir. Operates 365 days continuously even through prolonged monsoon rain.',
+                            specs: [{ label: 'Solar Panel', val: 'Monocrystalline' }, { label: 'Battery', val: 'Lithium Deep Cycle' }, { label: 'Cycle', val: '365-Day Autonomy' }],
+                            status: 'SMART BMS ONLINE',
+                            pointerLabel: '03 // SOLAR LITHIUM ARRAY',
+                            motion: { rotateY: -16, rotateZ: 3, scale: 1.08 }
+                        },
+                        {
+                            index: '04',
+                            kicker: 'ON-DEVICE NPU EDGE AI',
+                            title: 'Neural AI Humanoid Discriminator',
+                            desc: 'Embedded neural processing unit (NPU) filters out 99.4% of false alarms caused by rain, swaying trees, and animals, alerting you exclusively when real intrusion occurs.',
+                            specs: [{ label: 'Precision', val: '99.4% AI Filter' }, { label: 'Trigger', val: 'PIR + AI Dual-Wake' }, { label: 'Response', val: 'Siren + Spotlight' }],
+                            status: 'NEURAL INFERENCE ACTIVE',
+                            pointerLabel: '04 // NEURAL AI OPTICS',
+                            motion: { rotateY: 14, rotateZ: -1, scale: 1.12 }
+                        },
+                        {
+                            index: '05',
+                            kicker: 'CLIMATIC ENDURANCE',
+                            title: 'All-Weather Dielectric Monsoon Seal',
+                            desc: 'IP66 certified waterproof hermetic construction with 4KV surge suppression. Tested against heavy tropical downpours, coastal humidity, and high-heat sunlight.',
+                            specs: [{ label: 'Ingress', val: 'IP66 Weatherproof' }, { label: 'Surge', val: '4000V Lightning Guard' }, { label: 'Chassis', val: 'Dielectric UV Polymer' }],
+                            status: 'HERMETIC SEAL SECURE',
+                            pointerLabel: '05 // IP66 DIELECTRIC',
+                            motion: { rotateY: 0, rotateZ: 0, scale: 1.02 }
+                        }
+                    ],
+                    specsTable: [
+                        { key: 'OPTICAL SENSOR', val: 'High-Definition CMOS Optical Sensor' },
+                        { key: 'RESOLUTION', val: title.includes('4mp') ? '4MP 2K Ultra HD (2560x1440)' : '3MP / 1080P Full HD Stream' },
+                        { key: 'ROTATION / GIMBAL', val: '355° Motorized Pan, 90° Motorized Tilt' },
+                        { key: 'NIGHT VISION', val: 'Smart Dual-Light IR + Full Color Spotlight' },
+                        { key: 'CELLULAR PROTOCOL', val: '4G LTE Cat-4 Cellular (Nano-SIM Direct)' },
+                        { key: 'POWER ARCHITECTURE', val: 'Monocrystalline Solar + Lithium Array' },
+                        { key: 'LOCAL RECORDING', val: 'MicroSD up to 256GB + Cloud Support' },
+                        { key: 'INGRESS PROTECTION', val: 'IP66 Weatherproof & 4KV Surge Guard' },
+                        { key: 'AUDIO INTERCOM', val: 'Two-Way Realtime Talk + Security Siren' },
+                        { key: 'OPERATING RANGE', val: '-20°C to +60°C (Monsoon & Coastal Safe)' }
+                    ]
+                };
+            }
+
+            // 4. Default: Wi-Fi Smart PT Cameras (iDADA, CP Plus Ezykam, etc.)
+            const resString = title.includes('3mp') ? '3.0 MP 2K ULTRA HD' : title.includes('4mp') ? '4.0 MP QUAD HD' : '2.0 MP 1080P FULL HD';
+            return {
+                telemetry: [
+                    { label: 'OPTICS', val: resString },
+                    { label: 'WIRELESS', val: '2.4GHz WI-FI + AP HOTSPOT' },
+                    { label: 'ROTATION', val: '355° PAN / 90° TILT MOTORIZED' },
+                    { label: 'AUDIO', val: '2-WAY VOICE DUPLEX TALK' },
+                    { label: 'AI TRACKING', val: 'HUMANOID MOTION FOLLOW' }
+                ],
+                modelCode: `MODEL: ${brand}-SMART-PT • 360° INDOOR/OUTDOOR`,
+                features: [
+                    {
+                        index: '01',
+                        kicker: '360° PRECISION COVERAGE',
+                        title: 'High-Velocity Motorized Pan & Tilt',
+                        desc: 'Precision micro-stepper motors rotate 355° horizontally and 90° vertically, allowing zero blind-spot sweeps controlled directly from your smartphone.',
+                        specs: [{ label: 'Pan / Tilt', val: '355° / 90°' }, { label: 'Speed', val: 'Variable Sweep' }, { label: 'Coverage', val: 'Panoramic 360°' }],
+                        status: 'MOTORIZED GIMBAL CALIBRATED',
+                        pointerLabel: '01 // MOTORIZED PAN-TILT',
+                        motion: { rotateY: 0, rotateZ: 0, scale: 1 }
+                    },
+                    {
+                        index: '02',
+                        kicker: 'CRYSTAL ULTRA-HD CLARITY',
+                        title: 'Progressive Scan Low-Light Sensor',
+                        desc: 'Next-generation optical sensor captures razor-sharp video with vivid color accuracy, high dynamic range, and enhanced facial clarity even in dim light.',
+                        specs: [{ label: 'Resolution', val: resString }, { label: 'Codec', val: 'Smart H.265+' }, { label: 'FPS', val: '25fps Realtime' }],
+                        status: 'OPTICAL SENSOR ARMED',
+                        pointerLabel: '02 // ULTRA-HD SENSOR',
+                        motion: { rotateY: 18, rotateZ: -2, scale: 1.05 }
+                    },
+                    {
+                        index: '03',
+                        kicker: 'TWO-WAY VOICE COMMUNICATION',
+                        title: 'Full-Duplex Acoustic Talkback',
+                        desc: 'Integrated high-sensitivity microphone and acoustic speaker allow seamless real-time conversations with family, pets, or delivery couriers from anywhere.',
+                        specs: [{ label: 'Microphone', val: 'Noise-Canceling' }, { label: 'Speaker', val: 'High-Decibel' }, { label: 'Protocol', val: 'Duplex Voice' }],
+                        status: 'ACOUSTIC INTERCOM ONLINE',
+                        pointerLabel: '03 // 2-WAY AUDIO TALK',
+                        motion: { rotateY: -16, rotateZ: 2, scale: 1.08 }
+                    },
+                    {
+                        index: '04',
+                        kicker: 'AI-POWERED SURVEILLANCE',
+                        title: 'Smart Humanoid Motion Tracking',
+                        desc: 'Advanced on-device AI algorithms detect human silhouettes, automatically following intruders across the room and sending instant alert notifications.',
+                        specs: [{ label: 'Algorithm', val: 'Humanoid AI' }, { label: 'Tracking', val: 'Auto-Follow' }, { label: 'Notifications', val: 'Instant Push' }],
+                        status: 'HUMANOID AI ACTIVE',
+                        pointerLabel: '04 // AI HUMANOID TRACK',
+                        motion: { rotateY: 14, rotateZ: -1, scale: 1.1 }
+                    },
+                    {
+                        index: '05',
+                        kicker: 'DAY & NIGHT SECURITY',
+                        title: 'Smart IR Night Vision & MicroSD Storage',
+                        desc: 'Infrared LEDs provide up to 15m of clear night vision with automatic day/night switching. Secure local recording supports up to 256GB MicroSD and cloud backup.',
+                        specs: [{ label: 'Night Range', val: '10 - 15m IR-Cut' }, { label: 'Storage', val: 'Up to 256GB MicroSD' }, { label: 'Encryption', val: 'AES-128 Cloud' }],
+                        status: 'NIGHT VISION STANDBY',
+                        pointerLabel: '05 // IR NIGHT VISION',
+                        motion: { rotateY: 0, rotateZ: 0, scale: 1.02 }
+                    }
+                ],
+                specsTable: [
+                    { key: 'OPTICAL SENSOR', val: 'Progressive Scan High-Sensitivity CMOS' },
+                    { key: 'STREAM RESOLUTION', val: resString },
+                    { key: 'MOTORIZED ROTATION', val: '355° Horizontal Pan, 90° Vertical Tilt' },
+                    { key: 'WIRELESS PROTOCOL', val: 'Wi-Fi 2.4GHz IEEE 802.11 b/g/n + AP Mode' },
+                    { key: 'AUDIO INTERCOM', val: 'Built-in Mic & Speaker with Noise Reduction' },
+                    { key: 'NIGHT ILLUMINATION', val: 'High-Power Smart IR Array with Auto ICR' },
+                    { key: 'AI DETECTION', val: 'Humanoid Silhouette Detection & Auto Tracking' },
+                    { key: 'STORAGE OPTIONS', val: 'MicroSD Card (up to 256GB) + Cloud Option' },
+                    { key: 'POWER INPUT', val: 'DC 5V / 12V Direct Power Adapter' },
+                    { key: 'MOBILE COMPATIBILITY', val: 'iOS & Android Free Dedicated Mobile App' }
+                ]
+            };
+        }
 
         function loadProductFromUrl() {
             const urlParams = new URLSearchParams(window.location.search);
             const targetId = urlParams.get('id') || urlParams.get('model');
-
-            // Default to Flagship Trueview 4G Solar PTZ if none specified
             const defaultId = 'trueview-solar-4g-sim-outdoor-pan-tilt-camera';
 
             if (typeof SYBER_PRODUCTS !== 'undefined' && SYBER_PRODUCTS.length > 0) {
@@ -773,26 +1062,64 @@
             }
 
             renderProductData(currentProduct);
+            initAsusShowcaseScroll();
         }
 
         function renderProductData(p) {
             document.title = `${p.title} — SYBER SPACE`;
+            const showcaseData = getProductTelemetryAndFeatures(p);
 
-            // Breadcrumbs
+            // 1. Breadcrumbs
             const crumbBrand = document.getElementById('p-crumb-brand');
             const crumbTitle = document.getElementById('p-crumb-title');
             if (crumbBrand) crumbBrand.textContent = p.brand || 'SURVEILLANCE';
             if (crumbTitle) crumbTitle.textContent = p.title;
 
-            // HUD Top Bar
+            // 2. HUD Top Bar
             const hudKicker = document.getElementById('p-hud-kicker');
             const hudTitle = document.getElementById('p-hud-title');
             const hudSubtitle = document.getElementById('p-hud-subtitle');
-            if (hudKicker) hudKicker.textContent = `${p.brand || 'SYBER'} // PRECISION HARDWARE ARCHITECTURE`;
+            const hudRibbon = document.getElementById('p-hud-ribbon');
+
+            if (hudKicker) hudKicker.textContent = `${p.brand || 'SYBER'} // PRECISION HARDWARE SPECIFICATION`;
             if (hudTitle) hudTitle.textContent = p.title.toUpperCase();
             if (hudSubtitle && p.desc) hudSubtitle.textContent = p.desc;
 
-            // Pinned Center Visual Image
+            // Render Dynamic Telemetry Ribbon
+            if (hudRibbon && showcaseData.telemetry) {
+                hudRibbon.innerHTML = showcaseData.telemetry.map(t => `
+                    <div class="asus-tel-item">
+                        <span class="asus-tel-label">${t.label}:</span>
+                        <span class="asus-tel-val">${t.val}</span>
+                    </div>
+                `).join('');
+            }
+
+            // 3. Dynamic Feature Cards in Left Track
+            const featuresTrack = document.getElementById('asus-features-track');
+            if (featuresTrack && showcaseData.features) {
+                featuresTrack.innerHTML = showcaseData.features.map((feat, idx) => `
+                    <div class="asus-feature-card ${idx === 0 ? 'active' : ''}" data-feature="${idx}" id="feat-${idx+1}">
+                        <div class="afc-header">
+                            <span class="afc-index">${feat.index}</span>
+                            <div class="afc-meta">
+                                <span class="afc-kicker">${feat.kicker}</span>
+                                <h3 class="afc-title">${feat.title}</h3>
+                            </div>
+                        </div>
+                        <p class="afc-desc">${feat.desc}</p>
+                        <div class="afc-specs">
+                            ${feat.specs.map(s => `<div class="afc-spec-chip"><span>${s.label}</span><strong>${s.val}</strong></div>`).join('')}
+                        </div>
+                        <div class="afc-status">
+                            <span class="afc-pulse-dot"></span>
+                            <span>${feat.status}</span>
+                        </div>
+                    </div>
+                `).join('');
+            }
+
+            // 4. Center Product Visual & Dynamic HUD Pointers
             const camImg = document.getElementById('asus-camera-img');
             if (camImg) {
                 const imgSrc = (p.images && p.images.length > 0) ? p.images[0] : 'assets/hero_product_solar_v2.png';
@@ -800,9 +1127,35 @@
                 camImg.alt = p.title;
             }
 
-            // Right Buy Dock Details
+            // Update Dynamic HUD Pointers
+            const centerStage = document.getElementById('asus-center-stage');
+            if (centerStage && showcaseData.features) {
+                // Remove existing pointers
+                centerStage.querySelectorAll('.asus-hud-pointer').forEach(el => el.remove());
+
+                // Inject dynamic pointers
+                showcaseData.features.forEach((feat, idx) => {
+                    const ptr = document.createElement('div');
+                    ptr.className = `asus-hud-pointer pointer-stage-${idx} ${idx === 0 ? 'active' : ''}`;
+                    ptr.id = `ptr-${idx}`;
+                    ptr.innerHTML = `
+                        <div class="ptr-line"></div>
+                        <div class="ptr-badge">${feat.pointerLabel}</div>
+                    `;
+                    centerStage.appendChild(ptr);
+                });
+            }
+
+            // Update Target Readout Text
+            const targetText = document.getElementById('acr-target-text');
+            if (targetText && showcaseData.features[0]) {
+                targetText.textContent = showcaseData.features[0].pointerLabel;
+            }
+
+            // 5. Right Buy Dock
             const brandLabel = document.getElementById('p-brand-label');
             const buyTitle = document.getElementById('p-buy-title');
+            const modelCode = document.getElementById('p-model-code');
             const priceVal = document.getElementById('p-price-val');
             const mrpVal = document.getElementById('p-mrp-val');
             const discountVal = document.getElementById('p-discount-val');
@@ -810,10 +1163,31 @@
 
             if (brandLabel) brandLabel.textContent = `${p.brand || 'SYBER'} SURVEILLANCE`;
             if (buyTitle) buyTitle.textContent = p.title;
+            if (modelCode) modelCode.textContent = showcaseData.modelCode;
             if (priceVal) priceVal.textContent = Number(p.price).toLocaleString('en-IN');
             if (mrpVal && p.mrp) mrpVal.textContent = `${p.mrp} M.R.P.`;
             if (discountVal && p.save) discountVal.textContent = p.save.toUpperCase();
             if (badgePill && p.badge) badgePill.textContent = p.badge.toUpperCase();
+
+            // 6. Technical Architecture Deep Dive Table
+            const specsGridTable = document.querySelector('.specs-grid-table');
+            if (specsGridTable && showcaseData.specsTable) {
+                specsGridTable.innerHTML = showcaseData.specsTable.map(item => `
+                    <div class="spec-item">
+                        <span class="spec-key">${item.key}</span>
+                        <span class="spec-val">${item.val}</span>
+                    </div>
+                `).join('');
+            }
+
+            // 7. Store feature data for GSAP scroll interaction
+            SHOWCASE_FEATURE_DATA = showcaseData.features.map((f, i) => ({
+                title: f.pointerLabel,
+                rotateY: f.motion.rotateY,
+                rotateZ: f.motion.rotateZ,
+                scale: f.motion.scale,
+                pointerId: `ptr-${i}`
+            }));
         }
 
         function initAsusShowcaseScroll() {
@@ -838,15 +1212,15 @@
 
             gsap.registerPlugin(ScrollTrigger);
 
-            window.addEventListener('load', () => {
-                ScrollTrigger.refresh();
-            });
+            if (showcaseTl) {
+                showcaseTl.kill();
+            }
 
             // Pin stage viewport with GSAP ScrollTrigger
-            const showcaseTl = gsap.timeline({
+            showcaseTl = gsap.timeline({
                 scrollTrigger: {
                     trigger: '#asus-stage-viewport',
-                    start: 'top top+=78',
+                    start: 'top top+=74',
                     end: '+=1800',
                     pin: true,
                     scrub: 0.8,
@@ -855,13 +1229,14 @@
                     onUpdate: (self) => {
                         const progress = self.progress;
                         const count = SHOWCASE_FEATURE_DATA.length;
+                        if (count === 0) return;
                         const targetIdx = Math.min(count - 1, Math.floor(progress * count));
                         
                         if (targetIdx !== currentShowcaseIndex) {
                             setActiveShowcaseFeature(targetIdx);
                         }
 
-                        if (cameraImg) {
+                        if (cameraImg && SHOWCASE_FEATURE_DATA[targetIdx]) {
                             const cfg = SHOWCASE_FEATURE_DATA[targetIdx];
                             const microTilt = (progress - 0.5) * 8;
                             cameraImg.style.transform = `perspective(1000px) rotateY(${cfg.rotateY + microTilt}deg) rotateZ(${cfg.rotateZ}deg) scale(${cfg.scale})`;
@@ -877,7 +1252,7 @@
                         y: () => {
                             const trackH = featuresTrack.scrollHeight;
                             const containerH = stageViewport.clientHeight;
-                            return -Math.max(0, trackH - containerH + 60);
+                            return -Math.max(0, trackH - containerH + 50);
                         },
                         ease: 'none',
                         duration: 1
@@ -885,6 +1260,8 @@
                     0
                 );
             }
+
+            ScrollTrigger.refresh();
         }
 
         function setActiveShowcaseFeature(index) {

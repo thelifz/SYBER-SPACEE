@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Support URL param ?brand=TRUEVIEW or ?test_bubble=TRUEVIEW or ?search=...
     const urlParams = new URLSearchParams(window.location.search);
-    const brandParam = urlParams.get('brand') || urlParams.get('test_bubble');
+    const brandParam = urlParams.get('brand') || urlParams.get('test_bubble') || urlParams.get('takeover');
     if (brandParam) {
         triggerBubbleTakeover(null, brandParam);
     }
@@ -719,10 +719,10 @@ function triggerBubbleTakeover(originElemOrEvent, brandKey) {
         y = originElemOrEvent.clientY;
     }
 
-    // Relative to overlay viewport (overlay starts at top: 78px)
-    const overlayTopOffset = 78;
-    const relY = Math.max(0, y - overlayTopOffset);
-    const overlayHeight = window.innerHeight - overlayTopOffset;
+    // Relative to overlay viewport (overlay starts at top: 0, covers entire screen behind header)
+    const overlayTopOffset = 0;
+    const relY = y;
+    const overlayHeight = window.innerHeight;
 
     // Calculate radius to cover the entire sub-header canvas
     const maxDist = Math.max(
@@ -787,7 +787,7 @@ function triggerBubbleTakeover(originElemOrEvent, brandKey) {
             const saveBadge = p.save ? `<span class="lpc-save-pill">${p.save}</span>` : '';
 
             return `
-                <div class="live-prod-card">
+                <div class="live-prod-card" onclick="window.location.href='product.html?id=${p.id}'" style="cursor: pointer;">
                     <div class="lpc-top-tags">
                         <span class="lpc-brand-pill">${p.brand || 'SYBER'}</span>
                         ${saveBadge}
@@ -813,6 +813,15 @@ function triggerBubbleTakeover(originElemOrEvent, brandKey) {
     overlay.classList.add('active');
     document.body.style.overflow = 'hidden';
 
+    // Push browser history state so pressing Back closes the takeover instead of leaving the website
+    try {
+        if (!window.history.state || window.history.state.modal !== 'brandTakeover') {
+            window.history.pushState({ modal: 'brandTakeover', brand: brandKey }, '', window.location.href);
+        }
+    } catch (e) {
+        console.warn('history.pushState not available', e);
+    }
+
     // Scroll takeover content to top
     if (content) content.scrollTop = 0;
 }
@@ -833,15 +842,22 @@ function handleTakeoverAdd(event, productId, btnElem) {
     }
 }
 
-function closeBubbleTakeover() {
+function closeBubbleTakeover(popHistory = true) {
     const overlay = document.getElementById('brandTakeoverOverlay');
     const bubble = document.getElementById('brandTakeoverBubble');
 
-    if (!overlay) return;
+    if (!overlay || !overlay.classList.contains('active')) return;
 
     // Remove active — CSS transition handles shrink
     overlay.classList.remove('active');
     document.body.style.overflow = '';
+
+    // Pop history if requested and modal history state is active
+    if (popHistory && window.history.state && window.history.state.modal === 'brandTakeover') {
+        try {
+            window.history.back();
+        } catch (e) {}
+    }
 
     // Reset bubble after transition
     setTimeout(() => {
@@ -850,6 +866,14 @@ function closeBubbleTakeover() {
         }
     }, 650);
 }
+
+// Browser Back button interceptor: closes the modal instead of closing/leaving the website
+window.addEventListener('popstate', (e) => {
+    const overlay = document.getElementById('brandTakeoverOverlay');
+    if (overlay && overlay.classList.contains('active')) {
+        closeBubbleTakeover(false); // Already popped by browser Back, so popHistory = false
+    }
+});
 
 function handleTakeoverBgClick(e) {
     // If user clicked the overlay background (not a product card or button), close
