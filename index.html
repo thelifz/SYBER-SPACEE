@@ -307,7 +307,7 @@
                     <div class="brand-showcase-grid">
                         
                         <!-- 1. TRUEVIEW -->
-                        <div class="brand-cat-card" data-brand="TRUEVIEW" onmouseenter="startBrandHover(event, 'TRUEVIEW')" onmouseleave="cancelBrandHover()">
+                        <div class="brand-cat-card" data-brand="TRUEVIEW" onclick="triggerBubbleTakeover(event, 'TRUEVIEW')" onmouseenter="startBrandHover(event, 'TRUEVIEW')" onmouseleave="cancelBrandHover()">
                             <div class="bcc-top">
                                 <span class="bcc-badge">32 PRODUCTS</span>
                                 <span class="bcc-tier">OFFICIAL PARTNER</span>
@@ -325,13 +325,13 @@
                                     <li>NVRs & AHD Systems</li>
                                 </ul>
                                 <button type="button" class="btn-bcc-action" onclick="event.stopPropagation(); triggerBubbleTakeover(event, 'TRUEVIEW')">
-                                    EXPLORE TRUEVIEW &rarr;
+                                    SHOW ALL PRODUCTS &rarr;
                                 </button>
                             </div>
                         </div>
 
                         <!-- 2. CP PLUS -->
-                        <div class="brand-cat-card" data-brand="CPPLUS" onmouseenter="startBrandHover(event, 'CPPLUS')" onmouseleave="cancelBrandHover()">
+                        <div class="brand-cat-card" data-brand="CPPLUS" onclick="triggerBubbleTakeover(event, 'CPPLUS')" onmouseenter="startBrandHover(event, 'CPPLUS')" onmouseleave="cancelBrandHover()">
                             <div class="bcc-top">
                                 <span class="bcc-badge">9 PRODUCTS</span>
                                 <span class="bcc-tier">AUTHORIZED</span>
@@ -349,13 +349,13 @@
                                     <li>Active Siren Deterrence</li>
                                 </ul>
                                 <button type="button" class="btn-bcc-action" onclick="event.stopPropagation(); triggerBubbleTakeover(event, 'CPPLUS')">
-                                    EXPLORE CP PLUS &rarr;
+                                    SHOW ALL PRODUCTS &rarr;
                                 </button>
                             </div>
                         </div>
 
                         <!-- 3. iDADA -->
-                        <div class="brand-cat-card" data-brand="IDADA" onmouseenter="startBrandHover(event, 'IDADA')" onmouseleave="cancelBrandHover()">
+                        <div class="brand-cat-card" data-brand="IDADA" onclick="triggerBubbleTakeover(event, 'IDADA')" onmouseenter="startBrandHover(event, 'IDADA')" onmouseleave="cancelBrandHover()">
                             <div class="bcc-top">
                                 <span class="bcc-badge">#1 BESTSELLER</span>
                                 <span class="bcc-tier">SMART HOME</span>
@@ -373,13 +373,13 @@
                                     <li>Instant Phone Alerts</li>
                                 </ul>
                                 <button type="button" class="btn-bcc-action" onclick="event.stopPropagation(); triggerBubbleTakeover(event, 'IDADA')">
-                                    EXPLORE iDADA &rarr;
+                                    SHOW ALL PRODUCTS &rarr;
                                 </button>
                             </div>
                         </div>
 
                         <!-- 4. SEAGATE -->
-                        <div class="brand-cat-card" data-brand="SEAGATE" onmouseenter="startBrandHover(event, 'SEAGATE')" onmouseleave="cancelBrandHover()">
+                        <div class="brand-cat-card" data-brand="SEAGATE" onclick="triggerBubbleTakeover(event, 'SEAGATE')" onmouseenter="startBrandHover(event, 'SEAGATE')" onmouseleave="cancelBrandHover()">
                             <div class="bcc-top">
                                 <span class="bcc-badge">3 CAPACITIES</span>
                                 <span class="bcc-tier">SURVEILLANCE STORAGE</span>
@@ -397,13 +397,13 @@
                                     <li>24/7 Zero Frame Loss</li>
                                 </ul>
                                 <button type="button" class="btn-bcc-action" onclick="event.stopPropagation(); triggerBubbleTakeover(event, 'SEAGATE')">
-                                    EXPLORE STORAGE &rarr;
+                                    SHOW ALL PRODUCTS &rarr;
                                 </button>
                             </div>
                         </div>
 
                         <!-- 5. POWER & INFRASTRUCTURE -->
-                        <div class="brand-cat-card" data-brand="INFRASTRUCTURE" onmouseenter="startBrandHover(event, 'INFRASTRUCTURE')" onmouseleave="cancelBrandHover()">
+                        <div class="brand-cat-card" data-brand="INFRASTRUCTURE" onclick="triggerBubbleTakeover(event, 'INFRASTRUCTURE')" onmouseenter="startBrandHover(event, 'INFRASTRUCTURE')" onmouseleave="cancelBrandHover()">
                             <div class="bcc-top">
                                 <span class="bcc-badge">22 ITEMS</span>
                                 <span class="bcc-tier">PRO HARDWARE</span>
@@ -421,35 +421,11 @@
                                     <li>Waterproof Junction Boxes</li>
                                 </ul>
                                 <button type="button" class="btn-bcc-action" onclick="event.stopPropagation(); triggerBubbleTakeover(event, 'INFRASTRUCTURE')">
-                                    EXPLORE HARDWARE &rarr;
+                                    SHOW ALL ACCESSORIES &rarr;
                                 </button>
                             </div>
                         </div>
 
-                    </div>
-
-                    <!-- Live Filter Tabs Bar -->
-                    <div class="brand-filter-bar-wrap" id="live-inventory-anchor">
-                        <div class="bfb-header">
-                            <span class="bfb-title">BROWSE COMPLETE INVENTORY</span>
-                            <span class="bfb-active-count" id="active-category-count">Showing 64 items</span>
-                        </div>
-                        <div class="brand-pills-scroll" id="brandPillsRow">
-                            <button type="button" class="brand-pill active" data-filter="ALL" onclick="filterByBrand('ALL')">All Brands (64)</button>
-                            <button type="button" class="brand-pill" data-filter="TRUEVIEW" onclick="filterByBrand('TRUEVIEW')">Trueview (32)</button>
-                            <button type="button" class="brand-pill" data-filter="CPPLUS" onclick="filterByBrand('CPPLUS')">CP Plus (9)</button>
-                            <button type="button" class="brand-pill" data-filter="IDADA" onclick="filterByBrand('IDADA')">iDADA (1)</button>
-                            <button type="button" class="brand-pill" data-filter="SEAGATE" onclick="filterByBrand('SEAGATE')">Seagate SkyHawk (3)</button>
-                            <button type="button" class="brand-pill" data-filter="INFRASTRUCTURE" onclick="filterByBrand('INFRASTRUCTURE')">SMPS & Hardware (17)</button>
-                            <button type="button" class="brand-pill" data-filter="wifi-camera" onclick="filterByCategory('wifi-camera')">Wi-Fi Cameras (14)</button>
-                            <button type="button" class="brand-pill" data-filter="4g-camera" onclick="filterByCategory('4g-camera')">4G Solar PTZ (4)</button>
-                            <button type="button" class="brand-pill" data-filter="poe-switch" onclick="filterByCategory('poe-switch')">PoE Switches (9)</button>
-                        </div>
-                    </div>
-
-                    <!-- Dynamic Live Product Grid -->
-                    <div class="live-products-grid" id="liveProductsGrid">
-                        <!-- Items rendered by script.js -->
                     </div>
 
                 </section>
