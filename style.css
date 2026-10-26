@@ -1088,7 +1088,7 @@ body.jeko-theme-white {
 }
 
 .offer-fire-badge {
-    background: #ff3b30;
+    background: #241610;
     color: #ffffff;
     font-size: 0.72rem;
     font-weight: 800;
@@ -1096,8 +1096,14 @@ body.jeko-theme-white {
     padding: 0.3rem 0.75rem;
     border-radius: 20px;
     text-transform: uppercase;
-    box-shadow: 0 4px 12px rgba(255, 59, 48, 0.3);
-    animation: firePulse 2s infinite ease-in-out;
+}
+
+.slide-kicker {
+    font-size: 0.96rem;
+    font-weight: 600;
+    color: #6a4e3d;
+    letter-spacing: 0.02em;
+    margin-bottom: 1.5rem;
 }
 
 @keyframes firePulse {
