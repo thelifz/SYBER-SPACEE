@@ -651,3 +651,174 @@ document.addEventListener('keydown', (e) => {
         closeBubbleTakeover();
     }
 });
+
+
+// ==========================================================================
+// 6. SMART CAMERA FINDER WIZARD ENGINE
+// ==========================================================================
+let SELECTED_PROPERTY = 'home';
+
+const PROPERTY_LABELS = {
+    'home': 'House & Residential',
+    'commercial': 'Commercial Building & Retail',
+    'office': 'Office & Workspace',
+    'farm': 'Farm & Agricultural Land'
+};
+
+function selectProperty(propType) {
+    SELECTED_PROPERTY = propType;
+    const badge = document.getElementById('step-selected-prop-tag');
+    if (badge) {
+        badge.textContent = `Selected Location: ${PROPERTY_LABELS[propType] || propType}`;
+    }
+    goToStep(2);
+}
+
+function goToStep(stepNum) {
+    // Update step panes
+    for (let i = 1; i <= 3; i++) {
+        const pane = document.getElementById(`wizard-step-1`.replace('1', i));
+        const ind = document.getElementById(`step-ind-1`.replace('1', i));
+        const line = document.getElementById(`step-line-${i}`);
+
+        if (pane) {
+            if (i === stepNum) {
+                pane.classList.add('active');
+            } else {
+                pane.classList.remove('active');
+            }
+        }
+
+        if (ind) {
+            if (i === stepNum) {
+                ind.classList.add('active');
+                ind.classList.remove('completed');
+            } else if (i < stepNum) {
+                ind.classList.remove('active');
+                ind.classList.add('completed');
+            } else {
+                ind.classList.remove('active');
+                ind.classList.remove('completed');
+            }
+        }
+
+        if (line) {
+            if (i < stepNum) {
+                line.classList.add('active');
+            } else {
+                line.classList.remove('active');
+            }
+        }
+    }
+}
+
+function computeRecommendation() {
+    const checkedBoxes = document.querySelectorAll('input[name="camera_feature"]:checked');
+    const features = Array.from(checkedBoxes).map(cb => cb.value);
+
+    let matchProduct = null;
+    let matchReason = '';
+    let matchScore = '99% SYSTEM MATCH';
+
+    // Rule 1: Off-grid / Farm / Solar / 4G SIM needed
+    if (SELECTED_PROPERTY === 'farm' || features.includes('solar') || features.includes('4g_sim')) {
+        matchProduct = {
+            id: 'trueview-solar-4g-sim-outdoor-pan-tilt-camera',
+            title: 'Trueview 4G Solar Smart PTZ Camera',
+            brand: 'TRUEVIEW SURVEILLANCE',
+            price: 4950,
+            mrp: '₹8,999',
+            save: 'Save 45%',
+            image: 'assets/hero_product_solar_v2.png',
+            tags: ['Solar Powered', '4G SIM Connectivity', '360° PTZ', 'Full-Color Night Vision', 'Weatherproof IP66']
+        };
+        matchReason = `Engineered with high-efficiency monocrystalline solar panels and built-in 4G cellular SIM connectivity. It operates 24/7 with zero electrical cabling and zero local Wi-Fi required — perfect for your ${PROPERTY_LABELS[SELECTED_PROPERTY]}.`;
+        matchScore = '99% PERFECT FIT';
+    }
+    // Rule 2: Commercial / Office / AI Tracking / Siren
+    else if (SELECTED_PROPERTY === 'commercial' || SELECTED_PROPERTY === 'office' || features.includes('humanoid') || features.includes('siren')) {
+        matchProduct = {
+            id: 'cp-plus-ezykam-cp-e38q-3mp-pan-tilt-wi-fi-camera',
+            title: 'CP Plus Ezykam CP-E38Q 3MP Pan-Tilt Camera',
+            brand: 'CP PLUS AUTHORIZED',
+            price: 2235,
+            mrp: '₹3,900',
+            save: 'Save 43%',
+            image: 'assets/hero_product_cpplus_v2.png',
+            tags: ['2K Ultra HD', 'AI Humanoid Tracking', 'Active Deterrent Siren', '2-Way Audio', '360° Room Sweep']
+        };
+        matchReason = `Combines 3MP 2K Ultra HD clarity with AI humanoid motion auto-tracking and an active built-in siren. Delivers comprehensive coverage and deterrence for busy spaces in your ${PROPERTY_LABELS[SELECTED_PROPERTY]}.`;
+        matchScore = '98% PERFECT FIT';
+    }
+    // Rule 3: House / Baby / Home Security / 2-Way Talk
+    else {
+        matchProduct = {
+            id: 'idada-id-q2i35s-td-3mp-pan-tilt-smart-wi-fi-camera',
+            title: 'iDADA ID-Q2i35S 3MP Smart Wi-Fi Camera',
+            brand: 'IDADA SMART SECURITY',
+            price: 1850,
+            mrp: '₹3,299',
+            save: 'Save 44%',
+            image: 'assets/hero_product_idada_v2.png',
+            tags: ['3MP Ultra Clarity', '360° Motorized Pan-Tilt', 'Crystal 2-Way Audio', 'Infrared Night Vision', 'Instant App Alerts']
+        };
+        matchReason = `Features full 360° room sweep, two-way crystal audio talkback, and instant smartphone notifications. Top-rated value choice for monitoring families, babies, and indoor spaces in your ${PROPERTY_LABELS[SELECTED_PROPERTY]}.`;
+        matchScore = '97% PERFECT FIT';
+    }
+
+    // Populate UI
+    const card = document.getElementById('recommendedCameraCard');
+    const scoreBadge = document.getElementById('result-score');
+    if (scoreBadge) scoreBadge.textContent = matchScore;
+
+    if (card && matchProduct) {
+        const tagsHtml = matchProduct.tags.map(t => `<span class="rc-tag">${t}</span>`).join('');
+        const waText = encodeURIComponent(`Hello Syber Space, I used your Camera Finder for my ${PROPERTY_LABELS[SELECTED_PROPERTY]} and got matched with ${matchProduct.title} (Rs ${matchProduct.price}). I want to place an order.`);
+
+        card.innerHTML = `
+            <div class="rc-visual-col">
+                <img src="${matchProduct.image}" alt="${matchProduct.title}" class="rc-img" onerror="this.src='assets/hero_product_solar_v2.png'">
+            </div>
+            <div class="rc-details-col">
+                <span class="rc-brand">${matchProduct.brand}</span>
+                <h4 class="rc-title">${matchProduct.title}</h4>
+                <div class="rc-reason-box">
+                    <strong>Why this matches your space:</strong> ${matchReason}
+                </div>
+                <div class="rc-tags-list">
+                    ${tagsHtml}
+                </div>
+                <div class="rc-price-row">
+                    <span class="rc-price-val">&#8377;${Number(matchProduct.price).toLocaleString('en-IN')}</span>
+                    <span class="rc-price-mrp">${matchProduct.mrp}</span>
+                    <span class="rc-price-save">${matchProduct.save}</span>
+                </div>
+                <div class="rc-actions-row">
+                    <button type="button" class="btn-rc-cart" onclick="addToCartById('${matchProduct.id}')">
+                        [ ADD TO BASKET ]
+                    </button>
+                    <a href="https://wa.me/917511180808?text=${waText}" target="_blank" rel="noopener noreferrer" class="btn-rc-wa">
+                        <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2z"/></svg>
+                        ORDER VIA WHATSAPP
+                    </a>
+                </div>
+            </div>
+        `;
+    }
+
+    goToStep(3);
+
+    // Smooth scroll to recommendation card
+    const finderSection = document.getElementById('camera-finder');
+    if (finderSection) {
+        finderSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+}
+
+function resetFinderWizard() {
+    goToStep(1);
+    const finderSection = document.getElementById('camera-finder');
+    if (finderSection) {
+        finderSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+}

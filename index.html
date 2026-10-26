@@ -429,6 +429,212 @@
                     </div>
 
                 </section>
+
+                <!-- ==========================================================
+                     SMART CAMERA FINDER WIZARD
+                     "Can't find a perfect CCTV camera? Let us help you"
+                     ========================================================== -->
+                <section class="camera-finder-section" id="camera-finder">
+                    <div class="finder-container">
+                        
+                        <div class="finder-header">
+                            <span class="finder-kicker">SMART RECOMMENDATION ENGINE</span>
+                            <h2 class="finder-title">CAN'T FIND A PERFECT CCTV CAMERA? LET US HELP YOU</h2>
+                            <p class="finder-subtitle">Select your property type and needed features. We will instantly recommend the exact surveillance setup engineered for your space.</p>
+                        </div>
+
+                        <!-- Interactive Wizard Card -->
+                        <div class="finder-wizard-card">
+                            
+                            <!-- Wizard Progress Stepper -->
+                            <div class="wizard-stepper">
+                                <div class="step-indicator active" id="step-ind-1">
+                                    <span class="step-num">1</span>
+                                    <span class="step-name">Select Property</span>
+                                </div>
+                                <div class="step-line" id="step-line-1"></div>
+                                <div class="step-indicator" id="step-ind-2">
+                                    <span class="step-num">2</span>
+                                    <span class="step-name">Choose Features</span>
+                                </div>
+                                <div class="step-line" id="step-line-2"></div>
+                                <div class="step-indicator" id="step-ind-3">
+                                    <span class="step-num">3</span>
+                                    <span class="step-name">Your Perfect Camera</span>
+                                </div>
+                            </div>
+
+                            <!-- STEP 1: Property Type Selection -->
+                            <div class="wizard-step-pane active" id="wizard-step-1">
+                                <h3 class="step-heading">Where will this camera be installed?</h3>
+                                <p class="step-subheading">Choose the primary location to calibrate field of view, weatherproofing, and connectivity requirements.</p>
+
+                                <div class="property-options-grid">
+                                    
+                                    <div class="property-card" onclick="selectProperty('home')">
+                                        <div class="prop-icon-wrap">
+                                            <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                                                <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                                            </svg>
+                                        </div>
+                                        <h4 class="prop-title">House &amp; Residential</h4>
+                                        <p class="prop-desc">Living rooms, baby/elderly care, front porch, villa perimeters</p>
+                                        <span class="prop-select-pill">SELECT LOCATION &rarr;</span>
+                                    </div>
+
+                                    <div class="property-card" onclick="selectProperty('commercial')">
+                                        <div class="prop-icon-wrap">
+                                            <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+                                                <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+                                            </svg>
+                                        </div>
+                                        <h4 class="prop-title">Commercial Building</h4>
+                                        <p class="prop-desc">Retail shops, showrooms, customer counters, multi-floor premises</p>
+                                        <span class="prop-select-pill">SELECT LOCATION &rarr;</span>
+                                    </div>
+
+                                    <div class="property-card" onclick="selectProperty('office')">
+                                        <div class="prop-icon-wrap">
+                                            <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                                                <line x1="8" y1="21" x2="16" y2="21"></line>
+                                                <line x1="12" y1="17" x2="12" y2="21"></line>
+                                            </svg>
+                                        </div>
+                                        <h4 class="prop-title">Office &amp; Corporate</h4>
+                                        <p class="prop-desc">Meeting rooms, employee cubicles, server racks, reception</p>
+                                        <span class="prop-select-pill">SELECT LOCATION &rarr;</span>
+                                    </div>
+
+                                    <div class="property-card" onclick="selectProperty('farm')">
+                                        <div class="prop-icon-wrap">
+                                            <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                <circle cx="12" cy="12" r="5"></circle>
+                                                <line x1="12" y1="1" x2="12" y2="3"></line>
+                                                <line x1="12" y1="21" x2="12" y2="23"></line>
+                                                <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                                                <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                                                <line x1="1" y1="12" x2="3" y2="12"></line>
+                                                <line x1="21" y1="12" x2="23" y2="12"></line>
+                                            </svg>
+                                        </div>
+                                        <h4 class="prop-title">Farm &amp; Agricultural</h4>
+                                        <p class="prop-desc">Plantations, estate gates, construction sites, off-grid acres</p>
+                                        <span class="prop-select-pill">SELECT LOCATION &rarr;</span>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <!-- STEP 2: Required Features Selection -->
+                            <div class="wizard-step-pane" id="wizard-step-2">
+                                <div class="step-selected-badge" id="step-selected-prop-tag">Location: House &amp; Residential</div>
+                                <h3 class="step-heading">What capabilities does your camera need?</h3>
+                                <p class="step-subheading">Select all features that match your security requirements.</p>
+
+                                <div class="features-selection-grid">
+                                    
+                                    <label class="feature-checkbox-label">
+                                        <input type="checkbox" name="camera_feature" value="4k" class="feature-chk" checked>
+                                        <span class="feature-box">
+                                            <span class="fb-title">2K / 4K Ultra High Definition</span>
+                                            <span class="fb-desc">Read face details, currency notes and high-clarity streams</span>
+                                        </span>
+                                    </label>
+
+                                    <label class="feature-checkbox-label">
+                                        <input type="checkbox" name="camera_feature" value="night_vision" class="feature-chk" checked>
+                                        <span class="feature-box">
+                                            <span class="fb-title">Full Night Vision</span>
+                                            <span class="fb-desc">Clear vision in complete darkness (Color LED or Infrared)</span>
+                                        </span>
+                                    </label>
+
+                                    <label class="feature-checkbox-label">
+                                        <input type="checkbox" name="camera_feature" value="solar" class="feature-chk">
+                                        <span class="feature-box">
+                                            <span class="fb-title">100% Wire-Free Solar Powered</span>
+                                            <span class="fb-desc">No power cabling needed; runs indefinitely on solar energy</span>
+                                        </span>
+                                    </label>
+
+                                    <label class="feature-checkbox-label">
+                                        <input type="checkbox" name="camera_feature" value="4g_sim" class="feature-chk">
+                                        <span class="feature-box">
+                                            <span class="fb-title">4G SIM Cellular Connectivity</span>
+                                            <span class="fb-desc">No Wi-Fi router needed; connects via any 4G SIM card</span>
+                                        </span>
+                                    </label>
+
+                                    <label class="feature-checkbox-label">
+                                        <input type="checkbox" name="camera_feature" value="ptz" class="feature-chk" checked>
+                                        <span class="feature-box">
+                                            <span class="fb-title">360&deg; Motorized Pan &amp; Tilt</span>
+                                            <span class="fb-desc">Rotate lens remotely via phone app to eliminate blind spots</span>
+                                        </span>
+                                    </label>
+
+                                    <label class="feature-checkbox-label">
+                                        <input type="checkbox" name="camera_feature" value="humanoid" class="feature-chk">
+                                        <span class="feature-box">
+                                            <span class="fb-title">AI Humanoid Motion Tracking</span>
+                                            <span class="fb-desc">Distinguishes human intruders from pets and follows them</span>
+                                        </span>
+                                    </label>
+
+                                    <label class="feature-checkbox-label">
+                                        <input type="checkbox" name="camera_feature" value="audio" class="feature-chk" checked>
+                                        <span class="feature-box">
+                                            <span class="fb-title">2-Way Voice Intercom</span>
+                                            <span class="fb-desc">Speak and listen in real time with high-clarity speaker/mic</span>
+                                        </span>
+                                    </label>
+
+                                    <label class="feature-checkbox-label">
+                                        <input type="checkbox" name="camera_feature" value="siren" class="feature-chk">
+                                        <span class="feature-box">
+                                            <span class="fb-title">Active Intruder Siren</span>
+                                            <span class="fb-desc">Loud alarm triggers automatically upon unauthorized entry</span>
+                                        </span>
+                                    </label>
+
+                                </div>
+
+                                <div class="step-btn-row">
+                                    <button type="button" class="btn-step-back" onclick="goToStep(1)">&larr; Back to Locations</button>
+                                    <button type="button" class="btn-step-submit" onclick="computeRecommendation()">
+                                        SHOW MATCHED CAMERA &rarr;
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- STEP 3: Perfect Matched Recommendation Result -->
+                            <div class="wizard-step-pane" id="wizard-step-3">
+                                
+                                <div class="result-header-row">
+                                    <div class="result-tag-pill">PERFECT FIT MATCH</div>
+                                    <span class="result-score-pill" id="result-score">99% SYSTEM MATCH</span>
+                                </div>
+
+                                <div class="recommended-camera-card" id="recommendedCameraCard">
+                                    <!-- Dynamic content inserted by script.js -->
+                                </div>
+
+                                <div class="result-reset-row">
+                                    <button type="button" class="btn-retake-quiz" onclick="resetFinderWizard()">
+                                        &larr; Try Another Property or Requirements
+                                    </button>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+                </section>
+
             </div>
         </section>
 
