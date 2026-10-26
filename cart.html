@@ -11,42 +11,42 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@500;600;700;800;900&display=swap" rel="stylesheet">
     
-    <link rel="stylesheet" href="style.css?v=7.0">
+    <link rel="stylesheet" href="style.css?v=8.0">
 </head>
-<body class="jeko-theme-white cart-window-body">
+<body class="jeko-theme-white cart-page-body">
 
     <!-- ======================================================================
-         CART WINDOW FLOATING LUXURY HEADER
-         Clean Apple/iPhone glass pill matching the main site
+         FLOATING LUXURY E-COMMERCE HEADER (NO LOGO ICON)
          ====================================================================== -->
     <div class="iphone-header-wrapper">
-        <header class="iphone-header-glass cart-header-glass">
+        <header class="iphone-header-glass">
             
-            <!-- Left: Brand Logo & Slogan -->
-            <a href="index.html" class="iphone-brand-group" title="Back to Syber Space Store">
-                <div class="iphone-logo-squircle">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-                        <circle cx="12" cy="11" r="3" fill="currentColor"/>
-                    </svg>
-                </div>
+            <!-- Left: Brand Title & Slogan (No Logo Icon) -->
+            <a href="index.html" class="iphone-brand-group" title="SYBER SPACE - The Surveillance Store">
                 <div class="iphone-brand-text">
                     <span class="brand-title">SYBER SPACE</span>
                     <span class="brand-slogan">THE SURVEILLANCE STORE</span>
                 </div>
             </a>
 
-            <!-- Center: Status Callout -->
-            <div class="cart-header-status-pill">
-                <span class="ch-dot"></span>
-                <span class="ch-text">COMMERCIAL PROCUREMENT &bull; DIRECT DISPATCH</span>
+            <!-- Center: Curvy Search Bar -->
+            <div class="iphone-search-wrapper" id="jeko-search-box">
+                <form class="iphone-search-box" action="index.html" method="get" onsubmit="handleCartSearch(event)">
+                    <input type="text" id="cart-search-input" class="iphone-search-input" placeholder="Search 4G solar, Wi-Fi, CP Plus, Trueview, iDADA..." autocomplete="off">
+                    <button type="submit" class="btn-search-icon" aria-label="Search">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="11" cy="11" r="7.5"></circle>
+                            <line x1="21" y1="21" x2="16.5" y2="16.5"></line>
+                        </svg>
+                    </button>
+                </form>
             </div>
 
-            <!-- Right: Concierge & Store Navigation -->
+            <!-- Right: Action Pillars (WhatsApp, Call Us, Active Cart) -->
             <div class="iphone-actions-group">
                 
-                <!-- WhatsApp Concierge -->
-                <a href="https://wa.me/917511180808?text=Hello%20Syber%20Space%2C%20I%20am%20reviewing%20my%20cart%20and%20need%20assistance." target="_blank" rel="noopener noreferrer" class="iphone-action-link">
+                <!-- WhatsApp Support -->
+                <a href="https://wa.me/917511180808?text=Hello%20Syber%20Space%2C%20I%20am%20reviewing%20my%20shopping%20cart%20and%20need%20assistance." target="_blank" rel="noopener noreferrer" class="iphone-action-link">
                     <div class="ia-icon-wrap wa-icon-color">
                         <svg viewBox="0 0 24 24" width="28" height="28" fill="none">
                             <path fill="#25D366" d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2z"/>
@@ -59,22 +59,29 @@
                     </div>
                 </a>
 
-                <!-- Phone Support -->
+                <!-- Call Warehouse -->
                 <a href="tel:+917511180808" class="iphone-action-link desktop-only">
                     <div class="ia-text-col">
-                        <span class="ia-sub-label">Call Warehouse</span>
+                        <span class="ia-sub-label">Call Us</span>
                         <strong class="ia-main-val">+91 75111 80808</strong>
                     </div>
                 </a>
 
-                <!-- Back to Store / Close Window Button -->
-                <button type="button" class="btn-cart-back-store" onclick="returnToStore()">
-                    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                        <line x1="19" y1="12" x2="5" y2="12"></line>
-                        <polyline points="12 19 5 12 12 5"></polyline>
-                    </svg>
-                    <span>BACK TO STORE</span>
-                </button>
+                <!-- Shopping Cart (Current Active Page) -->
+                <a href="cart.html" class="iphone-action-link btn-cart-trigger is-active-page" aria-label="Shopping Cart">
+                    <div class="ia-icon-wrap cart-icon-pos">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="9" cy="21" r="1"></circle>
+                            <circle cx="20" cy="21" r="1"></circle>
+                            <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                        </svg>
+                        <span class="cart-pill-badge" id="cart-counter">0</span>
+                    </div>
+                    <div class="ia-text-col">
+                        <span class="ia-sub-label">Shopping</span>
+                        <strong class="ia-main-val">Cart</strong>
+                    </div>
+                </a>
 
             </div>
 
@@ -82,18 +89,25 @@
     </div>
 
     <!-- ======================================================================
-         DEDICATED CART WINDOW CONTENT
+         MAIN E-COMMERCE CART PAGE CONTENT
          ====================================================================== -->
     <main class="cart-window-main">
         <div class="cart-window-container">
             
-            <!-- Window Title Block -->
+            <!-- Breadcrumbs -->
+            <nav class="cart-breadcrumbs-bar" aria-label="Breadcrumb">
+                <a href="index.html" class="cb-link">Store Home</a>
+                <span class="cb-sep">/</span>
+                <span class="cb-current">Shopping Cart</span>
+            </nav>
+
+            <!-- Page Title Block -->
             <div class="cart-win-header-block">
                 <div class="cart-win-kicker-row">
                     <span class="cart-win-kicker">VERIFIED COMMERCIAL BASKET</span>
                     <span class="cart-win-items-count" id="cart-total-badge">0 ITEMS</span>
                 </div>
-                <h1 class="cart-win-title">Procurement &amp; Shopping Cart</h1>
+                <h1 class="cart-win-title">Shopping Cart</h1>
                 <p class="cart-win-subtitle">
                     Official authorized hardware with 100% genuine manufacturer warranty, GST tax invoice, and insured express delivery across India.
                 </p>
@@ -101,11 +115,67 @@
 
             <!-- Dynamic Cart Content Wrapper -->
             <div id="cart-content-wrapper">
-                <!-- Rendered dynamically by cart.js -->
+                <!-- Injected dynamically by cart.js -->
             </div>
 
         </div>
     </main>
+
+    <!-- ======================================================================
+         MINIMALIST SITE FOOTER
+         ====================================================================== -->
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-grid">
+                
+                <div class="footer-brand-col">
+                    <div class="footer-brand-name">SYBER SPACE</div>
+                    <p class="footer-brand-desc">
+                        Authorized security systems distributor based in Kerala. Supplying genuine CCTV hardware, 4G solar surveillance, and enterprise storage across India.
+                    </p>
+                    <div class="footer-badge-dist">
+                        <span>&#10003;</span> AUTHORIZED DIRECT DISTRIBUTOR
+                    </div>
+                </div>
+
+                <div class="footer-links-col">
+                    <h4 class="footer-col-title">NAVIGATION</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html#categories-by-brand">Categories by Brand</a></li>
+                        <li><a href="index.html#camera-finder">Smart Camera Finder</a></li>
+                        <li><a href="index.html#about">About Syber Space</a></li>
+                        <li><a href="index.html#why-us">Why Choose Us</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-links-col">
+                    <h4 class="footer-col-title">TOP BRANDS</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html?brand=TRUEVIEW">Trueview Surveillance</a></li>
+                        <li><a href="index.html?brand=CPPLUS">CP Plus Authorized</a></li>
+                        <li><a href="index.html?brand=IDADA">iDADA Smart Security</a></li>
+                        <li><a href="index.html?brand=SEAGATE">Seagate SkyHawk</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-contact-col">
+                    <h4 class="footer-col-title">KERALA HQ &amp; DESK</h4>
+                    <div class="footer-contact-info">
+                        <p>Kochi, Kerala, India</p>
+                        <p>Direct Desk: <a href="tel:+917511180808">+91 75111 80808</a></p>
+                        <p>Email: <a href="mailto:info@syberspace.in">info@syberspace.in</a></p>
+                        <p>Dispatch: 5–7 Days Insured Delivery</p>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="footer-bottom-bar">
+                <span>&copy; 2026 Syber Space. Authorized Surveillance Distribution. All rights reserved.</span>
+                <span>Unboxing video required for transit warranty claims.</span>
+            </div>
+        </div>
+    </footer>
 
     <!-- ======================================================================
          HDFC BANK SMARTGATEWAY MULTI-RAIL CHECKOUT TERMINAL

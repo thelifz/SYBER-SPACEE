@@ -4320,3 +4320,52 @@ body.jeko-theme-white {
         font-size: 1.85rem;
     }
 }
+
+
+/* ==========================================================================
+   STANDARD E-COMMERCE CART PAGE BREADCRUMBS & ACTIVE STATE
+   ========================================================================== */
+.cart-breadcrumbs-bar {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: #8c6a54;
+    margin-bottom: 1.25rem;
+}
+
+.cart-breadcrumbs-bar .cb-link {
+    color: #8c6a54;
+    text-decoration: none;
+    transition: color 0.15s ease;
+}
+
+.cart-breadcrumbs-bar .cb-link:hover {
+    color: #241610;
+}
+
+.cart-breadcrumbs-bar .cb-sep {
+    opacity: 0.5;
+}
+
+.cart-breadcrumbs-bar .cb-current {
+    color: #241610;
+    font-weight: 700;
+}
+
+.cart-page-body {
+    background: #faf7f2;
+    min-height: 100vh;
+    color: #241610;
+    font-family: var(--font-body, 'Inter', sans-serif);
+}
+
+.btn-cart-trigger.is-active-page {
+    border-color: #c5894e;
+    background: #fffaf5;
+}
+
+.btn-cart-trigger.is-active-page .ia-icon-wrap {
+    color: #c5894e;
+}

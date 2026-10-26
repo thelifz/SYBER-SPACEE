@@ -96,11 +96,22 @@ function updateNavCartCount() {
     if (totalBadge) {
         totalBadge.textContent = `${totalItems} ITEM${totalItems === 1 ? '' : 'S'}`;
     }
+    const headerCounter = document.getElementById('cart-counter');
+    if (headerCounter) {
+        headerCounter.textContent = totalItems;
+    }
 }
 
 function returnToStore() {
-    if (window.opener && !window.opener.closed) {
-        window.close();
+    window.location.href = 'index.html';
+}
+
+function handleCartSearch(event) {
+    if (event) event.preventDefault();
+    const input = document.getElementById('cart-search-input');
+    const query = input ? input.value.trim() : '';
+    if (query) {
+        window.location.href = `index.html?search=${encodeURIComponent(query)}`;
     } else {
         window.location.href = 'index.html';
     }

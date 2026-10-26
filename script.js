@@ -10,11 +10,17 @@ document.addEventListener('DOMContentLoaded', () => {
     initOfferSlideshow();
     initBrandGrid();
 
-    // Support URL param ?brand=TRUEVIEW or ?test_bubble=TRUEVIEW
+    // Support URL param ?brand=TRUEVIEW or ?test_bubble=TRUEVIEW or ?search=...
     const urlParams = new URLSearchParams(window.location.search);
     const brandParam = urlParams.get('brand') || urlParams.get('test_bubble');
     if (brandParam) {
         triggerBubbleTakeover(null, brandParam);
+    }
+    const searchParam = urlParams.get('search') || urlParams.get('q');
+    if (searchParam) {
+        setTimeout(() => {
+            quickFillSearch(searchParam);
+        }, 200);
     }
 });
 
@@ -65,20 +71,7 @@ function saveCart() {
 }
 
 function openCartWindow(e) {
-    if (e && e.preventDefault) e.preventDefault();
-    const width = 1120;
-    const height = 840;
-    const left = Math.max(0, Math.round((window.screen.width - width) / 2));
-    const top = Math.max(0, Math.round((window.screen.height - height) / 2));
-    
-    // Open a dedicated desktop popup window
-    const win = window.open('cart.html', 'SyberCartWindow', `width=${width},height=${height},top=${top},left=${left},resizable=yes,scrollbars=yes,status=no`);
-    if (!win || win.closed || typeof win.closed === 'undefined') {
-        // Fallback if popups blocked
-        window.open('cart.html', '_blank');
-    } else {
-        win.focus();
-    }
+    window.location.href = 'cart.html';
 }
 
 function addToCartById(productId) {
@@ -234,9 +227,9 @@ function showToastWithCartButton(title, brand) {
                 <span class="tcw-kicker">ADDED TO CART</span>
                 <span class="tcw-title">${shortTitle}</span>
             </div>
-            <button type="button" class="btn-tcw-open" onclick="openCartWindow(event)">
+            <a href="cart.html" class="btn-tcw-open">
                 VIEW CART &rarr;
-            </button>
+            </a>
         </div>
     `;
     toast.classList.add('active');
