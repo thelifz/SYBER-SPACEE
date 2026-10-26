@@ -3,35 +3,323 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SYBER SPACE // Security &amp; Surveillance Systems</title>
+    <title>SYBER SPACE // Next-Gen CCTV &amp; Surveillance Systems</title>
+    <meta name="description" content="Authorized CCTV surveillance cameras, 4G solar PTZ, AI humanoid tracking, and enterprise security systems in Kerala. Direct wholesale pricing.">
+    
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@500;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@500;600;700;800;900&display=swap" rel="stylesheet">
+    
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
-    <header class="site-header">
-        <div class="header-inner">
-            <a href="/" class="site-logo">
-                <span class="logo-text">SYBER SPACE</span>
-                <span class="logo-badge">CCTV &bull; SURVEILLANCE</span>
-            </a>
-            <div class="header-actions">
-                <a href="https://wa.me/917511180808" target="_blank" rel="noopener noreferrer" class="btn-header-wa">
-                    WHATSAPP &rarr;
-                </a>
-            </div>
-        </div>
-    </header>
+<body class="jeko-theme-white">
 
+    <!-- ======================================================================
+         JEKOJETS-STYLE FLOATING LUXURY HEADER
+         (Minimalist floating pill architecture with Search & WhatsApp)
+         ====================================================================== -->
+    <div class="jeko-header-wrap">
+        <header class="jeko-header-bar">
+            
+            <!-- Left: Brand Logo & Status Indicator -->
+            <div class="jeko-brand-block">
+                <a href="/" class="jeko-logo">
+                    <span class="jeko-logo-symbol">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                            <circle cx="12" cy="12" r="9"/>
+                            <circle cx="12" cy="12" r="3.5" fill="currentColor"/>
+                            <line x1="12" y1="3" x2="12" y2="6"/>
+                            <line x1="12" y1="18" x2="12" y2="21"/>
+                        </svg>
+                    </span>
+                    <div class="jeko-logo-text-group">
+                        <span class="jeko-logo-title">SYBER SPACE</span>
+                        <span class="jeko-logo-kicker">KERALA SURVEILLANCE HUB</span>
+                    </div>
+                </a>
+                <div class="jeko-status-pill desktop-only">
+                    <span class="status-pulse-dot"></span>
+                    <span class="status-label">DIRECT WHOLESALE</span>
+                </div>
+            </div>
+
+            <!-- Center: Integrated Jesko-Style Search Bar -->
+            <div class="jeko-search-container" id="jeko-search-box">
+                <div class="jeko-search-input-wrap">
+                    <span class="jeko-search-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="11" cy="11" r="8"></circle>
+                            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                        </svg>
+                    </span>
+                    <input type="text" id="jeko-search-input" class="jeko-search-input" placeholder="Search 4G solar, CP Plus, iDADA, SMPS, 4TB HDDs..." autocomplete="off">
+                    <button type="button" id="jeko-search-clear" class="jeko-search-clear" style="display: none;" aria-label="Clear Search">&times;</button>
+                </div>
+                
+                <!-- Live Search Autocomplete / Quick Results Dropdown -->
+                <div class="jeko-search-dropdown" id="jeko-search-dropdown" style="display: none;">
+                    <div class="jeko-search-quick-tags">
+                        <span class="jst-label">POPULAR:</span>
+                        <button type="button" class="jst-chip" onclick="quickFillSearch('Solar')">4G Solar PTZ</button>
+                        <button type="button" class="jst-chip" onclick="quickFillSearch('CP Plus')">CP Plus 2K</button>
+                        <button type="button" class="jst-chip" onclick="quickFillSearch('iDADA')">iDADA 3MP</button>
+                        <button type="button" class="jst-chip" onclick="quickFillSearch('SMPS')">12V 10A SMPS</button>
+                        <button type="button" class="jst-chip" onclick="quickFillSearch('SkyHawk')">4TB SkyHawk</button>
+                    </div>
+                    <div class="jeko-search-results-list" id="jeko-search-results"></div>
+                </div>
+            </div>
+
+            <!-- Right: WhatsApp Trigger & Cart Button -->
+            <div class="jeko-actions-block">
+                <!-- WhatsApp Inquiry Pill Button -->
+                <a href="https://wa.me/917511180808?text=Hello%20Syber%20Space%2C%20I%20am%20inquiring%20about%20CCTV%20surveillance%20cameras." target="_blank" rel="noopener noreferrer" class="btn-jeko-whatsapp">
+                    <span class="wa-icon-glow">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2z"/>
+                        </svg>
+                    </span>
+                    <span class="wa-btn-text">WHATSAPP</span>
+                </a>
+
+                <!-- Cart Trigger Button -->
+                <button type="button" class="btn-jeko-cart" onclick="toggleCartDrawer()" aria-label="Open Shopping Cart">
+                    <span class="cart-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/>
+                            <line x1="3" y1="6" x2="21" y2="6"/>
+                            <path d="M16 10a4 4 0 0 1-8 0"/>
+                        </svg>
+                    </span>
+                    <span class="cart-counter-pill" id="cart-counter">0</span>
+                </button>
+            </div>
+
+        </header>
+    </div>
+
+    <!-- ======================================================================
+         MAIN CONTENT: WHITE ARCHITECTURAL CANVAS WITH COFFEE SHADES
+         ====================================================================== -->
     <main id="app-root">
-        <!-- Ready for fresh design -->
+
+        <!-- HERO SECTION (White Background with Coffee Shades) -->
+        <section class="white-hero-section">
+            <div class="white-hero-container">
+                
+                <div class="hero-beacon-line">
+                    <span class="beacon-kicker">ARCHITECTURAL SURVEILLANCE ECOSYSTEM</span>
+                    <span class="beacon-dot">&bull;</span>
+                    <span class="beacon-kicker">KERALA DIRECT WHOLESALE</span>
+                </div>
+
+                <h1 class="hero-primary-heading">
+                    CLARITY WITHOUT COMPROMISE.<br>
+                    <span class="heading-coffee-accent">INTELLIGENT SURVEILLANCE &amp; 4K AUTONOMY.</span>
+                </h1>
+
+                <p class="hero-description">
+                    Engineering-grade AI humanoid tracking, 100% wire-free 4G solar autonomy, and commercial infrastructure &mdash; direct wholesale pricing across Kerala with zero monthly subscriptions.
+                </p>
+
+                <!-- Coffee Shades Quick Filter Pills -->
+                <div class="coffee-chips-row">
+                    <span class="chip-filter-label">QUICK EXPLORE:</span>
+                    <button type="button" class="coffee-chip active" onclick="quickFillSearch('')">All Systems (35+)</button>
+                    <button type="button" class="coffee-chip" onclick="quickFillSearch('Solar')">4G Solar PTZ</button>
+                    <button type="button" class="coffee-chip" onclick="quickFillSearch('CP Plus')">CP Plus Ezykam</button>
+                    <button type="button" class="coffee-chip" onclick="quickFillSearch('iDADA')">iDADA 3MP</button>
+                    <button type="button" class="coffee-chip" onclick="quickFillSearch('SMPS')">12V Power SMPS</button>
+                    <button type="button" class="coffee-chip" onclick="quickFillSearch('SkyHawk')">Surveillance HDDs</button>
+                </div>
+
+                <!-- 4 Flagship Modern Cards in Coffee Shades -->
+                <div class="coffee-products-grid">
+                    
+                    <!-- Card 1: Trueview 4G Solar PTZ -->
+                    <div class="coffee-card">
+                        <div class="card-top-badge">
+                            <span class="badge-pill pill-solar">100% WIRE-FREE SOLAR</span>
+                            <span class="badge-save">SAVE 45%</span>
+                        </div>
+                        <div class="card-visual-frame">
+                            <img src="assets/hero_product_solar_v2.png" alt="Trueview 4G Solar Smart PTZ Camera" class="card-camera-img">
+                            <div class="card-ambient-shadow"></div>
+                        </div>
+                        <div class="card-body">
+                            <span class="card-brand">TRUEVIEW SURVEILLANCE</span>
+                            <h3 class="card-title">4G SOLAR PTZ CAMERA</h3>
+                            <p class="card-desc">Off-grid autonomy with integrated solar panel, built-in 4G SIM, and color night vision.</p>
+                            <div class="card-spec-tags">
+                                <span class="spec-tag">Solar Autonomy</span>
+                                <span class="spec-tag">4G Cellular SIM</span>
+                                <span class="spec-tag">360&deg; PTZ</span>
+                            </div>
+                            <div class="card-price-row">
+                                <div class="price-stack">
+                                    <span class="price-label">OFFER PRICE</span>
+                                    <span class="price-val">&#8377;4,950</span>
+                                </div>
+                                <span class="price-mrp">&#8377;8,999</span>
+                            </div>
+                            <div class="card-actions-row">
+                                <button type="button" class="btn-card-cart" onclick="addToCartById('trueview-solar-4g-sim-outdoor-pan-tilt-camera')">
+                                    [ ADD TO CART ]
+                                </button>
+                                <a href="https://wa.me/917511180808?text=Hello%20Syber%20Space%2C%20I%20want%20to%20order%20the%20Trueview%204G%20Solar%20Camera%20(Rs%204950)." target="_blank" rel="noopener noreferrer" class="btn-card-wa" aria-label="Order on WhatsApp">
+                                    💬
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 2: CP PLUS Ezykam CP-E38Q -->
+                    <div class="coffee-card">
+                        <div class="card-top-badge">
+                            <span class="badge-pill pill-cpplus">2K ULTRA HD // AI TRACKING</span>
+                            <span class="badge-save">SAVE 43%</span>
+                        </div>
+                        <div class="card-visual-frame">
+                            <img src="assets/hero_product_cpplus_v2.png" alt="CP Plus Ezykam 3MP Wi-Fi Security Camera" class="card-camera-img">
+                            <div class="card-ambient-shadow"></div>
+                        </div>
+                        <div class="card-body">
+                            <span class="card-brand">CP PLUS // AUTHORIZED</span>
+                            <h3 class="card-title">EZYKAM CP-E38Q 3MP</h3>
+                            <p class="card-desc">3MP 2K motorized pan-tilt camera with 360&deg; sweeping coverage and active humanoid tracking.</p>
+                            <div class="card-spec-tags">
+                                <span class="spec-tag">2K Ultra HD</span>
+                                <span class="spec-tag">360&deg; Coverage</span>
+                                <span class="spec-tag">Active Siren</span>
+                            </div>
+                            <div class="card-price-row">
+                                <div class="price-stack">
+                                    <span class="price-label">OFFER PRICE</span>
+                                    <span class="price-val">&#8377;2,235</span>
+                                </div>
+                                <span class="price-mrp">&#8377;3,900</span>
+                            </div>
+                            <div class="card-actions-row">
+                                <button type="button" class="btn-card-cart" onclick="addToCartById('cp-plus-ezykam-cp-e38q-3mp-pan-tilt-wi-fi-camera')">
+                                    [ ADD TO CART ]
+                                </button>
+                                <a href="https://wa.me/917511180808?text=Hello%20Syber%20Space%2C%20I%20want%20to%20order%20the%20CP%20Plus%20Ezykam%20CP-E38Q%20(Rs%202235)." target="_blank" rel="noopener noreferrer" class="btn-card-wa" aria-label="Order on WhatsApp">
+                                    💬
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 3: iDADA ID-Q2i35S 3MP -->
+                    <div class="coffee-card">
+                        <div class="card-top-badge">
+                            <span class="badge-pill pill-idada">#1 HOME BESTSELLER</span>
+                            <span class="badge-save">SAVE 44%</span>
+                        </div>
+                        <div class="card-visual-frame">
+                            <img src="assets/hero_product_idada_v2.png" alt="iDADA 3MP Smart Camera" class="card-camera-img">
+                            <div class="card-ambient-shadow"></div>
+                        </div>
+                        <div class="card-body">
+                            <span class="card-brand">IDADA SMART SECURITY</span>
+                            <h3 class="card-title">ID-Q2I35S 3MP PAN-TILT</h3>
+                            <p class="card-desc">Motorized pan &amp; tilt Wi-Fi camera with crystal 2-way talkback and instant phone alerts.</p>
+                            <div class="card-spec-tags">
+                                <span class="spec-tag">3MP Clarity</span>
+                                <span class="spec-tag">2-Way Audio</span>
+                                <span class="spec-tag">IR Night Vision</span>
+                            </div>
+                            <div class="card-price-row">
+                                <div class="price-stack">
+                                    <span class="price-label">OFFER PRICE</span>
+                                    <span class="price-val">&#8377;1,850</span>
+                                </div>
+                                <span class="price-mrp">&#8377;3,299</span>
+                            </div>
+                            <div class="card-actions-row">
+                                <button type="button" class="btn-card-cart" onclick="addToCartById('idada-id-q2i35s-td-3mp-pan-tilt-smart-wi-fi-camera')">
+                                    [ ADD TO CART ]
+                                </button>
+                                <a href="https://wa.me/917511180808?text=Hello%20Syber%20Space%2C%20I%20want%20to%20order%20the%20iDADA%20ID-Q2i35S%20(Rs%201850)." target="_blank" rel="noopener noreferrer" class="btn-card-wa" aria-label="Order on WhatsApp">
+                                    💬
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 4: Hardware & Accessories -->
+                    <div class="coffee-card card-accent-coffee">
+                        <div class="card-top-badge">
+                            <span class="badge-pill pill-acc">PRO INFRASTRUCTURE</span>
+                            <span class="badge-save">35+ ITEMS</span>
+                        </div>
+                        <div class="card-visual-frame">
+                            <img src="assets/acc_official_smps.png" alt="CCTV Accessories & Power Systems" class="card-camera-img">
+                            <div class="card-ambient-shadow"></div>
+                        </div>
+                        <div class="card-body">
+                            <span class="card-brand">GENUINE HARDWARE</span>
+                            <h3 class="card-title">CCTV HARDWARE &amp; SMPS</h3>
+                            <p class="card-desc">12V 10A SMPS, Seagate SkyHawk HDDs, pure copper Cat6 reels, and waterproof junction boxes.</p>
+                            <div class="card-spec-tags">
+                                <span class="spec-tag">12V 10A SMPS</span>
+                                <span class="spec-tag">SkyHawk 4TB</span>
+                                <span class="spec-tag">Cat6 Cable</span>
+                            </div>
+                            <div class="card-price-row">
+                                <div class="price-stack">
+                                    <span class="price-label">STARTING FROM</span>
+                                    <span class="price-val">&#8377;850</span>
+                                </div>
+                                <span class="price-mrp">&#8377;1,499</span>
+                            </div>
+                            <div class="card-actions-row">
+                                <button type="button" class="btn-card-explore" onclick="quickFillSearch('Accessories')">
+                                    EXPLORE ALL ACCESSORIES &rarr;
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
     </main>
 
-    <footer class="site-footer">
-        <p>&copy; 2026 SYBER SPACE. Authorized Surveillance Systems.</p>
-    </footer>
+    <!-- ======================================================================
+         SLIDE-OVER SHOPPING CART DRAWER
+         ====================================================================== -->
+    <div class="cart-drawer-overlay" id="cart-drawer-overlay" onclick="toggleCartDrawer()"></div>
+    <div class="cart-drawer" id="cart-drawer">
+        <div class="cart-drawer-header">
+            <div class="cart-header-title">
+                <h3>YOUR BASKET</h3>
+                <span class="cart-count-sub" id="cart-drawer-count">0 ITEMS</span>
+            </div>
+            <button type="button" class="btn-close-cart" onclick="toggleCartDrawer()">&times;</button>
+        </div>
+        <div class="cart-drawer-body" id="cart-drawer-items">
+            <!-- Items injected by script.js -->
+        </div>
+        <div class="cart-drawer-footer">
+            <div class="cart-total-row">
+                <span>ESTIMATED TOTAL:</span>
+                <span class="cart-total-val" id="cart-drawer-total">&#8377;0</span>
+            </div>
+            <button type="button" class="btn-checkout-wa" onclick="checkoutViaWhatsApp()">
+                ORDER VIA WHATSAPP &rarr;
+            </button>
+        </div>
+    </div>
 
+    <!-- Toast Notification -->
+    <div class="toast-notify" id="toast-notify"></div>
+
+    <!-- Scripts -->
+    <script src="products_data.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
