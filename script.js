@@ -45,6 +45,23 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 300);
     }
 
+    // Smooth scroll for 3D showcase anchor links
+    document.querySelectorAll('a[href="#hardware-showcase"]').forEach(link => {
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
+            const sc = document.getElementById('hardware-showcase');
+            if (sc) {
+                const headerOffset = 70;
+                const elementPosition = sc.getBoundingClientRect().top;
+                const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+                window.scrollTo({
+                    top: offsetPosition,
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
+
 });
 
 // Sync cart changes across all open browser windows/tabs in real-time
