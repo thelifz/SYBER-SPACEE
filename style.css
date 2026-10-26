@@ -83,7 +83,7 @@ body.jeko-theme-white {
 }
 
 .iphone-header-glass {
-    max-width: 1440px;
+    max-width: 1680px;
     margin: 0 auto;
     pointer-events: auto;
     background: rgba(255, 255, 255, 0.62);
@@ -430,7 +430,8 @@ body.jeko-theme-white {
 }
 
 .white-hero-container {
-    max-width: 1440px;
+    max-width: 1680px;
+    width: 100%;
     margin: 0 auto;
 }
 
@@ -1027,8 +1028,9 @@ body.jeko-theme-white {
    ========================================================================== */
 .offer-slideshow-wrap {
     position: relative;
-    max-width: 1440px;
-    margin: 0 auto 3rem;
+    max-width: 100%;
+    width: 100%;
+    margin: 0 auto 3.5rem;
     border-radius: 28px;
     overflow: hidden;
     background: radial-gradient(circle at 75% 40%, rgba(244, 232, 220, 0.85) 0%, rgba(253, 251, 247, 0.98) 65%), #ffffff;
@@ -1134,7 +1136,7 @@ body.jeko-theme-white {
 
 .slide-title {
     font-family: var(--font-heading);
-    font-size: 2.35rem;
+    font-size: 2.85rem;
     font-weight: 900;
     line-height: 1.1;
     letter-spacing: -0.02em;
@@ -1325,8 +1327,8 @@ body.jeko-theme-white {
 
 .slide-product-img {
     position: relative;
-    max-width: 380px;
-    max-height: 360px;
+    max-width: 440px;
+    max-height: 400px;
     width: auto;
     height: auto;
     object-fit: contain;
@@ -1481,6 +1483,442 @@ body.jeko-theme-white {
     .fbb-right {
         top: 5px;
         right: 5px;
+    }
+}
+
+
+/* ==========================================================================
+   CATEGORIES BY BRAND SECTION
+   ========================================================================== */
+.brand-categories-section {
+    width: 100%;
+    margin-top: 1rem;
+    padding-top: 1rem;
+}
+
+.brand-sec-header {
+    text-align: center;
+    max-width: 760px;
+    margin: 0 auto 2.5rem;
+}
+
+.bsh-kicker {
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 0.16em;
+    color: #c5894e;
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 0.4rem;
+}
+
+.bsh-title {
+    font-family: var(--font-heading);
+    font-size: 2.25rem;
+    font-weight: 900;
+    color: #241610;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+    margin-bottom: 0.65rem;
+}
+
+.bsh-subtitle {
+    font-size: 0.94rem;
+    color: #6a4e3d;
+    line-height: 1.5;
+}
+
+/* 5 Brand Category Showcase Grid */
+.brand-showcase-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 1.25rem;
+    margin-bottom: 3.5rem;
+}
+
+.brand-cat-card {
+    background: #ffffff;
+    border: 1px solid rgba(212, 163, 115, 0.28);
+    border-radius: 20px;
+    padding: 1.35rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow: 0 8px 24px rgba(50, 25, 14, 0.04);
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+.brand-cat-card:hover {
+    transform: translateY(-4px);
+    border-color: #c5894e;
+    box-shadow: 0 16px 36px rgba(50, 25, 14, 0.09);
+}
+
+.bcc-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.4rem;
+    margin-bottom: 0.75rem;
+}
+
+.bcc-badge {
+    background: #241610;
+    color: #fffaf5;
+    font-size: 0.64rem;
+    font-weight: 800;
+    letter-spacing: 0.06em;
+    padding: 0.22rem 0.55rem;
+    border-radius: 20px;
+    text-transform: uppercase;
+}
+
+.bcc-tier {
+    font-size: 0.62rem;
+    font-weight: 700;
+    color: #8c6a54;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+}
+
+.bcc-visual {
+    width: 100%;
+    height: 140px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 0.85rem;
+    position: relative;
+}
+
+.bcc-img {
+    max-width: 100%;
+    max-height: 130px;
+    object-fit: contain;
+    filter: drop-shadow(0 8px 16px rgba(50, 25, 14, 0.12));
+    transition: transform 0.35s ease;
+}
+
+.brand-cat-card:hover .bcc-img {
+    transform: scale(1.06);
+}
+
+.bcc-info {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.bcc-brand-name {
+    font-family: var(--font-heading);
+    font-size: 1.25rem;
+    font-weight: 900;
+    color: #241610;
+    margin-bottom: 0.25rem;
+    line-height: 1.15;
+}
+
+.bcc-price-range {
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: #c5894e;
+    margin-bottom: 0.75rem;
+}
+
+.bcc-sublist {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 1.25rem 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    flex: 1;
+}
+
+.bcc-sublist li {
+    font-size: 0.76rem;
+    color: #5c4335;
+    line-height: 1.35;
+    position: relative;
+    padding-left: 0.85rem;
+}
+
+.bcc-sublist li::before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    color: #c5894e;
+    font-size: 0.9rem;
+    line-height: 1;
+}
+
+.btn-bcc-action {
+    background: #fdfaf6;
+    border: 1px solid rgba(212, 163, 115, 0.4);
+    color: #241610;
+    font-family: var(--font-heading);
+    font-size: 0.75rem;
+    font-weight: 800;
+    letter-spacing: 0.04em;
+    padding: 0.55rem 0.85rem;
+    border-radius: 8px;
+    cursor: pointer;
+    text-align: center;
+    transition: all 0.2s ease;
+    width: 100%;
+}
+
+.brand-cat-card:hover .btn-bcc-action,
+.btn-bcc-action:hover {
+    background: #241610;
+    color: #fffaf5;
+    border-color: #241610;
+}
+
+/* Brand Filter Bar */
+.brand-filter-bar-wrap {
+    margin-bottom: 2rem;
+    scroll-margin-top: 6rem;
+}
+
+.bfb-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 0.85rem;
+}
+
+.bfb-title {
+    font-family: var(--font-heading);
+    font-size: 0.88rem;
+    font-weight: 900;
+    letter-spacing: 0.08em;
+    color: #241610;
+    text-transform: uppercase;
+}
+
+.bfb-active-count {
+    font-size: 0.78rem;
+    color: #8c6a54;
+    font-weight: 600;
+}
+
+.brand-pills-scroll {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    overflow-x: auto;
+    padding-bottom: 0.5rem;
+    scrollbar-width: thin;
+}
+
+.brand-pill {
+    background: #ffffff;
+    border: 1px solid rgba(212, 163, 115, 0.35);
+    color: #3e2415;
+    font-family: var(--font-heading);
+    font-size: 0.82rem;
+    font-weight: 700;
+    letter-spacing: 0.03em;
+    padding: 0.5rem 1.15rem;
+    border-radius: 50px;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: all 0.2s ease;
+}
+
+.brand-pill:hover {
+    background: #fbf5ee;
+    border-color: #c5894e;
+    color: #241610;
+}
+
+.brand-pill.active {
+    background: #241610;
+    color: #fffaf5;
+    border-color: #241610;
+    box-shadow: 0 4px 12px rgba(36, 22, 16, 0.25);
+}
+
+/* Live Product Grid */
+.live-products-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+    width: 100%;
+}
+
+.live-prod-card {
+    background: #ffffff;
+    border: 1px solid rgba(212, 163, 115, 0.24);
+    border-radius: 18px;
+    padding: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: all 0.25s ease;
+    box-shadow: 0 4px 16px rgba(50, 25, 14, 0.03);
+}
+
+.live-prod-card:hover {
+    transform: translateY(-3px);
+    border-color: rgba(212, 163, 115, 0.6);
+    box-shadow: 0 12px 28px rgba(50, 25, 14, 0.08);
+}
+
+.lpc-top-tags {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.4rem;
+    margin-bottom: 0.65rem;
+}
+
+.lpc-brand-pill {
+    background: #fbf5ee;
+    color: #241610;
+    border: 1px solid rgba(212, 163, 115, 0.35);
+    font-size: 0.65rem;
+    font-weight: 800;
+    padding: 0.2rem 0.55rem;
+    border-radius: 12px;
+    text-transform: uppercase;
+}
+
+.lpc-save-pill {
+    background: #e8f5e9;
+    color: #2e7d32;
+    border: 1px solid #a5d6a7;
+    font-size: 0.65rem;
+    font-weight: 800;
+    padding: 0.2rem 0.55rem;
+    border-radius: 12px;
+}
+
+.lpc-img-wrap {
+    width: 100%;
+    height: 160px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 0.85rem;
+}
+
+.lpc-img {
+    max-width: 100%;
+    max-height: 150px;
+    object-fit: contain;
+    filter: drop-shadow(0 6px 14px rgba(50, 25, 14, 0.08));
+    transition: transform 0.3s ease;
+}
+
+.live-prod-card:hover .lpc-img {
+    transform: scale(1.05);
+}
+
+.lpc-title {
+    font-family: var(--font-heading);
+    font-size: 0.95rem;
+    font-weight: 800;
+    color: #241610;
+    line-height: 1.3;
+    margin-bottom: 0.45rem;
+    min-height: 2.5rem;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.lpc-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35rem;
+    margin-bottom: 1rem;
+    min-height: 26px;
+}
+
+.lpc-chip {
+    background: #fdfbf7;
+    border: 1px solid rgba(212, 163, 115, 0.25);
+    color: #6a4e3d;
+    font-size: 0.68rem;
+    font-weight: 600;
+    padding: 0.18rem 0.45rem;
+    border-radius: 6px;
+}
+
+.lpc-price-row {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    margin-bottom: 0.85rem;
+    padding-top: 0.5rem;
+    border-top: 1px solid rgba(212, 163, 115, 0.15);
+}
+
+.lpc-price {
+    font-family: var(--font-heading);
+    font-size: 1.3rem;
+    font-weight: 900;
+    color: #c5894e;
+}
+
+.lpc-mrp {
+    font-size: 0.82rem;
+    color: #a38d7e;
+    text-decoration: line-through;
+}
+
+.btn-lpc-add {
+    background: #241610;
+    color: #fffaf5;
+    border: none;
+    font-family: var(--font-heading);
+    font-size: 0.8rem;
+    font-weight: 800;
+    letter-spacing: 0.04em;
+    padding: 0.65rem 1rem;
+    border-radius: 10px;
+    cursor: pointer;
+    width: 100%;
+    transition: all 0.2s ease;
+}
+
+.btn-lpc-add:hover {
+    background: #3e2415;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(36, 22, 16, 0.25);
+}
+
+/* Responsive Grid Breakpoints */
+@media (max-width: 1400px) {
+    .brand-showcase-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    .live-products-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 980px) {
+    .brand-showcase-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .live-products-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 640px) {
+    .brand-showcase-grid {
+        grid-template-columns: 1fr;
+    }
+    .live-products-grid {
+        grid-template-columns: 1fr;
     }
 }
 

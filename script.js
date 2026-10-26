@@ -8,6 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initCart();
     initJekoSearch();
     initOfferSlideshow();
+    initBrandGrid();
 });
 
 // ==========================================================================
@@ -387,4 +388,121 @@ function initOfferSlideshow() {
     }
 
     startAutoplay();
+}
+
+
+// ==========================================================================
+// 4. BRAND CATEGORIES & LIVE INVENTORY ENGINE
+// ==========================================================================
+let CURRENT_BRAND_FILTER = 'ALL';
+
+function initBrandGrid() {
+    renderBrandProducts();
+}
+
+function filterByBrand(brandKey) {
+    CURRENT_BRAND_FILTER = brandKey;
+    updatePillActiveState(brandKey);
+    renderBrandProducts();
+    
+    const anchor = document.getElementById('live-inventory-anchor');
+    if (anchor) {
+        anchor.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+}
+
+function filterByCategory(catKey) {
+    CURRENT_BRAND_FILTER = catKey;
+    updatePillActiveState(catKey);
+    
+    if (typeof SYBER_PRODUCTS === 'undefined') return;
+    const filtered = SYBER_PRODUCTS.filter(p => p.category === catKey);
+    renderProductsGrid(filtered, `Category: ${catKey}`);
+    
+    const anchor = document.getElementById('live-inventory-anchor');
+    if (anchor) {
+        anchor.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+}
+
+function updatePillActiveState(key) {
+    const pills = document.querySelectorAll('.brand-pill');
+    pills.forEach(pill => {
+        if (pill.getAttribute('data-filter') === key) {
+            pill.classList.add('active');
+        } else {
+            pill.classList.remove('active');
+        }
+    });
+}
+
+function renderBrandProducts() {
+    if (typeof SYBER_PRODUCTS === 'undefined') return;
+
+    let list = SYBER_PRODUCTS;
+    const b = CURRENT_BRAND_FILTER.toUpperCase();
+
+    if (b !== 'ALL') {
+        if (b === 'INFRASTRUCTURE') {
+            list = SYBER_PRODUCTS.filter(p => 
+                p.category === 'accessory' || 
+                p.brand === 'SYBER SPACE' || 
+                p.brand === 'ULTRA-LINK' || 
+                p.brand === 'SANDISK' ||
+                (p.title && (p.title.includes('SMPS') || p.title.includes('Cat6') || p.title.includes('Cable') || p.title.includes('Rack')))
+            );
+        } else {
+            list = SYBER_PRODUCTS.filter(p => (p.brand || '').toUpperCase() === b);
+        }
+    }
+
+    renderProductsGrid(list, b === 'ALL' ? 'All Products' : b);
+}
+
+function renderProductsGrid(list, label) {
+    const container = document.getElementById('liveProductsGrid');
+    const counter = document.getElementById('active-category-count');
+    if (!container) return;
+
+    if (counter) {
+        counter.textContent = `Showing ${list.length} item${list.length === 1 ? '' : 's'} (${label})`;
+    }
+
+    if (!list || list.length === 0) {
+        container.innerHTML = `
+            <div style="grid-column: 1 / -1; padding: 3rem 1rem; text-align: center; color: #8c6a54; font-size: 0.95rem;">
+                No products found in this category.
+            </div>
+        `;
+        return;
+    }
+
+    container.innerHTML = list.map(p => {
+        const img = (p.images && p.images.length > 0) ? p.images[0] : 'assets/hero_product_solar_v2.png';
+        const brand = p.brand || 'SYBER';
+        const chipsHtml = (p.chips || []).slice(0, 3).map(chip => `<span class="lpc-chip">${chip}</span>`).join('');
+        const mrpHtml = p.mrp ? `<span class="lpc-mrp">${p.mrp}</span>` : '';
+        const saveBadge = p.save ? `<span class="lpc-save-pill">${p.save}</span>` : '';
+
+        return `
+            <div class="live-prod-card">
+                <div class="lpc-top-tags">
+                    <span class="lpc-brand-pill">${brand}</span>
+                    ${saveBadge}
+                </div>
+                <div class="lpc-img-wrap">
+                    <img src="${img}" alt="${p.title}" class="lpc-img" loading="lazy" onerror="this.src='assets/hero_product_solar_v2.png'">
+                </div>
+                <div class="lpc-title" title="${p.title}">${p.title}</div>
+                <div class="lpc-chips">${chipsHtml}</div>
+                <div class="lpc-price-row">
+                    <div class="lpc-price">&#8377;${Number(p.price).toLocaleString('en-IN')}</div>
+                    ${mrpHtml}
+                </div>
+                <button type="button" class="btn-lpc-add" onclick="addToCartById('${p.id}')">
+                    [ ADD TO CART ]
+                </button>
+            </div>
+        `;
+    }).join('');
 }
