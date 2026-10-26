@@ -2562,15 +2562,118 @@ body.jeko-theme-white {
 .rc-visual-col {
     flex: 1;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
-    min-height: 280px;
+    min-height: 290px;
     position: relative;
+}
+
+.rc-view-switcher {
+    display: inline-flex;
+    align-items: center;
+    background: rgba(239, 226, 212, 0.75);
+    border: 1px solid rgba(212, 163, 115, 0.4);
+    border-radius: 30px;
+    padding: 3px;
+    margin-bottom: 1.1rem;
+    box-shadow: inset 0 1px 3px rgba(50, 25, 14, 0.05);
+}
+
+.rc-tab-btn {
+    background: transparent;
+    border: none;
+    border-radius: 20px;
+    padding: 0.4rem 1rem;
+    font-family: var(--font-body);
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 0.05em;
+    color: #7a5843;
+    cursor: pointer;
+    transition: all 0.25s ease;
+}
+
+.rc-tab-btn:hover {
+    color: #241610;
+}
+
+.rc-tab-btn.active {
+    background: #241610;
+    color: #ffffff;
+    box-shadow: 0 4px 12px rgba(36, 22, 16, 0.25);
+}
+
+.rc-media-frame {
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 270px;
+}
+
+.rc-view-pane {
+    display: none;
+    position: relative;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+}
+
+.rc-view-pane.active {
+    display: flex;
+    animation: rcFadeIn 0.3s ease;
+}
+
+@keyframes rcFadeIn {
+    from { opacity: 0; transform: scale(0.97); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+.rc-fitted-img {
+    width: 100%;
+    max-width: 340px;
+    height: 270px;
+    object-fit: cover;
+    border-radius: 20px;
+    border: 2px solid rgba(212, 163, 115, 0.4);
+    box-shadow: 0 16px 32px rgba(50, 25, 14, 0.14);
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.rc-view-pane:hover .rc-fitted-img {
+    transform: scale(1.03);
+}
+
+.rc-fitted-badge {
+    position: absolute;
+    bottom: 12px;
+    left: calc(50% - 170px + 14px);
+    background: rgba(36, 22, 16, 0.85);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    color: #ffffff;
+    font-size: 0.65rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    padding: 0.3rem 0.75rem;
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+@media (max-width: 1080px) {
+    .rc-fitted-badge {
+        left: 50%;
+        transform: translateX(-50%);
+        white-space: nowrap;
+    }
 }
 
 .rc-img {
     max-width: 320px;
-    max-height: 290px;
+    max-height: 270px;
     object-fit: contain;
     filter: drop-shadow(0 16px 28px rgba(50, 25, 14, 0.16));
     transition: transform 0.35s ease;

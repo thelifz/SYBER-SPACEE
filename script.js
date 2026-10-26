@@ -762,7 +762,7 @@ function computeRecommendation() {
             image: 'assets/hero_product_idada_v2.png',
             tags: ['3MP Ultra Clarity', '360° Motorized Pan-Tilt', 'Crystal 2-Way Audio', 'Infrared Night Vision', 'Instant App Alerts']
         };
-        matchReason = `Features full 360° room sweep, two-way crystal audio talkback, and instant smartphone notifications. Top-rated value choice for monitoring families, babies, and indoor spaces in your ${PROPERTY_LABELS[SELECTED_PROPERTY]}.`;
+        matchReason = `Precision-engineered for residential villas and modern homes. Blends cleanly into your architecture with discreet wall and soffit mounting, 360° motorized room coverage, crystal two-way audio talkback, and instant mobile security notifications.`;
         matchScore = '97% PERFECT FIT';
     }
 
@@ -775,9 +775,30 @@ function computeRecommendation() {
         const tagsHtml = matchProduct.tags.map(t => `<span class="rc-tag">${t}</span>`).join('');
         const waText = encodeURIComponent(`Hello Syber Space, I used your Camera Finder for my ${PROPERTY_LABELS[SELECTED_PROPERTY]} and got matched with ${matchProduct.title} (Rs ${matchProduct.price}). I want to place an order.`);
 
+        const isHome = (SELECTED_PROPERTY === 'home');
+        const defaultFitted = isHome ? 'active' : '';
+        const defaultUnit = isHome ? '' : 'active';
+
         card.innerHTML = `
             <div class="rc-visual-col">
-                <img src="${matchProduct.image}" alt="${matchProduct.title}" class="rc-img" onerror="this.src='assets/hero_product_solar_v2.png'">
+                <div class="rc-view-switcher">
+                    <button type="button" class="rc-tab-btn ${isHome ? 'active' : ''}" id="rcBtnFitted" onclick="switchRcVisual('fitted')">
+                        FITTED ON WALL
+                    </button>
+                    <button type="button" class="rc-tab-btn ${isHome ? '' : 'active'}" id="rcBtnUnit" onclick="switchRcVisual('unit')">
+                        HARDWARE UNIT
+                    </button>
+                </div>
+                <div class="rc-media-frame">
+                    <div class="rc-view-pane ${isHome ? 'active' : ''}" id="rcPaneFitted">
+                        <img src="assets/camera_mounted_house.jpg" alt="CCTV Camera Fitted on Building" class="rc-fitted-img">
+                        <span class="rc-fitted-badge">FITTED IN-SITU ON PROPERTY</span>
+                    </div>
+                    <div class="rc-view-pane ${isHome ? '' : 'active'}" id="rcPaneUnit">
+                        <img src="${matchProduct.image}" alt="${matchProduct.title}" class="rc-img" onerror="this.src='assets/hero_product_solar_v2.png'">
+                        <span class="rc-fitted-badge">PRODUCT SPECIFICATION</span>
+                    </div>
+                </div>
             </div>
             <div class="rc-details-col">
                 <span class="rc-brand">${matchProduct.brand}</span>
@@ -820,5 +841,25 @@ function resetFinderWizard() {
     const finderSection = document.getElementById('camera-finder');
     if (finderSection) {
         finderSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+}
+
+
+function switchRcVisual(mode) {
+    const paneFitted = document.getElementById('rcPaneFitted');
+    const paneUnit = document.getElementById('rcPaneUnit');
+    const btnFitted = document.getElementById('rcBtnFitted');
+    const btnUnit = document.getElementById('rcBtnUnit');
+
+    if (mode === 'fitted') {
+        if (paneFitted) paneFitted.classList.add('active');
+        if (paneUnit) paneUnit.classList.remove('active');
+        if (btnFitted) btnFitted.classList.add('active');
+        if (btnUnit) btnUnit.classList.remove('active');
+    } else {
+        if (paneFitted) paneFitted.classList.remove('active');
+        if (paneUnit) paneUnit.classList.add('active');
+        if (btnFitted) btnFitted.classList.remove('active');
+        if (btnUnit) btnUnit.classList.add('active');
     }
 }
