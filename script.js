@@ -9,6 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initJekoSearch();
     initOfferSlideshow();
     initBrandGrid();
+    initAsusShowcaseScroll();
 
     // Support URL param ?brand=TRUEVIEW or ?test_bubble=TRUEVIEW or ?search=...
     const urlParams = new URLSearchParams(window.location.search);
@@ -22,6 +23,28 @@ document.addEventListener('DOMContentLoaded', () => {
             quickFillSearch(searchParam);
         }, 200);
     }
+    const scrollParam = urlParams.get('scroll');
+    if (scrollParam) {
+        setTimeout(() => {
+            const showcase = document.getElementById('hardware-showcase');
+            const container = document.getElementById('asus-stage-container');
+            if (scrollParam === 'showcase' && showcase) {
+                window.scrollTo({ top: showcase.offsetTop, behavior: 'instant' });
+            } else if (scrollParam === 'stage1' && container) {
+                window.scrollTo({ top: container.offsetTop + 100, behavior: 'instant' });
+            } else if (scrollParam === 'stage2' && container) {
+                window.scrollTo({ top: container.offsetTop + 700, behavior: 'instant' });
+            } else if (scrollParam === 'stage3' && container) {
+                window.scrollTo({ top: container.offsetTop + 1400, behavior: 'instant' });
+            } else if (scrollParam === 'stage4' && container) {
+                window.scrollTo({ top: container.offsetTop + 2100, behavior: 'instant' });
+            }
+            if (typeof ScrollTrigger !== 'undefined') {
+                ScrollTrigger.refresh();
+            }
+        }, 300);
+    }
+
 });
 
 // Sync cart changes across all open browser windows/tabs in real-time
@@ -1033,5 +1056,166 @@ function switchRcVisual(mode) {
         if (paneUnit) paneUnit.classList.add('active');
         if (btnFitted) btnFitted.classList.remove('active');
         if (btnUnit) btnUnit.classList.add('active');
+    }
+}
+
+
+
+// ==========================================================================
+// ASUS ROG / APPLE-LEVEL GSAP PINNED HARDWARE SHOWCASE ENGINE
+// Sticky center camera, scrolling features track, and right-corner buy dock
+// ==========================================================================
+const SHOWCASE_FEATURE_DATA = [
+    {
+        title: "01 // DUAL-AXIS GIMBAL ACTIVE",
+        rotateY: -10,
+        rotateZ: -3,
+        scale: 1.02,
+        pointerId: "ptr-0"
+    },
+    {
+        title: "02 // 4G CELLULAR CORE STANDBY",
+        rotateY: 12,
+        rotateZ: 2,
+        scale: 1.04,
+        pointerId: "ptr-1"
+    },
+    {
+        title: "03 // 7.8W SOLAR ARRAY CHARGING",
+        rotateY: 0,
+        rotateZ: -5,
+        scale: 1.06,
+        pointerId: "ptr-2"
+    },
+    {
+        title: "04 // NEURAL AI INFERENCE ONLINE",
+        rotateY: -5,
+        rotateZ: 0,
+        scale: 1.09,
+        pointerId: "ptr-3"
+    },
+    {
+        title: "05 // IP66 DIELECTRIC SEAL LOCKED",
+        rotateY: 8,
+        rotateZ: 3,
+        scale: 1.03,
+        pointerId: "ptr-4"
+    }
+];
+
+let currentShowcaseIndex = 0;
+
+function initAsusShowcaseScroll() {
+    const showcaseSection = document.getElementById('hardware-showcase');
+    const stageViewport = document.getElementById('asus-stage-viewport');
+    const featuresTrack = document.getElementById('asus-features-track');
+    const cameraImg = document.getElementById('asus-camera-img');
+    const featureCards = document.querySelectorAll('.asus-feature-card');
+
+    if (!showcaseSection || !stageViewport) return;
+
+    // Feature card click: allows user to jump to any feature directly
+    featureCards.forEach((card, idx) => {
+        card.addEventListener('click', () => {
+            setActiveShowcaseFeature(idx);
+        });
+    });
+
+    if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') {
+        console.warn('GSAP or ScrollTrigger not loaded, fallback enabled');
+        return;
+    }
+
+    gsap.registerPlugin(ScrollTrigger);
+
+    // Refresh ScrollTrigger once images/fonts finish loading
+    window.addEventListener('load', () => {
+        ScrollTrigger.refresh();
+    });
+
+    // Single unified GSAP Timeline with Pin & Scrub
+    const showcaseTl = gsap.timeline({
+        scrollTrigger: {
+            trigger: '#hardware-showcase',
+            start: 'top top',
+            end: '+=2200',
+            pin: true,
+            scrub: 1,
+            anticipatePin: 1,
+            onUpdate: (self) => {
+                const progress = self.progress; // 0 to 1
+                const count = SHOWCASE_FEATURE_DATA.length;
+                const targetIdx = Math.min(count - 1, Math.floor(progress * count));
+                
+                if (targetIdx !== currentShowcaseIndex) {
+                    setActiveShowcaseFeature(targetIdx);
+                }
+
+                // Continuous dynamic scrub effects on camera
+                if (cameraImg) {
+                    const cfg = SHOWCASE_FEATURE_DATA[targetIdx];
+                    const microTilt = (progress - 0.5) * 8;
+                    cameraImg.style.transform = `perspective(1000px) rotateY(${cfg.rotateY + microTilt}deg) rotateZ(${cfg.rotateZ}deg) scale(${cfg.scale})`;
+                }
+            }
+        }
+    });
+
+    // Animate features track scrolling vertically in rhythm with scroll progress
+    if (featuresTrack && window.innerWidth > 980) {
+        showcaseTl.to(featuresTrack, {
+            y: () => {
+                const trackH = featuresTrack.scrollHeight;
+                const containerH = stageViewport.clientHeight;
+                return -Math.max(0, trackH - (containerH * 0.55));
+            },
+            ease: 'none',
+            duration: 1
+        }, 0);
+    }
+}
+
+function setActiveShowcaseFeature(index) {
+    currentShowcaseIndex = index;
+    const featureCards = document.querySelectorAll('.asus-feature-card');
+    const pointers = document.querySelectorAll('.asus-hud-pointer');
+    const targetText = document.getElementById('acr-target-text');
+    const stepIndicator = document.getElementById('afh-step-indicator');
+    const cameraImg = document.getElementById('asus-camera-img');
+
+    // Update active feature card
+    featureCards.forEach((card, i) => {
+        if (i === index) {
+            card.classList.add('active');
+        } else {
+            card.classList.remove('active');
+        }
+    });
+
+    // Update active pointer
+    pointers.forEach((ptr, i) => {
+        if (i === index) {
+            ptr.classList.add('active');
+        } else {
+            ptr.classList.remove('active');
+        }
+    });
+
+    // Update text telemetry
+    if (SHOWCASE_FEATURE_DATA[index]) {
+        const item = SHOWCASE_FEATURE_DATA[index];
+        if (targetText) targetText.textContent = item.title;
+        if (stepIndicator) stepIndicator.textContent = `STAGE ${index + 1} / ${SHOWCASE_FEATURE_DATA.length}`;
+        if (cameraImg) {
+            cameraImg.style.transform = `perspective(1000px) rotateY(${item.rotateY}deg) rotateZ(${item.rotateZ}deg) scale(${item.scale})`;
+        }
+    }
+}
+
+function addShowcaseCameraToCart(buyNow = false) {
+    const flagshipId = 'trueview-solar-4g-sim-outdoor-pan-tilt-camera';
+    addToCartById(flagshipId);
+    if (buyNow) {
+        window.location.href = 'cart.html';
     }
 }
