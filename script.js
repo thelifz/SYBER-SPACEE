@@ -7,6 +7,7 @@ let CART_ITEMS = [];
 document.addEventListener('DOMContentLoaded', () => {
     initCart();
     initJekoSearch();
+    initOfferSlideshow();
 });
 
 // ==========================================================================
@@ -271,4 +272,119 @@ function triggerSearchAction() {
     input.focus();
     if (dropdown) dropdown.style.display = 'block';
     performSearch(input.value.trim());
+}
+
+
+// ==========================================================================
+// 3. OFFER HERO SLIDESHOW CONTROLLER
+// ==========================================================================
+function initOfferSlideshow() {
+    const slides = document.querySelectorAll('.offer-slide');
+    const dots = document.querySelectorAll('.slide-dot');
+    const prevBtn = document.getElementById('prevSlideBtn');
+    const nextBtn = document.getElementById('nextSlideBtn');
+    const wrap = document.querySelector('.offer-slideshow-wrap');
+
+    if (!slides.length) return;
+
+    let currentSlide = 0;
+    let autoplayInterval = null;
+    const SLIDE_DURATION = 5000;
+
+    function showSlide(index) {
+        if (index < 0) {
+            currentSlide = slides.length - 1;
+        } else if (index >= slides.length) {
+            currentSlide = 0;
+        } else {
+            currentSlide = index;
+        }
+
+        slides.forEach((slide, i) => {
+            if (i === currentSlide) {
+                slide.classList.add('active');
+            } else {
+                slide.classList.remove('active');
+            }
+        });
+
+        dots.forEach((dot, i) => {
+            if (i === currentSlide) {
+                dot.classList.add('active');
+            } else {
+                dot.classList.remove('active');
+            }
+        });
+    }
+
+    function next() {
+        showSlide(currentSlide + 1);
+    }
+
+    function prev() {
+        showSlide(currentSlide - 1);
+    }
+
+    function startAutoplay() {
+        stopAutoplay();
+        autoplayInterval = setInterval(next, SLIDE_DURATION);
+    }
+
+    function stopAutoplay() {
+        if (autoplayInterval) {
+            clearInterval(autoplayInterval);
+            autoplayInterval = null;
+        }
+    }
+
+    if (nextBtn) {
+        nextBtn.addEventListener('click', () => {
+            next();
+            startAutoplay();
+        });
+    }
+
+    if (prevBtn) {
+        prevBtn.addEventListener('click', () => {
+            prev();
+            startAutoplay();
+        });
+    }
+
+    dots.forEach((dot) => {
+        dot.addEventListener('click', () => {
+            const targetIndex = parseInt(dot.getAttribute('data-to'), 10);
+            if (!isNaN(targetIndex)) {
+                showSlide(targetIndex);
+                startAutoplay();
+            }
+        });
+    });
+
+    if (wrap) {
+        wrap.addEventListener('mouseenter', stopAutoplay);
+        wrap.addEventListener('mouseleave', startAutoplay);
+
+        let touchStartX = 0;
+        let touchEndX = 0;
+
+        wrap.addEventListener('touchstart', (e) => {
+            touchStartX = e.changedTouches[0].screenX;
+        }, { passive: true });
+
+        wrap.addEventListener('touchend', (e) => {
+            touchEndX = e.changedTouches[0].screenX;
+            const diff = touchEndX - touchStartX;
+            if (Math.abs(diff) > 40) {
+                if (diff < 0) {
+                    next();
+                } else {
+                    prev();
+                }
+                startAutoplay();
+            }
+        }, { passive: true });
+    }
+
+    startAutoplay();
 }

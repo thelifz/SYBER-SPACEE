@@ -79,25 +79,26 @@ body.jeko-theme-white {
     z-index: 1000;
     padding: 0 1.25rem;
     pointer-events: none;
+    margin-bottom: -4.2rem;
 }
 
 .iphone-header-glass {
     max-width: 1440px;
     margin: 0 auto;
     pointer-events: auto;
-    background: rgba(255, 255, 255, 0.78);
-    backdrop-filter: blur(28px) saturate(190%);
-    -webkit-backdrop-filter: blur(28px) saturate(190%);
-    border: 1px solid rgba(255, 255, 255, 0.85);
+    background: rgba(255, 255, 255, 0.62);
+    backdrop-filter: blur(32px) saturate(200%);
+    -webkit-backdrop-filter: blur(32px) saturate(200%);
+    border: 1px solid rgba(255, 255, 255, 0.75);
     border-radius: 20px;
     padding: 0.55rem 1.25rem;
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: 1.25rem;
-    box-shadow: 0 10px 32px rgba(15, 23, 42, 0.07), 
-                0 1px 3px rgba(15, 23, 42, 0.04), 
-                inset 0 1px 1px rgba(255, 255, 255, 0.95);
+    box-shadow: 0 10px 32px rgba(15, 23, 42, 0.05), 
+                0 1px 3px rgba(15, 23, 42, 0.02), 
+                inset 0 1px 1.5px rgba(255, 255, 255, 0.9);
     transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
@@ -423,7 +424,7 @@ body.jeko-theme-white {
    MAIN CONTENT: WHITE HERO SECTION WITH COFFEE SHADES
    ========================================================================== */
 .white-hero-section {
-    padding: 3.5rem 1.5rem 5rem 1.5rem;
+    padding: 1rem 1.5rem 4rem 1.5rem;
     background: #ffffff;
     position: relative;
 }
@@ -1018,6 +1019,463 @@ body.jeko-theme-white {
 .toast-notify.active {
     opacity: 1;
     transform: translateX(-50%) translateY(0);
+}
+
+
+/* ==========================================================================
+   OFFER SLIDESHOW HERO BANNER (COFFEE LUXURY THEME)
+   ========================================================================== */
+.offer-slideshow-wrap {
+    position: relative;
+    max-width: 1440px;
+    margin: 0 auto 3rem;
+    border-radius: 28px;
+    overflow: hidden;
+    background: radial-gradient(circle at 75% 40%, rgba(244, 232, 220, 0.85) 0%, rgba(253, 251, 247, 0.98) 65%), #ffffff;
+    border: 1px solid rgba(212, 163, 115, 0.28);
+    box-shadow: 0 24px 60px rgba(50, 25, 14, 0.07), 0 4px 16px rgba(50, 25, 14, 0.03);
+}
+
+.offer-slides-track {
+    position: relative;
+    width: 100%;
+    min-height: 480px;
+}
+
+.offer-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 4.8rem 4rem 2.5rem;
+    gap: 2.5rem;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: translateX(30px);
+    transition: opacity 0.55s cubic-bezier(0.16, 1, 0.3, 1), 
+                transform 0.55s cubic-bezier(0.16, 1, 0.3, 1),
+                visibility 0.55s;
+}
+
+.offer-slide.active {
+    position: relative;
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translateX(0);
+}
+
+/* Slide Left Content */
+.offer-slide-content {
+    flex: 1.2;
+    max-width: 650px;
+    display: flex;
+    flex-direction: column;
+    z-index: 2;
+}
+
+.slide-badge-row {
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+    flex-wrap: wrap;
+    margin-bottom: 1rem;
+}
+
+.offer-fire-badge {
+    background: #ff3b30;
+    color: #ffffff;
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    padding: 0.3rem 0.75rem;
+    border-radius: 20px;
+    text-transform: uppercase;
+    box-shadow: 0 4px 12px rgba(255, 59, 48, 0.3);
+    animation: firePulse 2s infinite ease-in-out;
+}
+
+@keyframes firePulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.03); }
+}
+
+.offer-save-pill {
+    background: #25d366;
+    color: #ffffff;
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 0.06em;
+    padding: 0.3rem 0.75rem;
+    border-radius: 20px;
+}
+
+.offer-tag-pill {
+    background: rgba(13, 19, 31, 0.06);
+    color: #0d131f;
+    border: 1px solid rgba(13, 19, 31, 0.12);
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    padding: 0.3rem 0.75rem;
+    border-radius: 20px;
+}
+
+.slide-title {
+    font-family: var(--font-heading);
+    font-size: 2.35rem;
+    font-weight: 900;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    color: #241610;
+    margin-bottom: 0.85rem;
+}
+
+.slide-subtitle {
+    font-family: var(--font-body);
+    font-size: 0.98rem;
+    line-height: 1.55;
+    color: #5c4335;
+    margin-bottom: 1.35rem;
+}
+
+.slide-chips-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1.75rem;
+}
+
+.slide-chip {
+    background: rgba(255, 255, 255, 0.85);
+    border: 1px solid rgba(212, 163, 115, 0.35);
+    color: #3e2415;
+    font-size: 0.78rem;
+    font-weight: 600;
+    padding: 0.35rem 0.75rem;
+    border-radius: 12px;
+    box-shadow: 0 2px 6px rgba(50, 25, 14, 0.03);
+}
+
+/* Pricing Display */
+.slide-price-box {
+    display: flex;
+    align-items: baseline;
+    gap: 1.25rem;
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid rgba(212, 163, 115, 0.4);
+    border-radius: 16px;
+    padding: 0.85rem 1.4rem;
+    width: fit-content;
+    margin-bottom: 1.75rem;
+    box-shadow: 0 6px 18px rgba(50, 25, 14, 0.04);
+}
+
+.price-main-stack {
+    display: flex;
+    flex-direction: column;
+}
+
+.sp-label {
+    font-size: 0.65rem;
+    font-weight: 800;
+    letter-spacing: 0.1em;
+    color: #8c6a54;
+    text-transform: uppercase;
+}
+
+.sp-amount {
+    font-family: var(--font-heading);
+    font-size: 2rem;
+    font-weight: 900;
+    color: #c5894e;
+    line-height: 1;
+}
+
+.price-mrp-stack {
+    display: flex;
+    flex-direction: column;
+}
+
+.sp-mrp-label {
+    font-size: 0.62rem;
+    font-weight: 700;
+    color: #a38d7e;
+}
+
+.sp-mrp-val {
+    font-size: 1.1rem;
+    color: #a38d7e;
+    font-weight: 600;
+}
+
+.price-savings-pill {
+    background: #e8f5e9;
+    color: #2e7d32;
+    border: 1px solid #a5d6a7;
+    font-size: 0.75rem;
+    font-weight: 800;
+    padding: 0.28rem 0.65rem;
+    border-radius: 20px;
+    letter-spacing: 0.02em;
+}
+
+/* Slide Action CTAs */
+.slide-actions-row {
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+    flex-wrap: wrap;
+}
+
+.btn-slide-order {
+    background: #241610;
+    color: #fffaf5;
+    border: none;
+    font-family: var(--font-heading);
+    font-size: 0.92rem;
+    font-weight: 800;
+    letter-spacing: 0.05em;
+    padding: 0.85rem 1.75rem;
+    border-radius: 50px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.55rem;
+    box-shadow: 0 8px 24px rgba(36, 22, 16, 0.3);
+    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.btn-slide-order:hover {
+    background: #3e2415;
+    transform: translateY(-2px);
+    box-shadow: 0 12px 30px rgba(36, 22, 16, 0.4);
+}
+
+.btn-slide-whatsapp {
+    background: #25d366;
+    color: #ffffff;
+    border: none;
+    font-family: var(--font-heading);
+    font-size: 0.92rem;
+    font-weight: 800;
+    letter-spacing: 0.05em;
+    padding: 0.85rem 1.6rem;
+    border-radius: 50px;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.55rem;
+    box-shadow: 0 8px 24px rgba(37, 211, 102, 0.28);
+    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.btn-slide-whatsapp:hover {
+    background: #20ba5a;
+    transform: translateY(-2px);
+    box-shadow: 0 12px 30px rgba(37, 211, 102, 0.38);
+}
+
+/* Slide Right Visual */
+.offer-slide-visual {
+    flex: 1;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 380px;
+}
+
+.visual-halo-glow {
+    position: absolute;
+    width: 320px;
+    height: 320px;
+    border-radius: 50%;
+    filter: blur(60px);
+    opacity: 0.5;
+    pointer-events: none;
+}
+
+.glow-solar {
+    background: radial-gradient(circle, #fde047 0%, #d4a373 70%);
+}
+
+.glow-cpplus {
+    background: radial-gradient(circle, #bfdbfe 0%, #c5894e 70%);
+}
+
+.glow-idada {
+    background: radial-gradient(circle, #fed7aa 0%, #e29578 70%);
+}
+
+.glow-infra {
+    background: radial-gradient(circle, #cbd5e1 0%, #8c6a54 70%);
+}
+
+.slide-product-img {
+    position: relative;
+    max-width: 380px;
+    max-height: 360px;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    filter: drop-shadow(0 20px 32px rgba(50, 25, 14, 0.18));
+    transition: transform 0.4s ease;
+    z-index: 2;
+}
+
+.offer-slide:hover .slide-product-img {
+    transform: scale(1.04) translateY(-4px);
+}
+
+.floating-benefit-badge {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.92);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(212, 163, 115, 0.4);
+    border-radius: 30px;
+    padding: 0.45rem 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 0.45rem;
+    font-size: 0.74rem;
+    font-weight: 700;
+    color: #241610;
+    box-shadow: 0 8px 20px rgba(50, 25, 14, 0.08);
+    z-index: 3;
+}
+
+.fbb-left {
+    bottom: 25px;
+    left: 20px;
+}
+
+.fbb-right {
+    top: 25px;
+    right: 20px;
+}
+
+/* Slideshow Controls */
+.slide-nav-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(16px);
+    border: 1px solid rgba(212, 163, 115, 0.35);
+    color: #241610;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 4px 16px rgba(50, 25, 14, 0.1);
+    z-index: 10;
+    transition: all 0.2s ease;
+}
+
+.slide-nav-btn:hover {
+    background: #ffffff;
+    color: #c5894e;
+    transform: translateY(-50%) scale(1.08);
+    box-shadow: 0 6px 20px rgba(50, 25, 14, 0.18);
+}
+
+.prev-btn {
+    left: 1.25rem;
+}
+
+.next-btn {
+    right: 1.25rem;
+}
+
+/* Pagination Dots */
+.slide-pagination {
+    position: absolute;
+    bottom: 1.25rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    z-index: 10;
+}
+
+.slide-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 10px;
+    background: rgba(140, 106, 84, 0.25);
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    padding: 0;
+}
+
+.slide-dot.active {
+    width: 32px;
+    background: #c5894e;
+    box-shadow: 0 2px 8px rgba(197, 137, 78, 0.4);
+}
+
+/* Responsive adjustments */
+@media (max-width: 980px) {
+    .offer-slide {
+        flex-direction: column;
+        padding: 2.25rem 1.5rem;
+        text-align: center;
+        gap: 1.5rem;
+    }
+
+    .offer-slide-content {
+        align-items: center;
+    }
+
+    .slide-badge-row {
+        justify-content: center;
+    }
+
+    .slide-title {
+        font-size: 1.85rem;
+    }
+
+    .slide-chips-list {
+        justify-content: center;
+    }
+
+    .slide-price-box {
+        margin: 0 auto 1.5rem;
+    }
+
+    .slide-actions-row {
+        justify-content: center;
+    }
+
+    .offer-slide-visual {
+        min-height: 260px;
+    }
+
+    .slide-product-img {
+        max-width: 260px;
+        max-height: 260px;
+    }
+
+    .fbb-left {
+        bottom: 5px;
+        left: 5px;
+    }
+
+    .fbb-right {
+        top: 5px;
+        right: 5px;
+    }
 }
 
 /* ==========================================================================
