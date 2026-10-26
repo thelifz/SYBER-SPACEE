@@ -506,3 +506,148 @@ function renderProductsGrid(list, label) {
         `;
     }).join('');
 }
+
+
+// ==========================================================================
+// 5. BRAND BUBBLE TAKEOVER ENGINE
+// ==========================================================================
+let brandHoverTimer = null;
+const BRAND_HOVER_DELAY = 1200; // 1.2 seconds hover to trigger
+
+const BRAND_META = {
+    'TRUEVIEW': { name: 'TRUEVIEW', color: '#c5894e', bg: '#fdf8f2' },
+    'CPPLUS': { name: 'CP PLUS', color: '#2e5090', bg: '#f0f4fa' },
+    'IDADA': { name: 'iDADA', color: '#e76f51', bg: '#fef5f2' },
+    'SEAGATE': { name: 'SEAGATE', color: '#6aaa64', bg: '#f2faf2' },
+    'INFRASTRUCTURE': { name: 'INFRASTRUCTURE', color: '#5c4335', bg: '#f5f0eb' }
+};
+
+function startBrandHover(event, brandKey) {
+    cancelBrandHover();
+    brandHoverTimer = setTimeout(() => {
+        triggerBubbleTakeover(event, brandKey);
+    }, BRAND_HOVER_DELAY);
+}
+
+function cancelBrandHover() {
+    if (brandHoverTimer) {
+        clearTimeout(brandHoverTimer);
+        brandHoverTimer = null;
+    }
+}
+
+function triggerBubbleTakeover(event, brandKey) {
+    cancelBrandHover();
+    
+    const overlay = document.getElementById('brandTakeoverOverlay');
+    const bubble = document.getElementById('brandTakeoverBubble');
+    const content = document.getElementById('brandTakeoverContent');
+    if (!overlay || !bubble) return;
+
+    // Get click/hover origin position
+    const x = event.clientX || window.innerWidth / 2;
+    const y = event.clientY || window.innerHeight / 2;
+
+    // Calculate required bubble radius to cover entire viewport
+    const maxDist = Math.max(
+        Math.hypot(x, y),
+        Math.hypot(window.innerWidth - x, y),
+        Math.hypot(x, window.innerHeight - y),
+        Math.hypot(window.innerWidth - x, window.innerHeight - y)
+    );
+    const diameter = maxDist * 2.2;
+
+    // Get brand metadata
+    const meta = BRAND_META[brandKey] || { name: brandKey, color: '#c5894e', bg: '#fdf8f2' };
+
+    // Position and style the bubble
+    bubble.style.left = (x - diameter / 2) + 'px';
+    bubble.style.top = (y - diameter / 2) + 'px';
+    bubble.style.width = diameter + 'px';
+    bubble.style.height = diameter + 'px';
+    bubble.style.background = meta.bg;
+
+    // Populate content
+    const titleEl = document.getElementById('btoTitle');
+    const subtitleEl = document.getElementById('btoSubtitle');
+    const gridEl = document.getElementById('btoProductsGrid');
+
+    if (typeof SYBER_PRODUCTS !== 'undefined' && gridEl) {
+        let products;
+        if (brandKey === 'INFRASTRUCTURE') {
+            products = SYBER_PRODUCTS.filter(p => 
+                p.category === 'accessory' || 
+                p.brand === 'SYBER SPACE' || 
+                p.brand === 'ULTRA-LINK' || 
+                p.brand === 'SANDISK' ||
+                (p.title && (p.title.includes('SMPS') || p.title.includes('Cat6') || p.title.includes('Cable') || p.title.includes('Rack')))
+            );
+        } else {
+            products = SYBER_PRODUCTS.filter(p => (p.brand || '').toUpperCase() === brandKey.toUpperCase());
+        }
+
+        if (titleEl) titleEl.textContent = meta.name;
+        if (titleEl) titleEl.style.color = meta.color;
+        if (subtitleEl) subtitleEl.textContent = `${products.length} product${products.length !== 1 ? 's' : ''} available`;
+
+        gridEl.innerHTML = products.map(p => {
+            const img = (p.images && p.images.length > 0) ? p.images[0] : 'assets/hero_product_solar_v2.png';
+            const chipsHtml = (p.chips || []).slice(0, 3).map(c => `<span class="lpc-chip">${c}</span>`).join('');
+            const mrpHtml = p.mrp ? `<span class="lpc-mrp">${p.mrp}</span>` : '';
+            const saveBadge = p.save ? `<span class="lpc-save-pill">${p.save}</span>` : '';
+
+            return `
+                <div class="live-prod-card">
+                    <div class="lpc-top-tags">
+                        <span class="lpc-brand-pill">${p.brand || 'SYBER'}</span>
+                        ${saveBadge}
+                    </div>
+                    <div class="lpc-img-wrap">
+                        <img src="${img}" alt="${p.title}" class="lpc-img" loading="lazy" onerror="this.src='assets/hero_product_solar_v2.png'">
+                    </div>
+                    <div class="lpc-title" title="${p.title}">${p.title}</div>
+                    <div class="lpc-chips">${chipsHtml}</div>
+                    <div class="lpc-price-row">
+                        <div class="lpc-price">&#8377;${Number(p.price).toLocaleString('en-IN')}</div>
+                        ${mrpHtml}
+                    </div>
+                    <button type="button" class="btn-lpc-add" onclick="addToCartById('${p.id}')">
+                        [ ADD TO CART ]
+                    </button>
+                </div>
+            `;
+        }).join('');
+    }
+
+    // Activate
+    overlay.classList.add('active');
+    document.body.style.overflow = 'hidden';
+
+    // Scroll content to top
+    if (content) content.scrollTop = 0;
+}
+
+function closeBubbleTakeover() {
+    const overlay = document.getElementById('brandTakeoverOverlay');
+    const bubble = document.getElementById('brandTakeoverBubble');
+
+    if (!overlay) return;
+
+    // Remove active — CSS transition handles shrink
+    overlay.classList.remove('active');
+    document.body.style.overflow = '';
+
+    // Reset bubble after transition
+    setTimeout(() => {
+        if (bubble) {
+            bubble.style.transform = '';
+        }
+    }, 700);
+}
+
+// Close on Escape key
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+        closeBubbleTakeover();
+    }
+});
