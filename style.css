@@ -519,6 +519,100 @@ body.observe-body {
     background: rgba(255, 255, 255, 0.22);
 }
 
+/* Split-Screen Hero Slide with Prominent Camera Showcase */
+.hero-split-content {
+    display: grid;
+    grid-template-columns: 1.15fr 0.85fr;
+    gap: 3.5rem;
+    align-items: center;
+    width: 100%;
+}
+
+.hero-text-side {
+    display: flex;
+    flex-direction: column;
+    z-index: 3;
+}
+
+.hero-camera-side {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    z-index: 3;
+}
+
+.hero-camera-showcase {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 440px;
+}
+
+.hero-showcase-camera-img {
+    max-height: 380px;
+    max-width: 100%;
+    object-fit: contain;
+    filter: drop-shadow(0 20px 45px rgba(0, 0, 0, 0.75)) drop-shadow(0 0 35px rgba(0, 98, 210, 0.28));
+    animation: heroCameraFloat 4.5s ease-in-out infinite alternate;
+    position: relative;
+    z-index: 2;
+    transition: transform 0.4s ease;
+}
+
+.hero-showcase-camera-img:hover {
+    transform: scale(1.05);
+}
+
+@keyframes heroCameraFloat {
+    0% { transform: translateY(0px) scale(1); }
+    100% { transform: translateY(-12px) scale(1.02); }
+}
+
+.hero-camera-pulse {
+    position: absolute;
+    width: 320px;
+    height: 320px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(0, 98, 210, 0.35) 0%, rgba(0, 98, 210, 0.08) 50%, transparent 70%);
+    filter: blur(25px);
+    z-index: 1;
+    pointer-events: none;
+    animation: heroPulse 4s ease-in-out infinite alternate;
+}
+
+@keyframes heroPulse {
+    0% { transform: scale(0.85); opacity: 0.5; }
+    100% { transform: scale(1.2); opacity: 1; }
+}
+
+.hero-camera-specs-pills {
+    position: absolute;
+    bottom: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 0.5rem;
+    white-space: nowrap;
+    z-index: 3;
+}
+
+.h-spec-pill {
+    background: rgba(10, 14, 23, 0.85);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.22);
+    color: #ffffff;
+    font-size: 0.75rem;
+    font-weight: 800;
+    letter-spacing: 0.05em;
+    padding: 0.35rem 0.85rem;
+    border-radius: var(--radius-pill);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+    text-transform: uppercase;
+}
+
 .hero-controls {
     position: absolute;
     bottom: 1.5rem;
@@ -1733,6 +1827,15 @@ body.observe-body {
    RESPONSIVE DESIGN BREAKPOINTS
    ========================================================================== */
 @media (max-width: 1080px) {
+    .hero-split-content {
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+    }
+
+    .hero-showcase-camera-img {
+        max-height: 290px;
+    }
+
     .asus-editorial-grid {
         grid-template-columns: 1fr;
     }
@@ -1743,6 +1846,40 @@ body.observe-body {
 }
 
 @media (max-width: 768px) {
+    .hero-split-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        text-align: center;
+    }
+
+    .hero-text-side {
+        align-items: center;
+    }
+
+    .hero-price-block {
+        justify-content: center;
+    }
+
+    .hero-product-desc {
+        margin: 0 auto 1.5rem auto;
+    }
+
+    .hero-camera-side {
+        order: -1;
+    }
+
+    .hero-showcase-camera-img {
+        max-height: 220px;
+    }
+
+    .hero-camera-specs-pills {
+        position: static;
+        transform: none;
+        margin-top: 1rem;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
     .desktop-only {
         display: none !important;
     }
