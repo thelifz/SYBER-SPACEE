@@ -101,9 +101,19 @@ function updateCartUI() {
 
     if (CART_ITEMS.length === 0) {
         container.innerHTML = `
-            <div style="text-align: center; padding: 3rem 1rem; color: #7c685d;">
-                <p style="font-size: 1.1rem; font-weight: 700; margin-bottom: 0.5rem; color: #241610;">Your basket is empty</p>
-                <p style="font-size: 0.85rem;">Browse our 4G solar &amp; AI surveillance cameras to add items.</p>
+            <div class="cw-empty-state">
+                <div class="cw-empty-icon">
+                    <svg viewBox="0 0 24 24" width="40" height="40" fill="none" stroke="#c5894e" stroke-width="1.8">
+                        <circle cx="9" cy="21" r="1"></circle>
+                        <circle cx="20" cy="21" r="1"></circle>
+                        <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                    </svg>
+                </div>
+                <h4 class="cw-empty-title">Your Cart is Empty</h4>
+                <p class="cw-empty-desc">Explore genuine 4G solar, Wi-Fi &amp; AI surveillance cameras at direct wholesale prices.</p>
+                <button type="button" class="btn-cw-browse" onclick="toggleCartDrawer()">
+                    BROWSE INVENTORY &rarr;
+                </button>
             </div>
         `;
         return;
@@ -113,12 +123,13 @@ function updateCartUI() {
         <div class="cart-item-row">
             <img src="${item.img}" alt="${item.title}" class="cir-img" onerror="this.src='assets/official_bestseller_idada_q2i.jpg'">
             <div class="cir-details">
+                <span class="cir-brand">${item.brand || 'SURVEILLANCE'}</span>
                 <h4 class="cir-title">${item.title}</h4>
                 <div class="cir-price">&#8377;${(item.price * item.qty).toLocaleString('en-IN')}</div>
                 <div class="cir-controls">
-                    <button type="button" class="cir-btn-qty" onclick="updateCartQty('${item.id}', -1)">-</button>
+                    <button type="button" class="cir-btn-qty" onclick="updateCartQty('${item.id}', -1)" aria-label="Decrease">&minus;</button>
                     <span class="cir-qty-val">${item.qty}</span>
-                    <button type="button" class="cir-btn-qty" onclick="updateCartQty('${item.id}', 1)">+</button>
+                    <button type="button" class="cir-btn-qty" onclick="updateCartQty('${item.id}', 1)" aria-label="Increase">&#43;</button>
                     <button type="button" class="cir-btn-remove" onclick="removeCartItem('${item.id}')">REMOVE</button>
                 </div>
             </div>
@@ -129,9 +140,30 @@ function updateCartUI() {
 function toggleCartDrawer() {
     const drawer = document.getElementById('cart-drawer');
     const overlay = document.getElementById('cart-drawer-overlay');
-    if (drawer) drawer.classList.toggle('active');
-    if (overlay) overlay.classList.toggle('active');
+    if (drawer && overlay) {
+        const isActive = drawer.classList.contains('active');
+        if (isActive) {
+            drawer.classList.remove('active');
+            overlay.classList.remove('active');
+            document.body.style.overflow = '';
+        } else {
+            drawer.classList.add('active');
+            overlay.classList.add('active');
+            document.body.style.overflow = 'hidden';
+            updateCartUI();
+        }
+    }
 }
+
+// Close on Escape key
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+        const drawer = document.getElementById('cart-drawer');
+        if (drawer && drawer.classList.contains('active')) {
+            toggleCartDrawer();
+        }
+    }
+});
 
 function checkoutViaWhatsApp() {
     if (CART_ITEMS.length === 0) {
