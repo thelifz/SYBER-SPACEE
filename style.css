@@ -2293,44 +2293,62 @@ body.jeko-theme-white {
 }
 
 .property-card {
-    background: #fdfbf7;
+    background: #ffffff;
     border: 1px solid rgba(212, 163, 115, 0.3);
     border-radius: 20px;
-    padding: 1.75rem 1.25rem;
+    padding: 1.15rem;
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
     cursor: pointer;
     transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow: 0 4px 16px rgba(50, 25, 14, 0.03);
+    overflow: hidden;
 }
 
 .property-card:hover {
-    background: #ffffff;
     border-color: #c5894e;
     transform: translateY(-4px);
-    box-shadow: 0 12px 28px rgba(50, 25, 14, 0.08);
+    box-shadow: 0 16px 36px rgba(50, 25, 14, 0.09);
 }
 
-.prop-icon-wrap {
-    width: 60px;
-    height: 60px;
-    border-radius: 16px;
-    background: #ffffff;
-    border: 1px solid rgba(212, 163, 115, 0.35);
-    color: #241610;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 1.15rem;
-    box-shadow: 0 4px 12px rgba(50, 25, 14, 0.04);
-    transition: all 0.25s ease;
+.prop-thumb-wrap {
+    width: 100%;
+    height: 125px;
+    border-radius: 14px;
+    overflow: hidden;
+    position: relative;
+    margin-bottom: 1.1rem;
+    box-shadow: 0 4px 14px rgba(50, 25, 14, 0.06);
 }
 
-.property-card:hover .prop-icon-wrap {
-    background: #241610;
-    color: #fffaf5;
-    border-color: #241610;
+.prop-thumb-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.property-card:hover .prop-thumb-img {
+    transform: scale(1.08);
+}
+
+.prop-type-badge {
+    position: absolute;
+    bottom: 8px;
+    left: 8px;
+    background: rgba(13, 19, 31, 0.78);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    color: #ffffff;
+    font-size: 0.6rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    padding: 0.22rem 0.55rem;
+    border-radius: 6px;
+    text-transform: uppercase;
 }
 
 .prop-title {
