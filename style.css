@@ -352,836 +352,512 @@ body.observe-body {
 }
 
 /* ==========================================================================
-   HERO BESTSELLER CINEMATIC SLIDER (RICH LUXURY COFFEE THEME)
+   SECTION 1: ULTRA-HOOKING CINEMATIC HERO & FLAGSHIP SURVEILLANCE SHOWCASE
    ========================================================================== */
-.hero-bestseller-viewport {
+.hooking-hero-section {
     position: relative;
-    width: 100%;
-    height: 380px;
-    min-height: 380px;
-    background-color: #3e2415;
-    background: linear-gradient(135deg, #442617 0%, #5a331e 38%, #3c2012 72%, #2a150a 100%);
+    background: #090b10;
+    background: radial-gradient(circle at 50% 0%, #151a24 0%, #090b10 70%, #06070a 100%);
+    padding: 4.5rem 1.5rem 5rem 1.5rem;
     overflow: hidden;
-    border-top: 1px solid rgba(243, 178, 89, 0.28);
-    border-bottom: 2px solid rgba(212, 163, 115, 0.45);
-    box-shadow: inset 0 2px 25px rgba(0, 0, 0, 0.35);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
-.hero-slider-frame {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    min-height: 380px;
-}
-
-.hero-slides-wrapper {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    min-height: 380px;
-}
-
-.hero-slide {
+.hooking-hero-section::before {
+    content: '';
     position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.8s ease;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at 80% 20%, rgba(0, 98, 210, 0.08) 0%, transparent 60%),
+                radial-gradient(circle at 20% 80%, rgba(0, 200, 83, 0.05) 0%, transparent 60%);
+    pointer-events: none;
+}
+
+.hooking-hero-container {
+    max-width: 1440px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+}
+
+/* Hooking Header */
+.hooking-hero-header {
+    text-align: center;
+    max-width: 980px;
+    margin: 0 auto 3.5rem auto;
+}
+
+.hook-beacon-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    background: rgba(0, 98, 210, 0.12);
+    border: 1px solid rgba(0, 98, 210, 0.35);
+    padding: 0.4rem 1.1rem;
+    border-radius: var(--radius-pill);
+    margin-bottom: 1.5rem;
+}
+
+.beacon-pulse-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #00c853;
+    box-shadow: 0 0 10px #00c853;
+    animation: beaconPulse 2s infinite;
+}
+
+@keyframes beaconPulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.4; transform: scale(0.85); }
+}
+
+.beacon-text {
+    font-size: 0.76rem;
+    font-weight: 800;
+    letter-spacing: 0.14em;
+    color: #60a5fa;
+    text-transform: uppercase;
+}
+
+.hooking-main-title {
+    font-family: var(--font-heading);
+    font-size: clamp(2.3rem, 5.2vw, 4.2rem);
+    font-weight: 900;
+    letter-spacing: -0.03em;
+    line-height: 1.08;
+    color: #ffffff;
+    margin-bottom: 1.25rem;
+    text-transform: uppercase;
+}
+
+.hook-gradient-text {
+    background: linear-gradient(135deg, #60a5fa 0%, #38bdf8 50%, #34d399 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.hooking-subhead {
+    font-size: clamp(1rem, 1.8vw, 1.18rem);
+    color: #94a3b8;
+    line-height: 1.65;
+    max-width: 840px;
+    margin: 0 auto 2.25rem auto;
+}
+
+/* Call to Action Bar */
+.hooking-cta-bar {
     display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 2.5rem;
+}
+
+.btn-hero-primary {
+    background: #0062d2;
+    color: #ffffff;
+    font-family: var(--font-heading);
+    font-size: 0.96rem;
+    font-weight: 900;
+    letter-spacing: 0.04em;
+    padding: 0.95rem 2rem;
+    border-radius: var(--radius-sm);
+    text-decoration: none;
+    box-shadow: 0 8px 24px rgba(0, 98, 210, 0.45);
+    transition: transform 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+    display: inline-flex;
     align-items: center;
 }
 
-.hero-slide.active {
-    opacity: 1;
-    visibility: visible;
+.btn-hero-primary:hover {
+    background: #004fb0;
+    transform: translateY(-2px);
+    box-shadow: 0 12px 30px rgba(0, 98, 210, 0.6);
 }
 
-.slide-media-layer {
+.btn-hero-secondary {
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    color: #ffffff;
+    font-family: var(--font-heading);
+    font-size: 0.96rem;
+    font-weight: 800;
+    padding: 0.95rem 1.8rem;
+    border-radius: var(--radius-sm);
+    text-decoration: none;
+    transition: background 0.25s ease, border-color 0.25s ease, transform 0.25s ease;
+    display: inline-flex;
+    align-items: center;
+}
+
+.btn-hero-secondary:hover {
+    background: rgba(255, 255, 255, 0.16);
+    border-color: #ffffff;
+    transform: translateY(-2px);
+}
+
+.btn-hero-ghost {
+    background: transparent;
+    border: 1px dashed rgba(255, 255, 255, 0.2);
+    color: #94a3b8;
+    font-family: var(--font-heading);
+    font-size: 0.9rem;
+    font-weight: 700;
+    padding: 0.95rem 1.6rem;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    transition: color 0.25s ease, border-color 0.25s ease;
+}
+
+.btn-hero-ghost:hover {
+    color: #ffffff;
+    border-color: #60a5fa;
+}
+
+/* Trust Bar */
+.hero-trust-bar {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.75rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.trust-item {
+    display: flex;
+    align-items: center;
+    gap: 0.45rem;
+    font-size: 0.84rem;
+    font-weight: 600;
+    color: #cbd5e1;
+}
+
+.trust-icon {
+    color: #00c853;
+    font-weight: 900;
+}
+
+/* ==========================================================================
+   4-COLUMN FLAGSHIP PRODUCT GRID (HOOKING E-COMMERCE CARDS)
+   ========================================================================== */
+.flagship-hook-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+    align-items: stretch;
+}
+
+.flagship-card {
+    background: #11141c;
+    border: 1px solid rgba(255, 255, 255, 0.09);
+    border-radius: var(--radius-lg);
+    padding: 1.5rem 1.35rem;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.flagship-card:hover {
+    transform: translateY(-6px);
+    border-color: rgba(96, 165, 250, 0.5);
+    box-shadow: 0 16px 36px rgba(0, 0, 0, 0.5), 0 0 25px rgba(0, 98, 210, 0.15);
+}
+
+.card-acc-highlight {
+    background: linear-gradient(180deg, #131722 0%, #0d1017 100%);
+    border-color: rgba(255, 255, 255, 0.14);
+}
+
+.fc-badge-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.fc-badge {
+    font-size: 0.65rem;
+    font-weight: 900;
+    letter-spacing: 0.08em;
+    padding: 0.25rem 0.6rem;
+    border-radius: var(--radius-sm);
+    text-transform: uppercase;
+}
+
+.badge-solar {
+    background: rgba(0, 200, 83, 0.15);
+    color: #00e676;
+    border: 1px solid rgba(0, 200, 83, 0.4);
+}
+
+.badge-cpplus {
+    background: rgba(255, 0, 51, 0.15);
+    color: #ff5252;
+    border: 1px solid rgba(255, 0, 51, 0.4);
+}
+
+.badge-idada {
+    background: rgba(0, 98, 210, 0.18);
+    color: #60a5fa;
+    border: 1px solid rgba(0, 98, 210, 0.45);
+}
+
+.badge-acc {
+    background: rgba(245, 158, 11, 0.15);
+    color: #fbbf24;
+    border: 1px solid rgba(245, 158, 11, 0.4);
+}
+
+.fc-save-tag {
+    font-size: 0.68rem;
+    font-weight: 800;
+    color: #cbd5e1;
+    background: rgba(255, 255, 255, 0.06);
+    padding: 0.2rem 0.5rem;
+    border-radius: 4px;
+}
+
+/* Media Frame */
+.fc-media-frame {
+    position: relative;
+    height: 190px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.25rem;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.03) 0%, transparent 70%);
+    border-radius: var(--radius-md);
+}
+
+.fc-product-img {
+    max-height: 170px;
+    max-width: 88%;
+    object-fit: contain;
+    position: relative;
+    z-index: 2;
+    transition: transform 0.4s ease;
+    filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.6));
+}
+
+.flagship-card:hover .fc-product-img {
+    transform: scale(1.08);
+}
+
+.fc-media-glow {
     position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    filter: blur(25px);
+    opacity: 0.4;
+    pointer-events: none;
     z-index: 1;
 }
 
-.slide-media-elem {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center;
-    opacity: 0.88;
-    filter: saturate(1.1) contrast(1.05);
-}
+.glow-solar { background: rgba(0, 200, 83, 0.25); }
+.glow-cpplus { background: rgba(255, 0, 51, 0.22); }
+.glow-idada { background: rgba(0, 98, 210, 0.3); }
+.glow-acc { background: rgba(245, 158, 11, 0.22); }
 
-.slide-gradient-overlay {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(90deg, 
-        rgba(48, 26, 16, 0.94) 0%, 
-        rgba(60, 34, 21, 0.78) 46%, 
-        rgba(42, 23, 14, 0.58) 100%);
-}
-
-.slide-content-layer {
-    position: relative;
-    z-index: 2;
-    max-width: 1400px;
-    margin: 0 auto;
-    padding: 1.5rem 2.5rem;
-    width: 100%;
-    height: 100%;
+/* Content */
+.fc-content {
     display: flex;
-    align-items: center;
-    color: #ffffff;
+    flex-direction: column;
+    flex: 1;
 }
 
-.hero-bestseller-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.4rem;
-    background: linear-gradient(135deg, #d48c46 0%, #aa6728 100%);
-    color: #fffaf5;
+.fc-brand {
     font-size: 0.68rem;
-    font-weight: 900;
+    font-weight: 800;
     letter-spacing: 0.12em;
-    padding: 0.28rem 0.75rem;
-    border-radius: var(--radius-sm);
-    margin-bottom: 0.45rem;
+    color: #94a3b8;
     text-transform: uppercase;
-    box-shadow: 0 2px 10px rgba(170, 103, 40, 0.4);
-    border: 1px solid rgba(255, 235, 215, 0.35);
-    width: fit-content;
+    margin-bottom: 0.3rem;
 }
 
-.hero-product-title {
+.fc-title {
     font-family: var(--font-heading);
-    font-size: clamp(1.5rem, 2.6vw, 2.2rem);
-    font-weight: 900;
-    letter-spacing: -0.02em;
-    line-height: 1.1;
-    margin-bottom: 0.4rem;
-    text-transform: uppercase;
-    color: #fffbf7;
-    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+    font-size: 1.15rem;
+    font-weight: 800;
+    letter-spacing: -0.01em;
+    color: #ffffff;
+    line-height: 1.2;
+    margin-bottom: 0.5rem;
 }
 
-/* Eye-Catching Offer Price Layout */
-.hero-price-block {
+.fc-desc {
+    font-size: 0.82rem;
+    color: #94a3b8;
+    line-height: 1.45;
+    margin-bottom: 0.85rem;
+    min-height: 38px;
+}
+
+.fc-chips-row {
     display: flex;
-    align-items: center;
-    gap: 1.15rem;
-    margin-bottom: 0.7rem;
     flex-wrap: wrap;
+    gap: 0.35rem;
+    margin-bottom: 1.1rem;
 }
 
-.hp-price-main {
+.fc-chip {
+    font-size: 0.68rem;
+    font-weight: 700;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #cbd5e1;
+    padding: 0.2rem 0.55rem;
+    border-radius: var(--radius-sm);
+}
+
+.fc-pricing-box {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    padding: 0.75rem 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    margin-top: auto;
+    margin-bottom: 1rem;
+}
+
+.fc-price-main {
     display: flex;
     flex-direction: column;
 }
 
-.hp-offer-label {
-    font-size: 0.65rem;
-    font-weight: 900;
-    letter-spacing: 0.14em;
-    color: #f5ba7a;
+.fc-price-label {
+    font-size: 0.6rem;
+    font-weight: 800;
+    letter-spacing: 0.1em;
+    color: #60a5fa;
     text-transform: uppercase;
     margin-bottom: 0.1rem;
-    display: flex;
-    align-items: center;
-    gap: 0.3rem;
-    text-shadow: 0 1px 4px rgba(0,0,0,0.3);
 }
 
-.hp-wholesale-val {
+.fc-price {
     font-family: var(--font-heading);
-    font-size: clamp(1.75rem, 3vw, 2.25rem);
+    font-size: 1.4rem;
     font-weight: 900;
     color: #ffffff;
     line-height: 1;
-    letter-spacing: -0.02em;
-    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
 }
 
-.hp-price-sub {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-    background: rgba(36, 20, 12, 0.75);
-    padding: 0.35rem 0.75rem;
-    border-radius: var(--radius-sm);
-    border: 1px solid rgba(224, 159, 88, 0.35);
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
-}
-
-.hp-mrp-val {
-    font-size: 0.95rem;
-    color: rgba(250, 235, 222, 0.65);
+.fc-mrp {
+    font-size: 0.88rem;
+    color: #64748b;
     text-decoration: line-through;
     font-weight: 600;
 }
 
-.fhm-save {
-    display: inline-block;
-    background: linear-gradient(135deg, rgba(243, 178, 89, 0.28) 0%, rgba(196, 125, 52, 0.38) 100%);
-    border: 1px solid rgba(243, 178, 89, 0.65);
-    color: #ffd8a8;
-    font-size: 0.72rem;
-    font-weight: 900;
-    letter-spacing: 0.05em;
-    padding: 0.22rem 0.55rem;
-    border-radius: 4px;
-    text-transform: uppercase;
-}
-
-.hero-product-desc {
-    max-width: 520px;
-    font-size: 0.88rem;
-    color: rgba(252, 242, 233, 0.88);
-    line-height: 1.48;
-    margin-bottom: 0.95rem;
-    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
-}
-
-.hero-cta-group {
+.fc-actions {
     display: flex;
-    flex-wrap: wrap;
-    gap: 0.85rem;
+    gap: 0.5rem;
 }
 
-.btn-add-cart-hero {
-    background: #fff8f2;
-    color: #2b180d;
+.btn-fc-cart {
+    flex: 1;
+    background: #ffffff;
+    color: #090b10;
     font-family: var(--font-heading);
-    font-size: 0.85rem;
+    font-size: 0.82rem;
     font-weight: 900;
-    padding: 0.65rem 1.35rem;
-    border-radius: var(--radius-sm);
+    padding: 0.7rem 0.5rem;
     border: none;
+    border-radius: var(--radius-sm);
     cursor: pointer;
-    box-shadow: 0 4px 16px rgba(18, 9, 4, 0.45);
-    transition: transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+    transition: background 0.2s ease, transform 0.2s ease;
+    text-align: center;
 }
 
-.btn-add-cart-hero:hover {
-    background: #fae0ca;
+.btn-fc-cart:hover {
+    background: #60a5fa;
+    color: #ffffff;
     transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(18, 9, 4, 0.55);
 }
 
-.btn-wholesale-quote-hero {
+.btn-fc-wa {
     display: inline-flex;
     align-items: center;
-    background: rgba(255, 245, 235, 0.1);
-    border: 1px solid rgba(230, 180, 140, 0.42);
-    color: #fffaf5;
-    font-family: var(--font-heading);
-    font-size: 0.85rem;
-    font-weight: 800;
-    padding: 0.65rem 1.35rem;
+    justify-content: center;
+    width: 40px;
+    height: 38px;
+    background: rgba(37, 211, 102, 0.15);
+    border: 1px solid rgba(37, 211, 102, 0.4);
     border-radius: var(--radius-sm);
     text-decoration: none;
-    transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
-}
-
-.btn-wholesale-quote-hero:hover {
-    background: rgba(255, 245, 235, 0.2);
-    border-color: rgba(243, 178, 89, 0.75);
-    transform: translateY(-2px);
-}
-
-/* Split-Screen Hero Slide with Prominent Camera Showcase */
-.hero-split-content {
-    display: grid;
-    grid-template-columns: 1.15fr 0.85fr;
-    gap: 2.25rem;
-    align-items: center;
-    width: 100%;
-}
-
-.hero-text-side {
-    display: flex;
-    flex-direction: column;
-    z-index: 3;
-}
-
-.hero-camera-side {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    z-index: 3;
-}
-
-.hero-camera-showcase {
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    max-width: 420px;
-}
-
-.hero-camera-stage {
-    position: absolute;
-    bottom: -6px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 220px;
-    height: 22px;
-    border-radius: 50%;
-    background: radial-gradient(ellipse at center, rgba(20, 11, 6, 0.72) 0%, rgba(20, 11, 6, 0.25) 55%, transparent 75%);
-    border: 1px solid rgba(243, 178, 89, 0.28);
-    box-shadow: 0 0 22px rgba(243, 178, 89, 0.2), inset 0 1px 2px rgba(255, 235, 210, 0.35);
-    pointer-events: none;
-    z-index: 1;
-}
-
-.hero-showcase-camera-img {
-    max-height: 250px;
-    max-width: 285px;
-    width: auto;
-    object-fit: contain;
-    filter: drop-shadow(0 18px 28px rgba(18, 9, 4, 0.75)) drop-shadow(0 2px 8px rgba(0, 0, 0, 0.4));
-    animation: heroCameraFloat 4.5s ease-in-out infinite alternate;
-    position: relative;
-    z-index: 2;
-    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), filter 0.4s ease;
-}
-
-.hero-showcase-camera-img:hover {
-    transform: scale(1.06) translateY(-6px);
-    filter: drop-shadow(0 24px 36px rgba(18, 9, 4, 0.9)) drop-shadow(0 0 25px rgba(243, 178, 89, 0.4));
-}
-
-@keyframes heroCameraFloat {
-    0% { transform: translateY(0px) scale(1); }
-    100% { transform: translateY(-10px) scale(1.02); }
-}
-
-.hero-camera-pulse {
-    position: absolute;
-    width: 260px;
-    height: 260px;
-    border-radius: 50%;
-    background: radial-gradient(circle, rgba(235, 165, 95, 0.32) 0%, rgba(175, 105, 45, 0.12) 48%, transparent 72%);
-    filter: blur(22px);
-    z-index: 1;
-    pointer-events: none;
-    animation: heroPulse 4s ease-in-out infinite alternate;
-}
-
-@keyframes heroPulse {
-    0% { transform: scale(0.85); opacity: 0.55; }
-    100% { transform: scale(1.15); opacity: 1; }
-}
-
-.hero-camera-specs-pills {
-    position: absolute;
-    bottom: -15px;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    gap: 0.45rem;
-    white-space: nowrap;
-    z-index: 3;
-}
-
-.h-spec-pill {
-    background: rgba(38, 22, 14, 0.94);
-    backdrop-filter: blur(12px);
-    border: 1px solid rgba(224, 159, 88, 0.42);
-    color: #fffaf5;
-    font-size: 0.72rem;
-    font-weight: 800;
-    letter-spacing: 0.05em;
-    padding: 0.3rem 0.75rem;
-    border-radius: var(--radius-pill);
-    box-shadow: 0 4px 15px rgba(15, 8, 4, 0.5);
-    text-transform: uppercase;
-}
-
-.hero-controls {
-    position: absolute;
-    bottom: 1.15rem;
-    right: 2rem;
-    z-index: 10;
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-}
-
-.hero-nav-arrow {
-    background: rgba(42, 23, 14, 0.85);
-    border: 1px solid rgba(224, 159, 88, 0.4);
-    color: #fffaf5;
-    width: 32px;
-    height: 32px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    font-size: 1.15rem;
-    line-height: 1;
-    transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
-}
-
-.hero-nav-arrow:hover {
-    background: rgba(72, 42, 26, 0.98);
-    border-color: rgba(243, 178, 89, 0.8);
-    transform: scale(1.08);
-}
-
-.hero-dots-row {
-    display: flex;
-    gap: 0.5rem;
-}
-
-.hero-dot {
-    width: 22px;
-    height: 4px;
-    background: rgba(255, 245, 235, 0.28);
-    border: none;
-    border-radius: 2px;
-    cursor: pointer;
-    transition: background 0.3s ease, width 0.3s ease;
-}
-
-.hero-dot.active {
-    background: #f3b259;
-    box-shadow: 0 0 10px rgba(243, 178, 89, 0.6);
-    width: 36px;
-}
-
-/* ==========================================================================
-   SECTION 2: 2x2 ASUS-STYLE EDITORIAL SHOWCASE
-   (Screenshot 2 Architectural Grid Layout)
-   ========================================================================== */
-.asus-showcase-section {
-    padding: 5rem 1.5rem 4rem 1.5rem;
-    background: #ffffff;
-}
-
-.asus-container {
-    max-width: 1440px;
-    margin: 0 auto;
-}
-
-.asus-header-bar {
-    text-align: center;
-    max-width: 840px;
-    margin: 0 auto 3.5rem auto;
-}
-
-.ahb-kicker {
-    display: inline-block;
-    font-size: 0.76rem;
-    font-weight: 800;
-    letter-spacing: 0.2em;
-    color: var(--c-asus-blue);
-    margin-bottom: 0.5rem;
-    text-transform: uppercase;
-}
-
-.ahb-title {
-    font-family: var(--font-heading);
-    font-size: clamp(2.2rem, 4.5vw, 3.2rem);
-    font-weight: 900;
-    letter-spacing: -0.03em;
-    color: var(--c-black);
-    line-height: 1.1;
-    text-transform: uppercase;
-    margin-bottom: 0.75rem;
-}
-
-.ahb-desc {
-    font-size: 1rem;
-    color: var(--c-muted);
-    line-height: 1.6;
-}
-
-/* 2x2 Grid (4 Tiles) */
-.asus-editorial-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 2.25rem;
-    align-items: stretch;
-}
-
-/* General Asus Tile Styles */
-.asus-tile {
-    border-radius: var(--radius-lg);
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease, border-color 0.3s ease;
-    position: relative;
-}
-
-.asus-tile:hover {
-    transform: translateY(-5px);
-    box-shadow: var(--shadow-hover);
-}
-
-.asus-tile-inner {
-    padding: 2.5rem;
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-}
-
-/* Light Card Theme (Vivobook / Utility Style) */
-.asus-tile-light {
-    background: #ffffff;
-    border: 1px solid var(--c-border);
-    box-shadow: var(--shadow-subtle);
-}
-
-.asus-tile-light:hover {
-    border-color: var(--c-border-hover);
-}
-
-/* ROG Dark Card Theme (Top-Right of Screenshot 2) */
-.asus-tile-rog {
-    background: var(--c-rog-dark);
-    border: 1px solid rgba(255, 255, 255, 0.12);
-    box-shadow: 0 16px 48px rgba(0, 0, 0, 0.4);
-}
-
-.asus-tile-rog:hover {
-    border-color: rgba(255, 0, 51, 0.4);
-    box-shadow: 0 20px 60px rgba(255, 0, 51, 0.15);
-}
-
-/* Asus Taglines */
-.asus-tagline {
-    display: flex;
-    flex-direction: column;
-    gap: 0.15rem;
-    margin-bottom: 0.6rem;
-}
-
-.asus-tag-sub {
-    font-family: var(--font-heading);
-    font-size: 0.85rem;
-    font-style: italic;
-    font-weight: 700;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: var(--c-muted);
-}
-
-.rog-sub {
-    color: rgba(255, 255, 255, 0.6);
-}
-
-.asus-tag-main {
-    font-family: var(--font-heading);
-    font-size: clamp(1.35rem, 2.3vw, 1.75rem);
-    font-style: italic;
-    font-weight: 900;
-    letter-spacing: 0.02em;
-    text-transform: uppercase;
-    line-height: 1.15;
-}
-
-.asus-accent-blue {
-    color: var(--c-asus-blue);
-}
-
-.asus-accent-red {
-    color: var(--c-rog-red);
-}
-
-/* ROG Badges */
-.rog-badges-row {
-    display: flex;
-    gap: 0.5rem;
-    margin-bottom: 0.6rem;
-}
-
-.rog-badge {
-    font-size: 0.65rem;
-    font-weight: 800;
-    letter-spacing: 0.08em;
-    padding: 0.2rem 0.5rem;
-    background: rgba(255, 0, 51, 0.15);
-    border: 1px solid rgba(255, 0, 51, 0.35);
-    color: var(--c-rog-red);
-    border-radius: 3px;
-    text-transform: uppercase;
-}
-
-.asus-title {
-    font-family: var(--font-heading);
-    font-size: clamp(1.5rem, 2.4vw, 2rem);
-    font-weight: 900;
-    letter-spacing: -0.02em;
-    color: var(--c-black);
-    line-height: 1.15;
-    margin-bottom: 0.35rem;
-}
-
-.asus-tile-rog .asus-title {
-    color: #ffffff;
-}
-
-.asus-slogan {
-    font-size: 0.95rem;
-    color: var(--c-muted);
-    font-weight: 500;
-    margin-bottom: 0.85rem;
-}
-
-.asus-tile-rog .asus-slogan {
-    color: #94a3b8;
-}
-
-.asus-accent-bar {
-    width: 48px;
-    height: 3.5px;
-    background: var(--c-asus-blue);
-    border-radius: 2px;
-    margin-bottom: 1.5rem;
-}
-
-.rog-accent-bar {
-    background: var(--c-rog-red);
-    box-shadow: 0 0 10px rgba(255, 0, 51, 0.5);
-}
-
-/* CCTV Media Frame */
-.asus-media-wrapper {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 1.5rem;
-    min-height: 280px;
-    max-height: 320px;
-    background: #ffffff;
-    margin-bottom: 1.75rem;
-    overflow: hidden;
-}
-
-.rog-media-wrapper {
-    background: radial-gradient(circle at center, rgba(30, 41, 59, 0.45) 0%, rgba(10, 11, 14, 0.95) 100%);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    border-radius: var(--radius-md);
-}
-
-.asus-product-img {
-    max-height: 250px;
-    max-width: 100%;
-    object-fit: contain;
-    filter: drop-shadow(0 14px 24px rgba(0, 0, 0, 0.08));
-    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.2s ease;
-}
-
-.asus-tile:hover .asus-product-img {
-    transform: scale(1.04);
-}
-
-/* Unique Features of the CCTV Block */
-.asus-features-block {
-    display: flex;
-    flex-direction: column;
-    gap: 0.75rem;
-    background: #f8fafc;
-    border: 1px solid rgba(0, 0, 0, 0.06);
-    border-radius: var(--radius-md);
-    padding: 1.25rem 1.5rem;
-    margin-bottom: 2rem;
-    flex: 1;
-}
-
-.rog-features-block {
-    background: rgba(255, 255, 255, 0.04);
-    border-color: rgba(255, 255, 255, 0.08);
-}
-
-.features-label {
-    font-size: 0.68rem;
-    font-weight: 800;
-    letter-spacing: 0.12em;
-    color: var(--c-asus-blue);
-    text-transform: uppercase;
-    margin-bottom: 0.2rem;
-}
-
-.rog-label {
-    color: var(--c-rog-red);
-}
-
-.asus-feature-item {
-    display: flex;
-    align-items: flex-start;
-    gap: 0.65rem;
-    font-size: 0.88rem;
-    line-height: 1.45;
-    color: var(--c-dark);
-}
-
-.asus-tile-rog .asus-feature-item {
-    color: #e2e8f0;
-}
-
-.feat-icon-badge {
-    color: var(--c-asus-blue);
-    font-size: 1.2rem;
-    line-height: 1;
-    flex-shrink: 0;
-}
-
-.rog-badge-dot {
-    color: var(--c-rog-red);
-    text-shadow: 0 0 6px rgba(255, 0, 51, 0.6);
-}
-
-.feat-text strong {
-    font-weight: 700;
-    color: var(--c-black);
-}
-
-.asus-tile-rog .feat-text strong {
-    color: #ffffff;
-}
-
-/* Footer Row: Price & Buttons */
-.asus-footer-row {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 1rem;
-    padding-top: 1rem;
-    border-top: 1px solid rgba(0, 0, 0, 0.06);
-    margin-top: auto;
-}
-
-.asus-tile-rog .asus-footer-row {
-    border-top-color: rgba(255, 255, 255, 0.1);
-}
-
-.asus-price-box {
-    display: flex;
-    align-items: baseline;
-    gap: 0.65rem;
-}
-
-.asus-price {
-    font-family: var(--font-heading);
-    font-size: 1.75rem;
-    font-weight: 900;
-    color: var(--c-black);
-}
-
-.rog-price {
-    color: #ffffff;
-}
-
-.asus-mrp {
-    font-size: 0.95rem;
-    color: var(--c-muted);
-    text-decoration: line-through;
-}
-
-.rog-mrp {
-    color: rgba(255, 255, 255, 0.45);
-}
-
-.asus-btns-group {
-    display: flex;
-    align-items: center;
-    gap: 0.65rem;
-}
-
-.btn-asus-cart {
-    background: var(--c-black);
-    color: #ffffff;
-    font-family: var(--font-heading);
-    font-size: 0.85rem;
-    font-weight: 800;
-    padding: 0.65rem 1.15rem;
-    border-radius: var(--radius-sm);
-    border: none;
-    cursor: pointer;
+    font-size: 1.1rem;
     transition: background 0.2s ease, transform 0.2s ease;
 }
 
-.btn-asus-cart:hover {
-    background: #1e293b;
+.btn-fc-wa:hover {
+    background: #25d366;
     transform: translateY(-2px);
 }
 
-.btn-asus-explore {
-    background: transparent;
-    color: var(--c-dark);
+.btn-fc-explore {
+    width: 100%;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.22);
+    color: #ffffff;
     font-family: var(--font-heading);
-    font-size: 0.85rem;
+    font-size: 0.84rem;
     font-weight: 800;
-    padding: 0.6rem 1rem;
+    padding: 0.7rem 1rem;
     border-radius: var(--radius-sm);
-    border: 1px solid rgba(0, 0, 0, 0.15);
     cursor: pointer;
-    transition: all 0.2s ease;
+    transition: background 0.2s ease, border-color 0.2s ease;
+    text-align: center;
 }
 
-.btn-asus-explore:hover {
-    border-color: var(--c-asus-blue);
-    color: var(--c-asus-blue);
-    background: rgba(0, 98, 210, 0.05);
+.btn-fc-explore:hover {
+    background: rgba(255, 255, 255, 0.18);
+    border-color: #60a5fa;
 }
 
-.rog-btn-cart {
-    background: var(--c-rog-red);
-    color: #ffffff;
+/* Responsive adjustments */
+@media (max-width: 1200px) {
+    .flagship-hook-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+    }
 }
 
-.rog-btn-cart:hover {
-    background: #cc0029;
-}
+@media (max-width: 680px) {
+    .hooking-hero-section {
+        padding: 3rem 1rem 4rem 1rem;
+    }
 
-.rog-btn-explore {
-    color: #ffffff;
-    border-color: rgba(255, 255, 255, 0.25);
-}
+    .flagship-hook-grid {
+        grid-template-columns: 1fr;
+        gap: 1.25rem;
+    }
 
-.rog-btn-explore:hover {
-    background: rgba(255, 255, 255, 0.1);
-    border-color: #ffffff;
-    color: #ffffff;
-}
+    .hero-trust-bar {
+        gap: 1rem;
+        flex-direction: column;
+        align-items: center;
+    }
 
-/* Tile 4: Interactive Accessory Tabs */
-.asus-acc-tabs-row {
-    display: flex;
-    gap: 0.4rem;
-    margin-bottom: 1rem;
-    flex-wrap: wrap;
-}
+    .hooking-cta-bar {
+        flex-direction: column;
+        width: 100%;
+    }
 
-.acc-tab-btn {
-    background: #f1f5f9;
-    border: 1px solid rgba(0, 0, 0, 0.08);
-    color: var(--c-dark);
-    font-family: var(--font-body);
-    font-size: 0.78rem;
-    font-weight: 700;
-    padding: 0.35rem 0.75rem;
-    border-radius: var(--radius-pill);
-    cursor: pointer;
-    transition: all 0.2s ease;
-}
-
-.acc-tab-btn:hover {
-    background: #e2e8f0;
-}
-
-.acc-tab-btn.active {
-    background: var(--c-asus-blue);
-    color: #ffffff;
-    border-color: var(--c-asus-blue);
+    .btn-hero-primary,
+    .btn-hero-secondary,
+    .btn-hero-ghost {
+        width: 100%;
+        text-align: center;
+        justify-content: center;
+    }
 }
 
 /* ==========================================================================
