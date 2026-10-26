@@ -166,7 +166,7 @@ function updateCartUI() {
         container.innerHTML = `
             <div class="cw-empty-state">
                 <div class="cw-empty-icon">
-                    <svg viewBox="0 0 24 24" width="40" height="40" fill="none" stroke="#c5894e" stroke-width="1.8">
+                    <svg viewBox="0 0 24 24" width="40" height="40" fill="none" stroke="#2563eb" stroke-width="1.8">
                         <circle cx="9" cy="21" r="1"></circle>
                         <circle cx="20" cy="21" r="1"></circle>
                         <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
@@ -571,7 +571,7 @@ function renderProductsGrid(list, label) {
 
     if (!list || list.length === 0) {
         container.innerHTML = `
-            <div style="grid-column: 1 / -1; padding: 3rem 1rem; text-align: center; color: #8c6a54; font-size: 0.95rem;">
+            <div style="grid-column: 1 / -1; padding: 3rem 1rem; text-align: center; color: #64748b; font-size: 0.95rem;">
                 No products found in this category.
             </div>
         `;
@@ -620,7 +620,7 @@ const BRAND_HOVER_DELAY = 1500; // 1.5 seconds deliberate hover
 const BRAND_META = {
     'TRUEVIEW': { 
         name: 'TRUEVIEW', 
-        color: '#c5894e', 
+        color: '#2563eb', 
         bg: '#fdf8f2',
         kicker: 'OFFICIAL SURVEILLANCE PARTNER',
         subtitle: '32 Autonomous Solar & Commercial CCTV Cameras Available' 
@@ -719,7 +719,7 @@ function triggerBubbleTakeover(originElemOrEvent, brandKey) {
     // Get brand metadata
     const meta = BRAND_META[brandKey] || { 
         name: brandKey, 
-        color: '#c5894e', 
+        color: '#2563eb', 
         bg: '#fdf8f2', 
         kicker: 'BRAND SHOWCASE', 
         subtitle: 'Surveillance hardware catalog' 
@@ -806,7 +806,7 @@ function handleTakeoverAdd(event, productId, btnElem) {
     if (btnElem) {
         const origText = btnElem.textContent;
         btnElem.textContent = 'ADDED TO CART!';
-        btnElem.style.background = '#241610';
+        btnElem.style.background = '#0f172a';
         btnElem.style.color = '#ffffff';
         setTimeout(() => {
             btnElem.textContent = origText;
@@ -1133,15 +1133,16 @@ function initAsusShowcaseScroll() {
         ScrollTrigger.refresh();
     });
 
-    // Single unified GSAP Timeline with Pin & Scrub
+    // Pinning the stage viewport with GSAP ScrollTrigger
     const showcaseTl = gsap.timeline({
         scrollTrigger: {
-            trigger: '#hardware-showcase',
-            start: 'top top',
-            end: '+=2200',
+            trigger: '#asus-stage-viewport',
+            start: 'top top+=78',
+            end: '+=2000',
             pin: true,
-            scrub: 1,
+            scrub: 0.8,
             anticipatePin: 1,
+            invalidateOnRefresh: true,
             onUpdate: (self) => {
                 const progress = self.progress; // 0 to 1
                 const count = SHOWCASE_FEATURE_DATA.length;
@@ -1151,7 +1152,7 @@ function initAsusShowcaseScroll() {
                     setActiveShowcaseFeature(targetIdx);
                 }
 
-                // Continuous dynamic scrub effects on camera
+                // Continuous dynamic scrub micro-perspective on camera
                 if (cameraImg) {
                     const cfg = SHOWCASE_FEATURE_DATA[targetIdx];
                     const microTilt = (progress - 0.5) * 8;
@@ -1161,17 +1162,21 @@ function initAsusShowcaseScroll() {
         }
     });
 
-    // Animate features track scrolling vertically in rhythm with scroll progress
+    // Animate features track scrolling smoothly from top (Feature 01) through all cards
     if (featuresTrack && window.innerWidth > 980) {
-        showcaseTl.to(featuresTrack, {
-            y: () => {
-                const trackH = featuresTrack.scrollHeight;
-                const containerH = stageViewport.clientHeight;
-                return -Math.max(0, trackH - (containerH * 0.55));
-            },
-            ease: 'none',
-            duration: 1
-        }, 0);
+        showcaseTl.fromTo(featuresTrack, 
+            { y: 0 },
+            {
+                y: () => {
+                    const trackH = featuresTrack.scrollHeight;
+                    const containerH = stageViewport.clientHeight;
+                    return -Math.max(0, trackH - containerH + 60);
+                },
+                ease: 'none',
+                duration: 1
+            }, 
+            0
+        );
     }
 }
 

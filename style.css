@@ -14,21 +14,21 @@
     --c-card-bg: #ffffff;
     --c-card-surface: #fdfbf9;
     
-    /* Rich Coffee Palette */
-    --c-espresso: #241610;        /* Deepest roast for primary headings & buttons */
-    --c-roast: #382117;           /* Medium-dark roast */
-    --c-mocha: #543322;           /* Warm mocha */
-    --c-crema: #c5894e;           /* Golden caramel / crema highlight */
-    --c-crema-hover: #b07439;
-    --c-latte: #faf6f2;           /* Soft latte foam fill */
-    --c-latte-border: rgba(62, 36, 21, 0.12);
-    --c-latte-border-hover: rgba(197, 137, 78, 0.45);
+    /* Precision Cyber Cobalt & Studio Slate Palette */
+    --c-espresso: #0f172a;        /* Deep aerospace slate (Slate 900) for primary headings & buttons */
+    --c-roast: #1e293b;           /* Slate 800 */
+    --c-mocha: #334155;           /* Slate 700 */
+    --c-crema: #2563eb;           /* High-tech Cyber Cobalt (Royal Blue) */
+    --c-crema-hover: #1d4ed8;     /* Deep cobalt hover */
+    --c-latte: #f8fafc;           /* Clean titanium slate surface */
+    --c-latte-border: rgba(15, 23, 42, 0.08); /* Crisp subtle border */
+    --c-latte-border-hover: rgba(37, 99, 235, 0.35); /* Electric cobalt focus */
     
     /* Typography Colors */
-    --c-text-primary: #1e130d;
-    --c-text-body: #4e3a30;
-    --c-text-muted: #7c685d;
-    --c-text-subtle: #a39287;
+    --c-text-primary: #0f172a;
+    --c-text-body: #334155;
+    --c-text-muted: #64748b;
+    --c-text-subtle: #94a3b8;
     
     /* WhatsApp Green Accent */
     --c-wa-green: #25d366;
@@ -51,7 +51,6 @@
 }
 
 html {
-    scroll-behavior: smooth;
     font-size: 16px;
     background-color: var(--c-bg);
 }
@@ -87,8 +86,8 @@ body.jeko-theme-white {
     margin: 0 auto;
     pointer-events: auto;
     background: rgba(255, 255, 255, 0.62);
-    backdrop-filter: blur(32px) saturate(200%);
-    -webkit-backdrop-filter: blur(32px) saturate(200%);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
     border: 1px solid rgba(255, 255, 255, 0.75);
     border-radius: 20px;
     padding: 0.55rem 1.25rem;
@@ -176,7 +175,7 @@ body.jeko-theme-white {
     overflow: hidden;
     height: 38px;
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03);
-    transition: all 0.25s ease;
+    transition: opacity 0.25s ease, transform 0.25s ease, border-color 0.25s ease, background-color 0.25s ease, box-shadow 0.25s ease;
 }
 
 .iphone-search-box:focus-within {
@@ -268,7 +267,7 @@ body.jeko-theme-white {
     padding: 0.22rem 0.55rem;
     border-radius: var(--radius-sm);
     cursor: pointer;
-    transition: all 0.2s ease;
+    transition: opacity 0.2s ease, transform 0.2s ease, border-color 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
 }
 
 .jst-chip:hover {
@@ -510,7 +509,7 @@ body.jeko-theme-white {
     padding: 0.45rem 1rem;
     border-radius: var(--radius-pill);
     cursor: pointer;
-    transition: all 0.25s ease;
+    transition: opacity 0.25s ease, transform 0.25s ease, border-color 0.25s ease, background-color 0.25s ease, box-shadow 0.25s ease;
 }
 
 .coffee-chip:hover {
@@ -525,7 +524,7 @@ body.jeko-theme-white {
     background: var(--c-espresso);
     border-color: var(--c-espresso);
     color: #ffffff;
-    box-shadow: 0 4px 14px rgba(36, 22, 16, 0.25);
+    box-shadow: 0 4px 14px rgba(15, 23, 42, 0.25);
 }
 
 /* ==========================================================================
@@ -558,7 +557,7 @@ body.jeko-theme-white {
 
 .card-accent-coffee {
     background: var(--c-card-surface);
-    border-color: rgba(197, 137, 78, 0.25);
+    border-color: rgba(37, 99, 235, 0.25);
 }
 
 .card-top-badge {
@@ -620,7 +619,7 @@ body.jeko-theme-white {
     align-items: center;
     justify-content: center;
     margin-bottom: 1.25rem;
-    background: radial-gradient(circle, rgba(197, 137, 78, 0.06) 0%, transparent 70%);
+    background: radial-gradient(circle, rgba(37, 99, 235, 0.06) 0%, transparent 70%);
     border-radius: var(--radius-md);
 }
 
@@ -756,14 +755,14 @@ body.jeko-theme-white {
     border: none;
     border-radius: var(--radius-sm);
     cursor: pointer;
-    transition: all 0.25s ease;
+    transition: opacity 0.25s ease, transform 0.25s ease, border-color 0.25s ease, background-color 0.25s ease, box-shadow 0.25s ease;
     text-align: center;
 }
 
 .btn-card-cart:hover {
     background: var(--c-crema);
     transform: translateY(-2px);
-    box-shadow: 0 4px 14px rgba(197, 137, 78, 0.35);
+    box-shadow: 0 4px 14px rgba(37, 99, 235, 0.35);
 }
 
 .btn-card-wa {
@@ -777,7 +776,7 @@ body.jeko-theme-white {
     border-radius: var(--radius-sm);
     text-decoration: none;
     font-size: 1.15rem;
-    transition: all 0.2s ease;
+    transition: opacity 0.2s ease, transform 0.2s ease, border-color 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
 }
 
 .btn-card-wa:hover {
@@ -796,7 +795,7 @@ body.jeko-theme-white {
     padding: 0.75rem 1rem;
     border-radius: var(--radius-sm);
     cursor: pointer;
-    transition: all 0.2s ease;
+    transition: opacity 0.2s ease, transform 0.2s ease, border-color 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
     text-align: center;
 }
 
@@ -837,7 +836,7 @@ body.jeko-theme-white {
     max-height: 85vh;
     background: #ffffff;
     border-radius: 26px;
-    box-shadow: 0 30px 70px rgba(36, 22, 16, 0.28), 0 0 0 1px rgba(212, 163, 115, 0.3);
+    box-shadow: 0 30px 70px rgba(15, 23, 42, 0.28), 0 0 0 1px rgba(212, 163, 115, 0.3);
     display: flex;
     flex-direction: column;
     overflow: hidden;
@@ -851,7 +850,7 @@ body.jeko-theme-white {
 
 .cart-drawer-header {
     padding: 1.35rem 1.75rem;
-    background: #fffaf5;
+    background: #eff6ff;
     border-bottom: 1px solid rgba(212, 163, 115, 0.22);
     display: flex;
     align-items: center;
@@ -868,19 +867,19 @@ body.jeko-theme-white {
     width: 40px;
     height: 40px;
     border-radius: 12px;
-    background: rgba(197, 137, 78, 0.14);
-    color: #c5894e;
+    background: rgba(37, 99, 235, 0.14);
+    color: #2563eb;
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 1px solid rgba(197, 137, 78, 0.25);
+    border: 1px solid rgba(37, 99, 235, 0.25);
 }
 
 .cw-title {
     font-family: var(--font-heading);
     font-size: 1.25rem;
     font-weight: 900;
-    color: #241610;
+    color: #0f172a;
     margin: 0;
     letter-spacing: -0.01em;
     line-height: 1.15;
@@ -890,7 +889,7 @@ body.jeko-theme-white {
     font-size: 0.72rem;
     font-weight: 800;
     letter-spacing: 0.08em;
-    color: #8c6a54;
+    color: #64748b;
     text-transform: uppercase;
 }
 
@@ -898,18 +897,18 @@ body.jeko-theme-white {
     width: 36px;
     height: 36px;
     border-radius: 50%;
-    background: rgba(36, 22, 16, 0.06);
+    background: rgba(15, 23, 42, 0.06);
     border: none;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #241610;
+    color: #0f172a;
     cursor: pointer;
-    transition: all 0.2s ease;
+    transition: opacity 0.2s ease, transform 0.2s ease, border-color 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
 }
 
 .btn-close-cart:hover {
-    background: #241610;
+    background: #0f172a;
     color: #ffffff;
 }
 
@@ -928,14 +927,14 @@ body.jeko-theme-white {
     align-items: center;
     gap: 1.1rem;
     padding: 1rem 1.15rem;
-    background: #fffaf5;
+    background: #eff6ff;
     border: 1px solid rgba(212, 163, 115, 0.22);
     border-radius: 18px;
-    transition: all 0.2s ease;
+    transition: opacity 0.2s ease, transform 0.2s ease, border-color 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
 }
 
 .cart-item-row:hover {
-    border-color: #c5894e;
+    border-color: #2563eb;
     box-shadow: 0 4px 14px rgba(50, 25, 14, 0.04);
 }
 
@@ -959,7 +958,7 @@ body.jeko-theme-white {
     font-size: 0.65rem;
     font-weight: 800;
     letter-spacing: 0.1em;
-    color: #c5894e;
+    color: #2563eb;
     text-transform: uppercase;
     display: block;
     margin-bottom: 0.2rem;
@@ -969,7 +968,7 @@ body.jeko-theme-white {
     font-family: var(--font-heading);
     font-size: 0.95rem;
     font-weight: 800;
-    color: #241610;
+    color: #0f172a;
     line-height: 1.25;
     margin-bottom: 0.25rem;
     white-space: nowrap;
@@ -981,7 +980,7 @@ body.jeko-theme-white {
     font-family: var(--font-heading);
     font-size: 1.05rem;
     font-weight: 900;
-    color: #241610;
+    color: #0f172a;
     margin-bottom: 0.45rem;
 }
 
@@ -997,7 +996,7 @@ body.jeko-theme-white {
     border-radius: 8px;
     border: 1px solid rgba(212, 163, 115, 0.35);
     background: #ffffff;
-    color: #241610;
+    color: #0f172a;
     font-family: var(--font-heading);
     font-weight: 800;
     font-size: 0.95rem;
@@ -1005,13 +1004,13 @@ body.jeko-theme-white {
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: all 0.15s ease;
+    transition: opacity 0.15s ease, transform 0.15s ease, border-color 0.15s ease, background-color 0.15s ease, box-shadow 0.15s ease;
 }
 
 .cir-btn-qty:hover {
-    background: #241610;
+    background: #0f172a;
     color: #ffffff;
-    border-color: #241610;
+    border-color: #0f172a;
 }
 
 .cir-qty-val {
@@ -1020,7 +1019,7 @@ body.jeko-theme-white {
     font-weight: 800;
     min-width: 20px;
     text-align: center;
-    color: #241610;
+    color: #0f172a;
 }
 
 .cir-btn-remove {
@@ -1043,7 +1042,7 @@ body.jeko-theme-white {
 
 .cart-drawer-footer {
     padding: 1.25rem 1.75rem 1.5rem;
-    background: #fffaf5;
+    background: #eff6ff;
     border-top: 1px solid rgba(212, 163, 115, 0.22);
 }
 
@@ -1056,7 +1055,7 @@ body.jeko-theme-white {
     font-size: 0.68rem;
     font-weight: 700;
     letter-spacing: 0.06em;
-    color: #8c6a54;
+    color: #64748b;
     margin-bottom: 0.85rem;
 }
 
@@ -1078,7 +1077,7 @@ body.jeko-theme-white {
     font-family: var(--font-heading);
     font-size: 1.75rem;
     font-weight: 900;
-    color: #241610;
+    color: #0f172a;
 }
 
 .cw-actions-row {
@@ -1089,7 +1088,7 @@ body.jeko-theme-white {
 
 .btn-cw-continue {
     background: #ffffff;
-    color: #241610;
+    color: #0f172a;
     border: 1.5px solid rgba(212, 163, 115, 0.4);
     font-family: var(--font-heading);
     font-size: 0.82rem;
@@ -1098,13 +1097,13 @@ body.jeko-theme-white {
     padding: 0.9rem 1rem;
     border-radius: 14px;
     cursor: pointer;
-    transition: all 0.2s ease;
+    transition: opacity 0.2s ease, transform 0.2s ease, border-color 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
     text-align: center;
 }
 
 .btn-cw-continue:hover {
     background: #fbf5ee;
-    border-color: #c5894e;
+    border-color: #2563eb;
 }
 
 .btn-checkout-wa {
@@ -1123,7 +1122,7 @@ body.jeko-theme-white {
     justify-content: center;
     gap: 0.5rem;
     box-shadow: 0 6px 18px rgba(37, 211, 102, 0.3);
-    transition: all 0.25s ease;
+    transition: opacity 0.25s ease, transform 0.25s ease, border-color 0.25s ease, background-color 0.25s ease, box-shadow 0.25s ease;
 }
 
 .btn-checkout-wa:hover {
@@ -1145,19 +1144,19 @@ body.jeko-theme-white {
     width: 72px;
     height: 72px;
     border-radius: 20px;
-    background: rgba(197, 137, 78, 0.12);
+    background: rgba(37, 99, 235, 0.12);
     display: flex;
     align-items: center;
     justify-content: center;
     margin-bottom: 1.25rem;
-    border: 1px solid rgba(197, 137, 78, 0.25);
+    border: 1px solid rgba(37, 99, 235, 0.25);
 }
 
 .cw-empty-title {
     font-family: var(--font-heading);
     font-size: 1.25rem;
     font-weight: 900;
-    color: #241610;
+    color: #0f172a;
     margin-bottom: 0.4rem;
 }
 
@@ -1170,7 +1169,7 @@ body.jeko-theme-white {
 }
 
 .btn-cw-browse {
-    background: #241610;
+    background: #0f172a;
     color: #ffffff;
     border: none;
     font-family: var(--font-heading);
@@ -1180,7 +1179,7 @@ body.jeko-theme-white {
     padding: 0.85rem 1.6rem;
     border-radius: 12px;
     cursor: pointer;
-    transition: all 0.25s ease;
+    transition: opacity 0.25s ease, transform 0.25s ease, border-color 0.25s ease, background-color 0.25s ease, box-shadow 0.25s ease;
 }
 
 .btn-cw-browse:hover {
@@ -1293,7 +1292,7 @@ body.jeko-theme-white {
 }
 
 .offer-fire-badge {
-    background: #241610;
+    background: #0f172a;
     color: #ffffff;
     font-size: 0.72rem;
     font-weight: 800;
@@ -1343,7 +1342,7 @@ body.jeko-theme-white {
     font-weight: 900;
     line-height: 1.1;
     letter-spacing: -0.02em;
-    color: #241610;
+    color: #0f172a;
     margin-bottom: 0.85rem;
 }
 
@@ -1396,7 +1395,7 @@ body.jeko-theme-white {
     font-size: 0.65rem;
     font-weight: 800;
     letter-spacing: 0.1em;
-    color: #8c6a54;
+    color: #64748b;
     text-transform: uppercase;
 }
 
@@ -1404,7 +1403,7 @@ body.jeko-theme-white {
     font-family: var(--font-heading);
     font-size: 2rem;
     font-weight: 900;
-    color: #c5894e;
+    color: #2563eb;
     line-height: 1;
 }
 
@@ -1445,8 +1444,8 @@ body.jeko-theme-white {
 }
 
 .btn-slide-order {
-    background: #241610;
-    color: #fffaf5;
+    background: #0f172a;
+    color: #eff6ff;
     border: none;
     font-family: var(--font-heading);
     font-size: 0.92rem;
@@ -1458,14 +1457,14 @@ body.jeko-theme-white {
     display: inline-flex;
     align-items: center;
     gap: 0.55rem;
-    box-shadow: 0 8px 24px rgba(36, 22, 16, 0.3);
+    box-shadow: 0 8px 24px rgba(15, 23, 42, 0.3);
     transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .btn-slide-order:hover {
     background: #3e2415;
     transform: translateY(-2px);
-    box-shadow: 0 12px 30px rgba(36, 22, 16, 0.4);
+    box-shadow: 0 12px 30px rgba(15, 23, 42, 0.4);
 }
 
 .btn-slide-whatsapp {
@@ -1513,19 +1512,19 @@ body.jeko-theme-white {
 }
 
 .glow-solar {
-    background: radial-gradient(circle, #fde047 0%, #d4a373 70%);
+    background: radial-gradient(circle, rgba(37, 99, 235, 0.16) 0%, rgba(14, 165, 233, 0.04) 70%);
 }
 
 .glow-cpplus {
-    background: radial-gradient(circle, #bfdbfe 0%, #c5894e 70%);
+    background: radial-gradient(circle, rgba(14, 165, 233, 0.16) 0%, rgba(37, 99, 235, 0.04) 70%);
 }
 
 .glow-idada {
-    background: radial-gradient(circle, #fed7aa 0%, #e29578 70%);
+    background: radial-gradient(circle, rgba(99, 102, 241, 0.14) 0%, rgba(37, 99, 235, 0.03) 70%);
 }
 
 .glow-infra {
-    background: radial-gradient(circle, #cbd5e1 0%, #8c6a54 70%);
+    background: radial-gradient(circle, rgba(148, 163, 184, 0.18) 0%, rgba(37, 99, 235, 0.04) 70%);
 }
 
 .slide-product-img {
@@ -1556,7 +1555,7 @@ body.jeko-theme-white {
     gap: 0.45rem;
     font-size: 0.74rem;
     font-weight: 700;
-    color: #241610;
+    color: #0f172a;
     box-shadow: 0 8px 20px rgba(50, 25, 14, 0.08);
     z-index: 3;
 }
@@ -1582,19 +1581,19 @@ body.jeko-theme-white {
     background: rgba(255, 255, 255, 0.85);
     backdrop-filter: blur(16px);
     border: 1px solid rgba(212, 163, 115, 0.35);
-    color: #241610;
+    color: #0f172a;
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
     box-shadow: 0 4px 16px rgba(50, 25, 14, 0.1);
     z-index: 10;
-    transition: all 0.2s ease;
+    transition: opacity 0.2s ease, transform 0.2s ease, border-color 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
 }
 
 .slide-nav-btn:hover {
     background: #ffffff;
-    color: #c5894e;
+    color: #2563eb;
     transform: translateY(-50%) scale(1.08);
     box-shadow: 0 6px 20px rgba(50, 25, 14, 0.18);
 }
@@ -1632,8 +1631,8 @@ body.jeko-theme-white {
 
 .slide-dot.active {
     width: 32px;
-    background: #c5894e;
-    box-shadow: 0 2px 8px rgba(197, 137, 78, 0.4);
+    background: #2563eb;
+    box-shadow: 0 2px 8px rgba(37, 99, 235, 0.4);
 }
 
 /* Responsive adjustments */
@@ -1709,7 +1708,7 @@ body.jeko-theme-white {
     font-size: 0.72rem;
     font-weight: 800;
     letter-spacing: 0.16em;
-    color: #c5894e;
+    color: #2563eb;
     text-transform: uppercase;
     display: block;
     margin-bottom: 0.4rem;
@@ -1719,7 +1718,7 @@ body.jeko-theme-white {
     font-family: var(--font-heading);
     font-size: 2.25rem;
     font-weight: 900;
-    color: #241610;
+    color: #0f172a;
     letter-spacing: -0.02em;
     line-height: 1.1;
     margin-bottom: 0.65rem;
@@ -1756,7 +1755,7 @@ body.jeko-theme-white {
 
 .brand-cat-card:hover {
     transform: translateY(-4px);
-    border-color: #c5894e;
+    border-color: #2563eb;
     box-shadow: 0 16px 36px rgba(50, 25, 14, 0.09);
 }
 
@@ -1769,8 +1768,8 @@ body.jeko-theme-white {
 }
 
 .bcc-badge {
-    background: #241610;
-    color: #fffaf5;
+    background: #0f172a;
+    color: #eff6ff;
     font-size: 0.64rem;
     font-weight: 800;
     letter-spacing: 0.06em;
@@ -1782,7 +1781,7 @@ body.jeko-theme-white {
 .bcc-tier {
     font-size: 0.62rem;
     font-weight: 700;
-    color: #8c6a54;
+    color: #64748b;
     letter-spacing: 0.04em;
     text-transform: uppercase;
 }
@@ -1819,7 +1818,7 @@ body.jeko-theme-white {
     font-family: var(--font-heading);
     font-size: 1.25rem;
     font-weight: 900;
-    color: #241610;
+    color: #0f172a;
     margin-bottom: 0.25rem;
     line-height: 1.15;
 }
@@ -1827,7 +1826,7 @@ body.jeko-theme-white {
 .bcc-price-range {
     font-size: 0.78rem;
     font-weight: 700;
-    color: #c5894e;
+    color: #2563eb;
     margin-bottom: 0.75rem;
 }
 
@@ -1853,7 +1852,7 @@ body.jeko-theme-white {
     content: "•";
     position: absolute;
     left: 0;
-    color: #c5894e;
+    color: #2563eb;
     font-size: 0.9rem;
     line-height: 1;
 }
@@ -1861,7 +1860,7 @@ body.jeko-theme-white {
 .btn-bcc-action {
     background: #fdfaf6;
     border: 1px solid rgba(212, 163, 115, 0.4);
-    color: #241610;
+    color: #0f172a;
     font-family: var(--font-heading);
     font-size: 0.75rem;
     font-weight: 800;
@@ -1870,15 +1869,15 @@ body.jeko-theme-white {
     border-radius: 8px;
     cursor: pointer;
     text-align: center;
-    transition: all 0.2s ease;
+    transition: opacity 0.2s ease, transform 0.2s ease, border-color 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
     width: 100%;
 }
 
 .brand-cat-card:hover .btn-bcc-action,
 .btn-bcc-action:hover {
-    background: #241610;
-    color: #fffaf5;
-    border-color: #241610;
+    background: #0f172a;
+    color: #eff6ff;
+    border-color: #0f172a;
 }
 
 /* Brand Filter Bar */
@@ -1899,13 +1898,13 @@ body.jeko-theme-white {
     font-size: 0.88rem;
     font-weight: 900;
     letter-spacing: 0.08em;
-    color: #241610;
+    color: #0f172a;
     text-transform: uppercase;
 }
 
 .bfb-active-count {
     font-size: 0.78rem;
-    color: #8c6a54;
+    color: #64748b;
     font-weight: 600;
 }
 
@@ -1930,20 +1929,20 @@ body.jeko-theme-white {
     border-radius: 50px;
     cursor: pointer;
     white-space: nowrap;
-    transition: all 0.2s ease;
+    transition: opacity 0.2s ease, transform 0.2s ease, border-color 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
 }
 
 .brand-pill:hover {
     background: #fbf5ee;
-    border-color: #c5894e;
-    color: #241610;
+    border-color: #2563eb;
+    color: #0f172a;
 }
 
 .brand-pill.active {
-    background: #241610;
-    color: #fffaf5;
-    border-color: #241610;
-    box-shadow: 0 4px 12px rgba(36, 22, 16, 0.25);
+    background: #0f172a;
+    color: #eff6ff;
+    border-color: #0f172a;
+    box-shadow: 0 4px 12px rgba(15, 23, 42, 0.25);
 }
 
 /* Live Product Grid */
@@ -1962,7 +1961,7 @@ body.jeko-theme-white {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    transition: all 0.25s ease;
+    transition: opacity 0.25s ease, transform 0.25s ease, border-color 0.25s ease, background-color 0.25s ease, box-shadow 0.25s ease;
     box-shadow: 0 4px 16px rgba(50, 25, 14, 0.03);
 }
 
@@ -1982,7 +1981,7 @@ body.jeko-theme-white {
 
 .lpc-brand-pill {
     background: #fbf5ee;
-    color: #241610;
+    color: #0f172a;
     border: 1px solid rgba(212, 163, 115, 0.35);
     font-size: 0.65rem;
     font-weight: 800;
@@ -2026,7 +2025,7 @@ body.jeko-theme-white {
     font-family: var(--font-heading);
     font-size: 0.95rem;
     font-weight: 800;
-    color: #241610;
+    color: #0f172a;
     line-height: 1.3;
     margin-bottom: 0.45rem;
     min-height: 2.5rem;
@@ -2067,7 +2066,7 @@ body.jeko-theme-white {
     font-family: var(--font-heading);
     font-size: 1.3rem;
     font-weight: 900;
-    color: #c5894e;
+    color: #2563eb;
 }
 
 .lpc-mrp {
@@ -2077,8 +2076,8 @@ body.jeko-theme-white {
 }
 
 .btn-lpc-add {
-    background: #241610;
-    color: #fffaf5;
+    background: #0f172a;
+    color: #eff6ff;
     border: none;
     font-family: var(--font-heading);
     font-size: 0.8rem;
@@ -2088,13 +2087,13 @@ body.jeko-theme-white {
     border-radius: 10px;
     cursor: pointer;
     width: 100%;
-    transition: all 0.2s ease;
+    transition: opacity 0.2s ease, transform 0.2s ease, border-color 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
 }
 
 .btn-lpc-add:hover {
     background: #3e2415;
     transform: translateY(-1px);
-    box-shadow: 0 4px 12px rgba(36, 22, 16, 0.25);
+    box-shadow: 0 4px 12px rgba(15, 23, 42, 0.25);
 }
 
 /* Responsive Grid Breakpoints */
@@ -2186,7 +2185,7 @@ body.jeko-theme-white {
     background: rgba(255, 255, 255, 0.88);
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
-    border-bottom: 1px solid rgba(197, 137, 78, 0.16);
+    border-bottom: 1px solid rgba(37, 99, 235, 0.16);
     padding: 1.1rem 0;
     margin-bottom: 2rem;
 }
@@ -2206,7 +2205,7 @@ body.jeko-theme-white {
     font-size: 0.68rem;
     font-weight: 800;
     letter-spacing: 0.14em;
-    color: #c5894e;
+    color: #2563eb;
     text-transform: uppercase;
     margin-bottom: 0.2rem;
 }
@@ -2215,7 +2214,7 @@ body.jeko-theme-white {
     font-family: var(--font-heading);
     font-size: 2.2rem;
     font-weight: 900;
-    color: #241610;
+    color: #0f172a;
     letter-spacing: -0.02em;
     line-height: 1.1;
     margin: 0;
@@ -2223,7 +2222,7 @@ body.jeko-theme-white {
 
 .bto-brand-subtitle {
     font-size: 0.82rem;
-    color: #8c6a54;
+    color: #64748b;
     font-weight: 600;
     margin-top: 0.3rem;
 }
@@ -2232,7 +2231,7 @@ body.jeko-theme-white {
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    background: #241610;
+    background: #0f172a;
     color: #ffffff;
     border: none;
     padding: 0.65rem 1.35rem;
@@ -2243,15 +2242,15 @@ body.jeko-theme-white {
     letter-spacing: 0.08em;
     cursor: pointer;
     transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
-    box-shadow: 0 4px 14px rgba(36, 22, 16, 0.18);
+    box-shadow: 0 4px 14px rgba(15, 23, 42, 0.18);
     flex-shrink: 0;
 }
 
 .btn-bto-close-pill:hover {
-    background: #c5894e;
+    background: #2563eb;
     color: #ffffff;
     transform: translateY(-2px) scale(1.02);
-    box-shadow: 0 6px 20px rgba(197, 137, 78, 0.28);
+    box-shadow: 0 6px 20px rgba(37, 99, 235, 0.28);
 }
 
 .bto-close-x {
@@ -2306,7 +2305,7 @@ body.jeko-theme-white {
     left: 0;
     width: 0%;
     height: 3.5px;
-    background: #c5894e;
+    background: #2563eb;
     transition: none;
     border-radius: 0 0 16px 16px;
     z-index: 10;
@@ -2322,7 +2321,7 @@ body.jeko-theme-white {
     position: absolute;
     top: 10px;
     right: 10px;
-    background: #c5894e;
+    background: #2563eb;
     color: #ffffff;
     font-size: 0.6rem;
     font-weight: 800;
@@ -2345,7 +2344,7 @@ body.jeko-theme-white {
     width: 0;
     height: 0;
     border-radius: 50%;
-    background: rgba(197, 137, 78, 0.12);
+    background: rgba(37, 99, 235, 0.12);
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -2366,8 +2365,8 @@ body.jeko-theme-white {
 /* "Show All Products" Button inside brand cards */
 .btn-bcc-show-all {
     background: transparent;
-    border: 1px dashed rgba(197, 137, 78, 0.5);
-    color: #c5894e;
+    border: 1px dashed rgba(37, 99, 235, 0.5);
+    color: #2563eb;
     font-family: var(--font-heading);
     font-size: 0.72rem;
     font-weight: 700;
@@ -2376,15 +2375,15 @@ body.jeko-theme-white {
     border-radius: 8px;
     cursor: pointer;
     text-align: center;
-    transition: all 0.2s ease;
+    transition: opacity 0.2s ease, transform 0.2s ease, border-color 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
     width: 100%;
     margin-top: 0.5rem;
 }
 
 .btn-bcc-show-all:hover {
-    background: #c5894e;
+    background: #2563eb;
     color: #ffffff;
-    border-color: #c5894e;
+    border-color: #2563eb;
 }
 
 
@@ -2408,7 +2407,7 @@ body.jeko-theme-white {
     font-size: 0.72rem;
     font-weight: 800;
     letter-spacing: 0.16em;
-    color: #c5894e;
+    color: #2563eb;
     text-transform: uppercase;
     display: block;
     margin-bottom: 0.45rem;
@@ -2418,7 +2417,7 @@ body.jeko-theme-white {
     font-family: var(--font-heading);
     font-size: 2.2rem;
     font-weight: 900;
-    color: #241610;
+    color: #0f172a;
     letter-spacing: -0.02em;
     line-height: 1.15;
     margin-bottom: 0.75rem;
@@ -2467,34 +2466,34 @@ body.jeko-theme-white {
     border-radius: 50%;
     background: #fbf5ee;
     border: 2px solid rgba(212, 163, 115, 0.4);
-    color: #8c6a54;
+    color: #64748b;
     font-family: var(--font-heading);
     font-size: 0.85rem;
     font-weight: 900;
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: all 0.3s ease;
+    transition: opacity 0.3s ease, transform 0.3s ease, border-color 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .step-name {
     font-family: var(--font-heading);
     font-size: 0.82rem;
     font-weight: 700;
-    color: #8c6a54;
+    color: #64748b;
     letter-spacing: 0.03em;
-    transition: all 0.3s ease;
+    transition: opacity 0.3s ease, transform 0.3s ease, border-color 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .step-indicator.active .step-num {
-    background: #241610;
-    border-color: #241610;
-    color: #fffaf5;
-    box-shadow: 0 4px 12px rgba(36, 22, 16, 0.25);
+    background: #0f172a;
+    border-color: #0f172a;
+    color: #eff6ff;
+    box-shadow: 0 4px 12px rgba(15, 23, 42, 0.25);
 }
 
 .step-indicator.active .step-name {
-    color: #241610;
+    color: #0f172a;
     font-weight: 800;
 }
 
@@ -2513,7 +2512,7 @@ body.jeko-theme-white {
 }
 
 .step-line.active {
-    background: #241610;
+    background: #0f172a;
 }
 
 /* Wizard Step Panes */
@@ -2534,7 +2533,7 @@ body.jeko-theme-white {
     font-family: var(--font-heading);
     font-size: 1.55rem;
     font-weight: 900;
-    color: #241610;
+    color: #0f172a;
     text-align: center;
     margin-bottom: 0.45rem;
 }
@@ -2570,7 +2569,7 @@ body.jeko-theme-white {
 }
 
 .property-card:hover {
-    border-color: #c5894e;
+    border-color: #2563eb;
     transform: translateY(-4px);
     box-shadow: 0 16px 36px rgba(50, 25, 14, 0.09);
 }
@@ -2617,7 +2616,7 @@ body.jeko-theme-white {
     font-family: var(--font-heading);
     font-size: 1.12rem;
     font-weight: 800;
-    color: #241610;
+    color: #0f172a;
     margin-bottom: 0.45rem;
 }
 
@@ -2632,27 +2631,27 @@ body.jeko-theme-white {
 .prop-select-pill {
     background: #ffffff;
     border: 1px solid rgba(212, 163, 115, 0.4);
-    color: #241610;
+    color: #0f172a;
     font-family: var(--font-heading);
     font-size: 0.72rem;
     font-weight: 800;
     letter-spacing: 0.04em;
     padding: 0.45rem 0.85rem;
     border-radius: 20px;
-    transition: all 0.2s ease;
+    transition: opacity 0.2s ease, transform 0.2s ease, border-color 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
 }
 
 .property-card:hover .prop-select-pill {
-    background: #241610;
+    background: #0f172a;
     color: #ffffff;
-    border-color: #241610;
+    border-color: #0f172a;
 }
 
 /* Step 2: Features Selection */
 .step-selected-badge {
     background: #fbf5ee;
     border: 1px solid rgba(212, 163, 115, 0.35);
-    color: #c5894e;
+    color: #2563eb;
     font-family: var(--font-heading);
     font-size: 0.75rem;
     font-weight: 800;
@@ -2687,21 +2686,21 @@ body.jeko-theme-white {
     border: 1.5px solid rgba(212, 163, 115, 0.3);
     border-radius: 16px;
     padding: 1rem 1.25rem;
-    transition: all 0.2s ease;
+    transition: opacity 0.2s ease, transform 0.2s ease, border-color 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
     height: 100%;
 }
 
 .feature-checkbox-label input:checked + .feature-box {
     background: #ffffff;
-    border-color: #241610;
-    box-shadow: 0 4px 14px rgba(36, 22, 16, 0.08);
+    border-color: #0f172a;
+    box-shadow: 0 4px 14px rgba(15, 23, 42, 0.08);
 }
 
 .fb-title {
     font-family: var(--font-heading);
     font-size: 0.95rem;
     font-weight: 800;
-    color: #241610;
+    color: #0f172a;
     margin-bottom: 0.25rem;
     display: flex;
     align-items: center;
@@ -2715,12 +2714,12 @@ body.jeko-theme-white {
     border-radius: 4px;
     border: 2px solid rgba(212, 163, 115, 0.6);
     display: inline-block;
-    transition: all 0.2s ease;
+    transition: opacity 0.2s ease, transform 0.2s ease, border-color 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
 }
 
 .feature-checkbox-label input:checked + .feature-box .fb-title::before {
-    background: #241610;
-    border-color: #241610;
+    background: #0f172a;
+    border-color: #0f172a;
     box-shadow: inset 0 0 0 2px #ffffff;
 }
 
@@ -2750,17 +2749,17 @@ body.jeko-theme-white {
     padding: 0.75rem 1.35rem;
     border-radius: 50px;
     cursor: pointer;
-    transition: all 0.2s ease;
+    transition: opacity 0.2s ease, transform 0.2s ease, border-color 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
 }
 
 .btn-step-back:hover {
     background: #fbf5ee;
-    color: #241610;
+    color: #0f172a;
 }
 
 .btn-step-submit {
-    background: #241610;
-    color: #fffaf5;
+    background: #0f172a;
+    color: #eff6ff;
     border: none;
     font-family: var(--font-heading);
     font-size: 0.9rem;
@@ -2769,14 +2768,14 @@ body.jeko-theme-white {
     padding: 0.85rem 1.85rem;
     border-radius: 50px;
     cursor: pointer;
-    box-shadow: 0 6px 18px rgba(36, 22, 16, 0.25);
-    transition: all 0.25s ease;
+    box-shadow: 0 6px 18px rgba(15, 23, 42, 0.25);
+    transition: opacity 0.25s ease, transform 0.25s ease, border-color 0.25s ease, background-color 0.25s ease, box-shadow 0.25s ease;
 }
 
 .btn-step-submit:hover {
     background: #3e2415;
     transform: translateY(-2px);
-    box-shadow: 0 10px 24px rgba(36, 22, 16, 0.35);
+    box-shadow: 0 10px 24px rgba(15, 23, 42, 0.35);
 }
 
 /* Step 3: Recommendation Result Card */
@@ -2788,8 +2787,8 @@ body.jeko-theme-white {
 }
 
 .result-tag-pill {
-    background: #241610;
-    color: #fffaf5;
+    background: #0f172a;
+    color: #eff6ff;
     font-size: 0.72rem;
     font-weight: 800;
     letter-spacing: 0.1em;
@@ -2853,17 +2852,17 @@ body.jeko-theme-white {
     letter-spacing: 0.05em;
     color: #7a5843;
     cursor: pointer;
-    transition: all 0.25s ease;
+    transition: opacity 0.25s ease, transform 0.25s ease, border-color 0.25s ease, background-color 0.25s ease, box-shadow 0.25s ease;
 }
 
 .rc-tab-btn:hover {
-    color: #241610;
+    color: #0f172a;
 }
 
 .rc-tab-btn.active {
-    background: #241610;
+    background: #0f172a;
     color: #ffffff;
-    box-shadow: 0 4px 12px rgba(36, 22, 16, 0.25);
+    box-shadow: 0 4px 12px rgba(15, 23, 42, 0.25);
 }
 
 .rc-media-frame {
@@ -2912,7 +2911,7 @@ body.jeko-theme-white {
     position: absolute;
     bottom: 12px;
     left: calc(50% - 170px + 14px);
-    background: rgba(36, 22, 16, 0.85);
+    background: rgba(15, 23, 42, 0.85);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
     color: #ffffff;
@@ -2955,7 +2954,7 @@ body.jeko-theme-white {
     font-size: 0.76rem;
     font-weight: 800;
     letter-spacing: 0.12em;
-    color: #c5894e;
+    color: #2563eb;
     text-transform: uppercase;
     margin-bottom: 0.35rem;
 }
@@ -2964,14 +2963,14 @@ body.jeko-theme-white {
     font-family: var(--font-heading);
     font-size: 2rem;
     font-weight: 900;
-    color: #241610;
+    color: #0f172a;
     line-height: 1.15;
     margin-bottom: 0.65rem;
 }
 
 .rc-reason-box {
     background: rgba(255, 255, 255, 0.9);
-    border-left: 3px solid #c5894e;
+    border-left: 3px solid #2563eb;
     padding: 0.65rem 1rem;
     border-radius: 0 10px 10px 0;
     font-size: 0.85rem;
@@ -3008,7 +3007,7 @@ body.jeko-theme-white {
     font-family: var(--font-heading);
     font-size: 2rem;
     font-weight: 900;
-    color: #c5894e;
+    color: #2563eb;
 }
 
 .rc-price-mrp {
@@ -3035,8 +3034,8 @@ body.jeko-theme-white {
 }
 
 .btn-rc-cart {
-    background: #241610;
-    color: #fffaf5;
+    background: #0f172a;
+    color: #eff6ff;
     border: none;
     font-family: var(--font-heading);
     font-size: 0.88rem;
@@ -3045,14 +3044,14 @@ body.jeko-theme-white {
     padding: 0.85rem 1.65rem;
     border-radius: 50px;
     cursor: pointer;
-    box-shadow: 0 6px 18px rgba(36, 22, 16, 0.25);
-    transition: all 0.25s ease;
+    box-shadow: 0 6px 18px rgba(15, 23, 42, 0.25);
+    transition: opacity 0.25s ease, transform 0.25s ease, border-color 0.25s ease, background-color 0.25s ease, box-shadow 0.25s ease;
 }
 
 .btn-rc-cart:hover {
     background: #3e2415;
     transform: translateY(-2px);
-    box-shadow: 0 10px 24px rgba(36, 22, 16, 0.35);
+    box-shadow: 0 10px 24px rgba(15, 23, 42, 0.35);
 }
 
 .btn-rc-wa {
@@ -3070,7 +3069,7 @@ body.jeko-theme-white {
     align-items: center;
     gap: 0.5rem;
     box-shadow: 0 6px 18px rgba(37, 211, 102, 0.25);
-    transition: all 0.25s ease;
+    transition: opacity 0.25s ease, transform 0.25s ease, border-color 0.25s ease, background-color 0.25s ease, box-shadow 0.25s ease;
 }
 
 .btn-rc-wa:hover {
@@ -3086,7 +3085,7 @@ body.jeko-theme-white {
 .btn-retake-quiz {
     background: transparent;
     border: none;
-    color: #8c6a54;
+    color: #64748b;
     font-family: var(--font-heading);
     font-size: 0.82rem;
     font-weight: 700;
@@ -3097,7 +3096,7 @@ body.jeko-theme-white {
 }
 
 .btn-retake-quiz:hover {
-    color: #241610;
+    color: #0f172a;
 }
 
 /* Responsive Finder Breakpoints */
@@ -3122,7 +3121,7 @@ body.jeko-theme-white {
     }
     .rc-reason-box {
         border-left: none;
-        border-top: 3px solid #c5894e;
+        border-top: 3px solid #2563eb;
         border-radius: 0 0 10px 10px;
     }
 }
@@ -3254,7 +3253,7 @@ body.jeko-theme-white {
     font-size: 0.76rem;
     font-weight: 800;
     letter-spacing: 0.14em;
-    color: #c5894e;
+    color: #2563eb;
     text-transform: uppercase;
     margin-bottom: 0.75rem;
 }
@@ -3263,7 +3262,7 @@ body.jeko-theme-white {
     font-family: var(--font-heading);
     font-size: clamp(2rem, 3.2vw, 2.75rem);
     font-weight: 900;
-    color: #241610;
+    color: #0f172a;
     line-height: 1.15;
     letter-spacing: -0.02em;
     margin-bottom: 1.25rem;
@@ -3278,7 +3277,7 @@ body.jeko-theme-white {
 
 .unboxing-policy-box {
     background: #fbf6f0;
-    border-left: 3.5px solid #c5894e;
+    border-left: 3.5px solid #2563eb;
     border-radius: 0 14px 14px 0;
     padding: 1.1rem 1.35rem;
     font-size: 0.88rem;
@@ -3288,7 +3287,7 @@ body.jeko-theme-white {
 }
 
 .unboxing-policy-box strong {
-    color: #241610;
+    color: #0f172a;
     font-weight: 800;
     display: block;
     margin-bottom: 0.35rem;
@@ -3306,7 +3305,7 @@ body.jeko-theme-white {
     display: inline-flex;
     align-items: center;
     gap: 0.6rem;
-    background: #241610;
+    background: #0f172a;
     color: #ffffff;
     font-family: var(--font-body);
     font-size: 0.82rem;
@@ -3316,13 +3315,13 @@ body.jeko-theme-white {
     border-radius: 12px;
     text-decoration: none;
     transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-    box-shadow: 0 6px 18px rgba(36, 22, 16, 0.18);
+    box-shadow: 0 6px 18px rgba(15, 23, 42, 0.18);
 }
 
 .about-cta-btn:hover {
     background: #432a1e;
     transform: translateY(-2px);
-    box-shadow: 0 10px 24px rgba(36, 22, 16, 0.25);
+    box-shadow: 0 10px 24px rgba(15, 23, 42, 0.25);
     color: #ffffff;
 }
 
@@ -3331,7 +3330,7 @@ body.jeko-theme-white {
     align-items: center;
     gap: 0.6rem;
     background: #fbf5ee;
-    color: #241610;
+    color: #0f172a;
     border: 1.5px solid rgba(212, 163, 115, 0.4);
     font-family: var(--font-body);
     font-size: 0.82rem;
@@ -3340,7 +3339,7 @@ body.jeko-theme-white {
     padding: 0.85rem 1.5rem;
     border-radius: 12px;
     text-decoration: none;
-    transition: all 0.25s ease;
+    transition: opacity 0.25s ease, transform 0.25s ease, border-color 0.25s ease, background-color 0.25s ease, box-shadow 0.25s ease;
 }
 
 .about-contact-btn svg {
@@ -3400,7 +3399,7 @@ body.jeko-theme-white {
     font-family: var(--font-heading);
     font-size: clamp(2rem, 3.2vw, 2.75rem);
     font-weight: 900;
-    color: #241610;
+    color: #0f172a;
     line-height: 1.15;
     letter-spacing: -0.02em;
 }
@@ -3432,7 +3431,7 @@ body.jeko-theme-white {
     font-weight: 800;
     letter-spacing: 0.1em;
     text-transform: uppercase;
-    color: #c5894e;
+    color: #2563eb;
     margin-bottom: 0.65rem;
 }
 
@@ -3441,7 +3440,7 @@ body.jeko-theme-white {
     font-size: 1.25rem;
     font-weight: 900;
     line-height: 1.25;
-    color: #241610;
+    color: #0f172a;
     margin-bottom: 0.65rem;
 }
 
@@ -3495,9 +3494,9 @@ body.jeko-theme-white {
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
-    background: rgba(197, 137, 78, 0.15);
-    border: 1px solid rgba(197, 137, 78, 0.35);
-    color: #eedfcb;
+    background: rgba(37, 99, 235, 0.15);
+    border: 1px solid rgba(37, 99, 235, 0.35);
+    color: #e2e8f0;
     font-size: 0.72rem;
     font-weight: 800;
     letter-spacing: 0.06em;
@@ -3532,7 +3531,7 @@ body.jeko-theme-white {
 }
 
 .footer-links a:hover {
-    color: #eedfcb;
+    color: #e2e8f0;
 }
 
 .footer-contact-info {
@@ -3542,7 +3541,7 @@ body.jeko-theme-white {
 }
 
 .footer-contact-info a {
-    color: #eedfcb;
+    color: #e2e8f0;
     text-decoration: none;
     font-weight: 700;
 }
@@ -3593,9 +3592,9 @@ body.jeko-theme-white {
    DEDICATED CART WINDOW STYLES (cart.html)
    ========================================================================== */
 .cart-window-body {
-    background: #faf7f2;
+    background: #f8fafc;
     min-height: 100vh;
-    color: #241610;
+    color: #0f172a;
     font-family: var(--font-body, 'Inter', sans-serif);
 }
 
@@ -3609,8 +3608,8 @@ body.jeko-theme-white {
     align-items: center;
     gap: 8px;
     padding: 0.45rem 1rem;
-    background: rgba(197, 137, 78, 0.08);
-    border: 1px solid rgba(197, 137, 78, 0.2);
+    background: rgba(37, 99, 235, 0.08);
+    border: 1px solid rgba(37, 99, 235, 0.2);
     border-radius: 999px;
     font-size: 0.72rem;
     font-weight: 700;
@@ -3630,7 +3629,7 @@ body.jeko-theme-white {
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    background: #241610;
+    background: #0f172a;
     color: #ffffff;
     border: none;
     padding: 0.65rem 1.25rem;
@@ -3640,11 +3639,11 @@ body.jeko-theme-white {
     font-weight: 800;
     letter-spacing: 0.06em;
     cursor: pointer;
-    transition: all 0.2s ease;
+    transition: opacity 0.2s ease, transform 0.2s ease, border-color 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
 }
 
 .btn-cart-back-store:hover {
-    background: #c5894e;
+    background: #2563eb;
     transform: translateY(-1px);
 }
 
@@ -3670,7 +3669,7 @@ body.jeko-theme-white {
     font-size: 0.7rem;
     font-weight: 800;
     letter-spacing: 0.12em;
-    color: #c5894e;
+    color: #2563eb;
     text-transform: uppercase;
 }
 
@@ -3678,8 +3677,8 @@ body.jeko-theme-white {
     display: inline-block;
     padding: 0.2rem 0.65rem;
     border-radius: 999px;
-    background: rgba(36, 22, 16, 0.06);
-    color: #241610;
+    background: rgba(15, 23, 42, 0.06);
+    color: #0f172a;
     font-size: 0.68rem;
     font-weight: 800;
     letter-spacing: 0.06em;
@@ -3689,7 +3688,7 @@ body.jeko-theme-white {
     font-family: var(--font-heading);
     font-size: 2.4rem;
     font-weight: 900;
-    color: #241610;
+    color: #0f172a;
     letter-spacing: -0.025em;
     line-height: 1.1;
     margin: 0 0 0.5rem;
@@ -3719,8 +3718,8 @@ body.jeko-theme-white {
     width: 88px;
     height: 88px;
     border-radius: 50%;
-    background: #fffaf5;
-    border: 1px solid rgba(197, 137, 78, 0.2);
+    background: #eff6ff;
+    border: 1px solid rgba(37, 99, 235, 0.2);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -3731,7 +3730,7 @@ body.jeko-theme-white {
     font-family: var(--font-heading);
     font-size: 1.5rem;
     font-weight: 800;
-    color: #241610;
+    color: #0f172a;
     margin: 0 0 0.5rem;
 }
 
@@ -3747,7 +3746,7 @@ body.jeko-theme-white {
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    background: #241610;
+    background: #0f172a;
     color: #ffffff;
     border: none;
     padding: 0.85rem 1.85rem;
@@ -3757,13 +3756,13 @@ body.jeko-theme-white {
     font-weight: 800;
     letter-spacing: 0.06em;
     cursor: pointer;
-    transition: all 0.2s ease;
+    transition: opacity 0.2s ease, transform 0.2s ease, border-color 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
 }
 
 .btn-cart-empty-browse:hover {
-    background: #c5894e;
+    background: #2563eb;
     transform: translateY(-2px);
-    box-shadow: 0 6px 18px rgba(197, 137, 78, 0.25);
+    box-shadow: 0 6px 18px rgba(37, 99, 235, 0.25);
 }
 
 /* 2-Column Cart Grid */
@@ -3787,14 +3786,14 @@ body.jeko-theme-white {
     font-family: var(--font-heading);
     font-size: 1.05rem;
     font-weight: 800;
-    color: #241610;
+    color: #0f172a;
     letter-spacing: -0.01em;
 }
 
 .cwi-add-more-btn {
     background: none;
     border: none;
-    color: #c5894e;
+    color: #2563eb;
     font-family: var(--font-heading);
     font-size: 0.78rem;
     font-weight: 800;
@@ -3803,7 +3802,7 @@ body.jeko-theme-white {
 }
 
 .cwi-add-more-btn:hover {
-    color: #241610;
+    color: #0f172a;
 }
 
 .cart-items-cards-list {
@@ -3821,20 +3820,20 @@ body.jeko-theme-white {
     display: flex;
     align-items: center;
     gap: 1.25rem;
-    transition: all 0.2s ease;
+    transition: opacity 0.2s ease, transform 0.2s ease, border-color 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
     box-shadow: 0 4px 14px rgba(50, 25, 14, 0.03);
 }
 
 .cart-window-item-card:hover {
-    border-color: #c5894e;
-    box-shadow: 0 6px 20px rgba(197, 137, 78, 0.08);
+    border-color: #2563eb;
+    box-shadow: 0 6px 20px rgba(37, 99, 235, 0.08);
 }
 
 .cwi-thumbnail-box {
     width: 82px;
     height: 82px;
     border-radius: 14px;
-    background: #fffaf5;
+    background: #eff6ff;
     border: 1px solid rgba(212, 163, 115, 0.18);
     display: flex;
     align-items: center;
@@ -3865,7 +3864,7 @@ body.jeko-theme-white {
     font-family: var(--font-heading);
     font-size: 0.64rem;
     font-weight: 800;
-    color: #c5894e;
+    color: #2563eb;
     letter-spacing: 0.08em;
     text-transform: uppercase;
 }
@@ -3883,7 +3882,7 @@ body.jeko-theme-white {
     font-family: var(--font-heading);
     font-size: 1.02rem;
     font-weight: 700;
-    color: #241610;
+    color: #0f172a;
     margin: 0 0 0.35rem;
     line-height: 1.3;
     white-space: nowrap;
@@ -3901,7 +3900,7 @@ body.jeko-theme-white {
 
 .cwi-unit-price {
     font-weight: 700;
-    color: #241610;
+    color: #0f172a;
 }
 
 .cwi-mrp {
@@ -3926,7 +3925,7 @@ body.jeko-theme-white {
 .cwi-qty-stepper {
     display: inline-flex;
     align-items: center;
-    background: #fffaf5;
+    background: #eff6ff;
     border: 1px solid rgba(212, 163, 115, 0.3);
     border-radius: 999px;
     padding: 3px 6px;
@@ -3939,19 +3938,19 @@ body.jeko-theme-white {
     border-radius: 50%;
     border: none;
     background: #ffffff;
-    color: #241610;
+    color: #0f172a;
     font-size: 0.95rem;
     font-weight: 700;
     cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: all 0.15s ease;
+    transition: opacity 0.15s ease, transform 0.15s ease, border-color 0.15s ease, background-color 0.15s ease, box-shadow 0.15s ease;
     box-shadow: 0 1px 4px rgba(0,0,0,0.06);
 }
 
 .cwi-btn-qty:hover {
-    background: #241610;
+    background: #0f172a;
     color: #ffffff;
 }
 
@@ -3959,7 +3958,7 @@ body.jeko-theme-white {
     font-family: var(--font-heading);
     font-size: 0.88rem;
     font-weight: 800;
-    color: #241610;
+    color: #0f172a;
     min-width: 20px;
     text-align: center;
 }
@@ -3974,7 +3973,7 @@ body.jeko-theme-white {
     font-size: 0.65rem;
     font-weight: 700;
     text-transform: uppercase;
-    color: #8c6a54;
+    color: #64748b;
     letter-spacing: 0.06em;
 }
 
@@ -3982,7 +3981,7 @@ body.jeko-theme-white {
     font-family: var(--font-heading);
     font-size: 1.05rem;
     font-weight: 900;
-    color: #241610;
+    color: #0f172a;
 }
 
 .cwi-btn-remove {
@@ -3997,7 +3996,7 @@ body.jeko-theme-white {
     cursor: pointer;
     padding: 6px 8px;
     border-radius: 8px;
-    transition: all 0.15s ease;
+    transition: opacity 0.15s ease, transform 0.15s ease, border-color 0.15s ease, background-color 0.15s ease, box-shadow 0.15s ease;
 }
 
 .cwi-btn-remove:hover {
@@ -4007,7 +4006,7 @@ body.jeko-theme-white {
 /* Unboxing Video Notice Card */
 .cart-unboxing-notice-card {
     background: #fffbf7;
-    border: 1px dashed rgba(197, 137, 78, 0.45);
+    border: 1px dashed rgba(37, 99, 235, 0.45);
     border-radius: 20px;
     padding: 1.25rem 1.5rem;
     display: flex;
@@ -4021,7 +4020,7 @@ body.jeko-theme-white {
     height: 42px;
     border-radius: 12px;
     background: #ffffff;
-    border: 1px solid rgba(197, 137, 78, 0.25);
+    border: 1px solid rgba(37, 99, 235, 0.25);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -4033,7 +4032,7 @@ body.jeko-theme-white {
     font-family: var(--font-heading);
     font-size: 0.88rem;
     font-weight: 800;
-    color: #241610;
+    color: #0f172a;
     margin-bottom: 0.25rem;
 }
 
@@ -4080,7 +4079,7 @@ body.jeko-theme-white {
     font-family: var(--font-heading);
     font-size: 1.35rem;
     font-weight: 900;
-    color: #241610;
+    color: #0f172a;
     letter-spacing: -0.015em;
     margin: 0 0 1.25rem;
     padding-bottom: 0.75rem;
@@ -4108,7 +4107,7 @@ body.jeko-theme-white {
 
 .cos-val {
     font-weight: 700;
-    color: #241610;
+    color: #0f172a;
 }
 
 .cos-val-free {
@@ -4134,14 +4133,14 @@ body.jeko-theme-white {
     font-family: var(--font-heading);
     font-size: 1.05rem;
     font-weight: 900;
-    color: #241610;
+    color: #0f172a;
 }
 
 .cos-total-amount {
     font-family: var(--font-heading);
     font-size: 1.5rem;
     font-weight: 900;
-    color: #241610;
+    color: #0f172a;
 }
 
 .cos-actions-block {
@@ -4165,7 +4164,7 @@ body.jeko-theme-white {
     font-size: 0.86rem;
     font-weight: 900;
     letter-spacing: 0.05em;
-    transition: all 0.2s ease;
+    transition: opacity 0.2s ease, transform 0.2s ease, border-color 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
     box-shadow: 0 4px 14px rgba(37, 211, 102, 0.24);
 }
 
@@ -4180,7 +4179,7 @@ body.jeko-theme-white {
     align-items: center;
     justify-content: center;
     gap: 10px;
-    background: #241610;
+    background: #0f172a;
     color: #ffffff;
     border: none;
     padding: 0.9rem 1.25rem;
@@ -4190,11 +4189,11 @@ body.jeko-theme-white {
     font-weight: 800;
     letter-spacing: 0.06em;
     cursor: pointer;
-    transition: all 0.2s ease;
+    transition: opacity 0.2s ease, transform 0.2s ease, border-color 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
 }
 
 .btn-cos-online:hover {
-    background: #c5894e;
+    background: #2563eb;
     transform: translateY(-1px);
 }
 
@@ -4209,13 +4208,13 @@ body.jeko-theme-white {
     font-weight: 800;
     letter-spacing: 0.05em;
     cursor: pointer;
-    transition: all 0.15s ease;
+    transition: opacity 0.15s ease, transform 0.15s ease, border-color 0.15s ease, background-color 0.15s ease, box-shadow 0.15s ease;
 }
 
 .btn-cos-continue:hover {
-    background: #fffaf5;
-    color: #241610;
-    border-color: #c5894e;
+    background: #eff6ff;
+    color: #0f172a;
+    border-color: #2563eb;
 }
 
 .cos-security-footer {
@@ -4238,8 +4237,8 @@ body.jeko-theme-white {
     font-family: var(--font-heading);
     font-size: 0.6rem;
     font-weight: 800;
-    background: rgba(36, 22, 16, 0.06);
-    color: #241610;
+    background: rgba(15, 23, 42, 0.06);
+    color: #0f172a;
     padding: 0.12rem 0.4rem;
     border-radius: 4px;
 }
@@ -4261,7 +4260,7 @@ body.jeko-theme-white {
     font-size: 0.64rem;
     font-weight: 800;
     letter-spacing: 0.1em;
-    color: #c5894e;
+    color: #2563eb;
 }
 
 .tcw-title {
@@ -4271,7 +4270,7 @@ body.jeko-theme-white {
 }
 
 .btn-tcw-open {
-    background: #c5894e;
+    background: #2563eb;
     color: #ffffff;
     border: none;
     padding: 0.45rem 0.95rem;
@@ -4282,12 +4281,12 @@ body.jeko-theme-white {
     letter-spacing: 0.05em;
     cursor: pointer;
     white-space: nowrap;
-    transition: all 0.15s ease;
+    transition: opacity 0.15s ease, transform 0.15s ease, border-color 0.15s ease, background-color 0.15s ease, box-shadow 0.15s ease;
 }
 
 .btn-tcw-open:hover {
     background: #ffffff;
-    color: #241610;
+    color: #0f172a;
 }
 
 /* Responsive Cart Window */
@@ -4331,18 +4330,18 @@ body.jeko-theme-white {
     gap: 8px;
     font-size: 0.78rem;
     font-weight: 600;
-    color: #8c6a54;
+    color: #64748b;
     margin-bottom: 1.25rem;
 }
 
 .cart-breadcrumbs-bar .cb-link {
-    color: #8c6a54;
+    color: #64748b;
     text-decoration: none;
     transition: color 0.15s ease;
 }
 
 .cart-breadcrumbs-bar .cb-link:hover {
-    color: #241610;
+    color: #0f172a;
 }
 
 .cart-breadcrumbs-bar .cb-sep {
@@ -4350,24 +4349,24 @@ body.jeko-theme-white {
 }
 
 .cart-breadcrumbs-bar .cb-current {
-    color: #241610;
+    color: #0f172a;
     font-weight: 700;
 }
 
 .cart-page-body {
-    background: #faf7f2;
+    background: #f8fafc;
     min-height: 100vh;
-    color: #241610;
+    color: #0f172a;
     font-family: var(--font-body, 'Inter', sans-serif);
 }
 
 .btn-cart-trigger.is-active-page {
-    border-color: #c5894e;
-    background: #fffaf5;
+    border-color: #2563eb;
+    background: #eff6ff;
 }
 
 .btn-cart-trigger.is-active-page .ia-icon-wrap {
-    color: #c5894e;
+    color: #2563eb;
 }
 
 
@@ -4377,11 +4376,11 @@ body.jeko-theme-white {
    ========================================================================== */
 
 .asus-showcase-section {
-    background-color: #faf7f2;
+    background-color: #f8fafc;
     position: relative;
     width: 100%;
-    border-top: 1px solid #eedfcb;
-    border-bottom: 1px solid #eedfcb;
+    border-top: 1px solid #e2e8f0;
+    border-bottom: 1px solid #e2e8f0;
 }
 
 /* 1. TOP HUD & TELEMETRY HEADER */
@@ -4398,7 +4397,7 @@ body.jeko-theme-white {
     font-family: 'Space Mono', monospace;
     font-size: 0.78rem;
     font-weight: 700;
-    color: #c5894e;
+    color: #2563eb;
     letter-spacing: 0.12em;
     display: inline-flex;
     align-items: center;
@@ -4410,15 +4409,15 @@ body.jeko-theme-white {
     width: 7px;
     height: 7px;
     border-radius: 50%;
-    background: #c5894e;
-    box-shadow: 0 0 10px rgba(197, 137, 78, 0.7);
+    background: #2563eb;
+    box-shadow: 0 0 10px rgba(37, 99, 235, 0.7);
     animation: asusPulse 1.8s infinite;
 }
 
 .asus-kicker-badge {
-    background: rgba(197, 137, 78, 0.12);
-    color: #8c5b2a;
-    border: 1px solid rgba(197, 137, 78, 0.3);
+    background: rgba(37, 99, 235, 0.12);
+    color: #1e40af;
+    border: 1px solid rgba(37, 99, 235, 0.3);
     padding: 0.15rem 0.5rem;
     border-radius: 4px;
     font-size: 0.65rem;
@@ -4429,7 +4428,7 @@ body.jeko-theme-white {
     font-family: var(--font-heading, 'Space Grotesk', sans-serif);
     font-size: clamp(1.6rem, 2.8vw, 2.3rem);
     font-weight: 800;
-    color: #241610;
+    color: #0f172a;
     letter-spacing: -0.025em;
     margin: 0.2rem 0 0.4rem;
     text-transform: uppercase;
@@ -4438,7 +4437,7 @@ body.jeko-theme-white {
 .asus-hud-subtitle {
     max-width: 720px;
     margin: 0 auto 0.8rem;
-    color: #543322;
+    color: #334155;
     font-size: 0.92rem;
     line-height: 1.45;
 }
@@ -4450,29 +4449,29 @@ body.jeko-theme-white {
     gap: 0.5rem 1.1rem;
     padding: 0.45rem 1.1rem;
     background: #ffffff;
-    border: 1.5px solid #eedfcb;
+    border: 1.5px solid #e2e8f0;
     border-radius: 9999px;
     max-width: fit-content;
     margin: 0 auto;
-    box-shadow: 0 4px 16px rgba(36, 22, 16, 0.04);
+    box-shadow: 0 4px 16px rgba(15, 23, 42, 0.04);
 }
 
 .asus-tel-item {
     font-family: 'Space Mono', monospace;
     font-size: 0.74rem;
-    color: #241610;
+    color: #0f172a;
     display: flex;
     align-items: center;
     gap: 0.4rem;
 }
 
 .asus-tel-label {
-    color: #8c6a54;
+    color: #64748b;
     font-weight: 600;
 }
 
 .asus-tel-val {
-    color: #c5894e;
+    color: #2563eb;
     font-weight: 700;
 }
 
@@ -4495,8 +4494,8 @@ body.jeko-theme-white {
     align-items: center;
     padding: 1.5rem 2.5rem;
     box-sizing: border-box;
-    border-top: 1px solid rgba(197, 137, 78, 0.18);
-    box-shadow: inset 0 2px 8px rgba(36, 22, 16, 0.02);
+    border-top: 1px solid rgba(37, 99, 235, 0.18);
+    box-shadow: inset 0 2px 8px rgba(15, 23, 42, 0.02);
 }
 
 .asus-stage-bg-grid {
@@ -4504,8 +4503,8 @@ body.jeko-theme-white {
     inset: 0;
     pointer-events: none;
     background-image: 
-        linear-gradient(rgba(197, 137, 78, 0.06) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(197, 137, 78, 0.06) 1px, transparent 1px);
+        linear-gradient(rgba(37, 99, 235, 0.06) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(37, 99, 235, 0.06) 1px, transparent 1px);
     background-size: 44px 44px;
     mask-image: radial-gradient(circle at center, black 65%, transparent 95%);
     -webkit-mask-image: radial-gradient(circle at center, black 65%, transparent 95%);
@@ -4518,7 +4517,8 @@ body.jeko-theme-white {
     height: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
+    padding-top: 1rem;
     padding-right: 1.5rem;
     overflow: hidden;
 }
@@ -4529,15 +4529,25 @@ body.jeko-theme-white {
     align-items: center;
     font-family: 'Space Mono', monospace;
     font-size: 0.72rem;
-    color: #8c6a54;
-    margin-bottom: 1rem;
+    color: #64748b;
+    margin-bottom: 0.75rem;
     padding-bottom: 0.5rem;
-    border-bottom: 1px dashed #eedfcb;
+    border-bottom: 1px dashed #e2e8f0;
     flex-shrink: 0;
+    background: #ffffff;
+    position: relative;
+    z-index: 10;
+}
+
+.asus-features-track-wrapper {
+    position: relative;
+    overflow: hidden;
+    mask-image: linear-gradient(to bottom, transparent 0%, black 16px, black calc(100% - 16px), transparent 100%);
+    -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 16px, black calc(100% - 16px), transparent 100%);
 }
 
 #afh-step-indicator {
-    color: #c5894e;
+    color: #2563eb;
     font-weight: 700;
 }
 
@@ -4551,11 +4561,11 @@ body.jeko-theme-white {
 
 .asus-feature-card {
     background: #ffffff;
-    border: 1.5px solid #eedfcb;
+    border: 1.5px solid #e2e8f0;
     border-radius: 14px;
     padding: 1.35rem 1.4rem;
     transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-    box-shadow: 0 4px 16px rgba(36, 22, 16, 0.03);
+    box-shadow: 0 4px 16px rgba(15, 23, 42, 0.03);
     opacity: 0.38;
     transform: scale(0.96);
     cursor: pointer;
@@ -4568,8 +4578,8 @@ body.jeko-theme-white {
 .asus-feature-card.active {
     opacity: 1;
     transform: scale(1);
-    border-color: #c5894e;
-    box-shadow: 0 16px 36px -10px rgba(197, 137, 78, 0.28);
+    border-color: #2563eb;
+    box-shadow: 0 16px 36px -10px rgba(37, 99, 235, 0.28);
     background: #ffffff;
 }
 
@@ -4584,18 +4594,18 @@ body.jeko-theme-white {
     font-family: 'Space Mono', monospace;
     font-size: 1.15rem;
     font-weight: 800;
-    color: #241610;
-    background: #faf6f2;
-    border: 1px solid #eedfcb;
+    color: #0f172a;
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
     padding: 0.25rem 0.55rem;
     border-radius: 6px;
     line-height: 1;
 }
 
 .asus-feature-card.active .afc-index {
-    background: #241610;
+    background: #0f172a;
     color: #ffffff;
-    border-color: #241610;
+    border-color: #0f172a;
 }
 
 .afc-meta {
@@ -4607,7 +4617,7 @@ body.jeko-theme-white {
     font-family: 'Space Mono', monospace;
     font-size: 0.68rem;
     font-weight: 700;
-    color: #c5894e;
+    color: #2563eb;
     letter-spacing: 0.08em;
 }
 
@@ -4615,7 +4625,7 @@ body.jeko-theme-white {
     font-family: var(--font-heading, sans-serif);
     font-size: 1.05rem;
     font-weight: 700;
-    color: #241610;
+    color: #0f172a;
     margin-top: 0.15rem;
     line-height: 1.25;
 }
@@ -4623,7 +4633,7 @@ body.jeko-theme-white {
 .afc-desc {
     font-size: 0.84rem;
     line-height: 1.45;
-    color: #543322;
+    color: #334155;
     margin-bottom: 0.8rem;
 }
 
@@ -4635,19 +4645,19 @@ body.jeko-theme-white {
 }
 
 .afc-spec-chip {
-    background: #faf6f2;
-    border: 1px solid #f0e4d6;
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
     padding: 0.22rem 0.5rem;
     border-radius: 4px;
     font-size: 0.72rem;
-    color: #543322;
+    color: #334155;
     font-family: 'Space Mono', monospace;
     display: flex;
     gap: 0.35rem;
 }
 
 .afc-spec-chip strong {
-    color: #241610;
+    color: #0f172a;
 }
 
 .afc-status {
@@ -4686,7 +4696,7 @@ body.jeko-theme-white {
     position: absolute;
     border-radius: 50%;
     pointer-events: none;
-    border: 1px dashed rgba(197, 137, 78, 0.28);
+    border: 1px dashed rgba(37, 99, 235, 0.28);
 }
 
 .asus-ring-1 {
@@ -4699,7 +4709,7 @@ body.jeko-theme-white {
     width: 450px;
     height: 450px;
     border-style: solid;
-    border-color: rgba(197, 137, 78, 0.12);
+    border-color: rgba(37, 99, 235, 0.12);
 }
 
 .asus-ring-3 {
@@ -4721,7 +4731,7 @@ body.jeko-theme-white {
     position: absolute;
     width: 14px;
     height: 14px;
-    border-color: #c5894e;
+    border-color: #2563eb;
     border-style: solid;
 }
 
@@ -4736,7 +4746,7 @@ body.jeko-theme-white {
     left: -20px;
     right: -20px;
     height: 1px;
-    background: linear-gradient(90deg, transparent, rgba(197, 137, 78, 0.25) 20%, rgba(197, 137, 78, 0.25) 80%, transparent);
+    background: linear-gradient(90deg, transparent, rgba(37, 99, 235, 0.25) 20%, rgba(37, 99, 235, 0.25) 80%, transparent);
 }
 
 .reticle-crosshair-v {
@@ -4745,7 +4755,7 @@ body.jeko-theme-white {
     top: -20px;
     bottom: -20px;
     width: 1px;
-    background: linear-gradient(180deg, transparent, rgba(197, 137, 78, 0.25) 20%, rgba(197, 137, 78, 0.25) 80%, transparent);
+    background: linear-gradient(180deg, transparent, rgba(37, 99, 235, 0.25) 20%, rgba(37, 99, 235, 0.25) 80%, transparent);
 }
 
 /* Centered Camera Visual Wrap */
@@ -4763,7 +4773,7 @@ body.jeko-theme-white {
     max-width: 100%;
     max-height: 360px;
     object-fit: contain;
-    filter: drop-shadow(0 20px 30px rgba(36, 22, 16, 0.15));
+    filter: drop-shadow(0 20px 30px rgba(15, 23, 42, 0.15));
     transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
     will-change: transform;
 }
@@ -4774,7 +4784,7 @@ body.jeko-theme-white {
     width: 240px;
     height: 28px;
     border-radius: 50%;
-    background: radial-gradient(ellipse at center, rgba(36, 22, 16, 0.25) 0%, transparent 75%);
+    background: radial-gradient(ellipse at center, rgba(15, 23, 42, 0.25) 0%, transparent 75%);
     filter: blur(6px);
     z-index: -1;
 }
@@ -4825,21 +4835,21 @@ body.jeko-theme-white {
 .ptr-line {
     width: 32px;
     height: 1.5px;
-    background: #c5894e;
-    box-shadow: 0 0 6px rgba(197, 137, 78, 0.5);
+    background: #2563eb;
+    box-shadow: 0 0 6px rgba(37, 99, 235, 0.5);
 }
 
 .ptr-badge {
-    background: #241610;
-    color: #eedfcb;
+    background: #0f172a;
+    color: #e2e8f0;
     font-family: 'Space Mono', monospace;
     font-size: 0.68rem;
     font-weight: 700;
     padding: 0.25rem 0.55rem;
     border-radius: 4px;
-    border: 1px solid #c5894e;
+    border: 1px solid #2563eb;
     white-space: nowrap;
-    box-shadow: 0 4px 12px rgba(36, 22, 16, 0.15);
+    box-shadow: 0 4px 12px rgba(15, 23, 42, 0.15);
 }
 
 /* Center Readout */
@@ -4847,33 +4857,33 @@ body.jeko-theme-white {
     margin-top: 1.5rem;
     font-family: 'Space Mono', monospace;
     font-size: 0.74rem;
-    background: #faf6f2;
-    border: 1.5px solid #eedfcb;
+    background: #f8fafc;
+    border: 1.5px solid #e2e8f0;
     padding: 0.4rem 0.95rem;
     border-radius: 9999px;
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
-    box-shadow: 0 4px 14px rgba(36, 22, 16, 0.05);
+    box-shadow: 0 4px 14px rgba(15, 23, 42, 0.05);
     z-index: 5;
 }
 
 .acr-label {
-    color: #8c6a54;
+    color: #64748b;
 }
 
 .acr-val {
-    color: #241610;
+    color: #0f172a;
     font-weight: 700;
 }
 
 /* 5. RIGHT COLUMN: CORNER PURCHASE DOCK */
 .asus-buy-dock {
     background: #ffffff;
-    border: 1.5px solid #eedfcb;
+    border: 1.5px solid #e2e8f0;
     border-radius: 16px;
     padding: 1.1rem 1.25rem;
-    box-shadow: 0 16px 36px -10px rgba(36, 22, 16, 0.12);
+    box-shadow: 0 16px 36px -10px rgba(15, 23, 42, 0.12);
     position: relative;
     z-index: 30;
     width: 100%;
@@ -4889,7 +4899,7 @@ body.jeko-theme-white {
 }
 
 .abd-pill-badge {
-    background: #241610;
+    background: #0f172a;
     color: #fdfbf9;
     font-family: 'Space Mono', monospace;
     font-size: 0.65rem;
@@ -4921,7 +4931,7 @@ body.jeko-theme-white {
     font-family: 'Space Mono', monospace;
     font-size: 0.7rem;
     font-weight: 700;
-    color: #c5894e;
+    color: #2563eb;
     letter-spacing: 0.1em;
     margin-bottom: 0.25rem;
 }
@@ -4930,7 +4940,7 @@ body.jeko-theme-white {
     font-family: var(--font-heading, sans-serif);
     font-size: 1.22rem;
     font-weight: 800;
-    color: #241610;
+    color: #0f172a;
     line-height: 1.3;
     margin-bottom: 0.3rem;
 }
@@ -4938,7 +4948,7 @@ body.jeko-theme-white {
 .abd-model-code {
     font-family: 'Space Mono', monospace;
     font-size: 0.72rem;
-    color: #8c6a54;
+    color: #64748b;
     margin-bottom: 0.75rem;
 }
 
@@ -4949,7 +4959,7 @@ body.jeko-theme-white {
     font-size: 0.72rem;
     margin-bottom: 0.65rem;
     padding-bottom: 0.5rem;
-    border-bottom: 1px dashed #eedfcb;
+    border-bottom: 1px dashed #e2e8f0;
 }
 
 .abd-stars {
@@ -4959,11 +4969,11 @@ body.jeko-theme-white {
 
 .abd-rating-score {
     font-weight: 700;
-    color: #241610;
+    color: #0f172a;
 }
 
 .abd-rating-count {
-    color: #8c6a54;
+    color: #64748b;
 }
 
 .abd-price-box {
@@ -4976,7 +4986,7 @@ body.jeko-theme-white {
 .abd-price-main {
     display: flex;
     align-items: flex-start;
-    color: #241610;
+    color: #0f172a;
     font-family: var(--font-heading, sans-serif);
 }
 
@@ -5011,7 +5021,7 @@ body.jeko-theme-white {
 
 .abd-tax-note {
     font-size: 0.68rem;
-    color: #8c6a54;
+    color: #64748b;
     margin-bottom: 0.65rem;
 }
 
@@ -5020,10 +5030,10 @@ body.jeko-theme-white {
     flex-direction: column;
     gap: 0.35rem;
     margin-bottom: 0.8rem;
-    background: #faf6f2;
+    background: #f8fafc;
     padding: 0.55rem 0.75rem;
     border-radius: 8px;
-    border: 1px solid #f0e4d6;
+    border: 1px solid #e2e8f0;
 }
 
 .abd-perk-item {
@@ -5031,7 +5041,7 @@ body.jeko-theme-white {
     align-items: center;
     gap: 0.45rem;
     font-size: 0.72rem;
-    color: #382117;
+    color: #1e293b;
     font-weight: 500;
 }
 
@@ -5051,9 +5061,9 @@ body.jeko-theme-white {
 .btn-abd-cart {
     width: 100%;
     padding: 0.72rem 1rem;
-    background: #241610;
+    background: #0f172a;
     color: #ffffff;
-    border: 1.5px solid #241610;
+    border: 1.5px solid #0f172a;
     border-radius: 8px;
     font-family: 'Space Mono', monospace;
     font-size: 0.8rem;
@@ -5063,15 +5073,15 @@ body.jeko-theme-white {
     justify-content: center;
     gap: 0.55rem;
     cursor: pointer;
-    transition: all 0.2s ease;
+    transition: opacity 0.2s ease, transform 0.2s ease, border-color 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
     letter-spacing: 0.05em;
 }
 
 .btn-abd-cart:hover {
-    background: #382117;
-    border-color: #c5894e;
+    background: #1e293b;
+    border-color: #2563eb;
     transform: translateY(-1px);
-    box-shadow: 0 6px 20px rgba(36, 22, 16, 0.2);
+    box-shadow: 0 6px 20px rgba(15, 23, 42, 0.2);
 }
 
 .btn-abd-buynow {
@@ -5089,7 +5099,7 @@ body.jeko-theme-white {
     justify-content: center;
     gap: 0.5rem;
     cursor: pointer;
-    transition: all 0.2s ease;
+    transition: opacity 0.2s ease, transform 0.2s ease, border-color 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
     letter-spacing: 0.05em;
 }
 

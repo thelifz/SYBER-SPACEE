@@ -11,6 +11,7 @@ const http = require('http');
 const fs = require('fs');
 const path = require('path');
 const crypto = require('crypto');
+const zlib = require('zlib');
 
 // -----------------------------------------------------------------------------
 // 1. ENVIRONMENT CONFIGURATION LOADER (Pure Node.js - Zero External Dependencies)
@@ -76,9 +77,24 @@ const MIME_TYPES = {
     '.svg': 'image/svg+xml',
     '.mp4': 'video/mp4',
     '.ico': 'image/x-icon',
+    '.woff2': 'font/woff2',
+    '.woff': 'font/woff',
+    '.avif': 'image/avif',
+    '.mjs': 'text/javascript; charset=utf-8',
     '.xml': 'application/xml; charset=utf-8',
     '.txt': 'text/plain; charset=utf-8'
 };
+
+const ALLOWED_STATIC_EXTENSIONS = new Set([
+    '.html', '.css', '.js', '.mjs', '.png', '.jpg', '.jpeg',
+    '.webp', '.avif', '.gif', '.svg', '.mp4', '.ico', '.woff2',
+    '.woff', '.json', '.xml', '.txt'
+]);
+
+const BLOCKED_FILES = new Set([
+    'server.js', 'orders_vault.json', 'package.json', 'package-lock.json',
+    'ecosystem.config.js', 'procfile', '.env', '.gitignore'
+]);
 
 const SECURITY_HEADERS = {
     'X-Content-Type-Options': 'nosniff',
@@ -374,9 +390,22 @@ const server = http.createServer((req, res) => {
     }
 
     // =========================================================================
-    // API ROUTE 6: LIST RECENT ORDERS (Merchant Console)
+    // API ROUTE 6: LIST RECENT ORDERS (Merchant Console - Gated with Admin Auth)
     // =========================================================================
     if (pathname === '/api/hdfc/orders' && req.method === 'GET') {
+        const adminToken = process.env.ADMIN_TOKEN || 'syber_admin_vault_token_2026';
+        const authHeader = req.headers['authorization'] || '';
+        const queryParams = new URL(req.url, 'http://localhost').searchParams;
+        const queryToken = queryParams.get('token');
+        
+        const isAuthorized = authHeader === `Bearer ${adminToken}` || queryToken === adminToken;
+        if (!isAuthorized) {
+            return sendJson(401, {
+                success: false,
+                error: 'Unauthorized: Valid Admin Bearer Token required to access order vault'
+            });
+        }
+
         return sendJson(200, {
             success: true,
             totalOrders: HDFC_ORDERS.length,
