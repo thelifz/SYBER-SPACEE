@@ -1,5 +1,5 @@
 // ==========================================================================
-// SYBER SPACE // JEST-STYLE LUXURY HEADER & CART ENGINE
+// SYBER SPACE // JEST-STYLE LUXURY HEADER & CART WINDOW SYNC ENGINE
 // ==========================================================================
 
 let CART_ITEMS = [];
@@ -9,17 +9,47 @@ document.addEventListener('DOMContentLoaded', () => {
     initJekoSearch();
     initOfferSlideshow();
     initBrandGrid();
+
+    // Support URL param ?brand=TRUEVIEW or ?test_bubble=TRUEVIEW
+    const urlParams = new URLSearchParams(window.location.search);
+    const brandParam = urlParams.get('brand') || urlParams.get('test_bubble');
+    if (brandParam) {
+        triggerBubbleTakeover(null, brandParam);
+    }
+});
+
+// Sync cart changes across all open browser windows/tabs in real-time
+window.addEventListener('storage', (e) => {
+    if (e.key === 'syber_cart' || e.key === 'syber_cart_items') {
+        initCart();
+    }
 });
 
 // ==========================================================================
-// 1. SHOPPING CART ENGINE
+// 1. SHOPPING CART ENGINE & DEDICATED CART WINDOW LAUNCHER
 // ==========================================================================
 function initCart() {
     try {
-        const stored = localStorage.getItem('syber_cart_items');
-        if (stored) {
-            CART_ITEMS = JSON.parse(stored);
+        let raw = localStorage.getItem('syber_cart');
+        if (!raw) {
+            raw = localStorage.getItem('syber_cart_items');
+            if (raw) localStorage.setItem('syber_cart', raw);
         }
+        CART_ITEMS = JSON.parse(raw || '[]');
+        // Normalize
+        CART_ITEMS = CART_ITEMS.map(i => ({
+            id: i.id || `prod-${Math.random()}`,
+            title: i.title || i.name || 'Surveillance Camera',
+            name: i.title || i.name || 'Surveillance Camera',
+            brand: i.brand || 'SYBER',
+            price: Number(i.price) || 0,
+            mrp: i.mrp || '',
+            save: i.save || '',
+            img: i.img || i.image || 'assets/official_bestseller_idada_q2i.jpg',
+            image: i.img || i.image || 'assets/official_bestseller_idada_q2i.jpg',
+            qty: Number(i.qty || i.quantity || 1),
+            quantity: Number(i.qty || i.quantity || 1)
+        }));
     } catch (e) {
         CART_ITEMS = [];
     }
@@ -28,9 +58,27 @@ function initCart() {
 
 function saveCart() {
     try {
+        localStorage.setItem('syber_cart', JSON.stringify(CART_ITEMS));
         localStorage.setItem('syber_cart_items', JSON.stringify(CART_ITEMS));
     } catch (e) {}
     updateCartUI();
+}
+
+function openCartWindow(e) {
+    if (e && e.preventDefault) e.preventDefault();
+    const width = 1120;
+    const height = 840;
+    const left = Math.max(0, Math.round((window.screen.width - width) / 2));
+    const top = Math.max(0, Math.round((window.screen.height - height) / 2));
+    
+    // Open a dedicated desktop popup window
+    const win = window.open('cart.html', 'SyberCartWindow', `width=${width},height=${height},top=${top},left=${left},resizable=yes,scrollbars=yes,status=no`);
+    if (!win || win.closed || typeof win.closed === 'undefined') {
+        // Fallback if popups blocked
+        window.open('cart.html', '_blank');
+    } else {
+        win.focus();
+    }
 }
 
 function addToCartById(productId) {
@@ -40,29 +88,27 @@ function addToCartById(productId) {
 
     const existing = CART_ITEMS.find(item => item.id === productId);
     if (existing) {
-        existing.qty += 1;
+        existing.qty = (existing.qty || 1) + 1;
+        existing.quantity = existing.qty;
     } else {
         const img = (product.images && product.images.length > 0) ? product.images[0] : 'assets/official_bestseller_idada_q2i.jpg';
         CART_ITEMS.push({
             id: product.id,
             title: product.title,
-            brand: product.brand,
+            name: product.title,
+            brand: product.brand || 'SYBER',
             price: Number(product.price) || 0,
+            mrp: product.mrp || '',
+            save: product.save || '',
             img: img,
-            qty: 1
+            image: img,
+            qty: 1,
+            quantity: 1
         });
     }
 
     saveCart();
-    showToast(`Added ${product.brand} to cart!`);
-    
-    // Open cart drawer so user sees instant feedback
-    const drawer = document.getElementById('cart-drawer');
-    const overlay = document.getElementById('cart-drawer-overlay');
-    if (drawer && !drawer.classList.contains('active')) {
-        drawer.classList.add('active');
-        if (overlay) overlay.classList.add('active');
-    }
+    showToastWithCartButton(product.title, product.brand);
 }
 
 function updateCartQty(productId, delta) {
@@ -70,6 +116,7 @@ function updateCartQty(productId, delta) {
     if (!item) return;
 
     item.qty += delta;
+    item.quantity = item.qty;
     if (item.qty <= 0) {
         CART_ITEMS = CART_ITEMS.filter(i => i.id !== productId);
     }
@@ -82,8 +129,8 @@ function removeCartItem(productId) {
 }
 
 function updateCartUI() {
-    const totalCount = CART_ITEMS.reduce((sum, i) => sum + i.qty, 0);
-    const totalPrice = CART_ITEMS.reduce((sum, i) => sum + (i.price * i.qty), 0);
+    const totalCount = CART_ITEMS.reduce((sum, i) => sum + (i.qty || 1), 0);
+    const totalPrice = CART_ITEMS.reduce((sum, i) => sum + (i.price * (i.qty || 1)), 0);
 
     // Update Counter Badges
     const badge = document.getElementById('cart-counter');
@@ -95,7 +142,7 @@ function updateCartUI() {
     const totalVal = document.getElementById('cart-drawer-total');
     if (totalVal) totalVal.innerHTML = `&#8377;${totalPrice.toLocaleString('en-IN')}`;
 
-    // Render Items
+    // Render Items inside drawer if modal still opened
     const container = document.getElementById('cart-drawer-items');
     if (!container) return;
 
@@ -138,32 +185,9 @@ function updateCartUI() {
 }
 
 function toggleCartDrawer() {
-    const drawer = document.getElementById('cart-drawer');
-    const overlay = document.getElementById('cart-drawer-overlay');
-    if (drawer && overlay) {
-        const isActive = drawer.classList.contains('active');
-        if (isActive) {
-            drawer.classList.remove('active');
-            overlay.classList.remove('active');
-            document.body.style.overflow = '';
-        } else {
-            drawer.classList.add('active');
-            overlay.classList.add('active');
-            document.body.style.overflow = 'hidden';
-            updateCartUI();
-        }
-    }
+    // Open dedicated cart window directly
+    openCartWindow();
 }
-
-// Close on Escape key
-document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') {
-        const drawer = document.getElementById('cart-drawer');
-        if (drawer && drawer.classList.contains('active')) {
-            toggleCartDrawer();
-        }
-    }
-});
 
 function checkoutViaWhatsApp() {
     if (CART_ITEMS.length === 0) {
@@ -171,29 +195,58 @@ function checkoutViaWhatsApp() {
         return;
     }
 
-    let msg = `Hello Syber Space, I want to place an order from your website:\n\n`;
+    let msg = `Hello Syber Space, I want to place an order from your website:
+
+`;
     CART_ITEMS.forEach((item, idx) => {
-        msg += `${idx + 1}. ${item.title} (Qty: ${item.qty}) - Rs. ${(item.price * item.qty).toLocaleString('en-IN')}\n`;
+        msg += `${idx + 1}. ${item.title} (Qty: ${item.qty}) - Rs. ${(item.price * item.qty).toLocaleString('en-IN')}
+`;
     });
     const totalPrice = CART_ITEMS.reduce((sum, i) => sum + (i.price * i.qty), 0);
-    msg += `\nEstimated Total: Rs. ${totalPrice.toLocaleString('en-IN')}\n`;
+    msg += `
+Estimated Total: Rs. ${totalPrice.toLocaleString('en-IN')}
+`;
     msg += `Please confirm availability and dispatch timeline.`;
 
     const url = `https://wa.me/917511180808?text=${encodeURIComponent(msg)}`;
     window.open(url, '_blank');
 }
 
+let toastTimer = null;
 function showToast(message) {
     const toast = document.getElementById('toast-notify');
     if (!toast) return;
     toast.textContent = message;
     toast.classList.add('active');
-    setTimeout(() => {
+    if (toastTimer) clearTimeout(toastTimer);
+    toastTimer = setTimeout(() => {
         toast.classList.remove('active');
     }, 2800);
 }
 
-// ==========================================================================
+function showToastWithCartButton(title, brand) {
+    const toast = document.getElementById('toast-notify');
+    if (!toast) return;
+    const shortTitle = (title.length > 28) ? title.substring(0, 28) + '...' : title;
+    toast.innerHTML = `
+        <div class="toast-cart-win-wrap">
+            <div class="tcw-text-block">
+                <span class="tcw-kicker">ADDED TO CART</span>
+                <span class="tcw-title">${shortTitle}</span>
+            </div>
+            <button type="button" class="btn-tcw-open" onclick="openCartWindow(event)">
+                VIEW CART &rarr;
+            </button>
+        </div>
+    `;
+    toast.classList.add('active');
+    if (toastTimer) clearTimeout(toastTimer);
+    toastTimer = setTimeout(() => {
+        toast.classList.remove('active');
+    }, 4500);
+}
+
+
 // 2. JEKOJETS INTEGRATED SEARCH ENGINE
 // ==========================================================================
 function initJekoSearch() {
@@ -290,7 +343,7 @@ function performSearch(query) {
                 <img src="${img}" alt="${item.title}" class="jsi-img" onerror="this.src='assets/official_bestseller_idada_q2i.jpg'">
                 <div class="jsi-info">
                     <div class="jsi-title">${item.title}</div>
-                    <div class="jsi-meta">${item.brand} &bull; ${item.chips ? item.chips.slice(0, 2).join(' &bull; ') : ''}</div>
+                    <div class="jsi-meta">${item.brand} • ${item.chips ? item.chips.slice(0, 2).join(' • ') : ''}</div>
                 </div>
                 <div class="jsi-price">&#8377;${Number(item.price).toLocaleString('en-IN')}</div>
             </div>
@@ -541,34 +594,70 @@ function renderProductsGrid(list, label) {
 
 
 // ==========================================================================
-// 5. BRAND BUBBLE TAKEOVER ENGINE
+// ==========================================================================
+// 5. BRAND BUBBLE TAKEOVER ENGINE ("THE CAMERA BALLOON")
+// Covers viewport below header with smooth expanding bubble from card
 // ==========================================================================
 let brandHoverTimer = null;
-const BRAND_HOVER_DELAY = 1200; // 1.2 seconds hover to trigger
+const BRAND_HOVER_DELAY = 1500; // 1.5 seconds deliberate hover
 
 const BRAND_META = {
-    'TRUEVIEW': { name: 'TRUEVIEW', color: '#c5894e', bg: '#fdf8f2' },
-    'CPPLUS': { name: 'CP PLUS', color: '#2e5090', bg: '#f0f4fa' },
-    'IDADA': { name: 'iDADA', color: '#e76f51', bg: '#fef5f2' },
-    'SEAGATE': { name: 'SEAGATE', color: '#6aaa64', bg: '#f2faf2' },
-    'INFRASTRUCTURE': { name: 'INFRASTRUCTURE', color: '#5c4335', bg: '#f5f0eb' }
+    'TRUEVIEW': { 
+        name: 'TRUEVIEW', 
+        color: '#c5894e', 
+        bg: '#fdf8f2',
+        kicker: 'OFFICIAL SURVEILLANCE PARTNER',
+        subtitle: '32 Autonomous Solar & Commercial CCTV Cameras Available' 
+    },
+    'CPPLUS': { 
+        name: 'CP PLUS', 
+        color: '#2e5090', 
+        bg: '#f0f4fa',
+        kicker: 'AUTHORIZED ENTERPRISE DISTRIBUTOR',
+        subtitle: '9 Commercial & Smart Ezykam Security Cameras Available'
+    },
+    'IDADA': { 
+        name: 'iDADA', 
+        color: '#d9532f', 
+        bg: '#fef5f2',
+        kicker: '#1 BESTSELLER SMART HOME',
+        subtitle: 'High-Velocity Pan & Tilt Wi-Fi Cameras Available'
+    },
+    'SEAGATE': { 
+        name: 'SEAGATE', 
+        color: '#2e7d32', 
+        bg: '#f2faf2',
+        kicker: 'SURVEILLANCE STORAGE SPECIALIST',
+        subtitle: 'SkyHawk 24/7 Zero Frame Loss Surveillance Hard Drives'
+    },
+    'INFRASTRUCTURE': { 
+        name: 'INFRASTRUCTURE', 
+        color: '#5c4335', 
+        bg: '#f5f0eb',
+        kicker: 'PRO CCTV CABLING & HARDWARE',
+        subtitle: '22 Power SMPS, Pure Copper Cat6 & RG59 Cabling Items'
+    }
 };
 
-function startBrandHover(event, brandKey) {
+function startBrandHover(cardElem, brandKey) {
     cancelBrandHover();
+    if (cardElem && cardElem.classList) {
+        cardElem.classList.add('is-hovering');
+    }
     brandHoverTimer = setTimeout(() => {
-        triggerBubbleTakeover(event, brandKey);
+        triggerBubbleTakeover(cardElem, brandKey);
     }, BRAND_HOVER_DELAY);
 }
 
-function cancelBrandHover() {
+function cancelBrandHover(cardElem) {
     if (brandHoverTimer) {
         clearTimeout(brandHoverTimer);
         brandHoverTimer = null;
     }
+    document.querySelectorAll('.brand-cat-card').forEach(c => c.classList.remove('is-hovering'));
 }
 
-function triggerBubbleTakeover(event, brandKey) {
+function triggerBubbleTakeover(originElemOrEvent, brandKey) {
     cancelBrandHover();
     
     const overlay = document.getElementById('brandTakeoverOverlay');
@@ -576,34 +665,70 @@ function triggerBubbleTakeover(event, brandKey) {
     const content = document.getElementById('brandTakeoverContent');
     if (!overlay || !bubble) return;
 
-    // Get click/hover origin position
-    const x = event.clientX || window.innerWidth / 2;
-    const y = event.clientY || window.innerHeight / 2;
+    // Calculate origin coordinates (x, y)
+    let x = window.innerWidth / 2;
+    let y = window.innerHeight / 2;
 
-    // Calculate required bubble radius to cover entire viewport
+    // 1. Try from origin card element
+    let targetCard = null;
+    if (originElemOrEvent && originElemOrEvent.getBoundingClientRect) {
+        targetCard = originElemOrEvent;
+    } else {
+        targetCard = document.querySelector(`.brand-cat-card[data-brand="${brandKey}"]`);
+    }
+
+    if (targetCard) {
+        const rect = targetCard.getBoundingClientRect();
+        x = rect.left + rect.width / 2;
+        y = rect.top + rect.height / 2;
+    } else if (originElemOrEvent && originElemOrEvent.clientX) {
+        x = originElemOrEvent.clientX;
+        y = originElemOrEvent.clientY;
+    }
+
+    // Relative to overlay viewport (overlay starts at top: 78px)
+    const overlayTopOffset = 78;
+    const relY = Math.max(0, y - overlayTopOffset);
+    const overlayHeight = window.innerHeight - overlayTopOffset;
+
+    // Calculate radius to cover the entire sub-header canvas
     const maxDist = Math.max(
-        Math.hypot(x, y),
-        Math.hypot(window.innerWidth - x, y),
-        Math.hypot(x, window.innerHeight - y),
-        Math.hypot(window.innerWidth - x, window.innerHeight - y)
+        Math.hypot(x, relY),
+        Math.hypot(window.innerWidth - x, relY),
+        Math.hypot(x, overlayHeight - relY),
+        Math.hypot(window.innerWidth - x, overlayHeight - relY)
     );
-    const diameter = maxDist * 2.2;
+    const diameter = maxDist * 2.3;
 
     // Get brand metadata
-    const meta = BRAND_META[brandKey] || { name: brandKey, color: '#c5894e', bg: '#fdf8f2' };
+    const meta = BRAND_META[brandKey] || { 
+        name: brandKey, 
+        color: '#c5894e', 
+        bg: '#fdf8f2', 
+        kicker: 'BRAND SHOWCASE', 
+        subtitle: 'Surveillance hardware catalog' 
+    };
 
-    // Position and style the bubble
+    // Style the bubble
     bubble.style.left = (x - diameter / 2) + 'px';
-    bubble.style.top = (y - diameter / 2) + 'px';
+    bubble.style.top = (relY - diameter / 2) + 'px';
     bubble.style.width = diameter + 'px';
     bubble.style.height = diameter + 'px';
     bubble.style.background = meta.bg;
 
-    // Populate content
+    // Populate header details
+    const kickerEl = document.getElementById('btoKicker');
     const titleEl = document.getElementById('btoTitle');
     const subtitleEl = document.getElementById('btoSubtitle');
     const gridEl = document.getElementById('btoProductsGrid');
 
+    if (kickerEl) kickerEl.textContent = meta.kicker;
+    if (titleEl) {
+        titleEl.textContent = meta.name;
+        titleEl.style.color = meta.color;
+    }
+
+    // Populate product grid
     if (typeof SYBER_PRODUCTS !== 'undefined' && gridEl) {
         let products;
         if (brandKey === 'INFRASTRUCTURE') {
@@ -618,9 +743,9 @@ function triggerBubbleTakeover(event, brandKey) {
             products = SYBER_PRODUCTS.filter(p => (p.brand || '').toUpperCase() === brandKey.toUpperCase());
         }
 
-        if (titleEl) titleEl.textContent = meta.name;
-        if (titleEl) titleEl.style.color = meta.color;
-        if (subtitleEl) subtitleEl.textContent = `${products.length} product${products.length !== 1 ? 's' : ''} available`;
+        if (subtitleEl) {
+            subtitleEl.textContent = `${products.length} product${products.length !== 1 ? 's' : ''} available • Official Manufacturer Warranty • Direct Kerala Dispatch`;
+        }
 
         gridEl.innerHTML = products.map(p => {
             const img = (p.images && p.images.length > 0) ? p.images[0] : 'assets/hero_product_solar_v2.png';
@@ -643,7 +768,7 @@ function triggerBubbleTakeover(event, brandKey) {
                         <div class="lpc-price">&#8377;${Number(p.price).toLocaleString('en-IN')}</div>
                         ${mrpHtml}
                     </div>
-                    <button type="button" class="btn-lpc-add" onclick="addToCartById('${p.id}')">
+                    <button type="button" class="btn-lpc-add" onclick="handleTakeoverAdd(event, '${p.id}', this)">
                         [ ADD TO CART ]
                     </button>
                 </div>
@@ -651,12 +776,28 @@ function triggerBubbleTakeover(event, brandKey) {
         }).join('');
     }
 
-    // Activate
+    // Activate Takeover
     overlay.classList.add('active');
     document.body.style.overflow = 'hidden';
 
-    // Scroll content to top
+    // Scroll takeover content to top
     if (content) content.scrollTop = 0;
+}
+
+function handleTakeoverAdd(event, productId, btnElem) {
+    if (event && event.stopPropagation) event.stopPropagation();
+    addToCartById(productId);
+    if (btnElem) {
+        const origText = btnElem.textContent;
+        btnElem.textContent = 'ADDED TO CART!';
+        btnElem.style.background = '#241610';
+        btnElem.style.color = '#ffffff';
+        setTimeout(() => {
+            btnElem.textContent = origText;
+            btnElem.style.background = '';
+            btnElem.style.color = '';
+        }, 1400);
+    }
 }
 
 function closeBubbleTakeover() {
@@ -674,7 +815,14 @@ function closeBubbleTakeover() {
         if (bubble) {
             bubble.style.transform = '';
         }
-    }, 700);
+    }, 650);
+}
+
+function handleTakeoverBgClick(e) {
+    // If user clicked the overlay background (not a product card or button), close
+    if (e.target && (e.target.id === 'brandTakeoverOverlay' || e.target.id === 'brandTakeoverContent' || e.target.classList.contains('bto-products-grid'))) {
+        closeBubbleTakeover();
+    }
 }
 
 // Close on Escape key
@@ -685,7 +833,6 @@ document.addEventListener('keydown', (e) => {
 });
 
 
-// ==========================================================================
 // 6. SMART CAMERA FINDER WIZARD ENGINE
 // ==========================================================================
 let SELECTED_PROPERTY = 'home';

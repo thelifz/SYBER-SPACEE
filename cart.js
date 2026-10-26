@@ -1,13 +1,16 @@
-
 function normalizeImgPath(src) {
-    if (!src) return 'assets/idada_q2i35s_1.jpg';
+    if (!src) return 'assets/official_bestseller_idada_q2i.jpg';
     if (src.startsWith('assets/') || src.startsWith('http') || src.startsWith('data:')) return src;
     return 'assets/' + src;
 }
 
+function escapeHtml(str) {
+    return String(str || '').replace(/[&<>"']/g, m => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
+}
+
 // ==========================================================================
-// SYBER SPACE — Shopping Cart Logic Engine
-// Strict HDFC Bank SmartGateway&trade; Multi-Rail Integration
+// SYBER SPACE — STANDALONE LUXURY CART WINDOW ENGINE
+// Synchronized with localStorage ('syber_cart')
 // ==========================================================================
 
 let activeCheckoutTotal = 0;
@@ -17,85 +20,90 @@ let selectedPaymentRail = 'upi';
 let selectedNetBankingBank = 'HDFC Bank';
 
 document.addEventListener('DOMContentLoaded', () => {
-    // 1. Mobile Menu Toggle
-    const menuToggle = document.getElementById('mobile-menu-toggle');
-    const mobileOverlay = document.getElementById('mobile-menu-overlay');
-
-    if (menuToggle && mobileOverlay) {
-        menuToggle.addEventListener('click', () => {
-            const isOpen = mobileOverlay.classList.toggle('open');
-            menuToggle.classList.toggle('active', isOpen);
-            document.body.style.overflow = isOpen ? 'hidden' : '';
-        });
-    }
-
-    // 2. Render Cart
+    // 1. Initial Render
     renderCart();
 
-    // 3. Listen for ESC to close HDFC modal
+    // 2. ESC key listener to close HDFC modal
     document.addEventListener('keydown', (e) => {
         if (e.key === 'Escape') {
             closeHdfcModal();
         }
     });
 
-    // 4. Auto-launch HDFC checkout if navigated with ?checkout=1
+    // 3. Auto-launch HDFC checkout if navigated with ?checkout=1
     const urlParams = new URLSearchParams(window.location.search);
     if (urlParams.get('checkout') === '1') {
         const cart = getCart();
         if (cart && cart.length > 0) {
-            const grandTotal = cart.reduce((sum, item) => sum + (item.price * (item.quantity || 1)), 0);
+            const grandTotal = cart.reduce((sum, item) => sum + (Number(item.price) * (item.qty || item.quantity || 1)), 0);
             setTimeout(() => {
                 initiateHdfcCheckout(grandTotal);
-            }, 180);
+            }, 250);
         }
     }
+
+    // 4. Listen for storage changes from other windows/tabs
+    window.addEventListener('storage', (e) => {
+        if (e.key === 'syber_cart' || e.key === 'syber_cart_items') {
+            renderCart();
+        }
+    });
 });
 
 function getCart() {
     try {
-        const raw = localStorage.getItem('syber_cart') || '[]';
-        return JSON.parse(raw);
+        let raw = localStorage.getItem('syber_cart');
+        if (!raw) {
+            // Check legacy key
+            raw = localStorage.getItem('syber_cart_items');
+            if (raw) {
+                // Migrate to syber_cart
+                localStorage.setItem('syber_cart', raw);
+            }
+        }
+        const cart = JSON.parse(raw || '[]');
+        // Normalize schema
+        return cart.map(item => ({
+            id: item.id || `prod-${Math.random()}`,
+            title: item.title || item.name || 'Surveillance Hardware',
+            name: item.title || item.name || 'Surveillance Hardware',
+            brand: item.brand || 'SYBER',
+            price: Number(item.price) || 0,
+            mrp: item.mrp || '',
+            save: item.save || '',
+            img: item.img || item.image || 'assets/official_bestseller_idada_q2i.jpg',
+            image: item.img || item.image || 'assets/official_bestseller_idada_q2i.jpg',
+            qty: Number(item.qty || item.quantity || 1),
+            quantity: Number(item.qty || item.quantity || 1)
+        }));
     } catch (e) {
         return [];
     }
 }
 
 function saveCart(cart) {
-    localStorage.setItem('syber_cart', JSON.stringify(cart));
+    try {
+        localStorage.setItem('syber_cart', JSON.stringify(cart));
+        localStorage.setItem('syber_cart_items', JSON.stringify(cart)); // sync legacy
+    } catch (e) {}
     updateNavCartCount();
 }
 
 function updateNavCartCount() {
     const cart = getCart();
-    const totalItems = cart.reduce((sum, item) => sum + (item.quantity || 1), 0);
-
-    const desktopBadge = document.getElementById('header-cart-badge');
-    if (desktopBadge) {
-        desktopBadge.textContent = String(totalItems);
+    const totalItems = cart.reduce((sum, item) => sum + (item.qty || 1), 0);
+    const totalBadge = document.getElementById('cart-total-badge');
+    if (totalBadge) {
+        totalBadge.textContent = `${totalItems} ITEM${totalItems === 1 ? '' : 'S'}`;
     }
+}
 
-    const mbBadge = document.getElementById('mb-cart-badge');
-    if (mbBadge) {
-        mbBadge.textContent = String(totalItems);
-        mbBadge.style.display = totalItems > 0 ? 'inline-flex' : 'none';
+function returnToStore() {
+    if (window.opener && !window.opener.closed) {
+        window.close();
+    } else {
+        window.location.href = 'index.html';
     }
-
-    const headerBadge = document.getElementById('mobile-header-cart-badge');
-    if (headerBadge) {
-        headerBadge.textContent = String(totalItems);
-        headerBadge.style.display = totalItems > 0 ? 'inline-flex' : 'none';
-    }
-
-    const counterLabels = document.querySelectorAll('.cart-counter-label');
-    counterLabels.forEach(label => {
-        if (label.id === 'header-cart-badge' || label.id === 'mobile-header-cart-badge' || label.id === 'mb-cart-badge') return;
-        if (label.classList.contains('mobile-link')) {
-            label.textContent = `Shopping Cart (${totalItems})`;
-        } else {
-            label.textContent = `Cart (${totalItems})`;
-        }
-    });
 }
 
 function renderCart() {
@@ -107,21 +115,23 @@ function renderCart() {
 
     if (!cart || cart.length === 0) {
         container.innerHTML = `
-            <div class="cart-items-panel cart-empty-state">
+            <div class="cart-empty-window-card">
                 <div class="cart-empty-icon-wrap">
-                    <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#c5894e" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
                         <circle cx="9" cy="21" r="1"></circle>
                         <circle cx="20" cy="21" r="1"></circle>
                         <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
                     </svg>
                 </div>
-                <h2 class="cart-empty-title">Your shopping cart is empty</h2>
-                <p class="cart-empty-subtitle">
-                    Explore our collection of precision CCTV cameras, 4G solar systems, and surveillance accessories at direct wholesale rates.
+                <h2 class="cart-empty-headline">Your shopping cart is currently empty</h2>
+                <p class="cart-empty-subtext">
+                    Browse genuine 4G solar PTZ cameras, commercial Wi-Fi systems, and surveillance infrastructure at direct wholesale prices.
                 </p>
-                <a href="index.html#cameras" class="cart-empty-cta">
-                    <span>EXPLORE ALL CAMERAS &rarr;</span>
-                </a>
+                <div class="cart-empty-actions">
+                    <button type="button" class="btn-cart-empty-browse" onclick="returnToStore()">
+                        EXPLORE SURVEILLANCE CATALOG &rarr;
+                    </button>
+                </div>
             </div>
         `;
         return;
@@ -131,37 +141,41 @@ function renderCart() {
     let itemsHtml = '';
 
     cart.forEach((item, index) => {
-        const qty = item.quantity || 1;
+        const qty = item.qty || 1;
         const itemTotal = item.price * qty;
         subtotal += itemTotal;
+        const mrpHtml = item.mrp ? `<span class="cwi-mrp">${escapeHtml(item.mrp)}</span>` : '';
+        const saveHtml = item.save ? `<span class="cwi-save-tag">${escapeHtml(item.save)}</span>` : '';
 
         itemsHtml += `
-            <div class="cart-item-row" data-index="${index}">
-                <div class="cart-item-img-box">
-                    <img src="${normalizeImgPath(item.img || item.image)}" onerror="this.onerror=null;this.src='assets/idada_q2i35s_1.jpg';" alt="${escapeHtml(item.name)}" class="cart-item-img">
+            <div class="cart-window-item-card" data-index="${index}">
+                <div class="cwi-thumbnail-box">
+                    <img src="${normalizeImgPath(item.img)}" onerror="this.onerror=null;this.src='assets/official_bestseller_idada_q2i.jpg';" alt="${escapeHtml(item.title)}" class="cwi-thumbnail-img">
                 </div>
-                <div class="cart-item-info">
-                    <div class="cart-item-badge-wrap">
-                        <span class="cart-item-badge">GENUINE HARDWARE</span>
+                <div class="cwi-meta-col">
+                    <div class="cwi-brand-row">
+                        <span class="cwi-brand-badge">${escapeHtml(item.brand)}</span>
+                        ${saveHtml}
                     </div>
-                    <h3 class="cart-item-name">${escapeHtml(item.name)}</h3>
-                    <div class="cart-item-meta">
-                        <span class="cart-item-unit-price">&#8377;${item.price.toLocaleString('en-IN')} each</span>
-                        <span class="cart-item-warranty">&bull; Official 1-Yr Warranty</span>
+                    <h3 class="cwi-title">${escapeHtml(item.title)}</h3>
+                    <div class="cwi-unit-price-row">
+                        <span class="cwi-unit-price">&#8377;${item.price.toLocaleString('en-IN')}</span>
+                        ${mrpHtml}
+                        <span class="cwi-warranty-label">&bull; Official 1-Yr Brand Warranty</span>
                     </div>
                 </div>
-                <div class="cart-item-actions-cell">
-                    <div class="cart-qty-control">
-                        <button type="button" class="cart-qty-btn minus" onclick="updateItemQty(${index}, -1)" aria-label="Decrease quantity">&minus;</button>
-                        <span class="cart-qty-val">${qty}</span>
-                        <button type="button" class="cart-qty-btn plus" onclick="updateItemQty(${index}, 1)" aria-label="Increase quantity">+</button>
+                <div class="cwi-controls-col">
+                    <div class="cwi-qty-stepper">
+                        <button type="button" class="cwi-btn-qty minus" onclick="updateItemQty(${index}, -1)" aria-label="Decrease quantity">&minus;</button>
+                        <span class="cwi-qty-val">${qty}</span>
+                        <button type="button" class="cwi-btn-qty plus" onclick="updateItemQty(${index}, 1)" aria-label="Increase quantity">&#43;</button>
                     </div>
-                    <div class="cart-item-subtotal-cell">
-                        <span class="cart-item-subtotal-label">Subtotal</span>
-                        <span class="cart-item-subtotal-amount">&#8377;${itemTotal.toLocaleString('en-IN')}</span>
+                    <div class="cwi-subtotal-block">
+                        <span class="cwi-subtotal-label">Subtotal</span>
+                        <span class="cwi-subtotal-val">&#8377;${itemTotal.toLocaleString('en-IN')}</span>
                     </div>
-                    <button type="button" class="cart-item-remove-btn" onclick="removeItem(${index})" title="Remove item" aria-label="Remove item">
-                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <button type="button" class="cwi-btn-remove" onclick="removeItem(${index})" title="Remove item">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
                             <polyline points="3 6 5 6 21 6"></polyline>
                             <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
                         </svg>
@@ -172,114 +186,156 @@ function renderCart() {
         `;
     });
 
-    const gstAmount = Math.round(subtotal * 0.18 / 1.18); // inclusive 18% calculation
+    const gstAmount = Math.round(subtotal * 0.18 / 1.18);
     const baseAmount = subtotal - gstAmount;
     const grandTotal = subtotal;
 
+    // Build WhatsApp Order Link
+    let waMsg = `Hello Syber Space, I am placing an order from my Shopping Cart Window:
+
+`;
+    cart.forEach((item, idx) => {
+        waMsg += `${idx + 1}. ${item.title} (${item.brand})
+   Qty: ${item.qty} × Rs. ${item.price.toLocaleString('en-IN')} = Rs. ${(item.price * item.qty).toLocaleString('en-IN')}
+
+`;
+    });
+    waMsg += `--------------------------------
+`;
+    waMsg += `Total Payable: Rs. ${grandTotal.toLocaleString('en-IN')}
+`;
+    waMsg += `Delivery: Free Insured Pan-India Express
+
+`;
+    waMsg += `Please provide dispatch details and bank / UPI payment options.`;
+
+    const waHref = `https://wa.me/917511180808?text=${encodeURIComponent(waMsg)}`;
+
     container.innerHTML = `
-        <div class="cart-layout">
-            <!-- Left: Cart Items List -->
-            <div class="cart-items-panel">
-                <div class="cart-items-header-bar">
-                    <span class="cart-items-heading">Cart Items (${cart.reduce((sum, item) => sum + (item.quantity || 1), 0)})</span>
-                    <a href="index.html#cameras" class="cart-add-more-link">+ Add More Products</a>
+        <div class="cart-window-grid-layout">
+            
+            <!-- Left Column: Items List & Guarantees -->
+            <div class="cart-items-column">
+                <div class="cwi-items-header-bar">
+                    <span class="cwi-heading">Procurement Items (${cart.reduce((sum, item) => sum + item.qty, 0)})</span>
+                    <button type="button" class="cwi-add-more-btn" onclick="returnToStore()">
+                        + Add More Products
+                    </button>
                 </div>
-                <div class="cart-items-list">
+
+                <div class="cart-items-cards-list">
                     ${itemsHtml}
                 </div>
-                <div class="cart-guarantee-bar">
-                    <div class="guarantee-pill">
-                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-                        <span>100% Genuine Certified Hardware</span>
+
+                <!-- Unboxing Video Policy Notice Card -->
+                <div class="cart-unboxing-notice-card">
+                    <div class="cun-icon-wrap">
+                        <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#c5894e" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                            <polygon points="23 7 16 12 23 17 23 7"></polygon>
+                            <rect x="1" y="5" width="15" height="14" rx="2" ry="2"></rect>
+                        </svg>
                     </div>
-                    <div class="guarantee-pill">
-                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="3" width="15" height="13"></rect><polygon points="16 8 20 8 23 11 23 16 16 16 8"></polygon><circle cx="5.5" cy="18.5" r="2.5"></circle><circle cx="18.5" cy="18.5" r="2.5"></circle></svg>
+                    <div class="cun-text-wrap">
+                        <strong class="cun-title">Continuous Unboxing Video Policy</strong>
+                        <p class="cun-desc">
+                            To ensure an effortless, zero-delay customer support experience, please record a continuous, uncut video while unboxing your package upon delivery. This provides instant verification for rapid replacement dispatch.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Trust Badges Strip -->
+                <div class="cart-trust-badges-strip">
+                    <div class="ctb-item">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#241610" stroke-width="2.2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                        <span>100% Genuine Authorized Hardware</span>
+                    </div>
+                    <div class="ctb-item">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#241610" stroke-width="2.2"><rect x="1" y="3" width="15" height="13"></rect><polygon points="16 8 20 8 23 11 23 16 16 16 8"></polygon><circle cx="5.5" cy="18.5" r="2.5"></circle><circle cx="18.5" cy="18.5" r="2.5"></circle></svg>
                         <span>Free Insured Pan-India Express Delivery</span>
                     </div>
-                    <div class="guarantee-pill">
-                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+                    <div class="ctb-item">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#241610" stroke-width="2.2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>
                         <span>Official GST Tax Invoice Included</span>
                     </div>
                 </div>
+
             </div>
 
-            <!-- Right: Order Summary & Checkout -->
-            <div class="cart-summary-panel">
-                <div class="cart-summary-card">
-                    <h2 class="cart-summary-title">Order Summary</h2>
-                    <div class="cart-summary-rows">
-                        <div class="cart-summary-row">
-                            <span>Taxable Subtotal</span>
-                            <span class="summary-val">&#8377;${baseAmount.toLocaleString('en-IN')}</span>
+            <!-- Right Column: Order Summary & Checkout -->
+            <div class="cart-summary-column">
+                <div class="cart-order-summary-card">
+                    <h2 class="cos-title">Order Summary</h2>
+                    
+                    <div class="cos-rows-list">
+                        <div class="cos-row">
+                            <span class="cos-label">Taxable Subtotal</span>
+                            <span class="cos-val">&#8377;${baseAmount.toLocaleString('en-IN')}</span>
                         </div>
-                        <div class="cart-summary-row">
-                            <span>GST (18% Included)</span>
-                            <span class="summary-val">&#8377;${gstAmount.toLocaleString('en-IN')}</span>
+                        <div class="cos-row">
+                            <span class="cos-label">GST (18% Included)</span>
+                            <span class="cos-val">&#8377;${gstAmount.toLocaleString('en-IN')}</span>
                         </div>
-                        <div class="cart-summary-row">
-                            <span>Insured Pan-India Delivery</span>
-                            <span class="summary-val free-delivery">FREE</span>
+                        <div class="cos-row">
+                            <span class="cos-label">Insured Express Courier</span>
+                            <span class="cos-val cos-val-free">FREE</span>
                         </div>
-                        <div class="cart-summary-row total-row">
-                            <span>Total Payable</span>
-                            <span class="summary-total-val">&#8377;${grandTotal.toLocaleString('en-IN')}</span>
+                        <div class="cos-divider"></div>
+                        <div class="cos-row cos-total-row">
+                            <span class="cos-total-label">Estimated Total</span>
+                            <span class="cos-total-amount">&#8377;${grandTotal.toLocaleString('en-IN')}</span>
                         </div>
                     </div>
 
                     <!-- Checkout Actions -->
-                    <button type="button" class="cart-checkout-btn" onclick="initiateHdfcCheckout(${grandTotal})">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
-                        <span>PROCEED TO SECURE CHECKOUT</span>
-                    </button>
+                    <div class="cos-actions-block">
+                        <a href="${waHref}" target="_blank" rel="noopener noreferrer" class="btn-cos-whatsapp">
+                            <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+                                <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2z"/>
+                                <path fill="#FFFFFF" d="M17.47 14.38c-.28-.14-1.66-.82-1.92-.91-.26-.1-.45-.14-.64.14-.19.28-.73.91-.9 1.1-.17.19-.34.21-.62.07-.28-.14-1.18-.44-2.25-1.4-.83-.74-1.39-1.66-1.55-1.94-.16-.28-.02-.43.12-.57.13-.13.28-.34.42-.51.14-.17.19-.28.28-.47.1-.19.05-.35-.02-.5-.07-.14-.64-1.54-.88-2.11-.23-.55-.47-.48-.64-.49-.17-.01-.36-.01-.56-.01-.2 0-.52.07-.79.37-.27.29-1.04 1.02-1.04 2.48 0 1.46 1.06 2.87 1.21 3.07.15.2 2.09 3.19 5.06 4.47.71.31 1.26.49 1.69.63.71.23 1.36.2 1.87.12.57-.09 1.66-.68 1.9-1.33.23-.65.23-1.21.16-1.33-.07-.12-.26-.19-.54-.33z"/>
+                            </svg>
+                            <span>ORDER VIA WHATSAPP &rarr;</span>
+                        </a>
 
-                    <a href="https://wa.me/917511180808?text=${encodeURIComponent('Hello Syber Space, I am reviewing my shopping cart with total ' + '₹' + grandTotal.toLocaleString('en-IN') + '. Please assist me with this order.')}" target="_blank" rel="noopener noreferrer" class="cart-whatsapp-btn">
-                        <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
-                        <span>WhatsApp Quick Assistance</span>
-                    </a>
+                        <button type="button" class="btn-cos-online" onclick="initiateHdfcCheckout(${grandTotal})">
+                            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2">
+                                <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                                <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                            </svg>
+                            <span>PAY ONLINE (HDFC SMARTGATEWAY)</span>
+                        </button>
 
-                    <div class="cart-trust-badges-box">
-                        <div class="trust-badge-row">
-                            <span class="trust-badge-tag">HDFC BANK</span>
-                            <span>256-Bit SSL SmartGateway&reg; Checkout</span>
+                        <button type="button" class="btn-cos-continue" onclick="returnToStore()">
+                            &larr; CONTINUE SHOPPING
+                        </button>
+                    </div>
+
+                    <!-- Security & Gateway Endorsement -->
+                    <div class="cos-security-footer">
+                        <div class="csf-row">
+                            <span class="csf-badge">HDFC BANK</span>
+                            <span>256-Bit SSL SmartGateway Payment Rail</span>
                         </div>
-                        <div class="trust-badge-row">
-                            <span class="trust-badge-tag">WARRANTY</span>
-                            <span>100% Original Manufacturer Warranty</span>
-                        </div>
-                        <div class="trust-badge-row">
-                            <span class="trust-badge-tag">DISPATCH</span>
-                            <span>Insured Pan-India Express Delivery</span>
+                        <div class="csf-row">
+                            <span class="csf-badge">DISPATCH</span>
+                            <span>Warehouse Dispatch: Kerala HQ // Pan-India</span>
                         </div>
                     </div>
+
                 </div>
             </div>
+
         </div>
     `;
-
-    if (typeof gsap !== 'undefined') {
-        const rows = container.querySelectorAll('.cart-item-row');
-        if (rows.length > 0) {
-            gsap.fromTo(rows,
-                { opacity: 0, y: 12 },
-                { opacity: 1, y: 0, duration: 0.3, stagger: 0.04, ease: 'power2.out', clearProps: 'transform,opacity' }
-            );
-        }
-        const summaryPanel = container.querySelector('.cart-summary-panel');
-        if (summaryPanel) {
-            gsap.fromTo(summaryPanel,
-                { opacity: 0, y: 14 },
-                { opacity: 1, y: 0, duration: 0.35, delay: 0.05, ease: 'power2.out', clearProps: 'transform,opacity' }
-            );
-        }
-    }
 }
 
 function updateItemQty(index, delta) {
     const cart = getCart();
     if (!cart[index]) return;
 
-    cart[index].quantity = (cart[index].quantity || 1) + delta;
-    if (cart[index].quantity <= 0) {
+    cart[index].qty = (cart[index].qty || 1) + delta;
+    cart[index].quantity = cart[index].qty;
+
+    if (cart[index].qty <= 0) {
         cart.splice(index, 1);
     }
 
@@ -294,9 +350,6 @@ function removeItem(index) {
     renderCart();
 }
 
-// ==========================================================================
-// HDFC BANK SMARTGATEWAY™ PAYMENT LOGIC
-// ==========================================================================
 
 function initiateHdfcCheckout(total) {
     activeCheckoutTotal = total;

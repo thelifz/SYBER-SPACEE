@@ -3,172 +3,130 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shopping Cart &bull; SYBER SPACE Precision Surveillance</title>
-    <!-- Google Fonts: Plus Jakarta Sans & Inter -->
+    <title>Shopping Cart &bull; SYBER SPACE The Surveillance Store</title>
+    <meta name="description" content="Verified commercial CCTV shopping cart and wholesale procurement terminal. Direct dispatch from Kerala warehouse.">
+    
+    <!-- Google Fonts: Inter & Space Grotesk -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css?v=6.1">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css?v=7.0">
 </head>
-<body>
+<body class="jeko-theme-white cart-window-body">
 
     <!-- ======================================================================
-         JESKO JETS ARCHITECTURE: BRIGHT SYMMETRICAL HEADER
+         CART WINDOW FLOATING LUXURY HEADER
+         Clean Apple/iPhone glass pill matching the main site
          ====================================================================== -->
-        <header class="header" id="main-header">
-        <!-- Tier 1: Main Commercial Bar -->
-        <div class="header-top-bar">
-            <!-- Brand Logo (Left) -->
-            <a href="index.html" class="header-brand" title="SYBER SPACE - The Surveillance Store">
-                <div class="brand-crest">
-                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+    <div class="iphone-header-wrapper">
+        <header class="iphone-header-glass cart-header-glass">
+            
+            <!-- Left: Brand Logo & Slogan -->
+            <a href="index.html" class="iphone-brand-group" title="Back to Syber Space Store">
+                <div class="iphone-logo-squircle">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
                         <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-                        <circle cx="12" cy="11" r="3"/>
-                        <line x1="12" y1="8" x2="12" y2="8.01"/>
+                        <circle cx="12" cy="11" r="3" fill="currentColor"/>
                     </svg>
                 </div>
-                <div class="brand-text-block">
-                    <span class="brand-title">SYBER <span class="logo-gold">SPACE</span></span>
-                    <span class="brand-tagline">THE SURVEILLANCE STORE</span>
+                <div class="iphone-brand-text">
+                    <span class="brand-title">SYBER SPACE</span>
+                    <span class="brand-slogan">THE SURVEILLANCE STORE</span>
                 </div>
             </a>
 
-            <!-- Search Bar in the Middle (Wide, Stretched, Professional) -->
-            <div class="header-search-wrap">
-                <form class="header-search-form" onsubmit="event.preventDefault(); onHeaderSearchSubmit();">
-                    <input type="text" id="header-search-input" class="header-search-input" placeholder="Search for products, brands, categories, Trueview, iDADA..." onkeydown="onSubpageSearchKeyDown(event)" autocomplete="off" spellcheck="false">
-                    <button type="submit" class="header-search-submit-btn" aria-label="Search Catalog">
-                        <svg class="search-submit-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                            <circle cx="11" cy="11" r="8"></circle>
-                            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-                        </svg>
-                    </button>
-                </form>
+            <!-- Center: Status Callout -->
+            <div class="cart-header-status-pill">
+                <span class="ch-dot"></span>
+                <span class="ch-text">COMMERCIAL PROCUREMENT &bull; DIRECT DISPATCH</span>
             </div>
 
-            <!-- Commercial Actions (Right: WhatsApp, Phone, Cart) -->
-            <div class="header-actions">
-                <a href="https://wa.me/917511180808?text=Hello%20Syber%20Space%2C%20I%20have%20an%20inquiry." target="_blank" rel="noopener noreferrer" class="header-action-item whatsapp-action">
-                    <svg class="action-icon wa-icon" width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
-                    </svg>
-                    <div class="action-text-block">
-                        <span class="action-sub">WhatsApp</span>
-                        <span class="action-main">Get Support</span>
-                    </div>
-                </a>
-                <a href="tel:+917511180808" class="header-action-item phone-action">
-                    <div class="action-text-block">
-                        <span class="action-sub">Call Us</span>
-                        <span class="action-main">+91 75111 80808</span>
-                    </div>
-                </a>
-                <a href="cart.html" class="header-action-item cart-action" aria-label="Shopping Cart">
-                    <div class="cart-icon-wrapper">
-                        <svg class="cart-action-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <circle cx="9" cy="21" r="1"></circle>
-                            <circle cx="20" cy="21" r="1"></circle>
-                            <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+            <!-- Right: Concierge & Store Navigation -->
+            <div class="iphone-actions-group">
+                
+                <!-- WhatsApp Concierge -->
+                <a href="https://wa.me/917511180808?text=Hello%20Syber%20Space%2C%20I%20am%20reviewing%20my%20cart%20and%20need%20assistance." target="_blank" rel="noopener noreferrer" class="iphone-action-link">
+                    <div class="ia-icon-wrap wa-icon-color">
+                        <svg viewBox="0 0 24 24" width="28" height="28" fill="none">
+                            <path fill="#25D366" d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2z"/>
+                            <path fill="#FFFFFF" d="M17.47 14.38c-.28-.14-1.66-.82-1.92-.91-.26-.1-.45-.14-.64.14-.19.28-.73.91-.9 1.1-.17.19-.34.21-.62.07-.28-.14-1.18-.44-2.25-1.4-.83-.74-1.39-1.66-1.55-1.94-.16-.28-.02-.43.12-.57.13-.13.28-.34.42-.51.14-.17.19-.28.28-.47.1-.19.05-.35-.02-.5-.07-.14-.64-1.54-.88-2.11-.23-.55-.47-.48-.64-.49-.17-.01-.36-.01-.56-.01-.2 0-.52.07-.79.37-.27.29-1.04 1.02-1.04 2.48 0 1.46 1.06 2.87 1.21 3.07.15.2 2.09 3.19 5.06 4.47.71.31 1.26.49 1.69.63.71.23 1.36.2 1.87.12.57-.09 1.66-.68 1.9-1.33.23-.65.23-1.21.16-1.33-.07-.12-.26-.19-.54-.33z"/>
                         </svg>
-                        <span class="cart-badge-count" id="header-cart-badge">0</span>
                     </div>
-                    <div class="action-text-block cart-text-block">
-                        <span class="action-sub">Shopping</span>
-                        <span class="action-main">Cart</span>
+                    <div class="ia-text-col">
+                        <span class="ia-sub-label">WhatsApp</span>
+                        <strong class="ia-main-val">Get Support</strong>
                     </div>
                 </a>
-            </div>
 
-            <!-- Mobile Header Actions (Cart Icon & Hamburger) -->
-            <div class="mobile-header-actions">
-                <a href="cart.html" class="mobile-header-cart-icon" aria-label="View Shopping Cart">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <circle cx="9" cy="21" r="1"></circle>
-                        <circle cx="20" cy="21" r="1"></circle>
-                        <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
-                    </svg>
-                    <span class="mobile-header-cart-badge" id="mobile-header-cart-badge">0</span>
+                <!-- Phone Support -->
+                <a href="tel:+917511180808" class="iphone-action-link desktop-only">
+                    <div class="ia-text-col">
+                        <span class="ia-sub-label">Call Warehouse</span>
+                        <strong class="ia-main-val">+91 75111 80808</strong>
+                    </div>
                 </a>
-                <button class="btn-menu" id="mobile-menu-toggle" aria-label="Toggle navigation menu">
-                    <span></span>
-                    <span></span>
-                    <span></span>
+
+                <!-- Back to Store / Close Window Button -->
+                <button type="button" class="btn-cart-back-store" onclick="returnToStore()">
+                    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="19" y1="12" x2="5" y2="12"></line>
+                        <polyline points="12 19 5 12 12 5"></polyline>
+                    </svg>
+                    <span>BACK TO STORE</span>
                 </button>
-            </div>
-        </div>
 
-        <!-- Tier 2: Category Navigation Strip (Row 2) -->
-        <div class="header-nav-strip">
-            <div class="header-nav-strip-inner">
-                <a href="index.html#cameras" class="cat-nav-link active">All Cameras</a>
-                <a href="index.html#cameras" class="cat-nav-link">Wi-Fi Cameras</a>
-                <a href="index.html#cameras" class="cat-nav-link">4G SIM Cameras</a>
-                <a href="index.html#cameras" class="cat-nav-link">PoE Switches</a>
-                <a href="index.html#cameras" class="cat-nav-link">NVR &amp; DVR</a>
-                <a href="index.html?slide=2#hero-viewport" class="cat-nav-link deal-link">
-                    <span class="deal-dot"></span> Deals &amp; Offers
-                </a>
-                <a href="index.html?slide=0#hero-viewport" class="cat-nav-link">Live Demo</a>
-                <a href="index.html#why-us" class="cat-nav-link">Why Syber Space</a>
-                <a href="index.html#about" class="cat-nav-link">About Us</a>
             </div>
-        </div>
-    </header>
 
-    <!-- Mobile Slideout Overlay -->
-    <div class="mobile-menu-overlay" id="mobile-menu-overlay">
-        <a href="index.html#cameras" class="nav-item mobile-link">Cameras</a>
-        <a href="index.html?slide=2#hero-viewport" class="nav-item mobile-link">Deals</a>
-        <a href="index.html?slide=0#hero-viewport" class="nav-item mobile-link">Live Demo</a>
-        <a href="index.html#why-us" class="nav-item mobile-link">Why Syber Space</a>
-        <a href="index.html#about" class="nav-item mobile-link">About Us</a>
-        <a href="tel:+917511180808" class="nav-item mobile-link">+91 75111 80808</a>
-        <a href="mailto:info@syberspace.in" class="nav-item mobile-link">info@syberspace.in</a>
-        <a href="cart.html" class="nav-item cart-pill mobile-link cart-counter-label">Shopping Cart (0)</a>
+        </header>
     </div>
 
     <!-- ======================================================================
-         JESKO JETS BRIGHT CART & PROCUREMENT REVIEW
+         DEDICATED CART WINDOW CONTENT
          ====================================================================== -->
-    <section class="cart-page-section">
-        <div class="cart-page-container">
-            <!-- Header Block -->
-            <div class="cart-header-block">
-                <div class="cart-kicker">
-                    <span>COMMERCIAL PROCUREMENT</span>
+    <main class="cart-window-main">
+        <div class="cart-window-container">
+            
+            <!-- Window Title Block -->
+            <div class="cart-win-header-block">
+                <div class="cart-win-kicker-row">
+                    <span class="cart-win-kicker">VERIFIED COMMERCIAL BASKET</span>
+                    <span class="cart-win-items-count" id="cart-total-badge">0 ITEMS</span>
                 </div>
-                <h1 class="cart-title">Shopping Cart</h1>
-                <p class="cart-desc">
-                    Insured express delivery across India. Official manufacturer warranty, GST tax invoice included, and zero monthly fees.
+                <h1 class="cart-win-title">Procurement &amp; Shopping Cart</h1>
+                <p class="cart-win-subtitle">
+                    Official authorized hardware with 100% genuine manufacturer warranty, GST tax invoice, and insured express delivery across India.
                 </p>
             </div>
 
-            <!-- Dynamic Cart Content -->
+            <!-- Dynamic Cart Content Wrapper -->
             <div id="cart-content-wrapper">
-                <!-- Injected via cart.js?v=5.0 -->
+                <!-- Rendered dynamically by cart.js -->
             </div>
+
         </div>
-    </section>
+    </main>
 
     <!-- ======================================================================
-         HDFC BANK SMARTGATEWAY™ MULTI-RAIL CHECKOUT TERMINAL
-         Zero Box: Clean Minimalist Sand Modal with Hairlines & Official Badges
+         HDFC BANK SMARTGATEWAY MULTI-RAIL CHECKOUT TERMINAL
+         Clean Minimalist Modal for Card / UPI / NetBanking
          ====================================================================== -->
     <div id="hdfc-checkout-modal" class="hdfc-overlay" role="dialog" aria-modal="true" aria-labelledby="hdfc-modal-title">
         <div class="hdfc-terminal-window">
+            
             <!-- Terminal Header -->
             <div class="hdfc-header-bar">
                 <div class="hdfc-header-brand">
                     <span class="hdfc-logo-box">HDFC BANK</span>
                     <div class="hdfc-header-title">
-                        <span class="hdfc-title-main" id="hdfc-modal-title">SmartGateway™ 256-Bit SSL Payment Engine</span>
+                        <span class="hdfc-title-main" id="hdfc-modal-title">SmartGateway 256-Bit SSL Payment Engine</span>
                         <span class="hdfc-title-sub">Authorized Wholesale Merchant Terminal // Kerala HQ</span>
                     </div>
                 </div>
-                <button type="button" class="hdfc-close-btn" onclick="closeHdfcModal()" aria-label="Close Payment Terminal">ESC / ✕</button>
+                <button type="button" class="hdfc-close-btn" onclick="closeHdfcModal()" aria-label="Close Payment Terminal">ESC / &times;</button>
             </div>
 
-            <!-- Live Telemetry & Amount Strip -->
+            <!-- Live Telemetry Strip -->
             <div class="hdfc-telemetry-strip">
                 <div>
                     <span>MERCHANT: <strong>SYBER SPACE DIRECT</strong></span>
@@ -179,142 +137,23 @@
                 </div>
                 <div style="display:flex; align-items:baseline; gap:8px;">
                     <span style="font-size:0.75rem;">PAYABLE:</span>
-                    <span class="hdfc-amount-callout" id="hdfc-total-amount">₹0</span>
+                    <span class="hdfc-amount-callout" id="hdfc-total-amount">&#8377;0</span>
                 </div>
             </div>
 
-            <!-- Terminal Body (Step Views) -->
+            <!-- Terminal Body -->
             <div class="hdfc-modal-body" id="hdfc-modal-body">
-                <!-- Content dynamically populated via cart.js?v=5.0: Step 1 (Billing), Step 2 (Rails), Step 3 (Processing/Invoice) -->
+                <!-- Populated via cart.js -->
             </div>
+
         </div>
     </div>
 
-    <!-- ======================================================================
-         JESKO JETS BRIGHT EDITORIAL FOOTER
-         ====================================================================== -->
-    <!-- ======================================================================
-         DEDICATED WHOLESALE & TENDER WHATSAPP CONCIERGE (PLACED ONLY ABOVE FOOTER)
-         ====================================================================== -->
-    <section class="footer-whatsapp-section" id="wholesale-concierge">
-        <div class="footer-whatsapp-container">
-            <div class="footer-whatsapp-content">
-                <div class="footer-whatsapp-kicker">WHOLESALE &amp; BULK INQUIRIES</div>
-                <h2 class="footer-whatsapp-title">Project &amp; Commercial Orders</h2>
-                <p class="footer-whatsapp-desc">
-                    Connect on WhatsApp for volume discounts, project quotes, and bulk orders directly from our Kerala warehouse.
-                </p>
-            </div>
-            <div class="footer-whatsapp-actions">
-                <a href="https://wa.me/917511180808?text=Hello%20Syber%20Space%2C%20I%20have%20a%20wholesale%20%2F%20bulk%20CCTV%20inquiry." target="_blank" rel="noopener noreferrer" class="whatsapp-concierge-btn">
-                    <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
-                    </svg>
-                    <span>CHAT ON WHATSAPP (+91 75111 80808)</span>
-                </a>
-                <span class="whatsapp-concierge-note">Wholesale Pricing • Direct Dispatch</span>
-            </div>
-        </div>
-    </section>
+    <!-- Toast Notification -->
+    <div class="toast-notify" id="toast-notify"></div>
 
-    <footer class="footer" id="contact">
-        <div class="footer-container">
-            <div class="footer-top">
-                <div>
-                    <h2 class="footer-headline">
-                        Securing every perimeter with total clarity and control.
-                    </h2>
-                </div>
-                <div class="footer-inquiries-box">
-                    <span class="footer-inquiries-title">For Inquiries</span>
-                    <div class="footer-contact-links">
-                        <a href="mailto:info@syberspace.in" class="footer-contact-link">
-                            info@syberspace.in
-                        </a>
-                        <a href="tel:+917511180808" class="footer-contact-link">
-                            +91 75111 80808
-                        </a>
-                    </div>
-                    <p class="footer-location">
-                        Syber Space Security Systems<br>
-                        Kerala HQ // Pan-India Fast Courier Dispatch
-                    </p>
-                </div>
-            </div>
-
-            <!-- Regulatory Payment Schemes -->
-            <div class="footer-payment-schemes">
-                <span class="schemes-left-title">Verified Payment Rails & Security Standards:</span>
-                <div class="schemes-pills-wrap">
-                    <span class="scheme-pill hdfc">HDFC Bank SmartGateway™</span>
-                    <span class="scheme-pill secure">PCI-DSS Level 1</span>
-                    <span class="scheme-pill">256-Bit SSL</span>
-                    <span class="scheme-pill">UPI / QR</span>
-                    <span class="scheme-pill">Visa Secure</span>
-                    <span class="scheme-pill">Mastercard ID Check</span>
-                    <span class="scheme-pill">RuPay</span>
-                    <span class="scheme-pill">NetBanking (50+ Banks)</span>
-                </div>
-            </div>
-
-            <div class="footer-bottom">
-                <div>
-                    © 2026 SYBER SPACE SECURITY SYSTEMS. ALL RIGHTS RESERVED.
-                </div>
-                <div class="footer-bottom-links">
-                    <a href="privacy.html">Privacy Policy</a>
-                    <a href="terms.html">Terms of Procurement</a>
-                    <a href="refund-policy.html">Cancellation & Refunds</a>
-                    <a href="shipping-policy.html">Shipping & Delivery</a>
-                    <a href="contact.html">Contact & Grievance</a>
-                </div>
-                <div>
-                    ENGINEERED FOR SYBER SPACE
-                </div>
-            </div>
-        </div>
-    </footer>
-
-    <!-- GSAP Animation Engine -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-    <script src="cookie-location.js?v=3.6"></script>
-    <script src="cart.js?v=5.0"></script>
-
-    <!-- ======================================================================
-         AMAZON-STYLE MOBILE BOTTOM NAVIGATION BAR (PHONE SCREEN ONLY)
-         ====================================================================== -->
-    <nav class="mobile-bottom-nav" id="mobile-bottom-nav" aria-label="Mobile Navigation">
-        <a href="index.html#cameras" class="mb-nav-item" id="mb-nav-arsenal">
-            <svg class="mb-nav-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
-                <polyline points="9 22 9 12 15 12 15 22"></polyline>
-            </svg>
-            <span class="mb-nav-label">Catalog</span>
-        </a>
-        <a href="index.html#hero-viewport" class="mb-nav-item" id="mb-nav-deals">
-            <svg class="mb-nav-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
-            </svg>
-            <span class="mb-nav-label">Deals</span>
-        </a>
-        <a href="cart.html" class="mb-nav-item active" id="mb-nav-cart">
-            <div class="mb-cart-wrap">
-                <svg class="mb-nav-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <circle cx="9" cy="21" r="1"></circle>
-                    <circle cx="20" cy="21" r="1"></circle>
-                    <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
-                </svg>
-                <span class="mb-cart-badge" id="mb-cart-badge">0</span>
-            </div>
-            <span class="mb-nav-label">Cart</span>
-        </a>
-        <a href="https://wa.me/917511180808?text=Hello%20Syber%20Space%2C%20I%20have%20a%20wholesale%20%2F%20bulk%20CCTV%20inquiry." target="_blank" rel="noopener noreferrer" class="mb-nav-item" id="mb-nav-whatsapp">
-            <svg class="mb-nav-icon" width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
-            </svg>
-            <span class="mb-nav-label">Wholesale</span>
-        </a>
-    </nav>
-
+    <!-- Scripts -->
+    <script src="products_data.js"></script>
+    <script src="cart.js"></script>
 </body>
 </html>
