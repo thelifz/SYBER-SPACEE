@@ -372,7 +372,7 @@ function performSearch(query) {
     resultsContainer.innerHTML = displayList.map(item => {
         const img = (item.images && item.images.length > 0) ? item.images[0] : 'assets/official_bestseller_idada_q2i.jpg';
         return `
-            <div class="jeko-search-item" onclick="addToCartById('${item.id}')">
+            <div class="jeko-search-item" onclick="window.location.href='product.html?id=' + encodeURIComponent('${item.id}')">
                 <img src="${img}" alt="${item.title}" class="jsi-img" onerror="this.src='assets/official_bestseller_idada_q2i.jpg'">
                 <div class="jsi-info">
                     <div class="jsi-title">${item.title}</div>
@@ -608,10 +608,10 @@ function renderProductsGrid(list, label) {
                     <span class="lpc-brand-pill">${brand}</span>
                     ${saveBadge}
                 </div>
-                <div class="lpc-img-wrap">
+                <div class="lpc-img-wrap" onclick="window.location.href='product.html?id=${p.id}'" style="cursor: pointer;">
                     <img src="${img}" alt="${p.title}" class="lpc-img" loading="lazy" onerror="this.src='assets/hero_product_solar_v2.png'">
                 </div>
-                <div class="lpc-title" title="${p.title}">${p.title}</div>
+                <div class="lpc-title" title="${p.title}" onclick="window.location.href='product.html?id=${p.id}'" style="cursor: pointer;">${p.title}</div>
                 <div class="lpc-chips">${chipsHtml}</div>
                 <div class="lpc-price-row">
                     <div class="lpc-price">&#8377;${Number(p.price).toLocaleString('en-IN')}</div>
