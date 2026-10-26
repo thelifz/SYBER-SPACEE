@@ -3113,12 +3113,12 @@ body.jeko-theme-white {
 }
 
 /* ==========================================================================
-   WHY CHOOSE US SECTION (MANIFESTO)
+   WHY CHOOSE US SECTION (CLEAN EDITORIAL COLUMNS, NO BOX)
    ========================================================================== */
 .why-us-section {
-    padding: 5.5rem 0 6rem;
+    padding: 5rem 0 5.5rem;
     position: relative;
-    background: #fffdfa;
+    background: transparent;
     border-top: 1px solid rgba(212, 163, 115, 0.2);
 }
 
@@ -3131,17 +3131,7 @@ body.jeko-theme-white {
 .why-us-header {
     text-align: center;
     max-width: 760px;
-    margin: 0 auto 3.5rem;
-}
-
-.why-us-kicker {
-    display: inline-block;
-    font-size: 0.76rem;
-    font-weight: 800;
-    letter-spacing: 0.14em;
-    color: #c5894e;
-    text-transform: uppercase;
-    margin-bottom: 0.75rem;
+    margin: 0 auto 3rem;
 }
 
 .why-us-title {
@@ -3151,54 +3141,37 @@ body.jeko-theme-white {
     color: #241610;
     line-height: 1.15;
     letter-spacing: -0.02em;
-    margin-bottom: 0.85rem;
-}
-
-.why-us-subtitle {
-    font-size: 1rem;
-    line-height: 1.65;
-    color: #6a4e3d;
 }
 
 .why-us-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 1.5rem;
+    gap: 2.25rem;
 }
 
 .why-us-card {
-    background: #ffffff;
-    border: 1px solid rgba(212, 163, 115, 0.28);
-    border-radius: 20px;
-    padding: 2rem 1.5rem 1.75rem;
+    background: transparent;
+    border: none;
+    border-radius: 0;
+    padding: 0;
     display: flex;
     flex-direction: column;
     position: relative;
-    transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-    box-shadow: 0 4px 16px rgba(50, 25, 14, 0.03);
+    box-shadow: none;
+    transition: transform 0.25s ease;
 }
 
 .why-us-card:hover {
-    transform: translateY(-5px);
-    border-color: #c5894e;
-    box-shadow: 0 16px 36px rgba(50, 25, 14, 0.08);
-}
-
-.why-us-card-num {
-    font-family: var(--font-mono, monospace);
-    font-size: 0.85rem;
-    font-weight: 800;
-    color: #c5894e;
-    margin-bottom: 0.4rem;
+    transform: translateY(-3px);
 }
 
 .why-us-card-badge {
-    font-size: 0.68rem;
+    font-size: 0.72rem;
     font-weight: 800;
-    letter-spacing: 0.08em;
+    letter-spacing: 0.1em;
     text-transform: uppercase;
-    color: #8c6a54;
-    margin-bottom: 0.85rem;
+    color: #c5894e;
+    margin-bottom: 0.65rem;
 }
 
 .why-us-card-title {
@@ -3207,28 +3180,13 @@ body.jeko-theme-white {
     font-weight: 900;
     line-height: 1.25;
     color: #241610;
-    margin-bottom: 0.75rem;
+    margin-bottom: 0.65rem;
 }
 
 .why-us-card-desc {
-    font-size: 0.88rem;
-    line-height: 1.6;
+    font-size: 0.92rem;
+    line-height: 1.65;
     color: #5c4335;
-    flex: 1;
-    margin-bottom: 1.25rem;
-}
-
-.why-us-card-footer {
-    padding-top: 0.85rem;
-    border-top: 1px dashed rgba(212, 163, 115, 0.3);
-}
-
-.why-check-tag {
-    font-family: var(--font-mono, monospace);
-    font-size: 0.76rem;
-    font-weight: 700;
-    color: #059669;
-    letter-spacing: 0.02em;
 }
 
 /* ==========================================================================
