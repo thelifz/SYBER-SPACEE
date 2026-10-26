@@ -19,45 +19,36 @@
          JEKOJETS-STYLE FLOATING LUXURY HEADER
          (Minimalist floating pill architecture with Search & WhatsApp)
          ====================================================================== -->
-    <div class="jeko-header-wrap">
-        <header class="jeko-header-bar">
+    <div class="iphone-header-wrapper">
+        <header class="iphone-header-glass">
             
-            <!-- Left: Brand Logo & Status Indicator -->
-            <div class="jeko-brand-block">
-                <a href="/" class="jeko-logo">
-                    <span class="jeko-logo-symbol">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
-                            <circle cx="12" cy="12" r="9"/>
-                            <circle cx="12" cy="12" r="3.5" fill="currentColor"/>
-                            <line x1="12" y1="3" x2="12" y2="6"/>
-                            <line x1="12" y1="18" x2="12" y2="21"/>
-                        </svg>
-                    </span>
-                    <div class="jeko-logo-text-group">
-                        <span class="jeko-logo-title">SYBER SPACE</span>
-                        <span class="jeko-logo-kicker">KERALA SURVEILLANCE HUB</span>
-                    </div>
-                </a>
-                <div class="jeko-status-pill desktop-only">
-                    <span class="status-pulse-dot"></span>
-                    <span class="status-label">DIRECT WHOLESALE</span>
+            <!-- Left: Brand Logo & Surveillance Store Slogan -->
+            <a href="/" class="iphone-brand-group">
+                <div class="iphone-logo-squircle">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                        <circle cx="12" cy="11" r="3" fill="currentColor"/>
+                    </svg>
                 </div>
-            </div>
+                <div class="iphone-brand-text">
+                    <span class="brand-title">SYBER SPACE</span>
+                    <span class="brand-slogan">THE SURVEILLANCE STORE</span>
+                </div>
+            </a>
 
-            <!-- Center: Integrated Jesko-Style Search Bar -->
-            <div class="jeko-search-container" id="jeko-search-box">
-                <div class="jeko-search-input-wrap">
-                    <span class="jeko-search-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                            <circle cx="11" cy="11" r="8"></circle>
-                            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            <!-- Center: Curvy Search Bar with Integrated Search Button -->
+            <div class="iphone-search-wrapper" id="jeko-search-box">
+                <div class="iphone-search-box">
+                    <input type="text" id="jeko-search-input" class="iphone-search-input" placeholder="Search for products, brands, categories, Trueview, iDADA..." autocomplete="off">
+                    <button type="button" class="btn-search-icon" aria-label="Search" onclick="triggerSearchAction()">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="11" cy="11" r="7.5"></circle>
+                            <line x1="21" y1="21" x2="16.5" y2="16.5"></line>
                         </svg>
-                    </span>
-                    <input type="text" id="jeko-search-input" class="jeko-search-input" placeholder="Search 4G solar, CP Plus, iDADA, SMPS, 4TB HDDs..." autocomplete="off">
-                    <button type="button" id="jeko-search-clear" class="jeko-search-clear" style="display: none;" aria-label="Clear Search">&times;</button>
+                    </button>
                 </div>
-                
-                <!-- Live Search Autocomplete / Quick Results Dropdown -->
+
+                <!-- Live Search Dropdown -->
                 <div class="jeko-search-dropdown" id="jeko-search-dropdown" style="display: none;">
                     <div class="jeko-search-quick-tags">
                         <span class="jst-label">POPULAR:</span>
@@ -71,29 +62,46 @@
                 </div>
             </div>
 
-            <!-- Right: WhatsApp Trigger & Cart Button -->
-            <div class="jeko-actions-block">
-                <!-- WhatsApp Inquiry Pill Button -->
-                <a href="https://wa.me/917511180808?text=Hello%20Syber%20Space%2C%20I%20am%20inquiring%20about%20CCTV%20surveillance%20cameras." target="_blank" rel="noopener noreferrer" class="btn-jeko-whatsapp">
-                    <span class="wa-icon-glow">
+            <!-- Right: Action Pillars (WhatsApp, Call Us, Shopping Cart) -->
+            <div class="iphone-actions-group">
+                
+                <!-- WhatsApp -->
+                <a href="https://wa.me/917511180808?text=Hello%20Syber%20Space%2C%20I%20am%20inquiring%20about%20CCTV%20surveillance%20cameras." target="_blank" rel="noopener noreferrer" class="iphone-action-link">
+                    <div class="ia-icon-wrap wa-icon-color">
                         <svg viewBox="0 0 24 24" fill="currentColor">
                             <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2z"/>
                         </svg>
-                    </span>
-                    <span class="wa-btn-text">WHATSAPP</span>
+                    </div>
+                    <div class="ia-text-col">
+                        <span class="ia-sub-label">WhatsApp</span>
+                        <strong class="ia-main-val">Get Support</strong>
+                    </div>
                 </a>
 
-                <!-- Cart Trigger Button -->
-                <button type="button" class="btn-jeko-cart" onclick="toggleCartDrawer()" aria-label="Open Shopping Cart">
-                    <span class="cart-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/>
-                            <line x1="3" y1="6" x2="21" y2="6"/>
-                            <path d="M16 10a4 4 0 0 1-8 0"/>
+                <!-- Call Us -->
+                <a href="tel:+917511180808" class="iphone-action-link desktop-only">
+                    <div class="ia-text-col">
+                        <span class="ia-sub-label">Call Us</span>
+                        <strong class="ia-main-val">+91 75111 80808</strong>
+                    </div>
+                </a>
+
+                <!-- Shopping Cart -->
+                <button type="button" class="iphone-action-link btn-cart-trigger" onclick="toggleCartDrawer()" aria-label="Open Shopping Cart">
+                    <div class="ia-icon-wrap cart-icon-pos">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="9" cy="21" r="1"></circle>
+                            <circle cx="20" cy="21" r="1"></circle>
+                            <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
                         </svg>
-                    </span>
-                    <span class="cart-counter-pill" id="cart-counter">0</span>
+                        <span class="cart-pill-badge" id="cart-counter">0</span>
+                    </div>
+                    <div class="ia-text-col">
+                        <span class="ia-sub-label">Shopping</span>
+                        <strong class="ia-main-val">Cart</strong>
+                    </div>
                 </button>
+
             </div>
 
         </header>

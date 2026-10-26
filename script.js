@@ -181,6 +181,13 @@ function initJekoSearch() {
         performSearch(val);
     });
 
+    input.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') {
+            e.preventDefault();
+            performSearch(input.value.trim());
+        }
+    });
+
     if (clearBtn) {
         clearBtn.addEventListener('click', () => {
             input.value = '';
@@ -255,4 +262,13 @@ function performSearch(query) {
             </div>
         `;
     }).join('');
+}
+
+function triggerSearchAction() {
+    const input = document.getElementById('jeko-search-input');
+    const dropdown = document.getElementById('jeko-search-dropdown');
+    if (!input) return;
+    input.focus();
+    if (dropdown) dropdown.style.display = 'block';
+    performSearch(input.value.trim());
 }
