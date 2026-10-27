@@ -579,6 +579,57 @@
         </section>
 
         <!-- ======================================================================
+             AMAZON-STYLE FREQUENTLY BOUGHT TOGETHER SECTION
+             ====================================================================== -->
+        <section class="pdp-fbt-section" id="pdp-fbt-section">
+            <div class="pdp-fbt-box gsap-anim">
+                <div class="pdp-fbt-header">
+                    <span class="fbt-kicker">BUNDLE &amp; SAVE</span>
+                    <h2 class="fbt-title">Frequently Bought Together</h2>
+                </div>
+                <div class="pdp-fbt-grid">
+                    <div class="pdp-fbt-items-row" id="fbt-items-container">
+                        <!-- Populated dynamically by renderFrequentlyBoughtTogether() -->
+                    </div>
+                    <div class="pdp-fbt-summary-card">
+                        <span class="fbt-summary-label">Total Bundle Price</span>
+                        <div class="fbt-total-price" id="fbt-total-price-val">&#8377;0</div>
+                        <div class="fbt-total-savings" id="fbt-total-savings-val">Save &#8377;0 on bundle</div>
+                        <button type="button" class="btn-fbt-bundle" id="btn-fbt-add" onclick="addFbtBundleToCart()">
+                            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
+                            <span id="btn-fbt-text">Add All 3 to Cart</span>
+                        </button>
+                        <span class="fbt-dispatch-note">Includes Free Express Delivery in Kerala</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ======================================================================
+             AMAZON-STYLE CERTIFIED ACCESSORIES & ADD-ONS CAROUSEL
+             ====================================================================== -->
+        <section class="pdp-accessories-section" id="pdp-accessories-section">
+            <div class="pdp-sec-header-row">
+                <div>
+                    <span class="fbt-kicker">CERTIFIED ACCESSORIES</span>
+                    <h2 class="fbt-title">Recommended Add-ons &amp; Accessories</h2>
+                </div>
+                <div class="acc-carousel-controls">
+                    <button type="button" class="btn-carousel-nav" onclick="scrollAccCarousel(-1)" aria-label="Previous accessories">
+                        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"></polyline></svg>
+                    </button>
+                    <button type="button" class="btn-carousel-nav" onclick="scrollAccCarousel(1)" aria-label="Next accessories">
+                        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                    </button>
+                </div>
+            </div>
+
+            <div class="pdp-accessories-carousel" id="pdp-accessories-carousel">
+                <!-- Populated dynamically by renderRecommendedAccessories() -->
+            </div>
+        </section>
+
+        <!-- ======================================================================
              TECHNICAL SPECIFICATIONS DEEP DIVE
              ====================================================================== -->
         <section class="specs-deep-dive-section">
@@ -629,6 +680,22 @@
                     <span class="spec-key">OPERATING TEMP</span>
                     <span class="spec-val" id="spec-temp">-20°C to +60°C (Coastal &amp; Monsoon Safe)</span>
                 </div>
+            </div>
+        </section>
+
+        <!-- ======================================================================
+             AMAZON-STYLE COMPARE WITH SIMILAR SURVEILLANCE CAMERAS
+             ====================================================================== -->
+        <section class="pdp-similar-section" id="pdp-similar-section">
+            <div class="pdp-sec-header-row">
+                <div>
+                    <span class="fbt-kicker">ALTERNATIVE RECOMMENDATIONS</span>
+                    <h2 class="fbt-title">Customers Also Viewed</h2>
+                </div>
+            </div>
+
+            <div class="pdp-similar-grid" id="pdp-similar-grid">
+                <!-- Populated dynamically by renderSimilarProducts() -->
             </div>
         </section>
 
@@ -1205,6 +1272,12 @@
                 theme: f.theme || 'light'
             }));
             window.SHOWCASE_FEATURE_DATA = SHOWCASE_FEATURE_DATA;
+
+            // Render Amazon-Style Bundles & Recommendations
+            renderFrequentlyBoughtTogether(p);
+            renderRecommendedAccessories(p);
+            renderSimilarProducts(p);
+            setTimeout(initGsapScrollEnhancements, 120);
         }
 
         function initAsusShowcaseScroll() {
@@ -1493,6 +1566,345 @@
             if (q) {
                 window.location.href = `index.html?search=${encodeURIComponent(q)}`;
             }
+        }
+
+        // ======================================================================
+        // AMAZON-STYLE COMMERCE ENGINES: BUNDLES, ACCESSORIES & SUGGESTIONS
+        // ======================================================================
+        let currentFbtItems = [];
+
+        function renderFrequentlyBoughtTogether(p) {
+            const container = document.getElementById('fbt-items-container');
+            if (!container) return;
+
+            // 1. Current main product
+            const item1 = {
+                id: p.id,
+                title: p.title,
+                price: Number(p.price) || 0,
+                mrp: parseInt((p.mrp || '').replace(/[^\d]/g, ''), 10) || Math.round(Number(p.price) * 1.5),
+                image: (p.images && p.images.length > 0) ? p.images[0] : 'assets/hero_product_solar_v2.png',
+                badge: 'THIS CAMERA',
+                checked: true,
+                locked: true
+            };
+
+            // 2. Storage recommendation
+            let item2 = null;
+            if (typeof SYBER_PRODUCTS !== 'undefined') {
+                const isSD = (p.category === 'wifi-camera' || (p.title || '').toLowerCase().includes('wi-fi') || (p.title || '').toLowerCase().includes('solar') || (p.title || '').toLowerCase().includes('4g'));
+                if (isSD) {
+                    const sd = SYBER_PRODUCTS.find(x => x.id.includes('sandisk') || x.id.includes('microsd'));
+                    if (sd) {
+                        item2 = {
+                            id: sd.id,
+                            title: sd.title,
+                            price: Number(sd.price) || 1290,
+                            mrp: parseInt((sd.mrp || '').replace(/[^\d]/g, ''), 10) || 2200,
+                            image: (sd.images && sd.images.length > 0) ? sd.images[0] : 'assets/hero_product_solar_v2.png',
+                            badge: 'RECOMMENDED STORAGE',
+                            checked: true,
+                            locked: false
+                        };
+                    }
+                } else {
+                    const hdd = SYBER_PRODUCTS.find(x => x.id.includes('skyhawk') || x.id.includes('hard-disk'));
+                    if (hdd) {
+                        item2 = {
+                            id: hdd.id,
+                            title: hdd.title,
+                            price: Number(hdd.price) || 4250,
+                            mrp: parseInt((hdd.mrp || '').replace(/[^\d]/g, ''), 10) || 6800,
+                            image: (hdd.images && hdd.images.length > 0) ? hdd.images[0] : 'assets/hero_product_solar_v2.png',
+                            badge: 'RECOMMENDED HDD',
+                            checked: true,
+                            locked: false
+                        };
+                    }
+                }
+            }
+
+            if (!item2) {
+                item2 = {
+                    id: 'sandisk-high-endurance-128gb',
+                    title: 'SanDisk High Endurance 128GB Surveillance MicroSDXC UHS-I Card',
+                    price: 1290,
+                    mrp: 2200,
+                    image: 'assets/hero_product_solar_v2.png',
+                    badge: 'RECOMMENDED STORAGE',
+                    checked: true,
+                    locked: false
+                };
+            }
+
+            // 3. Essential Accessory
+            let item3 = null;
+            if (typeof SYBER_PRODUCTS !== 'undefined') {
+                const junc = SYBER_PRODUCTS.find(x => x.id.includes('junction') || x.id.includes('power-adapter') || x.id.includes('smps'));
+                if (junc) {
+                    item3 = {
+                        id: junc.id,
+                        title: junc.title,
+                        price: Number(junc.price) || 180,
+                        mrp: parseInt((junc.mrp || '').replace(/[^\d]/g, ''), 10) || 350,
+                        image: (junc.images && junc.images.length > 0) ? junc.images[0] : 'assets/hero_product_solar_v2.png',
+                        badge: 'ESSENTIAL ACCESSORY',
+                        checked: true,
+                        locked: false
+                    };
+                }
+            }
+
+            if (!item3) {
+                item3 = {
+                    id: 'weatherproof-deep-base-junction-box',
+                    title: 'Weatherproof IP66 Round CCTV Deep Base Camera Junction Box',
+                    price: 180,
+                    mrp: 350,
+                    image: 'assets/hero_product_solar_v2.png',
+                    badge: 'ESSENTIAL ACCESSORY',
+                    checked: true,
+                    locked: false
+                };
+            }
+
+            currentFbtItems = [item1, item2, item3];
+
+            container.innerHTML = `
+                <div class="pdp-fbt-card" id="fbt-card-0">
+                    <span class="fbt-badge">${item1.badge}</span>
+                    <div class="fbt-checkbox-wrap">
+                        <input type="checkbox" class="fbt-checkbox" checked disabled title="Primary product included">
+                    </div>
+                    <div class="fbt-img-wrap">
+                        <img src="${item1.image}" alt="${item1.title}">
+                    </div>
+                    <div class="fbt-item-title">${item1.title}</div>
+                    <div class="fbt-price-row">₹${item1.price.toLocaleString('en-IN')}</div>
+                </div>
+
+                <div class="fbt-plus-symbol">+</div>
+
+                <div class="pdp-fbt-card" id="fbt-card-1">
+                    <span class="fbt-badge">${item2.badge}</span>
+                    <div class="fbt-checkbox-wrap">
+                        <input type="checkbox" class="fbt-checkbox" id="fbt-check-1" checked onchange="toggleFbtItem(1)">
+                    </div>
+                    <div class="fbt-img-wrap">
+                        <img src="${item2.image}" alt="${item2.title}">
+                    </div>
+                    <div class="fbt-item-title">${item2.title}</div>
+                    <div class="fbt-price-row">₹${item2.price.toLocaleString('en-IN')}</div>
+                </div>
+
+                <div class="fbt-plus-symbol">+</div>
+
+                <div class="pdp-fbt-card" id="fbt-card-2">
+                    <span class="fbt-badge">${item3.badge}</span>
+                    <div class="fbt-checkbox-wrap">
+                        <input type="checkbox" class="fbt-checkbox" id="fbt-check-2" checked onchange="toggleFbtItem(2)">
+                    </div>
+                    <div class="fbt-img-wrap">
+                        <img src="${item3.image}" alt="${item3.title}">
+                    </div>
+                    <div class="fbt-item-title">${item3.title}</div>
+                    <div class="fbt-price-row">₹${item3.price.toLocaleString('en-IN')}</div>
+                </div>
+            `;
+
+            updateFbtCalculations();
+        }
+
+        function toggleFbtItem(idx) {
+            const chk = document.getElementById(`fbt-check-${idx}`);
+            if (chk && currentFbtItems[idx]) {
+                currentFbtItems[idx].checked = chk.checked;
+                const card = document.getElementById(`fbt-card-${idx}`);
+                if (card) {
+                    card.style.opacity = chk.checked ? '1' : '0.45';
+                }
+                updateFbtCalculations();
+            }
+        }
+
+        function updateFbtCalculations() {
+            let total = 0;
+            let totalMrp = 0;
+            let count = 0;
+
+            currentFbtItems.forEach(item => {
+                if (item.checked) {
+                    total += item.price;
+                    totalMrp += item.mrp;
+                    count++;
+                }
+            });
+
+            const savings = Math.max(0, totalMrp - total);
+
+            const priceEl = document.getElementById('fbt-total-price-val');
+            const saveEl = document.getElementById('fbt-total-savings-val');
+            const btnText = document.getElementById('btn-fbt-text');
+
+            if (priceEl) priceEl.innerHTML = `₹${total.toLocaleString('en-IN')}`;
+            if (saveEl) saveEl.innerHTML = `Save ₹${savings.toLocaleString('en-IN')} on this wholesale bundle`;
+            if (btnText) btnText.textContent = `Add All ${count} to Cart`;
+        }
+
+        function addFbtBundleToCart() {
+            const cart = JSON.parse(localStorage.getItem('syber_cart') || '[]');
+            let addedCount = 0;
+
+            currentFbtItems.forEach(item => {
+                if (item.checked) {
+                    const existing = cart.find(i => i.name === item.title);
+                    if (existing) {
+                        existing.quantity = (existing.quantity || 1) + 1;
+                    } else {
+                        cart.push({
+                            name: item.title,
+                            price: item.price,
+                            image: item.image,
+                            quantity: 1
+                        });
+                    }
+                    addedCount++;
+                }
+            });
+
+            localStorage.setItem('syber_cart', JSON.stringify(cart));
+            localStorage.setItem('syber_cart_items', JSON.stringify(cart));
+            initCartCounter();
+            showToastNotification(`Added ${addedCount} bundle items to cart`);
+        }
+
+        function renderRecommendedAccessories(p) {
+            const carousel = document.getElementById('pdp-accessories-carousel');
+            if (!carousel || typeof SYBER_PRODUCTS === 'undefined') return;
+
+            const accessories = SYBER_PRODUCTS.filter(x => x.category === 'accessory');
+            if (accessories.length === 0) return;
+
+            carousel.innerHTML = accessories.map(acc => {
+                const imgSrc = (acc.images && acc.images.length > 0) ? acc.images[0] : 'assets/hero_product_solar_v2.png';
+                const badge = acc.badge || 'PRO GRADE';
+                return `
+                    <div class="pdp-acc-card">
+                        <span class="acc-card-badge">${badge}</span>
+                        <div class="acc-card-img-wrap">
+                            <img src="${imgSrc}" alt="${acc.title}" loading="lazy">
+                        </div>
+                        <a href="product.html?id=${acc.id}" class="acc-card-title" title="${acc.title}">${acc.title}</a>
+                        <div class="acc-card-rating">
+                            ★★★★★ <span>(${acc.rating || '4.9'})</span>
+                        </div>
+                        <div class="acc-card-price-row">
+                            <span class="acc-card-price">₹${Number(acc.price).toLocaleString('en-IN')}</span>
+                            ${acc.mrp ? `<span class="acc-card-mrp">${acc.mrp}</span>` : ''}
+                        </div>
+                        <button type="button" class="btn-acc-add" onclick="addSingleAccToCart('${acc.id}')">
+                            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                            <span>Add to Cart</span>
+                        </button>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        function scrollAccCarousel(direction) {
+            const carousel = document.getElementById('pdp-accessories-carousel');
+            if (carousel) {
+                const scrollAmount = 260 * 2 * direction;
+                carousel.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+            }
+        }
+
+        function addSingleAccToCart(productId) {
+            if (typeof SYBER_PRODUCTS === 'undefined') return;
+            const item = SYBER_PRODUCTS.find(x => x.id === productId);
+            if (!item) return;
+
+            const cart = JSON.parse(localStorage.getItem('syber_cart') || '[]');
+            const existing = cart.find(i => i.name === item.title);
+            const imgSrc = (item.images && item.images.length > 0) ? item.images[0] : 'assets/hero_product_solar_v2.png';
+
+            if (existing) {
+                existing.quantity = (existing.quantity || 1) + 1;
+            } else {
+                cart.push({
+                    name: item.title,
+                    price: item.price,
+                    image: imgSrc,
+                    quantity: 1
+                });
+            }
+
+            localStorage.setItem('syber_cart', JSON.stringify(cart));
+            localStorage.setItem('syber_cart_items', JSON.stringify(cart));
+            initCartCounter();
+            showToastNotification(`Added ${item.title} to cart`);
+        }
+
+        function renderSimilarProducts(p) {
+            const grid = document.getElementById('pdp-similar-grid');
+            if (!grid || typeof SYBER_PRODUCTS === 'undefined') return;
+
+            const others = SYBER_PRODUCTS.filter(x => x.id !== p.id && x.category !== 'accessory').slice(0, 4);
+            if (others.length === 0) return;
+
+            grid.innerHTML = others.map(item => {
+                const imgSrc = (item.images && item.images.length > 0) ? item.images[0] : 'assets/hero_product_solar_v2.png';
+                const chips = (item.chips || ['Surveillance', 'Smart AI']).slice(0, 3);
+                return `
+                    <div class="pdp-similar-card">
+                        <div>
+                            <div class="sim-brand">${(item.brand || 'SYBER').toUpperCase()}</div>
+                            <div class="sim-img-wrap">
+                                <img src="${imgSrc}" alt="${item.title}" loading="lazy">
+                            </div>
+                            <a href="product.html?id=${item.id}" class="sim-title" title="${item.title}">${item.title}</a>
+                            <div class="sim-chips">
+                                ${chips.map(c => `<span class="sim-chip">${c}</span>`).join('')}
+                            </div>
+                        </div>
+                        <div class="sim-bottom-row">
+                            <span class="sim-price">₹${Number(item.price).toLocaleString('en-IN')}</span>
+                            <a href="product.html?id=${item.id}" class="btn-sim-view">View Specs &rarr;</a>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        function initGsapScrollEnhancements() {
+            if (typeof gsap === 'undefined') return;
+
+            // Staggered reveal for specification items with ScrollTrigger
+            if (typeof ScrollTrigger !== 'undefined') {
+                gsap.fromTo('.spec-item', 
+                    { y: 18, opacity: 0 },
+                    { 
+                        y: 0, 
+                        opacity: 1, 
+                        duration: 0.4, 
+                        stagger: 0.04, 
+                        ease: 'power4.out',
+                        scrollTrigger: {
+                            trigger: '.specs-grid-table',
+                            start: 'top 90%',
+                            once: true
+                        }
+                    }
+                );
+                ScrollTrigger.refresh();
+            }
+
+            // Tactile micro-bounce on action buttons
+            document.querySelectorAll('.btn-abd-cart, .btn-abd-buynow, .btn-pill, .btn-fbt-bundle, .btn-acc-add, .btn-sim-view').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    gsap.fromTo(btn, { scale: 1 }, { scale: 0.94, duration: 0.1, yoyo: true, repeat: 1, ease: 'power2.out' });
+                });
+            });
         }
     </script>
 </body>

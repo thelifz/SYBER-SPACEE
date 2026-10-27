@@ -5357,3 +5357,638 @@ body.jeko-theme-white {
         display: none;
     }
 }
+
+/* ------------------------------------------------------------
+   Phase 1 – Foundations (Design System)
+   ------------------------------------------------------------ */
+/* Updated color palette – replace coffee tones with clean neutrals */
+:root {
+    /* Primary brand color */
+    --c-primary: #2563eb;          /* Cyber‑cobalt */
+    --c-primary-hover: #1d4ed8;
+    /* Neutral palette */
+    --c-neutral-100: #ffffff;      /* White */
+    --c-neutral-200: #f8fafc;      /* Very light gray */
+    --c-neutral-300: #e5e7eb;      /* Light gray */
+    --c-neutral-400: #d1d5db;      /* Mid‑light gray */
+    --c-neutral-500: #9ca3af;      /* Gray */
+    --c-neutral-600: #6b7280;      /* Darker gray */
+    --c-neutral-700: #374151;      /* Dark gray */
+    --c-neutral-800: #1f2937;      /* Almost black */
+    /* Text colors */
+    --c-text-primary: var(--c-neutral-800);
+    --c-text-body: var(--c-neutral-600);
+    --c-text-muted: var(--c-neutral-500);
+    --c-text-subtle: var(--c-neutral-400);
+}
+
+/* Typography – consistent scale */
+html {
+    font-size: 16px;               /* Base */
+    line-height: 1.5;
+    font-family: var(--font-body);
+}
+h1, .ssh-title { font-size: 2.5rem; font-weight: 800; line-height: 1.2; margin-bottom: 0.5rem; }
+h2, .ssh-subtitle { font-size: 1.75rem; font-weight: 600; margin-bottom: 0.5rem; }
+h3, .afc-title { font-size: 1.5rem; font-weight: 700; margin-bottom: 0.4rem; }
+h4, .spec-key { font-size: 1rem; font-weight: 600; }
+body, p, .spec-val { font-size: 0.94rem; }
+
+/* Global button style – pill shape */
+.btn-pill {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4rem;
+    padding: 0.55rem 1.2rem;
+    background: var(--c-primary);
+    color: #fff;
+    border: none;
+    border-radius: var(--radius-pill);
+    font-family: var(--font-heading);
+    font-size: 0.88rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s cubic-bezier(0.16,1,0.3,1);
+}
+.btn-pill:hover { background: var(--c-primary-hover); transform: translateY(-2px); }
+
+/* Focus-visible for accessibility */
+:focus-visible {
+    outline: 2px solid var(--c-primary);
+    outline-offset: 2px;
+}
+
+/* ------------------------------------------------------------
+   Phase 2 – Layout Refresh & Amazon-Style Commerce Modules
+   ------------------------------------------------------------ */
+
+.pdp-fbt-section,
+.pdp-accessories-section,
+.specs-deep-dive-section,
+.pdp-similar-section,
+.unboxing-guarantee-banner {
+    scroll-margin-top: 100px;
+}
+
+/* 1. Amazon-Style Frequently Bought Together */
+.pdp-fbt-section {
+    max-width: 1300px;
+    margin: 3.5rem auto;
+    padding: 0 2rem;
+}
+.pdp-fbt-box {
+    background: #ffffff;
+    border: 1.5px solid #e2e8f0;
+    border-radius: 18px;
+    padding: 2.25rem;
+    box-shadow: 0 8px 30px rgba(15, 23, 42, 0.04);
+}
+.pdp-fbt-header {
+    margin-bottom: 1.75rem;
+}
+.fbt-kicker {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: #2563eb;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 0.35rem;
+}
+.fbt-title {
+    font-family: var(--font-heading, sans-serif);
+    font-size: 1.65rem;
+    font-weight: 800;
+    color: #0f172a;
+    letter-spacing: -0.02em;
+    margin: 0;
+}
+.pdp-fbt-grid {
+    display: grid;
+    grid-template-columns: 1fr 320px;
+    gap: 2.5rem;
+    align-items: center;
+}
+.pdp-fbt-items-row {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    flex-wrap: wrap;
+}
+.pdp-fbt-card {
+    flex: 1;
+    min-width: 190px;
+    max-width: 230px;
+    background: #f8fafc;
+    border: 1.5px solid #e2e8f0;
+    border-radius: 14px;
+    padding: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.pdp-fbt-card:hover {
+    border-color: #2563eb;
+    background: #ffffff;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 24px rgba(37, 99, 235, 0.08);
+}
+.fbt-badge {
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    font-family: 'Space Mono', monospace;
+    font-size: 0.58rem;
+    font-weight: 700;
+    background: #0f172a;
+    color: #ffffff;
+    padding: 2px 6px;
+    border-radius: 4px;
+}
+.fbt-checkbox-wrap {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+}
+.fbt-checkbox {
+    width: 18px;
+    height: 18px;
+    accent-color: #2563eb;
+    cursor: pointer;
+}
+.fbt-img-wrap {
+    width: 110px;
+    height: 110px;
+    margin: 0.5rem 0 0.75rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.fbt-img-wrap img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    transition: transform 0.25s ease;
+}
+.pdp-fbt-card:hover .fbt-img-wrap img {
+    transform: scale(1.06);
+}
+.fbt-item-title {
+    font-size: 0.84rem;
+    font-weight: 700;
+    color: #0f172a;
+    line-height: 1.35;
+    margin-bottom: 0.45rem;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+.fbt-price-row {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #2563eb;
+}
+.fbt-plus-symbol {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: #94a3b8;
+    user-select: none;
+}
+.pdp-fbt-summary-card {
+    background: linear-gradient(135deg, #f8fafc 0%, #eff6ff 100%);
+    border: 1.5px solid rgba(37, 99, 235, 0.2);
+    border-radius: 16px;
+    padding: 1.75rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.fbt-summary-label {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: #64748b;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 0.25rem;
+}
+.fbt-total-price {
+    font-family: var(--font-heading, sans-serif);
+    font-size: 1.85rem;
+    font-weight: 900;
+    color: #0f172a;
+    line-height: 1.1;
+    margin-bottom: 0.35rem;
+}
+.fbt-total-savings {
+    font-size: 0.84rem;
+    font-weight: 600;
+    color: #16a34a;
+    margin-bottom: 1.25rem;
+}
+.btn-fbt-bundle {
+    background: #2563eb;
+    color: #ffffff;
+    font-family: var(--font-heading, sans-serif);
+    font-size: 0.92rem;
+    font-weight: 800;
+    letter-spacing: 0.04em;
+    padding: 0.95rem 1.5rem;
+    border-radius: 50px;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
+    box-shadow: 0 8px 24px rgba(37, 99, 235, 0.25);
+    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.btn-fbt-bundle:hover {
+    background: #1d4ed8;
+    transform: translateY(-2px);
+    box-shadow: 0 12px 30px rgba(37, 99, 235, 0.35);
+}
+.btn-fbt-bundle:active {
+    transform: scale(0.97);
+}
+.fbt-dispatch-note {
+    font-size: 0.76rem;
+    color: #64748b;
+    text-align: center;
+    margin-top: 0.75rem;
+}
+
+/* 2. Amazon-Style Recommended Accessories Carousel */
+.pdp-accessories-section {
+    max-width: 1300px;
+    margin: 4rem auto;
+    padding: 0 2rem;
+}
+.pdp-sec-header-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 1.75rem;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+.acc-carousel-controls {
+    display: flex;
+    gap: 0.5rem;
+}
+.btn-carousel-nav {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    border: 1.5px solid #e2e8f0;
+    background: #ffffff;
+    color: #0f172a;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+.btn-carousel-nav:hover {
+    border-color: #2563eb;
+    color: #2563eb;
+    background: #eff6ff;
+}
+.pdp-accessories-carousel {
+    display: flex;
+    gap: 1.25rem;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    padding: 0.5rem 0.25rem 1.25rem;
+    scrollbar-width: thin;
+    scrollbar-color: #cbd5e1 transparent;
+}
+.pdp-accessories-carousel::-webkit-scrollbar {
+    height: 6px;
+}
+.pdp-accessories-carousel::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 6px;
+}
+.pdp-acc-card {
+    flex: 0 0 230px;
+    scroll-snap-align: start;
+    background: #ffffff;
+    border: 1.5px solid #e2e8f0;
+    border-radius: 16px;
+    padding: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    position: relative;
+}
+.pdp-acc-card:hover {
+    border-color: #2563eb;
+    transform: translateY(-4px);
+    box-shadow: 0 12px 28px rgba(15, 23, 42, 0.08);
+}
+.acc-card-badge {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    font-family: 'Space Mono', monospace;
+    font-size: 0.58rem;
+    font-weight: 700;
+    background: #eff6ff;
+    color: #2563eb;
+    border: 1px solid rgba(37, 99, 235, 0.2);
+    padding: 2px 7px;
+    border-radius: 4px;
+}
+.acc-card-img-wrap {
+    width: 100%;
+    height: 130px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 1.25rem 0 0.75rem;
+}
+.acc-card-img-wrap img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    transition: transform 0.25s ease;
+}
+.pdp-acc-card:hover .acc-card-img-wrap img {
+    transform: scale(1.08);
+}
+.acc-card-title {
+    font-size: 0.86rem;
+    font-weight: 700;
+    color: #0f172a;
+    line-height: 1.35;
+    margin-bottom: 0.35rem;
+    text-decoration: none;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+.acc-card-title:hover {
+    color: #2563eb;
+}
+.acc-card-rating {
+    font-size: 0.78rem;
+    color: #f59e0b;
+    margin-bottom: 0.5rem;
+}
+.acc-card-rating span {
+    color: #64748b;
+    font-size: 0.74rem;
+    margin-left: 0.25rem;
+}
+.acc-card-price-row {
+    display: flex;
+    align-items: baseline;
+    gap: 0.45rem;
+    margin-bottom: 0.85rem;
+}
+.acc-card-price {
+    font-family: var(--font-heading, sans-serif);
+    font-size: 1.15rem;
+    font-weight: 800;
+    color: #0f172a;
+}
+.acc-card-mrp {
+    font-size: 0.78rem;
+    color: #94a3b8;
+    text-decoration: line-through;
+}
+.btn-acc-add {
+    width: 100%;
+    background: #f8fafc;
+    color: #0f172a;
+    border: 1.5px solid #e2e8f0;
+    font-family: var(--font-heading, sans-serif);
+    font-size: 0.82rem;
+    font-weight: 700;
+    padding: 0.65rem 1rem;
+    border-radius: 50px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.45rem;
+    transition: all 0.2s ease;
+}
+.btn-acc-add:hover {
+    background: #2563eb;
+    color: #ffffff;
+    border-color: #2563eb;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(37, 99, 235, 0.2);
+}
+.btn-acc-add:active {
+    transform: scale(0.96);
+}
+
+/* 3. Amazon-Style Compare with Similar Surveillance Cameras */
+.pdp-similar-section {
+    max-width: 1300px;
+    margin: 4rem auto;
+    padding: 0 2rem;
+}
+.pdp-similar-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.25rem;
+}
+@media (max-width: 1024px) {
+    .pdp-similar-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+@media (max-width: 640px) {
+    .pdp-similar-grid {
+        grid-template-columns: 1fr;
+    }
+    .pdp-fbt-grid {
+        grid-template-columns: 1fr;
+    }
+}
+.pdp-similar-card {
+    background: #ffffff;
+    border: 1.5px solid #e2e8f0;
+    border-radius: 16px;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    position: relative;
+}
+.pdp-similar-card:hover {
+    border-color: #2563eb;
+    transform: translateY(-4px);
+    box-shadow: 0 12px 28px rgba(15, 23, 42, 0.08);
+}
+.sim-brand {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.68rem;
+    font-weight: 700;
+    color: #2563eb;
+    letter-spacing: 0.06em;
+    margin-bottom: 0.35rem;
+}
+.sim-img-wrap {
+    width: 100%;
+    height: 140px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0.75rem 0;
+}
+.sim-img-wrap img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    transition: transform 0.25s ease;
+}
+.pdp-similar-card:hover .sim-img-wrap img {
+    transform: scale(1.08);
+}
+.sim-title {
+    font-size: 0.92rem;
+    font-weight: 800;
+    color: #0f172a;
+    line-height: 1.35;
+    margin-bottom: 0.65rem;
+    text-decoration: none;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+.sim-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35rem;
+    margin-bottom: 1rem;
+}
+.sim-chip {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.65rem;
+    font-weight: 600;
+    background: #f1f5f9;
+    color: #334155;
+    padding: 2px 7px;
+    border-radius: 4px;
+}
+.sim-bottom-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-top: 1px solid #f1f5f9;
+    padding-top: 0.85rem;
+    margin-top: auto;
+}
+.sim-price {
+    font-family: var(--font-heading, sans-serif);
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: #0f172a;
+}
+.btn-sim-view {
+    background: #2563eb;
+    color: #ffffff;
+    font-family: var(--font-heading, sans-serif);
+    font-size: 0.78rem;
+    font-weight: 700;
+    padding: 0.55rem 1rem;
+    border-radius: 50px;
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+.btn-sim-view:hover {
+    background: #1d4ed8;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.25);
+}
+
+/* 4. Dark Mode Theme Token Overrides */
+body.dark {
+    --c-primary: #60a5fa;
+    --c-primary-hover: #3b82f6;
+    --c-bg: #0f172a;
+    --c-bg-subtle: #1e293b;
+    --c-card-bg: #1e293b;
+    --c-card-surface: #1e293b;
+    --c-text-primary: #f8fafc;
+    --c-text-body: #cbd5e1;
+    --c-text-muted: #9ca3af;
+    --c-text-subtle: #64748b;
+    background-color: #0f172a;
+    color: #f8fafc;
+}
+body.dark .pdp-fbt-box,
+body.dark .pdp-acc-card,
+body.dark .pdp-similar-card,
+body.dark .specs-grid-table {
+    background: #1e293b;
+    border-color: #334155;
+}
+body.dark .pdp-fbt-card {
+    background: #0f172a;
+    border-color: #334155;
+}
+body.dark .fbt-title,
+body.dark .fbt-item-title,
+body.dark .fbt-total-price,
+body.dark .acc-card-title,
+body.dark .acc-card-price,
+body.dark .sim-title,
+body.dark .sim-price,
+body.dark .ssh-title,
+body.dark .spec-val {
+    color: #f8fafc;
+}
+body.dark .pdp-fbt-summary-card {
+    background: linear-gradient(135deg, #1e293b 0%, #172554 100%);
+    border-color: #2563eb;
+}
+body.dark .btn-acc-add {
+    background: #0f172a;
+    border-color: #334155;
+    color: #f8fafc;
+}
+body.dark .btn-carousel-nav {
+    background: #1e293b;
+    border-color: #334155;
+    color: #f8fafc;
+}
+
+/* 5. Hardware Acceleration & Tactile Feedback */
+.gsap-anim {
+    will-change: transform, opacity;
+}
+
+.btn-abd-cart,
+.btn-abd-buynow,
+.btn-pill,
+.btn-fbt-bundle,
+.btn-acc-add,
+.btn-sim-view {
+    transition: transform 0.15s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.2s ease, box-shadow 0.2s ease;
+}
+.btn-abd-cart:active,
+.btn-abd-buynow:active,
+.btn-pill:active,
+.btn-fbt-bundle:active,
+.btn-acc-add:active,
+.btn-sim-view:active {
+    transform: scale(0.96) !important;
+}
