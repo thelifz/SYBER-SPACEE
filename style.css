@@ -4525,17 +4525,17 @@ body.jeko-theme-white {
     display: none !important;
 }
 
-/* 2. LEFT COLUMN: CLEAN MINIMALIST FEATURES TRACK (NO BOXES) */
+/* 2. LEFT COLUMN: CLEAN MINIMALIST FEATURES TRACK (ALL 5 FEATURES VISIBLE SIMULTANEOUSLY) */
 .asus-features-col {
     position: relative;
     z-index: 10;
     height: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
-    padding-top: 2.2rem;
+    justify-content: center;
+    padding-top: 0;
     padding-right: 1.5rem;
-    overflow: hidden;
+    overflow: visible;
 }
 
 .asus-features-header-micro {
@@ -4547,75 +4547,98 @@ body.jeko-theme-white {
     font-weight: 700;
     color: #64748b;
     letter-spacing: 0.1em;
-    margin-bottom: 1.25rem;
-    padding-bottom: 0.5rem;
-    border-bottom: 1px solid rgba(15, 23, 42, 0.06);
+    margin-bottom: 0.85rem;
+    padding-bottom: 0.45rem;
+    border-bottom: 1px solid rgba(15, 23, 42, 0.08);
     flex-shrink: 0;
     background: transparent;
+    transition: color 0.35s ease, border-color 0.35s ease;
 }
 
 .asus-features-track-wrapper {
     position: relative;
-    overflow: hidden;
-    mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
-    -webkit-mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
+    overflow: visible;
+    mask-image: none !important;
+    -webkit-mask-image: none !important;
 }
 
 #afh-step-indicator {
     color: #2563eb;
     font-weight: 700;
+    transition: color 0.35s ease;
 }
 
 .asus-features-track {
     display: flex;
     flex-direction: column;
-    gap: 1.6rem;
-    transition: transform 0.1s linear;
-    will-change: transform;
+    gap: 0.65rem;
+    transform: none !important;
 }
 
 /* Pure Minimalist Feature Items — Clean Typography, No Card Boxes */
 .asus-feature-card {
     background: transparent;
     border: none;
-    border-left: 2px solid #e2e8f0;
+    border-left: 2px solid rgba(226, 232, 240, 0.9);
     border-radius: 0;
-    padding: 0.5rem 0.5rem 0.5rem 1.25rem;
+    padding: 0.35rem 0.5rem 0.35rem 1.15rem;
     box-shadow: none;
     opacity: 0.42;
     transform: none;
     cursor: pointer;
-    transition: opacity 0.35s ease, border-color 0.35s ease, transform 0.35s ease;
+    transition: opacity 0.35s cubic-bezier(0.16, 1, 0.3, 1), 
+                border-color 0.35s cubic-bezier(0.16, 1, 0.3, 1), 
+                transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+                box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .asus-feature-card:hover {
-    opacity: 0.75;
+    opacity: 0.78;
+    border-left-color: #94a3b8;
 }
 
 .asus-feature-card.active {
     opacity: 1;
-    border-left: 3px solid #2563eb;
+    border-left: 3.5px solid #2563eb;
+    box-shadow: -3px 0 12px rgba(37, 99, 235, 0.32);
+    padding-left: 1.05rem;
     background: transparent;
-    box-shadow: none;
     transform: translateX(4px);
+}
+
+/* Smooth Accordion Details: Inactive is collapsed, Active expands smoothly */
+.asus-feature-card .afc-details {
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: max-height 0.4s cubic-bezier(0.16, 1, 0.3, 1), 
+                opacity 0.3s ease, 
+                margin-top 0.3s ease;
+}
+
+.asus-feature-card.active .afc-details {
+    max-height: 240px;
+    opacity: 1;
+    margin-top: 0.4rem;
 }
 
 .afc-header {
     display: flex;
     align-items: baseline;
     gap: 0.65rem;
-    margin-bottom: 0.25rem;
+    margin-bottom: 0.15rem;
 }
 
 .afc-index {
     font-family: 'Space Mono', monospace;
-    font-size: 1.15rem;
+    font-size: 1.1rem;
     font-weight: 800;
     color: #2563eb;
     background: transparent;
     border: none;
     padding: 0;
     line-height: 1;
+    transition: color 0.35s ease;
 }
 
 .asus-feature-card.active .afc-index {
@@ -4631,49 +4654,54 @@ body.jeko-theme-white {
 
 .afc-kicker {
     font-family: 'Space Mono', monospace;
-    font-size: 0.66rem;
+    font-size: 0.64rem;
     font-weight: 700;
     color: #2563eb;
     letter-spacing: 0.08em;
+    transition: color 0.35s ease;
 }
 
 .afc-title {
     font-family: var(--font-heading, sans-serif);
-    font-size: 1.05rem;
+    font-size: 1rem;
     font-weight: 800;
     color: #0f172a;
     margin-top: 0.1rem;
     line-height: 1.25;
+    transition: color 0.35s ease;
 }
 
 .afc-desc {
-    font-size: 0.85rem;
-    line-height: 1.45;
+    font-size: 0.82rem;
+    line-height: 1.42;
     color: #475569;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.45rem;
+    transition: color 0.35s ease;
 }
 
 .afc-specs {
     display: flex;
     flex-wrap: wrap;
     gap: 0.35rem 0.85rem;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.45rem;
 }
 
 .afc-spec-chip {
     background: transparent;
     border: none;
     padding: 0;
-    font-size: 0.72rem;
+    font-size: 0.7rem;
     color: #64748b;
     font-family: 'Space Mono', monospace;
     display: flex;
     gap: 0.35rem;
+    transition: color 0.35s ease;
 }
 
 .afc-spec-chip strong {
     color: #0f172a;
     font-weight: 700;
+    transition: color 0.35s ease;
 }
 
 .afc-status {
@@ -4681,10 +4709,11 @@ body.jeko-theme-white {
     align-items: center;
     gap: 0.45rem;
     font-family: 'Space Mono', monospace;
-    font-size: 0.66rem;
+    font-size: 0.64rem;
     font-weight: 700;
     color: #16a34a;
     letter-spacing: 0.05em;
+    transition: color 0.35s ease;
 }
 
 .afc-pulse-dot {
@@ -4696,7 +4725,6 @@ body.jeko-theme-white {
     animation: asusPulse 1.8s infinite;
 }
 
-/* 3. CENTER COLUMN: PINNED CAMERA CORE VISUAL (PURE WHITE CANVAS, NO CIRCLES, NO RETICLES) */
 .asus-center-stage {
     position: relative;
     height: 100%;
@@ -4993,6 +5021,157 @@ body.jeko-theme-white {
     0%, 100% { opacity: 1; transform: scale(1); }
     50% { opacity: 0.4; transform: scale(0.85); }
 }
+
+
+/* ==========================================================================
+   ADAPTIVE THEME ENGINE: HARDWARE SHOWCASE DARK & CONTRAST MODES
+   Seamless Canvas Blending for Dark Lifestyle & Technical Imagery
+   ========================================================================== */
+#hardware-showcase.theme-dark {
+    border-bottom-color: rgba(255, 255, 255, 0.08);
+}
+
+#hardware-showcase.theme-dark .asus-features-header-micro {
+    color: #94a3b8;
+    border-bottom-color: rgba(255, 255, 255, 0.12);
+}
+
+#hardware-showcase.theme-dark #afh-step-indicator {
+    color: #60a5fa;
+}
+
+#hardware-showcase.theme-dark .asus-feature-card {
+    border-left-color: rgba(255, 255, 255, 0.18);
+    opacity: 0.45;
+}
+
+#hardware-showcase.theme-dark .asus-feature-card:hover {
+    opacity: 0.85;
+    border-left-color: rgba(255, 255, 255, 0.4);
+}
+
+#hardware-showcase.theme-dark .asus-feature-card.active {
+    opacity: 1;
+    border-left-color: #3b82f6;
+    box-shadow: -3px 0 14px rgba(59, 130, 246, 0.45);
+}
+
+#hardware-showcase.theme-dark .afc-index {
+    color: #60a5fa;
+}
+
+#hardware-showcase.theme-dark .afc-kicker {
+    color: #93c5fd;
+}
+
+#hardware-showcase.theme-dark .afc-title {
+    color: #f8fafc;
+}
+
+#hardware-showcase.theme-dark .afc-desc {
+    color: #cbd5e1;
+}
+
+#hardware-showcase.theme-dark .afc-spec-chip {
+    color: #94a3b8;
+}
+
+#hardware-showcase.theme-dark .afc-spec-chip strong {
+    color: #f8fafc;
+}
+
+#hardware-showcase.theme-dark .afc-status {
+    color: #4ade80;
+}
+
+#hardware-showcase.theme-dark .afc-pulse-dot {
+    background: #4ade80;
+    box-shadow: 0 0 8px rgba(74, 222, 128, 0.7);
+}
+
+#hardware-showcase.theme-dark .asus-product-shadow {
+    background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.6) 0%, transparent 70%);
+}
+
+#hardware-showcase.theme-dark .asus-buy-dock {
+    background: #0e131b;
+    border-color: rgba(255, 255, 255, 0.14);
+    box-shadow: 0 20px 45px -10px rgba(0, 0, 0, 0.6);
+}
+
+#hardware-showcase.theme-dark .abd-pill-badge {
+    background: rgba(255, 255, 255, 0.12);
+    color: #f8fafc;
+}
+
+#hardware-showcase.theme-dark .abd-brand {
+    color: #60a5fa;
+}
+
+#hardware-showcase.theme-dark .abd-product-title {
+    color: #f8fafc;
+}
+
+#hardware-showcase.theme-dark .abd-model-code {
+    color: #94a3b8;
+}
+
+#hardware-showcase.theme-dark .abd-rating-strip {
+    border-bottom-color: rgba(255, 255, 255, 0.12);
+}
+
+#hardware-showcase.theme-dark .abd-rating-score {
+    color: #f8fafc;
+}
+
+#hardware-showcase.theme-dark .abd-rating-count {
+    color: #94a3b8;
+}
+
+#hardware-showcase.theme-dark .abd-price-main {
+    color: #f8fafc;
+}
+
+#hardware-showcase.theme-dark .abd-mrp {
+    color: #64748b;
+}
+
+#hardware-showcase.theme-dark .abd-tax-note {
+    color: #94a3b8;
+}
+
+#hardware-showcase.theme-dark .abd-perk-item {
+    color: #cbd5e1;
+}
+
+#hardware-showcase.theme-dark .btn-abd-cart {
+    background: #f8fafc;
+    color: #0f172a;
+    border-color: #f8fafc;
+}
+
+#hardware-showcase.theme-dark .btn-abd-cart:hover {
+    background: #ffffff;
+    border-color: #60a5fa;
+    box-shadow: 0 6px 18px rgba(96, 165, 250, 0.3);
+}
+
+#hardware-showcase.theme-dark .pdp-gallery-thumb {
+    background: #18202c;
+    border-color: rgba(255, 255, 255, 0.15);
+}
+
+#hardware-showcase.theme-dark .pdp-gallery-thumb:hover {
+    border-color: rgba(255, 255, 255, 0.35);
+    background: #1f2937;
+}
+
+#hardware-showcase.theme-dark .pdp-gallery-thumb.active {
+    border-color: #3b82f6;
+    background: #1f2937;
+    box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.4);
+}
+
 
 /* Responsive Breakpoints */
 @media (max-width: 1200px) {
