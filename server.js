@@ -205,6 +205,38 @@ const server = http.createServer((req, res) => {
     }
 
     // =========================================================================
+    // API ROUTE: LIVE TELEMETRY & GATEWAY ENGINE STATUS
+    // =========================================================================
+    if ((pathname === '/api/hdfc/status' || pathname === '/status') && req.method === 'GET') {
+        const capturedOrders = HDFC_ORDERS.filter(o => o.status === 'CAPTURED');
+        const totalRevenue = capturedOrders.reduce((sum, o) => sum + (o.amount || 0), 0);
+        return sendJson(200, {
+            success: true,
+            status: 'ONLINE',
+            service: 'Syber Space HDFC Bank SmartGateway™ Payment Daemon',
+            gateway: 'HDFC Bank SmartGateway™',
+            environment: HDFC_CONFIG.env,
+            merchantId: HDFC_CONFIG.merchantId,
+            terminalId: HDFC_CONFIG.terminalId,
+            merchantVpa: HDFC_CONFIG.merchantVpa,
+            activeRails: ['UPI', 'CARDS', 'NETBANKING', 'EASYEMI'],
+            compliance: {
+                rbiTokenization: true,
+                pciDss: 'Level 1 Certified',
+                dpdpAct2023: true,
+                ssl: '256-Bit TLS 1.3 Certified'
+            },
+            telemetry: {
+                totalOrders: HDFC_ORDERS.length,
+                capturedOrders: capturedOrders.length,
+                totalRevenueInr: totalRevenue,
+                uptimeSeconds: Math.floor(process.uptime()),
+                timestamp: new Date().toISOString()
+            }
+        });
+    }
+
+    // =========================================================================
     // API ROUTE 1: GATEWAY CONFIGURATION & MERCHANT STATUS
     // =========================================================================
     if (pathname === '/api/hdfc/config' && req.method === 'GET') {
@@ -501,14 +533,42 @@ const server = http.createServer((req, res) => {
     });
 });
 
-server.listen(PORT, '0.0.0.0', () => {
-    console.log(`=============================================================================`);
-    console.log(`SYBER SPACE SECURITY SYSTEMS — BACKEND DAEMON READY`);
-    console.log(`Port:           ${PORT}`);
-    console.log(`Environment:    ${NODE_ENV}`);
-    console.log(`Gateway:        HDFC Bank SmartGateway™ (${HDFC_CONFIG.env.toUpperCase()})`);
-    console.log(`Merchant MID:   ${HDFC_CONFIG.merchantId}`);
-    console.log(`URL:            http://localhost:${PORT}/`);
-    console.log(`Health Check:   http://localhost:${PORT}/health`);
-    console.log(`=============================================================================`);
-});
+function startServer(portToTry) {
+    server.once('error', (err) => {
+        if (err.code === 'EADDRINUSE') {
+            console.warn('[Port Alert] Port ' + portToTry + ' is in use. Retrying on port ' + (portToTry + 1) + '...');
+            startServer(portToTry + 1);
+        } else {
+            console.error('[Fatal Server Error]', err);
+            process.exit(1);
+        }
+    });
+
+    server.listen(portToTry, '0.0.0.0', () => {
+        const activePort = server.address().port;
+        try {
+            fs.writeFileSync(path.join(__dirname, '.active_server.json'), JSON.stringify({
+                port: activePort,
+                url: 'http://localhost:' + activePort,
+                pid: process.pid,
+                startedAt: new Date().toISOString(),
+                gatewayEnv: HDFC_CONFIG.env
+            }, null, 2), 'utf8');
+        } catch (e) {}
+
+        console.log('=============================================================================');
+        console.log('SYBER SPACE SECURITY SYSTEMS — BACKEND DAEMON ONLINE & READY');
+        console.log('Active Port:    ' + activePort);
+        console.log('Environment:    ' + NODE_ENV);
+        console.log('Gateway:        HDFC Bank SmartGateway™ (' + HDFC_CONFIG.env.toUpperCase() + ')');
+        console.log('Merchant MID:   ' + HDFC_CONFIG.merchantId);
+        console.log('Terminal TID:   ' + HDFC_CONFIG.terminalId);
+        console.log('Store URL:      http://localhost:' + activePort + '/');
+        console.log('Cart URL:       http://localhost:' + activePort + '/cart.html');
+        console.log('API Health:     http://localhost:' + activePort + '/health');
+        console.log('Gateway Status: http://localhost:' + activePort + '/api/hdfc/status');
+        console.log('=============================================================================');
+    });
+}
+
+startServer(PORT);

@@ -1,3 +1,30 @@
+
+function getApiBaseUrl() {
+    if (typeof window === 'undefined') return '';
+    const port = window.location.port;
+    if (window.location.protocol === 'file:' || port === '5500') {
+        return 'http://localhost:3000';
+    }
+    return '';
+}
+
+async function checkGatewayHealth() {
+    try {
+        const res = await fetch(`${getApiBaseUrl()}/api/hdfc/status`);
+        if (res.ok) {
+            const data = await res.json();
+            window.HDFC_GATEWAY_CONFIG = data;
+            const badge = document.getElementById('hdfc-gateway-live-badge');
+            if (badge) {
+                badge.innerHTML = `<span class="hli-dot"></span><span>HDFC SMARTGATEWAY™ ONLINE</span>`;
+                badge.setAttribute('title', `Gateway: ${data.gateway} • MID: ${data.merchantId} • Environment: ${data.environment.toUpperCase()} • 256-Bit SSL`);
+            }
+        }
+    } catch (e) {
+        console.warn('HDFC Gateway local probe note:', e.message);
+    }
+}
+
 function normalizeImgPath(src) {
     if (!src) return 'assets/official_bestseller_idada_q2i.jpg';
     if (src.startsWith('assets/') || src.startsWith('http') || src.startsWith('data:')) return src;
@@ -20,8 +47,9 @@ let selectedPaymentRail = 'upi';
 let selectedNetBankingBank = 'HDFC Bank';
 
 document.addEventListener('DOMContentLoaded', () => {
-    // 1. Initial Render
+    // 1. Initial Render & Live Gateway Health Probe
     renderCart();
+    checkGatewayHealth();
 
     // 2. ESC key listener to close HDFC modal
     document.addEventListener('keydown', (e) => {
@@ -128,7 +156,7 @@ function renderCart() {
         container.innerHTML = `
             <div class="cart-empty-window-card">
                 <div class="cart-empty-icon-wrap">
-                    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#0f172a" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
                         <circle cx="9" cy="21" r="1"></circle>
                         <circle cx="20" cy="21" r="1"></circle>
                         <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
@@ -241,7 +269,7 @@ function renderCart() {
                 <!-- Unboxing Video Policy Notice Card -->
                 <div class="cart-unboxing-notice-card">
                     <div class="cun-icon-wrap">
-                        <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#2563eb" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                        <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#0f172a" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
                             <polygon points="23 7 16 12 23 17 23 7"></polygon>
                             <rect x="1" y="5" width="15" height="14" rx="2" ry="2"></rect>
                         </svg>
@@ -376,12 +404,30 @@ function initiateHdfcCheckout(total) {
     // Render Step 1: Dispatch & Invoicing Details Form
     renderHdfcStep1();
 
+    // Register Order Session on Server
+    fetch(`${getApiBaseUrl()}/api/hdfc/create-order`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+            orderId: currentOrderRef,
+            amount: activeCheckoutTotal,
+            customer: currentCustomerData || {},
+            items: getCart()
+        })
+    }).then(res => res.json()).then(data => {
+        if (data && data.checksum) {
+            window.activeHdfcChecksum = data.checksum;
+        }
+    }).catch(err => {
+        console.warn('HDFC Order sync note:', err.message);
+    });
+
     if (modal) {
         modal.classList.add('active');
         document.body.style.overflow = 'hidden';
 
         if (typeof gsap !== 'undefined') {
-            const card = modal.querySelector('.hdfc-card');
+            const card = modal.querySelector('.hdfc-terminal-window');
             gsap.fromTo(modal, { opacity: 0 }, { opacity: 1, duration: 0.25, ease: 'power2.out' });
             if (card) {
                 gsap.fromTo(card,
@@ -393,12 +439,27 @@ function initiateHdfcCheckout(total) {
     }
 }
 
+let hdfcPollingInterval = null;
+let hdfcCountdownTimer = null;
+
+function clearHdfcTimers() {
+    if (hdfcPollingInterval) {
+        clearInterval(hdfcPollingInterval);
+        hdfcPollingInterval = null;
+    }
+    if (hdfcCountdownTimer) {
+        clearInterval(hdfcCountdownTimer);
+        hdfcCountdownTimer = null;
+    }
+}
+
 function closeHdfcModal() {
+    clearHdfcTimers();
     const modal = document.getElementById('hdfc-checkout-modal');
     if (!modal) return;
 
     if (typeof gsap !== 'undefined') {
-        const card = modal.querySelector('.hdfc-card');
+        const card = modal.querySelector('.hdfc-terminal-window');
         if (card) {
             gsap.to(card, { opacity: 0, scale: 0.96, y: 10, duration: 0.2, ease: 'power2.in' });
         }
@@ -426,6 +487,7 @@ function getCookieValue(name) {
 
 // STEP 1: Billing, Shipping & GST Tax Invoice Form
 function renderHdfcStep1() {
+    clearHdfcTimers();
     const body = document.getElementById('hdfc-modal-body');
     if (!body) return;
 
@@ -444,64 +506,64 @@ function renderHdfcStep1() {
                 <div class="hdfc-grid-form">
                     <div class="hdfc-field-group">
                         <label for="cust-name">Full Name *</label>
-                        <input type="text" id="cust-name" required placeholder="e.g. Adithyan S." value="Adithyan S.">
+                        <input type="text" id="cust-name" required placeholder="e.g. Adithyan S." value="${currentCustomerData ? currentCustomerData.name : 'Adithyan S.'}">
                     </div>
 
                     <div class="hdfc-field-group">
                         <label for="cust-phone">Phone Number (+91) *</label>
-                        <input type="tel" id="cust-phone" required pattern="[0-9]{10}" placeholder="10-digit mobile" value="9876543210">
+                        <input type="tel" id="cust-phone" required pattern="[0-9]{10}" placeholder="10-digit mobile" value="${currentCustomerData ? currentCustomerData.phone : '9876543210'}">
                     </div>
 
                     <div class="hdfc-field-group">
                         <label for="cust-email">Email Address *</label>
-                        <input type="email" id="cust-email" required placeholder="name@domain.com" value="orders@syberspace.in">
+                        <input type="email" id="cust-email" required placeholder="name@domain.com" value="${currentCustomerData ? currentCustomerData.email : 'orders@syberspace.in'}">
                     </div>
 
                     <div class="hdfc-field-group">
                         <label for="cust-company">Company Name (Optional)</label>
-                        <input type="text" id="cust-company" placeholder="e.g. Syber Space Systems LLP">
+                        <input type="text" id="cust-company" placeholder="e.g. Syber Space Systems LLP" value="${currentCustomerData && currentCustomerData.company ? currentCustomerData.company : ''}">
                     </div>
 
                     <div class="hdfc-field-group span-2">
                         <label for="cust-gstin">GSTIN (Optional)</label>
-                        <input type="text" id="cust-gstin" placeholder="15-character GSTIN (e.g. 32AABCU9603R1ZM)" maxlength="15">
+                        <input type="text" id="cust-gstin" placeholder="15-character GSTIN (e.g. 32AABCU9603R1ZM)" maxlength="15" value="${currentCustomerData && currentCustomerData.gstin ? currentCustomerData.gstin : ''}">
                     </div>
 
                     <div class="hdfc-field-group span-2">
                         <label for="cust-address">Delivery Address *</label>
-                        <input type="text" id="cust-address" required placeholder="Premises, Street, Area" value="Tech Zone, Civil Station Road">
+                        <input type="text" id="cust-address" required placeholder="Premises, Street, Area" value="${currentCustomerData ? currentCustomerData.address : 'Tech Zone, Civil Station Road'}">
                     </div>
 
                     <div class="hdfc-field-group">
                         <label for="cust-city">City / District *</label>
-                        <input type="text" id="cust-city" required placeholder="e.g. Ernakulam" value="${detectedCity}">
+                        <input type="text" id="cust-city" required placeholder="e.g. Ernakulam" value="${currentCustomerData ? currentCustomerData.city : detectedCity}">
                     </div>
 
                     <div class="hdfc-field-group">
                         <label for="cust-state">State *</label>
                         <select id="cust-state" required>
-                            <option value="Kerala" ${detectedState === 'Kerala' ? 'selected' : ''}>Kerala (32)</option>
-                            <option value="Tamil Nadu" ${detectedState === 'Tamil Nadu' ? 'selected' : ''}>Tamil Nadu (33)</option>
-                            <option value="Karnataka" ${detectedState === 'Karnataka' ? 'selected' : ''}>Karnataka (29)</option>
-                            <option value="Maharashtra" ${detectedState === 'Maharashtra' ? 'selected' : ''}>Maharashtra (27)</option>
-                            <option value="Delhi" ${detectedState === 'Delhi' ? 'selected' : ''}>Delhi (07)</option>
-                            <option value="Telangana" ${detectedState === 'Telangana' ? 'selected' : ''}>Telangana (36)</option>
-                            <option value="Andhra Pradesh" ${detectedState === 'Andhra Pradesh' ? 'selected' : ''}>Andhra Pradesh (37)</option>
-                            <option value="Gujarat" ${detectedState === 'Gujarat' ? 'selected' : ''}>Gujarat (24)</option>
+                            <option value="Kerala" selected>Kerala (32)</option>
+                            <option value="Tamil Nadu">Tamil Nadu (33)</option>
+                            <option value="Karnataka">Karnataka (29)</option>
+                            <option value="Maharashtra">Maharashtra (27)</option>
+                            <option value="Delhi">Delhi (07)</option>
+                            <option value="Telangana">Telangana (36)</option>
+                            <option value="Andhra Pradesh">Andhra Pradesh (37)</option>
+                            <option value="Gujarat">Gujarat (24)</option>
                             <option value="Other">Other Indian State</option>
                         </select>
                     </div>
 
                     <div class="hdfc-field-group">
                         <label for="cust-pincode">Postal Pincode *</label>
-                        <input type="text" id="cust-pincode" required pattern="[0-9]{6}" placeholder="6-digit pincode" value="${detectedPin}" maxlength="6">
+                        <input type="text" id="cust-pincode" required pattern="[0-9]{6}" placeholder="6-digit pincode" value="${currentCustomerData ? currentCustomerData.pincode : detectedPin}" maxlength="6">
                     </div>
                 </div>
 
                 <div class="hdfc-modal-footer" style="padding-left:0; padding-right:0; margin-top:24px; background:transparent;">
                     <div class="hdfc-security-badge">
                         <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2.5"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-                        <span>256-BIT SSL ENCRYPTED</span>
+                        <span>256-BIT SSL ENCRYPTED // PCI-DSS LEVEL 1</span>
                     </div>
                     <button type="submit" class="hdfc-pay-now-btn">
                         <span>PROCEED TO PAYMENT &rarr;</span>
@@ -526,8 +588,8 @@ function handleBillingSubmit(e) {
         pincode: document.getElementById('cust-pincode').value.trim()
     };
 
-    // Asynchronously register order session with HDFC Backend
-    fetch('/api/hdfc/create-order', {
+    // Update session on HDFC Backend
+    fetch(`${getApiBaseUrl()}/api/hdfc/create-order`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -554,15 +616,20 @@ function selectUpiApp(appKey, elem) {
     if (elem) elem.classList.add('selected');
 }
 
-// STEP 2: HDFC Multi-Rail Payment Interface (UPI, Cards, NetBanking, EMI)
+// STEP 2: HDFC Multi-Rail Payment Interface (UPI Dynamic QR, Cards, NetBanking, EMI)
 function renderHdfcStep2() {
+    clearHdfcTimers();
     const body = document.getElementById('hdfc-modal-body');
     if (!body) return;
+
+    // Standard NPCI UPI Intent URI
+    const upiMerchantVpa = (window.HDFC_GATEWAY_CONFIG && window.HDFC_GATEWAY_CONFIG.merchantVpa) ? window.HDFC_GATEWAY_CONFIG.merchantVpa : 'syberspace@hdfcbank';
+    const upiIntentUrl = `upi://pay?pa=${encodeURIComponent(upiMerchantVpa)}&pn=Syber%20Space%20Systems&mc=5045&tid=88102941&tr=${currentOrderRef}&tn=Order%20${currentOrderRef}&am=${activeCheckoutTotal}&cu=INR`;
 
     body.innerHTML = `
         <div class="hdfc-payment-step">
             <div class="hdfc-form-section-title">
-                <span>2. PAYMENT METHOD</span>
+                <span>2. SELECT PAYMENT METHOD</span>
                 <button type="button" onclick="renderHdfcStep1()" class="hdfc-back-link">
                     &larr; Edit Shipping Address
                 </button>
@@ -572,7 +639,7 @@ function renderHdfcStep2() {
             <div class="hdfc-rails-tabs" role="tablist">
                 <button type="button" class="hdfc-rail-tab active" onclick="switchHdfcRail('upi', this)">
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
-                    <span>UPI (GPay / PhonePe / Paytm)</span>
+                    <span>UPI (Dynamic QR & Apps)</span>
                 </button>
                 <button type="button" class="hdfc-rail-tab" onclick="switchHdfcRail('card', this)">
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
@@ -588,57 +655,75 @@ function renderHdfcStep2() {
                 </button>
             </div>
 
-            <!-- Rail 1: UPI Panel -->
+            <!-- Rail 1: UPI Panel (Dynamic QR + Apps) -->
             <div id="panel-upi" class="hdfc-rail-panel active">
-                <div class="hdfc-upi-flow-wrap">
-                    <span class="hdfc-field-subheading">Select UPI App</span>
-                    <div class="hdfc-upi-apps-grid">
-                        <div class="hdfc-upi-app-card selected" onclick="selectUpiApp('gpay', this)">
-                            <span class="upi-app-badge">GPAY</span>
-                            <span class="upi-app-title">Google Pay</span>
-                            <span class="upi-app-speed">Fast</span>
+                <div class="hdfc-upi-split-layout">
+                    
+                    <!-- Left: Dynamic QR Code -->
+                    <div class="hdfc-qr-card">
+                        <span class="hdfc-field-subheading" style="margin-bottom:4px;">SCAN & PAY</span>
+                        <div class="hdfc-qr-svg-wrap" id="hdfc-qrcode-container">
+                            <!-- Injected by QRCode.js or fallback -->
                         </div>
-                        <div class="hdfc-upi-app-card" onclick="selectUpiApp('phonepe', this)">
-                            <span class="upi-app-badge">PHONEPE</span>
-                            <span class="upi-app-title">PhonePe</span>
-                            <span class="upi-app-speed">Instant</span>
+                        <span class="hdfc-qr-caption">Scan with any UPI App (GPay, PhonePe, Paytm, BHIM)</span>
+                        <div class="hdfc-qr-timer" id="hdfc-qr-countdown">Expires in 10:00</div>
+                        <a href="${upiIntentUrl}" class="hdfc-vpa-btn" style="text-decoration:none; margin-top:10px; width:100%; text-align:center; padding:8px 12px; font-size:0.72rem;">
+                            OPEN UPI APP DIRECTLY &rarr;
+                        </a>
+                    </div>
+
+                    <!-- Right: Apps & Manual VPA -->
+                    <div class="hdfc-upi-flow-wrap">
+                        <span class="hdfc-field-subheading">Or Select UPI App</span>
+                        <div class="hdfc-upi-apps-grid">
+                            <div class="hdfc-upi-app-card selected" onclick="selectUpiApp('gpay', this)">
+                                <span class="upi-app-badge">GPAY</span>
+                                <span class="upi-app-title">Google Pay</span>
+                                <span class="upi-app-speed">Fast</span>
+                            </div>
+                            <div class="hdfc-upi-app-card" onclick="selectUpiApp('phonepe', this)">
+                                <span class="upi-app-badge">PHONEPE</span>
+                                <span class="upi-app-title">PhonePe</span>
+                                <span class="upi-app-speed">Instant</span>
+                            </div>
+                            <div class="hdfc-upi-app-card" onclick="selectUpiApp('paytm', this)">
+                                <span class="upi-app-badge">PAYTM</span>
+                                <span class="upi-app-title">Paytm</span>
+                                <span class="upi-app-speed">Instant</span>
+                            </div>
+                            <div class="hdfc-upi-app-card" onclick="selectUpiApp('bhim', this)">
+                                <span class="upi-app-badge">BHIM</span>
+                                <span class="upi-app-title">BHIM UPI</span>
+                                <span class="upi-app-speed">Direct</span>
+                            </div>
+                            <div class="hdfc-upi-app-card" onclick="selectUpiApp('cred', this)">
+                                <span class="upi-app-badge">CRED</span>
+                                <span class="upi-app-title">CRED Pay</span>
+                                <span class="upi-app-speed">Verified</span>
+                            </div>
                         </div>
-                        <div class="hdfc-upi-app-card" onclick="selectUpiApp('paytm', this)">
-                            <span class="upi-app-badge">PAYTM</span>
-                            <span class="upi-app-title">Paytm</span>
-                            <span class="upi-app-speed">Instant</span>
+
+                        <!-- Direct VPA Input Row -->
+                        <div class="hdfc-vpa-container">
+                            <label for="upi-vpa-input" class="hdfc-vpa-label">Or Enter UPI ID / VPA</label>
+                            <div class="hdfc-vpa-input-group">
+                                <input type="text" id="upi-vpa-input" placeholder="e.g. mobile@okhdfcbank" value="customer@okhdfcbank">
+                                <button type="button" class="hdfc-vpa-btn" onclick="executeHdfcPayment('UPI VPA')">
+                                    <span>PAY ₹${activeCheckoutTotal.toLocaleString('en-IN')}</span>
+                                </button>
+                            </div>
+                            <div class="hdfc-vpa-handles">
+                                <span>Supported: @okhdfcbank &bull; @okaxis &bull; @oksbi &bull; @ybl &bull; @paytm &bull; @ibl</span>
+                            </div>
                         </div>
-                        <div class="hdfc-upi-app-card" onclick="selectUpiApp('bhim', this)">
-                            <span class="upi-app-badge">BHIM</span>
-                            <span class="upi-app-title">BHIM UPI</span>
-                            <span class="upi-app-speed">Direct</span>
-                        </div>
-                        <div class="hdfc-upi-app-card" onclick="selectUpiApp('cred', this)">
-                            <span class="upi-app-badge">CRED</span>
-                            <span class="upi-app-title">CRED Pay</span>
-                            <span class="upi-app-speed">Verified</span>
+
+                        <!-- Bank Notice -->
+                        <div class="hdfc-dynamic-notice">
+                            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#0f172a" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+                            <span>Secured by HDFC Bank SmartGateway™ with 256-bit SSL encryption and RBI-mandated PCI-DSS Level 1 tokenization.</span>
                         </div>
                     </div>
 
-                    <!-- Direct VPA Input Row -->
-                    <div class="hdfc-vpa-container">
-                        <label for="upi-vpa-input" class="hdfc-vpa-label">Or Enter UPI ID / VPA</label>
-                        <div class="hdfc-vpa-input-group">
-                            <input type="text" id="upi-vpa-input" placeholder="e.g. mobile@okhdfcbank" value="customer@okhdfcbank">
-                            <button type="button" class="hdfc-vpa-btn" onclick="executeHdfcPayment('UPI VPA')">
-                                <span>PAY NOW</span>
-                            </button>
-                        </div>
-                        <div class="hdfc-vpa-handles">
-                            <span>Supported: @okhdfcbank &bull; @okaxis &bull; @oksbi &bull; @ybl &bull; @paytm &bull; @ibl</span>
-                        </div>
-                    </div>
-
-                    <!-- Bank Notice -->
-                    <div class="hdfc-dynamic-notice">
-                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#004c8f" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
-                        <span>Secured by HDFC Bank SmartGateway&trade; with 256-bit SSL encryption and PCI-DSS compliance.</span>
-                    </div>
                 </div>
             </div>
 
@@ -665,7 +750,7 @@ function renderHdfcStep2() {
                     </div>
                     <div class="hdfc-field-group span-2">
                         <label for="card-name">Cardholder Name *</label>
-                        <input type="text" id="card-name" placeholder="Name as displayed on card" value="${currentCustomerData.name}">
+                        <input type="text" id="card-name" placeholder="Name as displayed on card" value="${currentCustomerData ? currentCustomerData.name : 'Adithyan S.'}">
                     </div>
                 </div>
                 <div class="hdfc-card-security-note">
@@ -739,11 +824,77 @@ function renderHdfcStep2() {
                     <span>VERIFIED BY HDFC BANK SMARTHUB // PCI-DSS LEVEL 1</span>
                 </div>
                 <button type="button" class="hdfc-pay-now-btn" onclick="executeHdfcPayment(selectedPaymentRail)">
-                    <span>PAY ₹${activeCheckoutTotal.toLocaleString('en-IN')} NOW</span>
+                    <span>AUTHORIZE &amp; PAY ₹${activeCheckoutTotal.toLocaleString('en-IN')}</span>
                 </button>
             </div>
         </div>
     `;
+
+    // Initialize Dynamic QR Code
+    setTimeout(() => {
+        const qrContainer = document.getElementById('hdfc-qrcode-container');
+        if (qrContainer) {
+            qrContainer.innerHTML = '';
+            if (typeof QRCode !== 'undefined') {
+                new QRCode(qrContainer, {
+                    text: upiIntentUrl,
+                    width: 150,
+                    height: 150,
+                    colorDark: '#0f172a',
+                    colorLight: '#ffffff',
+                    correctLevel: QRCode.CorrectLevel.M
+                });
+            } else {
+                // Fallback clean SVG representation if library is loading
+                qrContainer.innerHTML = `
+                    <svg width="150" height="150" viewBox="0 0 150 150" fill="none">
+                        <rect width="150" height="150" fill="#ffffff" stroke="#e2e8f0"/>
+                        <rect x="15" y="15" width="40" height="40" fill="#0f172a"/>
+                        <rect x="23" y="23" width="24" height="24" fill="#ffffff"/>
+                        <rect x="27" y="27" width="16" height="16" fill="#0f172a"/>
+                        <rect x="95" y="15" width="40" height="40" fill="#0f172a"/>
+                        <rect x="103" y="23" width="24" height="24" fill="#ffffff"/>
+                        <rect x="107" y="27" width="16" height="16" fill="#0f172a"/>
+                        <rect x="15" y="95" width="40" height="40" fill="#0f172a"/>
+                        <rect x="23" y="103" width="24" height="24" fill="#ffffff"/>
+                        <rect x="27" y="107" width="16" height="16" fill="#0f172a"/>
+                        <rect x="70" y="30" width="10" height="30" fill="#0f172a"/>
+                        <rect x="70" y="70" width="30" height="10" fill="#0f172a"/>
+                        <rect x="65" y="95" width="20" height="20" fill="#0f172a"/>
+                        <rect x="105" y="75" width="30" height="30" fill="#0f172a"/>
+                    </svg>
+                `;
+            }
+        }
+    }, 50);
+
+    // 10-Minute Expiry Countdown Timer
+    let secondsLeft = 600;
+    hdfcCountdownTimer = setInterval(() => {
+        secondsLeft--;
+        const timerEl = document.getElementById('hdfc-qr-countdown');
+        if (timerEl) {
+            const mins = Math.floor(secondsLeft / 60);
+            const secs = secondsLeft % 60;
+            timerEl.textContent = `Expires in ${mins < 10 ? '0' : ''}${mins}:${secs < 10 ? '0' : ''}${secs}`;
+        }
+        if (secondsLeft <= 0) {
+            clearHdfcTimers();
+        }
+    }, 1000);
+
+    // Live Order Status Polling (checks server every 2.5 seconds)
+    hdfcPollingInterval = setInterval(() => {
+        fetch(`${getApiBaseUrl()}/api/hdfc/order-status/${currentOrderRef}`)
+            .then(res => res.json())
+            .then(data => {
+                if (data && data.status === 'CAPTURED') {
+                    clearHdfcTimers();
+                    renderHdfcSuccessScreen(data);
+                }
+            })
+            .catch(() => {});
+    }, 2500);
 }
 
 function switchHdfcRail(rail, tabBtn) {
@@ -764,6 +915,7 @@ function selectBank(bankName, btnElem) {
 
 // STEP 3: Execution, Authorization Simulation & Verified Tax Invoice Generation
 async function executeHdfcPayment(paymentRail) {
+    clearHdfcTimers();
     const body = document.getElementById('hdfc-modal-body');
     if (!body) return;
 
@@ -771,11 +923,11 @@ async function executeHdfcPayment(paymentRail) {
     body.innerHTML = `
         <div class="hdfc-verifying-screen">
             <div class="hdfc-spinner"></div>
-            <h3 style="font-family:var(--font-display); font-size:1.4rem; color:var(--base-dark);">Securing Multi-Rail Authorization...</h3>
-            <p style="font-size:0.86rem; color:var(--base-dark-muted); max-width:480px; line-height:1.6;">
+            <h3 style="font-family:var(--font-display); font-size:1.4rem; color:#0f172a;">Securing Multi-Rail Authorization...</h3>
+            <p style="font-size:0.86rem; color:#475569; max-width:480px; line-height:1.6;">
                 Connecting to HDFC Bank Core Switch via ${paymentRail.toUpperCase()}. Routing 256-bit encrypted payload through merchant terminal <strong>#88102941</strong>.
             </p>
-            <div style="font-family:var(--font-mono); font-size:0.75rem; color:#004c8f; margin-top:8px;">
+            <div style="font-family:var(--font-mono); font-size:0.75rem; color:#0f172a; margin-top:8px;">
                 ORDER REFERENCE // ${currentOrderRef}
             </div>
         </div>
@@ -784,7 +936,7 @@ async function executeHdfcPayment(paymentRail) {
     // Attempt Server Verification via HDFC SmartGateway API
     let serverTxn = null;
     try {
-        const res = await fetch('/api/hdfc/verify-payment', {
+        const res = await fetch(`${getApiBaseUrl()}/api/hdfc/verify-payment`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
@@ -802,124 +954,134 @@ async function executeHdfcPayment(paymentRail) {
     }
 
     setTimeout(() => {
-        const cart = getCart();
-        const txnId = (serverTxn && serverTxn.txnId) ? serverTxn.txnId : `HDFC-TXN-${Math.floor(100000000 + Math.random() * 900000000)}`;
-        const authCode = (serverTxn && serverTxn.authCode) ? serverTxn.authCode : `AUTH-${Math.floor(100000 + Math.random() * 900000)}`;
-        const dateStr = new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata', dateStyle: 'medium', timeStyle: 'short' });
+        renderHdfcSuccessScreen(serverTxn, paymentRail);
+    }, 1200);
+}
 
-        // Calculate item breakdown
-        let itemsRows = '';
-        let totalQty = 0;
-        cart.forEach((it, idx) => {
-            const q = it.quantity || 1;
-            totalQty += q;
-            itemsRows += `
-                <tr>
-                    <td>SS-${1000 + idx}</td>
-                    <td>${it.name}</td>
-                    <td>${q}</td>
-                    <td>₹${it.price.toLocaleString('en-IN')}</td>
-                    <td style="text-align:right;">₹${(it.price * q).toLocaleString('en-IN')}</td>
-                </tr>
-            `;
-        });
+function renderHdfcSuccessScreen(serverTxn, rail) {
+    clearHdfcTimers();
+    const body = document.getElementById('hdfc-modal-body');
+    if (!body) return;
 
-        const gstVal = Math.round(activeCheckoutTotal * 0.18 / 1.18);
-        const taxableVal = activeCheckoutTotal - gstVal;
+    const cart = getCart();
+    const paymentRail = rail || (serverTxn && serverTxn.paymentRail) || selectedPaymentRail;
+    const txnId = (serverTxn && serverTxn.txnId) ? serverTxn.txnId : `HDFC-TXN-${Math.floor(100000000 + Math.random() * 900000000)}`;
+    const authCode = (serverTxn && serverTxn.authCode) ? serverTxn.authCode : `AUTH-${Math.floor(100000 + Math.random() * 900000)}`;
+    const dateStr = new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata', dateStyle: 'medium', timeStyle: 'short' });
 
-        // Render Invoice Receipt
-        body.innerHTML = `
-            <div class="hdfc-success-screen">
-                <div class="hdfc-success-header">
-                    <div class="hdfc-success-check">
-                        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
-                    </div>
-                    <h2 style="font-family:var(--font-display); font-size:1.6rem; color:var(--base-dark); margin-bottom:6px;">
-                        Payment Verified & Captured
-                    </h2>
-                    <p style="font-size:0.86rem; color:#059669; font-family:var(--font-mono); font-weight:700;">
-                        AUTHORIZED BY HDFC BANK CORE GATEWAY (RRN: ${txnId})
-                    </p>
+    // Calculate item breakdown
+    let itemsRows = '';
+    let totalQty = 0;
+    cart.forEach((it, idx) => {
+        const q = it.qty || it.quantity || 1;
+        totalQty += q;
+        itemsRows += `
+            <tr>
+                <td>SS-${1000 + idx}</td>
+                <td>${escapeHtml(it.title || it.name)}</td>
+                <td>${q}</td>
+                <td>₹${it.price.toLocaleString('en-IN')}</td>
+                <td style="text-align:right;">₹${(it.price * q).toLocaleString('en-IN')}</td>
+            </tr>
+        `;
+    });
+
+    const gstVal = Math.round(activeCheckoutTotal * 0.18 / 1.18);
+    const taxableVal = activeCheckoutTotal - gstVal;
+
+    // Render Invoice Receipt
+    body.innerHTML = `
+        <div class="hdfc-success-screen">
+            <div class="hdfc-success-header">
+                <div class="hdfc-success-check">
+                    <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
                 </div>
+                <h2 style="font-family:var(--font-display); font-size:1.6rem; color:#0f172a; margin-bottom:6px;">
+                    Payment Verified &amp; Captured
+                </h2>
+                <p style="font-size:0.86rem; color:#059669; font-family:var(--font-mono); font-weight:700;">
+                    AUTHORIZED BY HDFC BANK CORE GATEWAY (RRN: ${txnId})
+                </p>
+            </div>
 
-                <!-- B2B Tax Invoice Receipt (Printable) -->
-                <div class="hdfc-invoice-receipt" id="printable-invoice">
-                    <div class="receipt-header-row">
-                        <div>
-                            <strong style="font-size:1rem; color:var(--base-dark);">SYBER SPACE SECURITY SYSTEMS</strong><br>
-                            Authorized CCTV & Surveillance Systems<br>
-                            Kerala HQ • GSTIN: 32AABCU9603R1ZM • info@syberspace.in
-                        </div>
-                        <div style="text-align:right;">
-                            <strong>TAX INVOICE: ${currentOrderRef}</strong><br>
-                            Date: ${dateStr}<br>
-                            Mode: HDFC ${paymentRail.toUpperCase()}<br>
-                            Auth Code: ${authCode}
-                        </div>
+            <!-- B2B Tax Invoice Receipt (Printable) -->
+            <div class="hdfc-invoice-receipt" id="printable-invoice">
+                <div class="receipt-header-row">
+                    <div>
+                        <strong style="font-size:1rem; color:#0f172a;">SYBER SPACE SECURITY SYSTEMS</strong><br>
+                        Authorized CCTV &amp; Surveillance Systems<br>
+                        Kerala HQ • GSTIN: 32AABCU9603R1ZM • info@syberspace.in
                     </div>
-
-                    <div style="margin-bottom:16px;">
-                        <strong>BILLED TO:</strong><br>
-                        ${currentCustomerData ? currentCustomerData.name : 'Customer'}<br>
-                        ${currentCustomerData && currentCustomerData.company ? currentCustomerData.company + '<br>' : ''}
-                        ${currentCustomerData ? currentCustomerData.address + ', ' + currentCustomerData.city + ', ' + currentCustomerData.state + ' - ' + currentCustomerData.pincode : ''}<br>
-                        Phone: +91 ${currentCustomerData ? currentCustomerData.phone : ''} • Email: ${currentCustomerData ? currentCustomerData.email : ''}<br>
-                        ${currentCustomerData && currentCustomerData.gstin ? '<strong>GSTIN:</strong> ' + currentCustomerData.gstin : '<strong>GSTIN:</strong> Not Provided'}
-                    </div>
-
-                    <table class="receipt-table">
-                        <thead>
-                            <tr>
-                                <th>SKU</th>
-                                <th>Description</th>
-                                <th>Qty</th>
-                                <th>Unit Rate</th>
-                                <th style="text-align:right;">Amount (INR)</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            ${itemsRows}
-                        </tbody>
-                    </table>
-
-                    <div style="border-top:1px dashed rgba(27,24,21,0.2); padding-top:12px;">
-                        <div class="receipt-totals-row">
-                            <span>Taxable Value:</span>
-                            <span>₹${taxableVal.toLocaleString('en-IN')}</span>
-                        </div>
-                        <div class="receipt-totals-row">
-                            <span>GST @ 18%:</span>
-                            <span>₹${gstVal.toLocaleString('en-IN')}</span>
-                        </div>
-                        <div class="receipt-totals-row">
-                            <span>Shipping:</span>
-                            <span style="color:#059669; font-weight:700;">FREE</span>
-                        </div>
-                        <div class="receipt-totals-row grand">
-                            <span>TOTAL AMOUNT CHARGED & RECEIVED:</span>
-                            <span>₹${activeCheckoutTotal.toLocaleString('en-IN')}</span>
-                        </div>
+                    <div style="text-align:right;">
+                        <strong>TAX INVOICE: ${currentOrderRef}</strong><br>
+                        Date: ${dateStr}<br>
+                        Mode: HDFC ${paymentRail.toUpperCase()}<br>
+                        Auth Code: ${authCode}
                     </div>
                 </div>
 
-                <div style="display:flex; justify-content:space-between; align-items:center; gap:14px; flex-wrap:wrap; margin-top:12px;">
-                    <button type="button" class="hdfc-pay-now-btn" onclick="window.print()" style="background:#111622; border-color:#111622;">
-                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
-                        <span>PRINT / SAVE TAX INVOICE (PDF)</span>
-                    </button>
-                    <a href="index.html#cameras" class="hdfc-pay-now-btn" style="text-decoration:none; text-align:center;">
-                        <span>CONTINUE SHOPPING &rarr;</span>
-                    </a>
+                <div style="margin-bottom:16px;">
+                    <strong>BILLED TO:</strong><br>
+                    ${currentCustomerData ? escapeHtml(currentCustomerData.name) : 'Customer'}<br>
+                    ${currentCustomerData && currentCustomerData.company ? escapeHtml(currentCustomerData.company) + '<br>' : ''}
+                    ${currentCustomerData ? escapeHtml(currentCustomerData.address) + ', ' + escapeHtml(currentCustomerData.city) + ', ' + escapeHtml(currentCustomerData.state) + ' - ' + escapeHtml(currentCustomerData.pincode) : ''}<br>
+                    Phone: +91 ${currentCustomerData ? escapeHtml(currentCustomerData.phone) : ''} • Email: ${currentCustomerData ? escapeHtml(currentCustomerData.email) : ''}<br>
+                    ${currentCustomerData && currentCustomerData.gstin ? '<strong>GSTIN:</strong> ' + escapeHtml(currentCustomerData.gstin) : '<strong>GSTIN:</strong> Not Provided'}
+                </div>
+
+                <table class="receipt-table">
+                    <thead>
+                        <tr>
+                            <th>SKU</th>
+                            <th>Description</th>
+                            <th>Qty</th>
+                            <th>Unit Rate</th>
+                            <th style="text-align:right;">Amount (INR)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        ${itemsRows}
+                    </tbody>
+                </table>
+
+                <div style="border-top:1px dashed #cbd5e1; padding-top:12px;">
+                    <div class="receipt-totals-row">
+                        <span>Taxable Value:</span>
+                        <span>₹${taxableVal.toLocaleString('en-IN')}</span>
+                    </div>
+                    <div class="receipt-totals-row">
+                        <span>GST @ 18%:</span>
+                        <span>₹${gstVal.toLocaleString('en-IN')}</span>
+                    </div>
+                    <div class="receipt-totals-row">
+                        <span>Shipping:</span>
+                        <span style="color:#059669; font-weight:700;">FREE INSURED EXPRESS</span>
+                    </div>
+                    <div class="receipt-totals-row grand">
+                        <span>TOTAL AMOUNT CHARGED &amp; RECEIVED:</span>
+                        <span>₹${activeCheckoutTotal.toLocaleString('en-IN')}</span>
+                    </div>
                 </div>
             </div>
-        `;
 
-        // Clear Cart & Reset Nav
-        localStorage.removeItem('syber_cart');
-        updateNavCartCount();
+            <div style="display:flex; justify-content:space-between; align-items:center; gap:14px; flex-wrap:wrap; margin-top:12px;">
+                <button type="button" class="hdfc-pay-now-btn" onclick="window.print()" style="background:#0f172a; border-color:#0f172a;">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+                    <span>PRINT / SAVE TAX INVOICE (PDF)</span>
+                </button>
+                <a href="index.html#cameras" class="hdfc-pay-now-btn" style="text-decoration:none; text-align:center;">
+                    <span>CONTINUE SHOPPING &rarr;</span>
+                </a>
+            </div>
+        </div>
+    `;
 
-    }, 1400);
+    // Clear Cart in Storage & Reset Nav Counters
+    localStorage.removeItem('syber_cart');
+    localStorage.removeItem('syber_cart_items');
+    updateNavCartCount();
 }
+
 
 // =============================================================================
 // GLOBAL HEADER SEARCH NAVIGATION FROM SUBPAGES
