@@ -3617,7 +3617,7 @@ body.pdp-dark-mode .iphone-search-btn {
     padding: 5rem 0 5.5rem;
     position: relative;
     background: transparent;
-    border-top: 1px solid rgba(212, 163, 115, 0.2);
+    border-top: 1px solid #e2e8f0;
 }
 
 .why-us-container {
@@ -3668,7 +3668,7 @@ body.pdp-dark-mode .iphone-search-btn {
     font-weight: 800;
     letter-spacing: 0.1em;
     text-transform: uppercase;
-    color: #2563eb;
+    color: #0f172a;
     margin-bottom: 0.65rem;
 }
 
@@ -3684,17 +3684,17 @@ body.pdp-dark-mode .iphone-search-btn {
 .why-us-card-desc {
     font-size: 0.92rem;
     line-height: 1.65;
-    color: #5c4335;
+    color: #64748b;
 }
 
 /* ==========================================================================
-   MINIMALIST SITE FOOTER
+   MINIMALIST SITE FOOTER — MATCHING HERO SECTION WHITE PALETTE
    ========================================================================== */
 .site-footer {
-    background: #1a120c;
-    color: #e6ded7;
+    background: #ffffff;
+    color: #475569;
     padding: 4.5rem 0 2.5rem;
-    border-top: 1px solid rgba(212, 163, 115, 0.2);
+    border-top: 1px solid #e2e8f0;
 }
 
 .footer-container {
@@ -3715,14 +3715,14 @@ body.pdp-dark-mode .iphone-search-btn {
     font-size: 1.5rem;
     font-weight: 900;
     letter-spacing: 0.04em;
-    color: #ffffff;
+    color: #0f172a;
     margin-bottom: 0.65rem;
 }
 
 .footer-brand-desc {
     font-size: 0.88rem;
     line-height: 1.65;
-    color: #bfa99c;
+    color: #64748b;
     margin-bottom: 1.25rem;
     max-width: 340px;
 }
@@ -3731,9 +3731,9 @@ body.pdp-dark-mode .iphone-search-btn {
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
-    background: rgba(37, 99, 235, 0.15);
-    border: 1px solid rgba(37, 99, 235, 0.35);
-    color: #e2e8f0;
+    background: #f1f5f9;
+    border: 1px solid #e2e8f0;
+    color: #0f172a;
     font-size: 0.72rem;
     font-weight: 800;
     letter-spacing: 0.06em;
@@ -3746,7 +3746,7 @@ body.pdp-dark-mode .iphone-search-btn {
     font-size: 0.95rem;
     font-weight: 800;
     letter-spacing: 0.08em;
-    color: #ffffff;
+    color: #0f172a;
     text-transform: uppercase;
     margin-bottom: 1.25rem;
 }
@@ -3761,38 +3761,48 @@ body.pdp-dark-mode .iphone-search-btn {
 }
 
 .footer-links a {
-    color: #bfa99c;
+    color: #64748b;
     text-decoration: none;
     font-size: 0.88rem;
     transition: color 0.2s ease;
 }
 
 .footer-links a:hover {
-    color: #e2e8f0;
+    color: #0f172a;
 }
 
 .footer-contact-info {
     font-size: 0.88rem;
     line-height: 1.65;
-    color: #bfa99c;
+    color: #64748b;
 }
 
 .footer-contact-info a {
-    color: #e2e8f0;
+    color: #0f172a;
     text-decoration: none;
     font-weight: 700;
 }
 
 .footer-bottom-bar {
     padding-top: 2rem;
-    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    border-top: 1px solid #e2e8f0;
     display: flex;
     justify-content: space-between;
     align-items: center;
     font-size: 0.8rem;
-    color: #8c786c;
+    color: #94a3b8;
     flex-wrap: wrap;
     gap: 1rem;
+}
+
+.footer-bottom-bar a {
+    color: #64748b;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.footer-bottom-bar a:hover {
+    color: #0f172a;
 }
 
 /* Responsive Overrides */
