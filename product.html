@@ -24,7 +24,7 @@
         }
 
         .product-page-main {
-            padding-top: 74px; /* Precision clearance for floating header */
+            padding-top: 0; /* Precision clearance for floating header */
             background-color: #ffffff;
         }
 
@@ -113,15 +113,15 @@
         }
 
         .ugb-card {
-            background: linear-gradient(135deg, #f8fafc 0%, #eff6ff 100%);
-            border: 1.5px solid rgba(37, 99, 235, 0.25);
+            background: #ffffff;
+            border: 1.5px solid #e2e8f0;
             border-radius: 16px;
             padding: 2rem 2.5rem;
             display: flex;
             align-items: center;
             justify-content: space-between;
             gap: 2rem;
-            box-shadow: 0 8px 24px rgba(37, 99, 235, 0.06);
+            box-shadow: 0 4px 16px rgba(15, 23, 42, 0.04);
         }
 
         .ugb-left {
@@ -132,7 +132,7 @@
             display: inline-flex;
             align-items: center;
             gap: 0.45rem;
-            background: #2563eb;
+            background: #0f172a;
             color: #ffffff;
             font-family: 'Space Mono', monospace;
             font-size: 0.68rem;
@@ -1372,18 +1372,18 @@
                 document.body.classList.toggle('pdp-dark-mode', isDark);
 
                 if (typeof gsap !== 'undefined' && !instant) {
-                    gsap.to(['#hardware-showcase', '#asus-stage-viewport', '.product-page-main'], {
+                    gsap.to(['#hardware-showcase', '#asus-stage-viewport', '.product-page-main', 'body'], {
                         backgroundColor: targetBg,
                         duration: 0.5,
                         ease: 'power2.out'
                     });
                 } else {
-                    const targets = [stageSection, stageViewport, document.querySelector('.product-page-main')];
+                    const targets = [stageSection, stageViewport, document.querySelector('.product-page-main'), document.body];
                     targets.forEach(el => {
                         if (el) el.style.backgroundColor = targetBg;
                     });
                     if (typeof gsap !== 'undefined') {
-                        gsap.set(['#hardware-showcase', '#asus-stage-viewport', '.product-page-main'], {
+                        gsap.set(['#hardware-showcase', '#asus-stage-viewport', '.product-page-main', 'body'], {
                             backgroundColor: targetBg
                         });
                     }

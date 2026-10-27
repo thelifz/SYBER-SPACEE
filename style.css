@@ -70,42 +70,90 @@ body.jeko-theme-white {
 /* ==========================================================================
    GLASSY CURVY IPHONE HEADER (EXACT SCREENSHOT SPECIFICATION)
    ========================================================================== */
+/* ==========================================================================
+   FLOATING HEADER — FULLY TRANSPARENT LUXURY GLASSLESS ARCHITECTURE
+   ========================================================================== */
 .iphone-header-wrapper {
     position: sticky;
-    top: 0.85rem;
+    top: 0;
     left: 0;
     width: 100%;
     z-index: 1000;
-    padding: 0 1.25rem;
+    padding: 0.65rem 2rem 0;
     pointer-events: none;
-    
+    background: transparent;
 }
 
 .iphone-header-glass {
     max-width: 1680px;
     margin: 0 auto;
     pointer-events: auto;
-    background: rgba(255, 255, 255, 0.62);
-    backdrop-filter: blur(14px);
-    -webkit-backdrop-filter: blur(14px);
-    border: 1px solid rgba(255, 255, 255, 0.75);
-    border-radius: 20px;
-    padding: 0.55rem 1.25rem;
+    background: transparent !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    border: none !important;
+    border-radius: 0 !important;
+    padding: 0.25rem 0 !important;
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: 1.25rem;
-    box-shadow: 0 10px 32px rgba(15, 23, 42, 0.05), 
-                0 1px 3px rgba(15, 23, 42, 0.02), 
-                inset 0 1px 1.5px rgba(255, 255, 255, 0.9);
-    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow: none !important;
+    transition: background-color 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .iphone-header-glass:hover {
-    box-shadow: 0 16px 42px rgba(15, 23, 42, 0.1), 
-                0 2px 6px rgba(15, 23, 42, 0.05), 
-                inset 0 1px 1.5px rgba(255, 255, 255, 1);
-    background: rgba(255, 255, 255, 0.85);
+    box-shadow: none !important;
+    background: transparent !important;
+}
+
+/* Dark theme header transparency adaptation */
+body.pdp-dark-mode .iphone-header-glass {
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+
+body.pdp-dark-mode .brand-title {
+    color: #ffffff;
+}
+
+body.pdp-dark-mode .brand-slogan {
+    color: #94a3b8;
+}
+
+body.pdp-dark-mode .iphone-action-item .action-label {
+    color: #94a3b8;
+}
+
+body.pdp-dark-mode .iphone-action-item .action-value {
+    color: #f8fafc;
+}
+
+body.pdp-dark-mode .iphone-cart-btn {
+    color: #f8fafc;
+}
+
+body.pdp-dark-mode .cart-label {
+    color: #f8fafc;
+}
+
+body.pdp-dark-mode .iphone-search-box {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+body.pdp-dark-mode .iphone-search-input {
+    color: #ffffff;
+}
+
+body.pdp-dark-mode .iphone-search-input::placeholder {
+    color: #94a3b8;
+}
+
+body.pdp-dark-mode .iphone-search-btn {
+    background: #ffffff;
+    color: #0f172a;
 }
 
 /* Left: Logo Squircle & Brand */
@@ -1401,9 +1449,9 @@ body.jeko-theme-white {
 
 .sp-amount {
     font-family: var(--font-heading);
-    font-size: 2rem;
+    font-size: clamp(1.4rem, 2.2vw, 2rem);
     font-weight: 900;
-    color: #2563eb;
+    color: #0f172a;
     line-height: 1;
 }
 
@@ -3420,7 +3468,7 @@ body.jeko-theme-white {
 .about-section {
     padding: 6rem 0 5.5rem;
     position: relative;
-    border-top: 1px solid rgba(212, 163, 115, 0.22);
+    border-top: 1px solid #e2e8f0;
 }
 
 .about-container {
@@ -3442,7 +3490,7 @@ body.jeko-theme-white {
     font-size: 0.76rem;
     font-weight: 800;
     letter-spacing: 0.14em;
-    color: #2563eb;
+    color: #0f172a;
     text-transform: uppercase;
     margin-bottom: 0.75rem;
 }
@@ -3460,18 +3508,18 @@ body.jeko-theme-white {
 .about-lead {
     font-size: 1.05rem;
     line-height: 1.7;
-    color: #5c4335;
+    color: #334155;
     margin-bottom: 1.5rem;
 }
 
 .unboxing-policy-box {
-    background: #fbf6f0;
-    border-left: 3.5px solid #2563eb;
-    border-radius: 0 14px 14px 0;
-    padding: 1.1rem 1.35rem;
+    background: transparent;
+    border-left: 3px solid #0f172a;
+    border-radius: 0;
+    padding: 0.5rem 0 0.5rem 1.1rem;
     font-size: 0.88rem;
     line-height: 1.6;
-    color: #432b1f;
+    color: #475569;
     margin-bottom: 2rem;
 }
 
@@ -4194,8 +4242,8 @@ body.jeko-theme-white {
 
 /* Unboxing Video Notice Card */
 .cart-unboxing-notice-card {
-    background: #fffbf7;
-    border: 1px dashed rgba(37, 99, 235, 0.45);
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
     border-radius: 20px;
     padding: 1.25rem 1.5rem;
     display: flex;
@@ -4208,8 +4256,8 @@ body.jeko-theme-white {
     width: 42px;
     height: 42px;
     border-radius: 12px;
-    background: #ffffff;
-    border: 1px solid rgba(37, 99, 235, 0.25);
+    background: #f8fafc;
+    border: 1px solid #e2e8f0; color: #0f172a;
     display: flex;
     align-items: center;
     justify-content: center;
