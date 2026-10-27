@@ -4482,146 +4482,50 @@ body.jeko-theme-white {
 
 
 /* ==========================================================================
-   ASUS ROG / APPLE-LEVEL GSAP PINNED HARDWARE SHOWCASE
-   White Luxury Background + Coffee Palette + Pinned Camera & Corner Buy Dock
+   FLAGSHIP HARDWARE SHOWCASE
+   Pure Minimalist White Architecture + 3D Camera Focus + Clean Features & Buy Dock
    ========================================================================== */
 
 .asus-showcase-section {
-    background-color: #f8fafc;
+    background-color: #ffffff;
     position: relative;
     width: 100%;
-    border-top: 1px solid #e2e8f0;
-    border-bottom: 1px solid #e2e8f0;
+    border-bottom: 1px solid #f1f5f9;
 }
 
-/* 1. TOP HUD & TELEMETRY HEADER */
-.asus-hud-header {
-    padding: 0.5rem 1.5rem 0.35rem;
-    max-width: 1400px;
-    margin: 0 auto;
-    text-align: center;
-    position: relative;
-    z-index: 5;
-}
-
-.asus-hud-kicker {
-    font-family: 'Space Mono', monospace;
-    font-size: 0.7rem;
-    font-weight: 700;
-    color: #2563eb;
-    letter-spacing: 0.12em;
-    display: inline-flex;
-    align-items: center;
-    gap: 0.45rem;
-    margin-bottom: 0.15rem;
-}
-
-.asus-kicker-dot {
-    width: 6px;
-    height: 6px;
-    border-radius: 50%;
-    background: #2563eb;
-    box-shadow: 0 0 8px rgba(37, 99, 235, 0.7);
-    animation: asusPulse 1.8s infinite;
-}
-
-.asus-kicker-badge {
-    background: rgba(37, 99, 235, 0.12);
-    color: #1e40af;
-    border: 1px solid rgba(37, 99, 235, 0.3);
-    padding: 0.12rem 0.45rem;
-    border-radius: 4px;
-    font-size: 0.62rem;
-    font-weight: 700;
-}
-
-.asus-hud-title {
-    font-family: var(--font-heading, 'Space Grotesk', sans-serif);
-    font-size: clamp(1.2rem, 1.8vw, 1.6rem);
-    font-weight: 800;
-    color: #0f172a;
-    letter-spacing: -0.025em;
-    margin: 0.1rem 0 0.2rem;
-    text-transform: uppercase;
-}
-
-.asus-hud-subtitle {
-    max-width: 640px;
-    margin: 0 auto 0.35rem;
-    color: #475569;
-    font-size: 0.8rem;
-    line-height: 1.35;
-}
-
-.asus-telemetry-ribbon {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 0.35rem 0.85rem;
-    padding: 0.22rem 0.85rem;
-    background: #ffffff;
-    border: 1.5px solid #e2e8f0;
-    border-radius: 9999px;
-    max-width: fit-content;
-    margin: 0 auto;
-    box-shadow: 0 4px 14px rgba(15, 23, 42, 0.04);
-}
-
-.asus-tel-item {
-    font-family: 'Space Mono', monospace;
-    font-size: 0.68rem;
-    color: #0f172a;
-    display: flex;
-    align-items: center;
-    gap: 0.35rem;
-}
-
-.asus-tel-label {
-    color: #64748b;
-    font-weight: 600;
-}
-
-.asus-tel-val {
-    color: #2563eb;
-    font-weight: 700;
-}
-
-/* 2. PINNED STAGE & VIEWPORT */
+/* 1. PINNED STAGE & VIEWPORT */
 .asus-stage-container {
     position: relative;
     width: 100%;
 }
 
 .asus-stage-viewport {
-    height: calc(100vh - 185px);
-    max-height: 640px;
-    min-height: 500px;
+    height: calc(100vh - 74px);
+    max-height: 860px;
+    min-height: 580px;
     width: 100%;
     position: relative;
     background-color: #ffffff;
     overflow: hidden;
     display: grid;
-    grid-template-columns: 320px 1fr 315px;
+    grid-template-columns: 360px 1fr 340px;
     align-items: center;
-    padding: 0.6rem 1.5rem;
+    padding: 1.5rem 3rem;
     box-sizing: border-box;
-    border-top: 1px solid rgba(37, 99, 235, 0.18);
-    box-shadow: inset 0 2px 8px rgba(15, 23, 42, 0.02);
+    border: none;
+    box-shadow: none;
 }
 
-.asus-stage-bg-grid {
-    position: absolute;
-    inset: 0;
-    pointer-events: none;
-    background-image: 
-        linear-gradient(rgba(37, 99, 235, 0.06) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(37, 99, 235, 0.06) 1px, transparent 1px);
-    background-size: 40px 40px;
-    mask-image: radial-gradient(circle at center, black 65%, transparent 95%);
-    -webkit-mask-image: radial-gradient(circle at center, black 65%, transparent 95%);
+/* Hide all background blueprint grids, radar circles, reticles, pointers */
+.asus-stage-bg-grid,
+.asus-radar-ring,
+.asus-reticle-box,
+.asus-hud-pointer,
+.asus-core-readout {
+    display: none !important;
 }
 
-/* 3. LEFT COLUMN: SCROLLING FEATURES TRACK */
+/* 2. LEFT COLUMN: CLEAN MINIMALIST FEATURES TRACK (NO BOXES) */
 .asus-features-col {
     position: relative;
     z-index: 10;
@@ -4629,8 +4533,8 @@ body.jeko-theme-white {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    padding-top: 0.35rem;
-    padding-right: 1rem;
+    padding-top: 2.2rem;
+    padding-right: 1.5rem;
     overflow: hidden;
 }
 
@@ -4639,22 +4543,22 @@ body.jeko-theme-white {
     justify-content: space-between;
     align-items: center;
     font-family: 'Space Mono', monospace;
-    font-size: 0.68rem;
+    font-size: 0.72rem;
+    font-weight: 700;
     color: #64748b;
-    margin-bottom: 0.45rem;
-    padding-bottom: 0.3rem;
-    border-bottom: 1px dashed #e2e8f0;
+    letter-spacing: 0.1em;
+    margin-bottom: 1.25rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid rgba(15, 23, 42, 0.06);
     flex-shrink: 0;
-    background: #ffffff;
-    position: relative;
-    z-index: 10;
+    background: transparent;
 }
 
 .asus-features-track-wrapper {
     position: relative;
     overflow: hidden;
-    mask-image: linear-gradient(to bottom, transparent 0%, black 14px, black calc(100% - 14px), transparent 100%);
-    -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 14px, black calc(100% - 14px), transparent 100%);
+    mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
 }
 
 #afh-step-indicator {
@@ -4665,21 +4569,23 @@ body.jeko-theme-white {
 .asus-features-track {
     display: flex;
     flex-direction: column;
-    gap: 0.75rem;
+    gap: 1.6rem;
     transition: transform 0.1s linear;
     will-change: transform;
 }
 
+/* Pure Minimalist Feature Items — Clean Typography, No Card Boxes */
 .asus-feature-card {
-    background: #ffffff;
-    border: 1.5px solid #e2e8f0;
-    border-radius: 12px;
-    padding: 0.85rem 1rem;
-    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-    box-shadow: 0 4px 12px rgba(15, 23, 42, 0.03);
-    opacity: 0.35;
-    transform: scale(0.96);
+    background: transparent;
+    border: none;
+    border-left: 2px solid #e2e8f0;
+    border-radius: 0;
+    padding: 0.5rem 0.5rem 0.5rem 1.25rem;
+    box-shadow: none;
+    opacity: 0.42;
+    transform: none;
     cursor: pointer;
+    transition: opacity 0.35s ease, border-color 0.35s ease, transform 0.35s ease;
 }
 
 .asus-feature-card:hover {
@@ -4688,35 +4594,34 @@ body.jeko-theme-white {
 
 .asus-feature-card.active {
     opacity: 1;
-    transform: scale(1);
-    border-color: #2563eb;
-    box-shadow: 0 12px 28px -8px rgba(37, 99, 235, 0.24);
-    background: #ffffff;
+    border-left: 3px solid #2563eb;
+    background: transparent;
+    box-shadow: none;
+    transform: translateX(4px);
 }
 
 .afc-header {
     display: flex;
-    align-items: center;
+    align-items: baseline;
     gap: 0.65rem;
-    margin-bottom: 0.35rem;
+    margin-bottom: 0.25rem;
 }
 
 .afc-index {
     font-family: 'Space Mono', monospace;
-    font-size: 0.95rem;
+    font-size: 1.15rem;
     font-weight: 800;
-    color: #0f172a;
-    background: #f8fafc;
-    border: 1px solid #e2e8f0;
-    padding: 0.18rem 0.45rem;
-    border-radius: 5px;
+    color: #2563eb;
+    background: transparent;
+    border: none;
+    padding: 0;
     line-height: 1;
 }
 
 .asus-feature-card.active .afc-index {
-    background: #0f172a;
-    color: #ffffff;
-    border-color: #0f172a;
+    background: transparent;
+    color: #2563eb;
+    border: none;
 }
 
 .afc-meta {
@@ -4726,7 +4631,7 @@ body.jeko-theme-white {
 
 .afc-kicker {
     font-family: 'Space Mono', monospace;
-    font-size: 0.64rem;
+    font-size: 0.66rem;
     font-weight: 700;
     color: #2563eb;
     letter-spacing: 0.08em;
@@ -4734,49 +4639,49 @@ body.jeko-theme-white {
 
 .afc-title {
     font-family: var(--font-heading, sans-serif);
-    font-size: 0.92rem;
-    font-weight: 700;
+    font-size: 1.05rem;
+    font-weight: 800;
     color: #0f172a;
     margin-top: 0.1rem;
     line-height: 1.25;
 }
 
 .afc-desc {
-    font-size: 0.78rem;
-    line-height: 1.35;
-    color: #334155;
-    margin-bottom: 0.45rem;
+    font-size: 0.85rem;
+    line-height: 1.45;
+    color: #475569;
+    margin-bottom: 0.5rem;
 }
 
 .afc-specs {
     display: flex;
     flex-wrap: wrap;
-    gap: 0.3rem;
-    margin-bottom: 0.45rem;
+    gap: 0.35rem 0.85rem;
+    margin-bottom: 0.5rem;
 }
 
 .afc-spec-chip {
-    background: #f8fafc;
-    border: 1px solid #e2e8f0;
-    padding: 0.16rem 0.4rem;
-    border-radius: 4px;
-    font-size: 0.66rem;
-    color: #334155;
+    background: transparent;
+    border: none;
+    padding: 0;
+    font-size: 0.72rem;
+    color: #64748b;
     font-family: 'Space Mono', monospace;
     display: flex;
-    gap: 0.3rem;
+    gap: 0.35rem;
 }
 
 .afc-spec-chip strong {
     color: #0f172a;
+    font-weight: 700;
 }
 
 .afc-status {
     display: flex;
     align-items: center;
-    gap: 0.4rem;
+    gap: 0.45rem;
     font-family: 'Space Mono', monospace;
-    font-size: 0.64rem;
+    font-size: 0.66rem;
     font-weight: 700;
     color: #16a34a;
     letter-spacing: 0.05em;
@@ -4791,7 +4696,7 @@ body.jeko-theme-white {
     animation: asusPulse 1.8s infinite;
 }
 
-/* 4. CENTER COLUMN: PINNED CAMERA CORE VISUAL */
+/* 3. CENTER COLUMN: PINNED CAMERA CORE VISUAL (PURE WHITE CANVAS, NO CIRCLES, NO RETICLES) */
 .asus-center-stage {
     position: relative;
     height: 100%;
@@ -4802,201 +4707,48 @@ body.jeko-theme-white {
     z-index: 15;
 }
 
-.asus-radar-ring {
-    position: absolute;
-    border-radius: 50%;
-    pointer-events: none;
-    border: 1px dashed rgba(37, 99, 235, 0.28);
-}
-
-.asus-ring-1 {
-    width: 250px;
-    height: 250px;
-    animation: asusRadarSpin 24s linear infinite;
-}
-
-.asus-ring-2 {
-    width: 350px;
-    height: 350px;
-    animation: asusRadarSpin 36s linear infinite reverse;
-}
-
-.asus-ring-3 {
-    width: 450px;
-    height: 450px;
-    opacity: 0.4;
-}
-
-@keyframes asusRadarSpin {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
-}
-
-.asus-reticle-box {
-    position: absolute;
-    width: 280px;
-    height: 280px;
-    pointer-events: none;
-}
-
-.reticle-corner {
-    position: absolute;
-    width: 14px;
-    height: 14px;
-    border: 2px solid #2563eb;
-}
-
-.reticle-tl { top: 0; left: 0; border-right: none; border-bottom: none; }
-.reticle-tr { top: 0; right: 0; border-left: none; border-bottom: none; }
-.reticle-bl { bottom: 0; left: 0; border-right: none; border-top: none; }
-.reticle-br { bottom: 0; right: 0; border-left: none; border-top: none; }
-
-.reticle-crosshair-h {
-    position: absolute;
-    top: 50%;
-    left: -15px;
-    right: -15px;
-    height: 1px;
-    background: linear-gradient(90deg, transparent, rgba(37, 99, 235, 0.35) 20%, rgba(37, 99, 235, 0.35) 80%, transparent);
-}
-
-.reticle-crosshair-v {
-    position: absolute;
-    left: 50%;
-    top: -15px;
-    bottom: -15px;
-    width: 1px;
-    background: linear-gradient(180deg, transparent, rgba(37, 99, 235, 0.35) 20%, rgba(37, 99, 235, 0.35) 80%, transparent);
-}
-
 .asus-product-visual-wrap {
     position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
     width: 100%;
-    max-height: 290px;
+    max-height: 480px;
 }
 
 .asus-pinned-camera-img {
-    max-height: 270px;
-    max-width: 300px;
+    max-height: 400px;
+    max-width: 420px;
     width: auto;
     object-fit: contain;
-    filter: drop-shadow(0 16px 26px rgba(15, 23, 42, 0.12));
+    filter: drop-shadow(0 20px 35px rgba(15, 23, 42, 0.12));
     transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
     will-change: transform;
 }
 
 .asus-product-shadow {
     position: absolute;
-    bottom: -15px;
+    bottom: -18px;
     left: 50%;
     transform: translateX(-50%);
-    width: 180px;
-    height: 24px;
-    background: radial-gradient(ellipse at center, rgba(15, 23, 42, 0.18) 0%, transparent 70%);
+    width: 220px;
+    height: 28px;
+    background: radial-gradient(ellipse at center, rgba(15, 23, 42, 0.16) 0%, transparent 70%);
     border-radius: 50%;
     pointer-events: none;
 }
 
-.asus-hud-pointer {
-    position: absolute;
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    pointer-events: none;
-    opacity: 0;
-    transform: translateY(6px);
-    transition: opacity 0.35s ease, transform 0.35s ease;
-    z-index: 5;
-}
-
-.asus-hud-pointer.active {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-.pointer-gimbal {
-    bottom: 75px;
-    left: 10px;
-}
-
-.pointer-antenna {
-    top: 95px;
-    right: 15px;
-}
-
-.pointer-solar {
-    top: 20px;
-    left: 15px;
-}
-
-.pointer-lens {
-    top: 165px;
-    right: 10px;
-}
-
-.pointer-seal {
-    bottom: 40px;
-    right: 20px;
-}
-
-.ptr-line {
-    width: 28px;
-    height: 1.5px;
-    background: #2563eb;
-    box-shadow: 0 0 6px rgba(37, 99, 235, 0.5);
-}
-
-.ptr-badge {
-    background: #0f172a;
-    color: #e2e8f0;
-    font-family: 'Space Mono', monospace;
-    font-size: 0.65rem;
-    font-weight: 700;
-    padding: 0.2rem 0.5rem;
-    border-radius: 4px;
-    border: 1px solid #2563eb;
-    white-space: nowrap;
-    box-shadow: 0 4px 12px rgba(15, 23, 42, 0.15);
-}
-
-.asus-core-readout {
-    margin-top: 0.8rem;
-    font-family: 'Space Mono', monospace;
-    font-size: 0.68rem;
-    background: #f8fafc;
-    border: 1.5px solid #e2e8f0;
-    padding: 0.28rem 0.8rem;
-    border-radius: 9999px;
-    display: inline-flex;
-    align-items: center;
-    gap: 0.45rem;
-    box-shadow: 0 4px 14px rgba(15, 23, 42, 0.05);
-    z-index: 5;
-}
-
-.acr-label {
-    color: #64748b;
-}
-
-.acr-val {
-    color: #0f172a;
-    font-weight: 700;
-}
-
-/* 5. RIGHT COLUMN: CORNER PURCHASE DOCK */
+/* 4. RIGHT COLUMN: CORNER PURCHASE DOCK */
 .asus-buy-dock {
     background: #ffffff;
     border: 1.5px solid #e2e8f0;
-    border-radius: 14px;
-    padding: 0.85rem 1.1rem;
-    box-shadow: 0 16px 36px -10px rgba(15, 23, 42, 0.12);
+    border-radius: 16px;
+    padding: 1.25rem 1.4rem;
+    box-shadow: 0 16px 40px -10px rgba(15, 23, 42, 0.08);
     position: relative;
     z-index: 30;
     width: 100%;
-    max-width: 315px;
+    max-width: 330px;
     margin-left: auto;
 }
 
@@ -5004,16 +4756,16 @@ body.jeko-theme-white {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 0.3rem;
+    margin-bottom: 0.45rem;
 }
 
 .abd-pill-badge {
     background: #0f172a;
     color: #fdfbf9;
     font-family: 'Space Mono', monospace;
-    font-size: 0.62rem;
+    font-size: 0.64rem;
     font-weight: 700;
-    padding: 0.2rem 0.48rem;
+    padding: 0.2rem 0.5rem;
     border-radius: 4px;
     letter-spacing: 0.06em;
 }
@@ -5023,7 +4775,7 @@ body.jeko-theme-white {
     align-items: center;
     gap: 0.35rem;
     font-family: 'Space Mono', monospace;
-    font-size: 0.64rem;
+    font-size: 0.66rem;
     font-weight: 700;
     color: #16a34a;
 }
@@ -5038,36 +4790,36 @@ body.jeko-theme-white {
 
 .abd-brand {
     font-family: 'Space Mono', monospace;
-    font-size: 0.66rem;
+    font-size: 0.68rem;
     font-weight: 700;
     color: #2563eb;
     letter-spacing: 0.1em;
-    margin-bottom: 0.15rem;
+    margin-bottom: 0.2rem;
 }
 
 .abd-product-title {
     font-family: var(--font-heading, sans-serif);
-    font-size: 1.05rem;
+    font-size: 1.15rem;
     font-weight: 800;
     color: #0f172a;
-    line-height: 1.22;
-    margin-bottom: 0.2rem;
+    line-height: 1.25;
+    margin-bottom: 0.25rem;
 }
 
 .abd-model-code {
     font-family: 'Space Mono', monospace;
-    font-size: 0.66rem;
+    font-size: 0.68rem;
     color: #64748b;
-    margin-bottom: 0.4rem;
+    margin-bottom: 0.6rem;
 }
 
 .abd-rating-strip {
     display: flex;
     align-items: center;
     gap: 0.35rem;
-    font-size: 0.68rem;
-    margin-bottom: 0.4rem;
-    padding-bottom: 0.3rem;
+    font-size: 0.7rem;
+    margin-bottom: 0.55rem;
+    padding-bottom: 0.45rem;
     border-bottom: 1px dashed #e2e8f0;
 }
 
@@ -5088,8 +4840,8 @@ body.jeko-theme-white {
 .abd-price-box {
     display: flex;
     align-items: baseline;
-    gap: 0.5rem;
-    margin-bottom: 0.15rem;
+    gap: 0.6rem;
+    margin-bottom: 0.2rem;
 }
 
 .abd-price-main {
@@ -5100,13 +4852,13 @@ body.jeko-theme-white {
 }
 
 .abd-currency {
-    font-size: 1rem;
+    font-size: 1.1rem;
     font-weight: 700;
-    margin-top: 0.1rem;
+    margin-top: 0.12rem;
 }
 
 .abd-price-val {
-    font-size: 1.65rem;
+    font-size: 1.85rem;
     font-weight: 800;
     letter-spacing: -0.02em;
 }
@@ -5114,7 +4866,7 @@ body.jeko-theme-white {
 .abd-price-sub {
     display: flex;
     flex-direction: column;
-    font-size: 0.68rem;
+    font-size: 0.7rem;
 }
 
 .abd-mrp {
@@ -5129,27 +4881,26 @@ body.jeko-theme-white {
 }
 
 .abd-tax-note {
-    font-size: 0.65rem;
+    font-size: 0.66rem;
     color: #64748b;
-    margin-bottom: 0.45rem;
+    margin-bottom: 0.6rem;
 }
 
 .abd-perks {
     display: flex;
     flex-direction: column;
-    gap: 0.25rem;
-    margin-bottom: 0.6rem;
-    background: #f8fafc;
-    padding: 0.45rem 0.65rem;
-    border-radius: 8px;
-    border: 1px solid #e2e8f0;
+    gap: 0.35rem;
+    margin-bottom: 0.85rem;
+    background: transparent;
+    padding: 0;
+    border: none;
 }
 
 .abd-perk-item {
     display: flex;
     align-items: center;
-    gap: 0.35rem;
-    font-size: 0.68rem;
+    gap: 0.45rem;
+    font-size: 0.72rem;
     color: #1e293b;
     font-weight: 500;
 }
@@ -5163,24 +4914,24 @@ body.jeko-theme-white {
 .abd-actions {
     display: flex;
     flex-direction: column;
-    gap: 0.4rem;
-    margin-bottom: 0.35rem;
+    gap: 0.5rem;
+    margin-bottom: 0.45rem;
 }
 
 .btn-abd-cart {
     width: 100%;
-    padding: 0.62rem 0.8rem;
+    padding: 0.72rem 1rem;
     background: #0f172a;
     color: #ffffff;
     border: 1.5px solid #0f172a;
     border-radius: 8px;
     font-family: 'Space Mono', monospace;
-    font-size: 0.76rem;
+    font-size: 0.8rem;
     font-weight: 700;
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 0.5rem;
+    gap: 0.55rem;
     cursor: pointer;
     transition: opacity 0.2s ease, transform 0.2s ease, border-color 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
     letter-spacing: 0.05em;
@@ -5195,13 +4946,13 @@ body.jeko-theme-white {
 
 .btn-abd-buynow {
     width: 100%;
-    padding: 0.62rem 0.85rem;
+    padding: 0.72rem 1rem;
     background: #16a34a;
     color: #ffffff;
     border: 1.5px solid #16a34a;
     border-radius: 8px;
     font-family: 'Space Mono', monospace;
-    font-size: 0.78rem;
+    font-size: 0.82rem;
     font-weight: 800;
     display: flex;
     align-items: center;
