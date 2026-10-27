@@ -672,14 +672,9 @@ const BRAND_META = {
     }
 };
 
+// Hover timers disabled — user requested elimination of the progress strip & hover delay
 function startBrandHover(cardElem, brandKey) {
-    cancelBrandHover();
-    if (cardElem && cardElem.classList) {
-        cardElem.classList.add('is-hovering');
-    }
-    brandHoverTimer = setTimeout(() => {
-        triggerBubbleTakeover(cardElem, brandKey);
-    }, BRAND_HOVER_DELAY);
+    // Deliberate hover delay removed to eliminate barber-pole loading strip
 }
 
 function cancelBrandHover(cardElem) {
@@ -687,7 +682,6 @@ function cancelBrandHover(cardElem) {
         clearTimeout(brandHoverTimer);
         brandHoverTimer = null;
     }
-    document.querySelectorAll('.brand-cat-card').forEach(c => c.classList.remove('is-hovering'));
 }
 
 function triggerBubbleTakeover(originElemOrEvent, brandKey) {
@@ -1264,4 +1258,234 @@ function addShowcaseCameraToCart(buyNow = false) {
     if (buyNow) {
         window.location.href = 'cart.html';
     }
+}
+
+
+// ==========================================================================
+// AUTHORIZED BRANDS SHOWCASE LOGIC (MATCHING REFERENCE DESIGN)
+// ==========================================================================
+const BRAND_SHOWCASE_DATA = {
+    'TRUEVIEW': {
+        partnerBadge: 'AUTHORIZED PARTNER',
+        title: 'TRUEVIEW',
+        count: '✓ 31 Products',
+        desc: '4G Solar PTZ, PoE Switches, Routers & NVRs',
+        bestseller: {
+            tag: '#1 BESTSELLER',
+            img: 'assets/hero_product_solar_v2.png',
+            label: 'Trueview 4G Mini PT'
+        },
+        products: [
+            { kicker: '4G SOLAR', title: 'Trueview 4G Mini PT 3MP IP65', price: 3200, brand: 'TRUEVIEW', img: 'assets/hero_product_solar_v2.png' },
+            { kicker: '8-PORT POE', title: 'Trueview 8-Port Commercial PoE', price: 2350, brand: 'TRUEVIEW', img: 'assets/trueview_poe_front.jpg' },
+            { kicker: '4G ROUTER', title: 'Trueview 4G Industrial Wi-Fi 6 Router', price: 1850, brand: 'TRUEVIEW', img: 'assets/trueview_router_angle.jpg' },
+            { kicker: '4MP DUAL LENS', title: 'Trueview 4MP Dual-Lens Solar Camera', price: 4600, brand: 'TRUEVIEW', img: 'assets/hero_product_solar_v2.png' },
+            { kicker: '16-CH NVR', title: 'Trueview 16-Channel 4K NVR Recorder', price: 6400, brand: 'TRUEVIEW', img: 'assets/trueview_dvr_16ch.webp' }
+        ]
+    },
+    'CPPLUS': {
+        partnerBadge: 'AUTHORIZED DISTRIBUTOR',
+        title: 'CP PLUS',
+        count: '✓ 9 Products',
+        desc: 'Smart Wi-Fi Ezykam, Full Color Dome & Bullet AI Security',
+        bestseller: {
+            tag: '#1 BESTSELLER',
+            img: 'assets/hero_product_cpplus_v2.png',
+            label: 'CP Plus Ezykam 3MP PT'
+        },
+        products: [
+            { kicker: 'SMART PAN & TILT', title: 'CP Plus Ezykam 3MP Pan & Tilt Wi-Fi', price: 1980, brand: 'CP PLUS', img: 'assets/hero_product_cpplus_v2.png' },
+            { kicker: 'OUTDOOR BULLET', title: 'CP Plus 2MP Full-Color Bullet Camera', price: 1450, brand: 'CP PLUS', img: 'assets/hero_product_cpplus_v2.png' },
+            { kicker: 'AI 4MP INDOOR', title: 'CP Plus 4MP Ultra-HD Guard Cam', price: 2450, brand: 'CP PLUS', img: 'assets/hero_product_cpplus_v2.png' },
+            { kicker: '4-CH HD DVR', title: 'CP Plus 4-Channel H.265+ DVR System', price: 2850, brand: 'CP PLUS', img: 'assets/trueview_dvr_4ch.webp' },
+            { kicker: '8-CH HD DVR', title: 'CP Plus 8-Channel Commercial DVR', price: 4200, brand: 'CP PLUS', img: 'assets/trueview_dvr_4ch.webp' }
+        ]
+    },
+    'IDADA': {
+        partnerBadge: 'PREMIUM SMART HOME',
+        title: 'iDADA',
+        count: '✓ 14 Products',
+        desc: 'High-Speed Pan & Tilt Wi-Fi Cameras with 2-Way Intercom',
+        bestseller: {
+            tag: '#1 BESTSELLER',
+            img: 'assets/hero_product_idada_v2.png',
+            label: 'iDADA 3MP Smart PT'
+        },
+        products: [
+            { kicker: '3MP SMART PT', title: 'iDADA 3MP Smart Wi-Fi Pan & Tilt Cam', price: 1850, brand: 'iDADA', img: 'assets/hero_product_idada_v2.png' },
+            { kicker: 'DUAL ANTENNA', title: 'iDADA 3MP Long-Range Outdoor Wi-Fi', price: 2150, brand: 'iDADA', img: 'assets/hero_product_idada_v2.png' },
+            { kicker: 'SMART HOME', title: 'iDADA Baby & Elderly Care 2-Way Audio', price: 1650, brand: 'iDADA', img: 'assets/hero_product_idada_v2.png' },
+            { kicker: '4G CELLULAR', title: 'iDADA 4G SIM Card Autonomous Camera', price: 3100, brand: 'iDADA', img: 'assets/hero_product_idada_v2.png' },
+            { kicker: 'SOLAR BACKUP', title: 'iDADA Solar Battery Standalone PTZ', price: 3850, brand: 'iDADA', img: 'assets/hero_product_idada_v2.png' }
+        ]
+    },
+    'SEAGATE': {
+        partnerBadge: 'SURVEILLANCE STORAGE',
+        title: 'SEAGATE',
+        count: '✓ 3 Capacities',
+        desc: 'SkyHawk 24/7 Zero Frame Loss Heavy-Duty Surveillance Hard Drives',
+        bestseller: {
+            tag: '#1 BESTSELLER',
+            img: 'assets/acc_official_skyhawk_hdd.png',
+            label: 'Seagate SkyHawk 2TB'
+        },
+        products: [
+            { kicker: '1TB SURVEILLANCE', title: 'Seagate SkyHawk 1TB Surveillance HDD', price: 3400, brand: 'SEAGATE', img: 'assets/acc_official_skyhawk_hdd.png' },
+            { kicker: '2TB BEST VALUE', title: 'Seagate SkyHawk 2TB Heavy-Duty HDD', price: 4650, brand: 'SEAGATE', img: 'assets/acc_official_skyhawk_hdd.png' },
+            { kicker: '4TB ENTERPRISE', title: 'Seagate SkyHawk 4TB Commercial HDD', price: 7800, brand: 'SEAGATE', img: 'assets/acc_official_skyhawk_hdd.png' },
+            { kicker: '6TB AI RECORDER', title: 'Seagate SkyHawk AI 6TB Analytics HDD', price: 12400, brand: 'SEAGATE', img: 'assets/acc_official_skyhawk_hdd.png' },
+            { kicker: 'MICRO SD 128GB', title: 'SanDisk High Endurance 128GB Card', price: 1150, brand: 'SANDISK', img: 'assets/acc_sandisk_128gb.jpg' }
+        ]
+    },
+    'INFRASTRUCTURE': {
+        partnerBadge: 'PRO CCTV CABLING & POWER',
+        title: 'INFRASTRUCTURE',
+        count: '✓ 22 Items',
+        desc: 'Power SMPS, Pure Copper Cat6 & RG59 Cabling, Racks & Waterproof Boxes',
+        bestseller: {
+            tag: '#1 BESTSELLER',
+            img: 'assets/acc_official_smps.png',
+            label: 'Ultra-Link 12V 5A SMPS'
+        },
+        products: [
+            { kicker: '12V 5A SMPS', title: 'Ultra-Link 12V 5A 4-Channel Metal SMPS', price: 450, brand: 'INFRASTRUCTURE', img: 'assets/acc_official_smps.png' },
+            { kicker: '12V 10A SMPS', title: 'Ultra-Link 12V 10A 8-Channel Industrial SMPS', price: 750, brand: 'INFRASTRUCTURE', img: 'assets/acc_official_smps.png' },
+            { kicker: 'CAT6 305M', title: 'Ultra-Link Pure Copper Cat6 Cable 305m Drum', price: 4200, brand: 'INFRASTRUCTURE', img: 'assets/acc_official_cat6_drum.png' },
+            { kicker: '3+1 COAXIAL', title: 'D-Link 3+1 RG59 Pure Copper CCTV Cable 90m', price: 1450, brand: 'INFRASTRUCTURE', img: 'assets/acc_official_cat6_drum.png' },
+            { kicker: 'JUNCTION BOX', title: 'Waterproof IP66 Heavy Duty Camera Base Box (Pack of 10)', price: 380, brand: 'INFRASTRUCTURE', img: 'assets/acc_official_smps.png' }
+        ]
+    }
+};
+
+function switchBrandDisplay(brandKey, tabBtn) {
+    const data = BRAND_SHOWCASE_DATA[brandKey];
+    if (!data) return;
+
+    // 1. Update active tab
+    document.querySelectorAll('.brand-tab-btn').forEach(b => b.classList.remove('active'));
+    if (tabBtn) {
+        tabBtn.classList.add('active');
+    } else {
+        const matchingBtn = document.querySelector(`.brand-tab-btn[data-brand="${brandKey}"]`);
+        if (matchingBtn) matchingBtn.classList.add('active');
+    }
+
+    // 2. Smooth transition of card content
+    const card = document.getElementById('brandDisplayCard');
+    if (card) {
+        card.style.opacity = '0.5';
+        card.style.transform = 'translateY(4px)';
+    }
+
+    setTimeout(() => {
+        const partnerBadge = document.getElementById('bdcPartnerBadge');
+        const titleEl = document.getElementById('bdcBrandTitle');
+        const countPill = document.getElementById('bdcCountPill');
+        const descEl = document.getElementById('bdcBrandDesc');
+        const bestImg = document.getElementById('bdcBestsellerImg');
+        const bestLabel = document.getElementById('bdcBestsellerLabel');
+        const bestBox = document.getElementById('bdcBestsellerBox');
+        const shelf = document.getElementById('bdcProductsShelf');
+
+        if (partnerBadge) {
+            partnerBadge.innerHTML = `
+                <svg class="bdc-check-icon" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                </svg>
+                ${data.partnerBadge}
+            `;
+        }
+        if (titleEl) titleEl.textContent = data.title;
+        if (countPill) countPill.innerHTML = `&#10003; ${data.count.replace('✓ ', '')}`;
+        if (descEl) descEl.textContent = data.desc;
+        if (bestImg) {
+            bestImg.src = data.bestseller.img;
+            bestImg.alt = data.bestseller.label;
+        }
+        if (bestLabel) bestLabel.textContent = data.bestseller.label;
+        if (bestBox) {
+            bestBox.setAttribute('onclick', `quickViewBestseller('${brandKey}')`);
+        }
+
+        if (shelf && data.products) {
+            shelf.innerHTML = data.products.map(p => `
+                <div class="bpc-card">
+                    <span class="bpc-kicker">${p.kicker}</span>
+                    <div class="bpc-img-wrap">
+                        <img src="${p.img}" alt="${p.title}" class="bpc-img" loading="lazy" onerror="this.src='assets/hero_product_solar_v2.png'">
+                    </div>
+                    <h4 class="bpc-title">${p.title}</h4>
+                    <div class="bpc-price">&#8377;${Number(p.price).toLocaleString('en-IN')}</div>
+                    <div class="bpc-actions">
+                        <button type="button" class="btn-bpc-cart" onclick="directAddToCart('${p.title.replace(/'/g, "\\'")}', ${p.price}, '${p.brand}', '${p.img}', this)">+ CART</button>
+                        <button type="button" class="btn-bpc-pay" onclick="directPayProduct('${p.title.replace(/'/g, "\\'")}', ${p.price}, '${p.brand}', '${p.img}')">PAY</button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        if (card) {
+            card.style.opacity = '1';
+            card.style.transform = 'translateY(0)';
+        }
+    }, 160);
+}
+
+function quickViewBestseller(brandKey) {
+    const data = BRAND_SHOWCASE_DATA[brandKey];
+    if (!data) return;
+    const firstProd = data.products[0];
+    if (firstProd) {
+        directAddToCart(firstProd.title, firstProd.price, firstProd.brand, firstProd.img);
+    }
+}
+
+function directAddToCart(title, price, brand, img, btn) {
+    let pid = 'bpc-' + title.toLowerCase().replace(/[^a-z0-9]+/g, '-');
+    if (typeof SYBER_PRODUCTS !== 'undefined') {
+        const found = SYBER_PRODUCTS.find(p => p.title.toLowerCase().includes(title.toLowerCase().slice(0, 15)));
+        if (found) pid = found.id;
+    }
+
+    const existing = CART_ITEMS.find(item => item.id === pid || item.title === title);
+    if (existing) {
+        existing.qty = (existing.qty || 1) + 1;
+        existing.quantity = existing.qty;
+    } else {
+        CART_ITEMS.push({
+            id: pid,
+            title: title,
+            name: title,
+            brand: brand || 'TRUEVIEW',
+            price: Number(price) || 0,
+            mrp: '₹' + Math.round(Number(price) * 1.35).toLocaleString('en-IN'),
+            save: 'Direct Partner Price',
+            img: img,
+            image: img,
+            qty: 1,
+            quantity: 1
+        });
+    }
+    saveCart();
+
+    if (btn) {
+        const origText = btn.textContent;
+        btn.textContent = 'ADDED ✓';
+        btn.style.background = '#059669';
+        btn.style.color = '#ffffff';
+        btn.style.borderColor = '#059669';
+        setTimeout(() => {
+            btn.textContent = origText;
+            btn.style.background = '';
+            btn.style.color = '';
+            btn.style.borderColor = '';
+        }, 1200);
+    }
+
+    showToastWithCartButton(title, brand || 'Authorized Brand');
+}
+
+function directPayProduct(title, price, brand, img) {
+    directAddToCart(title, price, brand, img);
+    window.location.href = 'cart.html?checkout=1';
 }
