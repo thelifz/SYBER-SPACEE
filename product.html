@@ -492,12 +492,21 @@
                         </div>
                     </div>
 
-                    <!-- 2. CENTER: PINNED CAMERA VISUAL (PURE MINIMAL WHITE CANVAS) -->
+                    <!-- 2. CENTER: PINNED CAMERA VISUAL (PURE MINIMAL WHITE CANVAS WITH INTERACTIVE ZOOM) -->
                     <div class="asus-center-stage" id="asus-center-stage">
-                        <div class="asus-product-visual-wrap" id="asus-product-wrap">
+                        <div class="asus-product-visual-wrap" id="asus-product-wrap" onclick="toggleProductZoom()">
                             <img src="assets/hero_product_solar_v2.png" alt="CCTV Camera" class="asus-pinned-camera-img" id="asus-camera-img">
                             <div class="asus-product-shadow"></div>
                         </div>
+                        <button type="button" class="asus-zoom-pill" id="asus-zoom-pill" onclick="toggleProductZoom()" title="Click to zoom in/out">
+                            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="11" cy="11" r="8"></circle>
+                                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                                <line x1="11" y1="8" x2="11" y2="14" id="zoom-icon-v"></line>
+                                <line x1="8" y1="11" x2="14" y2="11"></line>
+                            </svg>
+                            <span id="zoom-pill-text">CLICK TO ZOOM</span>
+                        </button>
                     </div>
 
                     <!-- 3. CORNER RIGHT SIDE: ADD TO CART & BUY NOW DOCK -->
@@ -722,7 +731,7 @@
                             image: getImg(1),
                             bg: '#041a24',
                             theme: 'dark',
-                            motion: { rotateY: 18, rotateZ: -2, scale: 1.05 }
+                            motion: { rotateY: 0, rotateZ: 0, scale: 1.05 }
                         },
                         {
                             index: '03',
@@ -735,7 +744,7 @@
                             image: getImg(2),
                             bg: '#ffffff',
                             theme: 'light',
-                            motion: { rotateY: -16, rotateZ: 2, scale: 1.08 }
+                            motion: { rotateY: 0, rotateZ: 0, scale: 1.08 }
                         },
                         {
                             index: '04',
@@ -748,7 +757,7 @@
                             image: getImg(3),
                             bg: '#0b0e13',
                             theme: 'dark',
-                            motion: { rotateY: 14, rotateZ: -1, scale: 1.1 }
+                            motion: { rotateY: 0, rotateZ: 0, scale: 1.1 }
                         },
                         {
                             index: '05',
@@ -815,7 +824,7 @@
                             image: getImg(1),
                             bg: '#f8fafc',
                             theme: 'light',
-                            motion: { rotateY: 18, rotateZ: -2, scale: 1.05 }
+                            motion: { rotateY: 0, rotateZ: 0, scale: 1.05 }
                         },
                         {
                             index: '03',
@@ -828,7 +837,7 @@
                             image: getImg(2),
                             bg: '#ffffff',
                             theme: 'light',
-                            motion: { rotateY: -16, rotateZ: 2, scale: 1.08 }
+                            motion: { rotateY: 0, rotateZ: 0, scale: 1.08 }
                         },
                         {
                             index: '04',
@@ -841,7 +850,7 @@
                             image: getImg(3),
                             bg: '#f8fafc',
                             theme: 'light',
-                            motion: { rotateY: 12, rotateZ: -1, scale: 1.1 }
+                            motion: { rotateY: 0, rotateZ: 0, scale: 1.1 }
                         },
                         {
                             index: '05',
@@ -908,7 +917,7 @@
                             image: getImg(1),
                             bg: '#f8f7f3',
                             theme: 'light',
-                            motion: { rotateY: 20, rotateZ: -2, scale: 1.05 }
+                            motion: { rotateY: 0, rotateZ: 0, scale: 1.05 }
                         },
                         {
                             index: '03',
@@ -921,7 +930,7 @@
                             image: getImg(2),
                             bg: '#ffffff',
                             theme: 'light',
-                            motion: { rotateY: -16, rotateZ: 3, scale: 1.08 }
+                            motion: { rotateY: 0, rotateZ: 0, scale: 1.08 }
                         },
                         {
                             index: '04',
@@ -934,7 +943,7 @@
                             image: getImg(3),
                             bg: '#f8f7f3',
                             theme: 'light',
-                            motion: { rotateY: 14, rotateZ: -1, scale: 1.12 }
+                            motion: { rotateY: 0, rotateZ: 0, scale: 1.12 }
                         },
                         {
                             index: '05',
@@ -1015,7 +1024,7 @@
                         image: getImg(1),
                         bg: wifiBgs[1],
                         theme: wifiThemes[1],
-                        motion: { rotateY: 18, rotateZ: -2, scale: 1.05 }
+                        motion: { rotateY: 0, rotateZ: 0, scale: 1.05 }
                     },
                     {
                         index: '03',
@@ -1028,7 +1037,7 @@
                         image: getImg(2),
                         bg: wifiBgs[2],
                         theme: wifiThemes[2],
-                        motion: { rotateY: -16, rotateZ: 2, scale: 1.08 }
+                        motion: { rotateY: 0, rotateZ: 0, scale: 1.08 }
                     },
                     {
                         index: '04',
@@ -1041,7 +1050,7 @@
                         image: getImg(3),
                         bg: wifiBgs[3],
                         theme: wifiThemes[3],
-                        motion: { rotateY: 14, rotateZ: -1, scale: 1.1 }
+                        motion: { rotateY: 0, rotateZ: 0, scale: 1.1 }
                     },
                     {
                         index: '05',
@@ -1214,6 +1223,9 @@
                 });
             });
 
+            // Initialize interactive hover & click zoom
+            initProductImageZoom();
+
             if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') {
                 return;
             }
@@ -1245,21 +1257,85 @@
                             setActiveShowcaseFeature(targetIdx);
                         }
 
-                        if (cameraImg && SHOWCASE_FEATURE_DATA[targetIdx]) {
-                            const cfg = SHOWCASE_FEATURE_DATA[targetIdx];
-                            const microTilt = (progress - 0.5) * 8;
-                            cameraImg.style.transform = `perspective(1000px) rotateY(${cfg.rotateY + microTilt}deg) rotateZ(${cfg.rotateZ}deg) scale(${cfg.scale})`;
+                        // Product stays completely still and upright (NO TILTING)
+                        if (cameraImg && !isZoomLocked && !isHoverZooming) {
+                            cameraImg.style.transform = 'scale(1)';
                         }
                     }
                 }
             });
 
-            // Note: Left track no longer scrolls vertically! All 5 features stay pinned and visible simultaneously!
             ScrollTrigger.refresh();
         }
 
         let isProgrammaticScroll = false;
         let scrollUnlockTimer = null;
+        let isZoomLocked = false;
+        let isHoverZooming = false;
+
+        function toggleProductZoom() {
+            isZoomLocked = !isZoomLocked;
+            const cameraImg = document.getElementById('asus-camera-img');
+            const zoomText = document.getElementById('zoom-pill-text');
+            const zoomIconV = document.getElementById('zoom-icon-v');
+            const visualWrap = document.getElementById('asus-product-wrap');
+
+            if (!cameraImg) return;
+
+            if (isZoomLocked) {
+                cameraImg.style.transformOrigin = 'center center';
+                cameraImg.style.transform = 'scale(2.2)';
+                cameraImg.style.cursor = 'zoom-out';
+                if (visualWrap) visualWrap.style.cursor = 'zoom-out';
+                if (zoomText) zoomText.textContent = 'ZOOM OUT (ESC)';
+                if (zoomIconV) zoomIconV.style.display = 'none';
+            } else {
+                cameraImg.style.transformOrigin = 'center center';
+                cameraImg.style.transform = 'scale(1)';
+                cameraImg.style.cursor = 'zoom-in';
+                if (visualWrap) visualWrap.style.cursor = 'zoom-in';
+                if (zoomText) zoomText.textContent = 'CLICK TO ZOOM';
+                if (zoomIconV) zoomIconV.style.display = 'block';
+            }
+        }
+
+        function initProductImageZoom() {
+            const visualWrap = document.getElementById('asus-product-wrap');
+            const cameraImg = document.getElementById('asus-camera-img');
+            if (!visualWrap || !cameraImg) return;
+
+            visualWrap.addEventListener('mousemove', (e) => {
+                if (isZoomLocked) {
+                    const rect = visualWrap.getBoundingClientRect();
+                    const xPercent = Math.max(0, Math.min(100, ((e.clientX - rect.left) / rect.width) * 100));
+                    const yPercent = Math.max(0, Math.min(100, ((e.clientY - rect.top) / rect.height) * 100));
+                    cameraImg.style.transformOrigin = `${xPercent}% ${yPercent}%`;
+                    return;
+                }
+
+                isHoverZooming = true;
+                const rect = visualWrap.getBoundingClientRect();
+                const xPercent = Math.max(0, Math.min(100, ((e.clientX - rect.left) / rect.width) * 100));
+                const yPercent = Math.max(0, Math.min(100, ((e.clientY - rect.top) / rect.height) * 100));
+                
+                cameraImg.style.transformOrigin = `${xPercent}% ${yPercent}%`;
+                cameraImg.style.transform = 'scale(1.75)';
+            });
+
+            visualWrap.addEventListener('mouseleave', () => {
+                isHoverZooming = false;
+                if (!isZoomLocked) {
+                    cameraImg.style.transformOrigin = 'center center';
+                    cameraImg.style.transform = 'scale(1)';
+                }
+            });
+
+            window.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && isZoomLocked) {
+                    toggleProductZoom();
+                }
+            });
+        }
 
         function selectShowcaseImage(index, instant = false) {
             setActiveShowcaseFeature(index, instant);
@@ -1332,9 +1408,11 @@
                     }
                 }
 
-                // 2. Camera Image Transform & Crossfade
+                // 2. Camera Image: Upright and Still (NO TILTING) with smooth crossfade
                 if (cameraImg) {
-                    cameraImg.style.transform = `perspective(1000px) rotateY(${item.rotateY}deg) rotateZ(${item.rotateZ}deg) scale(${item.scale})`;
+                    if (!isZoomLocked && !isHoverZooming) {
+                        cameraImg.style.transform = 'scale(1)';
+                    }
 
                     // Award-level smooth crossfade when switching feature image
                     if (item.image && cameraImg.getAttribute('data-active-image') !== item.image) {
@@ -1342,8 +1420,8 @@
                         cameraImg.src = item.image;
                         if (typeof gsap !== 'undefined' && !instant) {
                             gsap.fromTo(cameraImg, 
-                                { opacity: 0.2, scale: (item.scale || 1) * 0.96 }, 
-                                { opacity: 1, scale: item.scale || 1, duration: 0.35, ease: 'power2.out' }
+                                { opacity: 0.2, scale: 0.98 }, 
+                                { opacity: 1, scale: isZoomLocked ? 2.2 : 1, duration: 0.35, ease: 'power2.out' }
                             );
                         } else {
                             cameraImg.style.opacity = '1';
