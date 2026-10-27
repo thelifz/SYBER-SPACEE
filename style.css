@@ -4717,8 +4717,9 @@ body.jeko-theme-white {
 }
 
 .asus-pinned-camera-img {
-    max-height: 400px;
-    max-width: 420px;
+    max-height: 420px;
+    max-width: 440px;
+    border-radius: 12px;
     width: auto;
     object-fit: contain;
     filter: drop-shadow(0 20px 35px rgba(15, 23, 42, 0.12));
