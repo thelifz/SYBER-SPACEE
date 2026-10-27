@@ -183,7 +183,7 @@ function updateCartUI() {
         container.innerHTML = `
             <div class="cw-empty-state">
                 <div class="cw-empty-icon">
-                    <svg viewBox="0 0 24 24" width="40" height="40" fill="none" stroke="#2563eb" stroke-width="1.8">
+                    <svg viewBox="0 0 24 24" width="40" height="40" fill="none" stroke="#0f172a" stroke-width="1.8">
                         <circle cx="9" cy="21" r="1"></circle>
                         <circle cx="20" cy="21" r="1"></circle>
                         <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
@@ -637,22 +637,22 @@ const BRAND_HOVER_DELAY = 1500; // 1.5 seconds deliberate hover
 const BRAND_META = {
     'TRUEVIEW': { 
         name: 'TRUEVIEW', 
-        color: '#2563eb', 
-        bg: '#fdf8f2',
+        color: '#0f172a', 
+        bg: '#ffffff',
         kicker: 'OFFICIAL SURVEILLANCE PARTNER',
         subtitle: '32 Autonomous Solar & Commercial CCTV Cameras Available' 
     },
     'CPPLUS': { 
         name: 'CP PLUS', 
         color: '#2e5090', 
-        bg: '#f0f4fa',
+        bg: '#f8fafc',
         kicker: 'AUTHORIZED ENTERPRISE DISTRIBUTOR',
         subtitle: '9 Commercial & Smart Ezykam Security Cameras Available'
     },
     'IDADA': { 
         name: 'iDADA', 
         color: '#d9532f', 
-        bg: '#fef5f2',
+        bg: '#f8fafc',
         kicker: '#1 BESTSELLER SMART HOME',
         subtitle: 'High-Velocity Pan & Tilt Wi-Fi Cameras Available'
     },
@@ -736,8 +736,8 @@ function triggerBubbleTakeover(originElemOrEvent, brandKey) {
     // Get brand metadata
     const meta = BRAND_META[brandKey] || { 
         name: brandKey, 
-        color: '#2563eb', 
-        bg: '#fdf8f2', 
+        color: '#0f172a', 
+        bg: '#ffffff', 
         kicker: 'BRAND SHOWCASE', 
         subtitle: 'Surveillance hardware catalog' 
     };
