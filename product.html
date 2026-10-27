@@ -380,7 +380,9 @@
                     <!-- 2. CENTER: PINNED CAMERA VISUAL (PURE MINIMAL WHITE CANVAS WITH INTERACTIVE ZOOM) -->
                     <div class="asus-center-stage" id="asus-center-stage">
                         <div class="asus-product-visual-wrap" id="asus-product-wrap" onclick="toggleProductZoom()">
-                            <img src="assets/hero_product_solar_v2.png" alt="CCTV Camera" class="asus-pinned-camera-img" id="asus-camera-img">
+                            <div class="pdp-camera-deck" id="pdp-camera-deck">
+                                <img src="assets/hero_product_solar_v2.png" alt="CCTV Camera" class="pdp-stage-img active" id="asus-camera-img">
+                            </div>
                             <div class="asus-product-shadow"></div>
                         </div>
                         <button type="button" class="asus-zoom-pill" id="asus-zoom-pill" onclick="toggleProductZoom()" title="Click to zoom in/out">
@@ -1092,13 +1094,17 @@
                 `).join('');
             }
 
-            // 2. Center Product Visual & Feature Gallery Strip
-            const camImg = document.getElementById('asus-camera-img');
-            const imgSrc = (p.images && p.images.length > 0) ? p.images[0] : 'assets/hero_product_solar_v2.png';
-            if (camImg) {
-                camImg.src = imgSrc;
-                camImg.alt = p.title;
-                camImg.setAttribute('data-active-image', imgSrc);
+            // 2. Center Product Visual: Preload All 5 Stage Images in Deck for Zero-Bump Jesko Jets Transition
+            const cameraDeck = document.getElementById('pdp-camera-deck');
+            if (cameraDeck && showcaseData.features) {
+                cameraDeck.innerHTML = showcaseData.features.map((feat, idx) => `
+                    <img src="${feat.image}" 
+                         alt="${feat.title}" 
+                         class="pdp-stage-img ${idx === 0 ? 'active' : ''}" 
+                         data-stage="${idx}"
+                         loading="eager"
+                         style="opacity: ${idx === 0 ? '1' : '0'}; filter: ${idx === 0 ? 'blur(0px) drop-shadow(0 20px 35px rgba(15, 23, 42, 0.12))' : 'blur(8px) drop-shadow(0 20px 35px rgba(15, 23, 42, 0.12))'};">
+                `).join('');
             }
 
             const galleryStrip = document.getElementById('pdp-gallery-strip');
@@ -1209,9 +1215,7 @@
                         }
 
                         // Product stays completely still and upright (NO TILTING)
-                        if (cameraImg && !isZoomLocked && !isHoverZooming) {
-                            cameraImg.style.transform = 'scale(1)';
-                        }
+                        // Upright presence maintained by deck CSS without inline fight
                     }
                 }
             });
@@ -1226,24 +1230,24 @@
 
         function toggleProductZoom() {
             isZoomLocked = !isZoomLocked;
-            const cameraImg = document.getElementById('asus-camera-img');
+            const cameraDeck = document.getElementById('pdp-camera-deck');
             const zoomText = document.getElementById('zoom-pill-text');
             const zoomIconV = document.getElementById('zoom-icon-v');
             const visualWrap = document.getElementById('asus-product-wrap');
 
-            if (!cameraImg) return;
+            if (!cameraDeck) return;
 
             if (isZoomLocked) {
-                cameraImg.style.transformOrigin = 'center center';
-                cameraImg.style.transform = 'scale(2.2)';
-                cameraImg.style.cursor = 'zoom-out';
+                cameraDeck.style.transformOrigin = 'center center';
+                cameraDeck.style.transform = 'scale(2.2)';
+                cameraDeck.style.cursor = 'zoom-out';
                 if (visualWrap) visualWrap.style.cursor = 'zoom-out';
                 if (zoomText) zoomText.textContent = 'ZOOM OUT (ESC)';
                 if (zoomIconV) zoomIconV.style.display = 'none';
             } else {
-                cameraImg.style.transformOrigin = 'center center';
-                cameraImg.style.transform = 'scale(1)';
-                cameraImg.style.cursor = 'zoom-in';
+                cameraDeck.style.transformOrigin = 'center center';
+                cameraDeck.style.transform = 'scale(1)';
+                cameraDeck.style.cursor = 'zoom-in';
                 if (visualWrap) visualWrap.style.cursor = 'zoom-in';
                 if (zoomText) zoomText.textContent = 'CLICK TO ZOOM';
                 if (zoomIconV) zoomIconV.style.display = 'block';
@@ -1252,15 +1256,15 @@
 
         function initProductImageZoom() {
             const visualWrap = document.getElementById('asus-product-wrap');
-            const cameraImg = document.getElementById('asus-camera-img');
-            if (!visualWrap || !cameraImg) return;
+            const cameraDeck = document.getElementById('pdp-camera-deck');
+            if (!visualWrap || !cameraDeck) return;
 
             visualWrap.addEventListener('mousemove', (e) => {
                 if (isZoomLocked) {
                     const rect = visualWrap.getBoundingClientRect();
                     const xPercent = Math.max(0, Math.min(100, ((e.clientX - rect.left) / rect.width) * 100));
                     const yPercent = Math.max(0, Math.min(100, ((e.clientY - rect.top) / rect.height) * 100));
-                    cameraImg.style.transformOrigin = `${xPercent}% ${yPercent}%`;
+                    cameraDeck.style.transformOrigin = `${xPercent}% ${yPercent}%`;
                     return;
                 }
 
@@ -1269,15 +1273,15 @@
                 const xPercent = Math.max(0, Math.min(100, ((e.clientX - rect.left) / rect.width) * 100));
                 const yPercent = Math.max(0, Math.min(100, ((e.clientY - rect.top) / rect.height) * 100));
                 
-                cameraImg.style.transformOrigin = `${xPercent}% ${yPercent}%`;
-                cameraImg.style.transform = 'scale(1.75)';
+                cameraDeck.style.transformOrigin = `${xPercent}% ${yPercent}%`;
+                cameraDeck.style.transform = 'scale(1.75)';
             });
 
             visualWrap.addEventListener('mouseleave', () => {
                 isHoverZooming = false;
                 if (!isZoomLocked) {
-                    cameraImg.style.transformOrigin = 'center center';
-                    cameraImg.style.transform = 'scale(1)';
+                    cameraDeck.style.transformOrigin = 'center center';
+                    cameraDeck.style.transform = 'scale(1)';
                 }
             });
 
@@ -1385,26 +1389,32 @@
                     }
                 }
 
-                // 2. Camera Image: Jesko Jets Cinematic Lens Blur & Crossfade
-                if (cameraImg) {
-                    if (!isZoomLocked && !isHoverZooming) {
-                        cameraImg.style.transform = 'scale(1)';
-                    }
-
-                    if (item.image && cameraImg.getAttribute('data-active-image') !== item.image) {
-                        cameraImg.setAttribute('data-active-image', item.image);
-                        cameraImg.src = item.image;
+                // 2. Camera Image: Jesko Jets Optical Dissolve Across Preloaded Layers (ZERO BUMP)
+                const stageImgs = document.querySelectorAll('.pdp-stage-img');
+                stageImgs.forEach((img, i) => {
+                    if (i === index) {
+                        img.classList.add('active');
                         if (typeof gsap !== 'undefined' && !instant) {
-                            gsap.fromTo(cameraImg, 
-                                { filter: 'blur(14px) drop-shadow(0 20px 35px rgba(15, 23, 42, 0.12))', opacity: 0.3, scale: 0.96 }, 
-                                { filter: 'blur(0px) drop-shadow(0 20px 35px rgba(15, 23, 42, 0.12))', opacity: 1, scale: isZoomLocked ? 2.2 : 1, duration: 0.6, ease: 'power3.out' }
+                            gsap.fromTo(img, 
+                                { opacity: 0, filter: 'blur(8px) drop-shadow(0 20px 35px rgba(15, 23, 42, 0.12))' }, 
+                                { opacity: 1, filter: 'blur(0px) drop-shadow(0 20px 35px rgba(15, 23, 42, 0.12))', duration: 0.5, ease: 'power2.out' }
                             );
                         } else {
-                            cameraImg.style.opacity = '1';
-                            cameraImg.style.filter = 'drop-shadow(0 20px 35px rgba(15, 23, 42, 0.12))';
+                            img.style.opacity = '1';
+                            img.style.filter = 'blur(0px) drop-shadow(0 20px 35px rgba(15, 23, 42, 0.12))';
+                        }
+                    } else {
+                        if (img.classList.contains('active')) {
+                            img.classList.remove('active');
+                            if (typeof gsap !== 'undefined' && !instant) {
+                                gsap.to(img, { opacity: 0, filter: 'blur(8px) drop-shadow(0 20px 35px rgba(15, 23, 42, 0.12))', duration: 0.45, ease: 'power2.out' });
+                            } else {
+                                img.style.opacity = '0';
+                                img.style.filter = 'blur(8px) drop-shadow(0 20px 35px rgba(15, 23, 42, 0.12))';
+                            }
                         }
                     }
-                }
+                });
             }
         }
         
