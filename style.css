@@ -4923,16 +4923,17 @@ body.jeko-theme-white {
 }
 
 /* 4. RIGHT COLUMN: CORNER PURCHASE DOCK */
+/* 4. RIGHT COLUMN: CORNER PURCHASE DOCK — BORDERLESS / NO BOX */
 .asus-buy-dock {
-    background: #ffffff;
-    border: 1.5px solid #e2e8f0;
-    border-radius: 16px;
-    padding: 1.25rem 1.4rem;
-    box-shadow: 0 16px 40px -10px rgba(15, 23, 42, 0.08);
+    background: transparent;
+    border: none;
+    border-radius: 0;
+    padding: 0;
+    box-shadow: none;
     position: relative;
     z-index: 30;
     width: 100%;
-    max-width: 330px;
+    max-width: 340px;
     margin-left: auto;
 }
 
@@ -5123,7 +5124,7 @@ body.jeko-theme-white {
 
 .btn-abd-cart:hover {
     background: #1e293b;
-    border-color: #2563eb;
+    border-color: #334155;
     transform: translateY(-1px);
     box-shadow: 0 6px 18px rgba(15, 23, 42, 0.2);
 }
@@ -5192,7 +5193,7 @@ body.jeko-theme-white {
 }
 
 #hardware-showcase.theme-dark #afh-step-indicator {
-    color: #60a5fa;
+    color: #ffffff;
 }
 
 #hardware-showcase.theme-dark .asus-feature-card {
@@ -5260,9 +5261,9 @@ body.jeko-theme-white {
 }
 
 #hardware-showcase.theme-dark .asus-buy-dock {
-    background: #0e131b;
-    border-color: rgba(255, 255, 255, 0.14);
-    box-shadow: 0 20px 45px -10px rgba(0, 0, 0, 0.6);
+    background: transparent;
+    border: none;
+    box-shadow: none;
 }
 
 #hardware-showcase.theme-dark .abd-pill-badge {
@@ -5271,7 +5272,7 @@ body.jeko-theme-white {
 }
 
 #hardware-showcase.theme-dark .abd-brand {
-    color: #60a5fa;
+    color: #94a3b8;
 }
 
 #hardware-showcase.theme-dark .abd-product-title {
@@ -5333,9 +5334,9 @@ body.jeko-theme-white {
 }
 
 #hardware-showcase.theme-dark .pdp-gallery-thumb.active {
-    border-color: #3b82f6;
+    border-color: #ffffff;
     background: #1f2937;
-    box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.4);
+    box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.4);
 }
 
 
