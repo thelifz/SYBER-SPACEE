@@ -79,19 +79,14 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 3. Auto-launch HDFC checkout if navigated with ?checkout=1
+    // 3. Auto-redirect to dedicated standalone checkout page if navigated with ?checkout=1
     const urlParams = new URLSearchParams(window.location.search);
     if (urlParams.get('checkout') === '1') {
         if (window.history && window.history.replaceState) {
             window.history.replaceState({}, document.title, window.location.pathname);
         }
-        const cart = getCart();
-        if (cart && cart.length > 0) {
-            const grandTotal = cart.reduce((sum, item) => sum + (Number(item.price) * (item.qty || item.quantity || 1)), 0);
-            setTimeout(() => {
-                initiateHdfcCheckout(grandTotal);
-            }, 250);
-        }
+        window.location.replace('checkout.html');
+        return;
     }
 
     // 4. Listen for storage changes from other windows/tabs
@@ -374,12 +369,12 @@ function renderCart() {
                             <span>ORDER VIA WHATSAPP &rarr;</span>
                         </a>
 
-                        <button type="button" class="btn-cos-online" onclick="initiateHdfcCheckout(${grandTotal})">
+                        <button type="button" class="btn-cos-online" onclick="window.location.href='checkout.html'">
                             <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2">
                                 <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
                                 <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
                             </svg>
-                            <span>PAY ONLINE (HDFC SMARTGATEWAY)</span>
+                            <span>PROCEED TO SECURE CHECKOUT &rarr;</span>
                         </button>
 
                         <button type="button" class="btn-cos-continue" onclick="returnToStore()">
@@ -430,33 +425,8 @@ function removeItem(index) {
 
 
 function initiateHdfcCheckout(total) {
-    if (!total || isNaN(total)) {
-        const cart = getCart();
-        total = cart.reduce((sum, item) => sum + ((item.price || 0) * (item.qty || item.quantity || 1)), 0);
-    }
-    activeCheckoutTotal = Number(total) || 0;
-    currentOrderRef = `SS-HDFC-${Math.floor(100000 + Math.random() * 900000)}`;
-
-    // Explicitly update internal application checkout state variables
-    isCheckoutActive = true;
-    isCheckoutOpen = true;
-    isPaymentProcessing = false;
-    window.isCheckoutActive = true;
-    window.isCheckoutOpen = true;
-    window.isPaymentProcessing = false;
-
-    // Ensure ?checkout=1 is synchronized in URL without full page reload
-    if (window.history && window.history.replaceState) {
-        try {
-            const url = new URL(window.location.href);
-            if (!url.searchParams.has('checkout')) {
-                url.searchParams.set('checkout', '1');
-                const cleanUrl = url.pathname + '?' + url.searchParams.toString() + url.hash;
-                window.history.replaceState({}, document.title, cleanUrl);
-            }
-        } catch (e) {}
-    }
-
+    window.location.href = 'checkout.html';
+    return;
     const modal = document.getElementById('hdfc-checkout-modal');
     const orderRefEl = document.getElementById('hdfc-order-ref');
     const totalAmountEl = document.getElementById('hdfc-total-amount');

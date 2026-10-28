@@ -1234,7 +1234,7 @@ function directAddToCart(title, price, brand, img, btn) {
 
 function directPayProduct(title, price, brand, img) {
     directAddToCart(title, price, brand, img);
-    window.location.href = 'cart.html?checkout=1';
+    window.location.href = 'checkout.html';
 }
 
 

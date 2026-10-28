@@ -1,0 +1,1016 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="color-scheme" content="only light">
+    <meta name="supported-color-schemes" content="light">
+    <meta name="theme-color" content="#ffffff">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <title>Secure Checkout &bull; SYBER SPACE The Surveillance Store</title>
+    <meta name="description" content="Authorized HDFC Bank SmartGateway multi-rail wholesale checkout terminal for commercial CCTV systems.">
+    
+    <!-- Google Fonts: Inter & Space Grotesk -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css?v=9.0.0">
+    <style>
+        html, body {
+            color-scheme: only light !important;
+            background-color: #ffffff !important;
+            background: #ffffff !important;
+            color: #0f172a !important;
+            overscroll-behavior: none;
+        }
+
+        /* Dedicated Checkout Page Layout Architecture */
+        .checkout-page-main {
+            padding: 100px 4% 80px;
+            max-width: 1320px;
+            margin: 0 auto;
+            min-height: 85vh;
+        }
+
+        .checkout-breadcrumbs {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.78rem;
+            color: #64748b;
+            margin-bottom: 20px;
+            font-family: var(--font-heading);
+            font-weight: 600;
+        }
+
+        .checkout-breadcrumbs a {
+            color: #0f172a;
+            text-decoration: none;
+            transition: color 0.2s ease-out;
+        }
+
+        .checkout-breadcrumbs a:hover {
+            color: #059669;
+        }
+
+        .checkout-header-block {
+            margin-bottom: 28px;
+            border-bottom: 1px solid #e2e8f0;
+            padding-bottom: 20px;
+        }
+
+        .checkout-kicker-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-bottom: 8px;
+        }
+
+        .checkout-kicker {
+            font-size: 0.72rem;
+            font-weight: 800;
+            letter-spacing: 0.12em;
+            color: #0f172a;
+            text-transform: uppercase;
+        }
+
+        .checkout-title {
+            font-family: var(--font-heading);
+            font-size: 2.1rem;
+            font-weight: 900;
+            letter-spacing: -0.03em;
+            color: #0f172a;
+            margin: 0 0 6px;
+        }
+
+        .checkout-subtitle {
+            font-size: 0.92rem;
+            color: #475569;
+            margin: 0;
+            line-height: 1.5;
+        }
+
+        /* 2-Column Grid */
+        .checkout-grid {
+            display: grid;
+            grid-template-columns: 1.35fr 1fr;
+            gap: 32px;
+            align-items: flex-start;
+        }
+
+        @media (max-width: 980px) {
+            .checkout-grid {
+                grid-template-columns: 1fr;
+                gap: 24px;
+            }
+        }
+
+        /* Card Panels */
+        .checkout-panel-card {
+            background: #ffffff;
+            border: 1.5px solid #e2e8f0;
+            border-radius: 16px;
+            padding: 24px;
+            margin-bottom: 24px;
+            box-shadow: 0 4px 18px rgba(15, 23, 42, 0.03);
+        }
+
+        .checkout-panel-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            border-bottom: 1px solid #f1f5f9;
+            padding-bottom: 14px;
+        }
+
+        .cph-title-group {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .cph-step-pill {
+            background: #0f172a;
+            color: #ffffff;
+            font-family: var(--font-heading);
+            font-size: 0.7rem;
+            font-weight: 800;
+            padding: 4px 10px;
+            border-radius: 20px;
+            letter-spacing: 0.05em;
+        }
+
+        .cph-title {
+            font-family: var(--font-heading);
+            font-size: 1.15rem;
+            font-weight: 800;
+            color: #0f172a;
+            margin: 0;
+        }
+
+        /* Form Styles */
+        .checkout-form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+
+        .checkout-form-grid .full-span {
+            grid-column: span 2;
+        }
+
+        @media (max-width: 600px) {
+            .checkout-form-grid {
+                grid-template-columns: 1fr;
+            }
+            .checkout-form-grid .full-span {
+                grid-column: span 1;
+            }
+        }
+
+        .co-field {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .co-field label {
+            font-size: 0.78rem;
+            font-weight: 700;
+            color: #0f172a;
+            letter-spacing: 0.02em;
+        }
+
+        .co-field input,
+        .co-field select,
+        .co-field textarea {
+            background: #f8fafc;
+            border: 1.5px solid #e2e8f0;
+            border-radius: 10px;
+            padding: 11px 14px;
+            font-family: var(--font-body);
+            font-size: 0.88rem;
+            color: #0f172a;
+            transition: all 0.2s ease-out;
+            outline: none;
+            box-sizing: border-box;
+            width: 100%;
+        }
+
+        .co-field input:focus,
+        .co-field select:focus,
+        .co-field textarea:focus {
+            background: #ffffff;
+            border-color: #0f172a;
+            box-shadow: 0 0 0 3px rgba(15, 23, 42, 0.08);
+        }
+
+        .co-field small {
+            font-size: 0.72rem;
+            color: #64748b;
+            line-height: 1.35;
+        }
+
+        /* Payment Rails */
+        .co-rail-tabs {
+            display: flex;
+            gap: 8px;
+            border-bottom: 1.5px solid #e2e8f0;
+            padding-bottom: 12px;
+            margin-bottom: 20px;
+            overflow-x: auto;
+            overscroll-behavior: none;
+        }
+
+        .co-rail-tab-btn {
+            background: #f8fafc;
+            border: 1.5px solid #e2e8f0;
+            border-radius: 10px;
+            padding: 9px 16px;
+            font-family: var(--font-heading);
+            font-size: 0.8rem;
+            font-weight: 800;
+            color: #475569;
+            cursor: pointer;
+            white-space: nowrap;
+            transition: all 0.2s ease-out;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .co-rail-tab-btn:hover {
+            border-color: #0f172a;
+            color: #0f172a;
+        }
+
+        .co-rail-tab-btn.active {
+            background: #0f172a;
+            color: #ffffff;
+            border-color: #0f172a;
+        }
+
+        .co-rail-pane {
+            display: none;
+        }
+
+        .co-rail-pane.active {
+            display: block;
+        }
+
+        /* UPI Apps Grid */
+        .co-upi-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 10px;
+            margin-bottom: 18px;
+        }
+
+        @media (max-width: 600px) {
+            .co-upi-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        .co-upi-card {
+            border: 1.5px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 12px 6px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.2s ease-out;
+            background: #ffffff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .co-upi-card:hover {
+            border-color: #0f172a;
+            transform: translateY(-2px);
+        }
+
+        .co-upi-card.selected {
+            border-color: #0f172a;
+            background: #f8fafc;
+            box-shadow: 0 0 0 2px #0f172a inset;
+        }
+
+        .co-upi-label {
+            font-size: 0.72rem;
+            font-weight: 800;
+            color: #0f172a;
+        }
+
+        /* Order Summary Sticky Column */
+        .checkout-sidebar {
+            position: sticky;
+            top: 96px;
+        }
+
+        .co-summary-items-list {
+            max-height: 280px;
+            overflow-y: auto;
+            overscroll-behavior: none;
+            margin-bottom: 16px;
+            padding-right: 4px;
+        }
+
+        .co-item-row {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 10px 0;
+            border-bottom: 1px solid #f1f5f9;
+        }
+
+        .co-item-img {
+            width: 48px;
+            height: 48px;
+            object-fit: contain;
+            background: #f8fafc;
+            border-radius: 8px;
+            padding: 4px;
+            flex-shrink: 0;
+            border: 1px solid #e2e8f0;
+        }
+
+        .co-item-info {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .co-item-title {
+            font-size: 0.82rem;
+            font-weight: 700;
+            color: #0f172a;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            margin: 0 0 2px;
+        }
+
+        .co-item-meta {
+            font-size: 0.72rem;
+            color: #64748b;
+        }
+
+        .co-item-price {
+            font-size: 0.88rem;
+            font-weight: 800;
+            color: #0f172a;
+            text-align: right;
+            flex-shrink: 0;
+        }
+
+        .co-total-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.85rem;
+            color: #475569;
+            margin-bottom: 8px;
+        }
+
+        .co-total-row.grand {
+            border-top: 1.5px dashed #cbd5e1;
+            padding-top: 14px;
+            margin-top: 12px;
+            font-size: 1.25rem;
+            font-weight: 900;
+            color: #0f172a;
+            font-family: var(--font-heading);
+        }
+
+        .btn-co-pay {
+            width: 100%;
+            background: #0f172a;
+            color: #ffffff;
+            border: none;
+            border-radius: 12px;
+            padding: 16px 20px;
+            font-family: var(--font-heading);
+            font-size: 0.95rem;
+            font-weight: 800;
+            letter-spacing: 0.05em;
+            cursor: pointer;
+            transition: all 0.2s ease-out;
+            box-shadow: 0 6px 20px rgba(15, 23, 42, 0.18);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 18px;
+        }
+
+        .btn-co-pay:hover {
+            background: #00875a;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 28px rgba(0, 135, 90, 0.28);
+        }
+
+        .btn-co-sandbox {
+            width: 100%;
+            background: #ffffff;
+            color: #0f172a;
+            border: 1.5px solid #0f172a;
+            border-radius: 12px;
+            padding: 12px 16px;
+            font-family: var(--font-heading);
+            font-size: 0.8rem;
+            font-weight: 800;
+            letter-spacing: 0.04em;
+            cursor: pointer;
+            transition: all 0.2s ease-out;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 10px;
+        }
+
+        .btn-co-sandbox:hover {
+            background: #f8fafc;
+            border-color: #059669;
+            color: #059669;
+        }
+
+        /* Success & Tax Invoice Screen */
+        .co-success-container {
+            display: none;
+            background: #ffffff;
+            border: 1.5px solid #e2e8f0;
+            border-radius: 20px;
+            padding: 36px 32px;
+            box-shadow: 0 10px 32px rgba(15, 23, 42, 0.04);
+            margin-top: 20px;
+        }
+
+        .co-success-container.active {
+            display: block;
+        }
+
+        .co-empty-state {
+            text-align: center;
+            padding: 60px 20px;
+            background: #ffffff;
+            border: 1.5px dashed #cbd5e1;
+            border-radius: 20px;
+        }
+
+        .co-empty-title {
+            font-family: var(--font-heading);
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: #0f172a;
+            margin: 12px 0 6px;
+        }
+
+        .co-empty-desc {
+            font-size: 0.9rem;
+            color: #64748b;
+            margin: 0 0 20px;
+        }
+
+        .btn-co-browse {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: #0f172a;
+            color: #ffffff;
+            font-family: var(--font-heading);
+            font-size: 0.88rem;
+            font-weight: 800;
+            padding: 12px 24px;
+            border-radius: 50px;
+            text-decoration: none;
+            transition: all 0.2s ease-out;
+        }
+
+        .btn-co-browse:hover {
+            background: #00875a;
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body class="jeko-theme-white checkout-page-body">
+
+    <!-- ======================================================================
+         FLOATING LUXURY HEADER (STANDALONE CHECKOUT ARCHITECTURE)
+         ====================================================================== -->
+    <div class="iphone-header-wrapper">
+        <header class="iphone-header-glass">
+            
+            <!-- Left: Brand Title & Slogan -->
+            <a href="index.html" class="iphone-brand-group" title="SYBER SPACE - The Surveillance Store">
+                <div class="iphone-brand-text">
+                    <span class="brand-title">SYBER SPACE</span>
+                    <span class="brand-slogan">THE SURVEILLANCE STORE</span>
+                </div>
+            </a>
+
+            <!-- Center: Status Callout -->
+            <div class="desktop-only" style="display:flex; align-items:center; gap:8px; font-family:var(--font-heading); font-size:0.75rem; font-weight:800; color:#059669; letter-spacing:0.04em;">
+                <span class="hli-dot" style="display:inline-block; width:8px; height:8px; border-radius:50%; background:#059669;"></span>
+                <span>HDFC BANK SMARTGATEWAY // 256-BIT SSL ENCRYPTED</span>
+            </div>
+
+            <!-- Right: Action Pillars (WhatsApp, Phone, Return to Cart) -->
+            <div class="iphone-actions-group">
+                
+                <!-- WhatsApp Support -->
+                <a href="https://wa.me/917511180808" target="_blank" rel="noopener noreferrer" class="iphone-action-link" id="header-whatsapp-support-btn" title="Contact Support on WhatsApp">
+                    <div class="ia-icon-wrap wa-icon-color">
+                        <svg viewBox="0 0 24 24" width="28" height="28" fill="none">
+                            <path fill="#25D366" d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2z"/>
+                            <path fill="#FFFFFF" d="M17.47 14.38c-.28-.14-1.66-.82-1.92-.91-.26-.1-.45-.14-.64.14-.19.28-.73.91-.9 1.1-.17.19-.34.21-.62.07-.28-.14-1.18-.44-2.25-1.4-.83-.74-1.39-1.66-1.55-1.94-.16-.28-.02-.43.12-.57.13-.13.28-.34.42-.51.14-.17.19-.28.28-.47.1-.19.05-.35-.02-.5-.07-.14-.64-1.54-.88-2.11-.23-.55-.47-.48-.64-.49-.17-.01-.36-.01-.56-.01-.2 0-.52.07-.79.37-.27.29-1.04 1.02-1.04 2.48 0 1.46 1.06 2.87 1.21 3.07.15.2 2.09 3.19 5.06 4.47.71.31 1.26.49 1.69.63.71.23 1.36.2 1.87.12.57-.09 1.66-.68 1.9-1.33.23-.65.23-1.21.16-1.33-.07-.12-.26-.19-.54-.33z"/>
+                        </svg>
+                    </div>
+                    <div class="ia-text-col">
+                        <span class="ia-sub-label">WhatsApp</span>
+                        <strong class="ia-main-val">Get Support</strong>
+                    </div>
+                </a>
+
+                <!-- Call Warehouse -->
+                <a href="tel:+917511180808" class="iphone-action-link desktop-only">
+                    <div class="ia-text-col">
+                        <span class="ia-sub-label">Call Us</span>
+                        <strong class="ia-main-val">+91 75111 80808</strong>
+                    </div>
+                </a>
+
+                <!-- Return to Cart -->
+                <a href="cart.html" class="iphone-action-link btn-cart-trigger" aria-label="Return to Cart" title="Return to Shopping Cart">
+                    <div class="ia-icon-wrap cart-icon-pos">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="9" cy="21" r="1"></circle>
+                            <circle cx="20" cy="21" r="1"></circle>
+                            <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                        </svg>
+                    </div>
+                    <div class="ia-text-col">
+                        <span class="ia-sub-label">Review</span>
+                        <strong class="ia-main-val">Cart</strong>
+                    </div>
+                </a>
+
+            </div>
+
+        </header>
+    </div>
+
+    <!-- ======================================================================
+         MAIN CHECKOUT PAGE BODY
+         ====================================================================== -->
+    <main class="checkout-page-main">
+        
+        <!-- Breadcrumbs -->
+        <nav class="checkout-breadcrumbs" aria-label="Breadcrumb">
+            <a href="index.html">Store Home</a>
+            <span>/</span>
+            <a href="cart.html">Shopping Cart</a>
+            <span>/</span>
+            <span style="color:#0f172a;">Secure Checkout</span>
+        </nav>
+
+        <!-- Page Header -->
+        <div class="checkout-header-block">
+            <div class="checkout-kicker-row">
+                <span class="checkout-kicker">OFFICIAL WHOLESALE PROCUREMENT TERMINAL</span>
+                <span id="co-header-ref" style="font-family:var(--font-mono); font-size:0.75rem; color:#64748b; font-weight:700;">ORDER REF: GENERATING...</span>
+            </div>
+            <h1 class="checkout-title">Secure Checkout</h1>
+            <p class="checkout-subtitle">Authorized B2B &amp; wholesale surveillance hardware procurement. Direct dispatch from Kerala warehouse.</p>
+        </div>
+
+        <!-- Empty Cart Notice (Rendered dynamically if cart is empty) -->
+        <div id="checkout-empty-state" class="co-empty-state" style="display:none;">
+            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#94a3b8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="9" cy="21" r="1"></circle>
+                <circle cx="20" cy="21" r="1"></circle>
+                <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+            </svg>
+            <h2 class="co-empty-title">Your Shopping Cart is Empty</h2>
+            <p class="co-empty-desc">Please select your cameras, storage hard drives, or accessories before proceeding to checkout.</p>
+            <a href="index.html#categories-by-brand" class="btn-co-browse">
+                <span>Browse Wholesale Products &rarr;</span>
+            </a>
+        </div>
+
+        <!-- Active Checkout Layout Grid -->
+        <div id="checkout-active-grid" class="checkout-grid">
+            
+            <!-- Left Column: Step 1 (Billing / Invoice Info) & Step 2 (HDFC Payment Hub) -->
+            <div class="checkout-main-col">
+                
+                <!-- STEP 1: Customer & Tax Invoice Information -->
+                <div class="checkout-panel-card" id="billing-step-card">
+                    <div class="checkout-panel-header">
+                        <div class="cph-title-group">
+                            <span class="cph-step-pill">STEP 1</span>
+                            <h2 class="cph-title">Billing &amp; Tax Invoice Details</h2>
+                        </div>
+                        <span style="font-size:0.75rem; color:#059669; font-weight:700; font-family:var(--font-heading);">INVOICE READY</span>
+                    </div>
+
+                    <form id="checkout-billing-form" onsubmit="event.preventDefault();">
+                        <div class="checkout-form-grid">
+                            
+                            <div class="co-field">
+                                <label for="co-name">Full Name *</label>
+                                <input type="text" id="co-name" required placeholder="e.g. Arun Kumar" autocomplete="name">
+                            </div>
+
+                            <div class="co-field">
+                                <label for="co-phone">Mobile Phone (Delivery OTP) *</label>
+                                <input type="tel" id="co-phone" required pattern="[0-9]{10}" maxlength="10" placeholder="10-digit mobile number" autocomplete="tel">
+                            </div>
+
+                            <div class="co-field full-span">
+                                <label for="co-email">Email Address (For Tax Invoice PDF) *</label>
+                                <input type="email" id="co-email" required placeholder="name@company.com or personal email" autocomplete="email">
+                                <small>Your verified GST invoice receipt &amp; dispatch tracking updates will be archived and dispatched here.</small>
+                            </div>
+
+                            <div class="co-field">
+                                <label for="co-company">Business / Company Name (Optional)</label>
+                                <input type="text" id="co-company" placeholder="e.g. Kerala Surveillance Tech Pvt Ltd">
+                            </div>
+
+                            <div class="co-field">
+                                <label for="co-gstin">GSTIN (Optional - B2B Input Tax Credit)</label>
+                                <input type="text" id="co-gstin" maxlength="15" placeholder="e.g. 32AABCU9603R1ZM" style="text-transform:uppercase;">
+                                <small>Provide GSTIN to claim 18% Input Tax Credit on wholesale procurement.</small>
+                            </div>
+
+                            <div class="co-field full-span">
+                                <label for="co-address">Delivery Address (Street / Building / Landmark) *</label>
+                                <input type="text" id="co-address" required placeholder="Complete warehouse / office / site delivery address" autocomplete="street-address">
+                            </div>
+
+                            <div class="co-field">
+                                <label for="co-city">City / District *</label>
+                                <input type="text" id="co-city" required placeholder="e.g. Ernakulam / Kochi" autocomplete="address-level2">
+                            </div>
+
+                            <div class="co-field">
+                                <label for="co-state">State *</label>
+                                <select id="co-state" required>
+                                    <option value="Kerala" selected>Kerala</option>
+                                    <option value="Tamil Nadu">Tamil Nadu</option>
+                                    <option value="Karnataka">Karnataka</option>
+                                    <option value="Andhra Pradesh">Andhra Pradesh</option>
+                                    <option value="Telangana">Telangana</option>
+                                    <option value="Maharashtra">Maharashtra</option>
+                                    <option value="Delhi">Delhi</option>
+                                    <option value="Other">Other State</option>
+                                </select>
+                            </div>
+
+                            <div class="co-field full-span">
+                                <label for="co-pincode">PIN Code *</label>
+                                <input type="text" id="co-pincode" required pattern="[0-9]{6}" maxlength="6" placeholder="6-digit postal code" autocomplete="postal-code" style="max-width:240px;">
+                            </div>
+
+                        </div>
+                    </form>
+                </div>
+
+                <!-- STEP 2: HDFC SmartGateway Multi-Rail Payment Hub -->
+                <div class="checkout-panel-card" id="payment-step-card">
+                    <div class="checkout-panel-header">
+                        <div class="cph-title-group">
+                            <span class="cph-step-pill">STEP 2</span>
+                            <h2 class="cph-title">HDFC Bank SmartGateway™ Terminal</h2>
+                        </div>
+                        <span style="font-size:0.75rem; color:#0f172a; font-weight:800; font-family:var(--font-mono);">TERMINAL #88102941</span>
+                    </div>
+
+                    <!-- Payment Rail Navigation -->
+                    <div class="co-rail-tabs">
+                        <button type="button" class="co-rail-tab-btn active" onclick="switchCheckoutRail('upi', this)">
+                            <span>UPI (GPay / PhonePe / QR)</span>
+                        </button>
+                        <button type="button" class="co-rail-tab-btn" onclick="switchCheckoutRail('card', this)">
+                            <span>Credit / Debit Card</span>
+                        </button>
+                        <button type="button" class="co-rail-tab-btn" onclick="switchCheckoutRail('netbanking', this)">
+                            <span>NetBanking</span>
+                        </button>
+                        <button type="button" class="co-rail-tab-btn" onclick="switchCheckoutRail('emi', this)">
+                            <span>HDFC EasyEMI</span>
+                        </button>
+                    </div>
+
+                    <!-- Rail 1: UPI Hub -->
+                    <div class="co-rail-pane active" id="rail-pane-upi">
+                        <p style="font-size:0.82rem; color:#475569; margin:0 0 12px; font-weight:600;">
+                            Select instant UPI application for zero-fee payment authorization:
+                        </p>
+                        
+                        <div class="co-upi-grid">
+                            <div class="co-upi-card selected" onclick="selectCheckoutUpi('Google Pay', this)">
+                                <span style="font-size:1.2rem;">&#9889;</span>
+                                <span class="co-upi-label">Google Pay</span>
+                            </div>
+                            <div class="co-upi-card" onclick="selectCheckoutUpi('PhonePe', this)">
+                                <span style="font-size:1.2rem;">&#9889;</span>
+                                <span class="co-upi-label">PhonePe</span>
+                            </div>
+                            <div class="co-upi-card" onclick="selectCheckoutUpi('Paytm', this)">
+                                <span style="font-size:1.2rem;">&#9889;</span>
+                                <span class="co-upi-label">Paytm</span>
+                            </div>
+                            <div class="co-upi-card" onclick="selectCheckoutUpi('BHIM UPI', this)">
+                                <span style="font-size:1.2rem;">&#9889;</span>
+                                <span class="co-upi-label">BHIM</span>
+                            </div>
+                            <div class="co-upi-card" onclick="selectCheckoutUpi('CRED Pay', this)">
+                                <span style="font-size:1.2rem;">&#9889;</span>
+                                <span class="co-upi-label">CRED</span>
+                            </div>
+                        </div>
+
+                        <div class="co-field" style="margin-top:14px;">
+                            <label for="co-upi-vpa">Or Enter Custom Virtual Payment Address (VPA)</label>
+                            <div style="display:flex; gap:10px;">
+                                <input type="text" id="co-upi-vpa" placeholder="username@okhdfcbank or yourname@upi" style="flex:1;">
+                                <button type="button" class="co-rail-tab-btn" onclick="triggerCheckoutPayment('UPI VPA')" style="background:#0f172a; color:#fff; border-color:#0f172a; padding:10px 18px;">
+                                    Verify &amp; Pay
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Rail 2: Cards -->
+                    <div class="co-rail-pane" id="rail-pane-card">
+                        <div class="checkout-form-grid">
+                            <div class="co-field full-span">
+                                <label for="co-card-num">Card Number (Visa, MasterCard, RuPay)</label>
+                                <input type="text" id="co-card-num" placeholder="4111 2222 3333 4444" maxlength="19">
+                            </div>
+                            <div class="co-field">
+                                <label for="co-card-exp">Valid Thru (MM/YY)</label>
+                                <input type="text" id="co-card-exp" placeholder="MM/YY" maxlength="5">
+                            </div>
+                            <div class="co-field">
+                                <label for="co-card-cvv">CVV / CVC</label>
+                                <input type="password" id="co-card-cvv" placeholder="3 digits" maxlength="4">
+                            </div>
+                            <div class="co-field full-span">
+                                <label for="co-card-name">Cardholder Name</label>
+                                <input type="text" id="co-card-name" placeholder="Name printed on card">
+                            </div>
+                        </div>
+                        <div style="margin-top:12px; display:flex; align-items:center; gap:8px; font-size:0.75rem; color:#059669; font-weight:700;">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+                            <span>RBI Mandated Tokenization &amp; 3D Secure 2.0 Enabled</span>
+                        </div>
+                    </div>
+
+                    <!-- Rail 3: NetBanking -->
+                    <div class="co-rail-pane" id="rail-pane-netbanking">
+                        <p style="font-size:0.82rem; color:#475569; margin:0 0 12px; font-weight:600;">
+                            Choose your authorized institutional bank:
+                        </p>
+                        <div class="checkout-form-grid">
+                            <button type="button" class="co-rail-tab-btn active" onclick="selectCheckoutBank('HDFC Bank', this)" style="justify-content:center;">
+                                HDFC Bank (Featured)
+                            </button>
+                            <button type="button" class="co-rail-tab-btn" onclick="selectCheckoutBank('State Bank of India', this)" style="justify-content:center;">
+                                State Bank of India
+                            </button>
+                            <button type="button" class="co-rail-tab-btn" onclick="selectCheckoutBank('ICICI Bank', this)" style="justify-content:center;">
+                                ICICI Bank
+                            </button>
+                            <button type="button" class="co-rail-tab-btn" onclick="selectCheckoutBank('Axis Bank', this)" style="justify-content:center;">
+                                Axis Bank
+                            </button>
+                            <button type="button" class="co-rail-tab-btn" onclick="selectCheckoutBank('Kotak Mahindra', this)" style="justify-content:center;">
+                                Kotak Mahindra
+                            </button>
+                            <button type="button" class="co-rail-tab-btn" onclick="selectCheckoutBank('Federal Bank', this)" style="justify-content:center;">
+                                Federal Bank
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Rail 4: EMI -->
+                    <div class="co-rail-pane" id="rail-pane-emi">
+                        <p style="font-size:0.82rem; color:#475569; margin:0 0 12px; font-weight:600;">
+                            HDFC Bank EasyEMI with flexible wholesale tenure options:
+                        </p>
+                        <div style="background:#f8fafc; border:1px solid #e2e8f0; border-radius:10px; padding:12px; font-size:0.82rem; color:#0f172a; line-height:1.6;">
+                            <strong>3 Months:</strong> No Cost EMI @ 0% interest<br>
+                            <strong>6 Months:</strong> Low Interest EMI (9.9% p.a.)<br>
+                            <strong>12 Months:</strong> Low Interest EMI (11.5% p.a.)<br>
+                            <small style="color:#64748b;">Instant approval for registered business debit/credit cards.</small>
+                        </div>
+                    </div>
+
+                    <!-- Master Payment CTA -->
+                    <button type="button" class="btn-co-pay" id="btn-master-pay" onclick="triggerCheckoutPayment()">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+                        <span id="btn-pay-label">PAY SECURELY VIA HDFC SMARTGATEWAY</span>
+                    </button>
+
+                    <!-- Instant Test Simulator for Seamless Verification -->
+                    <button type="button" class="btn-co-sandbox" onclick="triggerCheckoutPayment('SANDBOX TEST SIMULATOR')">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+                        <span>COMPLETE TEST PAYMENT (INSTANT SANDBOX VERIFICATION)</span>
+                    </button>
+
+                    <div style="margin-top:14px; text-align:center; font-size:0.72rem; color:#64748b; line-height:1.5;">
+                        Protected by HDFC Bank SmartGateway 256-Bit SSL Core Encryption &bull; DPDP Act 2023 Compliant &bull; PCI-DSS Level 1
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- Right Column: Sticky Order Summary -->
+            <div class="checkout-sidebar">
+                
+                <div class="checkout-panel-card" style="margin-bottom:16px;">
+                    <div class="checkout-panel-header" style="margin-bottom:14px; padding-bottom:10px;">
+                        <h3 class="cph-title" style="font-size:1rem;">Order Summary</h3>
+                        <span id="co-item-count-badge" style="font-size:0.75rem; font-weight:800; color:#0f172a; font-family:var(--font-heading);">0 ITEMS</span>
+                    </div>
+
+                    <!-- Items List -->
+                    <div class="co-summary-items-list" id="co-items-list">
+                        <!-- Injected via checkout.js -->
+                    </div>
+
+                    <!-- Totals Breakdown -->
+                    <div class="co-total-row">
+                        <span>Wholesale Taxable Subtotal</span>
+                        <span id="co-subtotal-val">&#8377;0</span>
+                    </div>
+                    <div class="co-total-row">
+                        <span>GST @ 18% (Input Tax Credit)</span>
+                        <span id="co-gst-val">&#8377;0</span>
+                    </div>
+                    <div class="co-total-row">
+                        <span>Insured Express Courier</span>
+                        <span style="color:#059669; font-weight:800;">FREE</span>
+                    </div>
+                    <div class="co-total-row grand">
+                        <span>Total Due</span>
+                        <span id="co-grand-total-val">&#8377;0</span>
+                    </div>
+
+                    <a href="cart.html" style="display:inline-block; margin-top:10px; font-size:0.75rem; color:#64748b; text-decoration:underline;">
+                        &larr; Modify items or quantities in cart
+                    </a>
+                </div>
+
+                <!-- Commercial Wholesale Policy Notice -->
+                <div class="cart-policy-notice-card" style="margin-bottom:0;">
+                    <div class="cpn-header">
+                        <span class="cpn-badge">WHOLESALE DISPATCH POLICY</span>
+                    </div>
+                    <h4 class="cpn-title" style="font-size:0.88rem; margin:6px 0 4px;">Zero-Cancellation // 7-Day Refund &amp; Exchange</h4>
+                    <p class="cpn-desc" style="font-size:0.76rem; color:#64748b; line-height:1.45; margin:0;">
+                        Because wholesale surveillance hardware is booked immediately with insured couriers, orders cannot be cancelled after confirmation. If any defect or model mismatch occurs, you are covered by our <strong>100% Refund</strong> or <strong>Hardware Replacement</strong> guarantee.
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- ==================================================================
+             SUCCESS & VERIFIED TAX INVOICE SCREEN (SHOWN AFTER AUTHORIZATION)
+             ================================================================== -->
+        <div id="checkout-success-view" class="co-success-container">
+            <!-- Dynamically populated by checkout.js upon successful payment -->
+        </div>
+
+        <!-- ==================================================================
+             REFUND & EXCHANGE REQUEST MODAL (7-DAY GUARANTEE)
+             ================================================================== -->
+        <div id="refund-exchange-modal" class="hdfc-overlay" style="display: none;" role="dialog" aria-modal="true" aria-labelledby="refund-modal-title">
+            <div class="hdfc-terminal-window refund-modal-window">
+                
+                <!-- Modal Header -->
+                <div class="hdfc-header-bar">
+                    <div class="hdfc-header-brand">
+                        <span class="hdfc-logo-box" style="background:#0f172a; color:#fff;">WARRANTY</span>
+                        <div class="hdfc-header-title">
+                            <span class="hdfc-title-main" id="refund-modal-title">REQUEST REFUND / EXCHANGE</span>
+                            <span class="hdfc-title-sub">Syber Space Authorized Surveillance // Kerala Desk</span>
+                        </div>
+                    </div>
+                    <button type="button" class="hdfc-close-btn" onclick="closeRefundModal()" aria-label="Close Modal">&times;</button>
+                </div>
+
+                <!-- Policy Alert Strip -->
+                <div class="refund-policy-alert">
+                    <div class="rpa-badge">POLICY NOTICE</div>
+                    <div class="rpa-text">
+                        <strong>NO ORDER CANCELLATIONS:</strong> Wholesale surveillance hardware is queued immediately for warehouse testing, serial number registration, and same-day transit insurance. Once an order is authorized, cancellations cannot be processed.
+                        <br>
+                        <strong>100% REFUND &amp; EXCHANGE GUARANTEE:</strong> You can submit a request below for a full <strong>Refund</strong> or <strong>Hardware Replacement / Exchange</strong> under our 7-Day Replacement Policy. Continuous unboxing video required for courier damage / defect claims.
+                    </div>
+                </div>
+
+                <!-- Modal Body Form -->
+                <div class="refund-modal-body" id="refund-modal-content">
+                    <form id="refund-exchange-form" onsubmit="handleRefundSubmit(event)">
+                        <div class="hdfc-grid-form">
+                            <div class="hdfc-field-group">
+                                <label for="ref-order-id">Order Reference / Invoice ID *</label>
+                                <input type="text" id="ref-order-id" required placeholder="e.g. SS-HDFC-889956">
+                            </div>
+
+                            <div class="hdfc-field-group">
+                                <label for="ref-cust-name">Customer Name *</label>
+                                <input type="text" id="ref-cust-name" required placeholder="Full Name as on tax invoice">
+                            </div>
+
+                            <div class="hdfc-field-group">
+                                <label for="ref-cust-phone">Registered Phone (+91) *</label>
+                                <input type="tel" id="ref-cust-phone" required pattern="[0-9]{10}" placeholder="10-digit mobile number">
+                            </div>
+
+                            <div class="hdfc-field-group">
+                                <label for="ref-cust-email">Registered Email Address *</label>
+                                <input type="email" id="ref-cust-email" required placeholder="Email used during checkout">
+                            </div>
+
+                            <div class="hdfc-field-group span-2">
+                                <label>Request Category *</label>
+                                <div class="refund-category-selector">
+                                    <label class="refund-cat-pill">
+                                        <input type="radio" name="refund-type" value="REFUND" checked onchange="toggleRefundFields(this.value)">
+                                        <span class="rcp-label">
+                                            <strong>FULL REFUND</strong>
+                                            <small>Return hardware for 100% UPI or Bank account credit</small>
+                                        </span>
+                                    </label>
+                                    <label class="refund-cat-pill">
+                                        <input type="radio" name="refund-type" value="EXCHANGE" onchange="toggleRefundFields(this.value)">
+                                        <span class="rcp-label">
+                                            <strong>HARDWARE EXCHANGE</strong>
+                                            <small>Replace defective unit or switch model under 7-day guarantee</small>
+                                        </span>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="hdfc-field-group span-2">
+                                <label for="ref-reason">Primary Reason *</label>
+                                <select id="ref-reason" required>
+                                    <option value="" disabled selected>Select reason for refund or exchange</option>
+                                    <option value="DEFECTIVE_HARDWARE">Hardware Defect / Camera Not Powering On</option>
+                                    <option value="TRANSIT_DAMAGE">Physical Damage in Transit (Continuous Unboxing Video Available)</option>
+                                    <option value="INCORRECT_MODEL">Received Different Model or Resolution from Order</option>
+                                    <option value="INCOMPATIBLE_SPECS">Incompatible with Existing DVR/NVR Setup</option>
+                                    <option value="UPGRADE_EXCHANGE">Want to Exchange for Higher Resolution / Solar PTZ</option>
+                                    <option value="OTHER_ISSUE">Other Valid Hardware Issue</option>
+                                </select>
+                            </div>
+
+                            <div class="hdfc-field-group span-2" id="refund-payout-box">
+                                <label for="ref-payout-info">Refund Payout Details (UPI VPA or Bank Account + IFSC) *</label>
+                                <input type="text" id="ref-payout-info" placeholder="e.g. yourname@okaxis OR Bank A/C: 1234567890, IFSC: HDFC0001234">
+                                <small class="hdfc-field-note" style="display:block; margin-top:4px; font-size:0.75rem; color:#64748b;">For approved refunds, credit is processed directly to this account within 24-48 hours upon return verification.</small>
+                            </div>
+
+                            <div class="hdfc-field-group span-2">
+                                <label for="ref-notes">Additional Details / Item Description (Optional)</label>
+                                <textarea id="ref-notes" rows="3" placeholder="Describe the defect, condition of the box, serial numbers, or replacement model desired..."></textarea>
+                            </div>
+
+                            <div class="hdfc-field-group span-2">
+                                <label class="refund-checkbox-label">
+                                    <input type="checkbox" id="ref-unboxing-confirm" required>
+                                    <span>I confirm that a continuous, uncut unboxing video of the delivery parcel is available for transit damage / defect verification as required by company terms.</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="refund-modal-footer">
+                            <button type="button" class="btn-refund-close" onclick="closeRefundModal()">CLOSE</button>
+                            <button type="submit" class="btn-refund-submit">TRANSMIT REQUEST TO info@syberspace.in &rarr;</button>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Scripts -->
+    <script src="products_data.js?v=9.0.0"></script>
+    <script src="checkout.js?v=9.0.0"></script>
+</body>
+</html>

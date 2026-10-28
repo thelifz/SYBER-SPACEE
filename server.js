@@ -53,7 +53,7 @@ const HDFC_CONFIG = {
     apiKey: process.env.HDFC_API_KEY || 'test_api_key_syberspace_2026',
     workingKey: process.env.HDFC_WORKING_KEY || 'test_working_key_syberspace_sec_0808',
     merchantVpa: process.env.HDFC_MERCHANT_VPA || 'syberspace@hdfcbank',
-    returnUrl: process.env.HDFC_RETURN_URL || `${APP_URL}/cart.html`,
+    returnUrl: process.env.HDFC_RETURN_URL || `${APP_URL}/checkout.html`,
     webhookUrl: process.env.HDFC_WEBHOOK_URL || `${APP_URL}/api/hdfc/webhook`,
     // HDFC SmartGateway Official API Base Endpoints
     apiEndpoint: process.env.HDFC_ENV === 'production'
@@ -774,7 +774,7 @@ const server = http.createServer((req, res) => {
     // API ROUTE 7: 3D SECURE RETURN CALLBACK (POST / GET from HDFC Terminal)
     // =========================================================================
     if (pathname === '/api/hdfc/callback') {
-        const redirectUrl = `/cart.html?checkout_status=completed&t=${Date.now()}`;
+        const redirectUrl = `/checkout.html?checkout_status=completed&t=${Date.now()}`;
         res.writeHead(302, { 'Location': redirectUrl });
         res.end();
         return;
@@ -890,6 +890,7 @@ function startServer(portToTry) {
         console.log('Terminal TID:   ' + HDFC_CONFIG.terminalId);
         console.log('Store URL:      http://localhost:' + activePort + '/');
         console.log('Cart URL:       http://localhost:' + activePort + '/cart.html');
+        console.log('Checkout URL:   http://localhost:' + activePort + '/checkout.html');
         console.log('API Health:     http://localhost:' + activePort + '/health');
         console.log('Gateway Status: http://localhost:' + activePort + '/api/hdfc/status');
         console.log('=============================================================================');
