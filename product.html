@@ -654,6 +654,22 @@
 
     <script>
         // ======================================================================
+        // EXPLICIT CAPTURE-PHASE EXCLUSION GUARD FOR #header-whatsapp-support-btn
+        // ======================================================================
+        document.addEventListener('click', (e) => {
+            const supportBtn = e.target.closest('#header-whatsapp-support-btn');
+            if (supportBtn) {
+                e.preventDefault();
+                e.stopPropagation();
+                let targetHref = supportBtn.getAttribute('href') || supportBtn.href || 'https://wa.me/917511180808?text=Hello%20Syber%20Space%2C%20I%20am%20inquiring%20about%20CCTV%20surveillance%20cameras.';
+                if (!targetHref.startsWith('https://')) {
+                    targetHref = 'https://wa.me/917511180808?text=Hello%20Syber%20Space%2C%20I%20am%20inquiring%20about%20CCTV%20surveillance%20cameras.';
+                }
+                window.open(targetHref, '_blank', 'noopener,noreferrer');
+            }
+        }, true);
+
+        // ======================================================================
         // DYNAMIC PRODUCT DATA & GSAP SHOWCASE ENGINE
         // ======================================================================
         let currentProduct = null;

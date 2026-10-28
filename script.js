@@ -7,12 +7,32 @@
 // Intercepts clicks on WhatsApp support before any bubbling or generic routing
 // ==========================================================================
 document.addEventListener('click', (e) => {
-    const supportBtn = e.target.closest('#header-whatsapp-support-btn, a[href*="wa.me"]');
+    const supportBtn = e.target.closest('#header-whatsapp-support-btn');
     if (supportBtn) {
-        // Explicitly isolate WhatsApp support link from any generic routing or modal logic
+        // Handled via JavaScript: Prevent default anchor navigation collision and stop propagation
+        e.preventDefault();
         e.stopPropagation();
-        if (supportBtn.href && supportBtn.href.includes('checkout=')) {
-            supportBtn.href = supportBtn.href.replace(/[?&]checkout=[^&]+/, '');
+
+        // Audit & ensure valid, absolute href
+        let targetHref = supportBtn.getAttribute('href') || supportBtn.href || 'https://wa.me/917511180808?text=Hello%20Syber%20Space%2C%20I%20am%20inquiring%20about%20CCTV%20surveillance%20cameras.';
+        if (!targetHref.startsWith('https://')) {
+            targetHref = 'https://wa.me/917511180808?text=Hello%20Syber%20Space%2C%20I%20am%20inquiring%20about%20CCTV%20surveillance%20cameras.';
+        }
+        if (targetHref.includes('checkout=')) {
+            targetHref = targetHref.replace(/[?&]checkout=[^&]+/, '');
+            supportBtn.setAttribute('href', targetHref);
+        }
+
+        // Clean, secure dispatch in a new tab
+        window.open(targetHref, '_blank', 'noopener,noreferrer');
+        return;
+    }
+
+    const waLink = e.target.closest('a[href*="wa.me"]');
+    if (waLink) {
+        e.stopPropagation();
+        if (waLink.href && waLink.href.includes('checkout=')) {
+            waLink.href = waLink.href.replace(/[?&]checkout=[^&]+/, '');
         }
     }
 }, true); // useCapture = true guarantees immediate priority execution
@@ -22,11 +42,24 @@ let CART_ITEMS = [];
 document.addEventListener('DOMContentLoaded', () => {
     initCart();
 
-    // Dedicated protection: Ensure Get Support / WhatsApp button never triggers any parent or modal handler
+    // Dedicated audit and protection for #header-whatsapp-support-btn
+    const headerWaBtn = document.getElementById('header-whatsapp-support-btn');
+    if (headerWaBtn) {
+        const defaultWaUrl = 'https://wa.me/917511180808?text=Hello%20Syber%20Space%2C%20I%20am%20inquiring%20about%20CCTV%20surveillance%20cameras.';
+        if (!headerWaBtn.getAttribute('href') || !headerWaBtn.getAttribute('href').startsWith('https://wa.me/')) {
+            headerWaBtn.setAttribute('href', defaultWaUrl);
+        }
+        headerWaBtn.setAttribute('target', '_blank');
+        headerWaBtn.setAttribute('rel', 'noopener noreferrer');
+    }
+
+    // Dedicated protection: Ensure any WhatsApp button never triggers any parent or modal handler
     document.querySelectorAll('a[href*="wa.me"]').forEach(link => {
-        link.addEventListener('click', (e) => {
-            e.stopPropagation();
-        });
+        if (link.id !== 'header-whatsapp-support-btn') {
+            link.addEventListener('click', (e) => {
+                e.stopPropagation();
+            });
+        }
         if (link.href && link.href.includes('checkout=')) {
             link.href = link.href.replace(/[?&]checkout=[^&]+/, '');
         }
