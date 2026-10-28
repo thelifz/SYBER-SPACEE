@@ -928,12 +928,14 @@ body.pdp-dark-mode .iphone-search-btn {
     padding: 1.5rem;
     opacity: 0;
     visibility: hidden;
+    pointer-events: none;
     transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .cart-drawer-overlay.active {
     opacity: 1;
     visibility: visible;
+    pointer-events: auto;
 }
 
 .cart-drawer {
@@ -5945,12 +5947,14 @@ body.dark .btn-carousel-nav {
     padding: 20px;
     opacity: 0;
     visibility: hidden;
+    pointer-events: none;
     transition: opacity 0.25s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.25s ease;
 }
 
 .hdfc-overlay.active {
     opacity: 1;
     visibility: visible;
+    pointer-events: auto;
 }
 
 .hdfc-terminal-window {

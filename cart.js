@@ -40,6 +40,16 @@ function escapeHtml(str) {
 // Synchronized with localStorage ('syber_cart')
 // ==========================================================================
 
+// Internal Application Checkout State Variables
+let isCheckoutActive = false;
+let isCheckoutOpen = false;
+let isPaymentProcessing = false;
+
+// Expose on window for telemetry, cross-module verification, and debugging
+window.isCheckoutActive = false;
+window.isCheckoutOpen = false;
+window.isPaymentProcessing = false;
+
 let activeCheckoutTotal = 0;
 let currentOrderRef = '';
 let currentCustomerData = null;
@@ -57,6 +67,16 @@ document.addEventListener('DOMContentLoaded', () => {
             closeHdfcModal();
         }
     });
+
+    // Backdrop click listener to close HDFC modal on outside click
+    const hdfcModal = document.getElementById('hdfc-checkout-modal');
+    if (hdfcModal) {
+        hdfcModal.addEventListener('click', (e) => {
+            if (e.target === hdfcModal) {
+                closeHdfcModal();
+            }
+        });
+    }
 
     // 3. Auto-launch HDFC checkout if navigated with ?checkout=1
     const urlParams = new URLSearchParams(window.location.search);
@@ -413,6 +433,26 @@ function initiateHdfcCheckout(total) {
     activeCheckoutTotal = Number(total) || 0;
     currentOrderRef = `SS-HDFC-${Math.floor(100000 + Math.random() * 900000)}`;
 
+    // Explicitly update internal application checkout state variables
+    isCheckoutActive = true;
+    isCheckoutOpen = true;
+    isPaymentProcessing = false;
+    window.isCheckoutActive = true;
+    window.isCheckoutOpen = true;
+    window.isPaymentProcessing = false;
+
+    // Ensure ?checkout=1 is synchronized in URL without full page reload
+    if (window.history && window.history.replaceState) {
+        try {
+            const url = new URL(window.location.href);
+            if (!url.searchParams.has('checkout')) {
+                url.searchParams.set('checkout', '1');
+                const cleanUrl = url.pathname + '?' + url.searchParams.toString() + url.hash;
+                window.history.replaceState({}, document.title, cleanUrl);
+            }
+        } catch (e) {}
+    }
+
     const modal = document.getElementById('hdfc-checkout-modal');
     const orderRefEl = document.getElementById('hdfc-order-ref');
     const totalAmountEl = document.getElementById('hdfc-total-amount');
@@ -474,8 +514,34 @@ function clearHdfcTimers() {
 
 function closeHdfcModal() {
     clearHdfcTimers();
+
+    // 1. Explicitly reset application internal checkout state variables to false
+    isCheckoutActive = false;
+    isCheckoutOpen = false;
+    isPaymentProcessing = false;
+    window.isCheckoutActive = false;
+    window.isCheckoutOpen = false;
+    window.isPaymentProcessing = false;
+
+    // 2. Remove ?checkout=1 parameter from URL using window.history.replaceState
+    if (window.history && window.history.replaceState) {
+        try {
+            const url = new URL(window.location.href);
+            if (url.searchParams.has('checkout')) {
+                url.searchParams.delete('checkout');
+                const cleanUrl = url.pathname + (url.search ? url.search : '') + url.hash;
+                window.history.replaceState({}, document.title, cleanUrl);
+            }
+        } catch (err) {
+            console.warn('Failed to clean checkout URL param:', err);
+        }
+    }
+
     const modal = document.getElementById('hdfc-checkout-modal');
     if (!modal) return;
+
+    // Immediately disable pointer events so no invisible wrapper can intercept clicks
+    modal.style.pointerEvents = 'none';
 
     if (typeof gsap !== 'undefined') {
         const card = modal.querySelector('.hdfc-terminal-window');
@@ -491,11 +557,13 @@ function closeHdfcModal() {
                 document.body.style.overflow = '';
                 if (card) gsap.set(card, { clearProps: 'all' });
                 gsap.set(modal, { clearProps: 'all' });
+                modal.style.pointerEvents = '';
             }
         });
     } else {
         modal.classList.remove('active');
         document.body.style.overflow = '';
+        modal.style.pointerEvents = '';
     }
 }
 
@@ -938,6 +1006,8 @@ function selectBank(bankName, btnElem) {
 // STEP 3: Execution, Authorization Simulation & Verified Tax Invoice Generation
 async function executeHdfcPayment(paymentRail) {
     clearHdfcTimers();
+    isPaymentProcessing = true;
+    window.isPaymentProcessing = true;
     const body = document.getElementById('hdfc-modal-body');
     if (!body) return;
 
