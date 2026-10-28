@@ -61,6 +61,10 @@ html {
     overscroll-behavior: none;
 }
 
+body {
+    overscroll-behavior: none;
+}
+
 html, body {
     overscroll-behavior: none;
 }
