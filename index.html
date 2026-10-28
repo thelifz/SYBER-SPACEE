@@ -347,118 +347,462 @@
                 <!-- ==========================================================
                      CATEGORIES BY BRAND SECTION
                      ========================================================== -->
+                                <!-- ==========================================================
+                     BRANDS WE SELL SECTION (SLIDESHOW)
+                     ========================================================== -->
                 <section class="brand-categories-section" id="categories-by-brand">
                     
                     <div class="brand-sec-header">
                         <span class="brand-sec-kicker">BROWSE BY BRAND</span>
-                        <h2 class="brand-sec-title">AUTHORIZED BRANDS</h2>
+                        <h2 class="brand-sec-title">BRANDS WE SELL</h2>
                         <p class="brand-sec-subtitle">Genuine surveillance systems with direct partner pricing.</p>
                     </div>
 
-                    <!-- Main Brand Featured Showcase Card -->
-                    <div class="brand-display-card" id="brandDisplayCard">
+                    <!-- Brand Slideshow Wrapper -->
+                    <div class="brand-slideshow-container" id="brandSlideshowContainer" onmouseenter="pauseBrandAutoSlide()" onmouseleave="resumeBrandAutoSlide()">
                         
-                        <!-- Top Header Row -->
-                        <div class="bdc-top-row">
-                            <div class="bdc-brand-info">
-                                <div class="bdc-badge-wrap">
-                                    <span class="bdc-partner-badge" id="bdcPartnerBadge">
-                                        <svg class="bdc-check-icon" viewBox="0 0 20 20" fill="currentColor">
-                                            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
-                                        </svg>
-                                        AUTHORIZED PARTNER
-                                    </span>
-                                </div>
-                                <div class="bdc-title-row">
-                                    <h3 class="bdc-brand-title" id="bdcBrandTitle">TRUEVIEW</h3>
-                                    <span class="bdc-count-pill" id="bdcCountPill">&#10003; 31 Products</span>
-                                </div>
-                                <p class="bdc-brand-desc" id="bdcBrandDesc">4G Solar PTZ, PoE Switches, Routers &amp; NVRs</p>
-                            </div>
+                        <!-- Prev / Next Navigation Arrows -->
+                        <button type="button" class="brand-slide-nav-btn prev-btn" id="brandSlidePrev" onclick="prevBrandSlide()" aria-label="Previous Brand Slide">
+                            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"></polyline></svg>
+                        </button>
+                        <button type="button" class="brand-slide-nav-btn next-btn" id="brandSlideNext" onclick="nextBrandSlide()" aria-label="Next Brand Slide">
+                            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                        </button>
 
-                            <!-- Dedicated Bestseller Feature Box -->
-                            <div class="bdc-bestseller-box" id="bdcBestsellerBox" onclick="quickViewBestseller('TRUEVIEW')">
-                                <span class="bdc-bestseller-tag">#1 BESTSELLER</span>
-                                <div class="bdc-bestseller-img-wrap">
-                                    <img src="assets/hero_product_solar_v2.png" alt="Trueview 4G Mini PT" class="bdc-bestseller-img" id="bdcBestsellerImg">
+                        <!-- Overflow Viewport Mask -->
+                        <div class="brand-slides-viewport" id="brandSlidesViewport">
+                            <div class="brand-slides-track" id="brandSlidesTrack">
+                                
+                                <!-- SLIDE 1: TRUEVIEW -->
+                                <div class="brand-slide-card" data-brand="TRUEVIEW">
+                                    <div class="bdc-top-row">
+                                        <div class="bdc-brand-info">
+                                            <div class="bdc-title-row">
+                                                <h3 class="bdc-brand-title">TRUEVIEW</h3>
+                                                <span class="bdc-count-pill">&#10003; 31 Products</span>
+                                            </div>
+                                            <p class="bdc-brand-desc">4G Solar PTZ, PoE Switches, Routers &amp; NVRs</p>
+                                        </div>
+                                        <div class="bdc-bestseller-box" onclick="directAddToCart('Trueview 4G Mini PT 3MP IP65', 3200, 'TRUEVIEW', 'assets/hero_product_solar_v2.png')">
+                                            <span class="bdc-bestseller-tag">#1 BESTSELLER</span>
+                                            <div class="bdc-bestseller-img-wrap">
+                                                <img src="assets/hero_product_solar_v2.png" alt="Trueview 4G Mini PT" class="bdc-bestseller-img">
+                                            </div>
+                                            <span class="bdc-bestseller-label">Trueview 4G Mini PT</span>
+                                        </div>
+                                    </div>
+                                    <div class="bdc-products-shelf">
+                                        <div class="bpc-card">
+                                            <span class="bpc-kicker">4G SOLAR</span>
+                                            <div class="bpc-img-wrap">
+                                                <img src="assets/hero_product_solar_v2.png" alt="Trueview 4G Mini PT 3MP IP65" class="bpc-img" loading="lazy">
+                                            </div>
+                                            <h4 class="bpc-title">Trueview 4G Mini PT 3MP IP65</h4>
+                                            <div class="bpc-price">&#8377;3,200</div>
+                                            <div class="bpc-actions">
+                                                <button type="button" class="btn-bpc-cart" onclick="directAddToCart('Trueview 4G Mini PT 3MP IP65', 3200, 'TRUEVIEW', 'assets/hero_product_solar_v2.png', this)">+ CART</button>
+                                                <button type="button" class="btn-bpc-pay" onclick="directPayProduct('Trueview 4G Mini PT 3MP IP65', 3200, 'TRUEVIEW', 'assets/hero_product_solar_v2.png')">PAY</button>
+                                            </div>
+                                        </div>
+                                        <div class="bpc-card">
+                                            <span class="bpc-kicker">8-PORT POE</span>
+                                            <div class="bpc-img-wrap">
+                                                <img src="assets/trueview_poe_front.jpg" alt="Trueview 8-Port Commercial PoE" class="bpc-img" loading="lazy">
+                                            </div>
+                                            <h4 class="bpc-title">Trueview 8-Port Commercial PoE</h4>
+                                            <div class="bpc-price">&#8377;2,350</div>
+                                            <div class="bpc-actions">
+                                                <button type="button" class="btn-bpc-cart" onclick="directAddToCart('Trueview 8-Port Commercial PoE', 2350, 'TRUEVIEW', 'assets/trueview_poe_front.jpg', this)">+ CART</button>
+                                                <button type="button" class="btn-bpc-pay" onclick="directPayProduct('Trueview 8-Port Commercial PoE', 2350, 'TRUEVIEW', 'assets/trueview_poe_front.jpg')">PAY</button>
+                                            </div>
+                                        </div>
+                                        <div class="bpc-card">
+                                            <span class="bpc-kicker">4G ROUTER</span>
+                                            <div class="bpc-img-wrap">
+                                                <img src="assets/trueview_router_angle.jpg" alt="Trueview 4G Industrial Wi-Fi 6 Router" class="bpc-img" loading="lazy">
+                                            </div>
+                                            <h4 class="bpc-title">Trueview 4G Industrial Wi-Fi 6 Router</h4>
+                                            <div class="bpc-price">&#8377;1,850</div>
+                                            <div class="bpc-actions">
+                                                <button type="button" class="btn-bpc-cart" onclick="directAddToCart('Trueview 4G Industrial Wi-Fi 6 Router', 1850, 'TRUEVIEW', 'assets/trueview_router_angle.jpg', this)">+ CART</button>
+                                                <button type="button" class="btn-bpc-pay" onclick="directPayProduct('Trueview 4G Industrial Wi-Fi 6 Router', 1850, 'TRUEVIEW', 'assets/trueview_router_angle.jpg')">PAY</button>
+                                            </div>
+                                        </div>
+                                        <div class="bpc-card">
+                                            <span class="bpc-kicker">4MP DUAL LENS</span>
+                                            <div class="bpc-img-wrap">
+                                                <img src="assets/hero_product_solar_v2.png" alt="Trueview 4MP Dual-Lens Solar Camera" class="bpc-img" loading="lazy">
+                                            </div>
+                                            <h4 class="bpc-title">Trueview 4MP Dual-Lens Solar Camera</h4>
+                                            <div class="bpc-price">&#8377;4,600</div>
+                                            <div class="bpc-actions">
+                                                <button type="button" class="btn-bpc-cart" onclick="directAddToCart('Trueview 4MP Dual-Lens Solar Camera', 4600, 'TRUEVIEW', 'assets/hero_product_solar_v2.png', this)">+ CART</button>
+                                                <button type="button" class="btn-bpc-pay" onclick="directPayProduct('Trueview 4MP Dual-Lens Solar Camera', 4600, 'TRUEVIEW', 'assets/hero_product_solar_v2.png')">PAY</button>
+                                            </div>
+                                        </div>
+                                        <div class="bpc-card">
+                                            <span class="bpc-kicker">16-CH NVR</span>
+                                            <div class="bpc-img-wrap">
+                                                <img src="assets/trueview_dvr_16ch.webp" alt="Trueview 16-Channel 4K NVR Recorder" class="bpc-img" loading="lazy">
+                                            </div>
+                                            <h4 class="bpc-title">Trueview 16-Channel 4K NVR Recorder</h4>
+                                            <div class="bpc-price">&#8377;6,400</div>
+                                            <div class="bpc-actions">
+                                                <button type="button" class="btn-bpc-cart" onclick="directAddToCart('Trueview 16-Channel 4K NVR Recorder', 6400, 'TRUEVIEW', 'assets/trueview_dvr_16ch.webp', this)">+ CART</button>
+                                                <button type="button" class="btn-bpc-pay" onclick="directPayProduct('Trueview 16-Channel 4K NVR Recorder', 6400, 'TRUEVIEW', 'assets/trueview_dvr_16ch.webp')">PAY</button>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
-                                <span class="bdc-bestseller-label" id="bdcBestsellerLabel">Trueview 4G Mini PT</span>
+
+                                <!-- SLIDE 2: CP PLUS -->
+                                <div class="brand-slide-card" data-brand="CPPLUS">
+                                    <div class="bdc-top-row">
+                                        <div class="bdc-brand-info">
+                                            <div class="bdc-title-row">
+                                                <h3 class="bdc-brand-title">CP PLUS</h3>
+                                                <span class="bdc-count-pill">&#10003; 9 Products</span>
+                                            </div>
+                                            <p class="bdc-brand-desc">Smart Wi-Fi Ezykam, Full Color Dome &amp; Bullet AI Security</p>
+                                        </div>
+                                        <div class="bdc-bestseller-box" onclick="directAddToCart('CP Plus Ezykam 3MP Pan & Tilt Wi-Fi', 1980, 'CP PLUS', 'assets/hero_product_cpplus_v2.png')">
+                                            <span class="bdc-bestseller-tag">#1 BESTSELLER</span>
+                                            <div class="bdc-bestseller-img-wrap">
+                                                <img src="assets/hero_product_cpplus_v2.png" alt="CP Plus Ezykam 3MP PT" class="bdc-bestseller-img">
+                                            </div>
+                                            <span class="bdc-bestseller-label">CP Plus Ezykam 3MP PT</span>
+                                        </div>
+                                    </div>
+                                    <div class="bdc-products-shelf">
+                                        <div class="bpc-card">
+                                            <span class="bpc-kicker">SMART PAN & TILT</span>
+                                            <div class="bpc-img-wrap">
+                                                <img src="assets/hero_product_cpplus_v2.png" alt="CP Plus Ezykam 3MP Pan & Tilt Wi-Fi" class="bpc-img" loading="lazy">
+                                            </div>
+                                            <h4 class="bpc-title">CP Plus Ezykam 3MP Pan &amp; Tilt Wi-Fi</h4>
+                                            <div class="bpc-price">&#8377;1,980</div>
+                                            <div class="bpc-actions">
+                                                <button type="button" class="btn-bpc-cart" onclick="directAddToCart('CP Plus Ezykam 3MP Pan & Tilt Wi-Fi', 1980, 'CP PLUS', 'assets/hero_product_cpplus_v2.png', this)">+ CART</button>
+                                                <button type="button" class="btn-bpc-pay" onclick="directPayProduct('CP Plus Ezykam 3MP Pan & Tilt Wi-Fi', 1980, 'CP PLUS', 'assets/hero_product_cpplus_v2.png')">PAY</button>
+                                            </div>
+                                        </div>
+                                        <div class="bpc-card">
+                                            <span class="bpc-kicker">OUTDOOR BULLET</span>
+                                            <div class="bpc-img-wrap">
+                                                <img src="assets/official_bestseller_cpplus_e38q_transparent.png" alt="CP Plus 2MP Full-Color Bullet Camera" class="bpc-img" loading="lazy">
+                                            </div>
+                                            <h4 class="bpc-title">CP Plus 2MP Full-Color Bullet Camera</h4>
+                                            <div class="bpc-price">&#8377;1,450</div>
+                                            <div class="bpc-actions">
+                                                <button type="button" class="btn-bpc-cart" onclick="directAddToCart('CP Plus 2MP Full-Color Bullet Camera', 1450, 'CP PLUS', 'assets/official_bestseller_cpplus_e38q_transparent.png', this)">+ CART</button>
+                                                <button type="button" class="btn-bpc-pay" onclick="directPayProduct('CP Plus 2MP Full-Color Bullet Camera', 1450, 'CP PLUS', 'assets/official_bestseller_cpplus_e38q_transparent.png')">PAY</button>
+                                            </div>
+                                        </div>
+                                        <div class="bpc-card">
+                                            <span class="bpc-kicker">AI 4MP INDOOR</span>
+                                            <div class="bpc-img-wrap">
+                                                <img src="assets/hero_camera_cpplus.jpg" alt="CP Plus 4MP Ultra-HD Guard Cam" class="bpc-img" loading="lazy">
+                                            </div>
+                                            <h4 class="bpc-title">CP Plus 4MP Ultra-HD Guard Cam</h4>
+                                            <div class="bpc-price">&#8377;2,450</div>
+                                            <div class="bpc-actions">
+                                                <button type="button" class="btn-bpc-cart" onclick="directAddToCart('CP Plus 4MP Ultra-HD Guard Cam', 2450, 'CP PLUS', 'assets/hero_camera_cpplus.jpg', this)">+ CART</button>
+                                                <button type="button" class="btn-bpc-pay" onclick="directPayProduct('CP Plus 4MP Ultra-HD Guard Cam', 2450, 'CP PLUS', 'assets/hero_camera_cpplus.jpg')">PAY</button>
+                                            </div>
+                                        </div>
+                                        <div class="bpc-card">
+                                            <span class="bpc-kicker">4-CH HD DVR</span>
+                                            <div class="bpc-img-wrap">
+                                                <img src="assets/trueview_dvr_4ch.webp" alt="CP Plus 4-Channel H.265+ DVR System" class="bpc-img" loading="lazy">
+                                            </div>
+                                            <h4 class="bpc-title">CP Plus 4-Channel H.265+ DVR System</h4>
+                                            <div class="bpc-price">&#8377;2,850</div>
+                                            <div class="bpc-actions">
+                                                <button type="button" class="btn-bpc-cart" onclick="directAddToCart('CP Plus 4-Channel H.265+ DVR System', 2850, 'CP PLUS', 'assets/trueview_dvr_4ch.webp', this)">+ CART</button>
+                                                <button type="button" class="btn-bpc-pay" onclick="directPayProduct('CP Plus 4-Channel H.265+ DVR System', 2850, 'CP PLUS', 'assets/trueview_dvr_4ch.webp')">PAY</button>
+                                            </div>
+                                        </div>
+                                        <div class="bpc-card">
+                                            <span class="bpc-kicker">8-CH HD DVR</span>
+                                            <div class="bpc-img-wrap">
+                                                <img src="assets/trueview_dvr_8ch.webp" alt="CP Plus 8-Channel Commercial DVR" class="bpc-img" loading="lazy">
+                                            </div>
+                                            <h4 class="bpc-title">CP Plus 8-Channel Commercial DVR</h4>
+                                            <div class="bpc-price">&#8377;4,200</div>
+                                            <div class="bpc-actions">
+                                                <button type="button" class="btn-bpc-cart" onclick="directAddToCart('CP Plus 8-Channel Commercial DVR', 4200, 'CP PLUS', 'assets/trueview_dvr_8ch.webp', this)">+ CART</button>
+                                                <button type="button" class="btn-bpc-pay" onclick="directPayProduct('CP Plus 8-Channel Commercial DVR', 4200, 'CP PLUS', 'assets/trueview_dvr_8ch.webp')">PAY</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- SLIDE 3: iDADA -->
+                                <div class="brand-slide-card" data-brand="IDADA">
+                                    <div class="bdc-top-row">
+                                        <div class="bdc-brand-info">
+                                            <div class="bdc-title-row">
+                                                <h3 class="bdc-brand-title">iDADA</h3>
+                                                <span class="bdc-count-pill">&#10003; 14 Products</span>
+                                            </div>
+                                            <p class="bdc-brand-desc">High-Speed Pan &amp; Tilt Wi-Fi Cameras with 2-Way Intercom</p>
+                                        </div>
+                                        <div class="bdc-bestseller-box" onclick="directAddToCart('iDADA 3MP Smart Wi-Fi Pan & Tilt Cam', 1850, 'IDADA', 'assets/hero_product_idada_v2.png')">
+                                            <span class="bdc-bestseller-tag">#1 BESTSELLER</span>
+                                            <div class="bdc-bestseller-img-wrap">
+                                                <img src="assets/hero_product_idada_v2.png" alt="iDADA 3MP Smart PT" class="bdc-bestseller-img">
+                                            </div>
+                                            <span class="bdc-bestseller-label">iDADA 3MP Smart PT</span>
+                                        </div>
+                                    </div>
+                                    <div class="bdc-products-shelf">
+                                        <div class="bpc-card">
+                                            <span class="bpc-kicker">3MP SMART PT</span>
+                                            <div class="bpc-img-wrap">
+                                                <img src="assets/hero_product_idada_v2.png" alt="iDADA 3MP Smart Wi-Fi Pan & Tilt Cam" class="bpc-img" loading="lazy">
+                                            </div>
+                                            <h4 class="bpc-title">iDADA 3MP Smart Wi-Fi Pan &amp; Tilt Cam</h4>
+                                            <div class="bpc-price">&#8377;1,850</div>
+                                            <div class="bpc-actions">
+                                                <button type="button" class="btn-bpc-cart" onclick="directAddToCart('iDADA 3MP Smart Wi-Fi Pan & Tilt Cam', 1850, 'IDADA', 'assets/hero_product_idada_v2.png', this)">+ CART</button>
+                                                <button type="button" class="btn-bpc-pay" onclick="directPayProduct('iDADA 3MP Smart Wi-Fi Pan & Tilt Cam', 1850, 'IDADA', 'assets/hero_product_idada_v2.png')">PAY</button>
+                                            </div>
+                                        </div>
+                                        <div class="bpc-card">
+                                            <span class="bpc-kicker">DUAL ANTENNA</span>
+                                            <div class="bpc-img-wrap">
+                                                <img src="assets/official_bestseller_idada_q2i_clean.png" alt="iDADA 3MP Long-Range Outdoor Wi-Fi" class="bpc-img" loading="lazy">
+                                            </div>
+                                            <h4 class="bpc-title">iDADA 3MP Long-Range Outdoor Wi-Fi</h4>
+                                            <div class="bpc-price">&#8377;2,150</div>
+                                            <div class="bpc-actions">
+                                                <button type="button" class="btn-bpc-cart" onclick="directAddToCart('iDADA 3MP Long-Range Outdoor Wi-Fi', 2150, 'IDADA', 'assets/official_bestseller_idada_q2i_clean.png', this)">+ CART</button>
+                                                <button type="button" class="btn-bpc-pay" onclick="directPayProduct('iDADA 3MP Long-Range Outdoor Wi-Fi', 2150, 'IDADA', 'assets/official_bestseller_idada_q2i_clean.png')">PAY</button>
+                                            </div>
+                                        </div>
+                                        <div class="bpc-card">
+                                            <span class="bpc-kicker">SMART HOME</span>
+                                            <div class="bpc-img-wrap">
+                                                <img src="assets/idada_flipkart_main.jpg" alt="iDADA Baby & Elderly Care 2-Way Audio" class="bpc-img" loading="lazy">
+                                            </div>
+                                            <h4 class="bpc-title">iDADA Baby &amp; Elderly Care 2-Way Audio</h4>
+                                            <div class="bpc-price">&#8377;1,650</div>
+                                            <div class="bpc-actions">
+                                                <button type="button" class="btn-bpc-cart" onclick="directAddToCart('iDADA Baby & Elderly Care 2-Way Audio', 1650, 'IDADA', 'assets/idada_flipkart_main.jpg', this)">+ CART</button>
+                                                <button type="button" class="btn-bpc-pay" onclick="directPayProduct('iDADA Baby & Elderly Care 2-Way Audio', 1650, 'IDADA', 'assets/idada_flipkart_main.jpg')">PAY</button>
+                                            </div>
+                                        </div>
+                                        <div class="bpc-card">
+                                            <span class="bpc-kicker">4G CELLULAR</span>
+                                            <div class="bpc-img-wrap">
+                                                <img src="assets/idada_q2i_main_studio.jpg" alt="iDADA 4G SIM Card Autonomous Camera" class="bpc-img" loading="lazy">
+                                            </div>
+                                            <h4 class="bpc-title">iDADA 4G SIM Card Autonomous Camera</h4>
+                                            <div class="bpc-price">&#8377;3,100</div>
+                                            <div class="bpc-actions">
+                                                <button type="button" class="btn-bpc-cart" onclick="directAddToCart('iDADA 4G SIM Card Autonomous Camera', 3100, 'IDADA', 'assets/idada_q2i_main_studio.jpg', this)">+ CART</button>
+                                                <button type="button" class="btn-bpc-pay" onclick="directPayProduct('iDADA 4G SIM Card Autonomous Camera', 3100, 'IDADA', 'assets/idada_q2i_main_studio.jpg')">PAY</button>
+                                            </div>
+                                        </div>
+                                        <div class="bpc-card">
+                                            <span class="bpc-kicker">SOLAR BACKUP</span>
+                                            <div class="bpc-img-wrap">
+                                                <img src="assets/hero_product_solar_v2.png" alt="iDADA Solar Battery Standalone PTZ" class="bpc-img" loading="lazy">
+                                            </div>
+                                            <h4 class="bpc-title">iDADA Solar Battery Standalone PTZ</h4>
+                                            <div class="bpc-price">&#8377;3,850</div>
+                                            <div class="bpc-actions">
+                                                <button type="button" class="btn-bpc-cart" onclick="directAddToCart('iDADA Solar Battery Standalone PTZ', 3850, 'IDADA', 'assets/hero_product_solar_v2.png', this)">+ CART</button>
+                                                <button type="button" class="btn-bpc-pay" onclick="directPayProduct('iDADA Solar Battery Standalone PTZ', 3850, 'IDADA', 'assets/hero_product_solar_v2.png')">PAY</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- SLIDE 4: SEAGATE -->
+                                <div class="brand-slide-card" data-brand="SEAGATE">
+                                    <div class="bdc-top-row">
+                                        <div class="bdc-brand-info">
+                                            <div class="bdc-title-row">
+                                                <h3 class="bdc-brand-title">SEAGATE</h3>
+                                                <span class="bdc-count-pill">&#10003; 3 Capacities</span>
+                                            </div>
+                                            <p class="bdc-brand-desc">SkyHawk 24/7 Zero Frame Loss Heavy-Duty Surveillance Hard Drives</p>
+                                        </div>
+                                        <div class="bdc-bestseller-box" onclick="directAddToCart('Seagate SkyHawk 2TB Heavy-Duty HDD', 4650, 'SEAGATE', 'assets/acc_official_skyhawk_hdd.png')">
+                                            <span class="bdc-bestseller-tag">#1 BESTSELLER</span>
+                                            <div class="bdc-bestseller-img-wrap">
+                                                <img src="assets/acc_official_skyhawk_hdd.png" alt="Seagate SkyHawk 2TB" class="bdc-bestseller-img">
+                                            </div>
+                                            <span class="bdc-bestseller-label">Seagate SkyHawk 2TB</span>
+                                        </div>
+                                    </div>
+                                    <div class="bdc-products-shelf">
+                                        <div class="bpc-card">
+                                            <span class="bpc-kicker">1TB SURVEILLANCE</span>
+                                            <div class="bpc-img-wrap">
+                                                <img src="assets/acc_official_skyhawk_hdd.png" alt="Seagate SkyHawk 1TB Surveillance HDD" class="bpc-img" loading="lazy">
+                                            </div>
+                                            <h4 class="bpc-title">Seagate SkyHawk 1TB Surveillance HDD</h4>
+                                            <div class="bpc-price">&#8377;3,400</div>
+                                            <div class="bpc-actions">
+                                                <button type="button" class="btn-bpc-cart" onclick="directAddToCart('Seagate SkyHawk 1TB Surveillance HDD', 3400, 'SEAGATE', 'assets/acc_official_skyhawk_hdd.png', this)">+ CART</button>
+                                                <button type="button" class="btn-bpc-pay" onclick="directPayProduct('Seagate SkyHawk 1TB Surveillance HDD', 3400, 'SEAGATE', 'assets/acc_official_skyhawk_hdd.png')">PAY</button>
+                                            </div>
+                                        </div>
+                                        <div class="bpc-card">
+                                            <span class="bpc-kicker">2TB BEST VALUE</span>
+                                            <div class="bpc-img-wrap">
+                                                <img src="assets/acc_skyhawk_2tb.jpg" alt="Seagate SkyHawk 2TB Heavy-Duty HDD" class="bpc-img" loading="lazy">
+                                            </div>
+                                            <h4 class="bpc-title">Seagate SkyHawk 2TB Heavy-Duty HDD</h4>
+                                            <div class="bpc-price">&#8377;4,650</div>
+                                            <div class="bpc-actions">
+                                                <button type="button" class="btn-bpc-cart" onclick="directAddToCart('Seagate SkyHawk 2TB Heavy-Duty HDD', 4650, 'SEAGATE', 'assets/acc_skyhawk_2tb.jpg', this)">+ CART</button>
+                                                <button type="button" class="btn-bpc-pay" onclick="directPayProduct('Seagate SkyHawk 2TB Heavy-Duty HDD', 4650, 'SEAGATE', 'assets/acc_skyhawk_2tb.jpg')">PAY</button>
+                                            </div>
+                                        </div>
+                                        <div class="bpc-card">
+                                            <span class="bpc-kicker">4TB ENTERPRISE</span>
+                                            <div class="bpc-img-wrap">
+                                                <img src="assets/acc_skyhawk_1tb.jpg" alt="Seagate SkyHawk 4TB Commercial HDD" class="bpc-img" loading="lazy">
+                                            </div>
+                                            <h4 class="bpc-title">Seagate SkyHawk 4TB Commercial HDD</h4>
+                                            <div class="bpc-price">&#8377;7,800</div>
+                                            <div class="bpc-actions">
+                                                <button type="button" class="btn-bpc-cart" onclick="directAddToCart('Seagate SkyHawk 4TB Commercial HDD', 7800, 'SEAGATE', 'assets/acc_skyhawk_1tb.jpg', this)">+ CART</button>
+                                                <button type="button" class="btn-bpc-pay" onclick="directPayProduct('Seagate SkyHawk 4TB Commercial HDD', 7800, 'SEAGATE', 'assets/acc_skyhawk_1tb.jpg')">PAY</button>
+                                            </div>
+                                        </div>
+                                        <div class="bpc-card">
+                                            <span class="bpc-kicker">6TB AI RECORDER</span>
+                                            <div class="bpc-img-wrap">
+                                                <img src="assets/official_accessory_hdd_skyhawk.png" alt="Seagate SkyHawk AI 6TB Analytics HDD" class="bpc-img" loading="lazy">
+                                            </div>
+                                            <h4 class="bpc-title">Seagate SkyHawk AI 6TB Analytics HDD</h4>
+                                            <div class="bpc-price">&#8377;12,400</div>
+                                            <div class="bpc-actions">
+                                                <button type="button" class="btn-bpc-cart" onclick="directAddToCart('Seagate SkyHawk AI 6TB Analytics HDD', 12400, 'SEAGATE', 'assets/official_accessory_hdd_skyhawk.png', this)">+ CART</button>
+                                                <button type="button" class="btn-bpc-pay" onclick="directPayProduct('Seagate SkyHawk AI 6TB Analytics HDD', 12400, 'SEAGATE', 'assets/official_accessory_hdd_skyhawk.png')">PAY</button>
+                                            </div>
+                                        </div>
+                                        <div class="bpc-card">
+                                            <span class="bpc-kicker">MICRO SD 128GB</span>
+                                            <div class="bpc-img-wrap">
+                                                <img src="assets/acc_sandisk_128gb.jpg" alt="SanDisk High Endurance 128GB Card" class="bpc-img" loading="lazy">
+                                            </div>
+                                            <h4 class="bpc-title">SanDisk High Endurance 128GB Card</h4>
+                                            <div class="bpc-price">&#8377;1,150</div>
+                                            <div class="bpc-actions">
+                                                <button type="button" class="btn-bpc-cart" onclick="directAddToCart('SanDisk High Endurance 128GB Card', 1150, 'SANDISK', 'assets/acc_sandisk_128gb.jpg', this)">+ CART</button>
+                                                <button type="button" class="btn-bpc-pay" onclick="directPayProduct('SanDisk High Endurance 128GB Card', 1150, 'SANDISK', 'assets/acc_sandisk_128gb.jpg')">PAY</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- SLIDE 5: INFRASTRUCTURE -->
+                                <div class="brand-slide-card" data-brand="INFRASTRUCTURE">
+                                    <div class="bdc-top-row">
+                                        <div class="bdc-brand-info">
+                                            <div class="bdc-title-row">
+                                                <h3 class="bdc-brand-title">INFRASTRUCTURE</h3>
+                                                <span class="bdc-count-pill">&#10003; 22 Items</span>
+                                            </div>
+                                            <p class="bdc-brand-desc">Power SMPS, Pure Copper Cat6 &amp; RG59 Cabling, Racks &amp; Waterproof Boxes</p>
+                                        </div>
+                                        <div class="bdc-bestseller-box" onclick="directAddToCart('Ultra-Link 12V 5A 4-Channel Metal SMPS', 450, 'INFRASTRUCTURE', 'assets/acc_official_smps.png')">
+                                            <span class="bdc-bestseller-tag">#1 BESTSELLER</span>
+                                            <div class="bdc-bestseller-img-wrap">
+                                                <img src="assets/acc_official_smps.png" alt="Ultra-Link 12V 5A SMPS" class="bdc-bestseller-img">
+                                            </div>
+                                            <span class="bdc-bestseller-label">Ultra-Link 12V 5A SMPS</span>
+                                        </div>
+                                    </div>
+                                    <div class="bdc-products-shelf">
+                                        <div class="bpc-card">
+                                            <span class="bpc-kicker">12V 5A SMPS</span>
+                                            <div class="bpc-img-wrap">
+                                                <img src="assets/acc_official_smps.png" alt="Ultra-Link 12V 5A 4-Channel Metal SMPS" class="bpc-img" loading="lazy">
+                                            </div>
+                                            <h4 class="bpc-title">Ultra-Link 12V 5A 4-Channel Metal SMPS</h4>
+                                            <div class="bpc-price">&#8377;450</div>
+                                            <div class="bpc-actions">
+                                                <button type="button" class="btn-bpc-cart" onclick="directAddToCart('Ultra-Link 12V 5A 4-Channel Metal SMPS', 450, 'INFRASTRUCTURE', 'assets/acc_official_smps.png', this)">+ CART</button>
+                                                <button type="button" class="btn-bpc-pay" onclick="directPayProduct('Ultra-Link 12V 5A 4-Channel Metal SMPS', 450, 'INFRASTRUCTURE', 'assets/acc_official_smps.png')">PAY</button>
+                                            </div>
+                                        </div>
+                                        <div class="bpc-card">
+                                            <span class="bpc-kicker">12V 10A SMPS</span>
+                                            <div class="bpc-img-wrap">
+                                                <img src="assets/acc_smps_5a.jpg" alt="Ultra-Link 12V 10A 8-Channel Industrial SMPS" class="bpc-img" loading="lazy">
+                                            </div>
+                                            <h4 class="bpc-title">Ultra-Link 12V 10A 8-Channel Industrial SMPS</h4>
+                                            <div class="bpc-price">&#8377;750</div>
+                                            <div class="bpc-actions">
+                                                <button type="button" class="btn-bpc-cart" onclick="directAddToCart('Ultra-Link 12V 10A 8-Channel Industrial SMPS', 750, 'INFRASTRUCTURE', 'assets/acc_smps_5a.jpg', this)">+ CART</button>
+                                                <button type="button" class="btn-bpc-pay" onclick="directPayProduct('Ultra-Link 12V 10A 8-Channel Industrial SMPS', 750, 'INFRASTRUCTURE', 'assets/acc_smps_5a.jpg')">PAY</button>
+                                            </div>
+                                        </div>
+                                        <div class="bpc-card">
+                                            <span class="bpc-kicker">CAT6 305M</span>
+                                            <div class="bpc-img-wrap">
+                                                <img src="assets/acc_official_cat6_drum.png" alt="Ultra-Link Pure Copper Cat6 Cable 305m Drum" class="bpc-img" loading="lazy">
+                                            </div>
+                                            <h4 class="bpc-title">Ultra-Link Pure Copper Cat6 Cable 305m Drum</h4>
+                                            <div class="bpc-price">&#8377;4,200</div>
+                                            <div class="bpc-actions">
+                                                <button type="button" class="btn-bpc-cart" onclick="directAddToCart('Ultra-Link Pure Copper Cat6 Cable 305m Drum', 4200, 'INFRASTRUCTURE', 'assets/acc_official_cat6_drum.png', this)">+ CART</button>
+                                                <button type="button" class="btn-bpc-pay" onclick="directPayProduct('Ultra-Link Pure Copper Cat6 Cable 305m Drum', 4200, 'INFRASTRUCTURE', 'assets/acc_official_cat6_drum.png')">PAY</button>
+                                            </div>
+                                        </div>
+                                        <div class="bpc-card">
+                                            <span class="bpc-kicker">3+1 COAXIAL</span>
+                                            <div class="bpc-img-wrap">
+                                                <img src="assets/cctv_cat6_cable_drum.jpg" alt="D-Link 3+1 RG59 Pure Copper CCTV Cable 90m" class="bpc-img" loading="lazy">
+                                            </div>
+                                            <h4 class="bpc-title">D-Link 3+1 RG59 Pure Copper CCTV Cable 90m</h4>
+                                            <div class="bpc-price">&#8377;1,450</div>
+                                            <div class="bpc-actions">
+                                                <button type="button" class="btn-bpc-cart" onclick="directAddToCart('D-Link 3+1 RG59 Pure Copper CCTV Cable 90m', 1450, 'INFRASTRUCTURE', 'assets/cctv_cat6_cable_drum.jpg', this)">+ CART</button>
+                                                <button type="button" class="btn-bpc-pay" onclick="directPayProduct('D-Link 3+1 RG59 Pure Copper CCTV Cable 90m', 1450, 'INFRASTRUCTURE', 'assets/cctv_cat6_cable_drum.jpg')">PAY</button>
+                                            </div>
+                                        </div>
+                                        <div class="bpc-card">
+                                            <span class="bpc-kicker">20A ENTERPRISE</span>
+                                            <div class="bpc-img-wrap">
+                                                <img src="assets/acc_smps_20a.jpg" alt="Ultra-Link 12V 20A Heavy Duty SMPS Box" class="bpc-img" loading="lazy">
+                                            </div>
+                                            <h4 class="bpc-title">Ultra-Link 12V 20A Heavy Duty SMPS Box</h4>
+                                            <div class="bpc-price">&#8377;1,250</div>
+                                            <div class="bpc-actions">
+                                                <button type="button" class="btn-bpc-cart" onclick="directAddToCart('Ultra-Link 12V 20A Heavy Duty SMPS Box', 1250, 'INFRASTRUCTURE', 'assets/acc_smps_20a.jpg', this)">+ CART</button>
+                                                <button type="button" class="btn-bpc-pay" onclick="directPayProduct('Ultra-Link 12V 20A Heavy Duty SMPS Box', 1250, 'INFRASTRUCTURE', 'assets/acc_smps_20a.jpg')">PAY</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
                             </div>
                         </div>
 
-                        <!-- Horizontal Product Shelf -->
-                        <div class="bdc-products-shelf" id="bdcProductsShelf">
-                            
-                            <!-- 1. 4G SOLAR -->
-                            <div class="bpc-card">
-                                <span class="bpc-kicker">4G SOLAR</span>
-                                <div class="bpc-img-wrap">
-                                    <img src="assets/hero_product_solar_v2.png" alt="Trueview 4G Mini PT 3MP IP65" class="bpc-img" loading="lazy">
-                                </div>
-                                <h4 class="bpc-title">Trueview 4G Mini PT 3MP IP65</h4>
-                                <div class="bpc-price">&#8377;3,200</div>
-                                <div class="bpc-actions">
-                                    <button type="button" class="btn-bpc-cart" onclick="directAddToCart('Trueview 4G Mini PT 3MP IP65', 3200, 'TRUEVIEW', 'assets/hero_product_solar_v2.png', this)">+ CART</button>
-                                    <button type="button" class="btn-bpc-pay" onclick="directPayProduct('Trueview 4G Mini PT 3MP IP65', 3200, 'TRUEVIEW', 'assets/hero_product_solar_v2.png')">PAY</button>
-                                </div>
-                            </div>
-
-                            <!-- 2. 8-PORT POE -->
-                            <div class="bpc-card">
-                                <span class="bpc-kicker">8-PORT POE</span>
-                                <div class="bpc-img-wrap">
-                                    <img src="assets/trueview_poe_front.jpg" alt="Trueview 8-Port Commercial PoE" class="bpc-img" loading="lazy">
-                                </div>
-                                <h4 class="bpc-title">Trueview 8-Port Commercial PoE</h4>
-                                <div class="bpc-price">&#8377;2,350</div>
-                                <div class="bpc-actions">
-                                    <button type="button" class="btn-bpc-cart" onclick="directAddToCart('Trueview 8-Port Commercial PoE', 2350, 'TRUEVIEW', 'assets/trueview_poe_front.jpg', this)">+ CART</button>
-                                    <button type="button" class="btn-bpc-pay" onclick="directPayProduct('Trueview 8-Port Commercial PoE', 2350, 'TRUEVIEW', 'assets/trueview_poe_front.jpg')">PAY</button>
-                                </div>
-                            </div>
-
-                            <!-- 3. 4G ROUTER -->
-                            <div class="bpc-card">
-                                <span class="bpc-kicker">4G ROUTER</span>
-                                <div class="bpc-img-wrap">
-                                    <img src="assets/trueview_router_angle.jpg" alt="Trueview 4G Industrial Wi-Fi 6 Router" class="bpc-img" loading="lazy">
-                                </div>
-                                <h4 class="bpc-title">Trueview 4G Industrial Wi-Fi 6 Router</h4>
-                                <div class="bpc-price">&#8377;1,850</div>
-                                <div class="bpc-actions">
-                                    <button type="button" class="btn-bpc-cart" onclick="directAddToCart('Trueview 4G Industrial Wi-Fi 6 Router', 1850, 'TRUEVIEW', 'assets/trueview_router_angle.jpg', this)">+ CART</button>
-                                    <button type="button" class="btn-bpc-pay" onclick="directPayProduct('Trueview 4G Industrial Wi-Fi 6 Router', 1850, 'TRUEVIEW', 'assets/trueview_router_angle.jpg')">PAY</button>
-                                </div>
-                            </div>
-
-                            <!-- 4. 4MP DUAL LENS -->
-                            <div class="bpc-card">
-                                <span class="bpc-kicker">4MP DUAL LENS</span>
-                                <div class="bpc-img-wrap">
-                                    <img src="assets/hero_product_solar_v2.png" alt="Trueview 4MP Dual-Lens Solar Camera" class="bpc-img" loading="lazy">
-                                </div>
-                                <h4 class="bpc-title">Trueview 4MP Dual-Lens Solar Camera</h4>
-                                <div class="bpc-price">&#8377;4,600</div>
-                                <div class="bpc-actions">
-                                    <button type="button" class="btn-bpc-cart" onclick="directAddToCart('Trueview 4MP Dual-Lens Solar Camera', 4600, 'TRUEVIEW', 'assets/hero_product_solar_v2.png', this)">+ CART</button>
-                                    <button type="button" class="btn-bpc-pay" onclick="directPayProduct('Trueview 4MP Dual-Lens Solar Camera', 4600, 'TRUEVIEW', 'assets/hero_product_solar_v2.png')">PAY</button>
-                                </div>
-                            </div>
-
-                            <!-- 5. 16-CH NVR -->
-                            <div class="bpc-card">
-                                <span class="bpc-kicker">16-CH NVR</span>
-                                <div class="bpc-img-wrap">
-                                    <img src="assets/trueview_dvr_16ch.webp" alt="Trueview 16-Channel 4K NVR Recorder" class="bpc-img" loading="lazy">
-                                </div>
-                                <h4 class="bpc-title">Trueview 16-Channel 4K NVR Recorder</h4>
-                                <div class="bpc-price">&#8377;6,400</div>
-                                <div class="bpc-actions">
-                                    <button type="button" class="btn-bpc-cart" onclick="directAddToCart('Trueview 16-Channel 4K NVR Recorder', 6400, 'TRUEVIEW', 'assets/trueview_dvr_16ch.webp', this)">+ CART</button>
-                                    <button type="button" class="btn-bpc-pay" onclick="directPayProduct('Trueview 16-Channel 4K NVR Recorder', 6400, 'TRUEVIEW', 'assets/trueview_dvr_16ch.webp')">PAY</button>
-                                </div>
-                            </div>
-
+                        <!-- Brand Slideshow Pagination Dots / Indicators -->
+                        <div class="brand-slides-pagination" id="brandSlideDots">
+                            <button type="button" class="brand-dot active" data-index="0" onclick="goToBrandSlide(0)" aria-label="Brand 1: Trueview">
+                                <span>TRUEVIEW</span>
+                            </button>
+                            <button type="button" class="brand-dot" data-index="1" onclick="goToBrandSlide(1)" aria-label="Brand 2: CP Plus">
+                                <span>CP PLUS</span>
+                            </button>
+                            <button type="button" class="brand-dot" data-index="2" onclick="goToBrandSlide(2)" aria-label="Brand 3: iDADA">
+                                <span>iDADA</span>
+                            </button>
+                            <button type="button" class="brand-dot" data-index="3" onclick="goToBrandSlide(3)" aria-label="Brand 4: Seagate">
+                                <span>SEAGATE</span>
+                            </button>
+                            <button type="button" class="brand-dot" data-index="4" onclick="goToBrandSlide(4)" aria-label="Brand 5: Infrastructure">
+                                <span>INFRASTRUCTURE</span>
+                            </button>
                         </div>
 
                     </div>

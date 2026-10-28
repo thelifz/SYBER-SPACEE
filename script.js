@@ -1234,3 +1234,97 @@ function directPayProduct(title, price, brand, img) {
     directAddToCart(title, price, brand, img);
     window.location.href = 'cart.html?checkout=1';
 }
+
+
+// ==========================================================================
+// BRANDS WE SELL SLIDESHOW CONTROLLER
+// ==========================================================================
+let currentBrandSlide = 0;
+const TOTAL_BRAND_SLIDES = 5;
+let brandAutoSlideTimer = null;
+
+const BRAND_INDEX_MAP = {
+    'TRUEVIEW': 0,
+    'CPPLUS': 1,
+    'IDADA': 2,
+    'SEAGATE': 3,
+    'INFRASTRUCTURE': 4
+};
+
+function goToBrandSlide(idx) {
+    currentBrandSlide = (idx + TOTAL_BRAND_SLIDES) % TOTAL_BRAND_SLIDES;
+    const track = document.getElementById('brandSlidesTrack');
+    if (track) {
+        track.style.transform = `translateX(-${currentBrandSlide * 100}%)`;
+    }
+    // Update pagination dots
+    const dots = document.querySelectorAll('.brand-dot');
+    dots.forEach((dot, i) => {
+        if (i === currentBrandSlide) {
+            dot.classList.add('active');
+        } else {
+            dot.classList.remove('active');
+        }
+    });
+}
+
+function nextBrandSlide() {
+    goToBrandSlide(currentBrandSlide + 1);
+}
+
+function prevBrandSlide() {
+    goToBrandSlide(currentBrandSlide - 1);
+}
+
+function startBrandAutoSlide() {
+    if (brandAutoSlideTimer) clearInterval(brandAutoSlideTimer);
+    brandAutoSlideTimer = setInterval(() => {
+        nextBrandSlide();
+    }, 6500);
+}
+
+function pauseBrandAutoSlide() {
+    if (brandAutoSlideTimer) {
+        clearInterval(brandAutoSlideTimer);
+        brandAutoSlideTimer = null;
+    }
+}
+
+function resumeBrandAutoSlide() {
+    startBrandAutoSlide();
+}
+
+function switchBrandDisplay(brandKey) {
+    const idx = BRAND_INDEX_MAP[(brandKey || '').toUpperCase()];
+    if (typeof idx === 'number') {
+        goToBrandSlide(idx);
+        const sec = document.getElementById('categories-by-brand');
+        if (sec) sec.scrollIntoView({ behavior: 'smooth' });
+    }
+}
+
+// Touch swipe support on brand slideshow
+document.addEventListener('DOMContentLoaded', () => {
+    startBrandAutoSlide();
+
+    const viewport = document.getElementById('brandSlidesViewport');
+    if (viewport) {
+        let touchStartX = 0;
+        let touchEndX = 0;
+
+        viewport.addEventListener('touchstart', (e) => {
+            touchStartX = e.changedTouches[0].screenX;
+            pauseBrandAutoSlide();
+        }, { passive: true });
+
+        viewport.addEventListener('touchend', (e) => {
+            touchEndX = e.changedTouches[0].screenX;
+            if (touchStartX - touchEndX > 50) {
+                nextBrandSlide();
+            } else if (touchEndX - touchStartX > 50) {
+                prevBrandSlide();
+            }
+            resumeBrandAutoSlide();
+        }, { passive: true });
+    }
+});
