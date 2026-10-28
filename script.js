@@ -408,7 +408,7 @@ function initOfferSlideshow() {
 
     let currentSlide = 0;
     let autoplayInterval = null;
-    const SLIDE_DURATION = 5000;
+    const SLIDE_DURATION = 3500;
 
     function showSlide(index) {
         if (index < 0) {
@@ -1236,11 +1236,16 @@ function directPayProduct(title, price, brand, img) {
 }
 
 
+function openProductShowcase(productId) {
+    if (!productId) return;
+    window.location.href = 'product.html?id=' + encodeURIComponent(productId) + '&scroll=showcase';
+}
+
 // ==========================================================================
 // BRANDS WE SELL SLIDESHOW CONTROLLER
 // ==========================================================================
 let currentBrandSlide = 0;
-const TOTAL_BRAND_SLIDES = 5;
+const TOTAL_BRAND_SLIDES = 6;
 let brandAutoSlideTimer = null;
 
 const BRAND_INDEX_MAP = {
@@ -1248,7 +1253,9 @@ const BRAND_INDEX_MAP = {
     'CPPLUS': 1,
     'IDADA': 2,
     'SEAGATE': 3,
-    'INFRASTRUCTURE': 4
+    'INFRASTRUCTURE': 4,
+    'SUGGESTED': 5,
+    'BESTSELLER': 5
 };
 
 function goToBrandSlide(idx) {
@@ -1280,7 +1287,7 @@ function startBrandAutoSlide() {
     if (brandAutoSlideTimer) clearInterval(brandAutoSlideTimer);
     brandAutoSlideTimer = setInterval(() => {
         nextBrandSlide();
-    }, 6500);
+    }, 3800);
 }
 
 function pauseBrandAutoSlide() {

@@ -1321,9 +1321,7 @@ body.pdp-dark-mode .iphone-search-btn {
     visibility: hidden;
     pointer-events: none;
     transform: translateX(30px);
-    transition: opacity 0.45s cubic-bezier(0.16, 1, 0.3, 1), 
-                transform 0.45s cubic-bezier(0.16, 1, 0.3, 1),
-                visibility 0.45s;
+    transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1), transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.3s;
 }
 
 .offer-slide.active {
@@ -4452,9 +4450,7 @@ body.pdp-dark-mode .iphone-search-btn {
     transform: scale(0.98);
     transform-origin: left center;
     cursor: pointer;
-    transition: opacity 0.45s cubic-bezier(0.16, 1, 0.3, 1), 
-                filter 0.45s cubic-bezier(0.16, 1, 0.3, 1), 
-                transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1), transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.3s;
 }
 
 .asus-feature-card:hover {
@@ -6841,6 +6837,12 @@ body.dark .btn-carousel-nav {
     justify-content: center;
     padding: 0.5rem;
     margin-bottom: 0.65rem;
+    cursor: pointer;
+    transition: background 0.2s ease, transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.bpc-img-wrap:hover {
+    background: #f1f5f9;
 }
 
 .bpc-img {
@@ -6865,6 +6867,12 @@ body.dark .btn-carousel-nav {
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
     overflow: hidden;
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+.bpc-title:hover {
+    color: #059669;
 }
 
 .bpc-price {
@@ -6977,7 +6985,7 @@ body.dark .btn-carousel-nav {
 .brand-slides-track {
     display: flex;
     width: 100%;
-    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
     will-change: transform;
 }
 
