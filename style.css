@@ -4,6 +4,9 @@
    ========================================================================== */
 
 :root {
+    color-scheme: only light !important;
+    supported-color-schemes: light !important;
+
     /* Fonts */
     --font-heading: 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
     --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
@@ -56,14 +59,23 @@ a {
 }
 
 html {
+    color-scheme: only light !important;
+    supported-color-schemes: light !important;
     font-size: 16px;
-    background-color: var(--c-bg);
+    background-color: #ffffff !important;
+    background: #ffffff !important;
+    color: #0f172a !important;
     overscroll-behavior: none !important;
     overscroll-behavior-y: none !important;
     overscroll-behavior-x: none !important;
 }
 
 body {
+    color-scheme: only light !important;
+    supported-color-schemes: light !important;
+    background-color: #ffffff !important;
+    background: #ffffff !important;
+    color: #0f172a !important;
     overscroll-behavior: none !important;
     overscroll-behavior-y: none !important;
     overscroll-behavior-x: none !important;
@@ -71,9 +83,33 @@ body {
 }
 
 html, body {
+    color-scheme: only light !important;
+    supported-color-schemes: light !important;
+    background-color: #ffffff !important;
+    background: #ffffff !important;
+    color: #0f172a !important;
     overscroll-behavior: none !important;
     overscroll-behavior-y: none !important;
     overscroll-behavior-x: none !important;
+}
+
+/* Force light form controls across all browsers */
+input, textarea, select, button {
+    color-scheme: only light !important;
+}
+
+/* Explicit lockdown against forced dark mode algorithms */
+@media (prefers-color-scheme: dark) {
+    :root, html, body {
+        color-scheme: only light !important;
+        supported-color-schemes: light !important;
+        background-color: #ffffff !important;
+        background: #ffffff !important;
+        color: #0f172a !important;
+    }
+    *, *::before, *::after {
+        color-scheme: only light !important;
+    }
 }
 
 body.jeko-theme-white {
