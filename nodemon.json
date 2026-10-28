@@ -1,0 +1,21 @@
+{
+  "watch": [
+    "server.js"
+  ],
+  "ext": "js",
+  "ignore": [
+    "*.json",
+    "*.log",
+    "orders_vault.json",
+    ".active_server.json",
+    "emails_sent/*",
+    "emails_sent/**",
+    "logs/*",
+    "logs/**",
+    "scratch/*",
+    "scratch/**",
+    ".git/*",
+    "node_modules/*"
+  ],
+  "delay": 1000
+}

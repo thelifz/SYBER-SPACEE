@@ -82,6 +82,9 @@ document.addEventListener('DOMContentLoaded', () => {
     // 3. Auto-launch HDFC checkout if navigated with ?checkout=1
     const urlParams = new URLSearchParams(window.location.search);
     if (urlParams.get('checkout') === '1') {
+        if (window.history && window.history.replaceState) {
+            window.history.replaceState({}, document.title, window.location.pathname);
+        }
         const cart = getCart();
         if (cart && cart.length > 0) {
             const grandTotal = cart.reduce((sum, item) => sum + (Number(item.price) * (item.qty || item.quantity || 1)), 0);
