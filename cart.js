@@ -40,40 +40,6 @@ function escapeHtml(str) {
 // Synchronized with localStorage ('syber_cart')
 // ==========================================================================
 
-// ==========================================================================
-// EXPLICIT CAPTURE-PHASE EXCLUSION GUARD FOR #header-whatsapp-support-btn
-// Intercepts clicks on WhatsApp support before any bubbling or generic routing
-// ==========================================================================
-document.addEventListener('click', (e) => {
-    const supportBtn = e.target.closest('#header-whatsapp-support-btn');
-    if (supportBtn) {
-        // Handled via JavaScript: Prevent default anchor navigation collision and stop propagation
-        e.preventDefault();
-        e.stopPropagation();
-
-        // Audit & ensure valid, absolute href
-        let targetHref = supportBtn.getAttribute('href') || supportBtn.href || 'https://wa.me/917511180808?text=Hello%20Syber%20Space%2C%20I%20am%20reviewing%20my%20shopping%20cart%20and%20need%20assistance.';
-        if (!targetHref.startsWith('https://')) {
-            targetHref = 'https://wa.me/917511180808?text=Hello%20Syber%20Space%2C%20I%20am%20reviewing%20my%20shopping%20cart%20and%20need%20assistance.';
-        }
-        if (targetHref.includes('checkout=')) {
-            targetHref = targetHref.replace(/[?&]checkout=[^&]+/, '');
-            supportBtn.setAttribute('href', targetHref);
-        }
-
-        // Clean, secure dispatch in a new tab
-        window.open(targetHref, '_blank', 'noopener,noreferrer');
-        return;
-    }
-
-    const waLink = e.target.closest('a[href*="wa.me"]');
-    if (waLink) {
-        e.stopPropagation();
-        if (waLink.href && waLink.href.includes('checkout=')) {
-            waLink.href = waLink.href.replace(/[?&]checkout=[^&]+/, '');
-        }
-    }
-}, true); // useCapture = true guarantees immediate priority execution
 
 // Internal Application Checkout State Variables
 let isCheckoutActive = false;
@@ -100,30 +66,6 @@ document.addEventListener('DOMContentLoaded', () => {
     document.addEventListener('keydown', (e) => {
         if (e.key === 'Escape') {
             closeHdfcModal();
-        }
-    });
-
-    // Dedicated audit and protection for #header-whatsapp-support-btn
-    const headerWaBtn = document.getElementById('header-whatsapp-support-btn');
-    if (headerWaBtn) {
-        const defaultWaUrl = 'https://wa.me/917511180808?text=Hello%20Syber%20Space%2C%20I%20am%20reviewing%20my%20shopping%20cart%20and%20need%20assistance.';
-        if (!headerWaBtn.getAttribute('href') || !headerWaBtn.getAttribute('href').startsWith('https://wa.me/')) {
-            headerWaBtn.setAttribute('href', defaultWaUrl);
-        }
-        headerWaBtn.setAttribute('target', '_blank');
-        headerWaBtn.setAttribute('rel', 'noopener noreferrer');
-    }
-
-    // Dedicated protection: Ensure any WhatsApp button never triggers any parent or checkout handler
-    document.querySelectorAll('a[href*="wa.me"]').forEach(link => {
-        if (link.id !== 'header-whatsapp-support-btn') {
-            link.addEventListener('click', (e) => {
-                e.stopPropagation();
-            });
-        }
-        // Verify href does not contain accidental checkout query param
-        if (link.href && link.href.includes('checkout=')) {
-            link.href = link.href.replace(/[?&]checkout=[^&]+/, '');
         }
     });
 

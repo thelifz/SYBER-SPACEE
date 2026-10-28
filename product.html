@@ -340,7 +340,7 @@
             <div class="iphone-actions-group">
                 
                 <!-- WhatsApp -->
-                <a href="https://wa.me/917511180808?text=Hello%20Syber%20Space%2C%20I%20am%20inquiring%20about%20CCTV%20surveillance%20cameras." target="_blank" rel="noopener noreferrer" class="iphone-action-link" id="header-whatsapp-support-btn" onclick="event.stopPropagation();" title="Contact Support on WhatsApp">
+                <a href="https://wa.me/917511180808" target="_blank" rel="noopener noreferrer" class="iphone-action-link" id="header-whatsapp-support-btn" title="Contact Support on WhatsApp">
                     <div class="ia-icon-wrap wa-icon-color">
                         <svg viewBox="0 0 24 24" width="28" height="28" fill="none">
                             <path fill="#25D366" d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2z"/>
@@ -653,22 +653,6 @@
     <script src="products_data.js?v=9.0.0"></script>
 
     <script>
-        // ======================================================================
-        // EXPLICIT CAPTURE-PHASE EXCLUSION GUARD FOR #header-whatsapp-support-btn
-        // ======================================================================
-        document.addEventListener('click', (e) => {
-            const supportBtn = e.target.closest('#header-whatsapp-support-btn');
-            if (supportBtn) {
-                e.preventDefault();
-                e.stopPropagation();
-                let targetHref = supportBtn.getAttribute('href') || supportBtn.href || 'https://wa.me/917511180808?text=Hello%20Syber%20Space%2C%20I%20am%20inquiring%20about%20CCTV%20surveillance%20cameras.';
-                if (!targetHref.startsWith('https://')) {
-                    targetHref = 'https://wa.me/917511180808?text=Hello%20Syber%20Space%2C%20I%20am%20inquiring%20about%20CCTV%20surveillance%20cameras.';
-                }
-                window.open(targetHref, '_blank', 'noopener,noreferrer');
-            }
-        }, true);
-
         // ======================================================================
         // DYNAMIC PRODUCT DATA & GSAP SHOWCASE ENGINE
         // ======================================================================
