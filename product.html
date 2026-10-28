@@ -202,7 +202,7 @@
             align-items: center;
             gap: 0.55rem;
             box-shadow: 0 8px 24px rgba(37, 211, 102, 0.28);
-            transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+            transition: all 0.2s ease-out;
         }
 
         .btn-ugb-wa:hover {
@@ -236,6 +236,9 @@
             margin: 0.85rem 0 1rem;
             align-items: center;
             flex-wrap: wrap;
+            overscroll-behavior: none;
+            overscroll-behavior-x: none;
+            overscroll-behavior-y: none;
         }
 
         .pdp-gallery-thumb {
@@ -247,7 +250,7 @@
             padding: 2px;
             cursor: pointer;
             overflow: hidden;
-            transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+            transition: all 0.22s ease-out;
             display: flex;
             align-items: center;
             justify-content: center;

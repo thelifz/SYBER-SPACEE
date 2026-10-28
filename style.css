@@ -151,7 +151,7 @@ body.jeko-theme-white {
     justify-content: space-between;
     gap: 1.25rem;
     box-shadow: none !important;
-    transition: background-color 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: background-color 0.3s ease-out;
 }
 
 .iphone-header-glass:hover {
@@ -652,7 +652,7 @@ body.pdp-dark-mode .iphone-search-btn {
     display: flex;
     flex-direction: column;
     position: relative;
-    transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: all 0.35s ease-out;
     box-shadow: var(--shadow-subtle);
 }
 
@@ -736,7 +736,7 @@ body.pdp-dark-mode .iphone-search-btn {
     object-fit: contain;
     position: relative;
     z-index: 2;
-    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: transform 0.4s ease-out;
     filter: drop-shadow(0 8px 18px rgba(50, 25, 14, 0.12));
 }
 
@@ -929,7 +929,7 @@ body.pdp-dark-mode .iphone-search-btn {
     opacity: 0;
     visibility: hidden;
     pointer-events: none;
-    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: all 0.3s ease-out;
 }
 
 .cart-drawer-overlay.active {
@@ -951,7 +951,7 @@ body.pdp-dark-mode .iphone-search-btn {
     flex-direction: column;
     overflow: hidden;
     transform: scale(0.92) translateY(20px);
-    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: transform 0.35s ease-out;
 }
 
 .cart-drawer-overlay.active .cart-drawer {
@@ -1025,6 +1025,9 @@ body.pdp-dark-mode .iphone-search-btn {
 .cart-drawer-body {
     flex: 1;
     overflow-y: auto;
+    overscroll-behavior: none;
+    overscroll-behavior-x: none;
+    overscroll-behavior-y: none;
     padding: 1.5rem 1.75rem;
     display: flex;
     flex-direction: column;
@@ -1325,7 +1328,7 @@ body.pdp-dark-mode .iphone-search-btn {
     box-shadow: 0 10px 30px rgba(50, 25, 14, 0.25);
     z-index: 3000;
     opacity: 0;
-    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: all 0.3s ease-out;
     pointer-events: none;
 }
 
@@ -1371,7 +1374,7 @@ body.pdp-dark-mode .iphone-search-btn {
     visibility: hidden;
     pointer-events: none;
     transform: translateX(30px);
-    transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1), transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.3s;
+    transition: opacity 0.3s ease-out, transform 0.3s ease-out, visibility 0.3s;
 }
 
 .offer-slide.active {
@@ -1566,7 +1569,7 @@ body.pdp-dark-mode .iphone-search-btn {
     align-items: center;
     gap: 0.55rem;
     box-shadow: 0 8px 24px rgba(15, 23, 42, 0.3);
-    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: all 0.25s ease-out;
 }
 
 .btn-slide-order:hover {
@@ -1590,7 +1593,7 @@ body.pdp-dark-mode .iphone-search-btn {
     align-items: center;
     gap: 0.55rem;
     box-shadow: 0 8px 24px rgba(37, 211, 102, 0.28);
-    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: all 0.25s ease-out;
 }
 
 
@@ -1609,7 +1612,7 @@ body.pdp-dark-mode .iphone-search-btn {
     align-items: center;
     gap: 0.5rem;
     box-shadow: 0 4px 14px rgba(15, 23, 42, 0.08);
-    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: all 0.2s ease-out;
 }
 
 .btn-slide-showcase:hover {
@@ -1760,7 +1763,7 @@ body.pdp-dark-mode .iphone-search-btn {
     background: rgba(140, 106, 84, 0.25);
     border: none;
     cursor: pointer;
-    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: all 0.3s ease-out;
     padding: 0;
 }
 
@@ -1855,6 +1858,9 @@ body.pdp-dark-mode .iphone-search-btn {
     width: 100%;
     margin-top: 0.25rem;
     padding-top: 0.25rem;
+    overscroll-behavior: none;
+    overscroll-behavior-x: none;
+    overscroll-behavior-y: none;
 }
 
 .brand-sec-header {
@@ -1905,9 +1911,9 @@ body.pdp-dark-mode .iphone-search-btn {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1),
-                border-color 0.25s cubic-bezier(0.16, 1, 0.3, 1),
-                box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: transform 0.25s ease-out,
+                border-color 0.25s ease-out,
+                box-shadow 0.25s ease-out;
     box-shadow: 0 4px 14px rgba(15, 23, 42, 0.04);
     cursor: pointer;
     position: relative;
@@ -2102,7 +2108,7 @@ body.pdp-dark-mode .iphone-search-btn {
     align-items: center;
     gap: 0.45rem;
     box-shadow: 0 6px 18px rgba(15, 23, 42, 0.18);
-    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: all 0.2s ease-out;
     flex-shrink: 0;
 }
 
@@ -2154,6 +2160,9 @@ body.pdp-dark-mode .iphone-search-btn {
     align-items: center;
     gap: 0.6rem;
     overflow-x: auto;
+    overscroll-behavior: none;
+    overscroll-behavior-x: none;
+    overscroll-behavior-y: none;
     padding-bottom: 0.5rem;
     scrollbar-width: thin;
 }
@@ -2170,7 +2179,7 @@ body.pdp-dark-mode .iphone-search-btn {
     border-radius: 50px;
     cursor: pointer;
     white-space: nowrap;
-    transition: opacity 0.2s ease, transform 0.2s ease, border-color 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+    transition: opacity 0.2s ease-out, transform 0.2s ease-out, border-color 0.2s ease-out, background-color 0.2s ease-out, box-shadow 0.2s ease-out;
 }
 
 .brand-pill:hover {
@@ -2192,6 +2201,9 @@ body.pdp-dark-mode .iphone-search-btn {
     grid-template-columns: repeat(4, 1fr);
     gap: 1.5rem;
     width: 100%;
+    overscroll-behavior: none;
+    overscroll-behavior-x: none;
+    overscroll-behavior-y: none;
 }
 
 .live-prod-card {
@@ -2203,7 +2215,7 @@ body.pdp-dark-mode .iphone-search-btn {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    transition: opacity 0.25s ease, transform 0.25s ease, border-color 0.25s ease, background-color 0.25s ease, box-shadow 0.25s ease;
+    transition: opacity 0.25s ease-out, transform 0.25s ease-out, border-color 0.25s ease-out, background-color 0.25s ease-out, box-shadow 0.25s ease-out;
     box-shadow: 0 4px 16px rgba(50, 25, 14, 0.03);
 }
 
@@ -2601,7 +2613,7 @@ body.pdp-dark-mode .iphone-search-btn {
     align-items: center;
     text-align: center;
     cursor: pointer;
-    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: all 0.3s ease-out;
     box-shadow: 0 4px 16px rgba(50, 25, 14, 0.03);
     overflow: hidden;
 }
@@ -2627,7 +2639,7 @@ body.pdp-dark-mode .iphone-search-btn {
     height: 100%;
     object-fit: cover;
     display: block;
-    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: transform 0.4s ease-out;
 }
 
 .property-card:hover .prop-thumb-img {
@@ -2938,7 +2950,7 @@ body.pdp-dark-mode .iphone-search-btn {
     border-radius: 20px;
     border: none;
     box-shadow: 0 16px 36px rgba(50, 25, 14, 0.12);
-    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: transform 0.4s ease-out;
 }
 
 .rc-view-pane:hover .rc-fitted-img {
@@ -3400,7 +3412,7 @@ body.pdp-dark-mode .iphone-search-btn {
     padding: 0.9rem 1.6rem;
     border-radius: 12px;
     text-decoration: none;
-    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: all 0.3s ease-out;
     box-shadow: 0 6px 18px rgba(15, 23, 42, 0.18);
 }
 
@@ -4713,7 +4725,7 @@ body.pdp-dark-mode .iphone-search-btn {
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: transform 0.25s ease-out;
     will-change: transform;
 }
 
@@ -4731,7 +4743,7 @@ body.pdp-dark-mode .iphone-search-btn {
     opacity: 0;
     pointer-events: none;
     will-change: opacity, filter;
-    transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1), filter 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: opacity 0.5s ease-out, filter 0.5s ease-out;
 }
 
 .pdp-stage-img.active {
@@ -4747,7 +4759,7 @@ body.pdp-dark-mode .iphone-search-btn {
     width: auto;
     object-fit: contain;
     filter: drop-shadow(0 20px 35px rgba(15, 23, 42, 0.12));
-    transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.35s ease;
+    transition: transform 0.2s ease-out, opacity 0.35s ease;
     will-change: transform, transform-origin;
 }
 
@@ -4771,7 +4783,7 @@ body.pdp-dark-mode .iphone-search-btn {
     letter-spacing: 0.08em;
     box-shadow: 0 6px 18px rgba(15, 23, 42, 0.08);
     cursor: pointer;
-    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: all 0.25s ease-out;
     z-index: 25;
 }
 
@@ -5346,7 +5358,7 @@ body, p, .spec-val { font-size: 0.94rem; }
     font-size: 0.88rem;
     font-weight: 700;
     cursor: pointer;
-    transition: all 0.2s cubic-bezier(0.16,1,0.3,1);
+    transition: all 0.2s ease-out;
 }
 .btn-pill:hover { background: var(--c-primary-hover); transform: translateY(-2px); }
 
@@ -5427,7 +5439,7 @@ body, p, .spec-val { font-size: 0.94rem; }
     align-items: center;
     text-align: center;
     position: relative;
-    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: all 0.25s ease-out;
 }
 .pdp-fbt-card:hover {
     border-color: #0f172a;
@@ -5546,7 +5558,7 @@ body, p, .spec-val { font-size: 0.94rem; }
     justify-content: center;
     gap: 0.6rem;
     box-shadow: 0 8px 24px rgba(15, 23, 42, 0.25);
-    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: all 0.2s ease-out;
 }
 .btn-fbt-bundle:hover {
     background: #1e293b;
@@ -5603,6 +5615,9 @@ body, p, .spec-val { font-size: 0.94rem; }
     display: flex;
     gap: 1.25rem;
     overflow-x: auto;
+    overscroll-behavior: none;
+    overscroll-behavior-x: none;
+    overscroll-behavior-y: none;
     scroll-snap-type: x mandatory;
     padding: 0.5rem 0.25rem 1.25rem;
     scrollbar-width: thin;
@@ -5625,7 +5640,7 @@ body, p, .spec-val { font-size: 0.94rem; }
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: all 0.25s ease-out;
     position: relative;
 }
 .pdp-acc-card:hover {
@@ -5765,7 +5780,7 @@ body, p, .spec-val { font-size: 0.94rem; }
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: all 0.25s ease-out;
     position: relative;
 }
 .pdp-similar-card:hover {
@@ -5919,7 +5934,7 @@ body.dark .btn-carousel-nav {
 .btn-fbt-bundle,
 .btn-acc-add,
 .btn-sim-view {
-    transition: transform 0.15s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.2s ease, box-shadow 0.2s ease;
+    transition: transform 0.15s ease-out, background-color 0.2s ease, box-shadow 0.2s ease;
 }
 .btn-abd-cart:active,
 .btn-abd-buynow:active,
@@ -5949,7 +5964,10 @@ body.dark .btn-carousel-nav {
     opacity: 0;
     visibility: hidden;
     pointer-events: none;
-    transition: opacity 0.25s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.25s ease;
+    transition: opacity 0.25s ease-out, visibility 0.25s ease;
+    overscroll-behavior: none;
+    overscroll-behavior-x: none;
+    overscroll-behavior-y: none;
 }
 
 .hdfc-overlay.active {
@@ -5971,7 +5989,10 @@ body.dark .btn-carousel-nav {
     overflow: hidden;
     box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.25), 0 0 0 1px rgba(255, 255, 255, 0.9) inset;
     transform: scale(0.97) translateY(8px);
-    transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: transform 0.28s ease-out;
+    overscroll-behavior: none;
+    overscroll-behavior-x: none;
+    overscroll-behavior-y: none;
 }
 
 .hdfc-overlay.active .hdfc-terminal-window {
@@ -6558,7 +6579,7 @@ body.dark .btn-carousel-nav {
     letter-spacing: 0.06em;
     border-radius: 4px;
     cursor: pointer;
-    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: all 0.2s ease-out;
     display: inline-flex;
     align-items: center;
     gap: 10px;
@@ -6718,6 +6739,9 @@ body.dark .btn-carousel-nav {
     width: 100%;
     margin-top: 0.5rem;
     padding: 0.5rem 0 2rem;
+    overscroll-behavior: none;
+    overscroll-behavior-x: none;
+    overscroll-behavior-y: none;
 }
 
 .brand-sec-header {
@@ -6904,6 +6928,9 @@ body.dark .btn-carousel-nav {
     grid-template-columns: repeat(5, 1fr);
     gap: 0.85rem;
     margin-top: 0.45rem;
+    overscroll-behavior: none;
+    overscroll-behavior-x: none;
+    overscroll-behavior-y: none;
 }
 
 .bpc-card {
@@ -6914,7 +6941,7 @@ body.dark .btn-carousel-nav {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: all 0.25s ease-out;
 }
 
 .bpc-card:hover {
@@ -6943,7 +6970,7 @@ body.dark .btn-carousel-nav {
     padding: 0.5rem;
     margin-bottom: 0.65rem;
     cursor: pointer;
-    transition: background 0.2s ease, transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: background 0.2s ease, transform 0.25s ease-out;
 }
 
 .bpc-img-wrap:hover {
@@ -7005,7 +7032,7 @@ body.dark .btn-carousel-nav {
     padding: 0.45rem 0;
     cursor: pointer;
     text-align: center;
-    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: all 0.2s ease-out;
 }
 
 .btn-bpc-cart:hover {
@@ -7026,7 +7053,7 @@ body.dark .btn-carousel-nav {
     padding: 0.45rem 0;
     cursor: pointer;
     text-align: center;
-    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: all 0.2s ease-out;
 }
 
 .btn-bpc-pay:hover {
@@ -7200,6 +7227,9 @@ body.dark .btn-carousel-nav {
     gap: 0.65rem;
     margin: 0.85rem 0 0.85rem;
     flex-wrap: wrap;
+    overscroll-behavior: none;
+    overscroll-behavior-x: none;
+    overscroll-behavior-y: none;
 }
 
 @media (max-width: 900px) {
@@ -7208,7 +7238,10 @@ body.dark .btn-carousel-nav {
         overflow-x: auto;
         flex-wrap: nowrap;
         padding: 0.5rem 0.25rem 1rem;
-        -webkit-overflow-scrolling: touch;
+        -webkit-overflow-scrolling: auto;
+        overscroll-behavior: none;
+        overscroll-behavior-x: none;
+        overscroll-behavior-y: none;
         scrollbar-width: none;
     }
     .brand-selector-strip::-webkit-scrollbar {
@@ -7226,7 +7259,7 @@ body.dark .btn-carousel-nav {
     padding: 0.65rem 1.35rem;
     cursor: pointer;
     font-family: var(--font-body);
-    transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: all 0.22s ease-out;
     white-space: nowrap;
     box-shadow: 0 2px 6px rgba(15, 23, 42, 0.03);
 }
@@ -7299,19 +7332,28 @@ body.dark .btn-carousel-nav {
     position: relative;
     width: 100%;
     margin: 0 auto;
+    overscroll-behavior: none;
+    overscroll-behavior-x: none;
+    overscroll-behavior-y: none;
 }
 
 .brand-slides-viewport {
     overflow: hidden;
     width: 100%;
     padding: 0.5rem 0;
+    overscroll-behavior: none;
+    overscroll-behavior-x: none;
+    overscroll-behavior-y: none;
 }
 
 .brand-slides-track {
     display: flex;
     width: 100%;
-    transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: transform 0.45s ease-out;
     will-change: transform;
+    overscroll-behavior: none;
+    overscroll-behavior-x: none;
+    overscroll-behavior-y: none;
 }
 
 .brand-slide {
@@ -7350,7 +7392,7 @@ body.dark .btn-carousel-nav {
     justify-content: center;
     cursor: pointer;
     box-shadow: 0 4px 16px rgba(15, 23, 42, 0.12);
-    transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: all 0.22s ease-out;
 }
 
 .brand-slide-nav-btn:hover {
@@ -7517,7 +7559,10 @@ body.dark .btn-carousel-nav {
         margin-bottom: 0.65rem !important;
         justify-content: flex-start !important;
         overflow-x: auto !important;
-        -webkit-overflow-scrolling: touch !important;
+        -webkit-overflow-scrolling: auto !important;
+        overscroll-behavior: none !important;
+        overscroll-behavior-x: none !important;
+        overscroll-behavior-y: none !important;
         padding-bottom: 4px !important;
     }
     .pdp-gallery-thumb {
@@ -7757,7 +7802,10 @@ body.dark .btn-carousel-nav {
     background: rgba(15, 23, 42, 0.45);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
-    transition: opacity 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: opacity 0.28s ease-out;
+    overscroll-behavior: none;
+    overscroll-behavior-x: none;
+    overscroll-behavior-y: none;
 }
 
 .brand-takeover-overlay.active {
@@ -7769,7 +7817,7 @@ body.dark .btn-carousel-nav {
     position: absolute;
     border-radius: 50%;
     transform: scale(0);
-    transition: transform 0.62s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: transform 0.5s ease-out;
     will-change: transform;
     box-shadow: 0 0 120px rgba(0, 0, 0, 0.1);
 }
@@ -7785,16 +7833,19 @@ body.dark .btn-carousel-nav {
     width: 100%;
     height: 100%;
     opacity: 0;
-    transition: opacity 0.25s ease;
+    transition: opacity 0.25s ease-out;
     overflow-y: auto;
-    -webkit-overflow-scrolling: touch;
+    -webkit-overflow-scrolling: auto;
+    overscroll-behavior: none;
+    overscroll-behavior-x: none;
+    overscroll-behavior-y: none;
     padding: 70px 1.25rem 5rem;
     scrollbar-width: thin;
 }
 
 .brand-takeover-overlay.active .brand-takeover-content {
     opacity: 1;
-    transition: opacity 0.35s 0.22s ease;
+    transition: opacity 0.35s 0.22s ease-out;
 }
 
 .bto-header-wrap {
@@ -7862,7 +7913,7 @@ body.dark .btn-carousel-nav {
     font-weight: 800;
     letter-spacing: 0.08em;
     cursor: pointer;
-    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: all 0.2s ease-out;
     box-shadow: 0 4px 14px rgba(15, 23, 42, 0.18);
     flex-shrink: 0;
 }
@@ -7886,6 +7937,9 @@ body.dark .btn-carousel-nav {
     max-width: 1440px;
     margin: 0 auto;
     padding-bottom: 4rem;
+    overscroll-behavior: none;
+    overscroll-behavior-x: none;
+    overscroll-behavior-y: none;
 }
 
 @media (max-width: 1200px) {
@@ -7954,7 +8008,7 @@ body.dark .btn-carousel-nav {
     letter-spacing: 0.04em;
     cursor: pointer;
     box-shadow: 0 4px 14px rgba(15, 23, 42, 0.12);
-    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: all 0.2s ease-out;
 }
 
 .btn-brand-bubble-trigger:hover {
@@ -8070,12 +8124,18 @@ body.dark .btn-carousel-nav {
     /* 2. Brand Showcase: Only show Company Name & #1 Bestseller on Phone */
     .brand-slideshow-container {
         padding: 0 4px !important;
+        overscroll-behavior: none !important;
+        overscroll-behavior-x: none !important;
+        overscroll-behavior-y: none !important;
     }
     .bdc-products-shelf {
         grid-template-columns: 1fr !important;
         max-width: 320px !important;
         margin: 0 auto !important;
         gap: 0 !important;
+        overscroll-behavior: none !important;
+        overscroll-behavior-x: none !important;
+        overscroll-behavior-y: none !important;
     }
     .bdc-products-shelf .bpc-card:not(:first-child) {
         display: none !important;
@@ -8348,6 +8408,9 @@ body.dark .btn-carousel-nav {
 .refund-modal-body {
     padding: 1.25rem;
     overflow-y: auto;
+    overscroll-behavior: none;
+    overscroll-behavior-x: none;
+    overscroll-behavior-y: none;
     max-height: calc(92vh - 160px);
 }
 

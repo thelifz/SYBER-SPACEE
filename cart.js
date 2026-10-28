@@ -520,7 +520,7 @@ function initiateHdfcCheckout(total) {
             if (card) {
                 gsap.fromTo(card,
                     { opacity: 0, scale: 0.94, y: 20 },
-                    { opacity: 1, scale: 1, y: 0, duration: 0.35, ease: 'back.out(1.2)', clearProps: 'transform,opacity' }
+                    { opacity: 1, scale: 1, y: 0, duration: 0.35, ease: 'power2.out', clearProps: 'transform,opacity' }
                 );
             }
         }
