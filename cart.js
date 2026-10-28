@@ -482,6 +482,9 @@ function initiateHdfcCheckout(total) {
     });
 
     if (modal) {
+        modal.style.display = 'flex';
+        modal.style.visibility = 'visible';
+        modal.style.pointerEvents = 'auto';
         modal.classList.add('active');
         document.body.style.overflow = 'hidden';
 
@@ -540,30 +543,19 @@ function closeHdfcModal() {
     const modal = document.getElementById('hdfc-checkout-modal');
     if (!modal) return;
 
-    // Immediately disable pointer events so no invisible wrapper can intercept clicks
+    // Immediately apply display: none to entire modal wrapper to prevent any viewport/header overlap
+    modal.classList.remove('active');
+    modal.style.display = 'none';
+    modal.style.visibility = 'hidden';
     modal.style.pointerEvents = 'none';
+    modal.style.opacity = '0';
+    document.body.style.overflow = '';
 
-    if (typeof gsap !== 'undefined') {
-        const card = modal.querySelector('.hdfc-terminal-window');
-        if (card) {
-            gsap.to(card, { opacity: 0, scale: 0.96, y: 10, duration: 0.2, ease: 'power2.in' });
-        }
-        gsap.to(modal, {
-            opacity: 0,
-            duration: 0.22,
-            ease: 'power2.in',
-            onComplete: () => {
-                modal.classList.remove('active');
-                document.body.style.overflow = '';
-                if (card) gsap.set(card, { clearProps: 'all' });
-                gsap.set(modal, { clearProps: 'all' });
-                modal.style.pointerEvents = '';
-            }
-        });
-    } else {
-        modal.classList.remove('active');
-        document.body.style.overflow = '';
-        modal.style.pointerEvents = '';
+    const card = modal.querySelector('.hdfc-terminal-window');
+    if (card && typeof gsap !== 'undefined') {
+        gsap.set(card, { clearProps: 'all' });
+        gsap.set(modal, { clearProps: 'all' });
+        modal.style.display = 'none';
     }
 }
 
@@ -1298,13 +1290,22 @@ function openRefundExchangeModal(orderId) {
         if (emailInput && !emailInput.value) emailInput.value = savedCust.email || '';
     }
 
+    modal.style.display = 'flex';
+    modal.style.visibility = 'visible';
+    modal.style.pointerEvents = 'auto';
     modal.classList.add('active');
     document.body.style.overflow = 'hidden';
 }
 
 function closeRefundModal() {
     const modal = document.getElementById('refund-exchange-modal');
-    if (modal) modal.classList.remove('active');
+    if (modal) {
+        modal.classList.remove('active');
+        modal.style.display = 'none';
+        modal.style.visibility = 'hidden';
+        modal.style.pointerEvents = 'none';
+        modal.style.opacity = '0';
+    }
     document.body.style.overflow = '';
 }
 
