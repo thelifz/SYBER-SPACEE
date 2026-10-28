@@ -8102,3 +8102,360 @@ body.dark .btn-carousel-nav {
         right: 2px !important;
     }
 }
+
+/* ==========================================================================
+   REFUND & EXCHANGE POLICY & MODAL ARCHITECTURE (NO CANCELLATION // REFUND ONLY)
+   Strictly Light Mode Locked (#ffffff background, #0f172a typography)
+   ========================================================================== */
+.cart-policy-notice-card {
+    background: #ffffff;
+    border: 1.5px solid #e2e8f0;
+    border-radius: 14px;
+    padding: 1.25rem;
+    margin-bottom: 1.25rem;
+    box-shadow: 0 4px 16px rgba(15, 23, 42, 0.04);
+}
+
+.cpn-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 0.65rem;
+}
+
+.cpn-kicker {
+    font-size: 0.68rem;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    color: #64748b;
+    text-transform: uppercase;
+}
+
+.cpn-pill {
+    background: #fef2f2;
+    color: #b91c1c;
+    border: 1px solid #fecaca;
+    font-size: 0.68rem;
+    font-weight: 800;
+    padding: 3px 8px;
+    border-radius: 999px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+}
+
+.cpn-title {
+    font-family: var(--font-heading);
+    font-size: 1.05rem;
+    font-weight: 800;
+    color: #0f172a;
+    margin-bottom: 0.4rem;
+}
+
+.cpn-desc {
+    font-size: 0.82rem;
+    color: #475569;
+    line-height: 1.5;
+    margin-bottom: 0.85rem;
+}
+
+.btn-cart-refund-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: #0f172a;
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    padding: 0.6rem 1rem;
+    font-size: 0.76rem;
+    font-weight: 800;
+    letter-spacing: 0.04em;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.btn-cart-refund-link:hover {
+    background: #1e293b;
+    transform: translateY(-1px);
+}
+
+/* Success Screen: Invoice Email Badge */
+.invoice-email-sent-badge {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    background: #ecfdf5;
+    border: 1.5px solid #10b981;
+    border-radius: 10px;
+    padding: 0.95rem 1.15rem;
+    margin: 1.25rem 0;
+    text-align: left;
+}
+
+.invoice-email-sent-badge strong {
+    display: block;
+    font-size: 0.82rem;
+    font-weight: 800;
+    color: #065f46;
+    letter-spacing: 0.04em;
+    margin-bottom: 0.2rem;
+}
+
+.invoice-email-sent-badge p {
+    font-size: 0.78rem;
+    color: #047857;
+    margin: 0;
+    line-height: 1.45;
+}
+
+/* Success Screen: Refund / Exchange Prompt Box */
+.hdfc-refund-prompt-box {
+    background: #f8fafc;
+    border: 1.5px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 1.25rem;
+    margin: 1.25rem 0;
+    text-align: left;
+}
+
+.hrp-badge-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-bottom: 0.5rem;
+}
+
+.hrp-badge {
+    background: #fee2e2;
+    color: #991b1b;
+    border: 1px solid #f87171;
+    font-size: 0.66rem;
+    font-weight: 800;
+    padding: 2px 7px;
+    border-radius: 6px;
+    letter-spacing: 0.04em;
+}
+
+.hrp-badge-sub {
+    background: #e0f2fe;
+    color: #0369a1;
+    border: 1px solid #7dd3fc;
+    font-size: 0.66rem;
+    font-weight: 800;
+    padding: 2px 7px;
+    border-radius: 6px;
+    letter-spacing: 0.04em;
+}
+
+.hrp-title {
+    font-family: var(--font-heading);
+    font-size: 1.05rem;
+    font-weight: 800;
+    color: #0f172a;
+    margin-bottom: 0.35rem;
+}
+
+.hrp-desc {
+    font-size: 0.82rem;
+    color: #475569;
+    line-height: 1.5;
+    margin-bottom: 0.85rem;
+}
+
+.hrp-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.btn-hrp-refund {
+    display: inline-flex;
+    align-items: center;
+    background: #0f172a;
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    padding: 0.65rem 1.15rem;
+    font-size: 0.78rem;
+    font-weight: 800;
+    letter-spacing: 0.04em;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.btn-hrp-refund:hover {
+    background: #1e293b;
+    transform: translateY(-1px);
+}
+
+.btn-hrp-email-desk {
+    display: inline-flex;
+    align-items: center;
+    background: #ffffff;
+    color: #0f172a;
+    border: 1.5px solid #0f172a;
+    border-radius: 8px;
+    padding: 0.6rem 1.1rem;
+    font-size: 0.78rem;
+    font-weight: 800;
+    letter-spacing: 0.04em;
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+.btn-hrp-email-desk:hover {
+    background: #f8fafc;
+    transform: translateY(-1px);
+}
+
+/* Refund & Exchange Modal */
+.refund-modal-window {
+    max-width: 680px !important;
+}
+
+.refund-policy-alert {
+    background: #fef2f2;
+    border-bottom: 1px solid #fee2e2;
+    padding: 0.85rem 1.25rem;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+}
+
+.rpa-badge {
+    background: #ef4444;
+    color: #ffffff;
+    font-size: 0.62rem;
+    font-weight: 900;
+    letter-spacing: 0.08em;
+    padding: 2px 6px;
+    border-radius: 4px;
+    flex-shrink: 0;
+    margin-top: 2px;
+}
+
+.rpa-text {
+    font-size: 0.78rem;
+    color: #7f1d1d;
+    line-height: 1.45;
+}
+
+.refund-modal-body {
+    padding: 1.25rem;
+    overflow-y: auto;
+    max-height: calc(92vh - 160px);
+}
+
+.refund-category-selector {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-top: 4px;
+}
+
+@media (max-width: 580px) {
+    .refund-category-selector {
+        grid-template-columns: 1fr;
+    }
+}
+
+.refund-cat-pill {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    padding: 10px 12px;
+    background: #f8fafc;
+    border: 1.5px solid #e2e8f0;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.refund-cat-pill input[type="radio"] {
+    margin-top: 3px;
+    accent-color: #0f172a;
+}
+
+.rcp-label strong {
+    display: block;
+    font-size: 0.82rem;
+    font-weight: 800;
+    color: #0f172a;
+    margin-bottom: 2px;
+}
+
+.rcp-label small {
+    display: block;
+    font-size: 0.72rem;
+    color: #64748b;
+    line-height: 1.35;
+}
+
+.refund-checkbox-label {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 0.78rem;
+    color: #334155;
+    line-height: 1.45;
+    cursor: pointer;
+    background: #f8fafc;
+    padding: 10px 12px;
+    border-radius: 8px;
+    border: 1px solid #e2e8f0;
+}
+
+.refund-checkbox-label input[type="checkbox"] {
+    margin-top: 3px;
+    accent-color: #0f172a;
+    flex-shrink: 0;
+}
+
+.refund-modal-footer {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 1.25rem;
+    padding-top: 1rem;
+    border-top: 1px solid #e2e8f0;
+}
+
+.btn-refund-close {
+    background: #ffffff;
+    color: #0f172a;
+    border: 1.5px solid #cbd5e1;
+    padding: 0.65rem 1.25rem;
+    border-radius: 8px;
+    font-size: 0.78rem;
+    font-weight: 800;
+    letter-spacing: 0.04em;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.btn-refund-close:hover {
+    background: #f1f5f9;
+}
+
+.btn-refund-submit {
+    background: #0f172a;
+    color: #ffffff;
+    border: none;
+    padding: 0.65rem 1.4rem;
+    border-radius: 8px;
+    font-size: 0.78rem;
+    font-weight: 800;
+    letter-spacing: 0.04em;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.btn-refund-submit:hover {
+    background: #1e293b;
+    transform: translateY(-1px);
+}

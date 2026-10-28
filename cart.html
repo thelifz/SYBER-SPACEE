@@ -239,6 +239,122 @@
         </div>
     </div>
 
+
+    <!-- ======================================================================
+         REFUND & EXCHANGE REQUEST MODAL
+         Wholesale Policy: No Order Cancellation // Only Refund & Exchange
+         ====================================================================== -->
+    <div id="refund-exchange-modal" class="hdfc-overlay" role="dialog" aria-modal="true" aria-labelledby="refund-modal-title">
+        <div class="hdfc-terminal-window refund-modal-window">
+            
+            <!-- Modal Header -->
+            <div class="hdfc-header-bar">
+                <div class="hdfc-header-brand">
+                    <span class="hdfc-logo-box" style="background:#0f172a; color:#fff;">WARRANTY</span>
+                    <div class="hdfc-header-title">
+                        <span class="hdfc-title-main" id="refund-modal-title">REQUEST REFUND / EXCHANGE</span>
+                        <span class="hdfc-title-sub">Syber Space Authorized Surveillance // Kerala Desk</span>
+                    </div>
+                </div>
+                <button type="button" class="hdfc-close-btn" onclick="closeRefundModal()" aria-label="Close Modal">&times;</button>
+            </div>
+
+            <!-- Policy Alert Strip -->
+            <div class="refund-policy-alert">
+                <div class="rpa-badge">POLICY NOTICE</div>
+                <div class="rpa-text">
+                    <strong>NO ORDER CANCELLATIONS:</strong> Wholesale surveillance hardware is queued immediately for warehouse testing, serial number registration, and same-day transit insurance. Once an order is authorized, cancellations cannot be processed.
+                    <br>
+                    <strong>100% REFUND &amp; EXCHANGE GUARANTEE:</strong> You can submit a request below for a full <strong>Refund</strong> or <strong>Hardware Replacement / Exchange</strong> under our 7-Day Replacement Policy. Continuous unboxing video required for courier damage / defect claims.
+                </div>
+            </div>
+
+            <!-- Modal Body Form -->
+            <div class="refund-modal-body" id="refund-modal-content">
+                <form id="refund-exchange-form" onsubmit="handleRefundSubmit(event)">
+                    <div class="hdfc-grid-form">
+                        <div class="hdfc-field-group">
+                            <label for="ref-order-id">Order Reference / Invoice ID *</label>
+                            <input type="text" id="ref-order-id" required placeholder="e.g. SS-HDFC-889956">
+                        </div>
+
+                        <div class="hdfc-field-group">
+                            <label for="ref-cust-name">Customer Name *</label>
+                            <input type="text" id="ref-cust-name" required placeholder="Full Name as on tax invoice">
+                        </div>
+
+                        <div class="hdfc-field-group">
+                            <label for="ref-cust-phone">Registered Phone (+91) *</label>
+                            <input type="tel" id="ref-cust-phone" required pattern="[0-9]{10}" placeholder="10-digit mobile number">
+                        </div>
+
+                        <div class="hdfc-field-group">
+                            <label for="ref-cust-email">Registered Email Address *</label>
+                            <input type="email" id="ref-cust-email" required placeholder="Email used during checkout">
+                        </div>
+
+                        <div class="hdfc-field-group span-2">
+                            <label>Request Category *</label>
+                            <div class="refund-category-selector">
+                                <label class="refund-cat-pill">
+                                    <input type="radio" name="refund-type" value="REFUND" checked onchange="toggleRefundFields(this.value)">
+                                    <span class="rcp-label">
+                                        <strong>FULL REFUND</strong>
+                                        <small>Return hardware for 100% UPI or Bank account credit</small>
+                                    </span>
+                                </label>
+                                <label class="refund-cat-pill">
+                                    <input type="radio" name="refund-type" value="EXCHANGE" onchange="toggleRefundFields(this.value)">
+                                    <span class="rcp-label">
+                                        <strong>HARDWARE EXCHANGE</strong>
+                                        <small>Replace defective unit or switch model under 7-day guarantee</small>
+                                    </span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="hdfc-field-group span-2">
+                            <label for="ref-reason">Primary Reason *</label>
+                            <select id="ref-reason" required>
+                                <option value="" disabled selected>Select reason for refund or exchange</option>
+                                <option value="DEFECTIVE_HARDWARE">Hardware Defect / Camera Not Powering On</option>
+                                <option value="TRANSIT_DAMAGE">Physical Damage in Transit (Continuous Unboxing Video Available)</option>
+                                <option value="INCORRECT_MODEL">Received Different Model or Resolution from Order</option>
+                                <option value="INCOMPATIBLE_SPECS">Incompatible with Existing DVR/NVR Setup</option>
+                                <option value="UPGRADE_EXCHANGE">Want to Exchange for Higher Resolution / Solar PTZ</option>
+                                <option value="OTHER_ISSUE">Other Valid Hardware Issue</option>
+                            </select>
+                        </div>
+
+                        <div class="hdfc-field-group span-2" id="refund-payout-box">
+                            <label for="ref-payout-info">Refund Payout Details (UPI VPA or Bank Account + IFSC) *</label>
+                            <input type="text" id="ref-payout-info" placeholder="e.g. yourname@okaxis OR Bank A/C: 1234567890, IFSC: HDFC0001234">
+                            <small class="hdfc-field-note" style="display:block; margin-top:4px; font-size:0.75rem; color:#64748b;">For approved refunds, credit is processed directly to this account within 24-48 hours upon return verification.</small>
+                        </div>
+
+                        <div class="hdfc-field-group span-2">
+                            <label for="ref-notes">Additional Details / Item Description (Optional)</label>
+                            <textarea id="ref-notes" rows="3" placeholder="Describe the defect, condition of the box, serial numbers, or replacement model desired..."></textarea>
+                        </div>
+
+                        <div class="hdfc-field-group span-2">
+                            <label class="refund-checkbox-label">
+                                <input type="checkbox" id="ref-unboxing-confirm" required>
+                                <span>I confirm that a continuous, uncut unboxing video of the delivery parcel is available for transit damage / defect verification as required by company terms.</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="refund-modal-footer">
+                        <button type="button" class="btn-refund-close" onclick="closeRefundModal()">CLOSE</button>
+                        <button type="submit" class="btn-refund-submit">TRANSMIT REQUEST TO info@syberspace.in &rarr;</button>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
+
     <!-- Toast Notification -->
     <div class="toast-notify" id="toast-notify"></div>
 

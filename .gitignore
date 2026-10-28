@@ -8,3 +8,5 @@ scratch/
 .active_server.json
 .vscode/
 orders_vault.json
+emails_sent/*.txt
+!emails_sent/.gitkeep

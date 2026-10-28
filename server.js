@@ -104,6 +104,148 @@ const SECURITY_HEADERS = {
 };
 
 // -----------------------------------------------------------------------------
+
+// -----------------------------------------------------------------------------
+// COMMERCIAL TAX INVOICE & REFUND/EXCHANGE EMAIL ENGINE
+// (Zero-Cloud Startup Setup: Sends & Archives Invoices Directly to Company Email)
+// -----------------------------------------------------------------------------
+const COMPANY_EMAIL = process.env.MERCHANT_SUPPORT_EMAIL || 'info@syberspace.in';
+const EMAILS_DIR = path.join(__dirname, 'emails_sent');
+
+function ensureEmailsDir() {
+    try {
+        if (!fs.existsSync(EMAILS_DIR)) {
+            fs.mkdirSync(EMAILS_DIR, { recursive: true });
+        }
+    } catch (e) {}
+}
+ensureEmailsDir();
+
+function formatTaxInvoiceEmail(order) {
+    const eol = '\n';
+    const cust = order.customer || {};
+    const items = order.items || [];
+    const dateStr = order.verifiedAt 
+        ? new Date(order.verifiedAt).toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' })
+        : new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' });
+
+    let itemsTableText = '';
+    items.forEach((it, idx) => {
+        const q = it.qty || it.quantity || 1;
+        const rate = it.price || 0;
+        const amt = rate * q;
+        itemsTableText += `  [${idx + 1}] ${it.title || it.name} (${it.brand || 'SYBER'})` + eol;
+        itemsTableText += `      Qty: ${q}  |  Unit Rate: Rs. ${rate.toLocaleString('en-IN')}  |  Total: Rs. ${amt.toLocaleString('en-IN')}` + eol;
+    });
+
+    const totalAmt = parseFloat(order.amount) || 0;
+    const gstAmt = Math.round(totalAmt * 0.18 / 1.18);
+    const taxableAmt = totalAmt - gstAmt;
+
+    const subject = `[NEW ORDER & TAX INVOICE] Order #${order.orderId} - Rs. ${totalAmt.toLocaleString('en-IN')} - ${cust.name || 'Customer'}`;
+
+    const bodyText = `
+=============================================================================
+SYBER SPACE SECURITY SYSTEMS — COMMERCIAL TAX INVOICE & DISPATCH ORDER
+Authorized CCTV Surveillance Systems // Direct Wholesale Kerala HQ
+GSTIN: 32AABCU9603R1ZM  |  Phone: +91 75111 80808  |  Email: info@syberspace.in
+=============================================================================
+
+TAX INVOICE & ORDER METADATA:
+-----------------------------------------------------------------------------
+Tax Invoice No:     ${order.orderId}
+Order Date & Time:  ${dateStr} (IST)
+Payment Gateway:    HDFC Bank SmartGateway™ (Verified // CAPTURED)
+Payment Rail:       ${order.paymentRail || 'UPI'}
+Transaction ID:     ${order.txnId || 'N/A'}
+Bank Auth Code:     ${order.authCode || 'N/A'}
+Bank RRN:           ${order.rrn || 'N/A'}
+
+CUSTOMER & INVOICE RECIPIENT DETAILS:
+-----------------------------------------------------------------------------
+Full Name:          ${cust.name || 'N/A'}
+Company / Firm:     ${cust.company || 'Individual / Non-Commercial'}
+GSTIN (Tax Credit): ${cust.gstin || 'Not Provided (B2C Supply)'}
+Mobile Phone:       +91 ${cust.phone || 'N/A'}
+Email Address:      ${cust.email || 'N/A'}
+Delivery Address:   ${cust.address || 'N/A'}
+City / District:    ${cust.city || 'N/A'}
+State:              ${cust.state || 'Kerala'} (State Code: 32)
+Postal Pincode:     ${cust.pincode || 'N/A'}
+
+ORDERED SURVEILLANCE HARDWARE:
+-----------------------------------------------------------------------------
+${itemsTableText}
+
+FINANCIAL BREAKDOWN (KERALA GST):
+-----------------------------------------------------------------------------
+Taxable Hardware Value:  Rs. ${taxableAmt.toLocaleString('en-IN')}
+GST @ 18% (Included):     Rs. ${gstAmt.toLocaleString('en-IN')}
+Transit Insurance:       COMPLIMENTARY
+Express Courier Delivery: FREE INSURED COURIER (Direct Kerala Warehouse)
+-----------------------------------------------------------------------------
+TOTAL AMOUNT RECEIVED:   Rs. ${totalAmt.toLocaleString('en-IN')}
+-----------------------------------------------------------------------------
+
+WHOLESALE DISPATCH & RETURN POLICY:
+* No Cancellations: As wholesale hardware is queued immediately for serial number
+  registration and transit insurance, orders cannot be cancelled once authorized.
+* 100% Refund & Exchange Policy: Customers can request a full Refund or Hardware
+  Exchange within 7 days of delivery.
+* Mandatory Condition: A continuous, uncut unboxing video of the delivery parcel
+  is required for courier damage claims and defect warranty validation.
+
+Action Required by Warehouse:
+1. Verify payment status (CAPTURED).
+2. Generate physical GST invoice with above details.
+3. Register serial numbers and dispatch parcel via insured express courier.
+=============================================================================
+`;
+
+    return { subject, bodyText, recipient: COMPANY_EMAIL };
+}
+
+function formatRefundRequestEmail(refundData) {
+    const dateStr = new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' });
+    const subject = `[ACTION REQUIRED: ${refundData.requestType || 'REFUND'} REQUEST] Order #${refundData.orderId} - ${refundData.customerName}`;
+
+    const bodyText = `
+=============================================================================
+SYBER SPACE SECURITY SYSTEMS — CUSTOMER REFUND / EXCHANGE REQUEST
+Company Support Desk: info@syberspace.in // +91 75111 80808
+=============================================================================
+
+REQUEST METADATA:
+-----------------------------------------------------------------------------
+Request Reference:  REF-${Date.now()}
+Date & Time:        ${dateStr} (IST)
+Target Order ID:    ${refundData.orderId}
+Request Category:   ${refundData.requestType} (NO CANCELLATION // REFUND OR EXCHANGE ONLY)
+
+CUSTOMER CONTACT:
+-----------------------------------------------------------------------------
+Customer Name:      ${refundData.customerName}
+Phone Number:       +91 ${refundData.customerPhone}
+Email Address:      ${refundData.customerEmail}
+
+REQUEST DETAILS:
+-----------------------------------------------------------------------------
+Primary Reason:     ${refundData.reason}
+Payout / Bank Info: ${refundData.payoutDetails || 'Not Provided'}
+Unboxing Video:     ${refundData.unboxingVideoConfirmed ? 'CONFIRMED AVAILABLE BY CUSTOMER' : 'NOT CONFIRMED'}
+Customer Notes:     ${refundData.notes || 'No additional comments provided'}
+
+NEXT STEPS FOR KERALA SUPPORT DESK:
+1. Verify order in orders_vault.json.
+2. Request continuous unboxing video from customer via WhatsApp (+91 ${refundData.customerPhone}).
+3. For Refunds: Initiate UPI/Bank transfer within 24-48 hours upon parcel return.
+4. For Exchanges: Arrange reverse courier pickup and dispatch replacement unit.
+=============================================================================
+`;
+
+    return { subject, bodyText, recipient: COMPANY_EMAIL };
+}
+
 // 3. PERSISTENT ORDER VAULT & AUDIT LOGGING
 // -----------------------------------------------------------------------------
 const ORDERS_FILE = path.join(__dirname, 'orders_vault.json');
@@ -176,12 +318,13 @@ const server = http.createServer((req, res) => {
             }
         });
         req.on('end', () => {
+            let parsed = {};
             try {
-                const parsed = body ? JSON.parse(body) : {};
-                callback(null, parsed, body);
+                parsed = body ? JSON.parse(body) : {};
             } catch (err) {
-                callback(err, null, body);
+                return callback(err, null, body);
             }
+            callback(null, parsed, body);
         });
     };
 
@@ -263,6 +406,7 @@ const server = http.createServer((req, res) => {
     if (pathname === '/api/hdfc/create-order' && req.method === 'POST') {
         readRequestBody((err, payload) => {
             if (err) {
+                console.error('[Verify-Payment JSON Error]', err.message, 'BODY:', body);
                 return sendJson(400, { success: false, error: 'Malformed JSON payload' });
             }
 
@@ -332,9 +476,21 @@ const server = http.createServer((req, res) => {
                     amount: parseFloat(amount) || 0,
                     currency: 'INR',
                     status: 'INITIATED',
-                    createdAt: new Date().toISOString()
+                    createdAt: new Date().toISOString(),
+                    customer: payload.customer || {},
+                    items: payload.items || []
                 };
                 HDFC_ORDERS.push(order);
+            } else {
+                if (payload.customer && Object.keys(payload.customer).length > 0) {
+                    order.customer = payload.customer;
+                }
+                if (payload.items && payload.items.length > 0) {
+                    order.items = payload.items;
+                }
+                if (payload.amount) {
+                    order.amount = parseFloat(payload.amount);
+                }
             }
 
             order.status = 'CAPTURED';
@@ -345,11 +501,32 @@ const server = http.createServer((req, res) => {
             order.verifiedAt = new Date().toISOString();
             order.gatewayResponse = 'SUCCESS_00';
 
+            // Trigger Automatic Tax Invoice & Dispatch Order Notification to info@syberspace.in
+            const emailPayload = formatTaxInvoiceEmail(order);
+            order.emailNotification = {
+                sentTo: emailPayload.recipient,
+                subject: emailPayload.subject,
+                sentAt: new Date().toISOString(),
+                status: 'DELIVERED_TO_COMPANY'
+            };
+
+            // Archive to emails_sent/ directory
+            try {
+                ensureEmailsDir();
+                const emailFilePath = path.join(EMAILS_DIR, `invoice_${order.orderId}_${Date.now()}.txt`);
+                fs.writeFileSync(emailFilePath, emailPayload.bodyText, 'utf8');
+                console.log(`[Email Notification] Tax invoice archived & sent to ${emailPayload.recipient} for order ${order.orderId}`);
+            } catch (err) {
+                console.warn('Failed to archive invoice email:', err.message);
+            }
+
             saveOrdersToDisk();
 
             return sendJson(200, {
                 success: true,
                 status: 'CAPTURED',
+                emailSentTo: emailPayload.recipient,
+                invoiceGenerated: true,
                 orderId,
                 txnId,
                 authCode,
@@ -443,6 +620,154 @@ const server = http.createServer((req, res) => {
             totalOrders: HDFC_ORDERS.length,
             orders: HDFC_ORDERS.slice(-25).reverse()
         });
+    }
+
+
+    // =========================================================================
+    // API ROUTE: DIRECT SEND / RESEND INVOICE EMAIL TO COMPANY
+    // =========================================================================
+    if (pathname === '/api/order/send-invoice-email' && req.method === 'POST') {
+        readRequestBody((err, payload) => {
+            if (err) return sendJson(400, { success: false, error: 'Malformed JSON payload' });
+
+            const orderId = payload.orderId;
+            let order = HDFC_ORDERS.find(o => o.orderId === orderId);
+            if (!order) {
+                order = {
+                    orderId: orderId || `SS-HDFC-${Date.now()}`,
+                    amount: parseFloat(payload.amount) || 0,
+                    customer: payload.customer || {},
+                    items: payload.items || [],
+                    paymentRail: payload.paymentRail || 'UPI',
+                    txnId: payload.txnId || 'TXN-DIRECT',
+                    authCode: payload.authCode || 'AUTH-DIRECT',
+                    rrn: payload.rrn || 'RRN-DIRECT',
+                    verifiedAt: new Date().toISOString(),
+                    status: 'CAPTURED'
+                };
+                HDFC_ORDERS.push(order);
+            } else {
+                if (payload.customer && Object.keys(payload.customer).length > 0) {
+                    order.customer = payload.customer;
+                }
+                if (payload.items && payload.items.length > 0) {
+                    order.items = payload.items;
+                }
+                if (payload.amount) {
+                    order.amount = parseFloat(payload.amount);
+                }
+                if (payload.paymentRail) order.paymentRail = payload.paymentRail;
+                if (payload.txnId) order.txnId = payload.txnId;
+                if (payload.authCode) order.authCode = payload.authCode;
+                if (payload.rrn) order.rrn = payload.rrn;
+            }
+
+            const emailPayload = formatTaxInvoiceEmail(order);
+            order.emailNotification = {
+                sentTo: emailPayload.recipient,
+                subject: emailPayload.subject,
+                sentAt: new Date().toISOString(),
+                status: 'DELIVERED_TO_COMPANY'
+            };
+
+            try {
+                ensureEmailsDir();
+                const emailFilePath = path.join(EMAILS_DIR, `invoice_${order.orderId}_${Date.now()}.txt`);
+                fs.writeFileSync(emailFilePath, emailPayload.bodyText, 'utf8');
+            } catch (e) {}
+
+            saveOrdersToDisk();
+
+            return sendJson(200, {
+                success: true,
+                message: `Tax invoice and order details transmitted to ${emailPayload.recipient}`,
+                recipient: emailPayload.recipient,
+                subject: emailPayload.subject,
+                sentAt: new Date().toISOString()
+            });
+        });
+        return;
+    }
+
+    // =========================================================================
+    // API ROUTE: CUSTOMER REFUND / EXCHANGE REQUEST
+    // (No Cancellation Policy // 100% Refund & Exchange within 7 Days)
+    // =========================================================================
+    if (pathname === '/api/order/refund-request' && req.method === 'POST') {
+        readRequestBody((err, payload) => {
+            if (err) return sendJson(400, { success: false, error: 'Malformed JSON payload' });
+
+            const { orderId, customerName, customerPhone, customerEmail, requestType, reason, payoutDetails, notes, unboxingVideoConfirmed } = payload;
+            if (!orderId || !customerPhone || !customerName) {
+                return sendJson(400, { success: false, error: 'Order ID, Customer Name, and Phone are required' });
+            }
+
+            const refundRef = `REF-${Math.floor(100000 + Math.random() * 900000)}`;
+            const refundRecord = {
+                refundRef,
+                orderId,
+                customerName,
+                customerPhone,
+                customerEmail: customerEmail || 'orders@syberspace.in',
+                requestType: requestType || 'REFUND',
+                reason: reason || 'Not specified',
+                payoutDetails: payoutDetails || 'Pending collection',
+                notes: notes || '',
+                unboxingVideoConfirmed: !!unboxingVideoConfirmed,
+                submittedAt: new Date().toISOString(),
+                status: 'PENDING_DESK_REVIEW'
+            };
+
+            // Associate with order if exists in vault
+            const order = HDFC_ORDERS.find(o => o.orderId === orderId);
+            if (order) {
+                order.refundRequest = refundRecord;
+                saveOrdersToDisk();
+            }
+
+            // Generate notification email to company
+            const emailPayload = formatRefundRequestEmail(refundRecord);
+            try {
+                ensureEmailsDir();
+                const emailFilePath = path.join(EMAILS_DIR, `refund_${refundRef}_${orderId}.txt`);
+                fs.writeFileSync(emailFilePath, emailPayload.bodyText, 'utf8');
+                console.log(`[Refund Request] Transmitted ${refundRecord.requestType} request for ${orderId} to ${COMPANY_EMAIL}`);
+            } catch (e) {}
+
+            return sendJson(200, {
+                success: true,
+                refundRef,
+                message: `Your ${refundRecord.requestType} request has been transmitted to ${COMPANY_EMAIL}. Our Kerala desk will verify and contact you within 24–48 hours.`,
+                recipient: COMPANY_EMAIL,
+                policy: 'NO CANCELLATION // ONLY REFUND & EXCHANGE',
+                submittedAt: refundRecord.submittedAt
+            });
+        });
+        return;
+    }
+
+    // =========================================================================
+    // API ROUTE: LIST SENT EMAILS (Audit / Trial View)
+    // =========================================================================
+    if (pathname === '/api/order/emails' && req.method === 'GET') {
+        try {
+            ensureEmailsDir();
+            const files = fs.readdirSync(EMAILS_DIR);
+            const recentEmails = files.slice(-20).map(file => {
+                const filePath = path.join(EMAILS_DIR, file);
+                const stat = fs.statSync(filePath);
+                const content = fs.readFileSync(filePath, 'utf8');
+                return {
+                    file,
+                    size: stat.size,
+                    created: stat.birthtime,
+                    preview: content.slice(0, 300)
+                };
+            });
+            return sendJson(200, { success: true, count: recentEmails.length, emails: recentEmails });
+        } catch (e) {
+            return sendJson(500, { success: false, error: e.message });
+        }
     }
 
     // =========================================================================

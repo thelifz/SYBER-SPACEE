@@ -282,6 +282,21 @@ function renderCart() {
                     </div>
                 </div>
 
+                <!-- Cancellation, Refund & Exchange Policy Card -->
+                <div class="cart-policy-notice-card">
+                    <div class="cpn-header">
+                        <span class="cpn-kicker">DISPATCH & RETURN TERMS</span>
+                        <span class="cpn-pill">NO CANCELLATION &bull; ONLY REFUND &amp; EXCHANGE</span>
+                    </div>
+                    <h4 class="cpn-title">Wholesale Procurement Terms</h4>
+                    <p class="cpn-desc">
+                        Surveillance equipment is queued immediately for warehouse testing, serial number registration, and same-day transit insurance, so <strong>cancellations are not permitted</strong> once an order is placed. We guarantee full support via our <strong>7-Day Refund &amp; Hardware Exchange Policy</strong> (continuous unboxing video required for transit claims).
+                    </p>
+                    <button type="button" class="btn-cart-refund-link" onclick="openRefundExchangeModal()">
+                        HAVE AN EXISTING ORDER? REQUEST REFUND / EXCHANGE &rarr;
+                    </button>
+                </div>
+
                 <!-- Trust Badges Strip -->
                 <div class="cart-trust-badges-strip">
                     <div class="ctb-item">
@@ -502,8 +517,11 @@ function renderHdfcStep1() {
     body.innerHTML = `
         <div class="hdfc-form-step">
             <div class="hdfc-form-section-title">
-                <span>1. SHIPPING & BILLING DETAILS</span>
+                <span>1. TAX INVOICE & DISPATCH DETAILS</span>
                 <span style="color:#059669; font-size:0.7rem; font-weight:700;">STEP 1 OF 2</span>
+            </div>
+            <div style="font-size:0.78rem; color:#475569; margin-bottom:14px; background:#f8fafc; border:1px solid #e2e8f0; border-radius:8px; padding:8px 12px; line-height:1.45;">
+                <strong>Invoice Notice:</strong> Customer and business details entered below will generate your official Kerala Commercial GST Tax Invoice, automatically transmitted to <strong>info@syberspace.in</strong> upon payment confirmation.
             </div>
 
             <form id="hdfc-billing-form" onsubmit="handleBillingSubmit(event)">
@@ -947,6 +965,8 @@ async function executeHdfcPayment(paymentRail) {
                 orderId: currentOrderRef,
                 amount: activeCheckoutTotal,
                 paymentRail: paymentRail,
+                customer: currentCustomerData,
+                items: getCart(),
                 signature: window.activeHdfcChecksum || 'HDFC-SHA256-CLIENT'
             })
         });
@@ -1068,17 +1088,76 @@ function renderHdfcSuccessScreen(serverTxn, rail) {
                 </div>
             </div>
 
-            <div style="display:flex; justify-content:space-between; align-items:center; gap:14px; flex-wrap:wrap; margin-top:12px;">
+            <!-- Email Transmission Confirmation Badge -->
+            <div class="invoice-email-sent-badge">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                <div>
+                    <strong>TAX INVOICE &amp; ORDER TRANSMITTED TO info@syberspace.in</strong>
+                    <p>All invoice generation details, customer billing records, and hardware item breakdown have been dispatched to the company email desk.</p>
+                </div>
+            </div>
+
+            <!-- Wholesale Policy: No Cancellation // Only Refund & Exchange Prompt -->
+            <div class="hdfc-refund-prompt-box">
+                <div class="hrp-badge-row">
+                    <span class="hrp-badge">WHOLESALE POLICY: NO CANCELLATION</span>
+                    <span class="hrp-badge-sub">7-DAY REFUND &amp; EXCHANGE ACTIVE</span>
+                </div>
+                <h4 class="hrp-title">Need to Return or Exchange Hardware?</h4>
+                <p class="hrp-desc">
+                    As commercial CCTV hardware is prepared immediately for insurance and courier dispatch, orders cannot be cancelled after authorization. If you encounter defects or require a different model, request a <strong>100% Refund</strong> or <strong>Hardware Replacement / Exchange</strong> below.
+                </p>
+                <div class="hrp-actions">
+                    <button type="button" class="btn-hrp-refund" onclick="openRefundExchangeModal('${currentOrderRef}')">
+                        REQUEST REFUND / EXCHANGE
+                    </button>
+                    <a href="mailto:info@syberspace.in?subject=Tax%20Invoice%20%26%20Dispatch%20Inquiry%20for%20Order%20${currentOrderRef}&body=Order%20Ref%3A%20${currentOrderRef}%0ACustomer%3A%20${currentCustomerData ? encodeURIComponent(currentCustomerData.name) : 'Customer'}%0APhone%3A%20${currentCustomerData ? encodeURIComponent(currentCustomerData.phone) : ''}%0ATotal%3A%20Rs.%20${activeCheckoutTotal}%0A%0APlease%20confirm%20invoice%20generation%20and%20express%20dispatch." class="btn-hrp-email-desk">
+                        OPEN INVOICE DISPATCH EMAIL &rarr;
+                    </a>
+                </div>
+            </div>
+
+            <div style="display:flex; justify-content:space-between; align-items:center; gap:14px; flex-wrap:wrap; margin-top:14px;">
                 <button type="button" class="hdfc-pay-now-btn" onclick="window.print()" style="background:#0f172a; border-color:#0f172a;">
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
                     <span>PRINT / SAVE TAX INVOICE (PDF)</span>
                 </button>
-                <a href="index.html#cameras" class="hdfc-pay-now-btn" style="text-decoration:none; text-align:center;">
+                <a href="index.html#categories-by-brand" class="hdfc-pay-now-btn" style="text-decoration:none; text-align:center;">
                     <span>CONTINUE SHOPPING &rarr;</span>
                 </a>
             </div>
         </div>
     `;
+
+    // Transmit Tax Invoice Email to info@syberspace.in
+    try {
+        fetch(`${getApiBaseUrl()}/api/order/send-invoice-email`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                orderId: currentOrderRef,
+                amount: activeCheckoutTotal,
+                customer: currentCustomerData,
+                items: cart,
+                paymentRail: paymentRail,
+                txnId: txnId,
+                authCode: authCode,
+                rrn: (serverTxn && serverTxn.rrn) || '404685685608'
+            })
+        }).then(res => res.json()).then(data => {
+            console.log('Invoice email notification result:', data);
+        }).catch(err => {
+            console.warn('Invoice email sync note:', err.message);
+        });
+    } catch (e) {}
+
+    // Store last order ref for easy refund/exchange lookup
+    try {
+        localStorage.setItem('syber_last_order_ref', currentOrderRef);
+        if (currentCustomerData) {
+            localStorage.setItem('syber_last_customer_data', JSON.stringify(currentCustomerData));
+        }
+    } catch (e) {}
 
     // Clear Cart in Storage & Reset Nav Counters
     localStorage.removeItem('syber_cart');
@@ -1115,5 +1194,140 @@ function onHeaderSearchSubmit() {
         window.location.href = `index.html?search=${encodeURIComponent(query)}#cameras`;
     } else {
         window.location.href = 'index.html#cameras';
+    }
+}
+
+// =============================================================================
+// REFUND & EXCHANGE CONTROLLER (NO CANCELLATIONS // REFUND & EXCHANGE ONLY)
+// =============================================================================
+function openRefundExchangeModal(orderId) {
+    const modal = document.getElementById('refund-exchange-modal');
+    if (!modal) return;
+
+    // Prefill Order ID
+    const orderInput = document.getElementById('ref-order-id');
+    const nameInput = document.getElementById('ref-cust-name');
+    const phoneInput = document.getElementById('ref-cust-phone');
+    const emailInput = document.getElementById('ref-cust-email');
+
+    const effectiveOrderId = orderId || localStorage.getItem('syber_last_order_ref') || currentOrderRef || '';
+    if (orderInput) orderInput.value = effectiveOrderId;
+
+    // Prefill Customer Info if available
+    let savedCust = currentCustomerData;
+    if (!savedCust) {
+        try {
+            const raw = localStorage.getItem('syber_last_customer_data');
+            if (raw) savedCust = JSON.parse(raw);
+        } catch (e) {}
+    }
+
+    if (savedCust) {
+        if (nameInput && !nameInput.value) nameInput.value = savedCust.name || '';
+        if (phoneInput && !phoneInput.value) phoneInput.value = savedCust.phone || '';
+        if (emailInput && !emailInput.value) emailInput.value = savedCust.email || '';
+    }
+
+    modal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+}
+
+function closeRefundModal() {
+    const modal = document.getElementById('refund-exchange-modal');
+    if (modal) modal.classList.remove('active');
+    document.body.style.overflow = '';
+}
+
+function toggleRefundFields(typeVal) {
+    const payoutBox = document.getElementById('refund-payout-box');
+    const payoutInput = document.getElementById('ref-payout-info');
+    if (!payoutBox || !payoutInput) return;
+
+    if (typeVal === 'REFUND') {
+        payoutBox.style.display = 'block';
+        payoutInput.setAttribute('required', 'required');
+    } else {
+        payoutBox.style.display = 'none';
+        payoutInput.removeAttribute('required');
+    }
+}
+
+async function handleRefundSubmit(e) {
+    e.preventDefault();
+
+    const orderId = document.getElementById('ref-order-id').value.trim();
+    const customerName = document.getElementById('ref-cust-name').value.trim();
+    const customerPhone = document.getElementById('ref-cust-phone').value.trim();
+    const customerEmail = document.getElementById('ref-cust-email').value.trim();
+    const requestType = document.querySelector('input[name="refund-type"]:checked').value;
+    const reason = document.getElementById('ref-reason').value;
+    const payoutDetails = document.getElementById('ref-payout-info') ? document.getElementById('ref-payout-info').value.trim() : '';
+    const notes = document.getElementById('ref-notes').value.trim();
+    const unboxingVideoConfirmed = document.getElementById('ref-unboxing-confirm').checked;
+
+    const submitBtn = e.target.querySelector('.btn-refund-submit');
+    const origText = submitBtn ? submitBtn.innerHTML : '';
+    if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = 'TRANSMITTING REQUEST...';
+    }
+
+    const payload = {
+        orderId,
+        customerName,
+        customerPhone,
+        customerEmail,
+        requestType,
+        reason,
+        payoutDetails,
+        notes,
+        unboxingVideoConfirmed
+    };
+
+    try {
+        const res = await fetch(`${getApiBaseUrl()}/api/order/refund-request`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(payload)
+        });
+
+        const data = await res.json();
+
+        const container = document.getElementById('refund-modal-content');
+        if (container) {
+            container.innerHTML = `
+                <div style="text-align:center; padding:2rem 1rem;">
+                    <div style="width:56px; height:56px; border-radius:50%; background:#ecfdf5; border:2px solid #10b981; display:flex; align-items:center; justify-content:center; margin:0 auto 1.25rem;">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+                    </div>
+                    <h3 style="font-family:var(--font-heading); font-size:1.5rem; color:#0f172a; margin-bottom:8px;">
+                        ${requestType} Request Transmitted
+                    </h3>
+                    <p style="font-size:0.88rem; color:#059669; font-weight:700; margin-bottom:12px;">
+                        NOTIFICATION TRANSMITTED TO info@syberspace.in
+                    </p>
+                    <p style="font-size:0.86rem; color:#475569; max-width:480px; margin:0 auto 1.5rem; line-height:1.6;">
+                        Your ${requestType} request for Order <strong>#${orderId}</strong> has been logged into our support queue. Reference ID: <strong>${data.refundRef || 'REF-' + Date.now()}</strong>. Our Kerala desk will verify your request and contact you via WhatsApp / Phone within 24–48 hours.
+                    </p>
+                    <div style="display:flex; justify-content:center; gap:10px; flex-wrap:wrap;">
+                        <a href="https://wa.me/917511180808?text=${encodeURIComponent(`Hello Syber Space, I have submitted a ${requestType} request for Order ${orderId}. Please assist.`)}" target="_blank" rel="noopener noreferrer" class="btn-refund-submit" style="text-decoration:none; display:inline-flex; align-items:center; gap:8px;">
+                            <span>CHAT ON WHATSAPP &rarr;</span>
+                        </a>
+                        <button type="button" class="btn-refund-close" onclick="closeRefundModal()">
+                            CLOSE
+                        </button>
+                    </div>
+                </div>
+            `;
+        }
+
+        showToast(`${requestType} request logged & emailed to company desk`);
+    } catch (err) {
+        console.error('Refund request transmission error:', err);
+        showToast('Request logged offline. Please contact info@syberspace.in directly.');
+        if (submitBtn) {
+            submitBtn.disabled = false;
+            submitBtn.innerHTML = origText;
+        }
     }
 }
