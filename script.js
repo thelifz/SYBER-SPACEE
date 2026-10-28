@@ -2,6 +2,21 @@
 // SYBER SPACE // JEST-STYLE LUXURY HEADER & CART WINDOW SYNC ENGINE
 // ==========================================================================
 
+// ==========================================================================
+// EXPLICIT CAPTURE-PHASE EXCLUSION GUARD FOR #header-whatsapp-support-btn
+// Intercepts clicks on WhatsApp support before any bubbling or generic routing
+// ==========================================================================
+document.addEventListener('click', (e) => {
+    const supportBtn = e.target.closest('#header-whatsapp-support-btn, a[href*="wa.me"]');
+    if (supportBtn) {
+        // Explicitly isolate WhatsApp support link from any generic routing or modal logic
+        e.stopPropagation();
+        if (supportBtn.href && supportBtn.href.includes('checkout=')) {
+            supportBtn.href = supportBtn.href.replace(/[?&]checkout=[^&]+/, '');
+        }
+    }
+}, true); // useCapture = true guarantees immediate priority execution
+
 let CART_ITEMS = [];
 
 document.addEventListener('DOMContentLoaded', () => {

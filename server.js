@@ -842,7 +842,7 @@ const server = http.createServer((req, res) => {
         }
 
         // Cache control strategy: HTML & API dynamic; assets cached
-        const isDynamic = ext === '.html' || ext === '.json';
+        const isDynamic = ext === '.html' || ext === '.json' || ext === '.js' || ext === '.css';
         const cacheControl = isDynamic
             ? 'no-cache, no-store, must-revalidate'
             : 'public, max-age=86400';
