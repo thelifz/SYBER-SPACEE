@@ -14,6 +14,10 @@
 
     <style>
         /* Product Page Specific Layout & Overrides */
+        html, body {
+            overscroll-behavior: none;
+        }
+
         body {
             background-color: #ffffff;
             color: #0f172a;
@@ -21,6 +25,7 @@
             margin: 0;
             padding: 0;
             overflow-x: hidden;
+            overscroll-behavior: none;
         }
 
         .product-page-main {
@@ -368,9 +373,9 @@
 
                     <!-- 1. LEFT SIDE: SCROLLING FEATURES TRACK -->
                     <div class="asus-features-col">
-                        <div class="asus-features-header-micro">
-                            <span class="afh-label">HARDWARE SUBSYSTEMS</span>
-                            <span class="afh-count" id="afh-step-indicator">STAGE 1 / 5</span>
+                        <div class="asus-features-header-micro" aria-hidden="true">
+                            <span class="afh-label" style="display:none;"></span>
+                            <span class="afh-count" id="afh-step-indicator" style="display:none;"></span>
                         </div>
                         <div class="asus-features-track" id="asus-features-track">
                             <!-- Populated dynamically by renderProductData() with smooth Jesko Jets typography -->
@@ -1081,7 +1086,6 @@
                 featuresTrack.innerHTML = showcaseData.features.map((feat, idx) => `
                     <div class="asus-feature-card ${idx === 0 ? 'active' : ''}" data-feature="${idx}" id="feat-${idx+1}">
                         <div class="afc-header">
-                            <span class="afc-index">${feat.index}</span>
                             <div class="afc-meta">
                                 <span class="afc-kicker">${feat.kicker}</span>
                                 <h3 class="afc-title">${feat.title}</h3>

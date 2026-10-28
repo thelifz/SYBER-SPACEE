@@ -58,6 +58,11 @@ a {
 html {
     font-size: 16px;
     background-color: var(--c-bg);
+    overscroll-behavior: none;
+}
+
+html, body {
+    overscroll-behavior: none;
 }
 
 body.jeko-theme-white {
@@ -4402,20 +4407,21 @@ body.pdp-dark-mode .iphone-search-btn {
 }
 
 .asus-features-header-micro {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-family: 'Space Mono', monospace;
-    font-size: 0.72rem;
-    font-weight: 700;
-    color: #64748b;
-    letter-spacing: 0.1em;
-    margin-bottom: 0.85rem;
-    padding-bottom: 0.45rem;
-    border-bottom: 1px solid rgba(15, 23, 42, 0.08);
+    display: block;
+    width: 100%;
+    height: 1px;
+    background: rgba(15, 23, 42, 0.09);
+    margin-bottom: 1.15rem;
+    padding: 0;
+    border: none;
     flex-shrink: 0;
-    background: transparent;
-    transition: color 0.35s ease, border-color 0.35s ease;
+    transition: background-color 0.35s ease;
+}
+
+.afh-label,
+.afh-count,
+#afh-step-indicator {
+    display: none !important;
 }
 
 .asus-features-track-wrapper {
@@ -4488,20 +4494,12 @@ body.pdp-dark-mode .iphone-search-btn {
 .afc-header {
     display: flex;
     align-items: baseline;
-    gap: 0.75rem;
+    gap: 0;
     margin-bottom: 0.15rem;
 }
 
 .afc-index {
-    font-family: 'Space Mono', monospace;
-    font-size: 0.82rem;
-    font-weight: 700;
-    color: #94a3b8; /* Clean neutral slate, ZERO blue */
-    background: transparent;
-    border: none;
-    padding: 0;
-    line-height: 1;
-    transition: color 0.35s ease;
+    display: none !important;
 }
 
 .asus-feature-card.active .afc-index {
