@@ -1358,3 +1358,203 @@ if (document.readyState === 'loading') {
 } else {
     initBrandSlideshow();
 }
+
+
+// ==========================================================================
+// BRAND SHOWCASE TAKEOVER ENGINE ("BUBBLEGUM EFFECT")
+// ==========================================================================
+const BRAND_META = {
+    'TRUEVIEW': { 
+        name: 'TRUEVIEW', 
+        color: '#0f172a', 
+        bg: '#ffffff',
+        kicker: 'OFFICIAL SURVEILLANCE PARTNER',
+        subtitle: '31 Autonomous Solar & Commercial CCTV Cameras Available' 
+    },
+    'CPPLUS': { 
+        name: 'CP PLUS', 
+        color: '#0f172a', 
+        bg: '#ffffff',
+        kicker: 'AUTHORIZED ENTERPRISE DISTRIBUTOR',
+        subtitle: '9 Commercial & Smart Ezykam Security Cameras Available'
+    },
+    'IDADA': { 
+        name: 'iDADA', 
+        color: '#0f172a', 
+        bg: '#ffffff',
+        kicker: '#1 BESTSELLER SMART HOME',
+        subtitle: '14 High-Velocity Pan & Tilt Wi-Fi Cameras Available'
+    },
+    'SEAGATE': { 
+        name: 'SEAGATE', 
+        color: '#0f172a', 
+        bg: '#ffffff',
+        kicker: 'SURVEILLANCE STORAGE SPECIALIST',
+        subtitle: 'SkyHawk 24/7 Zero Frame Loss Surveillance Hard Drives'
+    },
+    'INFRASTRUCTURE': { 
+        name: 'INFRASTRUCTURE', 
+        color: '#0f172a', 
+        bg: '#ffffff',
+        kicker: 'PRO CCTV CABLING & HARDWARE',
+        subtitle: '22 Power SMPS, Pure Copper Cat6 & RG59 Cabling Items'
+    },
+    'SUGGESTED': {
+        name: 'BESTSELLERS',
+        color: '#0f172a',
+        bg: '#ffffff',
+        kicker: 'FLAGSHIP SELECTION',
+        subtitle: 'Direct Kerala Dispatch • 100% Genuine Manufacturer Replacement'
+    }
+};
+
+function triggerBubbleTakeover(originElemOrEvent, brandKey) {
+    const overlay = document.getElementById('brandTakeoverOverlay');
+    const bubble = document.getElementById('brandTakeoverBubble');
+    const content = document.getElementById('brandTakeoverContent');
+    if (!overlay || !bubble) return;
+
+    // Calculate origin coordinates (x, y)
+    let x = window.innerWidth / 2;
+    let y = window.innerHeight / 2;
+
+    if (originElemOrEvent && originElemOrEvent.getBoundingClientRect) {
+        const rect = originElemOrEvent.getBoundingClientRect();
+        x = rect.left + rect.width / 2;
+        y = rect.top + rect.height / 2;
+    } else if (originElemOrEvent && originElemOrEvent.clientX) {
+        x = originElemOrEvent.clientX;
+        y = originElemOrEvent.clientY;
+    }
+
+    const relY = y;
+    const overlayHeight = window.innerHeight;
+
+    // Calculate radius to cover the entire canvas
+    const maxDist = Math.max(
+        Math.hypot(x, relY),
+        Math.hypot(window.innerWidth - x, relY),
+        Math.hypot(x, overlayHeight - relY),
+        Math.hypot(window.innerWidth - x, overlayHeight - relY)
+    );
+    const diameter = maxDist * 2.3;
+
+    // Brand metadata
+    const meta = BRAND_META[brandKey] || { 
+        name: brandKey, 
+        color: '#0f172a', 
+        bg: '#ffffff', 
+        kicker: 'AUTHORIZED BRAND SHOWCASE', 
+        subtitle: 'Surveillance hardware catalog' 
+    };
+
+    // Style the blooming bubble
+    bubble.style.left = (x - diameter / 2) + 'px';
+    bubble.style.top = (relY - diameter / 2) + 'px';
+    bubble.style.width = diameter + 'px';
+    bubble.style.height = diameter + 'px';
+    bubble.style.background = meta.bg;
+
+    // Populate header details
+    const kickerEl = document.getElementById('btoKicker');
+    const titleEl = document.getElementById('btoTitle');
+    const subtitleEl = document.getElementById('btoSubtitle');
+    const gridEl = document.getElementById('btoProductsGrid');
+
+    if (kickerEl) kickerEl.textContent = meta.kicker;
+    if (titleEl) {
+        titleEl.textContent = meta.name;
+        titleEl.style.color = meta.color;
+    }
+
+    // Populate products
+    if (typeof SYBER_PRODUCTS !== 'undefined' && gridEl) {
+        let products;
+        if (brandKey === 'INFRASTRUCTURE') {
+            products = SYBER_PRODUCTS.filter(p => 
+                p.category === 'accessory' || 
+                p.brand === 'SYBER SPACE' || 
+                p.brand === 'ULTRA-LINK' || 
+                p.brand === 'SANDISK' ||
+                (p.title && (p.title.includes('SMPS') || p.title.includes('Cat6') || p.title.includes('Cable') || p.title.includes('Rack')))
+            );
+        } else if (brandKey === 'SUGGESTED') {
+            products = SYBER_PRODUCTS.filter(p => p.badge && (p.badge.includes('BESTSELLER') || p.badge.includes('TOP') || p.badge.includes('ULTRA')));
+        } else {
+            products = SYBER_PRODUCTS.filter(p => (p.brand || '').toUpperCase() === brandKey.toUpperCase());
+        }
+
+        if (subtitleEl) {
+            subtitleEl.textContent = `${products.length} product${products.length !== 1 ? 's' : ''} available • Official Manufacturer Warranty • Direct Kerala Dispatch`;
+        }
+
+        gridEl.innerHTML = products.map(p => {
+            const img = (p.images && p.images.length > 0) ? p.images[0] : 'assets/hero_product_solar_v2.png';
+            const chipsHtml = (p.chips || []).slice(0, 3).map(c => `<span class="lpc-chip">${c}</span>`).join('');
+            const mrpHtml = p.mrp ? `<span class="lpc-mrp">${p.mrp}</span>` : '';
+            const saveBadge = p.save ? `<span class="lpc-save-pill">${p.save}</span>` : '';
+
+            return `
+                <div class="live-prod-card" onclick="window.location.href='product.html?id=${p.id}'" style="cursor: pointer;">
+                    <div class="lpc-top-tags">
+                        <span class="lpc-brand-pill">${p.brand || 'SYBER'}</span>
+                        ${saveBadge}
+                    </div>
+                    <div class="lpc-img-wrap">
+                        <img src="${img}" alt="${p.title}" class="lpc-img" loading="lazy" onerror="this.src='assets/hero_product_solar_v2.png'">
+                    </div>
+                    <div class="lpc-title" title="${p.title}">${p.title}</div>
+                    <div class="lpc-chips">${chipsHtml}</div>
+                    <div class="lpc-price-row">
+                        <div class="lpc-price">&#8377;${Number(p.price).toLocaleString('en-IN')}</div>
+                        ${mrpHtml}
+                    </div>
+                    <button type="button" class="btn-lpc-add" onclick="handleTakeoverAdd(event, '${p.id}', this)">
+                        [ ADD TO CART ]
+                    </button>
+                </div>
+            `;
+        }).join('');
+    }
+
+    // Activate takeover
+    overlay.classList.add('active');
+    document.body.style.overflow = 'hidden';
+
+    try {
+        if (!window.history.state || window.history.state.modal !== 'brandTakeover') {
+            window.history.pushState({ modal: 'brandTakeover', brand: brandKey }, '', window.location.href);
+        }
+    } catch (e) {}
+}
+
+function closeBubbleTakeover() {
+    const overlay = document.getElementById('brandTakeoverOverlay');
+    if (!overlay) return;
+    overlay.classList.remove('active');
+    document.body.style.overflow = '';
+}
+
+function handleTakeoverBgClick(e) {
+    if (e.target.id === 'brandTakeoverOverlay' || e.target.id === 'brandTakeoverContent') {
+        closeBubbleTakeover();
+    }
+}
+
+function handleTakeoverAdd(e, prodId, btn) {
+    e.stopPropagation();
+    if (typeof SYBER_PRODUCTS === 'undefined') return;
+    const prod = SYBER_PRODUCTS.find(p => p.id === prodId);
+    if (!prod) return;
+
+    const imgSrc = (prod.images && prod.images.length > 0) ? prod.images[0] : 'assets/hero_product_solar_v2.png';
+    directAddToCart(prod.title, prod.price, prod.brand, imgSrc, btn);
+}
+
+// Popstate support so phone back button closes the takeover
+window.addEventListener('popstate', (e) => {
+    const overlay = document.getElementById('brandTakeoverOverlay');
+    if (overlay && overlay.classList.contains('active')) {
+        closeBubbleTakeover();
+    }
+});

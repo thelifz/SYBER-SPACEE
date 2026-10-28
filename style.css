@@ -1739,14 +1739,38 @@ body.pdp-dark-mode .iphone-search-btn {
 /* Responsive adjustments */
 @media (max-width: 980px) {
     .offer-slide {
-        flex-direction: column;
-        padding: 2.25rem 1.5rem;
-        text-align: center;
-        gap: 1.5rem;
+        display: flex !important;
+        flex-direction: column !important;
+        padding: 1.25rem 1rem !important;
+        text-align: center !important;
+        gap: 0.75rem !important;
+        align-items: center !important;
+    }
+
+    .offer-slide-visual {
+        order: 1 !important;
+        min-height: auto !important;
+        height: auto !important;
+        margin: 0 auto 0.5rem !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        width: 100% !important;
+        max-width: 250px !important;
+    }
+
+    .slide-product-img {
+        max-height: 200px !important;
+        max-width: 230px !important;
+        object-fit: contain !important;
+        margin: 0 auto !important;
     }
 
     .offer-slide-content {
-        align-items: center;
+        order: 2 !important;
+        align-items: center !important;
+        width: 100% !important;
+        padding: 0 0.5rem !important;
     }
 
     .slide-badge-row {
@@ -7675,5 +7699,370 @@ body.dark .btn-carousel-nav {
 @media (min-width: 861px) {
     .mobile-sticky-dock {
         display: none !important;
+    }
+}
+
+
+/* ==========================================================================
+   FULL-PAGE BRAND TAKEOVER OVERLAY ("BUBBLEGUM EFFECT")
+   Smooth blooming expansion over canvas below header
+   ========================================================================== */
+.brand-takeover-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 1200;
+    pointer-events: none;
+    opacity: 0;
+    overflow: hidden;
+    background: rgba(15, 23, 42, 0.45);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    transition: opacity 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.brand-takeover-overlay.active {
+    pointer-events: auto;
+    opacity: 1;
+}
+
+.brand-takeover-bubble {
+    position: absolute;
+    border-radius: 50%;
+    transform: scale(0);
+    transition: transform 0.62s cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: transform;
+    box-shadow: 0 0 120px rgba(0, 0, 0, 0.1);
+}
+
+.brand-takeover-overlay.active .brand-takeover-bubble {
+    transform: scale(1);
+}
+
+.brand-takeover-content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 0.25s ease;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    padding: 70px 1.25rem 5rem;
+    scrollbar-width: thin;
+}
+
+.brand-takeover-overlay.active .brand-takeover-content {
+    opacity: 1;
+    transition: opacity 0.35s 0.22s ease;
+}
+
+.bto-header-wrap {
+    position: sticky;
+    top: 0;
+    z-index: 25;
+    background: rgba(255, 255, 255, 0.96);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid #e2e8f0;
+    padding: 0.85rem 0.5rem;
+    margin-bottom: 1.25rem;
+    border-radius: 12px;
+    box-shadow: 0 2px 12px rgba(15, 23, 42, 0.04);
+}
+
+.bto-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1440px;
+    margin: 0 auto;
+    gap: 1rem;
+}
+
+.bto-kicker {
+    display: inline-block;
+    font-family: var(--font-heading);
+    font-size: 0.65rem;
+    font-weight: 800;
+    letter-spacing: 0.14em;
+    color: #0f172a;
+    text-transform: uppercase;
+    margin-bottom: 0.15rem;
+}
+
+.bto-brand-title {
+    font-family: var(--font-heading);
+    font-size: 1.65rem;
+    font-weight: 900;
+    color: #0f172a;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+    margin: 0;
+}
+
+.bto-brand-subtitle {
+    font-size: 0.78rem;
+    color: #64748b;
+    font-weight: 600;
+    margin-top: 0.2rem;
+}
+
+.btn-bto-close-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: #0f172a;
+    color: #ffffff;
+    border: none;
+    padding: 0.55rem 1.1rem;
+    border-radius: 999px;
+    font-family: var(--font-heading);
+    font-size: 0.74rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    cursor: pointer;
+    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow: 0 4px 14px rgba(15, 23, 42, 0.18);
+    flex-shrink: 0;
+}
+
+.btn-bto-close-pill:hover {
+    background: #1e293b;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(15, 23, 42, 0.25);
+}
+
+.bto-close-x {
+    font-size: 1.1rem;
+    line-height: 1;
+    font-weight: 400;
+}
+
+.bto-products-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.15rem;
+    max-width: 1440px;
+    margin: 0 auto;
+    padding-bottom: 4rem;
+}
+
+@media (max-width: 1200px) {
+    .bto-products-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 860px) {
+    .bto-products-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 0.65rem !important;
+    }
+    .brand-takeover-content {
+        padding: 68px 0.65rem 4rem !important;
+    }
+    .bto-brand-title {
+        font-size: 1.35rem !important;
+    }
+    .bto-products-grid .live-prod-card {
+        padding: 0.75rem !important;
+        border-radius: 12px !important;
+    }
+    .bto-products-grid .lpc-img-wrap {
+        height: 105px !important;
+    }
+    .bto-products-grid .lpc-title {
+        font-size: 0.78rem !important;
+        min-height: 2.3em !important;
+    }
+    .bto-products-grid .lpc-chips {
+        display: none !important;
+    }
+    .bto-products-grid .lpc-price {
+        font-size: 0.95rem !important;
+    }
+    .bto-products-grid .btn-lpc-add {
+        padding: 0.45rem 0.6rem !important;
+        font-size: 0.72rem !important;
+    }
+}
+
+@media (max-width: 360px) {
+    .bto-products-grid {
+        grid-template-columns: 1fr !important;
+    }
+}
+
+/* Bubblegum Trigger Button */
+.btn-brand-bubble-trigger {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    width: 100%;
+    max-width: 320px;
+    margin: 0.85rem auto 0;
+    padding: 0.75rem 1.25rem;
+    background: #0f172a;
+    color: #ffffff;
+    border: none;
+    border-radius: 12px;
+    font-family: var(--font-heading);
+    font-size: 0.82rem;
+    font-weight: 800;
+    letter-spacing: 0.04em;
+    cursor: pointer;
+    box-shadow: 0 4px 14px rgba(15, 23, 42, 0.12);
+    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.btn-brand-bubble-trigger:hover {
+    background: #1e293b;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(15, 23, 42, 0.18);
+}
+
+/* ==========================================================================
+   DEDICATED MOBILE ADJUSTMENTS FOR HERO SLIDE & BRAND BESTSELLER (MAX-WIDTH: 860px)
+   ========================================================================== */
+@media (max-width: 860px) {
+    /* 1. Hero Offer Slide: Image First, Writing Below, Arrows Flanking Image */
+    .offer-slideshow-wrap {
+        margin: 0 auto 0.5rem !important;
+    }
+    .offer-slides-track {
+        min-height: auto !important;
+        height: auto !important;
+    }
+    .offer-slide {
+        display: flex !important;
+        flex-direction: column !important;
+        padding: 1rem 1rem 2.85rem !important;
+        text-align: center !important;
+        gap: 0.65rem !important;
+        align-items: center !important;
+        height: auto !important;
+    }
+    .offer-slide.active {
+        position: relative !important;
+        height: auto !important;
+    }
+    .offer-slide-visual {
+        order: 1 !important;
+        min-height: auto !important;
+        height: auto !important;
+        margin: 0 auto 0.4rem !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        width: 100% !important;
+        max-width: 250px !important;
+    }
+    .slide-product-img {
+        max-height: 185px !important;
+        max-width: 220px !important;
+        object-fit: contain !important;
+        margin: 0 auto !important;
+    }
+    .offer-slide-content {
+        order: 2 !important;
+        align-items: center !important;
+        width: 100% !important;
+        padding: 0 0.35rem !important;
+    }
+    .slide-badge-row {
+        justify-content: center !important;
+        margin-bottom: 0.35rem !important;
+    }
+    .slide-title {
+        font-size: 1.55rem !important;
+        line-height: 1.2 !important;
+        margin-bottom: 0.35rem !important;
+    }
+    .slide-chips-list {
+        justify-content: center !important;
+        font-size: 0.78rem !important;
+        margin-bottom: 0.75rem !important;
+    }
+    .slide-price-box {
+        margin: 0 auto 0.85rem !important;
+        padding: 0.6rem 0.9rem !important;
+    }
+    .slide-actions-row {
+        justify-content: center !important;
+        width: 100% !important;
+        max-width: 320px !important;
+        margin: 0 auto !important;
+        gap: 0.45rem !important;
+    }
+    .btn-slide-order {
+        width: 100% !important;
+        padding: 0.75rem 1rem !important;
+        font-size: 0.85rem !important;
+    }
+    .btn-slide-showcase {
+        width: 100% !important;
+        padding: 0.65rem 1rem !important;
+        font-size: 0.8rem !important;
+    }
+
+    /* Navigation Arrows: Flank camera visual at top, no text overlap */
+    .slide-nav-btn {
+        top: 100px !important;
+        transform: translateY(-50%) !important;
+        width: 36px !important;
+        height: 36px !important;
+        background: rgba(255, 255, 255, 0.92) !important;
+    }
+    .slide-nav-btn.prev-btn {
+        left: 6px !important;
+    }
+    .slide-nav-btn.next-btn {
+        right: 6px !important;
+    }
+
+    /* Pagination Dots: Sit cleanly beneath buttons */
+    .slide-pagination {
+        bottom: 0.85rem !important;
+    }
+
+    /* 2. Brand Showcase: Only show Company Name & #1 Bestseller on Phone */
+    .brand-slideshow-container {
+        padding: 0 4px !important;
+    }
+    .bdc-products-shelf {
+        grid-template-columns: 1fr !important;
+        max-width: 320px !important;
+        margin: 0 auto !important;
+        gap: 0 !important;
+    }
+    .bdc-products-shelf .bpc-card:not(:first-child) {
+        display: none !important;
+    }
+    .bdc-products-shelf .bpc-card:first-child {
+        display: flex !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+        margin: 0 auto !important;
+    }
+    .btn-brand-bubble-trigger {
+        display: flex !important;
+    }
+
+    /* Brand carousel nav arrows centered vertically on product image */
+    .brand-slide-nav-btn {
+        top: 42% !important;
+        width: 36px !important;
+        height: 36px !important;
+    }
+    .brand-slide-nav-btn.prev-btn {
+        left: 2px !important;
+    }
+    .brand-slide-nav-btn.next-btn {
+        right: 2px !important;
     }
 }

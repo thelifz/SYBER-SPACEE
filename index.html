@@ -526,6 +526,7 @@
                                             </div>
                                         </div>
                                     </div>
+                                        <button type="button" class="btn-brand-bubble-trigger" onclick="triggerBubbleTakeover(this, 'TRUEVIEW')" aria-label="Explore all TRUEVIEW products"><span>EXPLORE ALL 31 TRUEVIEW PRODUCTS &rarr;</span></button>
                                 </div>
 
                                 </div>
@@ -603,6 +604,7 @@
                                             </div>
                                         </div>
                                     </div>
+                                        <button type="button" class="btn-brand-bubble-trigger" onclick="triggerBubbleTakeover(this, 'CPPLUS')" aria-label="Explore all CP PLUS products"><span>EXPLORE ALL 9 CP PLUS PRODUCTS &rarr;</span></button>
                                 </div>
 
                                 </div>
@@ -680,6 +682,7 @@
                                             </div>
                                         </div>
                                     </div>
+                                        <button type="button" class="btn-brand-bubble-trigger" onclick="triggerBubbleTakeover(this, 'IDADA')" aria-label="Explore all iDADA products"><span>EXPLORE ALL 14 iDADA PRODUCTS &rarr;</span></button>
                                 </div>
 
                                 </div>
@@ -757,6 +760,7 @@
                                             </div>
                                         </div>
                                     </div>
+                                        <button type="button" class="btn-brand-bubble-trigger" onclick="triggerBubbleTakeover(this, 'SEAGATE')" aria-label="Explore all SEAGATE products"><span>EXPLORE ALL SEAGATE STORAGE &rarr;</span></button>
                                 </div>
 
                                 </div>
@@ -834,6 +838,7 @@
                                             </div>
                                         </div>
                                     </div>
+                                        <button type="button" class="btn-brand-bubble-trigger" onclick="triggerBubbleTakeover(this, 'INFRASTRUCTURE')" aria-label="Explore all INFRASTRUCTURE products"><span>EXPLORE ALL 22 HARDWARE PRODUCTS &rarr;</span></button>
                                 </div>
 
                                 </div>
@@ -911,6 +916,7 @@
                                             </div>
                                         </div>
                                     </div>
+                                        <button type="button" class="btn-brand-bubble-trigger" onclick="triggerBubbleTakeover(this, 'SUGGESTED')" aria-label="Explore all BESTSELLERS products"><span>EXPLORE ALL BESTSELLERS &rarr;</span></button>
                                 </div>
 
                         </div> <!-- end brand-slides-track -->
@@ -1261,11 +1267,7 @@
     </footer>
 
 
-        <div class="bto-products-grid" id="btoProductsGrid">
-                <!-- Rendered by JS -->
-            </div>
-        </div>
-    </div>
+        
 
     <!-- Toast Notification -->
     <div class="toast-notify" id="toast-notify"></div>
@@ -1275,5 +1277,33 @@
     <script src="assets/ScrollTrigger.min.js"></script>
     <script src="products_data.js"></script>
     <script src="script.js"></script>
+
+    <!-- ======================================================================
+         FULL-PAGE BRAND TAKEOVER OVERLAY ("BUBBLEGUM EFFECT")
+         Covers page below header with brand products
+         ====================================================================== -->
+    <div class="brand-takeover-overlay" id="brandTakeoverOverlay" onclick="handleTakeoverBgClick(event)">
+        <div class="brand-takeover-bubble" id="brandTakeoverBubble"></div>
+        <div class="brand-takeover-content" id="brandTakeoverContent" onclick="handleTakeoverBgClick(event)">
+            <div class="bto-header-wrap">
+                <div class="bto-header">
+                    <div class="bto-brand-meta">
+                        <span class="bto-kicker" id="btoKicker">AUTHORIZED BRAND SHOWCASE</span>
+                        <h2 class="bto-brand-title" id="btoTitle">TRUEVIEW</h2>
+                        <div class="bto-brand-subtitle" id="btoSubtitle">31 products available &bull; Official Manufacturer Warranty &bull; Direct Kerala Dispatch</div>
+                    </div>
+                    <div class="bto-header-actions">
+                        <button type="button" class="btn-bto-close-pill" onclick="closeBubbleTakeover()" aria-label="Close Brand Showcase">
+                            <span>CLOSE</span>
+                            <span class="bto-close-x">&times;</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="bto-products-grid" id="btoProductsGrid">
+                <!-- Rendered dynamically by script.js -->
+            </div>
+        </div>
+    </div>
 </body>
 </html>
