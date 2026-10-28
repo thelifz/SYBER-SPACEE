@@ -6968,118 +6968,264 @@ body.dark .btn-carousel-nav {
 
 
 /* ==========================================================================
-   BRANDS WE SELL SLIDESHOW COMPONENT
+   WHOLESALE & B2B TICKER MARQUEE BANNER (Obsidian & Platinum)
    ========================================================================== */
-.brand-slideshow-container {
+.wholesale-ticker-banner {
     position: relative;
     width: 100%;
-    margin: 0 auto;
-}
-
-.brand-slides-viewport {
+    margin: 2rem 0 3rem;
     overflow: hidden;
-    width: 100%;
-    border-radius: 20px;
+    background: #090d16;
+    border-top: 2px solid #1e293b;
+    border-bottom: 2px solid #1e293b;
+    box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.25);
+    border-radius: 12px;
 }
 
-.brand-slides-track {
+.wholesale-ticker-banner .wtb-link {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    position: relative;
+    padding: 0.95rem 0;
+    cursor: pointer;
+}
+
+/* Hazard diagonal stripes on borders */
+.wholesale-ticker-banner::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: repeating-linear-gradient(
+        -45deg,
+        #ffffff,
+        #ffffff 8px,
+        #090d16 8px,
+        #090d16 16px
+    );
+    opacity: 0.9;
+    z-index: 2;
+}
+
+.wholesale-ticker-banner::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: repeating-linear-gradient(
+        -45deg,
+        #ffffff,
+        #ffffff 8px,
+        #090d16 8px,
+        #090d16 16px
+    );
+    opacity: 0.9;
+    z-index: 2;
+}
+
+.wtb-track {
     display: flex;
-    width: 100%;
-    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    width: max-content;
+    animation: wtbMarquee 38s linear infinite;
     will-change: transform;
 }
 
-.brand-slide-card {
-    min-width: 100%;
-    max-width: 100%;
+.wholesale-ticker-banner:hover .wtb-track {
+    animation-play-state: paused;
+}
+
+@keyframes wtbMarquee {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+.wtb-content {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    padding-right: 1.5rem;
+    white-space: nowrap;
+}
+
+.wtb-tag {
+    background: #ffffff;
+    color: #090d16;
+    font-family: var(--font-body);
+    font-size: 0.72rem;
+    font-weight: 900;
+    letter-spacing: 0.08em;
+    padding: 0.32rem 0.8rem;
+    border-radius: 4px;
+    text-transform: uppercase;
+    box-shadow: 0 2px 8px rgba(255, 255, 255, 0.2);
+}
+
+.wtb-item {
+    font-family: var(--font-body);
+    font-size: 0.84rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    color: #f1f5f9;
+    text-transform: uppercase;
+}
+
+.wtb-item.highlight {
+    color: #38bdf8;
+    font-weight: 800;
+}
+
+.wtb-sep {
+    font-family: monospace;
+    font-size: 0.95rem;
+    font-weight: 900;
+    color: #475569;
+    letter-spacing: 0.1em;
+}
+
+/* ==========================================================================
+   BRANDS WE SELL - HORIZONTAL SELECTOR STRIP & ACTIVE PRODUCT SHELVES
+   ========================================================================== */
+.brand-selector-strip {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    margin: 2rem 0 1.75rem;
+    flex-wrap: wrap;
+}
+
+@media (max-width: 900px) {
+    .brand-selector-strip {
+        justify-content: flex-start;
+        overflow-x: auto;
+        flex-wrap: nowrap;
+        padding: 0.5rem 0.25rem 1rem;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+    }
+    .brand-selector-strip::-webkit-scrollbar {
+        display: none;
+    }
+}
+
+.brand-tab-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.65rem;
+    background: #ffffff;
+    border: 1.5px solid #e2e8f0;
+    border-radius: 9999px;
+    padding: 0.65rem 1.35rem;
+    cursor: pointer;
+    font-family: var(--font-body);
+    transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+    white-space: nowrap;
+    box-shadow: 0 2px 6px rgba(15, 23, 42, 0.03);
+}
+
+.brand-tab-btn:hover {
+    border-color: #0f172a;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(15, 23, 42, 0.08);
+}
+
+.brand-tab-btn.active {
+    background: #0f172a;
+    border-color: #0f172a;
+    color: #ffffff;
+    box-shadow: 0 8px 22px rgba(15, 23, 42, 0.18);
+    transform: translateY(-1px);
+}
+
+.tab-brand-name {
+    font-size: 0.85rem;
+    font-weight: 800;
+    letter-spacing: 0.04em;
+    color: #1e293b;
+    transition: color 0.2s ease;
+}
+
+.brand-tab-btn.active .tab-brand-name {
+    color: #ffffff;
+}
+
+.tab-brand-badge {
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    padding: 0.2rem 0.55rem;
+    border-radius: 9999px;
+    background: #f1f5f9;
+    color: #475569;
+    transition: all 0.2s ease;
+}
+
+.brand-tab-btn.active .tab-brand-badge {
+    background: rgba(255, 255, 255, 0.18);
+    color: #ffffff;
+}
+
+.brand-tab-btn.highlight-tab {
+    border-color: #cbd5e1;
+}
+
+.brand-tab-btn.highlight-tab.active {
+    background: #0f172a;
+    border-color: #0f172a;
+}
+
+.brand-tab-btn.highlight-tab .tab-brand-badge {
+    background: #e0f2fe;
+    color: #0369a1;
+}
+
+.brand-tab-btn.highlight-tab.active .tab-brand-badge {
+    background: rgba(56, 189, 248, 0.25);
+    color: #7dd3fc;
+}
+
+/* Brand Shelves Container & Panel crossfade */
+.brand-shelves-container {
+    position: relative;
     width: 100%;
-    flex-shrink: 0;
+}
+
+.brand-panel {
+    display: none;
+    width: 100%;
+}
+
+.brand-panel.active {
+    display: block;
+    animation: brandShelfFadeIn 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes brandShelfFadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(6px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.brand-slide-card {
+    width: 100%;
     box-sizing: border-box;
     background: #ffffff;
     border: 1.5px solid #e2e8f0;
     border-radius: 20px;
     padding: 2.25rem 2.25rem 2rem;
     box-shadow: 0 10px 30px -5px rgba(15, 23, 42, 0.05), 0 4px 12px rgba(15, 23, 42, 0.02);
-}
-
-.brand-slide-nav-btn {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    z-index: 20;
-    width: 46px;
-    height: 46px;
-    border-radius: 50%;
-    background: #ffffff;
-    border: 1.5px solid #e2e8f0;
-    color: #0f172a;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    box-shadow: 0 6px 20px rgba(15, 23, 42, 0.12);
-    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.brand-slide-nav-btn:hover {
-    background: #0f172a;
-    color: #ffffff;
-    border-color: #0f172a;
-    transform: translateY(-50%) scale(1.1);
-    box-shadow: 0 10px 26px rgba(15, 23, 42, 0.22);
-}
-
-.brand-slide-nav-btn.prev-btn {
-    left: -23px;
-}
-
-.brand-slide-nav-btn.next-btn {
-    right: -23px;
-}
-
-@media (max-width: 1280px) {
-    .brand-slide-nav-btn.prev-btn {
-        left: 10px;
-    }
-    .brand-slide-nav-btn.next-btn {
-        right: 10px;
-    }
-}
-
-/* Brand Slideshow Pagination Dots */
-.brand-slides-pagination {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.55rem;
-    margin-top: 1.5rem;
-    flex-wrap: wrap;
-}
-
-.brand-dot {
-    background: #f8fafc;
-    border: 1.5px solid #e2e8f0;
-    color: #64748b;
-    font-family: var(--font-body);
-    font-size: 0.78rem;
-    font-weight: 700;
-    border-radius: 9999px;
-    padding: 0.4rem 1.15rem;
-    cursor: pointer;
-    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
-    display: inline-flex;
-    align-items: center;
-}
-
-.brand-dot:hover {
-    background: #ffffff;
-    border-color: #0f172a;
-    color: #0f172a;
-}
-
-.brand-dot.active {
-    background: #0f172a;
-    border-color: #0f172a;
-    color: #ffffff;
-    box-shadow: 0 4px 14px rgba(15, 23, 42, 0.15);
 }
