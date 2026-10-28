@@ -68,6 +68,17 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
+    // Dedicated protection: Ensure Get Support / WhatsApp button never triggers any parent or checkout handler
+    document.querySelectorAll('a[href*="wa.me"]').forEach(link => {
+        link.addEventListener('click', (e) => {
+            e.stopPropagation();
+        });
+        // Verify href does not contain accidental checkout query param
+        if (link.href && link.href.includes('checkout=')) {
+            link.href = link.href.replace(/[?&]checkout=[^&]+/, '');
+        }
+    });
+
     // Backdrop click listener to close HDFC modal on outside click
     const hdfcModal = document.getElementById('hdfc-checkout-modal');
     if (hdfcModal) {

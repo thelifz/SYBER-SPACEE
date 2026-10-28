@@ -6,6 +6,16 @@ let CART_ITEMS = [];
 
 document.addEventListener('DOMContentLoaded', () => {
     initCart();
+
+    // Dedicated protection: Ensure Get Support / WhatsApp button never triggers any parent or modal handler
+    document.querySelectorAll('a[href*="wa.me"]').forEach(link => {
+        link.addEventListener('click', (e) => {
+            e.stopPropagation();
+        });
+        if (link.href && link.href.includes('checkout=')) {
+            link.href = link.href.replace(/[?&]checkout=[^&]+/, '');
+        }
+    });
     initJekoSearch();
     initOfferSlideshow();
     initBrandGrid();
