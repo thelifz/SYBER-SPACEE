@@ -1003,19 +1003,24 @@
                 const cartStr = localStorage.getItem('syber_cart') || '[]';
                 let cart = JSON.parse(cartStr);
 
-                const existing = cart.find(item => item.name === title);
+                const existing = cart.find(item => item.name === title || item.title === title);
                 if (existing) {
                     existing.quantity = (existing.quantity || 1) + 1;
                 } else {
                     cart.push({
+                        id: 'prod-' + title.toLowerCase().replace(/[^a-z0-9]+/g, '-'),
+                        title: title,
                         name: title,
-                        price: price,
+                        price: Number(price) || 0,
                         img: img,
+                        image: img,
+                        qty: 1,
                         quantity: 1
                     });
                 }
 
                 localStorage.setItem('syber_cart', JSON.stringify(cart));
+                localStorage.setItem('syber_cart_items', JSON.stringify(cart));
                 updateCartDisplay();
                 showToast(`Added to cart: ${title}`);
             } catch (e) {

@@ -1423,7 +1423,7 @@
             if (!currentProduct) return;
 
             const cart = JSON.parse(localStorage.getItem('syber_cart') || '[]');
-            const existing = cart.find(i => i.name === currentProduct.title);
+            const existing = cart.find(i => (i.name === currentProduct.title || i.title === currentProduct.title || i.id === currentProduct.id));
             
             const imgSrc = (currentProduct.images && currentProduct.images.length > 0) ? currentProduct.images[0] : 'assets/hero_product_solar_v2.png';
 
@@ -1431,9 +1431,16 @@
                 existing.quantity = (existing.quantity || 1) + 1;
             } else {
                 cart.push({
+                    id: currentProduct.id || ('prod-' + currentProduct.title.toLowerCase().replace(/[^a-z0-9]+/g, '-')),
+                    title: currentProduct.title,
                     name: currentProduct.title,
-                    price: currentProduct.price,
+                    brand: currentProduct.brand || 'TRUEVIEW',
+                    price: Number(currentProduct.price) || 0,
+                    mrp: currentProduct.mrp || '',
+                    save: currentProduct.save || '',
+                    img: imgSrc,
                     image: imgSrc,
+                    qty: 1,
                     quantity: 1
                 });
             }

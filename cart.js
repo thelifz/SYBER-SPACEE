@@ -391,7 +391,11 @@ function removeItem(index) {
 
 
 function initiateHdfcCheckout(total) {
-    activeCheckoutTotal = total;
+    if (!total || isNaN(total)) {
+        const cart = getCart();
+        total = cart.reduce((sum, item) => sum + ((item.price || 0) * (item.qty || item.quantity || 1)), 0);
+    }
+    activeCheckoutTotal = Number(total) || 0;
     currentOrderRef = `SS-HDFC-${Math.floor(100000 + Math.random() * 900000)}`;
 
     const modal = document.getElementById('hdfc-checkout-modal');

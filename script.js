@@ -58,6 +58,8 @@ document.addEventListener('DOMContentLoaded', () => {
                     top: offsetPosition,
                     behavior: 'smooth'
                 });
+            } else {
+                window.location.href = 'product.html?scroll=showcase';
             }
         });
     });
