@@ -3170,28 +3170,71 @@ body.pdp-dark-mode .iphone-search-btn {
 }
 
 @media (max-width: 680px) {
+    .iphone-header-wrapper,
+    .jeko-header-wrap {
+        padding: 0.35rem 0.75rem 0 !important;
+        box-sizing: border-box !important;
+        top: 0 !important;
+    }
+
     .iphone-header-glass,
     .jeko-header-bar {
-        flex-wrap: wrap;
-        border-radius: 16px;
-        gap: 0.65rem;
-        padding: 0.6rem 0.85rem;
+        flex-wrap: wrap !important;
+        border-radius: 0 !important;
+        gap: 0.4rem !important;
+        padding: 0.25rem 0 !important;
+        align-items: center !important;
+    }
+
+    .iphone-action-link .ia-text-col {
+        display: none !important;
+    }
+
+    .iphone-action-link {
+        padding: 6px !important;
+        gap: 0 !important;
+        min-width: 36px !important;
+        height: 36px !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        border-radius: 50% !important;
+        background: rgba(15, 23, 42, 0.04) !important;
+    }
+
+    .iphone-actions-group {
+        gap: 0.45rem !important;
     }
 
     .iphone-search-wrapper,
     .jeko-search-container {
-        order: 3;
-        max-width: 100%;
-        width: 100%;
-        margin: 0.25rem 0 0;
+        order: 3 !important;
+        max-width: 100% !important;
+        width: 100% !important;
+        margin: 0.25rem 0 0 !important;
+    }
+
+    .iphone-search-box {
+        height: 36px !important;
+        border-radius: 18px !important;
+    }
+
+    .iphone-search-input {
+        font-size: 0.8rem !important;
+        padding: 0 0.75rem !important;
+    }
+
+    .btn-search-icon {
+        width: 38px !important;
     }
 
     .brand-title {
-        font-size: 1.05rem;
+        font-size: 1.1rem !important;
     }
 
     .brand-slogan {
-        font-size: 0.55rem;
+        font-size: 0.52rem !important;
+        letter-spacing: 0.12em !important;
     }
 
     .coffee-products-grid {
@@ -3199,8 +3242,13 @@ body.pdp-dark-mode .iphone-search-btn {
         gap: 1.25rem;
     }
 
+    .slide-title {
+        font-size: 1.45rem !important;
+        line-height: 1.18 !important;
+    }
+
     .hero-primary-heading {
-        font-size: 2.2rem;
+        font-size: 1.6rem !important;
     }
 }
 
@@ -7279,5 +7327,353 @@ body.dark .btn-carousel-nav {
     }
     .brand-slide-nav-btn.next-btn {
         right: 2px;
+    }
+}
+
+/* ==========================================================================
+   DEDICATED LUXURY MOBILE PHONE ARCHITECTURE (MAX-WIDTH: 860px)
+   Compact surface area optimization, clean hierarchy, zero clutter
+   ========================================================================== */
+@media (max-width: 860px) {
+    /* 0. Header Mobile Isolation (Solid White Canvas, Zero Content Bleedthrough) */
+    .iphone-header-wrapper {
+        background: #ffffff !important;
+        border-bottom: 1px solid rgba(15, 23, 42, 0.08) !important;
+        padding: 0.4rem 0.85rem 0.5rem !important;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03) !important;
+        pointer-events: auto !important;
+    }
+    .iphone-action-link.desktop-only,
+    .desktop-only {
+        display: none !important;
+    }
+    .iphone-actions-group {
+        display: flex !important;
+        align-items: center !important;
+        gap: 0.5rem !important;
+        flex-shrink: 0 !important;
+    }
+    .iphone-header-glass {
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+    }
+
+    /* 1. Viewport & Stage Stack */
+    .asus-stage-container {
+        height: auto !important;
+    }
+    .asus-stage-viewport {
+        height: auto !important;
+        max-height: none !important;
+        position: relative !important;
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 1.15rem !important;
+        padding: 0.5rem 0.85rem 5.5rem !important;
+    }
+
+    /* 2. Order 1: Center Camera Stage (Clean, Compact, Minimal) */
+    .asus-center-stage {
+        order: 1 !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        min-height: auto !important;
+        height: auto !important;
+        padding: 0.25rem 0 !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: center !important;
+    }
+    .asus-center-stage::before {
+        display: none !important;
+    }
+    .asus-product-visual-wrap {
+        width: 250px !important;
+        height: 220px !important;
+        margin: 0 auto !important;
+        position: relative !important;
+    }
+    .pdp-camera-deck {
+        width: 100% !important;
+        height: 210px !important;
+        position: relative !important;
+    }
+    .pdp-stage-img {
+        max-height: 200px !important;
+        max-width: 240px !important;
+        object-fit: contain !important;
+    }
+    .asus-product-shadow {
+        bottom: 2px !important;
+        width: 160px !important;
+        height: 12px !important;
+    }
+    /* Remove zoom pill & rings on phone */
+    .asus-zoom-pill,
+    .asus-ring-1,
+    .asus-ring-2,
+    .asus-ring-3 {
+        display: none !important;
+    }
+
+    /* 3. Order 2: Buy Dock (Title, Price, Thumbnails, Instant Purchase) */
+    .asus-buy-dock {
+        order: 2 !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+    .abd-badge-row {
+        margin-bottom: 0.35rem !important;
+        gap: 0.4rem !important;
+    }
+    .abd-pill-badge,
+    .abd-status-badge {
+        font-size: 0.65rem !important;
+        padding: 3px 8px !important;
+    }
+    .abd-brand {
+        font-size: 0.72rem !important;
+        letter-spacing: 0.08em !important;
+        margin-bottom: 0.2rem !important;
+    }
+    .abd-product-title {
+        font-size: 1.25rem !important;
+        line-height: 1.22 !important;
+        margin-bottom: 0.35rem !important;
+        color: #0f172a !important;
+    }
+    .abd-model-code {
+        font-size: 0.68rem !important;
+        margin-bottom: 0.55rem !important;
+    }
+    .pdp-gallery-strip {
+        display: flex !important;
+        gap: 0.4rem !important;
+        margin-bottom: 0.65rem !important;
+        justify-content: flex-start !important;
+        overflow-x: auto !important;
+        -webkit-overflow-scrolling: touch !important;
+        padding-bottom: 4px !important;
+    }
+    .pdp-gallery-thumb {
+        width: 44px !important;
+        height: 44px !important;
+        border-radius: 8px !important;
+        flex-shrink: 0 !important;
+        padding: 2px !important;
+    }
+    .pdp-gallery-thumb-tag {
+        font-size: 0.58rem !important;
+        padding: 1px 3px !important;
+    }
+    .abd-rating-strip {
+        font-size: 0.78rem !important;
+        margin-bottom: 0.5rem !important;
+        gap: 0.35rem !important;
+    }
+    .abd-stars {
+        font-size: 0.85rem !important;
+    }
+    .abd-price-box {
+        padding: 0.55rem 0.85rem !important;
+        margin-bottom: 0.45rem !important;
+        border-radius: 10px !important;
+    }
+    .abd-price-val {
+        font-size: 1.85rem !important;
+    }
+    .abd-currency {
+        font-size: 1.15rem !important;
+    }
+    .abd-mrp {
+        font-size: 0.85rem !important;
+    }
+    .abd-discount {
+        font-size: 0.72rem !important;
+        padding: 2px 6px !important;
+    }
+    .abd-tax-note {
+        font-size: 0.72rem !important;
+        margin-bottom: 0.55rem !important;
+    }
+    .abd-perks {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 0.3rem !important;
+        margin-bottom: 0.85rem !important;
+    }
+    .abd-perk-item {
+        font-size: 0.75rem !important;
+        gap: 0.4rem !important;
+    }
+    .abd-actions {
+        display: grid !important;
+        grid-template-columns: 1fr 1fr !important;
+        gap: 0.55rem !important;
+        margin-bottom: 0.5rem !important;
+    }
+    .btn-abd-cart,
+    .btn-abd-buynow {
+        height: 44px !important;
+        font-size: 0.82rem !important;
+        border-radius: 10px !important;
+        letter-spacing: 0.04em !important;
+    }
+    .abd-footnote {
+        font-size: 0.68rem !important;
+    }
+
+    /* 4. Order 3: Subsystems Features Col */
+    .asus-features-col {
+        order: 3 !important;
+        width: 100% !important;
+        padding: 1.15rem 0 0 !important;
+        border-top: 1px solid rgba(15, 23, 42, 0.08) !important;
+    }
+    .asus-features-header-micro {
+        height: 1px !important;
+        margin-bottom: 0.65rem !important;
+    }
+    .asus-feature-card {
+        padding: 0.45rem 0 !important;
+        margin-bottom: 0.25rem !important;
+    }
+    .afc-kicker {
+        font-size: 0.68rem !important;
+        letter-spacing: 0.08em !important;
+        margin-bottom: 0.15rem !important;
+    }
+    .afc-title {
+        font-size: 1.05rem !important;
+        line-height: 1.25 !important;
+        margin-bottom: 0.2rem !important;
+    }
+    .afc-desc {
+        font-size: 0.82rem !important;
+        line-height: 1.45 !important;
+    }
+    .asus-feature-card.active .afc-details {
+        max-height: 180px !important;
+        margin-top: 0.25rem !important;
+    }
+
+    /* 5. Mobile Sticky Bottom Purchase Dock */
+    .mobile-sticky-dock {
+        position: fixed !important;
+        bottom: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
+        height: 56px !important;
+        z-index: 1000 !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: space-between !important;
+        padding: 0 0.85rem !important;
+        background: rgba(255, 255, 255, 0.96) !important;
+        backdrop-filter: blur(16px) !important;
+        -webkit-backdrop-filter: blur(16px) !important;
+        border-top: 1px solid rgba(15, 23, 42, 0.08) !important;
+        box-shadow: 0 -4px 18px rgba(0, 0, 0, 0.06) !important;
+    }
+    .msd-price-col {
+        display: flex !important;
+        flex-direction: column !important;
+        line-height: 1.1 !important;
+    }
+    .msd-sub {
+        font-size: 0.58rem !important;
+        letter-spacing: 0.1em !important;
+        font-weight: 700 !important;
+        color: #64748b !important;
+        text-transform: uppercase !important;
+    }
+    .msd-price {
+        font-size: 1.15rem !important;
+        font-weight: 800 !important;
+        color: #0f172a !important;
+    }
+    .msd-actions {
+        display: flex !important;
+        align-items: center !important;
+        gap: 0.45rem !important;
+    }
+    .msd-btn-cart {
+        height: 38px !important;
+        padding: 0 0.85rem !important;
+        border-radius: 9px !important;
+        font-size: 0.78rem !important;
+        font-weight: 700 !important;
+        background: #ffffff !important;
+        color: #0f172a !important;
+        border: 1.5px solid #0f172a !important;
+        cursor: pointer !important;
+        display: flex !important;
+        align-items: center !important;
+        gap: 0.35rem !important;
+    }
+    .msd-btn-buynow {
+        height: 38px !important;
+        padding: 0 0.95rem !important;
+        border-radius: 9px !important;
+        font-size: 0.78rem !important;
+        font-weight: 700 !important;
+        background: #0f172a !important;
+        color: #ffffff !important;
+        border: none !important;
+        cursor: pointer !important;
+    }
+
+    /* 6. Deep Dive & Accessory Sections on Phone */
+    .pdp-fbt-box,
+    .pdp-specs-box,
+    .pdp-recommended-section {
+        padding: 1.15rem 0.85rem !important;
+        border-radius: 14px !important;
+        margin: 1.25rem 0.65rem !important;
+    }
+    .fbt-title,
+    .specs-box-title,
+    .pdp-rec-title {
+        font-size: 1.2rem !important;
+    }
+    .specs-grid-table {
+        grid-template-columns: 1fr !important;
+        gap: 0.4rem !important;
+    }
+    .spec-item {
+        padding: 0.5rem 0.65rem !important;
+        font-size: 0.78rem !important;
+    }
+    .pdp-similar-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 0.65rem !important;
+    }
+    .similar-item-card {
+        padding: 0.65rem !important;
+    }
+    .sim-img-wrap {
+        height: 110px !important;
+    }
+    .sim-title {
+        font-size: 0.78rem !important;
+    }
+    .sim-price {
+        font-size: 0.92rem !important;
+    }
+    .btn-sim-view {
+        height: 28px !important;
+        font-size: 0.68rem !important;
+        padding: 0 0.5rem !important;
+    }
+}
+
+/* Hide mobile sticky dock on desktop */
+@media (min-width: 861px) {
+    .mobile-sticky-dock {
+        display: none !important;
     }
 }

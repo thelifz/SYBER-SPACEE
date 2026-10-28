@@ -1137,6 +1137,8 @@
             if (buyTitle) buyTitle.textContent = p.title;
             if (modelCode) modelCode.textContent = showcaseData.modelCode;
             if (priceVal) priceVal.textContent = Number(p.price).toLocaleString('en-IN');
+            const msdPrice = document.getElementById('msd-price-val');
+            if (msdPrice) msdPrice.textContent = '₹' + Number(p.price).toLocaleString('en-IN');
             if (mrpVal && p.mrp) mrpVal.textContent = `${p.mrp} M.R.P.`;
             if (discountVal && p.save) discountVal.textContent = p.save.toUpperCase();
             if (badgePill && p.badge) badgePill.textContent = p.badge.toUpperCase();
@@ -1200,34 +1202,32 @@
                 showcaseTl.kill();
             }
 
-            // Pin stage viewport with GSAP ScrollTrigger
-            showcaseTl = gsap.timeline({
-                scrollTrigger: {
-                    trigger: '#asus-stage-viewport',
-                    start: 'top top+=74',
-                    end: '+=1800',
-                    pin: true,
-                    scrub: true,
-                    anticipatePin: 1,
-                    invalidateOnRefresh: true,
-                    onUpdate: (self) => {
-                        if (isProgrammaticScroll) return;
-                        const progress = self.progress;
-                        const count = SHOWCASE_FEATURE_DATA.length;
-                        if (count === 0) return;
-                        const targetIdx = Math.min(count - 1, Math.floor(progress * count));
-                        
-                        if (targetIdx !== currentShowcaseIndex) {
-                            setActiveShowcaseFeature(targetIdx);
+            // Only pin with ScrollTrigger on desktop viewports (> 860px)
+            if (window.innerWidth > 860) {
+                showcaseTl = gsap.timeline({
+                    scrollTrigger: {
+                        trigger: '#asus-stage-viewport',
+                        start: 'top top+=74',
+                        end: '+=1800',
+                        pin: true,
+                        scrub: true,
+                        anticipatePin: 1,
+                        invalidateOnRefresh: true,
+                        onUpdate: (self) => {
+                            if (isProgrammaticScroll) return;
+                            const progress = self.progress;
+                            const count = SHOWCASE_FEATURE_DATA.length;
+                            if (count === 0) return;
+                            const targetIdx = Math.min(count - 1, Math.floor(progress * count));
+                            
+                            if (targetIdx !== currentShowcaseIndex) {
+                                setActiveShowcaseFeature(targetIdx);
+                            }
                         }
-
-                        // Product stays completely still and upright (NO TILTING)
-                        // Upright presence maintained by deck CSS without inline fight
                     }
-                }
-            });
-
-            ScrollTrigger.refresh();
+                });
+                ScrollTrigger.refresh();
+            }
         }
 
         let isProgrammaticScroll = false;
@@ -1826,5 +1826,21 @@
             });
         }
     </script>
+
+    <!-- MOBILE STICKY PURCHASE BAR -->
+    <div class="mobile-sticky-dock" id="mobile-sticky-dock">
+        <div class="msd-price-col">
+            <span class="msd-sub">WHOLESALE</span>
+            <strong class="msd-price" id="msd-price-val">₹0</strong>
+        </div>
+        <div class="msd-actions">
+            <button type="button" class="msd-btn-cart" onclick="addProductToCart(false)">
+                <span>+ CART</span>
+            </button>
+            <button type="button" class="msd-btn-buynow" onclick="addProductToCart(true)">
+                <span>BUY NOW</span>
+            </button>
+        </div>
+    </div>
 </body>
 </html>
