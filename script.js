@@ -1244,26 +1244,26 @@ function openProductShowcase(productId) {
 }
 
 // ==========================================================================
-// BRANDS WE SELL - TAB SELECTOR & PRODUCT SHELF CONTROLLER
+// BRANDS WE SELL - SLIDESHOW & TAB SELECTOR CONTROLLER (NO OUTER BOX)
 // ==========================================================================
 const BRAND_KEYS = ['TRUEVIEW', 'CPPLUS', 'IDADA', 'SEAGATE', 'INFRASTRUCTURE', 'SUGGESTED'];
-let activeBrandKey = 'TRUEVIEW';
+let currentBrandIndex = 0;
+let brandAutoSlideTimer = null;
 
-function selectBrandTab(brandKey) {
-    if (!brandKey) return;
-    const cleanKey = brandKey.toUpperCase().replace(/[^A-Z]/g, '');
-    let target = cleanKey;
-    if (cleanKey === 'CP' || cleanKey === 'CPPLUS') target = 'CPPLUS';
-    else if (cleanKey === 'BESTSELLER' || cleanKey === 'SUGGESTED' || cleanKey === 'TOPPICKS') target = 'SUGGESTED';
-    else if (cleanKey === 'INFRA') target = 'INFRASTRUCTURE';
+function goToBrandSlide(idx) {
+    currentBrandIndex = (idx + BRAND_KEYS.length) % BRAND_KEYS.length;
+    const track = document.getElementById('brandSlidesTrack');
+    if (track) {
+        track.style.transform = `translateX(-${currentBrandIndex * 100}%)`;
+    }
 
-    activeBrandKey = target;
+    const currentKey = BRAND_KEYS[currentBrandIndex];
 
-    // 1. Update Tabs
+    // Update active tab button
     const tabs = document.querySelectorAll('.brand-tab-btn');
     let matchedTab = null;
     tabs.forEach(tab => {
-        if (tab.getAttribute('data-brand-target') === target) {
+        if (tab.getAttribute('data-brand-target') === currentKey) {
             tab.classList.add('active');
             tab.setAttribute('aria-selected', 'true');
             matchedTab = tab;
@@ -1273,17 +1273,6 @@ function selectBrandTab(brandKey) {
         }
     });
 
-    // 2. Update Panels
-    const panels = document.querySelectorAll('.brand-panel');
-    panels.forEach(panel => {
-        if (panel.getAttribute('data-brand') === target) {
-            panel.classList.add('active');
-        } else {
-            panel.classList.remove('active');
-        }
-    });
-
-    // Scroll active tab into view for horizontal mobile strip
     if (matchedTab && typeof matchedTab.scrollIntoView === 'function') {
         const strip = document.querySelector('.brand-selector-strip');
         if (strip && strip.scrollWidth > strip.clientWidth) {
@@ -1292,27 +1281,80 @@ function selectBrandTab(brandKey) {
     }
 }
 
-// Backwards compatibility / external navigation
+function nextBrandSlide() {
+    goToBrandSlide(currentBrandIndex + 1);
+}
+
+function prevBrandSlide() {
+    goToBrandSlide(currentBrandIndex - 1);
+}
+
+function selectBrandTab(brandKey) {
+    if (!brandKey) return;
+    const cleanKey = brandKey.toUpperCase().replace(/[^A-Z]/g, '');
+    let target = cleanKey;
+    if (cleanKey === 'CP' || cleanKey === 'CPPLUS') target = 'CPPLUS';
+    else if (cleanKey === 'BESTSELLER' || cleanKey === 'SUGGESTED' || cleanKey === 'TOPPICKS') target = 'SUGGESTED';
+    else if (cleanKey === 'INFRA') target = 'INFRASTRUCTURE';
+
+    const idx = BRAND_KEYS.indexOf(target);
+    if (idx !== -1) {
+        goToBrandSlide(idx);
+    }
+}
+
 function switchBrandDisplay(brandKey) {
     selectBrandTab(brandKey);
     const sec = document.getElementById('categories-by-brand');
     if (sec) sec.scrollIntoView({ behavior: 'smooth' });
 }
 
-function goToBrandSlide(idx) {
-    const key = BRAND_KEYS[(idx + BRAND_KEYS.length) % BRAND_KEYS.length];
-    selectBrandTab(key);
+function startBrandAutoSlide() {
+    pauseBrandAutoSlide();
+    brandAutoSlideTimer = setInterval(() => {
+        nextBrandSlide();
+    }, 4200);
 }
 
-function nextBrandSlide() {
-    const currentIdx = BRAND_KEYS.indexOf(activeBrandKey);
-    goToBrandSlide(currentIdx + 1);
+function pauseBrandAutoSlide() {
+    if (brandAutoSlideTimer) {
+        clearInterval(brandAutoSlideTimer);
+        brandAutoSlideTimer = null;
+    }
 }
 
-function prevBrandSlide() {
-    const currentIdx = BRAND_KEYS.indexOf(activeBrandKey);
-    goToBrandSlide(currentIdx - 1);
+function resumeBrandAutoSlide() {
+    startBrandAutoSlide();
 }
 
-function pauseBrandAutoSlide() {}
-function resumeBrandAutoSlide() {}
+// Touch swipe support on brand slideshow viewport
+function initBrandSlideshow() {
+    startBrandAutoSlide();
+
+    const viewport = document.getElementById('brandSlidesViewport');
+    if (viewport) {
+        let touchStartX = 0;
+        let touchEndX = 0;
+
+        viewport.addEventListener('touchstart', (e) => {
+            touchStartX = e.changedTouches[0].screenX;
+            pauseBrandAutoSlide();
+        }, { passive: true });
+
+        viewport.addEventListener('touchend', (e) => {
+            touchEndX = e.changedTouches[0].screenX;
+            if (touchStartX - touchEndX > 50) {
+                nextBrandSlide();
+            } else if (touchEndX - touchStartX > 50) {
+                prevBrandSlide();
+            }
+            resumeBrandAutoSlide();
+        }, { passive: true });
+    }
+}
+
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initBrandSlideshow);
+} else {
+    initBrandSlideshow();
+}
