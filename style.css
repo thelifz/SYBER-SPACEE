@@ -6968,18 +6968,48 @@ body.dark .btn-carousel-nav {
 
 
 /* ==========================================================================
-   WHOLESALE & B2B TICKER MARQUEE BANNER (Obsidian & Platinum)
+   WHOLESALE & B2B TICKER MARQUEE BANNER (White Background with Black Words)
    ========================================================================== */
 .wholesale-ticker-banner {
     position: relative;
     width: 100%;
-    margin: 2rem 0 3rem;
+    margin: 1.5rem 0 2.5rem;
     overflow: hidden;
-    background: #090d16;
-    border-top: 2px solid #1e293b;
-    border-bottom: 2px solid #1e293b;
-    box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.25);
+    background: #ffffff;
+    border: 1.5px solid #e2e8f0;
+    box-shadow: 0 4px 16px rgba(15, 23, 42, 0.04);
     border-radius: 12px;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.wholesale-ticker-banner:hover {
+    border-color: #cbd5e1;
+    box-shadow: 0 6px 20px rgba(15, 23, 42, 0.07);
+}
+
+/* Smooth edge gradient fade masks */
+.wholesale-ticker-banner::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50px;
+    height: 100%;
+    background: linear-gradient(to right, #ffffff, rgba(255, 255, 255, 0));
+    z-index: 2;
+    pointer-events: none;
+}
+
+.wholesale-ticker-banner::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 50px;
+    height: 100%;
+    background: linear-gradient(to left, #ffffff, rgba(255, 255, 255, 0));
+    z-index: 2;
+    pointer-events: none;
 }
 
 .wholesale-ticker-banner .wtb-link {
@@ -6989,43 +7019,7 @@ body.dark .btn-carousel-nav {
     position: relative;
     padding: 0.95rem 0;
     cursor: pointer;
-}
-
-/* Hazard diagonal stripes on borders */
-.wholesale-ticker-banner::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 3px;
-    background: repeating-linear-gradient(
-        -45deg,
-        #ffffff,
-        #ffffff 8px,
-        #090d16 8px,
-        #090d16 16px
-    );
-    opacity: 0.9;
-    z-index: 2;
-}
-
-.wholesale-ticker-banner::after {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 3px;
-    background: repeating-linear-gradient(
-        -45deg,
-        #ffffff,
-        #ffffff 8px,
-        #090d16 8px,
-        #090d16 16px
-    );
-    opacity: 0.9;
-    z-index: 2;
+    background: #ffffff;
 }
 
 .wtb-track {
@@ -7051,14 +7045,14 @@ body.dark .btn-carousel-nav {
 .wtb-content {
     display: flex;
     align-items: center;
-    gap: 1.5rem;
-    padding-right: 1.5rem;
+    gap: 1.6rem;
+    padding-right: 1.6rem;
     white-space: nowrap;
 }
 
 .wtb-tag {
-    background: #ffffff;
-    color: #090d16;
+    background: #0f172a;
+    color: #ffffff;
     font-family: var(--font-body);
     font-size: 0.72rem;
     font-weight: 900;
@@ -7066,29 +7060,29 @@ body.dark .btn-carousel-nav {
     padding: 0.32rem 0.8rem;
     border-radius: 4px;
     text-transform: uppercase;
-    box-shadow: 0 2px 8px rgba(255, 255, 255, 0.2);
 }
 
 .wtb-item {
     font-family: var(--font-body);
-    font-size: 0.84rem;
-    font-weight: 700;
+    font-size: 0.85rem;
+    font-weight: 800;
     letter-spacing: 0.06em;
-    color: #f1f5f9;
+    color: #0f172a;
     text-transform: uppercase;
 }
 
 .wtb-item.highlight {
-    color: #38bdf8;
-    font-weight: 800;
+    color: #000000;
+    font-weight: 900;
+    letter-spacing: 0.07em;
 }
 
 .wtb-sep {
     font-family: monospace;
     font-size: 0.95rem;
     font-weight: 900;
-    color: #475569;
-    letter-spacing: 0.1em;
+    color: #94a3b8;
+    letter-spacing: 0.12em;
 }
 
 /* ==========================================================================
