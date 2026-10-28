@@ -249,82 +249,11 @@
         }, delayMs);
     }
 
-    // Build and Inject Cookie & Location Bar (Zero Box / Luxury Sand Style)
+    // Silently initialize Cookie & Delivery Preferences with zero popup banners
     function injectCookieBanner() {
-        const consent = getCookie('syber_cookie_consent');
-        if (consent) {
-            // Already consented; ensure header pill reflects saved location
-            const savedCity = getCookie('syber_user_city') || 'Kochi';
-            const savedPin = getCookie('syber_user_pincode') || '682031';
-            updateHeaderDeliveryPill(savedCity, savedPin);
-            return;
-        }
-
-        // Check if banner already in DOM
-        if (document.getElementById('syber-cookie-banner')) return;
-
-        const banner = document.createElement('aside');
-        banner.id = 'syber-cookie-banner';
-        banner.className = 'syber-cookie-banner';
-        banner.setAttribute('role', 'region');
-        banner.setAttribute('aria-label', 'Cookie Consent & Delivery Location Settings');
-
-        banner.innerHTML = `
-            <div class="cookie-banner-container">
-                <div class="cookie-banner-left">
-                    <div class="cookie-kicker">
-                        <span>PRIVACY & LOCATION PREFERENCES // DPDP ACT 2023 COMPLIANT</span>
-                    </div>
-                    <p class="cookie-text">
-                        We use essential cookies to maintain your encrypted hardware procurement session, verify HDFC SmartGateway™ transactions, and check real-time courier dispatch availability for your city.
-                    </p>
-                </div>
-
-                <div class="cookie-banner-actions">
-                    <button type="button" class="cookie-btn cookie-btn-location" id="cookie-detect-loc-btn" title="Detect delivery location via GPS">
-                        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-                        <span>Detect Location</span>
-                    </button>
-                    <button type="button" class="cookie-btn cookie-btn-accept" id="cookie-accept-all-btn">
-                        <span>Accept All</span>
-                    </button>
-                    <button type="button" class="cookie-btn cookie-btn-essential" id="cookie-essential-btn">
-                        <span>Essential Only</span>
-                    </button>
-                    <button type="button" class="cookie-close-btn" id="cookie-close-x-btn" aria-label="Dismiss cookie notice">✕</button>
-                </div>
-            </div>
-        `;
-
-        document.body.appendChild(banner);
-
-        // Bind Actions
-        document.getElementById('cookie-detect-loc-btn').addEventListener('click', () => {
-            triggerLocationDetection(true);
-        });
-
-        document.getElementById('cookie-accept-all-btn').addEventListener('click', () => {
-            setCookie('syber_cookie_consent', 'accepted', 365);
-            // If location not yet detected, trigger silent location check
-            if (!getCookie('syber_user_city')) {
-                triggerLocationDetection(false);
-            }
-            dismissCookieBanner(100);
-        });
-
-        document.getElementById('cookie-essential-btn').addEventListener('click', () => {
-            setCookie('syber_cookie_consent', 'essential', 365);
-            dismissCookieBanner(100);
-        });
-
-        document.getElementById('cookie-close-x-btn').addEventListener('click', () => {
-            setCookie('syber_cookie_consent', 'essential', 30);
-            dismissCookieBanner(0);
-        });
-
-        // Initialize header pill
-        const savedCity = getCookie('syber_user_city') || 'Set Location';
-        const savedPin = getCookie('syber_user_pincode') || '';
+        setCookie('syber_cookie_consent', 'accepted', 365);
+        const savedCity = getCookie('syber_user_city') || 'Kochi';
+        const savedPin = getCookie('syber_user_pincode') || '682001';
         updateHeaderDeliveryPill(savedCity, savedPin);
     }
 

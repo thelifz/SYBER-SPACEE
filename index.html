@@ -355,25 +355,6 @@
                         <p class="brand-sec-subtitle">Genuine surveillance systems with direct partner pricing.</p>
                     </div>
 
-                    <!-- Brand Switcher Tabs -->
-                    <div class="brand-tabs-strip">
-                        <button type="button" class="brand-tab-btn active" data-brand="TRUEVIEW" onclick="switchBrandDisplay('TRUEVIEW', this)">
-                            TRUEVIEW <span class="brand-tab-count">31</span>
-                        </button>
-                        <button type="button" class="brand-tab-btn" data-brand="CPPLUS" onclick="switchBrandDisplay('CPPLUS', this)">
-                            CP PLUS <span class="brand-tab-count">9</span>
-                        </button>
-                        <button type="button" class="brand-tab-btn" data-brand="IDADA" onclick="switchBrandDisplay('IDADA', this)">
-                            iDADA <span class="brand-tab-count">14</span>
-                        </button>
-                        <button type="button" class="brand-tab-btn" data-brand="SEAGATE" onclick="switchBrandDisplay('SEAGATE', this)">
-                            SEAGATE <span class="brand-tab-count">3</span>
-                        </button>
-                        <button type="button" class="brand-tab-btn" data-brand="INFRASTRUCTURE" onclick="switchBrandDisplay('INFRASTRUCTURE', this)">
-                            INFRASTRUCTURE <span class="brand-tab-count">22</span>
-                        </button>
-                    </div>
-
                     <!-- Main Brand Featured Showcase Card -->
                     <div class="brand-display-card" id="brandDisplayCard">
                         
@@ -799,10 +780,10 @@
                 <div class="footer-links-col">
                     <h4 class="footer-col-title">TOP BRANDS</h4>
                     <ul class="footer-links">
-                        <li><a href="#categories-by-brand" onclick="triggerBubbleTakeover(event, 'TRUEVIEW')">Trueview Surveillance</a></li>
-                        <li><a href="#categories-by-brand" onclick="triggerBubbleTakeover(event, 'CPPLUS')">CP Plus Authorized</a></li>
-                        <li><a href="#categories-by-brand" onclick="triggerBubbleTakeover(event, 'IDADA')">iDADA Smart Security</a></li>
-                        <li><a href="#categories-by-brand" onclick="triggerBubbleTakeover(event, 'SEAGATE')">Seagate SkyHawk</a></li>
+                        <li><a href="#categories-by-brand">Trueview Surveillance</a></li>
+                        <li><a href="#categories-by-brand">CP Plus Authorized</a></li>
+                        <li><a href="#categories-by-brand">iDADA Smart Security</a></li>
+                        <li><a href="#categories-by-brand">Seagate SkyHawk</a></li>
                     </ul>
                 </div>
 
@@ -826,29 +807,7 @@
     </footer>
 
 
-        <!-- ======================================================================
-         BRAND BUBBLE TAKEOVER OVERLAY ("THE CAMERA BALLOON")
-         Covers page below header with brand products
-         ====================================================================== -->
-    <div class="brand-takeover-overlay" id="brandTakeoverOverlay" onclick="handleTakeoverBgClick(event)">
-        <div class="brand-takeover-bubble" id="brandTakeoverBubble"></div>
-        <div class="brand-takeover-content" id="brandTakeoverContent" onclick="handleTakeoverBgClick(event)">
-            <div class="bto-header-wrap">
-                <div class="bto-header">
-                    <div class="bto-brand-meta">
-                        <span class="bto-kicker" id="btoKicker">AUTHORIZED BRAND SHOWCASE</span>
-                        <h2 class="bto-brand-title" id="btoTitle">TRUEVIEW</h2>
-                        <div class="bto-brand-subtitle" id="btoSubtitle">32 products available &bull; Official Manufacturer Warranty &bull; Direct Kerala Dispatch</div>
-                    </div>
-                    <div class="bto-header-actions">
-                        <button type="button" class="btn-bto-close-pill" onclick="closeBubbleTakeover()" aria-label="Close Brand Showcase">
-                            <span>CLOSE</span>
-                            <span class="bto-close-x">&times;</span>
-                        </button>
-                    </div>
-                </div>
-            </div>
-            <div class="bto-products-grid" id="btoProductsGrid">
+        <div class="bto-products-grid" id="btoProductsGrid">
                 <!-- Rendered by JS -->
             </div>
         </div>
