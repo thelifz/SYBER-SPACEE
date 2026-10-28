@@ -58,15 +58,22 @@ a {
 html {
     font-size: 16px;
     background-color: var(--c-bg);
-    overscroll-behavior: none;
+    overscroll-behavior: none !important;
+    overscroll-behavior-y: none !important;
+    overscroll-behavior-x: none !important;
 }
 
 body {
-    overscroll-behavior: none;
+    overscroll-behavior: none !important;
+    overscroll-behavior-y: none !important;
+    overscroll-behavior-x: none !important;
+    overflow-x: clip;
 }
 
 html, body {
-    overscroll-behavior: none;
+    overscroll-behavior: none !important;
+    overscroll-behavior-y: none !important;
+    overscroll-behavior-x: none !important;
 }
 
 body.jeko-theme-white {
@@ -4404,8 +4411,8 @@ body.pdp-dark-mode .iphone-search-btn {
     height: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    padding-top: 0;
+    justify-content: flex-start;
+    padding-top: 2rem;
     padding-right: 1.5rem;
     overflow: visible;
 }
@@ -4457,16 +4464,15 @@ body.pdp-dark-mode .iphone-search-btn {
     box-shadow: none;
     opacity: 0.28;
     filter: blur(1.8px);
-    transform: scale(0.98);
-    transform-origin: left center;
+    transform: none !important;
     cursor: pointer;
-    transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1), transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.3s;
+    transition: opacity 0.25s ease, filter 0.25s ease;
 }
 
 .asus-feature-card:hover {
     opacity: 0.72;
     filter: blur(0px);
-    transform: scale(1);
+    transform: none !important;
 }
 
 .asus-feature-card.active {
@@ -4476,7 +4482,7 @@ body.pdp-dark-mode .iphone-search-btn {
     box-shadow: none;
     padding-left: 0;
     background: transparent;
-    transform: scale(1);
+    transform: none !important;
 }
 
 /* Smooth Editorial Details: Inactive collapses smoothly, Active unfolds */
@@ -4484,15 +4490,13 @@ body.pdp-dark-mode .iphone-search-btn {
     max-height: 0;
     opacity: 0;
     overflow: hidden;
-    transition: max-height 0.45s cubic-bezier(0.16, 1, 0.3, 1), 
-                opacity 0.35s ease, 
-                margin-top 0.35s ease;
+    transition: max-height 0.3s ease, opacity 0.25s ease;
 }
 
 .asus-feature-card.active .afc-details {
-    max-height: 260px;
+    max-height: 220px;
     opacity: 1;
-    margin-top: 0.45rem;
+    margin-top: 0.35rem;
 }
 
 .afc-header {
