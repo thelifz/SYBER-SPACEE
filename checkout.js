@@ -178,7 +178,7 @@ function loadCheckoutSummary() {
     if (grandEl) grandEl.innerHTML = `&#8377;${activeTotal.toLocaleString('en-IN')}`;
 
     const payLabel = document.getElementById('btn-pay-label');
-    if (payLabel) payLabel.textContent = `PAY &#8377;${activeTotal.toLocaleString('en-IN')} VIA HDFC SMARTGATEWAY`;
+    if (payLabel) payLabel.innerHTML = `PAY &#8377;${activeTotal.toLocaleString('en-IN')} VIA HDFC SMARTGATEWAY`;
 }
 
 // =============================================================================
@@ -206,7 +206,7 @@ function switchCheckoutRail(rail, btnElement) {
     const payLabel = document.getElementById('btn-pay-label');
     if (payLabel) {
         const railName = rail.toUpperCase();
-        payLabel.textContent = `PAY &#8377;${activeTotal.toLocaleString('en-IN')} VIA HDFC ${railName}`;
+        payLabel.innerHTML = `PAY &#8377;${activeTotal.toLocaleString('en-IN')} VIA HDFC ${railName}`;
     }
 }
 
@@ -301,6 +301,22 @@ async function triggerCheckoutPayment(forcedMethod) {
     if (!cart || cart.length === 0) {
         alert('Your shopping cart is empty.');
         return;
+    }
+
+    // If sandbox simulator is triggered and fields are blank, provide sensible test defaults
+    if (forcedMethod === 'SANDBOX TEST SIMULATOR') {
+        const nameEl = document.getElementById('co-name');
+        if (nameEl && !nameEl.value.trim()) nameEl.value = 'Kerala Surveillance Partner';
+        const phoneEl = document.getElementById('co-phone');
+        if (phoneEl && !phoneEl.value.trim()) phoneEl.value = '9876543210';
+        const emailEl = document.getElementById('co-email');
+        if (emailEl && !emailEl.value.trim()) emailEl.value = 'info@syberspace.in';
+        const addrEl = document.getElementById('co-address');
+        if (addrEl && !addrEl.value.trim()) addrEl.value = 'Main Road, Infopark Phase II';
+        const cityEl = document.getElementById('co-city');
+        if (cityEl && !cityEl.value.trim()) cityEl.value = 'Kochi';
+        const pinEl = document.getElementById('co-pincode');
+        if (pinEl && !pinEl.value.trim()) pinEl.value = '682042';
     }
 
     const customer = validateCustomerData();
