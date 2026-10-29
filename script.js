@@ -410,7 +410,7 @@ function initOfferSlideshow() {
 
     let currentSlide = 0;
     let autoplayInterval = null;
-    const SLIDE_DURATION = 3500;
+    const SLIDE_DURATION = 4500;
 
     function showSlide(index) {
         if (index < 0) {
@@ -424,22 +424,6 @@ function initOfferSlideshow() {
         slides.forEach((slide, i) => {
             if (i === currentSlide) {
                 slide.classList.add('active');
-                if (typeof gsap !== 'undefined') {
-                    const visual = slide.querySelector('.offer-slide-visual');
-                    const contentElements = slide.querySelectorAll('.slide-badge-row, .slide-title, .slide-kicker, .slide-actions-row');
-                    if (visual) {
-                        gsap.fromTo(visual, 
-                            { opacity: 0, scale: 0.95, y: 8 }, 
-                            { opacity: 1, scale: 1, y: 0, duration: 0.5, ease: 'power2.out', clearProps: 'transform,opacity' }
-                        );
-                    }
-                    if (contentElements && contentElements.length) {
-                        gsap.fromTo(contentElements,
-                            { opacity: 0, y: 10 },
-                            { opacity: 1, y: 0, stagger: 0.04, duration: 0.4, ease: 'power2.out', clearProps: 'transform,opacity' }
-                        );
-                    }
-                }
             } else {
                 slide.classList.remove('active');
             }

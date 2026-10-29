@@ -1373,8 +1373,7 @@ body.pdp-dark-mode .iphone-search-btn {
     opacity: 0;
     visibility: hidden;
     pointer-events: none;
-    transform: translateX(30px);
-    transition: opacity 0.3s ease-out, transform 0.3s ease-out, visibility 0.3s;
+    transition: opacity 0.45s ease-in-out, visibility 0.45s ease-in-out;
 }
 
 .offer-slide.active {
@@ -1382,7 +1381,6 @@ body.pdp-dark-mode .iphone-search-btn {
     opacity: 1;
     visibility: visible;
     pointer-events: auto;
-    transform: translateX(0);
 }
 
 /* Slide Left Content */
@@ -1678,7 +1676,7 @@ body.pdp-dark-mode .iphone-search-btn {
 }
 
 .offer-slide:hover .slide-product-img {
-    transform: scale(1.04) translateY(-4px);
+    transform: scale(1.02);
 }
 
 .floating-benefit-badge {
