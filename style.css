@@ -791,7 +791,7 @@ body.pdp-dark-mode .header-cart-pill-btn .cart-pill-badge {
    ========================================================================== */
 .white-hero-section {
     padding: 0;
-    background: #08101e;
+    background: #08101e url('assets/hero_cyber_bg.png') center top / cover no-repeat;
     position: relative;
     width: 100%;
     overflow: hidden;
@@ -1626,11 +1626,12 @@ body.pdp-dark-mode .header-cart-pill-btn .cart-pill-badge {
     margin: 0;
     border-radius: 0;
     overflow: hidden;
-    background: #08101e url('assets/hero_cyber_bg.png') center top / cover no-repeat;
+    background: transparent !important;
     border: none;
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
-    min-height: 580px;
-    padding-top: 5rem;
+    box-shadow: none !important;
+    min-height: 520px;
+    padding-top: 5.5rem;
+    padding-bottom: 2.2rem;
 }
 
 .hero-cyber-grid-floor,
@@ -2483,8 +2484,8 @@ body.pdp-dark-mode .slide-title-cyan {
 .brand-categories-section {
     background: #ffffff !important;
     width: 100%;
-    margin-top: 0.25rem;
-    padding-top: 0.25rem;
+    margin-top: 0 !important;
+    padding-top: 3.5rem !important;
     overscroll-behavior: none;
     overscroll-behavior-x: none;
     overscroll-behavior-y: none;
@@ -7423,9 +7424,10 @@ body.dark .btn-carousel-nav {
    AUTHORIZED BRANDS SHOWCASE SECTION (MATCHING REFERENCE DESIGN)
    ========================================================================== */
 .brand-categories-section {
+    background: #ffffff !important;
     width: 100%;
-    margin-top: 0.5rem;
-    padding: 0.5rem 0 2rem;
+    margin-top: 0 !important;
+    padding: 3.5rem 0 2rem !important;
     overscroll-behavior: none;
     overscroll-behavior-x: none;
     overscroll-behavior-y: none;
@@ -7791,18 +7793,22 @@ body.dark .btn-carousel-nav {
    ========================================================================== */
 .wholesale-ticker-banner {
     position: relative;
-    width: 100vw;
-    margin-left: calc(-50vw + 50%);
-    margin-right: calc(-50vw + 50%);
-    margin-top: 1.25rem;
-    margin-bottom: 1.75rem;
+    width: 100%;
+    margin: 0 !important;
+    padding: 0;
     overflow: hidden;
-    background: linear-gradient(90deg, #1e1b4b 0%, #2e0854 18%, #312e81 36%, #4338ca 50%, #2563eb 68%, #3b82f6 82%, #4f46e5 100%);
-    background-size: 200% 100%;
+    background: linear-gradient(90deg, rgba(30, 27, 75, 0.88) 0%, rgba(46, 8, 84, 0.88) 18%, rgba(49, 46, 129, 0.88) 36%, rgba(67, 56, 202, 0.88) 50%, rgba(37, 99, 235, 0.88) 68%, rgba(59, 130, 246, 0.88) 82%, rgba(79, 70, 229, 0.88) 100%), url('assets/hero_cyber_bg.png') center bottom / cover no-repeat;
+    background-size: 200% 100%, cover;
     animation: wtbGradientFlow 16s ease infinite;
-    border: none !important;
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border-top: 1px solid rgba(56, 189, 248, 0.35) !important;
+    border-bottom: 1px solid rgba(15, 23, 42, 0.5) !important;
+    border-left: none !important;
+    border-right: none !important;
     border-radius: 0 !important;
-    box-shadow: none !important;
+    box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.35) !important;
+    z-index: 10;
 }
 
 @keyframes wtbGradientFlow {
