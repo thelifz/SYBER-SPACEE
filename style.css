@@ -1647,6 +1647,16 @@ body.pdp-dark-mode .header-cart-pill-btn .cart-pill-badge {
     margin-bottom: 0.45rem;
 }
 
+.slide-title-cyan {
+    color: #0284c7;
+    display: inline;
+}
+
+body.pdp-dark-mode .slide-title-cyan {
+    color: #38bdf8;
+    text-shadow: 0 0 16px rgba(56, 189, 248, 0.35);
+}
+
 .slide-subtitle {
     font-family: var(--font-body);
     font-size: 0.98rem;
@@ -2006,6 +2016,11 @@ body.pdp-dark-mode .header-cart-pill-btn .cart-pill-badge {
 
     .slide-title {
         font-size: 1.85rem;
+    }
+
+    .slide-subtitle {
+        font-size: 0.9rem;
+        margin-bottom: 0.85rem;
     }
 
     .slide-chips-list {
@@ -3550,6 +3565,11 @@ body.pdp-dark-mode .header-cart-pill-btn .cart-pill-badge {
     .slide-title {
         font-size: 1.45rem !important;
         line-height: 1.18 !important;
+    }
+
+    .slide-subtitle {
+        font-size: 0.82rem !important;
+        line-height: 1.45 !important;
     }
 
     .hero-primary-heading {
