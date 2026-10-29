@@ -110,174 +110,91 @@
                      OFFER SLIDESHOW HERO: CINEMATIC COFFEE-TONED DEALS BANNER
                      ========================================================== -->
                 <div class="offer-slideshow-wrap">
-                    
-                                        <div class="offer-slides-track" id="offerSlidesTrack">
+                    <div class="hero-showcase-container">
                         
-                        <!-- SLIDE 1: Trueview 4G Solar PTZ -->
-                        <div class="offer-slide active" data-index="0">
-                            <div class="offer-slide-content">
-                                <div class="slide-badge-row">
-                                    <span class="offer-fire-badge">SPECIAL OFFER</span>
-                                    <span class="offer-save-pill">45% OFF</span>
-                                </div>
-                                <h1 class="slide-title">
-                                    See more.<br>
-                                    <span class="slide-title-cyan">Secure more.</span><br>
-                                    Worry less.
-                                </h1>
-                                <p class="slide-subtitle">
-                                    Smart surveillance and access-control solutions for homes, shops and businesses. Find the right technology to protect what matters most.
-                                </p>
-
-
-                                <div class="slide-actions-row">
-                                    <button type="button" class="btn-slide-order" onclick="addToCartById('trueview-solar-4g-sim-outdoor-pan-tilt-camera')">
-                                        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
-                                        ADD TO CART &mdash; &#8377;4,950
-                                    </button>
-                                    <a href="product.html?id=trueview-solar-4g-sim-outdoor-pan-tilt-camera" class="btn-slide-showcase">
-                                        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8"/></svg>
-                                        VIEW PRODUCT &rarr;
-                                    </a>
-                                </div>
+                        <!-- FIXED HERO CONTENT: Words are fixed in place, never jitter or shift -->
+                        <div class="hero-fixed-content">
+                            <div class="slide-badge-row">
+                                <span class="offer-fire-badge" id="heroBadgeFire">SPECIAL OFFER</span>
+                                <span class="offer-save-pill" id="heroBadgeSave">45% OFF</span>
                             </div>
-                            <div class="offer-slide-visual">
-                                <div class="visual-halo-glow glow-solar"></div>
-                                <img src="assets/hero_product_solar_v2.png" alt="Trueview 4G Solar PTZ Camera" class="slide-product-img" style="cursor: pointer;" onclick="window.location.href='product.html?id=trueview-solar-4g-sim-outdoor-pan-tilt-camera'">
+                            <h1 class="slide-title">
+                                See more.<br>
+                                <span class="slide-title-cyan">Secure more.</span><br>
+                                Worry less.
+                            </h1>
+                            <p class="slide-subtitle">
+                                Smart surveillance and access-control solutions for homes, shops and businesses. Find the right technology to protect what matters most.
+                            </p>
+
+                            <div class="slide-actions-row">
+                                <button type="button" class="btn-slide-order" id="heroOrderBtn" onclick="addToCartById('trueview-solar-4g-sim-outdoor-pan-tilt-camera')">
+                                    <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+                                    <span id="heroOrderPriceText">ADD TO CART &mdash; &#8377;4,950</span>
+                                </button>
+                                <a href="product.html?id=trueview-solar-4g-sim-outdoor-pan-tilt-camera" class="btn-slide-showcase" id="heroShowcaseLink">
+                                    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8"/></svg>
+                                    <span>VIEW PRODUCT &rarr;</span>
+                                </a>
                             </div>
                         </div>
 
-                        <!-- SLIDE 2: CP Plus Ezykam 3MP Wi-Fi -->
-                        <div class="offer-slide" data-index="1">
-                            <div class="offer-slide-content">
-                                <div class="slide-badge-row">
-                                    <span class="offer-fire-badge">BESTSELLER</span>
-                                    <span class="offer-save-pill">43% OFF</span>
+                        <!-- CAMERA STAGE: ONLY CAMERAS CHANGE WITH BUTTER-SMOOTH GSAP -->
+                        <div class="hero-camera-stage" id="heroCameraStage">
+                            <div class="offer-slides-track" id="offerSlidesTrack">
+                                
+                                <!-- CAMERA 1: Trueview 4G Solar PTZ -->
+                                <div class="offer-slide active" data-index="0" data-id="trueview-solar-4g-sim-outdoor-pan-tilt-camera" data-price="4,950" data-badge="SPECIAL OFFER" data-save="45% OFF">
+                                    <div class="visual-halo-glow glow-solar"></div>
+                                    <img src="assets/hero_product_solar_v2.png" alt="Trueview 4G Solar PTZ Camera" class="slide-product-img" onclick="window.location.href='product.html?id=trueview-solar-4g-sim-outdoor-pan-tilt-camera'">
                                 </div>
-                                <h2 class="slide-title">CP PLUS EZYKAM 3MP</h2>
-                                <div class="slide-kicker">2K Ultra HD &bull; Motorized Pan-Tilt &bull; AI Tracking</div>
 
+                                <!-- CAMERA 2: CP Plus Ezykam 3MP -->
+                                <div class="offer-slide" data-index="1" data-id="cp-plus-ezykam-cp-e38q-3mp-pan-tilt-wi-fi-camera" data-price="2,235" data-badge="BESTSELLER" data-save="43% OFF">
+                                    <div class="visual-halo-glow glow-cpplus"></div>
+                                    <img src="assets/hero_product_cpplus_v2.png" alt="CP Plus Ezykam 3MP Camera" class="slide-product-img" onclick="window.location.href='product.html?id=cp-plus-ezykam-cp-e38q-3mp-pan-tilt-wi-fi-camera'">
+                                </div>
 
-                                <div class="slide-actions-row">
-                                    <button type="button" class="btn-slide-order" onclick="addToCartById('cp-plus-ezykam-cp-e38q-3mp-pan-tilt-wi-fi-camera')">
-                                        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
-                                        ADD TO CART &mdash; &#8377;2,235
-                                    </button>
-                                    <a href="product.html?id=cp-plus-ezykam-cp-e38q-3mp-pan-tilt-wi-fi-camera" class="btn-slide-showcase">
-                                        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8"/></svg>
-                                        VIEW PRODUCT &rarr;
-                                    </a>
+                                <!-- CAMERA 3: iDADA ID-Q2i35S 3MP -->
+                                <div class="offer-slide" data-index="2" data-id="idada-id-q2i35s-td-3mp-pan-tilt-smart-wi-fi-camera" data-price="1,850" data-badge="HOME FAVORITE" data-save="44% OFF">
+                                    <div class="visual-halo-glow glow-idada"></div>
+                                    <img src="assets/hero_product_idada_v2.png" alt="iDADA 3MP Camera" class="slide-product-img" onclick="window.location.href='product.html?id=idada-id-q2i35s-td-3mp-pan-tilt-smart-wi-fi-camera'">
+                                </div>
+
+                                <!-- CAMERA 4: Trueview PoE Outdoor PTZ Camera -->
+                                <div class="offer-slide" data-index="3" data-id="trueview-solar-4g-sim-outdoor-pan-tilt-camera" data-price="3,450" data-badge="PRO SERIES" data-save="40% OFF">
+                                    <div class="visual-halo-glow glow-infra"></div>
+                                    <img src="assets/hero_product_poe_v2.png" alt="Trueview PoE PTZ Camera" class="slide-product-img" onclick="window.location.href='product.html?id=trueview-solar-4g-sim-outdoor-pan-tilt-camera'">
+                                </div>
+
+                                <!-- CAMERA 5: Suggested Trueview 4G Solar -->
+                                <div class="offer-slide" data-index="4" data-id="trueview-solar-4g-sim-outdoor-pan-tilt-camera" data-price="4,950" data-badge="SUGGESTED BY SYBER SPACE" data-save="TOP BESTSELLER">
+                                    <div class="visual-halo-glow glow-solar"></div>
+                                    <img src="assets/hero_product_solar_v2.png" alt="Suggested By Syber Space - Trueview 4G Solar PTZ" class="slide-product-img" onclick="openProductShowcase('trueview-solar-4g-sim-outdoor-pan-tilt-camera')">
                                 </div>
                             </div>
-                            <div class="offer-slide-visual">
-                                <div class="visual-halo-glow glow-cpplus"></div>
-                                <img src="assets/hero_product_cpplus_v2.png" alt="CP Plus Ezykam 3MP Camera" class="slide-product-img" style="cursor: pointer;" onclick="window.location.href='product.html?id=cp-plus-ezykam-cp-e38q-3mp-pan-tilt-wi-fi-camera'">
-                            </div>
+
+                            <!-- Slide Navigation Arrows -->
+                            <button type="button" class="slide-nav-btn prev-btn" id="prevSlideBtn" aria-label="Previous Camera">
+                                <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"></polyline></svg>
+                            </button>
+                            <button type="button" class="slide-nav-btn next-btn" id="nextSlideBtn" aria-label="Next Camera">
+                                <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                            </button>
                         </div>
-
-                        <!-- SLIDE 3: iDADA ID-Q2i35S 3MP -->
-                        <div class="offer-slide" data-index="2">
-                            <div class="offer-slide-content">
-                                <div class="slide-badge-row">
-                                    <span class="offer-fire-badge">HOME FAVORITE</span>
-                                    <span class="offer-save-pill">44% OFF</span>
-                                </div>
-                                <h2 class="slide-title">iDADA 3MP SMART CAMERA</h2>
-                                <div class="slide-kicker">Crystal 3MP &bull; 360&deg; Room Sweep &bull; Night Vision</div>
-
-
-                                <div class="slide-actions-row">
-                                    <button type="button" class="btn-slide-order" onclick="addToCartById('idada-id-q2i35s-td-3mp-pan-tilt-smart-wi-fi-camera')">
-                                        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
-                                        ADD TO CART &mdash; &#8377;1,850
-                                    </button>
-                                    <a href="product.html?id=idada-id-q2i35s-td-3mp-pan-tilt-smart-wi-fi-camera" class="btn-slide-showcase">
-                                        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8"/></svg>
-                                        VIEW PRODUCT &rarr;
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="offer-slide-visual">
-                                <div class="visual-halo-glow glow-idada"></div>
-                                <img src="assets/hero_product_idada_v2.png" alt="iDADA 3MP Camera" class="slide-product-img" style="cursor: pointer;" onclick="window.location.href='product.html?id=idada-id-q2i35s-td-3mp-pan-tilt-smart-wi-fi-camera'">
-                            </div>
-                        </div>
-
-                        <!-- SLIDE 4: CCTV Infrastructure & Hardware -->
-                        <div class="offer-slide" data-index="3">
-                            <div class="offer-slide-content">
-                                <div class="slide-badge-row">
-                                    <span class="offer-fire-badge">WHOLESALE</span>
-                                    <span class="offer-save-pill">UP TO 50% OFF</span>
-                                </div>
-                                <h2 class="slide-title">CCTV HARDWARE &amp; SMPS</h2>
-                                <div class="slide-kicker">12V 10A Heavy Duty SMPS &bull; Seagate SkyHawk 4TB HDDs</div>
-
-
-                                <div class="slide-actions-row">
-                                    <button type="button" class="btn-slide-order" onclick="quickFillSearch('SMPS')">
-                                        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="11" cy="11" r="7.5"></circle><line x1="21" y1="21" x2="16.5" y2="16.5"></line></svg>
-                                        EXPLORE WHOLESALE INVENTORY
-                                    </button>
-                                    <a href="product.html?id=12v-10a-power-supply-metal-smps-box" class="btn-slide-showcase">
-                                        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8"/></svg>
-                                        VIEW HARDWARE &rarr;
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="offer-slide-visual">
-                                <div class="visual-halo-glow glow-infra"></div>
-                                <img src="assets/acc_official_smps.png" alt="CCTV SMPS Hardware" class="slide-product-img" style="cursor: pointer;" onclick="window.location.href='product.html?id=12v-10a-power-supply-metal-smps-box'">
-                            </div>
-                        </div>
-
-                        <!-- SLIDE 4: Suggested by Syber Space / Bestsellers -->
-                        <div class="offer-slide" data-index="4">
-                            <div class="offer-slide-content">
-                                <div class="slide-badge-row">
-                                    <span class="offer-fire-badge">SUGGESTED BY SYBER SPACE</span>
-                                    <span class="offer-save-pill">TOP BESTSELLER</span>
-                                </div>
-                                <h2 class="slide-title">SUGGESTED BY SYBER SPACE</h2>
-                                <div class="slide-kicker">Handpicked Security Hardware &bull; Zero Blindspot Coverage &bull; Verified By Security Experts</div>
-
-
-                                <div class="slide-actions-row">
-                                    <button type="button" class="btn-slide-order" onclick="addToCartById('trueview-solar-4g-sim-outdoor-pan-tilt-camera')">
-                                        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
-                                        ADD TO CART &mdash; &#8377;4,950
-                                    </button>
-                                    <a href="product.html?id=trueview-solar-4g-sim-outdoor-pan-tilt-camera&amp;scroll=showcase" class="btn-slide-showcase">
-                                        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8"/></svg>
-                                        VIEW SHOWCASE &rarr;
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="offer-slide-visual">
-                                <div class="visual-halo-glow glow-solar"></div>
-                                <img src="assets/hero_product_solar_v2.png" alt="Suggested By Syber Space - Trueview 4G Solar PTZ" class="slide-product-img" style="cursor: pointer;" onclick="openProductShowcase('trueview-solar-4g-sim-outdoor-pan-tilt-camera')">
-                            </div>
-                        </div>
-
-                    <!-- Slide Navigation Arrows -->
-                    <button type="button" class="slide-nav-btn prev-btn" id="prevSlideBtn" aria-label="Previous Offer">
-                        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"></polyline></svg>
-                    </button>
-                    <button type="button" class="slide-nav-btn next-btn" id="nextSlideBtn" aria-label="Next Offer">
-                        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
-                    </button>
+                    </div>
 
                     <!-- Slide Dots & Progress -->
                     <div class="slide-pagination" id="slidePagination">
-                        <button type="button" class="slide-dot active" data-to="0" aria-label="Slide 1"></button>
-                        <button type="button" class="slide-dot" data-to="1" aria-label="Slide 2"></button>
-                        <button type="button" class="slide-dot" data-to="2" aria-label="Slide 3"></button>
-                        <button type="button" class="slide-dot" data-to="3" aria-label="Slide 4"></button>
-                        <button type="button" class="slide-dot" data-to="4" aria-label="Slide 5: Suggested"></button>
+                        <button type="button" class="slide-dot active" data-to="0" aria-label="Camera 1"></button>
+                        <button type="button" class="slide-dot" data-to="1" aria-label="Camera 2"></button>
+                        <button type="button" class="slide-dot" data-to="2" aria-label="Camera 3"></button>
+                        <button type="button" class="slide-dot" data-to="3" aria-label="Camera 4"></button>
+                        <button type="button" class="slide-dot" data-to="4" aria-label="Camera 5"></button>
                     </div>
 
                 </div>
-
+                
                 <!-- ==========================================================
                      CATEGORIES BY BRAND SECTION
                      ========================================================== -->

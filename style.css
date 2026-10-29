@@ -1545,6 +1545,90 @@ body.pdp-dark-mode .header-cart-pill-btn .cart-pill-badge {
     box-shadow: none;
 }
 
+/* Hero Showcase Container */
+.hero-showcase-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.75rem 3.5rem 1.5rem;
+    gap: 3rem;
+    position: relative;
+    min-height: 400px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Fixed Hero Content (Left) */
+.hero-fixed-content {
+    flex: 1.15;
+    max-width: 600px;
+    display: flex;
+    flex-direction: column;
+    z-index: 5;
+    position: relative;
+}
+
+/* Camera Stage (Right) */
+.hero-camera-stage {
+    flex: 1;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 380px;
+    height: 100%;
+}
+
+.hero-camera-stage .offer-slides-track {
+    position: relative;
+    width: 100%;
+    min-height: 380px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-camera-stage .offer-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    z-index: 1;
+    will-change: transform, opacity;
+}
+
+.hero-camera-stage .offer-slide.active {
+    position: absolute;
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    z-index: 2;
+}
+
+.hero-camera-stage .slide-nav-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+}
+
+.hero-camera-stage .prev-btn {
+    left: -15px;
+}
+
+.hero-camera-stage .next-btn {
+    right: -15px;
+}
+
 .offer-slides-track {
     position: relative;
     width: 100%;
@@ -8282,6 +8366,42 @@ body.dark .btn-carousel-nav {
    ========================================================================== */
 @media (max-width: 860px) {
     /* 1. Hero Offer Slide: Image First, Writing Below, Arrows Flanking Image */
+    .hero-showcase-container {
+        flex-direction: column !important;
+        padding: 0.5rem 0.75rem 2.5rem !important;
+        gap: 1.25rem !important;
+        align-items: center !important;
+        text-align: center !important;
+    }
+    .hero-camera-stage {
+        order: 1 !important;
+        width: 100% !important;
+        min-height: 270px !important;
+        height: 270px !important;
+    }
+    .hero-camera-stage .offer-slides-track {
+        min-height: 270px !important;
+        height: 270px !important;
+    }
+    .hero-fixed-content {
+        order: 2 !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        align-items: center !important;
+        text-align: center !important;
+    }
+    .hero-fixed-content .slide-badge-row {
+        justify-content: center !important;
+    }
+    .hero-fixed-content .slide-actions-row {
+        justify-content: center !important;
+    }
+    .hero-camera-stage .slide-nav-btn.prev-btn {
+        left: 0.25rem !important;
+    }
+    .hero-camera-stage .slide-nav-btn.next-btn {
+        right: 0.25rem !important;
+    }
     .offer-slideshow-wrap {
         margin: 0 auto 0.5rem !important;
     }

@@ -397,53 +397,173 @@ function triggerSearchAction() {
 
 
 // ==========================================================================
-// 3. OFFER HERO SLIDESHOW CONTROLLER
+// 3. OFFER HERO SLIDESHOW CONTROLLER (GSAP BUTTER-SMOOTH ENGINE)
 // ==========================================================================
 function initOfferSlideshow() {
-    const slides = document.querySelectorAll('.offer-slide');
+    const slides = document.querySelectorAll('.hero-camera-stage .offer-slide');
     const dots = document.querySelectorAll('.slide-dot');
     const prevBtn = document.getElementById('prevSlideBtn');
     const nextBtn = document.getElementById('nextSlideBtn');
     const wrap = document.querySelector('.offer-slideshow-wrap');
 
+    const heroOrderBtn = document.getElementById('heroOrderBtn');
+    const heroOrderPriceText = document.getElementById('heroOrderPriceText');
+    const heroShowcaseLink = document.getElementById('heroShowcaseLink');
+    const heroBadgeFire = document.getElementById('heroBadgeFire');
+    const heroBadgeSave = document.getElementById('heroBadgeSave');
+
     if (!slides.length) return;
 
     let currentSlide = 0;
     let autoplayInterval = null;
+    let isAnimating = false;
+    let floatTween = null;
     const SLIDE_DURATION = 4500;
 
-    function showSlide(index) {
-        if (index < 0) {
-            currentSlide = slides.length - 1;
-        } else if (index >= slides.length) {
-            currentSlide = 0;
-        } else {
-            currentSlide = index;
-        }
-
-        slides.forEach((slide, i) => {
-            if (i === currentSlide) {
-                slide.classList.add('active');
-            } else {
-                slide.classList.remove('active');
-            }
+    // Subtle 3D floating animation on active camera image
+    function startCameraFloat(imgElement) {
+        if (!window.gsap || !imgElement) return;
+        if (floatTween) floatTween.kill();
+        gsap.set(imgElement, { y: 0 });
+        floatTween = gsap.to(imgElement, {
+            y: -7,
+            duration: 2.4,
+            repeat: -1,
+            yoyo: true,
+            ease: "sine.inOut"
         });
+    }
 
+    // Set initial active slide state
+    slides.forEach((slide, i) => {
+        if (i === 0) {
+            slide.classList.add('active');
+            if (window.gsap) {
+                gsap.set(slide, { opacity: 1, scale: 1, x: 0, visibility: 'visible', pointerEvents: 'auto' });
+                const img = slide.querySelector('.slide-product-img');
+                if (img) startCameraFloat(img);
+            }
+        } else {
+            slide.classList.remove('active');
+            if (window.gsap) {
+                gsap.set(slide, { opacity: 0, scale: 0.95, x: 40, visibility: 'hidden', pointerEvents: 'none' });
+            }
+        }
+    });
+
+    function showSlide(targetIndex, direction = 1) {
+        if (isAnimating) return;
+        if (targetIndex === currentSlide) return;
+
+        let nextIndex = targetIndex;
+        if (nextIndex < 0) nextIndex = slides.length - 1;
+        if (nextIndex >= slides.length) nextIndex = 0;
+
+        const curSlide = slides[currentSlide];
+        const nextSlide = slides[nextIndex];
+        if (!curSlide || !nextSlide) return;
+
+        isAnimating = true;
+
+        // Update Dots
         dots.forEach((dot, i) => {
-            if (i === currentSlide) {
+            if (i === nextIndex) {
                 dot.classList.add('active');
             } else {
                 dot.classList.remove('active');
             }
         });
+
+        // Update dynamic camera metadata (price, badges, links)
+        const newId = nextSlide.getAttribute('data-id') || 'trueview-solar-4g-sim-outdoor-pan-tilt-camera';
+        const newPrice = nextSlide.getAttribute('data-price') || '4,950';
+        const newBadge = nextSlide.getAttribute('data-badge') || 'SPECIAL OFFER';
+        const newSave = nextSlide.getAttribute('data-save') || '45% OFF';
+
+        if (heroOrderBtn) {
+            heroOrderBtn.setAttribute('onclick', `addToCartById('${newId}')`);
+        }
+        if (heroShowcaseLink) {
+            heroShowcaseLink.href = `product.html?id=${newId}`;
+        }
+
+        // Micro-transition on price text and badges with GSAP
+        if (window.gsap && heroOrderPriceText) {
+            gsap.to(heroOrderPriceText, {
+                opacity: 0,
+                y: -3,
+                duration: 0.18,
+                ease: "power1.in",
+                onComplete: () => {
+                    heroOrderPriceText.innerHTML = `ADD TO CART &mdash; &#8377;${newPrice}`;
+                    gsap.to(heroOrderPriceText, { opacity: 1, y: 0, duration: 0.25, ease: "power1.out" });
+                }
+            });
+        } else if (heroOrderPriceText) {
+            heroOrderPriceText.innerHTML = `ADD TO CART &mdash; &#8377;${newPrice}`;
+        }
+
+        if (heroBadgeFire) heroBadgeFire.textContent = newBadge;
+        if (heroBadgeSave) heroBadgeSave.textContent = newSave;
+
+        // GSAP Butter-Smooth Camera Transition
+        if (window.gsap) {
+            if (floatTween) floatTween.kill();
+
+            const curImg = curSlide.querySelector('.slide-product-img');
+            const nextImg = nextSlide.querySelector('.slide-product-img');
+            if (curImg) gsap.set(curImg, { y: 0 });
+
+            nextSlide.classList.add('active');
+            gsap.set(nextSlide, { visibility: 'visible', pointerEvents: 'auto' });
+
+            const tl = gsap.timeline({
+                onComplete: () => {
+                    curSlide.classList.remove('active');
+                    gsap.set(curSlide, { visibility: 'hidden', pointerEvents: 'none' });
+                    currentSlide = nextIndex;
+                    isAnimating = false;
+                    if (nextImg) startCameraFloat(nextImg);
+                }
+            });
+
+            // Outgoing camera: silky slide out with subtle scale-down and opacity fade
+            tl.to(curSlide, {
+                opacity: 0,
+                scale: 0.94,
+                x: direction * -45,
+                duration: 0.65,
+                ease: "power2.inOut"
+            }, 0);
+
+            // Incoming camera: enters from opposite side with gentle scale and settle
+            tl.fromTo(nextSlide, {
+                opacity: 0,
+                scale: 1.06,
+                x: direction * 50
+            }, {
+                opacity: 1,
+                scale: 1,
+                x: 0,
+                duration: 0.75,
+                ease: "power3.out"
+            }, 0.05);
+
+        } else {
+            // Fallback if GSAP is unavailable
+            curSlide.classList.remove('active');
+            nextSlide.classList.add('active');
+            currentSlide = nextIndex;
+            isAnimating = false;
+        }
     }
 
     function next() {
-        showSlide(currentSlide + 1);
+        showSlide(currentSlide + 1, 1);
     }
 
     function prev() {
-        showSlide(currentSlide - 1);
+        showSlide(currentSlide - 1, -1);
     }
 
     function startAutoplay() {
@@ -459,14 +579,16 @@ function initOfferSlideshow() {
     }
 
     if (nextBtn) {
-        nextBtn.addEventListener('click', () => {
+        nextBtn.addEventListener('click', (e) => {
+            e.preventDefault();
             next();
             startAutoplay();
         });
     }
 
     if (prevBtn) {
-        prevBtn.addEventListener('click', () => {
+        prevBtn.addEventListener('click', (e) => {
+            e.preventDefault();
             prev();
             startAutoplay();
         });
@@ -475,8 +597,9 @@ function initOfferSlideshow() {
     dots.forEach((dot) => {
         dot.addEventListener('click', () => {
             const targetIndex = parseInt(dot.getAttribute('data-to'), 10);
-            if (!isNaN(targetIndex)) {
-                showSlide(targetIndex);
+            if (!isNaN(targetIndex) && targetIndex !== currentSlide) {
+                const dir = targetIndex > currentSlide ? 1 : -1;
+                showSlide(targetIndex, dir);
                 startAutoplay();
             }
         });
@@ -509,7 +632,6 @@ function initOfferSlideshow() {
 
     startAutoplay();
 }
-
 
 // ==========================================================================
 // 4. BRAND CATEGORIES & LIVE INVENTORY ENGINE
