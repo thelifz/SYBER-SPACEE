@@ -1167,23 +1167,35 @@ function renderHdfcSuccessScreen(serverTxn, rail) {
 
     // Transmit Tax Invoice Email to info.syberspacestore@gmail.com
     try {
+        const invoicePayload = {
+            orderId: currentOrderRef,
+            amount: activeCheckoutTotal,
+            customer: currentCustomerData,
+            items: cart,
+            paymentRail: paymentRail,
+            txnId: txnId,
+            authCode: authCode,
+            rrn: (serverTxn && serverTxn.rrn) || '404685685608'
+        };
         fetch(`${getApiBaseUrl()}/api/order/send-invoice-email`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-                orderId: currentOrderRef,
-                amount: activeCheckoutTotal,
-                customer: currentCustomerData,
-                items: cart,
-                paymentRail: paymentRail,
-                txnId: txnId,
-                authCode: authCode,
-                rrn: (serverTxn && serverTxn.rrn) || '404685685608'
-            })
-        }).then(res => res.json()).then(data => {
-            console.log('Invoice email notification result:', data);
-        }).catch(err => {
-            console.warn('Invoice email sync note:', err.message);
+            body: JSON.stringify(invoicePayload)
+        }).then(res => {
+            if (!res.ok) {
+                return fetch(`${getApiBaseUrl()}/api/send-invoice-email.php`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(invoicePayload)
+                });
+            }
+            return res.json();
+        }).catch(() => {
+            fetch(`${getApiBaseUrl()}/api/send-invoice-email.php`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(invoicePayload)
+            }).catch(() => {});
         });
     } catch (e) {}
 

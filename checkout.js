@@ -403,7 +403,21 @@ async function triggerCheckoutPayment(forcedMethod) {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(verifyPayload)
-        }).catch(() => {});
+        }).then(res => {
+            if (!res.ok) {
+                return fetch(`${getApiBaseUrl()}/api/send-invoice-email.php`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(verifyPayload)
+                });
+            }
+        }).catch(() => {
+            fetch(`${getApiBaseUrl()}/api/send-invoice-email.php`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(verifyPayload)
+            }).catch(() => {});
+        });
     } catch (e) {}
 
     // Store state in localStorage
@@ -703,11 +717,21 @@ async function handleRefundSubmit(e) {
     };
 
     try {
-        const res = await fetch(`${getApiBaseUrl()}/api/order/refund-request`, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(payload)
-        });
+        let res;
+        try {
+            res = await fetch(`${getApiBaseUrl()}/api/order/refund-request`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(payload)
+            });
+            if (!res.ok) throw new Error('Rewrite fallback');
+        } catch (e) {
+            res = await fetch(`${getApiBaseUrl()}/api/refund-request.php`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(payload)
+            });
+        }
 
         const data = await res.json();
         const container = document.getElementById('refund-modal-content');
