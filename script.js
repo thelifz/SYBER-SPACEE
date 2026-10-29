@@ -424,6 +424,22 @@ function initOfferSlideshow() {
         slides.forEach((slide, i) => {
             if (i === currentSlide) {
                 slide.classList.add('active');
+                if (typeof gsap !== 'undefined') {
+                    const visual = slide.querySelector('.offer-slide-visual');
+                    const contentElements = slide.querySelectorAll('.slide-badge-row, .slide-title, .slide-kicker, .slide-actions-row');
+                    if (visual) {
+                        gsap.fromTo(visual, 
+                            { opacity: 0, scale: 0.95, y: 8 }, 
+                            { opacity: 1, scale: 1, y: 0, duration: 0.5, ease: 'power2.out', clearProps: 'transform,opacity' }
+                        );
+                    }
+                    if (contentElements && contentElements.length) {
+                        gsap.fromTo(contentElements,
+                            { opacity: 0, y: 10 },
+                            { opacity: 1, y: 0, stagger: 0.04, duration: 0.4, ease: 'power2.out', clearProps: 'transform,opacity' }
+                        );
+                    }
+                }
             } else {
                 slide.classList.remove('active');
             }
@@ -922,7 +938,8 @@ function initAsusShowcaseScroll() {
             start: 'top top+=78',
             end: '+=2000',
             pin: true,
-            scrub: 0.8,
+            scrub: 0.5,
+            fastScrollEnd: true,
             anticipatePin: 1,
             invalidateOnRefresh: true,
             onUpdate: (self) => {
@@ -1541,6 +1558,21 @@ function triggerBubbleTakeover(originElemOrEvent, brandKey) {
     // Activate takeover
     overlay.classList.add('active');
     document.body.style.overflow = 'hidden';
+
+    // Premium GSAP bloom animation
+    if (typeof gsap !== 'undefined') {
+        gsap.fromTo(bubble, 
+            { scale: 0.05, opacity: 0.8 }, 
+            { scale: 1, opacity: 1, duration: 0.42, ease: 'power2.out', clearProps: 'opacity' }
+        );
+        const cards = gridEl ? gridEl.querySelectorAll('.live-prod-card') : [];
+        if (cards && cards.length) {
+            gsap.fromTo(cards, 
+                { opacity: 0, y: 16 }, 
+                { opacity: 1, y: 0, stagger: 0.035, duration: 0.38, ease: 'power2.out', delay: 0.12, clearProps: 'transform,opacity' }
+            );
+        }
+    }
 
     try {
         if (!window.history.state || window.history.state.modal !== 'brandTakeover') {

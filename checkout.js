@@ -151,9 +151,9 @@ function loadCheckoutSummary() {
                 <img src="${normalizeImgPath(item.img)}" alt="${escapeHtml(item.title || item.name)}" class="co-item-img" onerror="this.onerror=null;this.src='assets/official_bestseller_idada_q2i.jpg';">
                 <div class="co-item-info">
                     <h4 class="co-item-title">${escapeHtml(item.title || item.name)}</h4>
-                    <span class="co-item-meta">${escapeHtml(item.brand || 'Commercial Grade')} &bull; Qty: ${qty} &times; &#8377;${price.toLocaleString('en-IN')}</span>
+                    <span class="co-item-meta">${escapeHtml(item.brand || 'Commercial Grade')} &bull; Qty: ${qty} &times; ₹${price.toLocaleString('en-IN')}</span>
                 </div>
-                <div class="co-item-price">&#8377;${rowTotal.toLocaleString('en-IN')}</div>
+                <div class="co-item-price">₹${rowTotal.toLocaleString('en-IN')}</div>
             </div>
         `;
     });
@@ -169,16 +169,16 @@ function loadCheckoutSummary() {
     if (badgeEl) badgeEl.textContent = `${totalQty} ITEM${totalQty === 1 ? '' : 'S'}`;
 
     const subtotalEl = document.getElementById('co-subtotal-val');
-    if (subtotalEl) subtotalEl.innerHTML = `&#8377;${activeTaxable.toLocaleString('en-IN')}`;
+    if (subtotalEl) subtotalEl.innerHTML = `₹${activeTaxable.toLocaleString('en-IN')}`;
 
     const gstEl = document.getElementById('co-gst-val');
-    if (gstEl) gstEl.innerHTML = `&#8377;${activeGst.toLocaleString('en-IN')}`;
+    if (gstEl) gstEl.innerHTML = `₹${activeGst.toLocaleString('en-IN')}`;
 
     const grandEl = document.getElementById('co-grand-total-val');
-    if (grandEl) grandEl.innerHTML = `&#8377;${activeTotal.toLocaleString('en-IN')}`;
+    if (grandEl) grandEl.innerHTML = `₹${activeTotal.toLocaleString('en-IN')}`;
 
     const payLabel = document.getElementById('btn-pay-label');
-    if (payLabel) payLabel.innerHTML = `PAY &#8377;${activeTotal.toLocaleString('en-IN')} VIA HDFC SMARTGATEWAY`;
+    if (payLabel) payLabel.innerHTML = `PAY ₹${activeTotal.toLocaleString('en-IN')} VIA HDFC SMARTGATEWAY`;
 }
 
 // =============================================================================
@@ -206,7 +206,7 @@ function switchCheckoutRail(rail, btnElement) {
     const payLabel = document.getElementById('btn-pay-label');
     if (payLabel) {
         const railName = rail.toUpperCase();
-        payLabel.innerHTML = `PAY &#8377;${activeTotal.toLocaleString('en-IN')} VIA HDFC ${railName}`;
+        payLabel.innerHTML = `PAY ₹${activeTotal.toLocaleString('en-IN')} VIA HDFC ${railName}`;
     }
 }
 
@@ -456,8 +456,8 @@ function renderCheckoutSuccessView(serverTxn, customer, railDesc, itemsList) {
                 <td style="padding:10px 8px; font-family:var(--font-mono); font-size:0.78rem;">SS-${1000 + idx}</td>
                 <td style="padding:10px 8px; font-weight:700; font-size:0.84rem; color:#0f172a;">${escapeHtml(it.title || it.name)}</td>
                 <td style="padding:10px 8px; text-align:center; font-size:0.84rem;">${qty}</td>
-                <td style="padding:10px 8px; text-align:right; font-size:0.84rem;">&#8377;${price.toLocaleString('en-IN')}</td>
-                <td style="padding:10px 8px; text-align:right; font-weight:800; font-size:0.88rem; color:#0f172a;">&#8377;${sub.toLocaleString('en-IN')}</td>
+                <td style="padding:10px 8px; text-align:right; font-size:0.84rem;">₹${price.toLocaleString('en-IN')}</td>
+                <td style="padding:10px 8px; text-align:right; font-weight:800; font-size:0.88rem; color:#0f172a;">₹${sub.toLocaleString('en-IN')}</td>
             </tr>
         `;
     });
@@ -533,11 +533,11 @@ function renderCheckoutSuccessView(serverTxn, customer, railDesc, itemsList) {
             <div style="border-top:1.5px dashed #cbd5e1; padding-top:14px; max-width:380px; margin-left:auto; font-size:0.85rem; color:#475569;">
                 <div style="display:flex; justify-content:space-between; margin-bottom:6px;">
                     <span>Taxable Subtotal:</span>
-                    <span style="font-weight:700; color:#0f172a;">&#8377;${activeTaxable.toLocaleString('en-IN')}</span>
+                    <span style="font-weight:700; color:#0f172a;">₹${activeTaxable.toLocaleString('en-IN')}</span>
                 </div>
                 <div style="display:flex; justify-content:space-between; margin-bottom:6px;">
                     <span>GST @ 18% (ITC Included):</span>
-                    <span style="font-weight:700; color:#0f172a;">&#8377;${activeGst.toLocaleString('en-IN')}</span>
+                    <span style="font-weight:700; color:#0f172a;">₹${activeGst.toLocaleString('en-IN')}</span>
                 </div>
                 <div style="display:flex; justify-content:space-between; margin-bottom:6px;">
                     <span>Insured Transit Dispatch:</span>
@@ -545,7 +545,7 @@ function renderCheckoutSuccessView(serverTxn, customer, railDesc, itemsList) {
                 </div>
                 <div style="display:flex; justify-content:space-between; border-top:1.5px solid #0f172a; padding-top:10px; margin-top:8px; font-size:1.15rem; font-weight:900; color:#0f172a; font-family:var(--font-heading);">
                     <span>TOTAL RECEIVED:</span>
-                    <span>&#8377;${activeTotal.toLocaleString('en-IN')}</span>
+                    <span>₹${activeTotal.toLocaleString('en-IN')}</span>
                 </div>
             </div>
 
