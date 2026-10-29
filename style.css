@@ -527,6 +527,198 @@ body.pdp-dark-mode .iphone-search-btn {
 }
 
 /* ==========================================================================
+   MINIMALIST NAVBAR & REFERENCE HEADER ARCHITECTURE (Wishlist = Cart)
+   ========================================================================== */
+.header-nav-menu {
+    display: flex;
+    align-items: center;
+    gap: 1.85rem;
+    margin: 0 1.25rem;
+}
+
+.header-nav-item {
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #1e293b;
+    text-decoration: none;
+    letter-spacing: 0.01em;
+    transition: color 0.2s ease, opacity 0.2s ease;
+    white-space: nowrap;
+}
+
+.header-nav-item:hover {
+    color: #0284c7;
+}
+
+.header-right-group {
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+    flex-shrink: 0;
+}
+
+/* Reference Search Pill */
+.header-search-pill-wrap {
+    position: relative;
+}
+
+.header-search-pill-box {
+    display: flex;
+    align-items: center;
+    background: #ffffff;
+    border: 1.8px solid #0f172a;
+    border-radius: 9999px;
+    height: 38px;
+    padding: 0 18px;
+    width: 200px;
+    transition: width 0.25s ease, box-shadow 0.25s ease;
+}
+
+.header-search-pill-box:focus-within {
+    width: 260px;
+    box-shadow: 0 0 0 3px rgba(15, 23, 42, 0.1);
+}
+
+.header-search-pill-input {
+    width: 100%;
+    border: none;
+    outline: none;
+    background: transparent;
+    font-family: var(--font-body);
+    font-size: 0.86rem;
+    font-weight: 500;
+    color: #0f172a;
+}
+
+.header-search-pill-input::placeholder {
+    color: #64748b;
+    font-weight: 500;
+}
+
+/* Reference Wishlist-Style Cart Pill Button (Wishlist = Cart) */
+.header-cart-pill-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: #ffffff;
+    border: 1.5px solid #e2e8f0;
+    border-radius: 9999px;
+    padding: 7px 18px;
+    font-family: var(--font-body);
+    font-size: 0.92rem;
+    font-weight: 700;
+    color: #0f172a;
+    text-decoration: none;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+}
+
+.header-cart-pill-btn:hover {
+    border-color: #0f172a;
+    box-shadow: 0 4px 12px rgba(15, 23, 42, 0.08);
+    transform: translateY(-1px);
+}
+
+.header-cart-pill-btn .cart-pill-svg {
+    stroke: #0f172a;
+    flex-shrink: 0;
+}
+
+.header-cart-pill-btn .cart-pill-label {
+    font-weight: 700;
+    color: #0f172a;
+}
+
+.header-cart-pill-btn .cart-pill-badge {
+    position: static;
+    background: #0f172a;
+    color: #ffffff;
+    font-size: 0.72rem;
+    font-weight: 800;
+    min-width: 18px;
+    height: 18px;
+    border-radius: 999px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 5px;
+    margin-left: 2px;
+}
+
+.header-wa-pill-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: #ffffff;
+    border: 1.5px solid #e2e8f0;
+    border-radius: 9999px;
+    padding: 7px 12px;
+    text-decoration: none;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+    transition: all 0.2s ease;
+}
+
+.header-wa-pill-btn:hover {
+    border-color: #25d366;
+    box-shadow: 0 4px 12px rgba(37, 211, 102, 0.15);
+    transform: translateY(-1px);
+}
+
+@media (max-width: 980px) {
+    .header-nav-menu {
+        display: none !important;
+    }
+    .header-search-pill-box {
+        width: 150px;
+    }
+    .header-search-pill-box:focus-within {
+        width: 190px;
+    }
+}
+
+@media (max-width: 600px) {
+    .header-search-pill-wrap {
+        display: none !important;
+    }
+}
+
+body.pdp-dark-mode .header-nav-item {
+    color: #cbd5e1;
+}
+body.pdp-dark-mode .header-nav-item:hover {
+    color: #ffffff;
+}
+body.pdp-dark-mode .header-search-pill-box {
+    background: #1e293b;
+    border-color: #64748b;
+}
+body.pdp-dark-mode .header-search-pill-input {
+    color: #ffffff;
+}
+body.pdp-dark-mode .header-search-pill-input::placeholder {
+    color: #94a3b8;
+}
+body.pdp-dark-mode .header-cart-pill-btn,
+body.pdp-dark-mode .header-wa-pill-btn {
+    background: #1e293b;
+    border-color: #475569;
+    color: #f8fafc;
+}
+body.pdp-dark-mode .header-cart-pill-btn .cart-pill-svg {
+    stroke: #f8fafc;
+}
+body.pdp-dark-mode .header-cart-pill-btn .cart-pill-label {
+    color: #f8fafc;
+}
+body.pdp-dark-mode .header-cart-pill-btn .cart-pill-badge {
+    background: #ffffff;
+    color: #0f172a;
+}
+
+/* ==========================================================================
    MAIN CONTENT: WHITE HERO SECTION WITH COFFEE SHADES
    ========================================================================== */
 .white-hero-section {
@@ -7143,58 +7335,55 @@ body.dark .btn-carousel-nav {
 
 
 /* ==========================================================================
-   WHOLESALE & B2B TICKER MARQUEE BANNER (White Background with Black Words)
+   WHOLESALE & B2B TICKER MARQUEE BANNER (Colorful Edge-to-Edge Ribbon // No Edges)
    ========================================================================== */
 .wholesale-ticker-banner {
     position: relative;
-    width: 100%;
-    margin: 0.85rem 0 1.25rem;
+    width: 100vw;
+    margin-left: calc(-50vw + 50%);
+    margin-right: calc(-50vw + 50%);
+    margin-top: 1.25rem;
+    margin-bottom: 1.75rem;
     overflow: hidden;
-    background: #ffffff;
-    border: 1.5px solid #e2e8f0;
-    box-shadow: 0 4px 16px rgba(15, 23, 42, 0.04);
-    border-radius: 12px;
-    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    background: linear-gradient(90deg, #1d4ed8 0%, #4f46e5 18%, #7c3aed 36%, #c026d3 54%, #db2777 72%, #ea580c 90%, #059669 100%);
+    background-size: 200% 100%;
+    animation: wtbGradientFlow 16s ease infinite;
+    border: none !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+}
+
+@keyframes wtbGradientFlow {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
 }
 
 .wholesale-ticker-banner:hover {
-    border-color: #cbd5e1;
-    box-shadow: 0 6px 20px rgba(15, 23, 42, 0.07);
+    border: none !important;
+    box-shadow: none !important;
 }
 
-/* Smooth edge gradient fade masks */
-.wholesale-ticker-banner::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 50px;
-    height: 100%;
-    background: linear-gradient(to right, #ffffff, rgba(255, 255, 255, 0));
-    z-index: 2;
-    pointer-events: none;
-}
-
+/* Remove edge mask gradients so text is completely borderless and seamless */
+.wholesale-ticker-banner::before,
 .wholesale-ticker-banner::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 50px;
-    height: 100%;
-    background: linear-gradient(to left, #ffffff, rgba(255, 255, 255, 0));
-    z-index: 2;
-    pointer-events: none;
+    display: none !important;
 }
 
 .wholesale-ticker-banner .wtb-link {
     display: block;
     text-decoration: none;
-    color: inherit;
+    color: #ffffff;
     position: relative;
-    padding: 0.95rem 0;
+    padding: 0.88rem 0;
     cursor: pointer;
-    background: #ffffff;
+    background: transparent !important;
 }
 
 .wtb-track {
@@ -7226,37 +7415,45 @@ body.dark .btn-carousel-nav {
 }
 
 .wtb-tag {
-    background: #0f172a;
+    background: rgba(0, 0, 0, 0.35);
+    backdrop-filter: blur(4px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
     color: #ffffff;
     font-family: var(--font-body);
     font-size: 0.72rem;
     font-weight: 900;
     letter-spacing: 0.08em;
     padding: 0.32rem 0.8rem;
-    border-radius: 4px;
+    border-radius: 9999px;
     text-transform: uppercase;
 }
 
 .wtb-item {
     font-family: var(--font-body);
-    font-size: 0.85rem;
+    font-size: 0.84rem;
     font-weight: 800;
     letter-spacing: 0.06em;
-    color: #0f172a;
+    color: #ffffff;
     text-transform: uppercase;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
 }
 
 .wtb-item.highlight {
-    color: #000000;
+    color: #ffffff;
+    background: rgba(0, 0, 0, 0.25);
+    backdrop-filter: blur(4px);
+    border: 1px solid rgba(255, 255, 255, 0.28);
+    padding: 0.28rem 0.75rem;
+    border-radius: 9999px;
     font-weight: 900;
-    letter-spacing: 0.07em;
+    letter-spacing: 0.08em;
 }
 
 .wtb-sep {
     font-family: monospace;
     font-size: 0.95rem;
     font-weight: 900;
-    color: #94a3b8;
+    color: rgba(255, 255, 255, 0.5);
     letter-spacing: 0.12em;
 }
 
