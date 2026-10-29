@@ -552,17 +552,28 @@ function renderCheckoutSuccessView(serverTxn, customer, railDesc, itemsList) {
         </div>
 
         <!-- Email Transmission Confirmation Banner -->
-        <div style="background:#ecfdf5; border:1.5px solid #10b981; border-radius:12px; padding:16px 20px; display:flex; align-items:center; gap:16px; margin-bottom:24px;">
-            <div style="width:40px; height:40px; border-radius:50%; background:#10b981; color:#fff; display:flex; align-items:center; justify-content:center; flex-shrink:0;">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+        <div style="background:#ecfdf5; border:1.5px solid #10b981; border-radius:12px; padding:16px 20px; display:flex; align-items:center; justify-content:space-between; gap:16px; margin-bottom:24px; flex-wrap:wrap;">
+            <div style="display:flex; align-items:center; gap:14px;">
+                <div style="width:40px; height:40px; border-radius:50%; background:#10b981; color:#fff; display:flex; align-items:center; justify-content:center; flex-shrink:0;">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                </div>
+                <div>
+                    <strong style="font-size:0.92rem; color:#065f46; display:block; margin-bottom:2px;">
+                        ORDER &amp; TAX INVOICE DOCKET GENERATED FOR info.syberspacestore@gmail.com
+                    </strong>
+                    <p style="font-size:0.8rem; color:#047857; margin:0; line-height:1.45;">
+                        Invoice <strong>${currentOrderRef}</strong> archived. Use the button to send or review via Gmail instantly.
+                    </p>
+                </div>
             </div>
-            <div>
-                <strong style="font-size:0.92rem; color:#065f46; display:block; margin-bottom:2px;">
-                    TAX INVOICE &amp; DISPATCH RECORD TRANSMITTED TO info.syberspacestore@gmail.com
-                </strong>
-                <p style="font-size:0.8rem; color:#047857; margin:0; line-height:1.45;">
-                    Your Kerala commercial GST Tax Invoice, warranty registration, and warehouse fulfillment docket have been dispatched to company headquarters. A copy has also been queued for customer email: <strong>${escapeHtml(customer.email)}</strong>.
-                </p>
+            <div style="display:flex; gap:8px; flex-wrap:wrap;">
+                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=info.syberspacestore@gmail.com&su=${encodeURIComponent(`[OFFICIAL ORDER & TAX INVOICE] ${currentOrderRef} - Rs. ${activeTotal} - ${customer.name}`)}&body=${encodeURIComponent(`TAX INVOICE: ${currentOrderRef}\nDate: ${new Date().toLocaleString('en-IN')}\nCustomer: ${customer.name}\nPhone: ${customer.phone}\nEmail: ${customer.email}\nCompany: ${customer.company || 'Individual'}\nGSTIN: ${customer.gstin || 'Not Provided'}\nTotal Amount Paid: Rs. ${activeTotal}\nItems:\n${itemsList.map((it, idx) => `  [${idx+1}] ${it.title || it.name} (Qty: ${it.qty || it.quantity || 1}) - Rs. ${(it.price || 0) * (it.qty || it.quantity || 1)}`).join('\n')}\n\nDelivery Address:\n${customer.address}, ${customer.city}, ${customer.state} - ${customer.pincode}`)}" target="_blank" rel="noopener noreferrer" style="background:#0f172a; color:#fff; padding:10px 16px; border-radius:8px; font-weight:700; font-size:0.82rem; text-decoration:none; display:inline-flex; align-items:center; gap:8px;">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                    <span>OPEN IN GMAIL</span>
+                </a>
+                <a href="mailto:info.syberspacestore@gmail.com?subject=${encodeURIComponent(`[OFFICIAL ORDER & TAX INVOICE] ${currentOrderRef} - Rs. ${activeTotal} - ${customer.name}`)}&body=${encodeURIComponent(`TAX INVOICE: ${currentOrderRef}\nDate: ${new Date().toLocaleString('en-IN')}\nCustomer: ${customer.name}\nPhone: ${customer.phone}\nEmail: ${customer.email}\nCompany: ${customer.company || 'Individual'}\nGSTIN: ${customer.gstin || 'Not Provided'}\nTotal Amount Paid: Rs. ${activeTotal}\nItems:\n${itemsList.map((it, idx) => `  [${idx+1}] ${it.title || it.name} (Qty: ${it.qty || it.quantity || 1}) - Rs. ${(it.price || 0) * (it.qty || it.quantity || 1)}`).join('\n')}\n\nDelivery Address:\n${customer.address}, ${customer.city}, ${customer.state} - ${customer.pincode}`)}" style="background:#f1f5f9; color:#0f172a; border:1px solid #cbd5e1; padding:10px 14px; border-radius:8px; font-weight:700; font-size:0.82rem; text-decoration:none; display:inline-flex; align-items:center; gap:8px;">
+                    <span>DEFAULT EMAIL CLIENT</span>
+                </a>
             </div>
         </div>
 
