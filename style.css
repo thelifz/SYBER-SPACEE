@@ -722,15 +722,18 @@ body.pdp-dark-mode .header-cart-pill-btn .cart-pill-badge {
    MAIN CONTENT: WHITE HERO SECTION WITH COFFEE SHADES
    ========================================================================== */
 .white-hero-section {
-    padding: 1.25rem 1.5rem 0.5rem 1.5rem;
-    background: #ffffff;
+    padding: 0;
+    background: #08101e;
     position: relative;
+    width: 100%;
+    overflow: hidden;
 }
 
 .white-hero-container {
-    max-width: 1680px;
+    max-width: 100%;
     width: 100%;
-    margin: 0 auto;
+    margin: 0;
+    padding: 0;
 }
 
 .hero-beacon-line {
@@ -1552,12 +1555,18 @@ body.pdp-dark-mode .header-cart-pill-btn .cart-pill-badge {
     position: relative;
     max-width: 100%;
     width: 100%;
-    margin: 0 auto 1.5rem;
-    border-radius: 20px;
+    margin: 0;
+    border-radius: 0;
     overflow: hidden;
-    background: #060b14 url('assets/hero_cyber_bg.jpg') center center / cover no-repeat;
-    border: 1px solid rgba(56, 189, 248, 0.22);
-    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.55), 0 0 40px rgba(6, 182, 212, 0.12);
+    background: #08101e url('assets/hero_cyber_bg.png') center bottom / cover no-repeat;
+    border: none;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+    min-height: 520px;
+}
+
+.hero-cyber-grid-floor,
+.hero-cyber-radial-glow {
+    display: none !important;
 }
 
 /* Perspective Cyber Grid Floor (CSS 3D fallback / enhancement) */
@@ -7718,7 +7727,7 @@ body.dark .btn-carousel-nav {
     margin-top: 1.25rem;
     margin-bottom: 1.75rem;
     overflow: hidden;
-    background: linear-gradient(90deg, #1d4ed8 0%, #4f46e5 18%, #7c3aed 36%, #c026d3 54%, #db2777 72%, #ea580c 90%, #059669 100%);
+    background: linear-gradient(90deg, #1e1b4b 0%, #2e0854 18%, #312e81 36%, #4338ca 50%, #2563eb 68%, #3b82f6 82%, #4f46e5 100%);
     background-size: 200% 100%;
     animation: wtbGradientFlow 16s ease infinite;
     border: none !important;
