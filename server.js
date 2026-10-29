@@ -11,6 +11,7 @@ const http = require('http');
 const fs = require('fs');
 const path = require('path');
 const crypto = require('crypto');
+const tls = require('tls');
 const zlib = require('zlib');
 
 // -----------------------------------------------------------------------------
@@ -109,8 +110,95 @@ const SECURITY_HEADERS = {
 // COMMERCIAL TAX INVOICE & REFUND/EXCHANGE EMAIL ENGINE
 // (Zero-Cloud Startup Setup: Sends & Archives Invoices Directly to Company Email)
 // -----------------------------------------------------------------------------
-const COMPANY_EMAIL = process.env.MERCHANT_SUPPORT_EMAIL || 'info@syberspace.in';
+const COMPANY_EMAIL = process.env.MERCHANT_SUPPORT_EMAIL || 'info.syberspacestore@gmail.com';
+const GMAIL_USER = process.env.GMAIL_USER || COMPANY_EMAIL;
+const GMAIL_PASS = (process.env.GMAIL_APP_PASSWORD || process.env.SMTP_PASS || '').trim();
 const EMAILS_DIR = path.join(__dirname, 'emails_sent');
+
+function sendSmtpEmail({ host, port, user, pass, to, subject, text }) {
+    return new Promise((resolve) => {
+        if (!user || !pass) {
+            console.log('[Email Dispatch] Live Gmail SMTP delivery requires GMAIL_APP_PASSWORD in .env. Order archived in emails_sent/ for ' + to);
+            return resolve({ success: true, mode: 'ARCHIVED_ONLY', reason: 'No GMAIL_APP_PASSWORD in .env' });
+        }
+
+        console.log(`[Email Dispatch] Initiating Gmail TLS connection for ${to}...`);
+        const socket = tls.connect(port || 465, host || 'smtp.gmail.com', () => {
+            console.log('[SMTP TLS] Connected to smtp.gmail.com:465');
+        });
+
+        let step = 0;
+        let authErr = null;
+
+        socket.setEncoding('utf8');
+        socket.setTimeout(12000, () => {
+            console.warn('[SMTP TLS] Connection timed out after 12s');
+            socket.destroy();
+            resolve({ success: false, mode: 'TIMEOUT_FALLBACK' });
+        });
+
+        socket.on('data', (chunk) => {
+            const data = chunk.toString();
+            if (data.startsWith('220') && step === 0) {
+                step = 1;
+                socket.write('EHLO localhost\r\n');
+            } else if (data.startsWith('250') && step === 1) {
+                step = 2;
+                socket.write('AUTH LOGIN\r\n');
+            } else if (data.startsWith('334') && step === 2) {
+                step = 3;
+                socket.write(Buffer.from(user).toString('base64') + '\r\n');
+            } else if (data.startsWith('334') && step === 3) {
+                step = 4;
+                socket.write(Buffer.from(pass.replace(/\s+/g, '')).toString('base64') + '\r\n');
+            } else if (data.startsWith('235') && step === 4) {
+                step = 5;
+                socket.write(`MAIL FROM:<${user}>\r\n`);
+            } else if (data.startsWith('250') && step === 5) {
+                step = 6;
+                socket.write(`RCPT TO:<${to}>\r\n`);
+            } else if (data.startsWith('250') && step === 6) {
+                step = 7;
+                socket.write('DATA\r\n');
+            } else if (data.startsWith('354') && step === 7) {
+                step = 8;
+                const mime = [
+                    `From: "Syber Space Security Systems" <${user}>`,
+                    `To: <${to}>`,
+                    `Subject: ${subject}`,
+                    `Date: ${new Date().toUTCString()}`,
+                    `MIME-Version: 1.0`,
+                    `Content-Type: text/plain; charset=utf-8`,
+                    `Content-Transfer-Encoding: 7bit`,
+                    ``,
+                    text,
+                    `.`
+                ].join('\r\n');
+                socket.write(mime + '\r\n');
+            } else if (data.startsWith('250') && step === 8) {
+                step = 9;
+                socket.write('QUIT\r\n');
+                console.log(`[Email Dispatch] Successfully transmitted to ${to} via Gmail SMTP!`);
+                resolve({ success: true, mode: 'LIVE_GMAIL_DELIVERED' });
+            } else if (data.startsWith('5') || data.startsWith('4')) {
+                authErr = new Error('SMTP Error: ' + data.trim());
+                console.warn('[SMTP Error]', data.trim());
+                socket.end();
+            }
+        });
+
+        socket.on('error', (err) => {
+            console.warn('[SMTP Socket Note]', err.message);
+            resolve({ success: false, error: err.message, mode: 'FALLBACK_ARCHIVE' });
+        });
+
+        socket.on('close', () => {
+            if (step < 8 && authErr) {
+                resolve({ success: false, error: authErr.message, mode: 'FALLBACK_ARCHIVE' });
+            }
+        });
+    });
+}
 
 function ensureEmailsDir() {
     try {
@@ -148,7 +236,7 @@ function formatTaxInvoiceEmail(order) {
 =============================================================================
 SYBER SPACE SECURITY SYSTEMS — COMMERCIAL TAX INVOICE & DISPATCH ORDER
 Authorized CCTV Surveillance Systems // Direct Wholesale Kerala HQ
-GSTIN: 32AABCU9603R1ZM  |  Phone: +91 75111 80808  |  Email: info@syberspace.in
+GSTIN: 32AABCU9603R1ZM  |  Phone: +91 75111 80808  |  Email: info.syberspacestore@gmail.com
 =============================================================================
 
 TAX INVOICE & ORDER METADATA:
@@ -212,7 +300,7 @@ function formatRefundRequestEmail(refundData) {
     const bodyText = `
 =============================================================================
 SYBER SPACE SECURITY SYSTEMS — CUSTOMER REFUND / EXCHANGE REQUEST
-Company Support Desk: info@syberspace.in // +91 75111 80808
+Company Support Desk: info.syberspacestore@gmail.com // +91 75111 80808
 =============================================================================
 
 REQUEST METADATA:
@@ -394,7 +482,7 @@ const server = http.createServer((req, res) => {
             supportedRails: ['UPI', 'CARDS', 'NETBANKING', 'EASYEMI'],
             gstRate: 0.18,
             supportPhone: '+91 75111 80808',
-            supportEmail: 'info@syberspace.in',
+            supportEmail: 'info.syberspacestore@gmail.com',
             ssl: '256-Bit TLS 1.3 Certified',
             pciDss: 'Level 1 Certified'
         });
@@ -437,6 +525,15 @@ const server = http.createServer((req, res) => {
 
             HDFC_ORDERS.push(orderRecord);
             saveOrdersToDisk();
+
+            // Dispatch live SMTP email
+            sendSmtpEmail({
+                user: GMAIL_USER,
+                pass: GMAIL_PASS,
+                to: emailPayload.recipient,
+                subject: emailPayload.subject,
+                text: emailPayload.bodyText
+            }).catch(() => {});
 
             return sendJson(200, {
                 success: true,
@@ -501,7 +598,7 @@ const server = http.createServer((req, res) => {
             order.verifiedAt = new Date().toISOString();
             order.gatewayResponse = 'SUCCESS_00';
 
-            // Trigger Automatic Tax Invoice & Dispatch Order Notification to info@syberspace.in
+            // Trigger Automatic Tax Invoice & Dispatch Order Notification to info.syberspacestore@gmail.com
             const emailPayload = formatTaxInvoiceEmail(order);
             order.emailNotification = {
                 sentTo: emailPayload.recipient,
@@ -677,6 +774,15 @@ const server = http.createServer((req, res) => {
             } catch (e) {}
 
             saveOrdersToDisk();
+
+            // Dispatch live SMTP email
+            sendSmtpEmail({
+                user: GMAIL_USER,
+                pass: GMAIL_PASS,
+                to: emailPayload.recipient,
+                subject: emailPayload.subject,
+                text: emailPayload.bodyText
+            }).catch(() => {});
 
             return sendJson(200, {
                 success: true,

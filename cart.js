@@ -555,7 +555,7 @@ function renderHdfcStep1() {
                 <span style="color:#059669; font-size:0.7rem; font-weight:700;">STEP 1 OF 2</span>
             </div>
             <div style="font-size:0.78rem; color:#475569; margin-bottom:14px; background:#f8fafc; border:1px solid #e2e8f0; border-radius:8px; padding:8px 12px; line-height:1.45;">
-                <strong>Invoice Notice:</strong> Customer and business details entered below will generate your official Kerala Commercial GST Tax Invoice, automatically transmitted to <strong>info@syberspace.in</strong> upon payment confirmation.
+                <strong>Invoice Notice:</strong> Customer and business details entered below will generate your official Kerala Commercial GST Tax Invoice, automatically transmitted to <strong>info.syberspacestore@gmail.com</strong> upon payment confirmation.
             </div>
 
             <form id="hdfc-billing-form" onsubmit="handleBillingSubmit(event)">
@@ -1070,7 +1070,7 @@ function renderHdfcSuccessScreen(serverTxn, rail) {
                     <div>
                         <strong style="font-size:1rem; color:#0f172a;">SYBER SPACE SECURITY SYSTEMS</strong><br>
                         Authorized CCTV &amp; Surveillance Systems<br>
-                        Kerala HQ • GSTIN: 32AABCU9603R1ZM • info@syberspace.in
+                        Kerala HQ • GSTIN: 32AABCU9603R1ZM • info.syberspacestore@gmail.com
                     </div>
                     <div style="text-align:right;">
                         <strong>TAX INVOICE: ${currentOrderRef}</strong><br>
@@ -1128,7 +1128,7 @@ function renderHdfcSuccessScreen(serverTxn, rail) {
             <div class="invoice-email-sent-badge">
                 <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
                 <div>
-                    <strong>TAX INVOICE &amp; ORDER TRANSMITTED TO info@syberspace.in</strong>
+                    <strong>TAX INVOICE &amp; ORDER TRANSMITTED TO info.syberspacestore@gmail.com</strong>
                     <p>All invoice generation details, customer billing records, and hardware item breakdown have been dispatched to the company email desk.</p>
                 </div>
             </div>
@@ -1147,7 +1147,7 @@ function renderHdfcSuccessScreen(serverTxn, rail) {
                     <button type="button" class="btn-hrp-refund" onclick="openRefundExchangeModal('${currentOrderRef}')">
                         REQUEST REFUND / EXCHANGE
                     </button>
-                    <a href="mailto:info@syberspace.in?subject=Tax%20Invoice%20%26%20Dispatch%20Inquiry%20for%20Order%20${currentOrderRef}&body=Order%20Ref%3A%20${currentOrderRef}%0ACustomer%3A%20${currentCustomerData ? encodeURIComponent(currentCustomerData.name) : 'Customer'}%0APhone%3A%20${currentCustomerData ? encodeURIComponent(currentCustomerData.phone) : ''}%0ATotal%3A%20Rs.%20${activeCheckoutTotal}%0A%0APlease%20confirm%20invoice%20generation%20and%20express%20dispatch." class="btn-hrp-email-desk">
+                    <a href="mailto:info.syberspacestore@gmail.com?subject=Tax%20Invoice%20%26%20Dispatch%20Inquiry%20for%20Order%20${currentOrderRef}&body=Order%20Ref%3A%20${currentOrderRef}%0ACustomer%3A%20${currentCustomerData ? encodeURIComponent(currentCustomerData.name) : 'Customer'}%0APhone%3A%20${currentCustomerData ? encodeURIComponent(currentCustomerData.phone) : ''}%0ATotal%3A%20Rs.%20${activeCheckoutTotal}%0A%0APlease%20confirm%20invoice%20generation%20and%20express%20dispatch." class="btn-hrp-email-desk">
                         OPEN INVOICE DISPATCH EMAIL &rarr;
                     </a>
                 </div>
@@ -1165,7 +1165,7 @@ function renderHdfcSuccessScreen(serverTxn, rail) {
         </div>
     `;
 
-    // Transmit Tax Invoice Email to info@syberspace.in
+    // Transmit Tax Invoice Email to info.syberspacestore@gmail.com
     try {
         fetch(`${getApiBaseUrl()}/api/order/send-invoice-email`, {
             method: 'POST',
@@ -1349,7 +1349,7 @@ async function handleRefundSubmit(e) {
                         ${requestType} Request Transmitted
                     </h3>
                     <p style="font-size:0.88rem; color:#059669; font-weight:700; margin-bottom:12px;">
-                        NOTIFICATION TRANSMITTED TO info@syberspace.in
+                        NOTIFICATION TRANSMITTED TO info.syberspacestore@gmail.com
                     </p>
                     <p style="font-size:0.86rem; color:#475569; max-width:480px; margin:0 auto 1.5rem; line-height:1.6;">
                         Your ${requestType} request for Order <strong>#${orderId}</strong> has been logged into our support queue. Reference ID: <strong>${data.refundRef || 'REF-' + Date.now()}</strong>. Our Kerala desk will verify your request and contact you via WhatsApp / Phone within 24–48 hours.
@@ -1369,7 +1369,7 @@ async function handleRefundSubmit(e) {
         showToast(`${requestType} request logged & emailed to company desk`);
     } catch (err) {
         console.error('Refund request transmission error:', err);
-        showToast('Request logged offline. Please contact info@syberspace.in directly.');
+        showToast('Request logged offline. Please contact info.syberspacestore@gmail.com directly.');
         if (submitBtn) {
             submitBtn.disabled = false;
             submitBtn.innerHTML = origText;

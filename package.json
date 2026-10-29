@@ -16,7 +16,7 @@
     "payment-gateway",
     "ecommerce"
   ],
-  "author": "Syber Space Security Systems (info@syberspace.in)",
+  "author": "Syber Space Security Systems (info.syberspacestore@gmail.com)",
   "license": "ISC",
   "engines": {
     "node": ">=18.0.0"

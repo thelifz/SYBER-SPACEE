@@ -310,7 +310,7 @@ async function triggerCheckoutPayment(forcedMethod) {
         const phoneEl = document.getElementById('co-phone');
         if (phoneEl && !phoneEl.value.trim()) phoneEl.value = '9876543210';
         const emailEl = document.getElementById('co-email');
-        if (emailEl && !emailEl.value.trim()) emailEl.value = 'info@syberspace.in';
+        if (emailEl && !emailEl.value.trim()) emailEl.value = 'info.syberspacestore@gmail.com';
         const addrEl = document.getElementById('co-address');
         if (addrEl && !addrEl.value.trim()) addrEl.value = 'Main Road, Infopark Phase II';
         const cityEl = document.getElementById('co-city');
@@ -393,7 +393,7 @@ async function triggerCheckoutPayment(forcedMethod) {
             amount: activeTotal,
             paymentRail: paymentRailDesc,
             verifiedAt: new Date().toISOString(),
-            emailSentTo: 'info@syberspace.in'
+            emailSentTo: 'info.syberspacestore@gmail.com'
         };
     }
 
@@ -484,7 +484,7 @@ function renderCheckoutSuccessView(serverTxn, customer, railDesc, itemsList) {
                     <h3 style="font-family:var(--font-heading); font-size:1.3rem; font-weight:900; margin:0 0 4px; color:#0f172a;">SYBER SPACE SECURITY SYSTEMS</h3>
                     <p style="font-size:0.8rem; color:#475569; margin:0; line-height:1.5;">
                         Authorized Commercial CCTV &amp; Wholesale Surveillance Infrastructure<br>
-                        Kerala HQ &bull; GSTIN: <strong>32AABCU9603R1ZM</strong> &bull; Email: <strong>info@syberspace.in</strong>
+                        Kerala HQ &bull; GSTIN: <strong>32AABCU9603R1ZM</strong> &bull; Email: <strong>info.syberspacestore@gmail.com</strong>
                     </p>
                 </div>
                 <div style="text-align:right; font-family:var(--font-mono); font-size:0.8rem; color:#0f172a;">
@@ -558,7 +558,7 @@ function renderCheckoutSuccessView(serverTxn, customer, railDesc, itemsList) {
             </div>
             <div>
                 <strong style="font-size:0.92rem; color:#065f46; display:block; margin-bottom:2px;">
-                    TAX INVOICE &amp; DISPATCH RECORD TRANSMITTED TO info@syberspace.in
+                    TAX INVOICE &amp; DISPATCH RECORD TRANSMITTED TO info.syberspacestore@gmail.com
                 </strong>
                 <p style="font-size:0.8rem; color:#047857; margin:0; line-height:1.45;">
                     Your Kerala commercial GST Tax Invoice, warranty registration, and warehouse fulfillment docket have been dispatched to company headquarters. A copy has also been queued for customer email: <strong>${escapeHtml(customer.email)}</strong>.
@@ -582,6 +582,9 @@ function renderCheckoutSuccessView(serverTxn, customer, railDesc, itemsList) {
                 <button type="button" class="btn-co-sandbox" onclick="openRefundExchangeModal('${currentOrderRef}')" style="margin-top:0; width:auto; padding:10px 20px;">
                     REQUEST REFUND / EXCHANGE
                 </button>
+                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=info.syberspacestore@gmail.com&su=${encodeURIComponent(`[ORDER & INVOICE] ${currentOrderRef} - Rs. ${activeTotal} - ${customer.name}`)}&body=${encodeURIComponent(`TAX INVOICE: ${currentOrderRef}\nCustomer: ${customer.name}\nPhone: ${customer.phone}\nTotal Amount: Rs. ${activeTotal}\nItems: ${itemsList.map(it => (it.title || it.name) + ' (Qty: ' + (it.qty || it.quantity || 1) + ')').join(', ')}\n\nDelivery Address:\n${customer.address}, ${customer.city}, ${customer.state} - ${customer.pincode}`)}" target="_blank" rel="noopener noreferrer" class="btn-co-sandbox" style="margin-top:0; width:auto; padding:10px 20px; text-decoration:none;">
+                    OPEN IN GMAIL &rarr;
+                </a>
                 <a href="https://wa.me/917511180808?text=${encodeURIComponent(`Hello Syber Space, I placed Order ${currentOrderRef} for Rs. ${activeTotal}. Please confirm dispatch schedule.`)}" target="_blank" rel="noopener noreferrer" class="btn-co-sandbox" style="margin-top:0; width:auto; padding:10px 20px; text-decoration:none;">
                     WHATSAPP DISPATCH DESK &rarr;
                 </a>
@@ -707,7 +710,7 @@ async function handleRefundSubmit(e) {
                         ${requestType} Request Transmitted
                     </h3>
                     <p style="font-size:0.88rem; color:#059669; font-weight:700; margin-bottom:12px;">
-                        NOTIFICATION TRANSMITTED TO info@syberspace.in
+                        NOTIFICATION TRANSMITTED TO info.syberspacestore@gmail.com
                     </p>
                     <p style="font-size:0.86rem; color:#475569; max-width:480px; margin:0 auto 1.5rem; line-height:1.6;">
                         Your ${requestType} request for Order <strong>#${orderId}</strong> has been logged into our support queue. Reference ID: <strong>${data.refundRef || 'REF-' + Date.now()}</strong>. Our Kerala desk will verify your request and contact you via WhatsApp / Phone within 24-48 hours.
@@ -725,7 +728,7 @@ async function handleRefundSubmit(e) {
         }
     } catch (err) {
         console.error('Refund request transmission error:', err);
-        alert('Request logged offline. Please contact info@syberspace.in or WhatsApp +91 75111 80808 directly.');
+        alert('Request logged offline. Please contact info.syberspacestore@gmail.com or WhatsApp +91 75111 80808 directly.');
         if (submitBtn) {
             submitBtn.disabled = false;
             submitBtn.innerHTML = origText;
