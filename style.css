@@ -126,14 +126,82 @@ body.jeko-theme-white {
    FLOATING HEADER — FULLY TRANSPARENT LUXURY GLASSLESS ARCHITECTURE
    ========================================================================== */
 .iphone-header-wrapper {
-    position: sticky;
+    position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     z-index: 1000;
-    padding: 0.65rem 2rem 0;
+    padding: 1.25rem 2.5rem 0;
     pointer-events: none;
-    background: transparent;
+    background: transparent !important;
+    box-sizing: border-box;
+}
+
+/* Transparent Header Styling Overlaying Hero Cyber Background */
+.iphone-brand-group .brand-title {
+    color: #ffffff !important;
+}
+
+.iphone-brand-group .brand-slogan {
+    color: #94a3b8 !important;
+}
+
+.header-nav-item {
+    color: #f1f5f9 !important;
+}
+
+.header-nav-item:hover {
+    color: #38bdf8 !important;
+}
+
+.header-search-pill-box {
+    background: rgba(255, 255, 255, 0.08) !important;
+    border: 1px solid rgba(255, 255, 255, 0.22) !important;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+}
+
+.header-search-pill-input {
+    color: #ffffff !important;
+}
+
+.header-search-pill-input::placeholder {
+    color: #94a3b8 !important;
+}
+
+.header-cart-pill-btn {
+    background: rgba(255, 255, 255, 0.08) !important;
+    border: 1px solid rgba(255, 255, 255, 0.22) !important;
+    color: #ffffff !important;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+}
+
+.header-cart-pill-btn:hover {
+    background: rgba(255, 255, 255, 0.16) !important;
+    border-color: #38bdf8 !important;
+    color: #ffffff !important;
+}
+
+.header-cart-pill-btn .cart-pill-svg {
+    stroke: #ffffff !important;
+    color: #ffffff !important;
+}
+
+.header-cart-pill-btn .cart-pill-label {
+    color: #ffffff !important;
+}
+
+.header-wa-pill-btn {
+    background: rgba(255, 255, 255, 0.08) !important;
+    border: 1.5px solid rgba(255, 255, 255, 0.22) !important;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+}
+
+.header-wa-pill-btn:hover {
+    background: rgba(37, 211, 102, 0.18) !important;
+    border-color: #25d366 !important;
 }
 
 .iphone-header-glass {
@@ -1558,10 +1626,11 @@ body.pdp-dark-mode .header-cart-pill-btn .cart-pill-badge {
     margin: 0;
     border-radius: 0;
     overflow: hidden;
-    background: #08101e url('assets/hero_cyber_bg.png') center bottom / cover no-repeat;
+    background: #08101e url('assets/hero_cyber_bg.png') center top / cover no-repeat;
     border: none;
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
-    min-height: 520px;
+    min-height: 580px;
+    padding-top: 5rem;
 }
 
 .hero-cyber-grid-floor,
@@ -2412,6 +2481,7 @@ body.pdp-dark-mode .slide-title-cyan {
    CATEGORIES BY BRAND SECTION
    ========================================================================== */
 .brand-categories-section {
+    background: #ffffff !important;
     width: 100%;
     margin-top: 0.25rem;
     padding-top: 0.25rem;
