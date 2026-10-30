@@ -137,7 +137,7 @@ body.jeko-theme-white {
     box-sizing: border-box;
 }
 
-/* Transparent Header Styling Overlaying Hero Cyber Background */
+/* Transparent Header Styling Overlaying Deep Blue Cyber Security Canvas */
 .iphone-brand-group .brand-title {
     color: #ffffff !important;
 }
@@ -157,8 +157,9 @@ body.jeko-theme-white {
 .header-search-pill-box {
     background: rgba(255, 255, 255, 0.08) !important;
     border: 1px solid rgba(255, 255, 255, 0.22) !important;
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
 }
 
 .header-search-pill-input {
@@ -173,12 +174,13 @@ body.jeko-theme-white {
     background: rgba(255, 255, 255, 0.08) !important;
     border: 1px solid rgba(255, 255, 255, 0.22) !important;
     color: #ffffff !important;
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
 }
 
 .header-cart-pill-btn:hover {
-    background: rgba(255, 255, 255, 0.16) !important;
+    background: rgba(56, 189, 248, 0.16) !important;
     border-color: #38bdf8 !important;
     color: #ffffff !important;
 }
@@ -192,16 +194,22 @@ body.jeko-theme-white {
     color: #ffffff !important;
 }
 
+.header-cart-pill-btn .cart-pill-badge {
+    background: #0284c7 !important;
+    color: #ffffff !important;
+}
+
 .header-wa-pill-btn {
     background: rgba(255, 255, 255, 0.08) !important;
-    border: 1.5px solid rgba(255, 255, 255, 0.22) !important;
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
+    border: 1.5px solid rgba(37, 211, 102, 0.35) !important;
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
 }
 
 .header-wa-pill-btn:hover {
-    background: rgba(37, 211, 102, 0.18) !important;
+    background: rgba(37, 211, 102, 0.2) !important;
     border-color: #25d366 !important;
+    box-shadow: 0 0 20px rgba(37, 211, 102, 0.35);
 }
 
 .iphone-header-glass {
@@ -791,7 +799,9 @@ body.pdp-dark-mode .header-cart-pill-btn .cart-pill-badge {
    ========================================================================== */
 .white-hero-section {
     padding: 0;
-    background: #08101e url('assets/hero_cyber_bg.png') center top / cover no-repeat;
+    background: radial-gradient(ellipse 70% 60% at 75% 45%, rgba(14, 165, 233, 0.22) 0%, rgba(2, 132, 199, 0.08) 50%, transparent 75%),
+                radial-gradient(ellipse 60% 50% at 15% 40%, rgba(30, 58, 138, 0.35) 0%, transparent 65%),
+                #060c18 url('assets/hero_cyber_bg.png') center top / cover no-repeat;
     position: relative;
     width: 100%;
     overflow: hidden;
@@ -1671,22 +1681,33 @@ body.pdp-dark-mode .header-cart-pill-btn .cart-pill-badge {
     z-index: 1;
 }
 
-/* Text Colors on Cyber Theme */
+/* Text Colors on Cyber Statement Theme */
 .hero-cyber-theme .slide-title {
     color: #ffffff !important;
+    font-size: clamp(3.2rem, 5.8vw, 5.4rem) !important;
+    font-weight: 900 !important;
+    line-height: 1.02 !important;
+    letter-spacing: -0.045em !important;
+    margin-bottom: 1.4rem !important;
+    text-transform: none !important;
 }
 
 .hero-cyber-theme .slide-title-cyan {
-    color: #38bdf8 !important;
-    text-shadow: 0 0 20px rgba(56, 189, 248, 0.5);
+    background: linear-gradient(135deg, #38bdf8 0%, #00d2ff 45%, #60a5fa 100%) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    text-shadow: 0 0 35px rgba(56, 189, 248, 0.55) !important;
+    filter: drop-shadow(0 0 20px rgba(56, 189, 248, 0.45)) !important;
 }
 
 .hero-cyber-theme .slide-subtitle {
-    color: #94a3b8 !important;
-    max-width: 540px;
-    font-size: 0.98rem;
-    line-height: 1.58;
-    margin-bottom: 1.4rem;
+    color: #cbd5e1 !important;
+    max-width: 560px !important;
+    font-size: clamp(1.05rem, 1.3vw, 1.2rem) !important;
+    line-height: 1.65 !important;
+    margin-bottom: 0 !important;
+    font-weight: 450 !important;
+    letter-spacing: -0.01em !important;
 }
 
 /* Security Reimagined Pill Badge */
@@ -1898,8 +1919,8 @@ body.pdp-dark-mode .header-cart-pill-btn .cart-pill-badge {
 
 /* Fixed Hero Content (Left) */
 .hero-fixed-content {
-    flex: 1.15;
-    max-width: 600px;
+    flex: 1.25;
+    max-width: 660px;
     display: flex;
     flex-direction: column;
     z-index: 5;
@@ -1913,14 +1934,14 @@ body.pdp-dark-mode .header-cart-pill-btn .cart-pill-badge {
     display: flex;
     align-items: center;
     justify-content: center;
-    min-height: 380px;
+    min-height: 440px;
     height: 100%;
 }
 
 .hero-camera-stage .offer-slides-track {
     position: relative;
     width: 100%;
-    min-height: 380px;
+    min-height: 440px;
     height: 100%;
     display: flex;
     align-items: center;
@@ -1950,6 +1971,21 @@ body.pdp-dark-mode .header-cart-pill-btn .cart-pill-badge {
     visibility: visible;
     pointer-events: auto;
     z-index: 2;
+}
+
+.hero-camera-stage .slide-product-img {
+    max-width: 440px !important;
+    max-height: 430px !important;
+    width: auto !important;
+    height: auto !important;
+    object-fit: contain !important;
+    filter: drop-shadow(0 25px 40px rgba(0, 0, 0, 0.65)) drop-shadow(0 0 35px rgba(56, 189, 248, 0.22)) !important;
+    cursor: pointer;
+    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.hero-camera-stage .slide-product-img:hover {
+    transform: scale(1.04) !important;
 }
 
 .hero-camera-stage .slide-nav-btn {
@@ -8743,6 +8779,14 @@ body.dark .btn-carousel-nav {
         max-width: 100% !important;
         align-items: center !important;
         text-align: center !important;
+    }
+    .hero-cyber-theme .slide-title {
+        font-size: clamp(2.35rem, 8vw, 3.4rem) !important;
+        text-align: center !important;
+    }
+    .hero-cyber-theme .slide-subtitle {
+        text-align: center !important;
+        margin: 0 auto !important;
     }
     .hero-fixed-content .slide-badge-row {
         justify-content: center !important;

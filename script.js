@@ -506,48 +506,51 @@ function initOfferSlideshow() {
         if (heroBadgeFire) heroBadgeFire.textContent = newBadge;
         if (heroBadgeSave) heroBadgeSave.textContent = newSave;
 
-        // GSAP Butter-Smooth Camera Transition
+        // GSAP Butter-Smooth Camera Transition with Zero Ghosting
         if (window.gsap) {
             if (floatTween) floatTween.kill();
 
             const curImg = curSlide.querySelector('.slide-product-img');
             const nextImg = nextSlide.querySelector('.slide-product-img');
             if (curImg) gsap.set(curImg, { y: 0 });
+            if (nextImg) gsap.set(nextImg, { y: 0 });
 
-            nextSlide.classList.add('active');
-            gsap.set(nextSlide, { visibility: 'visible', pointerEvents: 'auto' });
+            gsap.set(curSlide, { zIndex: 1 });
+            gsap.set(nextSlide, { zIndex: 2, visibility: 'visible', pointerEvents: 'none' });
 
             const tl = gsap.timeline({
                 onComplete: () => {
                     curSlide.classList.remove('active');
-                    gsap.set(curSlide, { visibility: 'hidden', pointerEvents: 'none' });
+                    nextSlide.classList.add('active');
+                    gsap.set(curSlide, { visibility: 'hidden', pointerEvents: 'none', opacity: 0 });
+                    gsap.set(nextSlide, { pointerEvents: 'auto' });
                     currentSlide = nextIndex;
                     isAnimating = false;
                     if (nextImg) startCameraFloat(nextImg);
                 }
             });
 
-            // Outgoing camera: silky slide out with subtle scale-down and opacity fade
+            // Outgoing camera: swift slide and clean fade out (zero double exposure)
             tl.to(curSlide, {
                 opacity: 0,
-                scale: 0.94,
-                x: direction * -45,
-                duration: 0.65,
-                ease: "power2.inOut"
+                scale: 0.92,
+                x: direction * -35,
+                duration: 0.28,
+                ease: "power2.in"
             }, 0);
 
-            // Incoming camera: enters from opposite side with gentle scale and settle
+            // Incoming camera: enters smoothly with slight scale-in and organic settle
             tl.fromTo(nextSlide, {
                 opacity: 0,
-                scale: 1.06,
-                x: direction * 50
+                scale: 1.08,
+                x: direction * 40
             }, {
                 opacity: 1,
                 scale: 1,
                 x: 0,
-                duration: 0.75,
+                duration: 0.45,
                 ease: "power3.out"
-            }, 0.05);
+            }, 0.22);
 
         } else {
             // Fallback if GSAP is unavailable
