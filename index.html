@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Syber Space | Intelligent Surveillance &amp; Access Architecture</title>
-<meta name="description" content="Certified CCTV surveillance systems, optical hardware, and access-control architecture for residential and commercial environments in Kerala.">
+<meta name="description" content="Certified CCTV surveillance systems, optical hardware, and access-control architecture for residential and commercial environments.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -19,13 +19,13 @@
   --blue: #2563eb;
   --blue-dark: #1d4ed8;
   --blue-light: #38bdf8;
-  --blue-glow: rgba(37, 99, 235, 0.15);
+  --blue-glow: rgba(56, 189, 248, 0.25);
   --blue-subtle: rgba(37, 99, 235, 0.08);
   --text-dark: #090d16;
   --text-body: #475569;
   --text-muted: #64748b;
   --border-light: #e2e8f0;
-  --border-blue: rgba(37, 99, 235, 0.2);
+  --border-blue: rgba(56, 189, 248, 0.25);
   --card-bg: #ffffff;
   --card-soft: #f8fafc;
   --font-main: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
@@ -43,15 +43,6 @@ html {
 
 body {
   background-color: var(--white);
-  background-image: 
-    radial-gradient(ellipse at 15% 8%, rgba(37, 99, 235, 0.07) 0%, transparent 55%),
-    radial-gradient(ellipse at 85% 18%, rgba(56, 189, 248, 0.08) 0%, transparent 50%),
-    radial-gradient(ellipse at 50% 65%, rgba(15, 23, 42, 0.03) 0%, transparent 60%),
-    radial-gradient(ellipse at 0% 100%, rgba(37, 99, 235, 0.05) 0%, transparent 45%),
-    radial-gradient(ellipse at 100% 85%, rgba(15, 23, 42, 0.04) 0%, transparent 45%);
-  background-attachment: fixed;
-  background-repeat: no-repeat;
-  background-size: 100% 100%;
   color: var(--text-body);
   font-family: var(--font-main);
   overflow-x: hidden;
@@ -69,102 +60,47 @@ a {
   margin: 0 auto;
 }
 
-/* TOPBAR: SLEEK OBSIDIAN BLACK WITH BLUE & WHITE TEXT */
-.topbar {
-  background: var(--black);
-  border-bottom: 1px solid rgba(37, 99, 235, 0.25);
-  font-size: 12px;
-  color: #94a3b8;
-  padding: 8px 0;
-  letter-spacing: 0.3px;
-}
-.topbar .wrap {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 12px;
-  flex-wrap: wrap;
-}
-.topbar span {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-}
-.topbar a {
-  color: var(--blue-light);
-  font-weight: 600;
-}
-.topbar a:hover {
-  color: #fff;
-}
-.topbar-badge {
-  background: rgba(37, 99, 235, 0.2);
-  color: var(--blue-light);
-  border: 1px solid rgba(56, 189, 248, 0.3);
-  padding: 1px 7px;
-  border-radius: 4px;
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 0.5px;
-}
-
-/* HEADER: AESTHETIC FROSTED GLASS WHITE WITH BLACK BRANDING */
+/* HEADER: SLEEK FROSTED GLASS OVER HERO CYBER BACKGROUND (TEXT ONLY, NO LOGO ICON) */
 header {
   position: sticky;
   top: 0;
   z-index: 100;
-  background: rgba(255, 255, 255, 0.92);
+  background: rgba(7, 18, 34, 0.78);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border-bottom: 1px solid var(--border-light);
-  box-shadow: 0 4px 20px rgba(9, 13, 22, 0.03);
+  border-bottom: 1px solid rgba(56, 189, 248, 0.14);
+  box-shadow: 0 4px 24px rgba(4, 11, 22, 0.35);
+  transition: background 0.3s ease;
 }
 .nav {
   height: 74px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 20px;
+  gap: 24px;
 }
+
+/* BRAND: CLEAN TYPOGRAPHY ONLY (NO LOGO ICON) */
 .brand {
   display: flex;
   align-items: center;
-  gap: 12px;
-  font-weight: 850;
-  font-size: 21px;
-  letter-spacing: -0.6px;
-  color: var(--black);
-}
-.brandmark {
-  width: 38px;
-  height: 38px;
-  border-radius: 12px;
-  background: linear-gradient(135deg, var(--black) 0%, var(--black-surface) 100%);
-  border: 1px solid rgba(37, 99, 235, 0.3);
-  display: grid;
-  place-items: center;
-  color: var(--blue-light);
-  box-shadow: 0 4px 14px rgba(9, 13, 22, 0.15);
-}
-.brandmark svg {
-  width: 22px;
-  height: 22px;
+  text-decoration: none;
 }
 .brand-name {
   display: flex;
   flex-direction: column;
 }
 .brand-name span {
-  font-size: 18px;
+  font-size: 20px;
   line-height: 1.1;
   font-weight: 900;
-  letter-spacing: 0.5px;
-  color: var(--black);
+  letter-spacing: 1.2px;
+  color: #ffffff;
 }
 .brand-name small {
   font-size: 9px;
-  letter-spacing: 2.5px;
-  color: var(--blue);
+  letter-spacing: 3px;
+  color: var(--blue-light);
   font-weight: 800;
   text-transform: uppercase;
   margin-top: 2px;
@@ -173,13 +109,13 @@ header {
 .navlinks {
   display: flex;
   align-items: center;
-  gap: 26px;
+  gap: 28px;
   font-size: 13px;
   font-weight: 600;
-  color: var(--text-body);
+  color: #cbd5e1;
 }
 .navlinks a:hover {
-  color: var(--blue);
+  color: var(--blue-light);
 }
 
 .navactions {
@@ -188,43 +124,43 @@ header {
   gap: 12px;
 }
 .search {
-  border: 1px solid var(--border-light);
-  background: var(--card-soft);
-  color: var(--text-dark);
+  border: 1px solid rgba(56, 189, 248, 0.2);
+  background: rgba(10, 27, 51, 0.65);
+  color: #ffffff;
   border-radius: 12px;
-  padding: 9px 13px;
-  width: 170px;
+  padding: 9px 14px;
+  width: 175px;
   font-size: 12px;
   outline: none;
   transition: border-color 0.2s, background 0.2s, box-shadow 0.2s;
 }
 .search:focus {
-  border-color: var(--blue);
-  background: #fff;
-  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+  border-color: var(--blue-light);
+  background: rgba(10, 27, 51, 0.95);
+  box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.15);
 }
 .search::placeholder {
-  color: var(--text-muted);
+  color: #8fa4c2;
 }
 
 .header-cart-pill {
   display: inline-flex;
   align-items: center;
   gap: 7px;
-  border: 1px solid var(--black);
-  background: var(--black);
+  border: 1px solid rgba(56, 189, 248, 0.3);
+  background: rgba(14, 36, 68, 0.85);
   border-radius: 12px;
-  padding: 9px 14px;
+  padding: 9px 15px;
   font-size: 12px;
   font-weight: 700;
-  color: #fff;
+  color: #ffffff;
   cursor: pointer;
   transition: all 0.2s;
 }
 .header-cart-pill:hover {
   background: var(--blue);
-  border-color: var(--blue);
-  box-shadow: 0 4px 14px rgba(37, 99, 235, 0.25);
+  border-color: var(--blue-light);
+  box-shadow: 0 4px 14px rgba(37, 99, 235, 0.4);
 }
 .cart-badge {
   display: inline-block;
@@ -236,22 +172,26 @@ header {
   font-weight: 850;
 }
 
-/* HERO SECTION: AESTHETIC WHITE WITH STATEMENT TYPOGRAPHY & FLOATING CAMERA */
+/* ==========================================================================
+   HERO SECTION: IMAGE(9) SCI-FI TECH BACKGROUND WITH STATEMENT TYPOGRAPHY
+   ========================================================================== */
 .hero {
   position: relative;
   overflow: hidden;
-  padding: 75px 0 90px;
+  background: #071324 url('assets/hero_cyber_bg.jpg') center top / cover no-repeat;
+  color: #ffffff;
+  padding: 70px 0 100px;
+  min-height: 560px;
 }
+/* Bottom blend into the white sections below */
 .hero::after {
   content: "";
   position: absolute;
-  inset: 0;
-  background-image: 
-    linear-gradient(rgba(15, 23, 42, 0.025) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(15, 23, 42, 0.025) 1px, transparent 1px);
-  background-size: 48px 48px;
-  mask-image: linear-gradient(90deg, transparent 0%, #000 30%, #000 80%, transparent 100%);
-  -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 30%, #000 80%, transparent 100%);
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 90px;
+  background: linear-gradient(to bottom, rgba(7, 19, 36, 0) 0%, rgba(255, 255, 255, 0.9) 85%, #ffffff 100%);
   pointer-events: none;
 }
 .hero-grid {
@@ -261,17 +201,16 @@ header {
   grid-template-columns: 1.05fr 0.95fr;
   gap: 40px;
   align-items: center;
-  min-height: 480px;
 }
 
 .eyebrow {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  border: 1px solid var(--border-blue);
-  background: var(--blue-subtle);
-  color: var(--blue);
-  padding: 7px 14px;
+  border: 1px solid rgba(56, 189, 248, 0.4);
+  background: rgba(56, 189, 248, 0.12);
+  color: var(--blue-light);
+  padding: 7px 15px;
   border-radius: 99px;
   font-size: 11px;
   font-weight: 800;
@@ -281,29 +220,29 @@ header {
 .dot {
   width: 7px;
   height: 7px;
-  background: var(--blue);
+  background: var(--blue-light);
   border-radius: 50%;
-  box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.2);
+  box-shadow: 0 0 0 4px rgba(56, 189, 248, 0.35);
 }
 
 .hero h1 {
-  font-size: clamp(38px, 5.2vw, 64px);
-  line-height: 1.04;
-  letter-spacing: -2.2px;
+  font-size: clamp(40px, 5.5vw, 68px);
+  line-height: 1.03;
+  letter-spacing: -2.4px;
   margin: 22px 0 18px;
   font-weight: 900;
-  color: var(--text-dark);
+  color: #ffffff;
 }
 .hero h1 em, .hero-highlight {
   font-style: normal;
-  background: linear-gradient(135deg, var(--blue-dark) 0%, var(--blue) 50%, #0284c7 100%);
+  background: linear-gradient(135deg, #38bdf8 0%, #60a5fa 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 .hero p {
   font-size: 16px;
   line-height: 1.8;
-  color: var(--text-body);
+  color: #cbd5e1;
   max-width: 500px;
   margin: 0;
 }
@@ -321,8 +260,8 @@ header {
   width: 380px;
   height: 380px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(37, 99, 235, 0.14) 0%, rgba(15, 23, 42, 0.05) 50%, transparent 72%);
-  filter: blur(16px);
+  background: radial-gradient(circle, rgba(56, 189, 248, 0.28) 0%, rgba(37, 99, 235, 0.15) 50%, transparent 72%);
+  filter: blur(14px);
   pointer-events: none;
 }
 .hero-camera-stage {
@@ -354,7 +293,7 @@ header {
   width: auto;
   height: auto;
   object-fit: contain;
-  filter: drop-shadow(0 22px 28px rgba(9, 13, 22, 0.16)) drop-shadow(0 4px 12px rgba(37, 99, 235, 0.12));
+  filter: drop-shadow(0 25px 35px rgba(0, 0, 0, 0.8)) drop-shadow(0 0 35px rgba(56, 189, 248, 0.3));
   cursor: pointer;
   transition: transform 0.3s ease;
 }
@@ -374,19 +313,19 @@ header {
   width: 32px;
   height: 32px;
   border-radius: 50%;
-  border: 1px solid var(--border-light);
-  background: #fff;
-  color: var(--text-dark);
+  border: 1px solid rgba(56, 189, 248, 0.3);
+  background: rgba(10, 27, 51, 0.8);
+  color: #ffffff;
   font-size: 14px;
   display: grid;
   place-items: center;
   cursor: pointer;
-  box-shadow: 0 2px 8px rgba(9, 13, 22, 0.05);
   transition: all 0.2s;
 }
 .hero-cam-nav-btn:hover {
-  border-color: var(--blue);
-  color: var(--blue);
+  border-color: var(--blue-light);
+  color: var(--blue-light);
+  background: rgba(14, 36, 68, 0.95);
   transform: scale(1.08);
 }
 .hero-slide-dots {
@@ -398,21 +337,21 @@ header {
   width: 26px;
   height: 5px;
   border-radius: 99px;
-  background: #cbd5e1;
+  background: rgba(255, 255, 255, 0.25);
   border: 0;
   cursor: pointer;
   transition: all 0.3s;
 }
 .hero-dot.active {
-  background: var(--blue);
+  background: var(--blue-light);
   width: 38px;
-  box-shadow: 0 0 8px rgba(37, 99, 235, 0.4);
+  box-shadow: 0 0 10px rgba(56, 189, 248, 0.6);
 }
 .hero-cam-caption {
   margin-top: 8px;
   font-size: 12px;
   font-weight: 700;
-  color: var(--blue);
+  color: var(--blue-light);
   letter-spacing: 0.5px;
 }
 
@@ -511,7 +450,7 @@ section {
 .scenario-content h3 {
   font-size: 20px;
   font-weight: 850;
-  color: #fff;
+  color: #ffffff;
   margin-bottom: 8px;
   letter-spacing: -0.5px;
 }
@@ -532,10 +471,10 @@ section {
 }
 .scenario-card:hover .scenario-link {
   gap: 8px;
-  color: #fff;
+  color: #ffffff;
 }
 
-/* SECTION 3: BUILD YOUR SECURITY SETUP (CORE CATEGORIES) */
+/* SECTION 3: BUILD YOUR SECURITY SETUP (CORE ARCHITECTURE) */
 .categories-img-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -635,7 +574,7 @@ section {
   gap: 16px;
 }
 .brand-logo-card {
-  background: #fff;
+  background: #ffffff;
   border: 1px solid var(--border-light);
   border-radius: 16px;
   padding: 26px 16px;
@@ -771,7 +710,7 @@ section {
 .about-banner-badge strong {
   display: block;
   font-size: 13px;
-  color: #fff;
+  color: #ffffff;
   font-weight: 800;
   margin-bottom: 3px;
 }
@@ -792,7 +731,7 @@ section {
   gap: 20px;
 }
 .why-feat-card {
-  background: #fff;
+  background: #ffffff;
   border: 1px solid var(--border-light);
   border-radius: 20px;
   padding: 28px 24px;
@@ -831,7 +770,7 @@ section {
   color: var(--text-body);
 }
 
-/* FOOTER: DEEP OBSIDIAN BLACK */
+/* FOOTER: OBSIDIAN BLACK LUXURY FOUNDATION (TEXT ONLY, NO LOGO ICON) */
 footer {
   background: var(--black-deep);
   border-top: 1px solid rgba(255, 255, 255, 0.1);
@@ -846,10 +785,11 @@ footer {
 }
 .footer-brand {
   margin-bottom: 14px;
-  color: #fff;
+  color: #ffffff;
+  text-decoration: none;
 }
 .footer-brand .brand-name span {
-  color: #fff;
+  color: #ffffff;
 }
 .footer-about {
   font-size: 13px;
@@ -859,7 +799,7 @@ footer {
 }
 .footer-col h4 {
   font-size: 13px;
-  color: #fff;
+  color: #ffffff;
   font-weight: 800;
   margin-bottom: 16px;
   text-transform: uppercase;
@@ -913,7 +853,7 @@ footer {
 
 @media (max-width: 640px) {
   .navlinks, .search { display: none; }
-  .hero { padding: 45px 0 55px; }
+  .hero { padding: 45px 0 65px; }
   .hero h1 { font-size: 38px; }
   .scenarios-grid { grid-template-columns: 1fr; }
   .categories-img-grid { grid-template-columns: 1fr; }
@@ -927,28 +867,10 @@ footer {
 </head>
 <body>
 
-<!-- TOPBAR: REFINED EXECUTIVE LANGUAGE -->
-<div class="topbar">
-  <div class="wrap">
-    <span>
-      <span class="topbar-badge">REGIONAL OFFICE</span>
-      Kerala, India &middot; Direct Advisory &amp; Inquiries: <a href="https://wa.me/917511180808" target="_blank" rel="noopener">+91 75111 80808</a>
-    </span>
-    <span>Certified Hardware Standards &middot; Official Manufacturer Warranties</span>
-  </div>
-</div>
-
-<!-- HEADER -->
+<!-- HEADER: TEXT ONLY, NO LOGO ICON -->
 <header>
   <div class="wrap nav">
     <a class="brand" href="index.html">
-      <span class="brandmark">
-        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
-          <path d="M4 7.5 12 3l8 4.5v9L12 21l-8-4.5v-9Z" stroke="currentColor" stroke-width="1.6"/>
-          <path d="m8 9 4-2.3L16 9v5.5l-4 2.2-4-2.2V9Z" stroke="currentColor" stroke-width="1.6"/>
-          <circle cx="12" cy="11.7" r="1.7" fill="currentColor"/>
-        </svg>
-      </span>
       <div class="brand-name">
         <span>SYBER SPACE</span>
         <small>Smart Security</small>
@@ -980,7 +902,7 @@ footer {
 </header>
 
 <main>
-  <!-- 1. HERO SECTION: AESTHETIC WHITE WITH STATEMENT TYPOGRAPHY & GSAP BUTTER SMOOTH CAMERA SLIDESHOW -->
+  <!-- 1. HERO SECTION: IMAGE(9) SCI-FI BACKGROUND + BUTTER SMOOTH GSAP CAMERA SLIDESHOW -->
   <section class="hero">
     <div class="wrap hero-grid">
       <div class="hero-copy vanish-text">
@@ -1098,7 +1020,7 @@ footer {
     </div>
   </section>
 
-  <!-- 3. BUILD YOUR SECURITY SETUP (CORE CATEGORIES WITH AESTHETIC WHITE CARDS) -->
+  <!-- 3. BUILD YOUR SECURITY SETUP (CORE ARCHITECTURE) -->
   <section class="categories-section" id="categories">
     <div class="wrap">
       <div class="section-head vanish-text">
@@ -1146,7 +1068,7 @@ footer {
           </div>
         </a>
 
-        <!-- 4: Security Accessories -->
+        <!-- 4: Infrastructure & Accessories -->
         <a class="cat-img-card vanish-text" href="#contact">
           <div class="cat-thumb">
             <img src="assets/wholesale_supply_kit.png" alt="Infrastructure & Accessories" loading="lazy">
@@ -1233,8 +1155,8 @@ footer {
     <div class="wrap about-grid">
       <div class="about-text-col vanish-text">
         <div class="kicker">ABOUT SYBER SPACE</div>
-        <h2>Kerala's Benchmark in Intelligent Security</h2>
-        <p class="about-lead">Dedicated to delivering authenticated, high-performance surveillance architecture to homeowners, institutions, and certified systems integrators across Kerala.</p>
+        <h2>The Benchmark in Intelligent Security</h2>
+        <p class="about-lead">Dedicated to delivering authenticated, high-performance surveillance architecture to homeowners, institutions, and certified systems integrators.</p>
         <p>At Syber Space, we engineer complete security ecosystems rather than single components. Every camera, recording appliance, optical sensor, and power unit in our catalog is sourced through verified manufacturer channels with verifiable serial numbers and official warranties.</p>
         <p>Whether you require a discreet residential camera system or an enterprise-tier multi-site surveillance network, our certified engineering team provides clear, data-driven design specifications.</p>
         
@@ -1244,12 +1166,12 @@ footer {
             <span>Certified Hardware</span>
           </div>
           <div class="metric-item">
-            <strong>14</strong>
-            <span>Districts Supported</span>
-          </div>
-          <div class="metric-item">
             <strong>24/7</strong>
             <span>Reliability Standards</span>
+          </div>
+          <div class="metric-item">
+            <strong>Tier-1</strong>
+            <span>Architecture</span>
           </div>
         </div>
       </div>
@@ -1258,8 +1180,8 @@ footer {
         <div class="about-card-banner">
           <img src="assets/camera_mounted_house.jpg" alt="Syber Space Security Architecture" loading="lazy">
           <div class="about-banner-badge">
-            <strong>Kerala Engineering Standards</strong>
-            <small>Engineered for monsoon-proof IP66/IP67 durability</small>
+            <strong>Industrial Engineering Standards</strong>
+            <small>Certified IP66/IP67 weather-resistance against humidity and extreme conditions</small>
           </div>
         </div>
       </div>
@@ -1274,7 +1196,7 @@ footer {
           <div class="kicker">The Syber Space Standard</div>
           <h2>Why Choose Us</h2>
         </div>
-        <p style="margin: 12px auto 0;">Engineered security solutions backed by official manufacturer partnerships and dedicated local advisory.</p>
+        <p style="margin: 12px auto 0;">Engineered security solutions backed by official manufacturer partnerships and dedicated advisory.</p>
       </div>
 
       <div class="why-cards-grid">
@@ -1301,8 +1223,8 @@ footer {
           <div class="why-icon-pill">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
           </div>
-          <h3>Regional Express Logistics</h3>
-          <p>Prompt, secure dispatch across Kozhikode, Ernakulam, Trivandrum, Thrissur, and all 14 Kerala districts in reinforced packaging.</p>
+          <h3>Insured Express Logistics</h3>
+          <p>Prompt, secure dispatch with reinforced shock-absorbent packaging, prompt tracking, and transit insurance protection.</p>
         </div>
 
         <!-- 4 -->
@@ -1336,25 +1258,18 @@ footer {
   </section>
 </main>
 
-<!-- FOOTER: OBSIDIAN BLACK LUXURY FOUNDATION -->
+<!-- FOOTER: OBSIDIAN BLACK LUXURY FOUNDATION (TEXT ONLY, NO LOGO ICON) -->
 <footer id="contact">
   <div class="wrap">
     <div class="footer-grid">
       <div>
         <a class="brand footer-brand" href="index.html">
-          <span class="brandmark">
-            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
-              <path d="M4 7.5 12 3l8 4.5v9L12 21l-8-4.5v-9Z" stroke="currentColor" stroke-width="1.6"/>
-              <path d="m8 9 4-2.3L16 9v5.5l-4 2.2-4-2.2V9Z" stroke="currentColor" stroke-width="1.6"/>
-              <circle cx="12" cy="11.7" r="1.7" fill="currentColor"/>
-            </svg>
-          </span>
           <div class="brand-name">
             <span>SYBER SPACE</span>
             <small>Smart Security</small>
           </div>
         </a>
-        <p class="footer-about">Intelligent surveillance architecture, optical engineering, and certified hardware distribution across Kerala.</p>
+        <p class="footer-about">Intelligent surveillance architecture, optical engineering, and certified hardware distribution.</p>
       </div>
       
       <div class="footer-col">
@@ -1368,7 +1283,7 @@ footer {
       <div class="footer-col">
         <h4>Advisory</h4>
         <a href="contact.html">Technical Advisory</a>
-        <a href="shipping-policy.html">Regional Dispatch</a>
+        <a href="shipping-policy.html">Dispatch Standards</a>
         <a href="refund-policy.html">Warranty Policy</a>
         <a href="terms.html">Terms of Service</a>
       </div>
@@ -1377,7 +1292,7 @@ footer {
         <h4>Contact</h4>
         <a href="mailto:hello@syberspace.in">hello@syberspace.in</a>
         <a href="https://wa.me/917511180808" target="_blank" rel="noopener">WhatsApp: +91 75111 80808</a>
-        <a href="#contact">Kerala, India</a>
+        <a href="#contact">Central Operations Desk</a>
       </div>
     </div>
 
