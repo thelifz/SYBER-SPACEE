@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Syber Space | Smart Security. Smarter Living.</title>
-<meta name="description" content="Authentic CCTV cameras, surveillance systems, access control and security hardware in Kerala. Direct factory margins and official brand warranties.">
+<title>Syber Space | Intelligent Surveillance &amp; Access Architecture</title>
+<meta name="description" content="Certified CCTV surveillance systems, optical hardware, and access-control architecture for residential and commercial environments in Kerala.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -12,18 +12,22 @@
 <script src="assets/ScrollTrigger.min.js"></script>
 <style>
 :root {
-  --bg-deep: #06101e;
-  --bg-card: #0a1b33;
-  --bg-card-hover: #0e2444;
-  --line: rgba(56, 189, 248, 0.15);
-  --line-strong: rgba(56, 189, 248, 0.35);
+  --white: #ffffff;
+  --black: #090d16;
+  --black-deep: #050a14;
+  --black-surface: #0f172a;
   --blue: #2563eb;
-  --blue-hover: #1d4ed8;
-  --cyan: #38bdf8;
-  --cyan-bright: #67e8f9;
-  --text-head: #ffffff;
-  --text-body: #cbd5e1;
-  --text-muted: #8fa4c2;
+  --blue-dark: #1d4ed8;
+  --blue-light: #38bdf8;
+  --blue-glow: rgba(37, 99, 235, 0.15);
+  --blue-subtle: rgba(37, 99, 235, 0.08);
+  --text-dark: #090d16;
+  --text-body: #475569;
+  --text-muted: #64748b;
+  --border-light: #e2e8f0;
+  --border-blue: rgba(37, 99, 235, 0.2);
+  --card-bg: #ffffff;
+  --card-soft: #f8fafc;
   --font-main: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
@@ -38,13 +42,13 @@ html {
 }
 
 body {
-  background-color: var(--bg-deep);
+  background-color: var(--white);
   background-image: 
-    radial-gradient(ellipse at 15% 10%, rgba(37, 99, 235, 0.22) 0%, transparent 55%),
-    radial-gradient(ellipse at 85% 20%, rgba(56, 189, 248, 0.15) 0%, transparent 50%),
-    radial-gradient(ellipse at 50% 60%, rgba(14, 165, 233, 0.12) 0%, transparent 60%),
-    radial-gradient(ellipse at 0% 100%, rgba(37, 99, 235, 0.18) 0%, transparent 45%),
-    radial-gradient(ellipse at 100% 80%, rgba(30, 58, 138, 0.25) 0%, transparent 45%);
+    radial-gradient(ellipse at 15% 8%, rgba(37, 99, 235, 0.07) 0%, transparent 55%),
+    radial-gradient(ellipse at 85% 18%, rgba(56, 189, 248, 0.08) 0%, transparent 50%),
+    radial-gradient(ellipse at 50% 65%, rgba(15, 23, 42, 0.03) 0%, transparent 60%),
+    radial-gradient(ellipse at 0% 100%, rgba(37, 99, 235, 0.05) 0%, transparent 45%),
+    radial-gradient(ellipse at 100% 85%, rgba(15, 23, 42, 0.04) 0%, transparent 45%);
   background-attachment: fixed;
   background-repeat: no-repeat;
   background-size: 100% 100%;
@@ -65,13 +69,14 @@ a {
   margin: 0 auto;
 }
 
-/* TOPBAR */
+/* TOPBAR: SLEEK OBSIDIAN BLACK WITH BLUE & WHITE TEXT */
 .topbar {
-  background: rgba(4, 11, 22, 0.9);
-  border-bottom: 1px solid var(--line);
+  background: var(--black);
+  border-bottom: 1px solid rgba(37, 99, 235, 0.25);
   font-size: 12px;
-  color: var(--text-muted);
+  color: #94a3b8;
   padding: 8px 0;
+  letter-spacing: 0.3px;
 }
 .topbar .wrap {
   display: flex;
@@ -80,19 +85,39 @@ a {
   gap: 12px;
   flex-wrap: wrap;
 }
+.topbar span {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+.topbar a {
+  color: var(--blue-light);
+  font-weight: 600;
+}
 .topbar a:hover {
-  color: var(--cyan);
+  color: #fff;
+}
+.topbar-badge {
+  background: rgba(37, 99, 235, 0.2);
+  color: var(--blue-light);
+  border: 1px solid rgba(56, 189, 248, 0.3);
+  padding: 1px 7px;
+  border-radius: 4px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
 }
 
-/* HEADER */
+/* HEADER: AESTHETIC FROSTED GLASS WHITE WITH BLACK BRANDING */
 header {
   position: sticky;
   top: 0;
   z-index: 100;
-  background: rgba(6, 16, 30, 0.88);
+  background: rgba(255, 255, 255, 0.92);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border-bottom: 1px solid var(--line);
+  border-bottom: 1px solid var(--border-light);
+  box-shadow: 0 4px 20px rgba(9, 13, 22, 0.03);
 }
 .nav {
   height: 74px;
@@ -108,18 +133,18 @@ header {
   font-weight: 850;
   font-size: 21px;
   letter-spacing: -0.6px;
-  color: #fff;
+  color: var(--black);
 }
 .brandmark {
   width: 38px;
   height: 38px;
   border-radius: 12px;
-  background: linear-gradient(135deg, #1d4ed8 0%, #061935 100%);
-  border: 1px solid rgba(56, 189, 248, 0.3);
+  background: linear-gradient(135deg, var(--black) 0%, var(--black-surface) 100%);
+  border: 1px solid rgba(37, 99, 235, 0.3);
   display: grid;
   place-items: center;
-  color: var(--cyan);
-  box-shadow: 0 4px 14px rgba(37, 99, 235, 0.3);
+  color: var(--blue-light);
+  box-shadow: 0 4px 14px rgba(9, 13, 22, 0.15);
 }
 .brandmark svg {
   width: 22px;
@@ -132,14 +157,15 @@ header {
 .brand-name span {
   font-size: 18px;
   line-height: 1.1;
-  font-weight: 850;
+  font-weight: 900;
   letter-spacing: 0.5px;
+  color: var(--black);
 }
 .brand-name small {
   font-size: 9px;
   letter-spacing: 2.5px;
-  color: var(--cyan);
-  font-weight: 750;
+  color: var(--blue);
+  font-weight: 800;
   text-transform: uppercase;
   margin-top: 2px;
 }
@@ -147,13 +173,13 @@ header {
 .navlinks {
   display: flex;
   align-items: center;
-  gap: 24px;
+  gap: 26px;
   font-size: 13px;
   font-weight: 600;
-  color: var(--text-muted);
+  color: var(--text-body);
 }
 .navlinks a:hover {
-  color: var(--cyan-bright);
+  color: var(--blue);
 }
 
 .navactions {
@@ -162,19 +188,20 @@ header {
   gap: 12px;
 }
 .search {
-  border: 1px solid var(--line);
-  background: rgba(10, 27, 51, 0.6);
-  color: #fff;
+  border: 1px solid var(--border-light);
+  background: var(--card-soft);
+  color: var(--text-dark);
   border-radius: 12px;
   padding: 9px 13px;
   width: 170px;
   font-size: 12px;
   outline: none;
-  transition: border-color 0.2s, background 0.2s;
+  transition: border-color 0.2s, background 0.2s, box-shadow 0.2s;
 }
 .search:focus {
-  border-color: var(--cyan);
-  background: rgba(10, 27, 51, 0.9);
+  border-color: var(--blue);
+  background: #fff;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
 }
 .search::placeholder {
   color: var(--text-muted);
@@ -184,8 +211,8 @@ header {
   display: inline-flex;
   align-items: center;
   gap: 7px;
-  border: 1px solid var(--line);
-  background: rgba(10, 27, 51, 0.8);
+  border: 1px solid var(--black);
+  background: var(--black);
   border-radius: 12px;
   padding: 9px 14px;
   font-size: 12px;
@@ -195,33 +222,33 @@ header {
   transition: all 0.2s;
 }
 .header-cart-pill:hover {
-  border-color: var(--cyan);
-  color: var(--cyan);
-  background: rgba(14, 36, 68, 0.9);
+  background: var(--blue);
+  border-color: var(--blue);
+  box-shadow: 0 4px 14px rgba(37, 99, 235, 0.25);
 }
 .cart-badge {
   display: inline-block;
-  background: var(--blue);
-  color: #fff;
+  background: var(--blue-light);
+  color: var(--black);
   border-radius: 99px;
   padding: 1px 7px;
   font-size: 11px;
-  font-weight: 800;
+  font-weight: 850;
 }
 
-/* HERO SECTION */
+/* HERO SECTION: AESTHETIC WHITE WITH STATEMENT TYPOGRAPHY & FLOATING CAMERA */
 .hero {
   position: relative;
   overflow: hidden;
-  padding: 70px 0 85px;
+  padding: 75px 0 90px;
 }
 .hero::after {
   content: "";
   position: absolute;
   inset: 0;
   background-image: 
-    linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    linear-gradient(rgba(15, 23, 42, 0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(15, 23, 42, 0.025) 1px, transparent 1px);
   background-size: 48px 48px;
   mask-image: linear-gradient(90deg, transparent 0%, #000 30%, #000 80%, transparent 100%);
   -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 30%, #000 80%, transparent 100%);
@@ -241,9 +268,9 @@ header {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  border: 1px solid rgba(56, 189, 248, 0.35);
-  background: rgba(56, 189, 248, 0.08);
-  color: var(--cyan);
+  border: 1px solid var(--border-blue);
+  background: var(--blue-subtle);
+  color: var(--blue);
   padding: 7px 14px;
   border-radius: 99px;
   font-size: 11px;
@@ -254,9 +281,9 @@ header {
 .dot {
   width: 7px;
   height: 7px;
-  background: #38bdf8;
+  background: var(--blue);
   border-radius: 50%;
-  box-shadow: 0 0 0 4px rgba(56, 189, 248, 0.25);
+  box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.2);
 }
 
 .hero h1 {
@@ -265,18 +292,18 @@ header {
   letter-spacing: -2.2px;
   margin: 22px 0 18px;
   font-weight: 900;
-  color: #fff;
+  color: var(--text-dark);
 }
 .hero h1 em, .hero-highlight {
   font-style: normal;
-  background: linear-gradient(135deg, #38bdf8 0%, #2563eb 100%);
+  background: linear-gradient(135deg, var(--blue-dark) 0%, var(--blue) 50%, #0284c7 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 .hero p {
   font-size: 16px;
   line-height: 1.8;
-  color: var(--text-muted);
+  color: var(--text-body);
   max-width: 500px;
   margin: 0;
 }
@@ -291,11 +318,11 @@ header {
 }
 .hero-orb {
   position: absolute;
-  width: 360px;
-  height: 360px;
+  width: 380px;
+  height: 380px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(56, 189, 248, 0.3) 0%, rgba(37, 99, 235, 0.15) 50%, transparent 72%);
-  filter: blur(12px);
+  background: radial-gradient(circle, rgba(37, 99, 235, 0.14) 0%, rgba(15, 23, 42, 0.05) 50%, transparent 72%);
+  filter: blur(16px);
   pointer-events: none;
 }
 .hero-camera-stage {
@@ -327,7 +354,7 @@ header {
   width: auto;
   height: auto;
   object-fit: contain;
-  filter: drop-shadow(0 25px 30px rgba(0, 0, 0, 0.8)) drop-shadow(0 0 35px rgba(56, 189, 248, 0.28));
+  filter: drop-shadow(0 22px 28px rgba(9, 13, 22, 0.16)) drop-shadow(0 4px 12px rgba(37, 99, 235, 0.12));
   cursor: pointer;
   transition: transform 0.3s ease;
 }
@@ -347,19 +374,19 @@ header {
   width: 32px;
   height: 32px;
   border-radius: 50%;
-  border: 1px solid var(--line);
-  background: rgba(10, 27, 51, 0.75);
-  color: #fff;
+  border: 1px solid var(--border-light);
+  background: #fff;
+  color: var(--text-dark);
   font-size: 14px;
   display: grid;
   place-items: center;
   cursor: pointer;
+  box-shadow: 0 2px 8px rgba(9, 13, 22, 0.05);
   transition: all 0.2s;
 }
 .hero-cam-nav-btn:hover {
-  border-color: var(--cyan);
-  color: var(--cyan);
-  background: rgba(14, 36, 68, 0.95);
+  border-color: var(--blue);
+  color: var(--blue);
   transform: scale(1.08);
 }
 .hero-slide-dots {
@@ -371,21 +398,21 @@ header {
   width: 26px;
   height: 5px;
   border-radius: 99px;
-  background: rgba(255, 255, 255, 0.2);
+  background: #cbd5e1;
   border: 0;
   cursor: pointer;
   transition: all 0.3s;
 }
 .hero-dot.active {
-  background: var(--cyan);
+  background: var(--blue);
   width: 38px;
-  box-shadow: 0 0 10px rgba(56, 189, 248, 0.6);
+  box-shadow: 0 0 8px rgba(37, 99, 235, 0.4);
 }
 .hero-cam-caption {
   margin-top: 8px;
   font-size: 12px;
-  font-weight: 600;
-  color: var(--cyan);
+  font-weight: 700;
+  color: var(--blue);
   letter-spacing: 0.5px;
 }
 
@@ -405,24 +432,24 @@ section {
   font-size: 11px;
   text-transform: uppercase;
   letter-spacing: 2px;
-  color: var(--cyan);
+  color: var(--blue);
   font-weight: 850;
   margin-bottom: 6px;
 }
 .section-head h2 {
   font-size: clamp(28px, 3.2vw, 40px);
   letter-spacing: -1.2px;
-  color: #fff;
-  font-weight: 850;
+  color: var(--text-dark);
+  font-weight: 900;
 }
 .section-head p {
-  color: var(--text-muted);
+  color: var(--text-body);
   font-size: 14px;
   line-height: 1.7;
   max-width: 440px;
 }
 
-/* SECTION 2: SCENARIOS (HOME SECURITY ETC.) */
+/* SECTION 2: PROTECTION ENVIRONMENTS */
 .scenarios-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -433,18 +460,19 @@ section {
   height: 380px;
   border-radius: 20px;
   overflow: hidden;
-  border: 1px solid var(--line);
-  background: var(--bg-card);
+  border: 1px solid var(--border-light);
+  background: var(--black);
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
   padding: 24px;
+  box-shadow: 0 10px 25px rgba(9, 13, 22, 0.06);
   transition: border-color 0.3s, transform 0.3s, box-shadow 0.3s;
 }
 .scenario-card:hover {
-  border-color: rgba(56, 189, 248, 0.6);
+  border-color: var(--blue);
   transform: translateY(-5px);
-  box-shadow: 0 20px 40px rgba(10, 27, 51, 0.9), 0 0 25px rgba(56, 189, 248, 0.15);
+  box-shadow: 0 20px 40px rgba(9, 13, 22, 0.18), 0 0 20px rgba(37, 99, 235, 0.15);
 }
 .scenario-img-wrap {
   position: absolute;
@@ -465,7 +493,7 @@ section {
 .scenario-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to top, rgba(6, 16, 30, 0.96) 0%, rgba(6, 16, 30, 0.6) 55%, rgba(6, 16, 30, 0.25) 100%);
+  background: linear-gradient(to top, rgba(9, 13, 22, 0.95) 0%, rgba(9, 13, 22, 0.55) 55%, rgba(9, 13, 22, 0.2) 100%);
 }
 .scenario-content {
   position: relative;
@@ -477,7 +505,7 @@ section {
   font-weight: 800;
   text-transform: uppercase;
   letter-spacing: 1.5px;
-  color: var(--cyan);
+  color: var(--blue-light);
   margin-bottom: 6px;
 }
 .scenario-content h3 {
@@ -490,13 +518,13 @@ section {
 .scenario-content p {
   font-size: 12px;
   line-height: 1.6;
-  color: var(--text-body);
+  color: #cbd5e1;
   margin-bottom: 12px;
 }
 .scenario-link {
   font-size: 12px;
   font-weight: 750;
-  color: var(--cyan-bright);
+  color: var(--blue-light);
   display: inline-flex;
   align-items: center;
   gap: 5px;
@@ -504,40 +532,41 @@ section {
 }
 .scenario-card:hover .scenario-link {
   gap: 8px;
+  color: #fff;
 }
 
-/* SECTION 3: BUILD YOUR SECURITY SETUP (CATEGORIES) */
+/* SECTION 3: BUILD YOUR SECURITY SETUP (CORE CATEGORIES) */
 .categories-img-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 18px;
 }
 .cat-img-card {
-  background: rgba(10, 27, 51, 0.75);
-  border: 1px solid var(--line);
+  background: var(--card-bg);
+  border: 1px solid var(--border-light);
   border-radius: 20px;
   padding: 20px;
-  backdrop-filter: blur(10px);
+  box-shadow: 0 10px 25px rgba(9, 13, 22, 0.04);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   transition: all 0.3s;
 }
 .cat-img-card:hover {
-  border-color: rgba(56, 189, 248, 0.6);
+  border-color: var(--blue);
   transform: translateY(-5px);
-  box-shadow: 0 16px 36px rgba(4, 11, 22, 0.8), 0 0 20px rgba(56, 189, 248, 0.12);
+  box-shadow: 0 16px 36px rgba(9, 13, 22, 0.08), 0 0 15px rgba(37, 99, 235, 0.1);
 }
 .cat-thumb {
   height: 190px;
   border-radius: 14px;
-  background: radial-gradient(circle, rgba(56, 189, 248, 0.12) 0%, rgba(6, 16, 30, 0.6) 100%);
+  background: radial-gradient(circle, rgba(37, 99, 235, 0.05) 0%, #f1f5f9 100%);
   display: flex;
   align-items: center;
   justify-content: center;
   margin-bottom: 18px;
   overflow: hidden;
-  border: 1px solid rgba(56, 189, 248, 0.08);
+  border: 1px solid var(--border-light);
 }
 .cat-thumb img {
   max-height: 155px;
@@ -545,7 +574,7 @@ section {
   width: auto;
   height: auto;
   object-fit: contain;
-  filter: drop-shadow(0 10px 16px rgba(0, 0, 0, 0.6));
+  filter: drop-shadow(0 8px 14px rgba(9, 13, 22, 0.12));
   transition: transform 0.4s ease;
 }
 .cat-img-card:hover .cat-thumb img {
@@ -553,20 +582,20 @@ section {
 }
 .cat-body h3 {
   font-size: 17px;
-  font-weight: 800;
-  color: #fff;
+  font-weight: 850;
+  color: var(--text-dark);
   margin-bottom: 6px;
 }
 .cat-body p {
   font-size: 12px;
   line-height: 1.6;
-  color: var(--text-muted);
+  color: var(--text-body);
   margin-bottom: 14px;
 }
 .cat-arrow {
   font-size: 12px;
   font-weight: 750;
-  color: var(--cyan);
+  color: var(--blue);
   display: inline-flex;
   align-items: center;
   gap: 5px;
@@ -574,14 +603,14 @@ section {
 }
 .cat-img-card:hover .cat-arrow {
   gap: 8px;
-  color: var(--cyan-bright);
+  color: var(--blue-dark);
 }
 
 /* SECTION 4: BRANDS WE DEAL WITH */
 .brands-section {
-  background: rgba(4, 11, 22, 0.5);
-  border-top: 1px solid var(--line);
-  border-bottom: 1px solid var(--line);
+  background: var(--card-soft);
+  border-top: 1px solid var(--border-light);
+  border-bottom: 1px solid var(--border-light);
 }
 .brands-header {
   text-align: center;
@@ -590,12 +619,12 @@ section {
 .brands-header h2 {
   font-size: clamp(28px, 3.2vw, 38px);
   letter-spacing: -1px;
-  color: #fff;
+  color: var(--text-dark);
   font-weight: 900;
   margin: 6px 0 10px;
 }
 .brands-header p {
-  color: var(--text-muted);
+  color: var(--text-body);
   font-size: 14px;
   max-width: 520px;
   margin: 0 auto;
@@ -606,8 +635,8 @@ section {
   gap: 16px;
 }
 .brand-logo-card {
-  background: rgba(10, 27, 51, 0.65);
-  border: 1px solid var(--line);
+  background: #fff;
+  border: 1px solid var(--border-light);
   border-radius: 16px;
   padding: 26px 16px;
   display: flex;
@@ -617,13 +646,13 @@ section {
   text-align: center;
   gap: 10px;
   min-height: 130px;
+  box-shadow: 0 4px 14px rgba(9, 13, 22, 0.03);
   transition: all 0.3s;
 }
 .brand-logo-card:hover {
-  border-color: rgba(56, 189, 248, 0.5);
+  border-color: var(--blue);
   transform: translateY(-4px);
-  background: rgba(14, 36, 68, 0.8);
-  box-shadow: 0 12px 28px rgba(4, 11, 22, 0.8), 0 0 20px rgba(56, 189, 248, 0.15);
+  box-shadow: 0 12px 28px rgba(9, 13, 22, 0.08), 0 0 15px rgba(37, 99, 235, 0.12);
 }
 .brand-logo-mark {
   display: flex;
@@ -634,14 +663,14 @@ section {
   font-size: 18px;
   font-weight: 900;
   letter-spacing: 2px;
-  color: #fff;
+  color: var(--text-dark);
   line-height: 1.1;
 }
 .logo-cpplus {
-  color: #ff4d4d;
+  color: #dc2626;
 }
 .logo-idada {
-  color: #38bdf8;
+  color: var(--blue);
 }
 .logo-text-sub {
   font-size: 9px;
@@ -654,11 +683,11 @@ section {
 .brand-status-pill {
   font-size: 10px;
   font-weight: 700;
-  color: var(--cyan);
-  border: 1px solid rgba(56, 189, 248, 0.3);
+  color: var(--blue);
+  border: 1px solid var(--border-blue);
   padding: 3px 9px;
   border-radius: 99px;
-  background: rgba(56, 189, 248, 0.08);
+  background: var(--blue-subtle);
 }
 
 /* SECTION 5: ABOUT US */
@@ -671,7 +700,7 @@ section {
 .about-text-col h2 {
   font-size: clamp(28px, 3.2vw, 40px);
   letter-spacing: -1.2px;
-  color: #fff;
+  color: var(--text-dark);
   font-weight: 900;
   margin: 8px 0 18px;
   line-height: 1.15;
@@ -679,14 +708,14 @@ section {
 .about-lead {
   font-size: 15px;
   line-height: 1.8;
-  color: #e2e8f0;
+  color: var(--text-dark);
   margin-bottom: 16px;
-  font-weight: 500;
+  font-weight: 600;
 }
 .about-text-col p {
   font-size: 14px;
   line-height: 1.8;
-  color: var(--text-muted);
+  color: var(--text-body);
   margin-bottom: 16px;
 }
 .about-metrics {
@@ -695,20 +724,20 @@ section {
   gap: 16px;
   margin-top: 28px;
   padding-top: 24px;
-  border-top: 1px solid var(--line);
+  border-top: 1px solid var(--border-light);
 }
 .metric-item strong {
   display: block;
-  font-size: 26px;
+  font-size: 28px;
   font-weight: 900;
-  color: var(--cyan);
+  color: var(--blue);
   line-height: 1;
   margin-bottom: 5px;
 }
 .metric-item span {
   font-size: 12px;
-  color: var(--text-muted);
-  font-weight: 600;
+  color: var(--text-dark);
+  font-weight: 700;
 }
 .about-visual-col {
   position: relative;
@@ -716,10 +745,10 @@ section {
 .about-card-banner {
   border-radius: 22px;
   overflow: hidden;
-  border: 1px solid var(--line);
+  border: 1px solid var(--border-light);
   position: relative;
-  background: var(--bg-card);
-  box-shadow: 0 25px 50px rgba(4, 11, 22, 0.9);
+  background: var(--black);
+  box-shadow: 0 20px 45px rgba(9, 13, 22, 0.12);
 }
 .about-card-banner img {
   width: 100%;
@@ -732,10 +761,10 @@ section {
   bottom: 16px;
   left: 16px;
   right: 16px;
-  background: rgba(6, 16, 30, 0.85);
+  background: rgba(9, 13, 22, 0.88);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  border: 1px solid var(--line);
+  border: 1px solid rgba(255, 255, 255, 0.15);
   border-radius: 14px;
   padding: 14px 18px;
 }
@@ -749,12 +778,13 @@ section {
 .about-banner-badge small {
   display: block;
   font-size: 11px;
-  color: var(--cyan);
+  color: var(--blue-light);
 }
 
 /* SECTION 6: WHY CHOOSE US */
 .why-section {
-  background: rgba(4, 11, 22, 0.4);
+  background: var(--card-soft);
+  border-top: 1px solid var(--border-light);
 }
 .why-cards-grid {
   display: grid;
@@ -762,27 +792,27 @@ section {
   gap: 20px;
 }
 .why-feat-card {
-  background: rgba(10, 27, 51, 0.7);
-  border: 1px solid var(--line);
+  background: #fff;
+  border: 1px solid var(--border-light);
   border-radius: 20px;
   padding: 28px 24px;
-  backdrop-filter: blur(10px);
+  box-shadow: 0 6px 20px rgba(9, 13, 22, 0.03);
   transition: all 0.3s;
 }
 .why-feat-card:hover {
-  border-color: rgba(56, 189, 248, 0.6);
+  border-color: var(--blue);
   transform: translateY(-5px);
-  box-shadow: 0 16px 36px rgba(4, 11, 22, 0.8), 0 0 20px rgba(56, 189, 248, 0.12);
+  box-shadow: 0 16px 36px rgba(9, 13, 22, 0.08), 0 0 15px rgba(37, 99, 235, 0.1);
 }
 .why-icon-pill {
   width: 44px;
   height: 44px;
   border-radius: 14px;
-  background: rgba(37, 99, 235, 0.2);
-  border: 1px solid rgba(56, 189, 248, 0.3);
+  background: var(--blue-subtle);
+  border: 1px solid var(--border-blue);
   display: grid;
   place-items: center;
-  color: var(--cyan);
+  color: var(--blue);
   margin-bottom: 18px;
 }
 .why-icon-pill svg {
@@ -791,22 +821,22 @@ section {
 }
 .why-feat-card h3 {
   font-size: 16px;
-  font-weight: 800;
-  color: #fff;
+  font-weight: 850;
+  color: var(--text-dark);
   margin-bottom: 8px;
 }
 .why-feat-card p {
   font-size: 13px;
   line-height: 1.6;
-  color: var(--text-muted);
+  color: var(--text-body);
 }
 
-/* FOOTER */
+/* FOOTER: DEEP OBSIDIAN BLACK */
 footer {
-  background: #030811;
-  border-top: 1px solid var(--line);
+  background: var(--black-deep);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
   padding: 60px 0 25px;
-  color: var(--text-muted);
+  color: #94a3b8;
 }
 .footer-grid {
   display: grid;
@@ -816,11 +846,15 @@ footer {
 }
 .footer-brand {
   margin-bottom: 14px;
+  color: #fff;
+}
+.footer-brand .brand-name span {
+  color: #fff;
 }
 .footer-about {
   font-size: 13px;
   line-height: 1.8;
-  color: var(--text-muted);
+  color: #94a3b8;
   max-width: 300px;
 }
 .footer-col h4 {
@@ -834,11 +868,11 @@ footer {
 .footer-col a {
   display: block;
   font-size: 13px;
-  color: var(--text-muted);
+  color: #94a3b8;
   margin: 10px 0;
 }
 .footer-col a:hover {
-  color: var(--cyan-bright);
+  color: var(--blue-light);
 }
 .footer-bottom {
   border-top: 1px solid rgba(255, 255, 255, 0.08);
@@ -849,6 +883,7 @@ footer {
   gap: 15px;
   flex-wrap: wrap;
   font-size: 11px;
+  color: #64748b;
 }
 
 /* VANISH-TEXT KINETIC STYLING */
@@ -892,11 +927,14 @@ footer {
 </head>
 <body>
 
-<!-- TOPBAR -->
+<!-- TOPBAR: REFINED EXECUTIVE LANGUAGE -->
 <div class="topbar">
   <div class="wrap">
-    <span>Kerala, India &middot; WhatsApp Procurement: +91 75111 80808</span>
-    <span>100% Genuine Tax Invoices &middot; Direct Factory Margins</span>
+    <span>
+      <span class="topbar-badge">REGIONAL OFFICE</span>
+      Kerala, India &middot; Direct Advisory &amp; Inquiries: <a href="https://wa.me/917511180808" target="_blank" rel="noopener">+91 75111 80808</a>
+    </span>
+    <span>Certified Hardware Standards &middot; Official Manufacturer Warranties</span>
   </div>
 </div>
 
@@ -927,8 +965,8 @@ footer {
     </nav>
 
     <div class="navactions">
-      <input class="search" id="headerSearchInput" placeholder="Search products..." aria-label="Search products" onkeydown="if(event.key==='Enter'){window.location.href='cart.html?q='+encodeURIComponent(this.value);}">
-      <a class="header-cart-pill" id="header-cart-btn" href="cart.html" title="Open Shopping Cart">
+      <input class="search" id="headerSearchInput" placeholder="Search architecture..." aria-label="Search architecture" onkeydown="if(event.key==='Enter'){window.location.href='cart.html?q='+encodeURIComponent(this.value);}">
+      <a class="header-cart-pill" id="header-cart-btn" href="cart.html" title="Open Selection">
         <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2">
           <circle cx="9" cy="21" r="1"></circle>
           <circle cx="20" cy="21" r="1"></circle>
@@ -942,13 +980,13 @@ footer {
 </header>
 
 <main>
-  <!-- 1. HERO SECTION (STATEMENT FIXED + GSAP BUTTER SMOOTH CAMERA SLIDESHOW) -->
+  <!-- 1. HERO SECTION: AESTHETIC WHITE WITH STATEMENT TYPOGRAPHY & GSAP BUTTER SMOOTH CAMERA SLIDESHOW -->
   <section class="hero">
     <div class="wrap hero-grid">
       <div class="hero-copy vanish-text">
         <div class="eyebrow"><span class="dot"></span> SECURITY, REIMAGINED</div>
         <h1>See more.<br><span class="hero-highlight">Secure more.</span><br>Worry less.</h1>
-        <p>Smart surveillance and access-control solutions for homes, shops and businesses. Find the right technology to protect what matters most.</p>
+        <p>Intelligent surveillance and access-control architecture for private residences, executive suites, and commercial facilities. Technology engineered to protect what matters most.</p>
       </div>
       
       <div class="hero-slideshow-wrap">
@@ -989,7 +1027,7 @@ footer {
     </div>
   </section>
 
-  <!-- 2. SCENARIOS (HOME SECURITY, BUSINESS, SMART SURVEILLANCE, GUIDANCE WITH REAL IMAGES) -->
+  <!-- 2. SCENARIOS: WHAT ARE YOU SECURING? -->
   <section class="scenarios-section" id="scenarios">
     <div class="wrap">
       <div class="section-head vanish-text">
@@ -997,7 +1035,7 @@ footer {
           <div class="kicker">Protection Environments</div>
           <h2>What are you securing?</h2>
         </div>
-        <p>Tailored surveillance systems engineered for your specific architectural and operational requirements.</p>
+        <p>Tailored surveillance architecture engineered for your structural and operational requirements.</p>
       </div>
 
       <div class="scenarios-grid">
@@ -1008,8 +1046,8 @@ footer {
             <div class="scenario-overlay"></div>
           </div>
           <div class="scenario-content">
-            <span class="scenario-tag">Residential Protection</span>
-            <h3>Home Security</h3>
+            <span class="scenario-tag">Residential Surveillance</span>
+            <h3>Home &amp; Villa</h3>
             <p>Everyday peace of mind with perimeter tripwires, smart mobile notifications, and crystal-clear night vision.</p>
             <span class="scenario-link">Explore Systems &rarr;</span>
           </div>
@@ -1022,8 +1060,8 @@ footer {
             <div class="scenario-overlay"></div>
           </div>
           <div class="scenario-content">
-            <span class="scenario-tag">Commercial &amp; Workplace</span>
-            <h3>Business Systems</h3>
+            <span class="scenario-tag">Commercial Enterprise</span>
+            <h3>Facility Security</h3>
             <p>Protect your workplace, offices, and inventory with high-capacity NVR storage and multi-channel coverage.</p>
             <span class="scenario-link">Explore Systems &rarr;</span>
           </div>
@@ -1036,39 +1074,39 @@ footer {
             <div class="scenario-overlay"></div>
           </div>
           <div class="scenario-content">
-            <span class="scenario-tag">Retail &amp; Storefronts</span>
+            <span class="scenario-tag">Retail &amp; Logistics</span>
             <h3>Smart Surveillance</h3>
-            <p>Monitor with confidence using 360 degree pan-tilt cameras, two-way audio, and real-time humanoid detection.</p>
+            <p>Monitor with confidence using 360-degree pan-tilt cameras, two-way audio, and real-time humanoid detection.</p>
             <span class="scenario-link">Explore Systems &rarr;</span>
           </div>
         </a>
 
         <!-- CARD 4: HELPFUL GUIDANCE -->
-        <a class="scenario-card vanish-text" href="https://wa.me/917511180808?text=Hi%20Syber%20Space%2C%20I%20need%20expert%20guidance%20on%20choosing%20the%20right%20CCTV%20security%20system." target="_blank" rel="noopener">
+        <a class="scenario-card vanish-text" href="https://wa.me/917511180808?text=Hi%20Syber%20Space%2C%20I%20would%20like%20expert%20engineering%20guidance%20on%20designing%20a%20surveillance%20system." target="_blank" rel="noopener">
           <div class="scenario-img-wrap">
             <img src="assets/cinematic_env_farm.jpg" alt="Helpful Guidance" loading="lazy">
             <div class="scenario-overlay"></div>
           </div>
           <div class="scenario-content">
-            <span class="scenario-tag">Certified Engineers</span>
-            <h3>Helpful Guidance</h3>
+            <span class="scenario-tag">Engineering Advisory</span>
+            <h3>System Consultation</h3>
             <p>Choose with clarity. Speak directly with our certified surveillance engineers for tailored CCTV system designs.</p>
-            <span class="scenario-link">Talk to an Expert &rarr;</span>
+            <span class="scenario-link">Consult an Engineer &rarr;</span>
           </div>
         </a>
       </div>
     </div>
   </section>
 
-  <!-- 3. BUILD YOUR SECURITY SETUP (CATEGORIES WITH RICH IMAGES) -->
+  <!-- 3. BUILD YOUR SECURITY SETUP (CORE CATEGORIES WITH AESTHETIC WHITE CARDS) -->
   <section class="categories-section" id="categories">
     <div class="wrap">
       <div class="section-head vanish-text">
         <div>
-          <div class="kicker">Core Categories</div>
+          <div class="kicker">Core Architecture</div>
           <h2>Build your security setup</h2>
         </div>
-        <p>From single Wi-Fi cameras to enterprise IP surveillance, select the essentials for your setup.</p>
+        <p>From single Wi-Fi cameras to enterprise IP networks, select the foundation for your installation.</p>
       </div>
 
       <div class="categories-img-grid">
@@ -1111,12 +1149,12 @@ footer {
         <!-- 4: Security Accessories -->
         <a class="cat-img-card vanish-text" href="#contact">
           <div class="cat-thumb">
-            <img src="assets/wholesale_supply_kit.png" alt="Security Accessories" loading="lazy">
+            <img src="assets/wholesale_supply_kit.png" alt="Infrastructure & Accessories" loading="lazy">
           </div>
           <div class="cat-body">
-            <h3>Security Accessories</h3>
+            <h3>Infrastructure &amp; Cabling</h3>
             <p>Pure copper Cat6 cables, SMPS power supplies, surveillance HDDs, and junction boxes.</p>
-            <span class="cat-arrow">Explore Accessories &rarr;</span>
+            <span class="cat-arrow">Explore Infrastructure &rarr;</span>
           </div>
         </a>
       </div>
@@ -1129,7 +1167,7 @@ footer {
       <div class="brands-header vanish-text">
         <span class="kicker">AUTHORIZED DISTRIBUTION</span>
         <h2>BRANDS WE DEAL WITH</h2>
-        <p>Direct manufacturer partnerships providing 100% genuine hardware with official warranties.</p>
+        <p>Direct manufacturer partnerships providing certified hardware with official warranties.</p>
       </div>
 
       <div class="brand-logos-container vanish-text">
@@ -1139,7 +1177,7 @@ footer {
             <span class="logo-text-bold">TRUEVIEW</span>
             <span class="logo-text-sub">Vision Beyond Sight</span>
           </div>
-          <span class="brand-status-pill">Official Dealer</span>
+          <span class="brand-status-pill">Authorized Partner</span>
         </div>
 
         <!-- BRAND 2: CP PLUS -->
@@ -1148,7 +1186,7 @@ footer {
             <span class="logo-text-bold logo-cpplus">CP PLUS</span>
             <span class="logo-text-sub">Security Systems</span>
           </div>
-          <span class="brand-status-pill">Official Dealer</span>
+          <span class="brand-status-pill">Authorized Partner</span>
         </div>
 
         <!-- BRAND 3: iDADA -->
@@ -1157,7 +1195,7 @@ footer {
             <span class="logo-text-bold logo-idada">iDADA</span>
             <span class="logo-text-sub">Smart Surveillance</span>
           </div>
-          <span class="brand-status-pill">Official Dealer</span>
+          <span class="brand-status-pill">Authorized Partner</span>
         </div>
 
         <!-- BRAND 4: SEAGATE -->
@@ -1166,7 +1204,7 @@ footer {
             <span class="logo-text-bold">SEAGATE</span>
             <span class="logo-text-sub">SkyHawk Storage</span>
           </div>
-          <span class="brand-status-pill">Storage Partner</span>
+          <span class="brand-status-pill">Storage Technology</span>
         </div>
 
         <!-- BRAND 5: DAHUA -->
@@ -1195,30 +1233,30 @@ footer {
     <div class="wrap about-grid">
       <div class="about-text-col vanish-text">
         <div class="kicker">ABOUT SYBER SPACE</div>
-        <h2>Kerala's Trusted Partner in Smart Security</h2>
-        <p class="about-lead">Founded with a dedicated mission: to eliminate counterfeit surveillance gear and deliver direct factory-tier pricing to homeowners, businesses, and certified installers across Kerala.</p>
-        <p>At Syber Space, we do not simply sell cameras. We provide comprehensive, engineered security ecosystems. Every camera, recorder, cable drum, and power supply in our catalog is sourced directly through official brand distribution networks, complete with verifiable serial numbers and full GST tax invoices.</p>
-        <p>Whether you require a single smart Wi-Fi camera for your home or a multi-building 64-channel commercial surveillance network, our team provides transparent guidance with zero shortcuts.</p>
+        <h2>Kerala's Benchmark in Intelligent Security</h2>
+        <p class="about-lead">Dedicated to delivering authenticated, high-performance surveillance architecture to homeowners, institutions, and certified systems integrators across Kerala.</p>
+        <p>At Syber Space, we engineer complete security ecosystems rather than single components. Every camera, recording appliance, optical sensor, and power unit in our catalog is sourced through verified manufacturer channels with verifiable serial numbers and official warranties.</p>
+        <p>Whether you require a discreet residential camera system or an enterprise-tier multi-site surveillance network, our certified engineering team provides clear, data-driven design specifications.</p>
         
         <div class="about-metrics">
           <div class="metric-item">
             <strong>100%</strong>
-            <span>Genuine Hardware</span>
+            <span>Certified Hardware</span>
           </div>
           <div class="metric-item">
             <strong>14</strong>
-            <span>Districts Covered</span>
+            <span>Districts Supported</span>
           </div>
           <div class="metric-item">
-            <strong>0%</strong>
-            <span>Middleman Markup</span>
+            <strong>24/7</strong>
+            <span>Reliability Standards</span>
           </div>
         </div>
       </div>
 
       <div class="about-visual-col vanish-text">
         <div class="about-card-banner">
-          <img src="assets/camera_mounted_house.jpg" alt="Syber Space Security Installation" loading="lazy">
+          <img src="assets/camera_mounted_house.jpg" alt="Syber Space Security Architecture" loading="lazy">
           <div class="about-banner-badge">
             <strong>Kerala Engineering Standards</strong>
             <small>Engineered for monsoon-proof IP66/IP67 durability</small>
@@ -1233,10 +1271,10 @@ footer {
     <div class="wrap">
       <div class="section-head text-center vanish-text" style="justify-content: center; text-align: center; display: block;">
         <div>
-          <div class="kicker">The Syber Space Difference</div>
+          <div class="kicker">The Syber Space Standard</div>
           <h2>Why Choose Us</h2>
         </div>
-        <p style="margin: 12px auto 0;">Engineered security solutions backed by authentic manufacturer partnerships and dedicated local support.</p>
+        <p style="margin: 12px auto 0;">Engineered security solutions backed by official manufacturer partnerships and dedicated local advisory.</p>
       </div>
 
       <div class="why-cards-grid">
@@ -1245,8 +1283,8 @@ footer {
           <div class="why-icon-pill">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
           </div>
-          <h3>100% Genuine Certified Hardware</h3>
-          <p>No grey-market imports or refurbished gear. Every product comes with an authentic manufacturer warranty and valid GST tax invoice.</p>
+          <h3>Authenticated Hardware Standards</h3>
+          <p>Every product is sourced through certified manufacturer networks, accompanied by official warranty documentation and serial tracking.</p>
         </div>
 
         <!-- 2 -->
@@ -1254,8 +1292,8 @@ footer {
           <div class="why-icon-pill">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="m16 10-4 4-2-2"/></svg>
           </div>
-          <h3>Direct Factory Margins</h3>
-          <p>We supply at direct wholesale price brackets, passing distributor-tier discounts directly to homeowners, dealers, and electricians.</p>
+          <h3>Direct Partner Sourcing</h3>
+          <p>Direct manufacturer integration provides optimum value and transparent pricing structures across all equipment tiers.</p>
         </div>
 
         <!-- 3 -->
@@ -1263,8 +1301,8 @@ footer {
           <div class="why-icon-pill">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
           </div>
-          <h3>Pan-Kerala Express Dispatch</h3>
-          <p>Swift logistics directly across Kozhikode, Ernakulam, Trivandrum, Thrissur, and all 14 districts with safe, foam-protected packaging.</p>
+          <h3>Regional Express Logistics</h3>
+          <p>Prompt, secure dispatch across Kozhikode, Ernakulam, Trivandrum, Thrissur, and all 14 Kerala districts in reinforced packaging.</p>
         </div>
 
         <!-- 4 -->
@@ -1272,8 +1310,8 @@ footer {
           <div class="why-icon-pill">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
           </div>
-          <h3>Free Engineering Guidance</h3>
-          <p>Our certified surveillance specialists guide you on camera field-of-view, hard drive capacity calculations, and cabling plans at zero cost.</p>
+          <h3>Technical System Architecture</h3>
+          <p>Our surveillance specialists calculate optical angles, storage retention days, and bandwidth allocation for your specific floor plan.</p>
         </div>
 
         <!-- 5 -->
@@ -1281,8 +1319,8 @@ footer {
           <div class="why-icon-pill">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
           </div>
-          <h3>Contractor &amp; Dealer Priority</h3>
-          <p>Special procurement support, bulk reel discounting, and fast quotes for electrical contractors and CCTV integration professionals.</p>
+          <h3>Architectural &amp; Integrator Solutions</h3>
+          <p>Dedicated technical specifications, schematics, and supply coordination for building contractors and integration specialists.</p>
         </div>
 
         <!-- 6 -->
@@ -1290,15 +1328,15 @@ footer {
           <div class="why-icon-pill">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
           </div>
-          <h3>Dedicated WhatsApp Support</h3>
-          <p>Direct communication via WhatsApp for order status, mobile app configuration, remote viewing help, and warranty assistance.</p>
+          <h3>Direct Technical Advisory</h3>
+          <p>Seamless communication via WhatsApp for system setup, network pairing, remote mobile configuration, and warranty support.</p>
         </div>
       </div>
     </div>
   </section>
 </main>
 
-<!-- FOOTER -->
+<!-- FOOTER: OBSIDIAN BLACK LUXURY FOUNDATION -->
 <footer id="contact">
   <div class="wrap">
     <div class="footer-grid">
@@ -1316,21 +1354,21 @@ footer {
             <small>Smart Security</small>
           </div>
         </a>
-        <p class="footer-about">Authentic surveillance, access control and security hardware with direct factory margins across Kerala.</p>
+        <p class="footer-about">Intelligent surveillance architecture, optical engineering, and certified hardware distribution across Kerala.</p>
       </div>
       
       <div class="footer-col">
-        <h4>Products</h4>
+        <h4>Architecture</h4>
         <a href="#categories">CCTV Cameras</a>
         <a href="#categories">DVR &amp; NVR Recorders</a>
         <a href="#categories">Access Control</a>
-        <a href="#categories">Power &amp; Cabling</a>
+        <a href="#categories">Infrastructure &amp; Cabling</a>
       </div>
 
       <div class="footer-col">
-        <h4>Assistance</h4>
-        <a href="contact.html">Contact Support</a>
-        <a href="shipping-policy.html">Kerala Dispatch</a>
+        <h4>Advisory</h4>
+        <a href="contact.html">Technical Advisory</a>
+        <a href="shipping-policy.html">Regional Dispatch</a>
         <a href="refund-policy.html">Warranty Policy</a>
         <a href="terms.html">Terms of Service</a>
       </div>
@@ -1345,7 +1383,7 @@ footer {
 
     <div class="footer-bottom">
       <span>&copy; <span id="year"></span> Syber Space. All rights reserved.</span>
-      <span><a href="privacy.html">Privacy Policy</a> &middot; <a href="terms.html">Terms</a> &middot; <a href="shipping-policy.html">Shipping</a></span>
+      <span><a href="privacy.html">Privacy Policy</a> &middot; <a href="terms.html">Terms of Service</a> &middot; <a href="shipping-policy.html">Dispatch Standards</a></span>
     </div>
   </div>
 </footer>
@@ -1481,7 +1519,7 @@ document.addEventListener('DOMContentLoaded', () => {
     wrapEl.addEventListener('mouseleave', startTimer);
   }
 
-  // 2. SCROLLTRIGGER / INTERSECTION OBSERVER REVEAL FOR .vanish-text
+  // 2. SCROLLTRIGGER REVEAL FOR .vanish-text
   const vanishItems = Array.from(document.querySelectorAll('.vanish-text'));
   if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
     gsap.registerPlugin(ScrollTrigger);
