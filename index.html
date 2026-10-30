@@ -3,35 +3,49 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Syber Space | Intelligent Surveillance &amp; Access Architecture</title>
-<meta name="description" content="Certified CCTV surveillance systems, optical hardware, and access-control architecture for residential and commercial environments.">
+<title>Syber Space | Official Surveillance Hardware &amp; Security Architecture</title>
+<meta name="description" content="Official direct-procurement store for CCTV surveillance systems, 4G solar cameras, enterprise NVRs, and certified storage. Genuine manufacturer warranties with direct factory pricing.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 <script src="assets/gsap.min.js"></script>
 <script src="assets/ScrollTrigger.min.js"></script>
+<script src="products_data.js"></script>
 <style>
+/* ==========================================================================
+   SYBER SPACE // OFFICIAL SURVEILLANCE STORE
+   STRICT PALETTE: PURE WHITE, OBSIDIAN BLACK, AND ELECTRIC BLUE
+   ========================================================================== */
+
 :root {
   --white: #ffffff;
+  --bg-slate: #f8fafc;
   --black: #090d16;
   --black-deep: #050a14;
   --black-surface: #0f172a;
+  --black-card: #131d33;
   --blue: #2563eb;
-  --blue-dark: #1d4ed8;
+  --blue-hover: #1d4ed8;
   --blue-light: #38bdf8;
-  --blue-glow: rgba(56, 189, 248, 0.25);
+  --blue-glow: rgba(56, 189, 248, 0.28);
   --blue-subtle: rgba(37, 99, 235, 0.08);
+  --blue-border: rgba(56, 189, 248, 0.24);
   --text-dark: #090d16;
+  --text-heading: #0f172a;
   --text-body: #475569;
   --text-muted: #64748b;
   --border-light: #e2e8f0;
-  --border-blue: rgba(56, 189, 248, 0.25);
-  --card-bg: #ffffff;
-  --card-soft: #f8fafc;
+  --border-subtle: #edf2f7;
   --font-main: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --shadow-sm: 0 2px 8px rgba(9, 13, 22, 0.05);
+  --shadow-card: 0 10px 30px rgba(9, 13, 22, 0.06);
+  --shadow-hover: 0 18px 40px rgba(37, 99, 235, 0.12);
 }
 
-* {
+*, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -39,6 +53,7 @@
 
 html {
   scroll-behavior: smooth;
+  color-scheme: only light;
 }
 
 body {
@@ -47,1341 +62,2005 @@ body {
   font-family: var(--font-main);
   overflow-x: hidden;
   line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
 }
 
 a {
-  text-decoration: none;
   color: inherit;
-  transition: color 0.2s;
+  text-decoration: none;
+  transition: color 0.2s ease;
 }
 
-.wrap {
-  width: min(1200px, 92%);
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+.container {
+  max-width: 1260px;
+  padding: 0 24px;
   margin: 0 auto;
 }
 
-/* HEADER: SLEEK FROSTED GLASS OVER HERO CYBER BACKGROUND (TEXT ONLY, NO LOGO ICON) */
+/* ==========================================================================
+   HEADER: CLEAN FROSTED GLASS OVER HERO
+   ========================================================================== */
 header {
   position: sticky;
   top: 0;
   z-index: 100;
-  background: rgba(7, 18, 34, 0.78);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border-bottom: 1px solid rgba(56, 189, 248, 0.14);
-  box-shadow: 0 4px 24px rgba(4, 11, 22, 0.35);
+  background: rgba(7, 19, 36, 0.88);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--blue-border);
+  box-shadow: 0 4px 20px rgba(5, 10, 20, 0.35);
   transition: background 0.3s ease;
 }
+
 .nav {
-  height: 74px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 24px;
+  height: 72px;
+  gap: 20px;
 }
 
-/* BRAND: CLEAN TYPOGRAPHY ONLY (NO LOGO ICON) */
 .brand {
   display: flex;
   align-items: center;
+  gap: 10px;
   text-decoration: none;
 }
-.brand-name {
+
+.brand-text {
   display: flex;
   flex-direction: column;
 }
-.brand-name span {
-  font-size: 20px;
-  line-height: 1.1;
+
+.brand-title {
+  font-size: 19px;
   font-weight: 900;
-  letter-spacing: 1.2px;
-  color: #ffffff;
-}
-.brand-name small {
-  font-size: 9px;
-  letter-spacing: 3px;
-  color: var(--blue-light);
-  font-weight: 800;
-  text-transform: uppercase;
-  margin-top: 2px;
+  letter-spacing: 1.4px;
+  color: var(--white);
+  line-height: 1.1;
 }
 
-.navlinks {
+.brand-subtitle {
+  font-size: 8.5px;
+  font-weight: 700;
+  letter-spacing: 2.2px;
+  color: var(--blue-light);
+  text-transform: uppercase;
+}
+
+.nav-links {
   display: flex;
   align-items: center;
-  gap: 28px;
+  gap: 26px;
   font-size: 13px;
   font-weight: 600;
-  color: #cbd5e1;
+  color: #e2e8f0;
 }
-.navlinks a:hover {
+
+.nav-links a:hover {
   color: var(--blue-light);
 }
 
-.navactions {
+.header-right {
   display: flex;
   align-items: center;
   gap: 12px;
 }
-.search {
-  border: 1px solid rgba(56, 189, 248, 0.2);
-  background: rgba(10, 27, 51, 0.65);
-  color: #ffffff;
-  border-radius: 12px;
-  padding: 9px 14px;
-  width: 175px;
-  font-size: 12px;
-  outline: none;
-  transition: border-color 0.2s, background 0.2s, box-shadow 0.2s;
+
+.search-box {
+  position: relative;
+  display: flex;
+  align-items: center;
 }
-.search:focus {
+
+.search-box svg {
+  position: absolute;
+  left: 12px;
+  pointer-events: none;
+  color: #94a3b8;
+}
+
+.header-search {
+  border: 1px solid rgba(56, 189, 248, 0.28);
+  background: rgba(10, 27, 51, 0.7);
+  color: var(--white);
+  border-radius: 12px;
+  padding: 8px 14px 8px 34px;
+  width: 210px;
+  font-size: 12.5px;
+  font-family: inherit;
+  outline: none;
+  transition: all 0.2s ease;
+}
+
+.header-search:focus {
   border-color: var(--blue-light);
   background: rgba(10, 27, 51, 0.95);
-  box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.15);
+  box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.2);
+  width: 250px;
 }
-.search::placeholder {
-  color: #8fa4c2;
+
+.header-search::placeholder {
+  color: #94a3b8;
 }
 
 .header-cart-pill {
   display: inline-flex;
   align-items: center;
-  gap: 7px;
-  border: 1px solid rgba(56, 189, 248, 0.3);
+  gap: 8px;
+  border: 1px solid rgba(56, 189, 248, 0.35);
   background: rgba(14, 36, 68, 0.85);
   border-radius: 12px;
-  padding: 9px 15px;
-  font-size: 12px;
+  padding: 8px 16px;
+  font-size: 12.5px;
   font-weight: 700;
-  color: #ffffff;
-  cursor: pointer;
-  transition: all 0.2s;
+  color: var(--white);
+  text-decoration: none;
+  transition: all 0.2s ease;
 }
+
 .header-cart-pill:hover {
-  background: var(--blue);
   border-color: var(--blue-light);
-  box-shadow: 0 4px 14px rgba(37, 99, 235, 0.4);
+  background: rgba(37, 99, 235, 0.35);
+  transform: translateY(-1px);
 }
-.cart-badge {
-  display: inline-block;
-  background: var(--blue-light);
-  color: var(--black);
-  border-radius: 99px;
-  padding: 1px 7px;
-  font-size: 11px;
-  font-weight: 850;
+
+.cart-pill-badge {
+  background: var(--blue);
+  color: var(--white);
+  font-size: 10px;
+  font-weight: 900;
+  padding: 2px 7px;
+  border-radius: 999px;
+  min-width: 18px;
+  text-align: center;
+  line-height: 14px;
 }
 
 /* ==========================================================================
-   HERO SECTION: IMAGE(9) SCI-FI TECH BACKGROUND WITH STATEMENT TYPOGRAPHY
+   HERO SECTION: AESTHETIC WHITE, BLACK, AND BLUE STATEMENT
    ========================================================================== */
 .hero {
   position: relative;
   overflow: hidden;
   background: #071324 url('assets/hero_cyber_bg.jpg') center top / cover no-repeat;
-  color: #ffffff;
-  padding: 70px 0 100px;
-  min-height: 560px;
+  color: var(--white);
+  padding: 80px 0 0;
+  min-height: 620px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
-/* Bottom blend into the white sections below */
-.hero::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 90px;
-  background: linear-gradient(to bottom, rgba(7, 19, 36, 0) 0%, rgba(255, 255, 255, 0.9) 85%, #ffffff 100%);
-  pointer-events: none;
-}
-.hero-grid {
+
+.hero-main {
   position: relative;
   z-index: 2;
   display: grid;
-  grid-template-columns: 1.05fr 0.95fr;
-  gap: 40px;
+  grid-template-columns: 1.15fr 0.85fr;
   align-items: center;
+  gap: 48px;
+  padding-bottom: 50px;
 }
 
-.eyebrow {
+.hero-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.hero-tag {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  border: 1px solid rgba(56, 189, 248, 0.4);
-  background: rgba(56, 189, 248, 0.12);
-  color: var(--blue-light);
-  padding: 7px 15px;
-  border-radius: 99px;
+  background: rgba(15, 33, 64, 0.85);
+  border: 1px solid var(--blue-border);
+  border-radius: 999px;
+  padding: 5px 14px;
   font-size: 11px;
-  font-weight: 800;
-  letter-spacing: 1.5px;
+  font-weight: 700;
+  letter-spacing: 1.2px;
+  color: var(--blue-light);
   text-transform: uppercase;
+  margin-bottom: 22px;
 }
-.dot {
-  width: 7px;
-  height: 7px;
-  background: var(--blue-light);
+
+.hero-tag-dot {
+  width: 6px;
+  height: 6px;
   border-radius: 50%;
-  box-shadow: 0 0 0 4px rgba(56, 189, 248, 0.35);
+  background: var(--blue-light);
+  box-shadow: 0 0 10px var(--blue-light);
 }
 
 .hero h1 {
-  font-size: clamp(40px, 5.5vw, 68px);
-  line-height: 1.03;
-  letter-spacing: -2.4px;
-  margin: 22px 0 18px;
+  font-size: 64px;
   font-weight: 900;
-  color: #ffffff;
+  line-height: 1.05;
+  letter-spacing: -1.5px;
+  color: var(--white);
+  margin-bottom: 22px;
 }
-.hero h1 em, .hero-highlight {
-  font-style: normal;
-  background: linear-gradient(135deg, #38bdf8 0%, #60a5fa 100%);
+
+.text-blue-gradient {
+  color: #38bdf8;
+  background: linear-gradient(135deg, #38bdf8 0%, #2563eb 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
-.hero p {
+
+.hero-lead {
   font-size: 16px;
-  line-height: 1.8;
+  line-height: 1.65;
   color: #cbd5e1;
-  max-width: 500px;
-  margin: 0;
+  max-width: 540px;
+  margin-bottom: 30px;
 }
 
-/* HERO SLIDESHOW CONTAINER */
-.hero-slideshow-wrap {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-.hero-orb {
-  position: absolute;
-  width: 380px;
-  height: 380px;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(56, 189, 248, 0.28) 0%, rgba(37, 99, 235, 0.15) 50%, transparent 72%);
-  filter: blur(14px);
-  pointer-events: none;
-}
-.hero-camera-stage {
-  position: relative;
-  width: 380px;
-  height: 340px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.hero-camera-slide {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  opacity: 0;
-  pointer-events: none;
-  visibility: hidden;
-}
-.hero-camera-slide.active {
-  opacity: 1;
-  pointer-events: auto;
-  visibility: visible;
-}
-.hero-camera-slide img {
-  max-width: 360px;
-  max-height: 330px;
-  width: auto;
-  height: auto;
-  object-fit: contain;
-  filter: drop-shadow(0 25px 35px rgba(0, 0, 0, 0.8)) drop-shadow(0 0 35px rgba(56, 189, 248, 0.3));
-  cursor: pointer;
-  transition: transform 0.3s ease;
-}
-.hero-camera-slide img:hover {
-  transform: scale(1.03);
-}
-
-.hero-slide-controls {
-  position: relative;
-  z-index: 10;
+.hero-actions {
   display: flex;
   align-items: center;
   gap: 14px;
-  margin-top: 18px;
-}
-.hero-cam-nav-btn {
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-  border: 1px solid rgba(56, 189, 248, 0.3);
-  background: rgba(10, 27, 51, 0.8);
-  color: #ffffff;
-  font-size: 14px;
-  display: grid;
-  place-items: center;
-  cursor: pointer;
-  transition: all 0.2s;
-}
-.hero-cam-nav-btn:hover {
-  border-color: var(--blue-light);
-  color: var(--blue-light);
-  background: rgba(14, 36, 68, 0.95);
-  transform: scale(1.08);
-}
-.hero-slide-dots {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-.hero-dot {
-  width: 26px;
-  height: 5px;
-  border-radius: 99px;
-  background: rgba(255, 255, 255, 0.25);
-  border: 0;
-  cursor: pointer;
-  transition: all 0.3s;
-}
-.hero-dot.active {
-  background: var(--blue-light);
-  width: 38px;
-  box-shadow: 0 0 10px rgba(56, 189, 248, 0.6);
-}
-.hero-cam-caption {
-  margin-top: 8px;
-  font-size: 12px;
-  font-weight: 700;
-  color: var(--blue-light);
-  letter-spacing: 0.5px;
+  flex-wrap: wrap;
+  margin-bottom: 32px;
 }
 
-/* SECTION COMMONS */
-section {
-  padding: 85px 0;
-  position: relative;
-}
-.section-head {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-  gap: 24px;
-  margin-bottom: 36px;
-}
-.kicker {
-  font-size: 11px;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  color: var(--blue);
-  font-weight: 850;
-  margin-bottom: 6px;
-}
-.section-head h2 {
-  font-size: clamp(28px, 3.2vw, 40px);
-  letter-spacing: -1.2px;
-  color: var(--text-dark);
-  font-weight: 900;
-}
-.section-head p {
-  color: var(--text-body);
-  font-size: 14px;
-  line-height: 1.7;
-  max-width: 440px;
-}
-
-/* SECTION 2: PROTECTION ENVIRONMENTS */
-.scenarios-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 18px;
-}
-.scenario-card {
-  position: relative;
-  height: 380px;
-  border-radius: 20px;
-  overflow: hidden;
-  border: 1px solid var(--border-light);
-  background: var(--black);
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  padding: 24px;
-  box-shadow: 0 10px 25px rgba(9, 13, 22, 0.06);
-  transition: border-color 0.3s, transform 0.3s, box-shadow 0.3s;
-}
-.scenario-card:hover {
-  border-color: var(--blue);
-  transform: translateY(-5px);
-  box-shadow: 0 20px 40px rgba(9, 13, 22, 0.18), 0 0 20px rgba(37, 99, 235, 0.15);
-}
-.scenario-img-wrap {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 1;
-}
-.scenario-img-wrap img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
-}
-.scenario-card:hover .scenario-img-wrap img {
-  transform: scale(1.08);
-}
-.scenario-overlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(to top, rgba(9, 13, 22, 0.95) 0%, rgba(9, 13, 22, 0.55) 55%, rgba(9, 13, 22, 0.2) 100%);
-}
-.scenario-content {
-  position: relative;
-  z-index: 2;
-}
-.scenario-tag {
-  display: inline-block;
-  font-size: 10px;
-  font-weight: 800;
-  text-transform: uppercase;
-  letter-spacing: 1.5px;
-  color: var(--blue-light);
-  margin-bottom: 6px;
-}
-.scenario-content h3 {
-  font-size: 20px;
-  font-weight: 850;
-  color: #ffffff;
-  margin-bottom: 8px;
-  letter-spacing: -0.5px;
-}
-.scenario-content p {
-  font-size: 12px;
-  line-height: 1.6;
-  color: #cbd5e1;
-  margin-bottom: 12px;
-}
-.scenario-link {
-  font-size: 12px;
-  font-weight: 750;
-  color: var(--blue-light);
+.btn-hero-primary {
   display: inline-flex;
   align-items: center;
-  gap: 5px;
-  transition: gap 0.2s;
-}
-.scenario-card:hover .scenario-link {
   gap: 8px;
-  color: #ffffff;
+  background: var(--blue);
+  color: var(--white);
+  font-size: 14px;
+  font-weight: 700;
+  padding: 13px 26px;
+  border-radius: 12px;
+  transition: all 0.25s ease;
+  box-shadow: 0 6px 20px rgba(37, 99, 235, 0.4);
 }
 
-/* SECTION 3: BUILD YOUR SECURITY SETUP (CORE ARCHITECTURE) */
-.categories-img-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 18px;
+.btn-hero-primary:hover {
+  background: var(--blue-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 28px rgba(37, 99, 235, 0.55);
 }
-.cat-img-card {
-  background: var(--card-bg);
-  border: 1px solid var(--border-light);
-  border-radius: 20px;
-  padding: 20px;
-  box-shadow: 0 10px 25px rgba(9, 13, 22, 0.04);
+
+.btn-hero-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(15, 28, 48, 0.75);
+  border: 1px solid rgba(56, 189, 248, 0.35);
+  color: var(--white);
+  font-size: 14px;
+  font-weight: 600;
+  padding: 13px 24px;
+  border-radius: 12px;
+  transition: all 0.25s ease;
+}
+
+.btn-hero-secondary:hover {
+  background: rgba(22, 45, 80, 0.9);
+  border-color: var(--blue-light);
+  transform: translateY(-2px);
+}
+
+.hero-hotline-strip {
   display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  transition: all 0.3s;
+  align-items: center;
+  gap: 22px;
+  padding-top: 18px;
+  border-top: 1px solid rgba(56, 189, 248, 0.16);
+  font-size: 12px;
+  color: #94a3b8;
+  flex-wrap: wrap;
 }
-.cat-img-card:hover {
-  border-color: var(--blue);
-  transform: translateY(-5px);
-  box-shadow: 0 16px 36px rgba(9, 13, 22, 0.08), 0 0 15px rgba(37, 99, 235, 0.1);
+
+.hero-hotline-strip span {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: #e2e8f0;
+  font-weight: 500;
 }
-.cat-thumb {
-  height: 190px;
-  border-radius: 14px;
-  background: radial-gradient(circle, rgba(37, 99, 235, 0.05) 0%, #f1f5f9 100%);
+
+.hero-hotline-strip svg {
+  color: var(--blue-light);
+}
+
+/* REAL CAMERA SLIDESHOW: TOTALLY AUTOMATIC */
+.hero-camera-stage {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 18px;
-  overflow: hidden;
-  border: 1px solid var(--border-light);
+  min-height: 400px;
 }
-.cat-thumb img {
-  max-height: 155px;
-  max-width: 175px;
+
+.hero-camera-glow {
+  position: absolute;
+  width: 420px;
+  height: 420px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(56, 189, 248, 0.25) 0%, rgba(37, 99, 235, 0.12) 50%, transparent 70%);
+  filter: blur(18px);
+  pointer-events: none;
+}
+
+.hero-camera-deck {
+  position: relative;
+  width: 380px;
+  height: 380px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-camera-item {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.5s ease;
+}
+
+.hero-camera-item.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.hero-camera-item img {
+  max-width: 340px;
+  max-height: 320px;
   width: auto;
   height: auto;
   object-fit: contain;
-  filter: drop-shadow(0 8px 14px rgba(9, 13, 22, 0.12));
-  transition: transform 0.4s ease;
+  filter: drop-shadow(0 25px 35px rgba(0, 0, 0, 0.8)) drop-shadow(0 0 35px rgba(56, 189, 248, 0.28));
 }
-.cat-img-card:hover .cat-thumb img {
-  transform: scale(1.08);
+
+.hero-camera-caption {
+  margin-top: 16px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.8px;
+  color: var(--blue-light);
+  text-transform: uppercase;
+  background: rgba(10, 24, 46, 0.85);
+  border: 1px solid rgba(56, 189, 248, 0.25);
+  padding: 4px 14px;
+  border-radius: 999px;
 }
-.cat-body h3 {
+
+/* ==========================================================================
+   INFINITE MARQUEE TICKER (WHITE / BLACK / BLUE)
+   ========================================================================== */
+.marquee-bar {
+  background: #050b14;
+  border-top: 1px solid rgba(56, 189, 248, 0.2);
+  border-bottom: 1px solid rgba(56, 189, 248, 0.2);
+  overflow: hidden;
+  white-space: nowrap;
+  padding: 13px 0;
+}
+
+.marquee-track {
+  display: inline-flex;
+  animation: marqueeScroll 36s linear infinite;
+  gap: 36px;
+}
+
+.marquee-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 11.5px;
+  font-weight: 800;
+  letter-spacing: 1.6px;
+  color: #e2e8f0;
+  text-transform: uppercase;
+}
+
+.marquee-sep {
+  color: var(--blue-light);
+  opacity: 0.85;
+}
+
+@keyframes marqueeScroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* ==========================================================================
+   CATEGORIES SECTION: CLEAN WHITE CARDS WITH CRISP HARDWARE THUMBS
+   ========================================================================== */
+.categories-section {
+  padding: 85px 0 60px;
+  background: var(--white);
+}
+
+.section-head {
+  text-align: center;
+  max-width: 680px;
+  margin: 0 auto 48px;
+}
+
+.section-tag {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 1.8px;
+  color: var(--blue);
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.section-title {
+  font-size: 34px;
+  font-weight: 900;
+  letter-spacing: -0.6px;
+  color: var(--text-heading);
+  line-height: 1.2;
+  margin-bottom: 12px;
+}
+
+.section-desc {
+  font-size: 15px;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+.categories-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+}
+
+.cat-card {
+  position: relative;
+  background: var(--white);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-md);
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-decoration: none;
+  cursor: pointer;
+  box-shadow: var(--shadow-sm);
+  transition: all 0.28s ease;
+  overflow: hidden;
+}
+
+.cat-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--blue);
+  box-shadow: var(--shadow-hover);
+}
+
+.cat-card-img-wrap {
+  height: 160px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg-slate);
+  border-radius: 10px;
+  margin-bottom: 18px;
+  padding: 12px;
+}
+
+.cat-card-img-wrap img {
+  max-height: 135px;
+  max-width: 100%;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+}
+
+.cat-card:hover .cat-card-img-wrap img {
+  transform: scale(1.06);
+}
+
+.cat-card-body h3 {
   font-size: 17px;
-  font-weight: 850;
-  color: var(--text-dark);
+  font-weight: 800;
+  color: var(--text-heading);
   margin-bottom: 6px;
 }
-.cat-body p {
-  font-size: 12px;
-  line-height: 1.6;
-  color: var(--text-body);
+
+.cat-card-body p {
+  font-size: 13px;
+  color: var(--text-muted);
+  line-height: 1.5;
   margin-bottom: 14px;
 }
-.cat-arrow {
-  font-size: 12px;
-  font-weight: 750;
+
+.cat-card-link {
+  font-size: 12.5px;
+  font-weight: 700;
   color: var(--blue);
   display: inline-flex;
   align-items: center;
-  gap: 5px;
-  transition: gap 0.2s;
-}
-.cat-img-card:hover .cat-arrow {
-  gap: 8px;
-  color: var(--blue-dark);
+  gap: 6px;
 }
 
-/* SECTION 4: BRANDS WE DEAL WITH */
-.brands-section {
-  background: var(--card-soft);
+.cat-card:hover .cat-card-link {
+  color: var(--blue-hover);
+}
+
+/* ==========================================================================
+   PRODUCT CATALOG SECTION: HIGH PERFORMANCE FOR 100+ ITEMS & 300+ IMAGES
+   ========================================================================== */
+.catalog-section {
+  padding: 60px 0 95px;
+  background: var(--bg-slate);
   border-top: 1px solid var(--border-light);
   border-bottom: 1px solid var(--border-light);
 }
-.brands-header {
-  text-align: center;
-  margin-bottom: 38px;
+
+.catalog-header-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 24px;
 }
-.brands-header h2 {
-  font-size: clamp(28px, 3.2vw, 38px);
-  letter-spacing: -1px;
-  color: var(--text-dark);
-  font-weight: 900;
-  margin: 6px 0 10px;
+
+.catalog-filter-tabs {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
 }
-.brands-header p {
+
+.filter-tab {
+  background: var(--white);
+  border: 1px solid var(--border-light);
   color: var(--text-body);
-  font-size: 14px;
-  max-width: 520px;
-  margin: 0 auto;
+  font-size: 13px;
+  font-weight: 600;
+  padding: 8px 18px;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-family: inherit;
 }
-.brand-logos-container {
+
+.filter-tab:hover {
+  border-color: var(--blue);
+  color: var(--blue);
+}
+
+.filter-tab.active {
+  background: var(--blue);
+  border-color: var(--blue);
+  color: var(--white);
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+}
+
+.catalog-search-wrap {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.catalog-search-input {
+  border: 1px solid var(--border-light);
+  background: var(--white);
+  color: var(--text-heading);
+  border-radius: 12px;
+  padding: 9px 16px;
+  font-size: 13px;
+  font-family: inherit;
+  outline: none;
+  width: 260px;
+  transition: all 0.2s ease;
+}
+
+.catalog-search-input:focus {
+  border-color: var(--blue);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+}
+
+.catalog-results-info {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-muted);
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* PRODUCT GRID */
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.prod-card {
+  background: var(--white);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-md);
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: var(--shadow-sm);
+  transition: all 0.28s ease;
+  position: relative;
+}
+
+.prod-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--blue);
+  box-shadow: var(--shadow-hover);
+}
+
+.prod-badge {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background: var(--black);
+  color: var(--white);
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 0.8px;
+  padding: 3px 8px;
+  border-radius: 6px;
+  text-transform: uppercase;
+  z-index: 2;
+}
+
+.prod-badge.highlight {
+  background: var(--blue);
+}
+
+.prod-thumb-wrap {
+  height: 180px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fbfcfe;
+  border-radius: 10px;
+  margin-bottom: 14px;
+  padding: 12px;
+  position: relative;
+  overflow: hidden;
+}
+
+.prod-thumb-wrap img {
+  max-height: 155px;
+  max-width: 100%;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+}
+
+.prod-card:hover .prod-thumb-wrap img {
+  transform: scale(1.05);
+}
+
+.prod-brand {
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 1.2px;
+  color: var(--blue);
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+
+.prod-title {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text-heading);
+  line-height: 1.35;
+  margin-bottom: 8px;
+  height: 38px;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.prod-title a {
+  color: inherit;
+}
+
+.prod-title a:hover {
+  color: var(--blue);
+}
+
+.prod-chips {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  flex-wrap: wrap;
+  margin-bottom: 12px;
+  min-height: 22px;
+}
+
+.prod-chip {
+  background: var(--bg-slate);
+  border: 1px solid var(--border-light);
+  font-size: 10px;
+  font-weight: 600;
+  color: var(--text-body);
+  padding: 2px 7px;
+  border-radius: 4px;
+}
+
+.prod-price-row {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  margin-bottom: 14px;
+}
+
+.prod-price {
+  font-size: 18px;
+  font-weight: 900;
+  color: var(--black);
+}
+
+.prod-mrp {
+  font-size: 12px;
+  color: var(--text-muted);
+  text-decoration: line-through;
+}
+
+.prod-save {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--blue);
+}
+
+.prod-actions {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 8px;
+}
+
+.btn-add-cart {
+  background: var(--blue);
+  color: var(--white);
+  border: none;
+  border-radius: 9px;
+  padding: 9px 12px;
+  font-size: 12.5px;
+  font-weight: 700;
+  font-family: inherit;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  transition: all 0.2s ease;
+}
+
+.btn-add-cart:hover {
+  background: var(--blue-hover);
+  transform: translateY(-1px);
+}
+
+.btn-card-details {
+  background: var(--bg-slate);
+  border: 1px solid var(--border-light);
+  color: var(--text-heading);
+  border-radius: 9px;
+  padding: 9px 12px;
+  font-size: 12px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.btn-card-details:hover {
+  background: var(--white);
+  border-color: var(--blue);
+  color: var(--blue);
+}
+
+/* PAGINATION & LOAD MORE BUTTON */
+.catalog-load-more {
+  text-align: center;
+  margin-top: 36px;
+}
+
+.btn-load-more {
+  background: var(--white);
+  border: 1px solid var(--blue);
+  color: var(--blue);
+  font-size: 13.5px;
+  font-weight: 700;
+  font-family: inherit;
+  padding: 12px 32px;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 14px rgba(37, 99, 235, 0.1);
+}
+
+.btn-load-more:hover {
+  background: var(--blue);
+  color: var(--white);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(37, 99, 235, 0.25);
+}
+
+/* EMPTY STATE */
+.catalog-empty {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 60px 20px;
+  background: var(--white);
+  border-radius: var(--radius-md);
+  border: 1px dashed var(--border-light);
+}
+
+.catalog-empty h4 {
+  font-size: 18px;
+  font-weight: 800;
+  color: var(--text-heading);
+  margin-bottom: 8px;
+}
+
+.catalog-empty p {
+  font-size: 14px;
+  color: var(--text-muted);
+}
+
+/* ==========================================================================
+   WHOLESALE & COMMERCIAL SOLUTIONS BANNER
+   ========================================================================== */
+.wholesale-banner-section {
+  padding: 40px 0 80px;
+  background: var(--white);
+}
+
+.wholesale-card {
+  background: #090d16;
+  border: 1px solid rgba(56, 189, 248, 0.25);
+  border-radius: var(--radius-lg);
+  padding: 48px;
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  align-items: center;
+  gap: 40px;
+  color: var(--white);
+  box-shadow: 0 20px 50px rgba(5, 10, 20, 0.25);
+}
+
+.wholesale-content h3 {
+  font-size: 30px;
+  font-weight: 900;
+  line-height: 1.2;
+  margin-bottom: 14px;
+  letter-spacing: -0.5px;
+}
+
+.wholesale-content p {
+  font-size: 15px;
+  color: #cbd5e1;
+  line-height: 1.6;
+  margin-bottom: 24px;
+}
+
+.wholesale-perks {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  margin-bottom: 28px;
+  font-size: 13px;
+  color: #e2e8f0;
+}
+
+.wholesale-perk-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+}
+
+.wholesale-perk-item svg {
+  color: var(--blue-light);
+}
+
+.wholesale-actions {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.btn-wholesale-wa {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--blue);
+  color: var(--white);
+  font-size: 13.5px;
+  font-weight: 700;
+  padding: 12px 24px;
+  border-radius: 10px;
+  transition: all 0.25s ease;
+}
+
+.btn-wholesale-wa:hover {
+  background: var(--blue-hover);
+  transform: translateY(-2px);
+}
+
+.wholesale-img-side {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.wholesale-img-side img {
+  max-height: 250px;
+  object-fit: contain;
+  filter: drop-shadow(0 15px 30px rgba(0, 0, 0, 0.7));
+}
+
+/* ==========================================================================
+   BRANDS WE DEAL WITH
+   ========================================================================== */
+.brands-section {
+  padding: 70px 0;
+  background: var(--bg-slate);
+  border-top: 1px solid var(--border-light);
+  border-bottom: 1px solid var(--border-light);
+}
+
+.brands-grid {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
   gap: 16px;
 }
-.brand-logo-card {
-  background: #ffffff;
+
+.brand-card {
+  background: var(--white);
   border: 1px solid var(--border-light);
-  border-radius: 16px;
-  padding: 26px 16px;
+  border-radius: var(--radius-sm);
+  padding: 22px 14px;
+  text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  text-align: center;
-  gap: 10px;
-  min-height: 130px;
-  box-shadow: 0 4px 14px rgba(9, 13, 22, 0.03);
-  transition: all 0.3s;
+  box-shadow: var(--shadow-sm);
+  transition: all 0.25s ease;
 }
-.brand-logo-card:hover {
+
+.brand-card:hover {
+  transform: translateY(-3px);
   border-color: var(--blue);
-  transform: translateY(-4px);
-  box-shadow: 0 12px 28px rgba(9, 13, 22, 0.08), 0 0 15px rgba(37, 99, 235, 0.12);
+  box-shadow: 0 10px 24px rgba(37, 99, 235, 0.12);
 }
-.brand-logo-mark {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-.logo-text-bold {
-  font-size: 18px;
+
+.brand-card-name {
+  font-size: 15px;
   font-weight: 900;
-  letter-spacing: 2px;
-  color: var(--text-dark);
-  line-height: 1.1;
-}
-.logo-cpplus {
-  color: #dc2626;
-}
-.logo-idada {
-  color: var(--blue);
-}
-.logo-text-sub {
-  font-size: 9px;
-  font-weight: 750;
-  letter-spacing: 2px;
-  color: var(--text-muted);
+  letter-spacing: 1.2px;
+  color: var(--text-heading);
   text-transform: uppercase;
-  margin-top: 3px;
+  margin-bottom: 4px;
 }
-.brand-status-pill {
+
+.brand-card-role {
   font-size: 10px;
   font-weight: 700;
   color: var(--blue);
-  border: 1px solid var(--border-blue);
-  padding: 3px 9px;
-  border-radius: 99px;
-  background: var(--blue-subtle);
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
 }
 
-/* SECTION 5: ABOUT US */
-.about-grid {
-  display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
-  gap: 50px;
-  align-items: center;
-}
-.about-text-col h2 {
-  font-size: clamp(28px, 3.2vw, 40px);
-  letter-spacing: -1.2px;
-  color: var(--text-dark);
-  font-weight: 900;
-  margin: 8px 0 18px;
-  line-height: 1.15;
-}
-.about-lead {
-  font-size: 15px;
-  line-height: 1.8;
-  color: var(--text-dark);
-  margin-bottom: 16px;
-  font-weight: 600;
-}
-.about-text-col p {
-  font-size: 14px;
-  line-height: 1.8;
-  color: var(--text-body);
-  margin-bottom: 16px;
-}
-.about-metrics {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 16px;
-  margin-top: 28px;
-  padding-top: 24px;
-  border-top: 1px solid var(--border-light);
-}
-.metric-item strong {
-  display: block;
-  font-size: 28px;
-  font-weight: 900;
-  color: var(--blue);
-  line-height: 1;
-  margin-bottom: 5px;
-}
-.metric-item span {
-  font-size: 12px;
-  color: var(--text-dark);
-  font-weight: 700;
-}
-.about-visual-col {
-  position: relative;
-}
-.about-card-banner {
-  border-radius: 22px;
-  overflow: hidden;
-  border: 1px solid var(--border-light);
-  position: relative;
-  background: var(--black);
-  box-shadow: 0 20px 45px rgba(9, 13, 22, 0.12);
-}
-.about-card-banner img {
-  width: 100%;
-  height: 420px;
-  object-fit: cover;
-  display: block;
-}
-.about-banner-badge {
-  position: absolute;
-  bottom: 16px;
-  left: 16px;
-  right: 16px;
-  background: rgba(9, 13, 22, 0.88);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  border-radius: 14px;
-  padding: 14px 18px;
-}
-.about-banner-badge strong {
-  display: block;
-  font-size: 13px;
-  color: #ffffff;
-  font-weight: 800;
-  margin-bottom: 3px;
-}
-.about-banner-badge small {
-  display: block;
-  font-size: 11px;
-  color: var(--blue-light);
-}
-
-/* SECTION 6: WHY CHOOSE US */
+/* ==========================================================================
+   WHY CHOOSE US / ENGINEERING STANDARDS
+   ========================================================================== */
 .why-section {
-  background: var(--card-soft);
-  border-top: 1px solid var(--border-light);
+  padding: 85px 0;
+  background: var(--white);
 }
-.why-cards-grid {
+
+.why-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
+  gap: 24px;
 }
-.why-feat-card {
-  background: #ffffff;
+
+.why-card {
+  background: var(--white);
   border: 1px solid var(--border-light);
-  border-radius: 20px;
-  padding: 28px 24px;
-  box-shadow: 0 6px 20px rgba(9, 13, 22, 0.03);
-  transition: all 0.3s;
+  border-radius: var(--radius-md);
+  padding: 28px;
+  box-shadow: var(--shadow-sm);
+  transition: all 0.28s ease;
 }
-.why-feat-card:hover {
+
+.why-card:hover {
+  transform: translateY(-4px);
   border-color: var(--blue);
-  transform: translateY(-5px);
-  box-shadow: 0 16px 36px rgba(9, 13, 22, 0.08), 0 0 15px rgba(37, 99, 235, 0.1);
+  box-shadow: var(--shadow-hover);
 }
-.why-icon-pill {
-  width: 44px;
-  height: 44px;
-  border-radius: 14px;
+
+.why-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
   background: var(--blue-subtle);
-  border: 1px solid var(--border-blue);
-  display: grid;
-  place-items: center;
+  border: 1px solid rgba(37, 99, 235, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
   color: var(--blue);
   margin-bottom: 18px;
 }
-.why-icon-pill svg {
-  width: 22px;
-  height: 22px;
-}
-.why-feat-card h3 {
-  font-size: 16px;
-  font-weight: 850;
-  color: var(--text-dark);
+
+.why-card h4 {
+  font-size: 18px;
+  font-weight: 800;
+  color: var(--text-heading);
   margin-bottom: 8px;
 }
-.why-feat-card p {
-  font-size: 13px;
+
+.why-card p {
+  font-size: 13.5px;
+  color: var(--text-muted);
   line-height: 1.6;
-  color: var(--text-body);
 }
 
-/* FOOTER: OBSIDIAN BLACK LUXURY FOUNDATION (TEXT ONLY, NO LOGO ICON) */
-footer {
-  background: var(--black-deep);
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
-  padding: 60px 0 25px;
-  color: #94a3b8;
+/* ==========================================================================
+   INSTALLATION ENVIRONMENTS (REAL PHOTOS FROM ASSETS)
+   ========================================================================== */
+.environments-section {
+  padding: 70px 0 90px;
+  background: var(--bg-slate);
+  border-top: 1px solid var(--border-light);
 }
-.footer-grid {
+
+.env-grid {
   display: grid;
-  grid-template-columns: 1.4fr 1fr 1fr 1fr;
-  gap: 36px;
-  padding-bottom: 40px;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
 }
-.footer-brand {
-  margin-bottom: 14px;
-  color: #ffffff;
-  text-decoration: none;
+
+.env-card {
+  position: relative;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  height: 240px;
+  box-shadow: var(--shadow-sm);
 }
-.footer-brand .brand-name span {
-  color: #ffffff;
+
+.env-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
 }
-.footer-about {
+
+.env-card:hover img {
+  transform: scale(1.08);
+}
+
+.env-card-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(7, 19, 36, 0.88) 0%, rgba(7, 19, 36, 0.2) 60%, transparent 100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 18px;
+  color: var(--white);
+}
+
+.env-card-overlay h4 {
+  font-size: 16px;
+  font-weight: 800;
+  margin-bottom: 4px;
+}
+
+.env-card-overlay p {
+  font-size: 11.5px;
+  color: #cbd5e1;
+}
+
+/* ==========================================================================
+   FLOATING CART TOAST NOTIFICATION
+   ========================================================================== */
+.cart-toast {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  background: var(--black);
+  border: 1px solid rgba(56, 189, 248, 0.35);
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.45);
+  border-radius: 12px;
+  padding: 14px 20px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  color: var(--white);
+  z-index: 9999;
+  transform: translateY(120px);
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.cart-toast.active {
+  transform: translateY(0);
+  opacity: 1;
+  visibility: visible;
+}
+
+.toast-msg {
   font-size: 13px;
-  line-height: 1.8;
-  color: #94a3b8;
-  max-width: 300px;
+  font-weight: 600;
 }
+
+.toast-link {
+  font-size: 12.5px;
+  font-weight: 700;
+  color: var(--blue-light);
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.toast-link:hover {
+  text-decoration: underline;
+}
+
+/* ==========================================================================
+   FOOTER: OBSIDIAN BLACK & ELECTRIC BLUE
+   ========================================================================== */
+footer {
+  background: #071324;
+  color: #cbd5e1;
+  padding: 75px 0 35px;
+  border-top: 1px solid rgba(56, 189, 248, 0.2);
+}
+
+.footer-top {
+  display: grid;
+  grid-template-columns: 1.4fr repeat(3, 1fr);
+  gap: 40px;
+  padding-bottom: 55px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.footer-brand h3 {
+  font-size: 20px;
+  font-weight: 900;
+  color: var(--white);
+  letter-spacing: 1.4px;
+  margin-bottom: 6px;
+}
+
+.footer-brand p {
+  font-size: 13px;
+  color: #94a3b8;
+  line-height: 1.6;
+  max-width: 320px;
+  margin-bottom: 18px;
+}
+
+.footer-hotline {
+  font-size: 13.5px;
+  font-weight: 700;
+  color: var(--blue-light);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
 .footer-col h4 {
   font-size: 13px;
-  color: #ffffff;
   font-weight: 800;
-  margin-bottom: 16px;
+  letter-spacing: 1.2px;
+  color: var(--white);
   text-transform: uppercase;
-  letter-spacing: 1px;
+  margin-bottom: 16px;
 }
-.footer-col a {
-  display: block;
+
+.footer-col ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
   font-size: 13px;
-  color: #94a3b8;
-  margin: 10px 0;
 }
+
 .footer-col a:hover {
   color: var(--blue-light);
 }
+
 .footer-bottom {
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
-  padding-top: 22px;
+  padding-top: 30px;
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  gap: 15px;
+  justify-content: space-between;
   flex-wrap: wrap;
-  font-size: 11px;
+  gap: 16px;
+  font-size: 12px;
   color: #64748b;
 }
 
-/* VANISH-TEXT KINETIC STYLING */
-.vanish-text {
-  opacity: 0;
-  transform: translateY(28px);
-  filter: blur(6px);
-  transition: opacity 0.8s ease, transform 0.8s ease, filter 0.8s ease;
-}
-.vanish-text.is-revealed {
-  opacity: 1;
-  transform: translateY(0);
-  filter: blur(0px);
+.footer-badges {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  font-weight: 600;
+  color: #94a3b8;
 }
 
-/* RESPONSIVE */
-@media (max-width: 1024px) {
-  .hero-grid { grid-template-columns: 1fr; gap: 30px; }
-  .hero-slideshow-wrap { margin-top: 10px; }
-  .scenarios-grid { grid-template-columns: repeat(2, 1fr); }
-  .categories-img-grid { grid-template-columns: repeat(2, 1fr); }
-  .brand-logos-container { grid-template-columns: repeat(3, 1fr); }
-  .why-cards-grid { grid-template-columns: repeat(2, 1fr); }
-  .about-grid { grid-template-columns: 1fr; }
-  .footer-grid { grid-template-columns: 1fr 1fr; }
+.footer-badge-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--blue-light);
 }
 
-@media (max-width: 640px) {
-  .navlinks, .search { display: none; }
-  .hero { padding: 45px 0 65px; }
-  .hero h1 { font-size: 38px; }
-  .scenarios-grid { grid-template-columns: 1fr; }
-  .categories-img-grid { grid-template-columns: 1fr; }
-  .brand-logos-container { grid-template-columns: repeat(2, 1fr); }
-  .why-cards-grid { grid-template-columns: 1fr; }
-  .hero-camera-stage { width: 100%; height: 280px; }
-  .hero-camera-slide img { max-width: 270px; max-height: 250px; }
-  .footer-grid { grid-template-columns: 1fr; }
+/* RESPONSIVE DESIGN */
+@media (max-width: 1080px) {
+  .hero-main {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 36px;
+  }
+  .hero-content {
+    align-items: center;
+  }
+  .hero-actions {
+    justify-content: center;
+  }
+  .hero-hotline-strip {
+    justify-content: center;
+  }
+  .products-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .brands-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .why-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .wholesale-card {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+  .wholesale-perks {
+    justify-content: center;
+  }
+  .wholesale-actions {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+  }
+  .header-search {
+    width: 150px;
+  }
+  .header-search:focus {
+    width: 180px;
+  }
+  .hero h1 {
+    font-size: 42px;
+  }
+  .categories-grid {
+    grid-template-columns: 1fr;
+  }
+  .products-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .env-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .footer-top {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+}
+
+@media (max-width: 480px) {
+  .products-grid {
+    grid-template-columns: 1fr;
+  }
+  .why-grid {
+    grid-template-columns: 1fr;
+  }
+  .brands-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 </style>
 </head>
 <body>
 
-<!-- HEADER: TEXT ONLY, NO LOGO ICON -->
+<!-- ==========================================================================
+     HEADER: TRANSLUCENT OBSIDIAN GLASS WITH INSTANT SEARCH & CART SYNC
+     ========================================================================== -->
 <header>
-  <div class="wrap nav">
-    <a class="brand" href="index.html">
-      <div class="brand-name">
-        <span>SYBER SPACE</span>
-        <small>Smart Security</small>
+  <div class="container nav">
+    <a href="index.html" class="brand" aria-label="Syber Space Home">
+      <div class="brand-text">
+        <span class="brand-title">SYBER SPACE</span>
+        <span class="brand-subtitle">THE SURVEILLANCE STORE</span>
       </div>
     </a>
-    
-    <nav class="navlinks">
-      <a href="#scenarios">Environments</a>
-      <a href="#categories">Categories</a>
-      <a href="#brands">Brands We Deal With</a>
-      <a href="#about">About Us</a>
-      <a href="#why">Why Choose Us</a>
-      <a href="#contact">Contact</a>
+
+    <nav class="nav-links">
+      <a href="#catalog-section">Shop All</a>
+      <a href="javascript:void(0)" onclick="filterCategoryFromNav('wifi-camera')">Wi-Fi Cameras</a>
+      <a href="javascript:void(0)" onclick="filterCategoryFromNav('4g-camera')">Solar 4G</a>
+      <a href="javascript:void(0)" onclick="filterCategoryFromNav('nvr-dvr')">DVR &amp; NVR</a>
+      <a href="javascript:void(0)" onclick="filterCategoryFromNav('accessory')">Accessories</a>
+      <a href="#why-section">Why Syber</a>
     </nav>
 
-    <div class="navactions">
-      <input class="search" id="headerSearchInput" placeholder="Search architecture..." aria-label="Search architecture" onkeydown="if(event.key==='Enter'){window.location.href='cart.html?q='+encodeURIComponent(this.value);}">
-      <a class="header-cart-pill" id="header-cart-btn" href="cart.html" title="Open Selection">
-        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2">
-          <circle cx="9" cy="21" r="1"></circle>
-          <circle cx="20" cy="21" r="1"></circle>
-          <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
-        </svg>
+    <div class="header-right">
+      <div class="search-box">
+        <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+        <input type="text" id="headerSearchInput" class="header-search" placeholder="Search 100+ items..." autocomplete="off">
+      </div>
+
+      <a href="cart.html" class="header-cart-pill" id="headerCartBtn" aria-label="View Shopping Cart">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
         <span>Cart</span>
-        <span class="cart-badge" id="cart-counter">0</span>
+        <span class="cart-pill-badge" id="cart-counter">0</span>
       </a>
     </div>
   </div>
 </header>
 
-<main>
-  <!-- 1. HERO SECTION: IMAGE(9) SCI-FI BACKGROUND + BUTTER SMOOTH GSAP CAMERA SLIDESHOW -->
-  <section class="hero">
-    <div class="wrap hero-grid">
-      <div class="hero-copy vanish-text">
-        <div class="eyebrow"><span class="dot"></span> SECURITY, REIMAGINED</div>
-        <h1>See more.<br><span class="hero-highlight">Secure more.</span><br>Worry less.</h1>
-        <p>Intelligent surveillance and access-control architecture for private residences, executive suites, and commercial facilities. Technology engineered to protect what matters most.</p>
+<!-- ==========================================================================
+     HERO: STATEMENT HEADLINE + TOTALLY AUTOMATIC CAMERA SHOWCASE
+     ========================================================================== -->
+<section class="hero" id="hero">
+  <div class="container hero-main">
+    <div class="hero-content">
+      <div class="hero-tag">
+        <span class="hero-tag-dot"></span>
+        <span>Precision Surveillance Hardware</span>
       </div>
-      
-      <div class="hero-slideshow-wrap">
-        <div class="hero-orb"></div>
+
+      <h1>
+        See more.<br>
+        <span class="text-blue-gradient">Secure more.</span><br>
+        Worry less.
+      </h1>
+
+      <p class="hero-lead">
+        Official direct-procurement surveillance equipment. Over 100+ certified smart cameras, commercial PoE systems, solar off-grid solutions, and enterprise storage at wholesale factory pricing.
+      </p>
+
+      <div class="hero-actions">
+        <a href="#catalog-section" class="btn-hero-primary">
+          <span>Shop Catalog</span>
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+        </a>
+        <a href="#categories-section" class="btn-hero-secondary">
+          <span>Browse Categories</span>
+        </a>
+      </div>
+
+      <div class="hero-hotline-strip">
+        <span>
+          <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+          100% Tax Invoiced
+        </span>
+        <span>
+          <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+          Official Brand Warranties
+        </span>
+        <span>
+          <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+          Direct Advisory: +91 75111 80808
+        </span>
+      </div>
+    </div>
+
+    <!-- REAL CAMERA STAGE: TOTALLY AUTOMATIC GSAP CROSSFADE -->
+    <div class="hero-camera-stage">
+      <div class="hero-camera-glow"></div>
+      <div class="hero-camera-deck" id="heroCameraDeck">
+        <div class="hero-camera-item active" data-title="Trueview 4G Solar PTZ Camera">
+          <img src="assets/official_trueview_solar_T18149-01.png" alt="Trueview 4G Solar PTZ Camera" loading="eager">
+          <span class="hero-camera-caption">Trueview 4G Solar PTZ Camera</span>
+        </div>
+        <div class="hero-camera-item" data-title="CP Plus 3MP Smart Dome Camera">
+          <img src="assets/official_bestseller_cpplus_e38q_transparent.png" alt="CP Plus 3MP Smart Dome Camera" loading="lazy">
+          <span class="hero-camera-caption">CP Plus 3MP Smart Dome Camera</span>
+        </div>
+        <div class="hero-camera-item" data-title="iDADA 3MP Pan &amp; Tilt Smart Wi-Fi Camera">
+          <img src="assets/official_bestseller_idada_q2i_transparent.png" alt="iDADA 3MP Pan &amp; Tilt Smart Camera" loading="lazy">
+          <span class="hero-camera-caption">iDADA 3MP Pan &amp; Tilt Smart Camera</span>
+        </div>
+        <div class="hero-camera-item" data-title="Trueview Commercial High-Speed PoE Camera">
+          <img src="assets/trueview_poe_4_2_transparent.png" alt="Trueview Commercial PoE Camera" loading="lazy">
+          <span class="hero-camera-caption">Trueview Commercial PoE Camera</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SEAMLESS VALUE TICKER STRIP -->
+  <div class="marquee-bar">
+    <div class="marquee-track">
+      <div class="marquee-item"><span>CERTIFIED SURVEILLANCE HARDWARE</span><span class="marquee-sep">//</span></div>
+      <div class="marquee-item"><span>100% GENUINE TAX INVOICES</span><span class="marquee-sep">//</span></div>
+      <div class="marquee-item"><span>DIRECT FACTORY PRICING</span><span class="marquee-sep">//</span></div>
+      <div class="marquee-item"><span>OFFICIAL MANUFACTURER WARRANTIES</span><span class="marquee-sep">//</span></div>
+      <div class="marquee-item"><span>24/7 TECHNICAL ADVISORY</span><span class="marquee-sep">//</span></div>
+      <div class="marquee-item"><span>EXPRESS INSURED DISPATCH</span><span class="marquee-sep">//</span></div>
+      <div class="marquee-item"><span>ZERO GREY-MARKET GUARANTEE</span><span class="marquee-sep">//</span></div>
+      <!-- Duplicate set for seamless continuous loop -->
+      <div class="marquee-item"><span>CERTIFIED SURVEILLANCE HARDWARE</span><span class="marquee-sep">//</span></div>
+      <div class="marquee-item"><span>100% GENUINE TAX INVOICES</span><span class="marquee-sep">//</span></div>
+      <div class="marquee-item"><span>DIRECT FACTORY PRICING</span><span class="marquee-sep">//</span></div>
+      <div class="marquee-item"><span>OFFICIAL MANUFACTURER WARRANTIES</span><span class="marquee-sep">//</span></div>
+      <div class="marquee-item"><span>24/7 TECHNICAL ADVISORY</span><span class="marquee-sep">//</span></div>
+      <div class="marquee-item"><span>EXPRESS INSURED DISPATCH</span><span class="marquee-sep">//</span></div>
+      <div class="marquee-item"><span>ZERO GREY-MARKET GUARANTEE</span><span class="marquee-sep">//</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ==========================================================================
+     SHOP BY CATEGORY SECTION
+     ========================================================================== -->
+<section class="categories-section" id="categories-section">
+  <div class="container">
+    <div class="section-head">
+      <span class="section-tag">Surveillance Architecture</span>
+      <h2 class="section-title">Shop by Category</h2>
+      <p class="section-desc">From standalone plug-and-play smart cameras to high-density commercial video recording systems.</p>
+    </div>
+
+    <div class="categories-grid">
+      <!-- 1: Wi-Fi Smart Cameras -->
+      <div class="cat-card" onclick="filterCategoryFromNav('wifi-camera')">
+        <div class="cat-card-img-wrap">
+          <img src="assets/official_bestseller_idada_q2i_transparent.png" alt="Smart Wi-Fi Cameras" loading="lazy">
+        </div>
+        <div class="cat-card-body">
+          <h3>Smart Wi-Fi Cameras</h3>
+          <p>Motorized 360 pan-tilt, two-way audio, humanoid AI tracking, and cloud/microSD storage.</p>
+          <span class="cat-card-link">Explore Wi-Fi Models &rarr;</span>
+        </div>
+      </div>
+
+      <!-- 2: Solar 4G Off-Grid Systems -->
+      <div class="cat-card" onclick="filterCategoryFromNav('4g-camera')">
+        <div class="cat-card-img-wrap">
+          <img src="assets/official_trueview_solar_T18149-01.png" alt="Solar 4G Off-Grid Cameras" loading="lazy">
+        </div>
+        <div class="cat-card-body">
+          <h3>Solar 4G Off-Grid Cameras</h3>
+          <p>Zero electrical or broadband cabling needed. Dedicated solar panel with 4G SIM connectivity.</p>
+          <span class="cat-card-link">Explore Solar 4G &rarr;</span>
+        </div>
+      </div>
+
+      <!-- 3: Commercial PoE & Domes -->
+      <div class="cat-card" onclick="filterCategoryFromNav('poe-switch')">
+        <div class="cat-card-img-wrap">
+          <img src="assets/official_bestseller_cpplus_e38q_transparent.png" alt="Commercial PoE &amp; Dome Cameras" loading="lazy">
+        </div>
+        <div class="cat-card-body">
+          <h3>Commercial PoE &amp; Domes</h3>
+          <p>Enterprise-grade optical sensors, vandal-proof IP67 housings, and high-clarity night vision.</p>
+          <span class="cat-card-link">Explore Commercial PoE &rarr;</span>
+        </div>
+      </div>
+
+      <!-- 4: DVR & NVR Hubs -->
+      <div class="cat-card" onclick="filterCategoryFromNav('nvr-dvr')">
+        <div class="cat-card-img-wrap">
+          <img src="assets/trueview_dvr_16ch.webp" alt="DVR and NVR Systems" loading="lazy">
+        </div>
+        <div class="cat-card-body">
+          <h3>DVR &amp; NVR Recording Hubs</h3>
+          <p>4, 8, 16, and 32 channel AI network video recorders with synchronous playback and mobile streaming.</p>
+          <span class="cat-card-link">Explore Recording Hubs &rarr;</span>
+        </div>
+      </div>
+
+      <!-- 5: Hard Drives & Storage -->
+      <div class="cat-card" onclick="filterCategoryFromNav('accessory')">
+        <div class="cat-card-img-wrap">
+          <img src="assets/official_accessory_hdd_skyhawk.png" alt="Surveillance Hard Drives" loading="lazy">
+        </div>
+        <div class="cat-card-body">
+          <h3>Surveillance Hard Drives</h3>
+          <p>Certified 24/7 video streaming drives from Seagate SkyHawk engineered for continuous 24/7 writes.</p>
+          <span class="cat-card-link">Explore Surveillance Storage &rarr;</span>
+        </div>
+      </div>
+
+      <!-- 6: Wholesale Accessories & Kits -->
+      <div class="cat-card" onclick="filterCategoryFromNav('accessory')">
+        <div class="cat-card-img-wrap">
+          <img src="assets/wholesale_supply_kit.png" alt="Cables &amp; Supplies" loading="lazy">
+        </div>
+        <div class="cat-card-body">
+          <h3>Cables, SMPS &amp; Supplies</h3>
+          <p>Pure copper CAT6 network drums, multi-channel SMPS power units, waterproof junction boxes.</p>
+          <span class="cat-card-link">Explore Installation Kits &rarr;</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==========================================================================
+     PREMIER E-COMMERCE HARDWARE CATALOG (HIGH PERFORMANCE FOR 100+ ITEMS)
+     ========================================================================== -->
+<section class="catalog-section" id="catalog-section">
+  <div class="container">
+    <div class="section-head">
+      <span class="section-tag">Direct Wholesale Inventory</span>
+      <h2 class="section-title">Hardware Catalog</h2>
+      <p class="section-desc">Factory-direct surveillance products with verified serial numbers, tax invoices, and full manufacturer warranties.</p>
+    </div>
+
+    <!-- CONTROLS & FILTER TABS -->
+    <div class="catalog-header-bar">
+      <div class="catalog-filter-tabs" id="catalogFilterTabs">
+        <button type="button" class="filter-tab active" data-cat="all">All Hardware</button>
+        <button type="button" class="filter-tab" data-cat="wifi-camera">Smart Wi-Fi</button>
+        <button type="button" class="filter-tab" data-cat="4g-camera">Solar 4G</button>
+        <button type="button" class="filter-tab" data-cat="nvr-dvr">DVR &amp; NVR</button>
+        <button type="button" class="filter-tab" data-cat="poe-switch">Commercial PoE</button>
+        <button type="button" class="filter-tab" data-cat="accessory">Storage &amp; Kits</button>
+      </div>
+
+      <div class="catalog-search-wrap">
+        <input type="text" id="catalogSearchInput" class="catalog-search-input" placeholder="Filter by model or brand...">
+      </div>
+    </div>
+
+    <div class="catalog-results-info">
+      <span id="catalogCountDisplay">Showing products</span>
+      <span>100% Certified Direct Factory Stock</span>
+    </div>
+
+    <!-- PRODUCTS GRID -->
+    <div class="products-grid" id="productsGrid">
+      <!-- Injected dynamically from SYBER_PRODUCTS -->
+    </div>
+
+    <!-- LOAD MORE ACTION -->
+    <div class="catalog-load-more" id="catalogLoadMoreWrap">
+      <button type="button" class="btn-load-more" id="btnLoadMore">
+        Load More Hardware (+12)
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- ==========================================================================
+     WHOLESALE & COMMERCIAL BULK SOLUTIONS BANNER
+     ========================================================================== -->
+<section class="wholesale-banner-section">
+  <div class="container">
+    <div class="wholesale-card">
+      <div class="wholesale-content">
+        <span class="section-tag" style="color: var(--blue-light);">Enterprise &amp; Projects</span>
+        <h3>Commercial Procurement &amp; Bulk Pricing</h3>
+        <p>Equipping residential complexes, retail chains, factories, or educational institutions? We deliver customized bill-of-materials (BOM), wholesale tier pricing, and direct manufacturer technical support.</p>
         
-        <div class="hero-camera-stage" id="heroCameraStage">
-          <!-- Slide 0: Trueview Solar 4G PTZ -->
-          <div class="hero-camera-slide active" data-index="0" data-label="Trueview 4G Solar PTZ Camera">
-            <img src="assets/hero_camera_solar_ai.png" alt="Trueview 4G Solar PTZ Camera" onclick="window.location.href='product.html?id=trueview-solar-4g-sim-outdoor-pan-tilt-camera'">
+        <div class="wholesale-perks">
+          <div class="wholesale-perk-item">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>GST B2B Tax Invoicing</span>
           </div>
-          <!-- Slide 1: CP Plus Smart Dome -->
-          <div class="hero-camera-slide" data-index="1" data-label="CP Plus Smart Dome Camera">
-            <img src="assets/hero_camera_dome_ai.png" alt="CP Plus Smart Dome Camera" onclick="window.location.href='product.html?id=cp-plus-ezykam-cp-e38q-3mp-pan-tilt-wi-fi-camera'">
+          <div class="wholesale-perk-item">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Volume Tier Discounts</span>
           </div>
-          <!-- Slide 2: iDADA Smart AI Pan-Tilt -->
-          <div class="hero-camera-slide" data-index="2" data-label="iDADA 3MP Smart AI Camera">
-            <img src="assets/hero_camera_idada_ai.png" alt="iDADA 3MP Smart AI Camera" onclick="window.location.href='product.html?id=idada-id-q2i35s-td-3mp-pan-tilt-smart-wi-fi-camera'">
+          <div class="wholesale-perk-item">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Engineer Sizing Consultation</span>
           </div>
-          <!-- Slide 3: Commercial High-Speed PTZ -->
-          <div class="hero-camera-slide" data-index="3" data-label="Trueview Commercial High-Speed PTZ">
-            <img src="assets/hero_camera_ptz_ai.png" alt="Commercial High-Speed PTZ Camera" onclick="window.location.href='product.html?id=trueview-solar-4g-sim-outdoor-pan-tilt-camera'">
+          <div class="wholesale-perk-item">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Direct Manufacturer Warranty</span>
           </div>
         </div>
 
-        <!-- Controls: Arrows, Dots, Model Caption -->
-        <div class="hero-slide-controls">
-          <button type="button" class="hero-cam-nav-btn" id="heroCamPrev" aria-label="Previous Camera">&larr;</button>
-          <div class="hero-slide-dots" id="heroSlideDots">
-            <button type="button" class="hero-dot active" data-index="0" aria-label="Camera 1"></button>
-            <button type="button" class="hero-dot" data-index="1" aria-label="Camera 2"></button>
-            <button type="button" class="hero-dot" data-index="2" aria-label="Camera 3"></button>
-            <button type="button" class="hero-dot" data-index="3" aria-label="Camera 4"></button>
-          </div>
-          <button type="button" class="hero-cam-nav-btn" id="heroCamNext" aria-label="Next Camera">&rarr;</button>
+        <div class="wholesale-actions">
+          <a href="https://wa.me/917511180808?text=Hello%20Syber%20Space,%20I%20would%20like%20a%20commercial%20bulk%20procurement%20quote." target="_blank" class="btn-wholesale-wa">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+            <span>WhatsApp Wholesale Desk (+91 75111 80808)</span>
+          </a>
         </div>
-        <div class="hero-cam-caption" id="heroCamCaption">Trueview 4G Solar PTZ Camera</div>
+      </div>
+
+      <div class="wholesale-img-side">
+        <img src="assets/wholesale_supply_kit.png" alt="Wholesale Surveillance Hardware Kit" loading="lazy">
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- 2. SCENARIOS: WHAT ARE YOU SECURING? -->
-  <section class="scenarios-section" id="scenarios">
-    <div class="wrap">
-      <div class="section-head vanish-text">
-        <div>
-          <div class="kicker">Protection Environments</div>
-          <h2>What are you securing?</h2>
-        </div>
-        <p>Tailored surveillance architecture engineered for your structural and operational requirements.</p>
+<!-- ==========================================================================
+     BRANDS WE DEAL WITH
+     ========================================================================== -->
+<section class="brands-section">
+  <div class="container">
+    <div class="section-head" style="margin-bottom: 32px;">
+      <span class="section-tag">Tier-1 Partnerships</span>
+      <h2 class="section-title">Brands We Deal With</h2>
+      <p class="section-desc">Direct factory sourcing with official warranties, genuine serial authentication, and warranty fulfillment.</p>
+    </div>
+
+    <div class="brands-grid">
+      <div class="brand-card">
+        <span class="brand-card-name">TRUEVIEW</span>
+        <span class="brand-card-role">Official Partner</span>
       </div>
-
-      <div class="scenarios-grid">
-        <!-- CARD 1: HOME SECURITY -->
-        <a class="scenario-card vanish-text" href="contact.html?type=home">
-          <div class="scenario-img-wrap">
-            <img src="assets/cinematic_env_home.jpg" alt="Home Security" loading="lazy">
-            <div class="scenario-overlay"></div>
-          </div>
-          <div class="scenario-content">
-            <span class="scenario-tag">Residential Surveillance</span>
-            <h3>Home &amp; Villa</h3>
-            <p>Everyday peace of mind with perimeter tripwires, smart mobile notifications, and crystal-clear night vision.</p>
-            <span class="scenario-link">Explore Systems &rarr;</span>
-          </div>
-        </a>
-
-        <!-- CARD 2: BUSINESS SYSTEMS -->
-        <a class="scenario-card vanish-text" href="contact.html?type=business">
-          <div class="scenario-img-wrap">
-            <img src="assets/cinematic_env_commercial.jpg" alt="Business Systems" loading="lazy">
-            <div class="scenario-overlay"></div>
-          </div>
-          <div class="scenario-content">
-            <span class="scenario-tag">Commercial Enterprise</span>
-            <h3>Facility Security</h3>
-            <p>Protect your workplace, offices, and inventory with high-capacity NVR storage and multi-channel coverage.</p>
-            <span class="scenario-link">Explore Systems &rarr;</span>
-          </div>
-        </a>
-
-        <!-- CARD 3: SMART SURVEILLANCE -->
-        <a class="scenario-card vanish-text" href="contact.html?type=retail">
-          <div class="scenario-img-wrap">
-            <img src="assets/cinematic_env_retail.jpg" alt="Smart Surveillance" loading="lazy">
-            <div class="scenario-overlay"></div>
-          </div>
-          <div class="scenario-content">
-            <span class="scenario-tag">Retail &amp; Logistics</span>
-            <h3>Smart Surveillance</h3>
-            <p>Monitor with confidence using 360-degree pan-tilt cameras, two-way audio, and real-time humanoid detection.</p>
-            <span class="scenario-link">Explore Systems &rarr;</span>
-          </div>
-        </a>
-
-        <!-- CARD 4: HELPFUL GUIDANCE -->
-        <a class="scenario-card vanish-text" href="https://wa.me/917511180808?text=Hi%20Syber%20Space%2C%20I%20would%20like%20expert%20engineering%20guidance%20on%20designing%20a%20surveillance%20system." target="_blank" rel="noopener">
-          <div class="scenario-img-wrap">
-            <img src="assets/cinematic_env_farm.jpg" alt="Helpful Guidance" loading="lazy">
-            <div class="scenario-overlay"></div>
-          </div>
-          <div class="scenario-content">
-            <span class="scenario-tag">Engineering Advisory</span>
-            <h3>System Consultation</h3>
-            <p>Choose with clarity. Speak directly with our certified surveillance engineers for tailored CCTV system designs.</p>
-            <span class="scenario-link">Consult an Engineer &rarr;</span>
-          </div>
-        </a>
+      <div class="brand-card">
+        <span class="brand-card-name">CP PLUS</span>
+        <span class="brand-card-role">Smart Security</span>
+      </div>
+      <div class="brand-card">
+        <span class="brand-card-name">iDADA</span>
+        <span class="brand-card-role">Wireless Vision</span>
+      </div>
+      <div class="brand-card">
+        <span class="brand-card-name">SEAGATE</span>
+        <span class="brand-card-role">SkyHawk Drives</span>
+      </div>
+      <div class="brand-card">
+        <span class="brand-card-name">DAHUA</span>
+        <span class="brand-card-role">Enterprise IP</span>
+      </div>
+      <div class="brand-card">
+        <span class="brand-card-name">HIKVISION</span>
+        <span class="brand-card-role">Global Vision</span>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- 3. BUILD YOUR SECURITY SETUP (CORE ARCHITECTURE) -->
-  <section class="categories-section" id="categories">
-    <div class="wrap">
-      <div class="section-head vanish-text">
-        <div>
-          <div class="kicker">Core Architecture</div>
-          <h2>Build your security setup</h2>
+<!-- ==========================================================================
+     WHY CHOOSE US / ENGINEERING STANDARDS
+     ========================================================================== -->
+<section class="why-section" id="why-section">
+  <div class="container">
+    <div class="section-head">
+      <span class="section-tag">Quality Standards</span>
+      <h2 class="section-title">Why Choose Syber Space</h2>
+      <p class="section-desc">We eliminate middlemen markups and counterfeit risks with direct factory procurement and dedicated technical advisory.</p>
+    </div>
+
+    <div class="why-grid">
+      <div class="why-card">
+        <div class="why-icon">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
         </div>
-        <p>From single Wi-Fi cameras to enterprise IP networks, select the foundation for your installation.</p>
+        <h4>100% Authentic Hardware</h4>
+        <p>Every camera, NVR, and drive is genuine and serial-tracked with authorized manufacturer warranty coverage. Zero refurbished or grey-market units.</p>
       </div>
 
-      <div class="categories-img-grid">
-        <!-- 1: CCTV Cameras -->
-        <a class="cat-img-card vanish-text" href="product.html?id=trueview-solar-4g-sim-outdoor-pan-tilt-camera">
-          <div class="cat-thumb">
-            <img src="assets/bestseller_trueview_solar.jpg" alt="CCTV Cameras" loading="lazy">
-          </div>
-          <div class="cat-body">
-            <h3>CCTV Cameras</h3>
-            <p>Indoor, outdoor, dome, bullet, solar, and PTZ optical zoom cameras.</p>
-            <span class="cat-arrow">Explore Cameras &rarr;</span>
-          </div>
-        </a>
+      <div class="why-card">
+        <div class="why-icon">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+        </div>
+        <h4>Direct Factory Pricing</h4>
+        <p>Wholesale distribution margins passed straight to individual property owners and commercial contractors. No retail distributor markups.</p>
+      </div>
 
-        <!-- 2: DVR & NVR Systems -->
-        <a class="cat-img-card vanish-text" href="product.html?id=trueview-t18292sf-smart-4g-bullet-camera-3mp-ip66">
-          <div class="cat-thumb">
-            <img src="assets/trueview_poe_front.jpg" alt="DVR & NVR Systems" loading="lazy">
-          </div>
-          <div class="cat-body">
-            <h3>DVR &amp; NVR Systems</h3>
-            <p>Record, store, and review 4K footage with hybrid DVRs and PoE NVRs.</p>
-            <span class="cat-arrow">Explore Recorders &rarr;</span>
-          </div>
-        </a>
+      <div class="why-card">
+        <div class="why-icon">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+        </div>
+        <h4>1 to 2 Year Brand Warranty</h4>
+        <p>Comprehensive manufacturer warranty replacement backing. Complete assistance with RMA authorization and authorized service desk claims.</p>
+      </div>
 
-        <!-- 3: Access Control -->
-        <a class="cat-img-card vanish-text" href="product.html?id=idada-id-q2i35s-td-3mp-pan-tilt-smart-wi-fi-camera">
-          <div class="cat-thumb">
-            <img src="assets/bestseller_idada_q2i.jpg" alt="Access Control" loading="lazy">
-          </div>
-          <div class="cat-body">
-            <h3>Access Control</h3>
-            <p>Smarter entry with biometric readers, smart door locks, and RFID controllers.</p>
-            <span class="cat-arrow">Explore Access &rarr;</span>
-          </div>
-        </a>
+      <div class="why-card">
+        <div class="why-icon">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+        </div>
+        <h4>Expert Technical Advisory</h4>
+        <p>Personalized lens focal length sizing, storage calculation, PoE power budgeting, and off-grid solar planning for any site architecture.</p>
+      </div>
 
-        <!-- 4: Infrastructure & Accessories -->
-        <a class="cat-img-card vanish-text" href="#contact">
-          <div class="cat-thumb">
-            <img src="assets/wholesale_supply_kit.png" alt="Infrastructure & Accessories" loading="lazy">
-          </div>
-          <div class="cat-body">
-            <h3>Infrastructure &amp; Cabling</h3>
-            <p>Pure copper Cat6 cables, SMPS power supplies, surveillance HDDs, and junction boxes.</p>
-            <span class="cat-arrow">Explore Infrastructure &rarr;</span>
-          </div>
-        </a>
+      <div class="why-card">
+        <div class="why-icon">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="1" y="3" width="15" height="13"></rect><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon><circle cx="5.5" cy="18.5" r="2.5"></circle><circle cx="18.5" cy="18.5" r="2.5"></circle></svg>
+        </div>
+        <h4>Insured Express Logistics</h4>
+        <p>Heavy-duty protective cushioning and tracked express courier dispatch. All shipments are insured from dispatch to destination delivery.</p>
+      </div>
+
+      <div class="why-card">
+        <div class="why-icon">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.2"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
+        </div>
+        <h4>Universal ONVIF Compatibility</h4>
+        <p>Our cameras and recorders support industry-standard ONVIF and RTSP streaming protocols, integrating cleanly with third-party VMS software.</p>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- 4. BRANDS WE DEAL WITH (ONLY BRAND LOGOS) -->
-  <section class="brands-section" id="brands">
-    <div class="wrap">
-      <div class="brands-header vanish-text">
-        <span class="kicker">AUTHORIZED DISTRIBUTION</span>
-        <h2>BRANDS WE DEAL WITH</h2>
-        <p>Direct manufacturer partnerships providing certified hardware with official warranties.</p>
+<!-- ==========================================================================
+     DEPLOYMENT ENVIRONMENTS
+     ========================================================================== -->
+<section class="environments-section">
+  <div class="container">
+    <div class="section-head" style="margin-bottom: 36px;">
+      <span class="section-tag">Tested Reliability</span>
+      <h2 class="section-title">Deployment Environments</h2>
+      <p class="section-desc">Hardware engineered to endure severe outdoor conditions, dust, and continuous surveillance demands.</p>
+    </div>
+
+    <div class="env-grid">
+      <div class="env-card">
+        <img src="assets/minimal_env_house.jpg" alt="Residential and Villa Surveillance" loading="lazy">
+        <div class="env-card-overlay">
+          <h4>Private Residences</h4>
+          <p>Discreet perimeter optical protection</p>
+        </div>
       </div>
 
-      <div class="brand-logos-container vanish-text">
-        <!-- BRAND 1: TRUEVIEW -->
-        <div class="brand-logo-card">
-          <div class="brand-logo-mark">
-            <span class="logo-text-bold">TRUEVIEW</span>
-            <span class="logo-text-sub">Vision Beyond Sight</span>
-          </div>
-          <span class="brand-status-pill">Authorized Partner</span>
+      <div class="env-card">
+        <img src="assets/minimal_env_commercial.jpg" alt="Commercial Stores and Retail" loading="lazy">
+        <div class="env-card-overlay">
+          <h4>Retail &amp; Showrooms</h4>
+          <p>Loss prevention and customer analytics</p>
         </div>
+      </div>
 
-        <!-- BRAND 2: CP PLUS -->
-        <div class="brand-logo-card">
-          <div class="brand-logo-mark">
-            <span class="logo-text-bold logo-cpplus">CP PLUS</span>
-            <span class="logo-text-sub">Security Systems</span>
-          </div>
-          <span class="brand-status-pill">Authorized Partner</span>
+      <div class="env-card">
+        <img src="assets/minimal_env_office.jpg" alt="Corporate Offices and Facilities" loading="lazy">
+        <div class="env-card-overlay">
+          <h4>Corporate Facilities</h4>
+          <p>Access control &amp; server room monitoring</p>
         </div>
+      </div>
 
-        <!-- BRAND 3: iDADA -->
-        <div class="brand-logo-card">
-          <div class="brand-logo-mark">
-            <span class="logo-text-bold logo-idada">iDADA</span>
-            <span class="logo-text-sub">Smart Surveillance</span>
-          </div>
-          <span class="brand-status-pill">Authorized Partner</span>
-        </div>
-
-        <!-- BRAND 4: SEAGATE -->
-        <div class="brand-logo-card">
-          <div class="brand-logo-mark">
-            <span class="logo-text-bold">SEAGATE</span>
-            <span class="logo-text-sub">SkyHawk Storage</span>
-          </div>
-          <span class="brand-status-pill">Storage Technology</span>
-        </div>
-
-        <!-- BRAND 5: DAHUA -->
-        <div class="brand-logo-card">
-          <div class="brand-logo-mark">
-            <span class="logo-text-bold">DAHUA</span>
-            <span class="logo-text-sub">Technology</span>
-          </div>
-          <span class="brand-status-pill">Enterprise Partner</span>
-        </div>
-
-        <!-- BRAND 6: HIKVISION -->
-        <div class="brand-logo-card">
-          <div class="brand-logo-mark">
-            <span class="logo-text-bold">HIKVISION</span>
-            <span class="logo-text-sub">Global Security</span>
-          </div>
-          <span class="brand-status-pill">Enterprise Partner</span>
+      <div class="env-card">
+        <img src="assets/minimal_env_farm.jpg" alt="Farms and Off-Grid Remote Locations" loading="lazy">
+        <div class="env-card-overlay">
+          <h4>Off-Grid Remote Sites</h4>
+          <p>Autonomous solar 4G surveillance</p>
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- 5. ABOUT US SECTION -->
-  <section class="about-section" id="about">
-    <div class="wrap about-grid">
-      <div class="about-text-col vanish-text">
-        <div class="kicker">ABOUT SYBER SPACE</div>
-        <h2>The Benchmark in Intelligent Security</h2>
-        <p class="about-lead">Dedicated to delivering authenticated, high-performance surveillance architecture to homeowners, institutions, and certified systems integrators.</p>
-        <p>At Syber Space, we engineer complete security ecosystems rather than single components. Every camera, recording appliance, optical sensor, and power unit in our catalog is sourced through verified manufacturer channels with verifiable serial numbers and official warranties.</p>
-        <p>Whether you require a discreet residential camera system or an enterprise-tier multi-site surveillance network, our certified engineering team provides clear, data-driven design specifications.</p>
-        
-        <div class="about-metrics">
-          <div class="metric-item">
-            <strong>100%</strong>
-            <span>Certified Hardware</span>
-          </div>
-          <div class="metric-item">
-            <strong>24/7</strong>
-            <span>Reliability Standards</span>
-          </div>
-          <div class="metric-item">
-            <strong>Tier-1</strong>
-            <span>Architecture</span>
-          </div>
-        </div>
-      </div>
+<!-- ==========================================================================
+     FLOATING TOAST NOTIFICATION
+     ========================================================================== -->
+<div class="cart-toast" id="cartToast">
+  <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" style="color: var(--blue-light);"><polyline points="20 6 9 17 4 12"></polyline></svg>
+  <span class="toast-msg" id="toastMsg">Added to cart</span>
+  <a href="cart.html" class="toast-link">View Cart &rarr;</a>
+</div>
 
-      <div class="about-visual-col vanish-text">
-        <div class="about-card-banner">
-          <img src="assets/camera_mounted_house.jpg" alt="Syber Space Security Architecture" loading="lazy">
-          <div class="about-banner-badge">
-            <strong>Industrial Engineering Standards</strong>
-            <small>Certified IP66/IP67 weather-resistance against humidity and extreme conditions</small>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- 6. WHY CHOOSE US SECTION -->
-  <section class="why-section" id="why">
-    <div class="wrap">
-      <div class="section-head text-center vanish-text" style="justify-content: center; text-align: center; display: block;">
-        <div>
-          <div class="kicker">The Syber Space Standard</div>
-          <h2>Why Choose Us</h2>
-        </div>
-        <p style="margin: 12px auto 0;">Engineered security solutions backed by official manufacturer partnerships and dedicated advisory.</p>
-      </div>
-
-      <div class="why-cards-grid">
-        <!-- 1 -->
-        <div class="why-feat-card vanish-text">
-          <div class="why-icon-pill">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-          </div>
-          <h3>Authenticated Hardware Standards</h3>
-          <p>Every product is sourced through certified manufacturer networks, accompanied by official warranty documentation and serial tracking.</p>
-        </div>
-
-        <!-- 2 -->
-        <div class="why-feat-card vanish-text">
-          <div class="why-icon-pill">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="m16 10-4 4-2-2"/></svg>
-          </div>
-          <h3>Direct Partner Sourcing</h3>
-          <p>Direct manufacturer integration provides optimum value and transparent pricing structures across all equipment tiers.</p>
-        </div>
-
-        <!-- 3 -->
-        <div class="why-feat-card vanish-text">
-          <div class="why-icon-pill">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
-          </div>
-          <h3>Insured Express Logistics</h3>
-          <p>Prompt, secure dispatch with reinforced shock-absorbent packaging, prompt tracking, and transit insurance protection.</p>
-        </div>
-
-        <!-- 4 -->
-        <div class="why-feat-card vanish-text">
-          <div class="why-icon-pill">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-          </div>
-          <h3>Technical System Architecture</h3>
-          <p>Our surveillance specialists calculate optical angles, storage retention days, and bandwidth allocation for your specific floor plan.</p>
-        </div>
-
-        <!-- 5 -->
-        <div class="why-feat-card vanish-text">
-          <div class="why-icon-pill">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-          </div>
-          <h3>Architectural &amp; Integrator Solutions</h3>
-          <p>Dedicated technical specifications, schematics, and supply coordination for building contractors and integration specialists.</p>
-        </div>
-
-        <!-- 6 -->
-        <div class="why-feat-card vanish-text">
-          <div class="why-icon-pill">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-          </div>
-          <h3>Direct Technical Advisory</h3>
-          <p>Seamless communication via WhatsApp for system setup, network pairing, remote mobile configuration, and warranty support.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-</main>
-
-<!-- FOOTER: OBSIDIAN BLACK LUXURY FOUNDATION (TEXT ONLY, NO LOGO ICON) -->
-<footer id="contact">
-  <div class="wrap">
-    <div class="footer-grid">
-      <div>
-        <a class="brand footer-brand" href="index.html">
-          <div class="brand-name">
-            <span>SYBER SPACE</span>
-            <small>Smart Security</small>
-          </div>
+<!-- ==========================================================================
+     FOOTER: OBSIDIAN BLACK & ELECTRIC BLUE
+     ========================================================================== -->
+<footer>
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <h3>SYBER SPACE</h3>
+        <p>The Surveillance Store. Authorized dealer of certified commercial CCTV hardware, optical sensors, enterprise recording hubs, and surveillance storage.</p>
+        <a href="https://wa.me/917511180808" target="_blank" class="footer-hotline">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+          Direct Advisory: +91 75111 80808
         </a>
-        <p class="footer-about">Intelligent surveillance architecture, optical engineering, and certified hardware distribution.</p>
-      </div>
-      
-      <div class="footer-col">
-        <h4>Architecture</h4>
-        <a href="#categories">CCTV Cameras</a>
-        <a href="#categories">DVR &amp; NVR Recorders</a>
-        <a href="#categories">Access Control</a>
-        <a href="#categories">Infrastructure &amp; Cabling</a>
       </div>
 
       <div class="footer-col">
-        <h4>Advisory</h4>
-        <a href="contact.html">Technical Advisory</a>
-        <a href="shipping-policy.html">Dispatch Standards</a>
-        <a href="refund-policy.html">Warranty Policy</a>
-        <a href="terms.html">Terms of Service</a>
+        <h4>Catalog</h4>
+        <ul>
+          <li><a href="#catalog-section" onclick="filterCategoryFromNav('wifi-camera')">Smart Wi-Fi Cameras</a></li>
+          <li><a href="#catalog-section" onclick="filterCategoryFromNav('4g-camera')">Solar 4G Cameras</a></li>
+          <li><a href="#catalog-section" onclick="filterCategoryFromNav('nvr-dvr')">DVR &amp; NVR Systems</a></li>
+          <li><a href="#catalog-section" onclick="filterCategoryFromNav('poe-switch')">Commercial PoE Units</a></li>
+          <li><a href="#catalog-section" onclick="filterCategoryFromNav('accessory')">Surveillance Storage</a></li>
+        </ul>
       </div>
 
       <div class="footer-col">
-        <h4>Contact</h4>
-        <a href="mailto:hello@syberspace.in">hello@syberspace.in</a>
-        <a href="https://wa.me/917511180808" target="_blank" rel="noopener">WhatsApp: +91 75111 80808</a>
-        <a href="#contact">Central Operations Desk</a>
+        <h4>Direct Services</h4>
+        <ul>
+          <li><a href="cart.html">View Shopping Cart</a></li>
+          <li><a href="checkout.html">Direct B2B Checkout</a></li>
+          <li><a href="#why-section">Quality Standards</a></li>
+          <li><a href="#categories-section">Hardware Categories</a></li>
+          <li><a href="https://wa.me/917511180808" target="_blank">Bulk Sizing Requests</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Support &amp; Standards</h4>
+        <ul>
+          <li><span>100% Tax Invoiced Orders</span></li>
+          <li><span>Manufacturer RMA Support</span></li>
+          <li><span>Direct Dispatch Logistics</span></li>
+          <li><span>Mon - Sat: 9:00 AM - 8:00 PM</span></li>
+          <li><span>Inquiries: sales@syberspace.com</span></li>
+        </ul>
       </div>
     </div>
 
     <div class="footer-bottom">
-      <span>&copy; <span id="year"></span> Syber Space. All rights reserved.</span>
-      <span><a href="privacy.html">Privacy Policy</a> &middot; <a href="terms.html">Terms of Service</a> &middot; <a href="shipping-policy.html">Dispatch Standards</a></span>
+      <div>
+        &copy; <span id="currentYear"></span> Syber Space. All rights reserved. Precision Surveillance Systems.
+      </div>
+
+      <div class="footer-badges">
+        <span class="footer-badge-dot"></span>
+        <span>256-Bit SSL Encrypted Checkout</span>
+        <span class="footer-badge-dot"></span>
+        <span>HDFC SmartGateway Protected</span>
+      </div>
     </div>
   </div>
 </footer>
 
+<!-- ==========================================================================
+     HIGH-PERFORMANCE CLIENT-SIDE E-COMMERCE ENGINE
+     - Synchronized with syber_cart and #cart-counter
+     - Butter-smooth GSAP Hero Slideshow & ScrollTrigger
+     - Handles 100+ items and 300+ images with smart batching & lazy loading
+     ========================================================================== -->
 <script>
-document.getElementById('year').textContent = new Date().getFullYear();
+document.getElementById('currentYear').textContent = new Date().getFullYear();
 
-// Initialize GSAP Butter Smooth Camera Slideshow & ScrollTrigger
-document.addEventListener('DOMContentLoaded', () => {
-  // Update Cart Badge from localStorage
+// -----------------------------------------------------------------------------
+// 1. CART SYNCHRONIZATION WITH localStorage ('syber_cart')
+// -----------------------------------------------------------------------------
+function getLocalCart() {
   try {
-    const raw = localStorage.getItem('syber_cart') || localStorage.getItem('cart');
-    if (raw) {
-      const items = JSON.parse(raw);
-      const total = Array.isArray(items) ? items.reduce((acc, i) => acc + (i.quantity || 1), 0) : 0;
-      const badge = document.getElementById('cart-counter');
-      if (badge) badge.textContent = total;
-    }
+    const raw = localStorage.getItem('syber_cart') || localStorage.getItem('syber_cart_items');
+    return JSON.parse(raw || '[]');
+  } catch(e) {
+    return [];
+  }
+}
+
+function updateHeaderCartBadge() {
+  const cart = getLocalCart();
+  const totalCount = cart.reduce((sum, item) => sum + (Number(item.quantity || item.qty) || 1), 0);
+  const badge = document.getElementById('cart-counter');
+  if (badge) {
+    badge.textContent = totalCount;
+  }
+}
+
+function directAddToCart(productId, event) {
+  if (event) {
+    event.preventDefault();
+    event.stopPropagation();
+  }
+
+  if (typeof SYBER_PRODUCTS === 'undefined') return;
+  const product = SYBER_PRODUCTS.find(p => p.id === productId);
+  if (!product) return;
+
+  const cart = getLocalCart();
+  const existing = cart.find(i => i.id === product.id || i.title === product.title);
+  const imgSrc = (product.images && product.images.length > 0) ? product.images[0] : 'assets/official_bestseller_idada_q2i.jpg';
+
+  if (existing) {
+    existing.quantity = (existing.quantity || 1) + 1;
+    existing.qty = existing.quantity;
+  } else {
+    cart.push({
+      id: product.id,
+      title: product.title,
+      name: product.title,
+      brand: product.brand || 'SYBER',
+      price: Number(product.price) || 0,
+      mrp: product.mrp || '',
+      save: product.save || '',
+      img: imgSrc,
+      image: imgSrc,
+      qty: 1,
+      quantity: 1
+    });
+  }
+
+  try {
+    localStorage.setItem('syber_cart', JSON.stringify(cart));
+    localStorage.setItem('syber_cart_items', JSON.stringify(cart));
   } catch(e) {}
 
-  // 1. BUTTER SMOOTH GSAP CAMERA SLIDESHOW
-  const slides = Array.from(document.querySelectorAll('.hero-camera-slide'));
-  const dots = Array.from(document.querySelectorAll('.hero-dot'));
-  const captionEl = document.getElementById('heroCamCaption');
-  const prevBtn = document.getElementById('heroCamPrev');
-  const nextBtn = document.getElementById('heroCamNext');
-  const stage = document.getElementById('heroCameraStage');
+  updateHeaderCartBadge();
+  showCartToast(`Added "${product.title}" to cart`);
+}
+
+function showCartToast(msg) {
+  const toast = document.getElementById('cartToast');
+  const msgEl = document.getElementById('toastMsg');
+  if (!toast || !msgEl) return;
+  msgEl.textContent = msg;
+  toast.classList.add('active');
+  clearTimeout(window.__toastTimer);
+  window.__toastTimer = setTimeout(() => {
+    toast.classList.remove('active');
+  }, 3200);
+}
+
+// -----------------------------------------------------------------------------
+// 2. BUTTER-SMOOTH AUTOMATIC REAL CAMERA SLIDESHOW (GSAP)
+// -----------------------------------------------------------------------------
+function initHeroSlideshow() {
+  const slides = Array.from(document.querySelectorAll('.hero-camera-item'));
+  if (slides.length < 2) return;
 
   let currentIndex = 0;
   let isTransitioning = false;
-  let autoSlideTimer = null;
 
-  // Gentle idle float on camera stage
+  // Subtle floating idle motion
   if (typeof gsap !== 'undefined') {
-    gsap.to(stage, {
-      y: -8,
-      duration: 3,
+    gsap.to('#heroCameraDeck', {
+      y: -12,
+      duration: 3.2,
       repeat: -1,
       yoyo: true,
       ease: 'sine.inOut'
     });
   }
 
-  function goToSlide(newIndex, direction = 1) {
-    if (newIndex === currentIndex || isTransitioning) return;
+  function advanceSlide() {
+    if (isTransitioning) return;
     isTransitioning = true;
 
+    const nextIndex = (currentIndex + 1) % slides.length;
     const currentSlide = slides[currentIndex];
-    const nextSlide = slides[newIndex];
-    const nextDot = dots[newIndex];
-    const currentDot = dots[currentIndex];
-
-    if (currentDot) currentDot.classList.remove('active');
-    if (nextDot) nextDot.classList.add('active');
-
-    if (captionEl && nextSlide.dataset.label) {
-      captionEl.textContent = nextSlide.dataset.label;
-    }
+    const nextSlide = slides[nextIndex];
 
     if (typeof gsap !== 'undefined') {
       const tl = gsap.timeline({
         onComplete: () => {
           currentSlide.classList.remove('active');
-          gsap.set(currentSlide, { visibility: 'hidden', opacity: 0 });
           isTransitioning = false;
         }
       });
 
-      // Show next slide underneath
-      gsap.set(nextSlide, { visibility: 'visible', opacity: 0, scale: 0.94 });
+      gsap.set(nextSlide, { visibility: 'visible', opacity: 0, scale: 0.95 });
       nextSlide.classList.add('active');
 
-      // Crossfade timeline
       tl.to(currentSlide, {
         opacity: 0,
-        scale: 0.96,
-        duration: 0.45,
+        scale: 0.95,
+        duration: 0.5,
         ease: 'power2.inOut'
       }, 0)
       .to(nextSlide, {
         opacity: 1,
         scale: 1,
-        duration: 0.55,
+        duration: 0.6,
         ease: 'power3.out'
       }, 0.1);
     } else {
@@ -1390,83 +2069,238 @@ document.addEventListener('DOMContentLoaded', () => {
       isTransitioning = false;
     }
 
-    currentIndex = newIndex;
+    currentIndex = nextIndex;
   }
 
-  function nextSlide() {
-    const nextIdx = (currentIndex + 1) % slides.length;
-    goToSlide(nextIdx, 1);
+  setInterval(advanceSlide, 3500);
+}
+
+// -----------------------------------------------------------------------------
+// 3. HIGH-PERFORMANCE DYNAMIC CATALOG WITH BATCHING & LAZY LOADING
+// -----------------------------------------------------------------------------
+let activeCategory = 'all';
+let searchQuery = '';
+let renderedCount = 0;
+const BATCH_SIZE = 12;
+
+function getFilteredProducts() {
+  if (typeof SYBER_PRODUCTS === 'undefined') return [];
+  return SYBER_PRODUCTS.filter(item => {
+    // Category check
+    let matchesCat = true;
+    if (activeCategory !== 'all') {
+      if (activeCategory === 'wifi-camera') {
+        matchesCat = item.category === 'wifi-camera';
+      } else if (activeCategory === '4g-camera') {
+        matchesCat = item.category === '4g-camera' || item.category === 'solar-hub';
+      } else if (activeCategory === 'nvr-dvr') {
+        matchesCat = item.category === 'nvr-dvr';
+      } else if (activeCategory === 'poe-switch') {
+        matchesCat = item.category === 'poe-switch' || item.category === 'ahd-camera' || item.category === 'router';
+      } else if (activeCategory === 'accessory') {
+        matchesCat = item.category === 'accessory' || item.category === 'doorbell';
+      } else {
+        matchesCat = item.category === activeCategory;
+      }
+    }
+
+    // Search check
+    let matchesSearch = true;
+    if (searchQuery) {
+      const q = searchQuery.toLowerCase();
+      const titleMatch = (item.title || '').toLowerCase().includes(q);
+      const brandMatch = (item.brand || '').toLowerCase().includes(q);
+      const descMatch = (item.desc || '').toLowerCase().includes(q);
+      const chipsMatch = (item.chips || []).some(c => c.toLowerCase().includes(q));
+      matchesSearch = titleMatch || brandMatch || descMatch || chipsMatch;
+    }
+
+    return matchesCat && matchesSearch;
+  });
+}
+
+function renderProductCard(p) {
+  const imgSrc = (p.images && p.images.length > 0) ? p.images[0] : 'assets/official_bestseller_idada_q2i.jpg';
+  const badgeHtml = p.badge ? `<span class="prod-badge ${p.badge.includes('BEST') ? 'highlight' : ''}">${escapeHtml(p.badge)}</span>` : '';
+  const chipsHtml = (p.chips || []).slice(0, 3).map(c => `<span class="prod-chip">${escapeHtml(c)}</span>`).join('');
+  const priceDisplay = Number(p.price) ? `&#8377;${Number(p.price).toLocaleString('en-IN')}` : 'Contact for Quote';
+  const mrpHtml = p.mrp ? `<span class="prod-mrp">${escapeHtml(p.mrp)}</span>` : '';
+  const saveHtml = p.save ? `<span class="prod-save">${escapeHtml(p.save)}</span>` : '';
+
+  return `
+    <div class="prod-card" data-id="${escapeHtml(p.id)}">
+      ${badgeHtml}
+      <a href="product.html?id=${encodeURIComponent(p.id)}" class="prod-thumb-wrap" aria-label="${escapeHtml(p.title)}">
+        <img src="${escapeHtml(imgSrc)}" alt="${escapeHtml(p.title)}" loading="lazy" decoding="async">
+      </a>
+      <div>
+        <div class="prod-brand">${escapeHtml(p.brand || 'SYBER')}</div>
+        <h4 class="prod-title">
+          <a href="product.html?id=${encodeURIComponent(p.id)}">${escapeHtml(p.title)}</a>
+        </h4>
+        <div class="prod-chips">
+          ${chipsHtml}
+        </div>
+        <div class="prod-price-row">
+          <span class="prod-price">${priceDisplay}</span>
+          ${mrpHtml}
+          ${saveHtml}
+        </div>
+      </div>
+      <div class="prod-actions">
+        <button type="button" class="btn-add-cart" onclick="directAddToCart('${escapeHtml(p.id)}', event)">
+          <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+          <span>Add to Cart</span>
+        </button>
+        <a href="product.html?id=${encodeURIComponent(p.id)}" class="btn-card-details" aria-label="Details for ${escapeHtml(p.title)}">
+          <span>Details</span>
+        </a>
+      </div>
+    </div>
+  `;
+}
+
+function escapeHtml(str) {
+  return String(str || '').replace(/[&<>"']/g, m => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
+}
+
+function updateCatalogView(reset = true) {
+  const grid = document.getElementById('productsGrid');
+  const countDisplay = document.getElementById('catalogCountDisplay');
+  const loadMoreWrap = document.getElementById('catalogLoadMoreWrap');
+  if (!grid) return;
+
+  const filtered = getFilteredProducts();
+
+  if (reset) {
+    renderedCount = 0;
+    grid.innerHTML = '';
   }
 
-  function prevSlide() {
-    const prevIdx = (currentIndex - 1 + slides.length) % slides.length;
-    goToSlide(prevIdx, -1);
+  if (filtered.length === 0) {
+    grid.innerHTML = `
+      <div class="catalog-empty">
+        <h4>No matching hardware found</h4>
+        <p>Try refining your search terms or clearing category filters to view all products.</p>
+      </div>
+    `;
+    if (countDisplay) countDisplay.textContent = '0 products found';
+    if (loadMoreWrap) loadMoreWrap.style.display = 'none';
+    return;
   }
 
-  if (nextBtn) nextBtn.addEventListener('click', () => { nextSlide(); resetTimer(); });
-  if (prevBtn) prevBtn.addEventListener('click', () => { prevSlide(); resetTimer(); });
+  const nextBatch = filtered.slice(renderedCount, renderedCount + BATCH_SIZE);
+  const cardsHtml = nextBatch.map(p => renderProductCard(p)).join('');
+  grid.insertAdjacentHTML('beforeend', cardsHtml);
 
-  dots.forEach((dot, idx) => {
-    dot.addEventListener('click', () => {
-      goToSlide(idx, idx > currentIndex ? 1 : -1);
-      resetTimer();
+  renderedCount += nextBatch.length;
+
+  if (countDisplay) {
+    countDisplay.textContent = `Showing ${renderedCount} of ${filtered.length} products`;
+  }
+
+  if (loadMoreWrap) {
+    if (renderedCount < filtered.length) {
+      loadMoreWrap.style.display = 'block';
+      const remaining = filtered.length - renderedCount;
+      const btn = document.getElementById('btnLoadMore');
+      if (btn) btn.textContent = `Load More Hardware (+${Math.min(BATCH_SIZE, remaining)})`;
+    } else {
+      loadMoreWrap.style.display = 'none';
+    }
+  }
+
+  // Trigger gentle GSAP reveal on newly added cards
+  if (typeof gsap !== 'undefined' && nextBatch.length > 0) {
+    const cards = grid.querySelectorAll('.prod-card:not(.gsap-ready)');
+    cards.forEach(card => card.classList.add('gsap-ready'));
+    gsap.from(cards, {
+      opacity: 0,
+      y: 18,
+      duration: 0.4,
+      stagger: 0.04,
+      ease: 'power2.out'
+    });
+  }
+}
+
+function filterCategoryFromNav(cat) {
+  activeCategory = cat;
+  const tabs = document.querySelectorAll('.filter-tab');
+  tabs.forEach(t => {
+    if (t.dataset.cat === cat) {
+      t.classList.add('active');
+    } else {
+      t.classList.remove('active');
+    }
+  });
+
+  const section = document.getElementById('catalog-section');
+  if (section) {
+    section.scrollIntoView({ behavior: 'smooth' });
+  }
+
+  updateCatalogView(true);
+}
+
+// -----------------------------------------------------------------------------
+// 4. INITIALIZATION & EVENT LISTENERS
+// -----------------------------------------------------------------------------
+document.addEventListener('DOMContentLoaded', () => {
+  updateHeaderCartBadge();
+  initHeroSlideshow();
+  updateCatalogView(true);
+
+  // Tab filter clicks
+  const tabs = document.querySelectorAll('.filter-tab');
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      tabs.forEach(t => t.classList.remove('active'));
+      tab.classList.add('active');
+      activeCategory = tab.dataset.cat;
+      updateCatalogView(true);
     });
   });
 
-  function startTimer() {
-    stopTimer();
-    autoSlideTimer = setInterval(nextSlide, 3800);
-  }
-
-  function stopTimer() {
-    if (autoSlideTimer) clearInterval(autoSlideTimer);
-  }
-
-  function resetTimer() {
-    startTimer();
-  }
-
-  startTimer();
-
-  const wrapEl = document.querySelector('.hero-slideshow-wrap');
-  if (wrapEl) {
-    wrapEl.addEventListener('mouseenter', stopTimer);
-    wrapEl.addEventListener('mouseleave', startTimer);
-  }
-
-  // 2. SCROLLTRIGGER REVEAL FOR .vanish-text
-  const vanishItems = Array.from(document.querySelectorAll('.vanish-text'));
-  if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
-    gsap.registerPlugin(ScrollTrigger);
-
-    vanishItems.forEach((el) => {
-      gsap.to(el, {
-        scrollTrigger: {
-          trigger: el,
-          start: 'top 88%',
-          end: 'top 45%',
-          scrub: 1
-        },
-        opacity: 1,
-        y: 0,
-        filter: 'blur(0px)',
-        ease: 'power2.out'
-      });
+  // Load more button
+  const loadMoreBtn = document.getElementById('btnLoadMore');
+  if (loadMoreBtn) {
+    loadMoreBtn.addEventListener('click', () => {
+      updateCatalogView(false);
     });
-  } else {
-    // Fallback IntersectionObserver
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('is-revealed');
-          observer.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.15 });
-
-    vanishItems.forEach(el => observer.observe(el));
   }
+
+  // Catalog search input
+  const catalogSearch = document.getElementById('catalogSearchInput');
+  if (catalogSearch) {
+    catalogSearch.addEventListener('input', (e) => {
+      searchQuery = e.target.value.trim();
+      updateCatalogView(true);
+    });
+  }
+
+  // Header search input (syncs with catalog search and scrolls to catalog)
+  const headerSearch = document.getElementById('headerSearchInput');
+  if (headerSearch) {
+    headerSearch.addEventListener('input', (e) => {
+      searchQuery = e.target.value.trim();
+      if (catalogSearch) catalogSearch.value = searchQuery;
+      updateCatalogView(true);
+      const catSection = document.getElementById('catalog-section');
+      if (catSection && window.scrollY < 300 && searchQuery.length > 1) {
+        catSection.scrollIntoView({ behavior: 'smooth' });
+      }
+    });
+  }
+
+  // Storage listener across windows
+  window.addEventListener('storage', (e) => {
+    if (e.key === 'syber_cart' || e.key === 'syber_cart_items') {
+      updateHeaderCartBadge();
+    }
+  });
 });
 </script>
+
 </body>
 </html>
