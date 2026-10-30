@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Syber Space | Official Surveillance Hardware &amp; Security Architecture</title>
-<meta name="description" content="Official direct-procurement store for CCTV surveillance systems, 4G solar cameras, enterprise NVRs, and certified storage. Genuine manufacturer warranties with direct factory pricing.">
+<title>Syber Space | Precision Surveillance Architecture &amp; Hardware</title>
+<meta name="description" content="Official direct-procurement surveillance systems, commercial optical hardware, 4G solar units, enterprise NVRs, and certified storage. Genuine manufacturer warranties with direct wholesale pricing.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -13,36 +13,36 @@
 <script src="products_data.js"></script>
 <style>
 /* ==========================================================================
-   SYBER SPACE // OFFICIAL SURVEILLANCE STORE
-   STRICT PALETTE: PURE WHITE, OBSIDIAN BLACK, AND ELECTRIC BLUE
+   SYBER SPACE // FULL AESTHETIC SURVEILLANCE STORE
+   PALETTE: PURE WHITE, DEEP OBSIDIAN BLACK, AND ELECTRIC ROYAL BLUE
    ========================================================================== */
 
 :root {
   --white: #ffffff;
   --bg-slate: #f8fafc;
+  --bg-subtle: #f1f5f9;
   --black: #090d16;
-  --black-deep: #050a14;
+  --black-deep: #030712;
   --black-surface: #0f172a;
-  --black-card: #131d33;
+  --black-card: #111a2e;
   --blue: #2563eb;
   --blue-hover: #1d4ed8;
   --blue-light: #38bdf8;
-  --blue-glow: rgba(56, 189, 248, 0.28);
-  --blue-subtle: rgba(37, 99, 235, 0.08);
-  --blue-border: rgba(56, 189, 248, 0.24);
-  --text-dark: #090d16;
-  --text-heading: #0f172a;
-  --text-body: #475569;
+  --blue-glow: rgba(37, 99, 235, 0.16);
+  --blue-subtle: rgba(37, 99, 235, 0.06);
+  --blue-border: rgba(37, 99, 235, 0.22);
+  --text-heading: #090d16;
+  --text-body: #334155;
   --text-muted: #64748b;
   --border-light: #e2e8f0;
   --border-subtle: #edf2f7;
   --font-main: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   --radius-sm: 8px;
   --radius-md: 14px;
-  --radius-lg: 20px;
-  --shadow-sm: 0 2px 8px rgba(9, 13, 22, 0.05);
-  --shadow-card: 0 10px 30px rgba(9, 13, 22, 0.06);
-  --shadow-hover: 0 18px 40px rgba(37, 99, 235, 0.12);
+  --radius-lg: 22px;
+  --shadow-sm: 0 2px 10px rgba(9, 13, 22, 0.04);
+  --shadow-card: 0 12px 32px rgba(9, 13, 22, 0.06);
+  --shadow-hover: 0 20px 48px rgba(37, 99, 235, 0.14);
 }
 
 *, *::before, *::after {
@@ -84,18 +84,18 @@ img {
 }
 
 /* ==========================================================================
-   HEADER: CLEAN FROSTED GLASS OVER HERO
+   HEADER: TRANSLUCENT FROSTED WHITE GLASS WITH OBSIDIAN & BLUE ACCENTS
    ========================================================================== */
 header {
   position: sticky;
   top: 0;
   z-index: 100;
-  background: rgba(7, 19, 36, 0.88);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
-  border-bottom: 1px solid var(--blue-border);
-  box-shadow: 0 4px 20px rgba(5, 10, 20, 0.35);
-  transition: background 0.3s ease;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(15, 23, 42, 0.08);
+  box-shadow: 0 2px 16px rgba(9, 13, 22, 0.04);
+  transition: all 0.3s ease;
 }
 
 .nav {
@@ -122,7 +122,7 @@ header {
   font-size: 19px;
   font-weight: 900;
   letter-spacing: 1.4px;
-  color: var(--white);
+  color: var(--black);
   line-height: 1.1;
 }
 
@@ -130,27 +130,27 @@ header {
   font-size: 8.5px;
   font-weight: 700;
   letter-spacing: 2.2px;
-  color: var(--blue-light);
+  color: var(--blue);
   text-transform: uppercase;
 }
 
 .nav-links {
   display: flex;
   align-items: center;
-  gap: 26px;
-  font-size: 13px;
+  gap: 28px;
+  font-size: 13.5px;
   font-weight: 600;
-  color: #e2e8f0;
+  color: #334155;
 }
 
 .nav-links a:hover {
-  color: var(--blue-light);
+  color: var(--blue);
 }
 
 .header-right {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 14px;
 }
 
 .search-box {
@@ -163,26 +163,26 @@ header {
   position: absolute;
   left: 12px;
   pointer-events: none;
-  color: #94a3b8;
+  color: #64748b;
 }
 
 .header-search {
-  border: 1px solid rgba(56, 189, 248, 0.28);
-  background: rgba(10, 27, 51, 0.7);
-  color: var(--white);
+  border: 1px solid var(--border-light);
+  background: #f8fafc;
+  color: var(--black);
   border-radius: 12px;
   padding: 8px 14px 8px 34px;
   width: 210px;
   font-size: 12.5px;
   font-family: inherit;
   outline: none;
-  transition: all 0.2s ease;
+  transition: all 0.25s ease;
 }
 
 .header-search:focus {
-  border-color: var(--blue-light);
-  background: rgba(10, 27, 51, 0.95);
-  box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.2);
+  border-color: var(--blue);
+  background: var(--white);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
   width: 250px;
 }
 
@@ -194,8 +194,8 @@ header {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  border: 1px solid rgba(56, 189, 248, 0.35);
-  background: rgba(14, 36, 68, 0.85);
+  background: var(--black);
+  border: 1px solid var(--black);
   border-radius: 12px;
   padding: 8px 16px;
   font-size: 12.5px;
@@ -203,12 +203,14 @@ header {
   color: var(--white);
   text-decoration: none;
   transition: all 0.2s ease;
+  box-shadow: 0 4px 12px rgba(9, 13, 22, 0.15);
 }
 
 .header-cart-pill:hover {
-  border-color: var(--blue-light);
-  background: rgba(37, 99, 235, 0.35);
+  background: var(--blue);
+  border-color: var(--blue);
   transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(37, 99, 235, 0.35);
 }
 
 .cart-pill-badge {
@@ -223,16 +225,26 @@ header {
   line-height: 14px;
 }
 
+.header-cart-pill:hover .cart-pill-badge {
+  background: var(--white);
+  color: var(--blue);
+}
+
 /* ==========================================================================
-   HERO SECTION: AESTHETIC WHITE, BLACK, AND BLUE STATEMENT
+   HERO SECTION: FULL AESTHETICS (LUMINOUS WHITE, BLUE STATEMENT, BLACK)
    ========================================================================== */
 .hero {
   position: relative;
   overflow: hidden;
-  background: #071324 url('assets/hero_cyber_bg.jpg') center top / cover no-repeat;
-  color: var(--white);
+  background: 
+    radial-gradient(circle at 74% 45%, rgba(56, 189, 248, 0.14) 0%, rgba(37, 99, 235, 0.05) 36%, transparent 68%),
+    linear-gradient(rgba(37, 99, 235, 0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(37, 99, 235, 0.025) 1px, transparent 1px),
+    linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+  background-size: 100% 100%, 42px 42px, 42px 42px, 100% 100%;
+  color: var(--text-heading);
   padding: 80px 0 0;
-  min-height: 620px;
+  min-height: 600px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -245,7 +257,7 @@ header {
   grid-template-columns: 1.15fr 0.85fr;
   align-items: center;
   gap: 48px;
-  padding-bottom: 50px;
+  padding-bottom: 55px;
 }
 
 .hero-content {
@@ -258,48 +270,45 @@ header {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  background: rgba(15, 33, 64, 0.85);
-  border: 1px solid var(--blue-border);
+  background: rgba(37, 99, 235, 0.06);
+  border: 1px solid rgba(37, 99, 235, 0.18);
   border-radius: 999px;
-  padding: 5px 14px;
+  padding: 6px 16px;
   font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 1.2px;
-  color: var(--blue-light);
+  font-weight: 800;
+  letter-spacing: 1.3px;
+  color: var(--blue);
   text-transform: uppercase;
   margin-bottom: 22px;
 }
 
 .hero-tag-dot {
-  width: 6px;
-  height: 6px;
+  width: 7px;
+  height: 7px;
   border-radius: 50%;
-  background: var(--blue-light);
-  box-shadow: 0 0 10px var(--blue-light);
+  background: var(--blue);
+  box-shadow: 0 0 10px rgba(37, 99, 235, 0.7);
 }
 
 .hero h1 {
   font-size: 64px;
   font-weight: 900;
   line-height: 1.05;
-  letter-spacing: -1.5px;
-  color: var(--white);
+  letter-spacing: -1.8px;
+  color: var(--black);
   margin-bottom: 22px;
 }
 
-.text-blue-gradient {
-  color: #38bdf8;
-  background: linear-gradient(135deg, #38bdf8 0%, #2563eb 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+.text-blue-statement {
+  color: var(--blue);
 }
 
 .hero-lead {
   font-size: 16px;
   line-height: 1.65;
-  color: #cbd5e1;
-  max-width: 540px;
-  margin-bottom: 30px;
+  color: var(--text-muted);
+  max-width: 530px;
+  margin-bottom: 32px;
 }
 
 .hero-actions {
@@ -307,7 +316,7 @@ header {
   align-items: center;
   gap: 14px;
   flex-wrap: wrap;
-  margin-bottom: 32px;
+  margin-bottom: 34px;
 }
 
 .btn-hero-primary {
@@ -318,46 +327,47 @@ header {
   color: var(--white);
   font-size: 14px;
   font-weight: 700;
-  padding: 13px 26px;
+  padding: 13px 28px;
   border-radius: 12px;
   transition: all 0.25s ease;
-  box-shadow: 0 6px 20px rgba(37, 99, 235, 0.4);
+  box-shadow: 0 6px 20px rgba(37, 99, 235, 0.35);
 }
 
 .btn-hero-primary:hover {
   background: var(--blue-hover);
   transform: translateY(-2px);
-  box-shadow: 0 10px 28px rgba(37, 99, 235, 0.55);
+  box-shadow: 0 10px 28px rgba(37, 99, 235, 0.45);
 }
 
 .btn-hero-secondary {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  background: rgba(15, 28, 48, 0.75);
-  border: 1px solid rgba(56, 189, 248, 0.35);
-  color: var(--white);
+  background: var(--white);
+  border: 1px solid var(--border-light);
+  color: var(--black);
   font-size: 14px;
   font-weight: 600;
   padding: 13px 24px;
   border-radius: 12px;
   transition: all 0.25s ease;
+  box-shadow: var(--shadow-sm);
 }
 
 .btn-hero-secondary:hover {
-  background: rgba(22, 45, 80, 0.9);
-  border-color: var(--blue-light);
+  border-color: var(--blue);
+  color: var(--blue);
   transform: translateY(-2px);
 }
 
 .hero-hotline-strip {
   display: flex;
   align-items: center;
-  gap: 22px;
+  gap: 24px;
   padding-top: 18px;
-  border-top: 1px solid rgba(56, 189, 248, 0.16);
-  font-size: 12px;
-  color: #94a3b8;
+  border-top: 1px solid var(--border-light);
+  font-size: 12.5px;
+  color: var(--text-muted);
   flex-wrap: wrap;
 }
 
@@ -365,37 +375,48 @@ header {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  color: #e2e8f0;
-  font-weight: 500;
+  color: #1e293b;
+  font-weight: 600;
 }
 
 .hero-hotline-strip svg {
-  color: var(--blue-light);
+  color: var(--blue);
 }
 
-/* REAL CAMERA SLIDESHOW: TOTALLY AUTOMATIC */
+/* HIGH-AESTHETIC CAMERA SHOWCASE STAGE */
 .hero-camera-stage {
   position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: 400px;
+  min-height: 420px;
 }
 
-.hero-camera-glow {
+.hero-camera-ambient {
   position: absolute;
-  width: 420px;
-  height: 420px;
+  width: 440px;
+  height: 440px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(56, 189, 248, 0.25) 0%, rgba(37, 99, 235, 0.12) 50%, transparent 70%);
-  filter: blur(18px);
+  background: radial-gradient(circle, rgba(56, 189, 248, 0.22) 0%, rgba(37, 99, 235, 0.08) 45%, transparent 70%);
+  filter: blur(20px);
+  pointer-events: none;
+}
+
+.hero-camera-pedestal {
+  position: absolute;
+  bottom: 12px;
+  width: 320px;
+  height: 24px;
+  border-radius: 50%;
+  background: radial-gradient(ellipse at center, rgba(15, 23, 42, 0.18) 0%, rgba(37, 99, 235, 0.08) 45%, transparent 75%);
+  filter: blur(8px);
   pointer-events: none;
 }
 
 .hero-camera-deck {
   position: relative;
-  width: 380px;
-  height: 380px;
+  width: 420px;
+  height: 400px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -422,37 +443,38 @@ header {
 }
 
 .hero-camera-item img {
-  max-width: 340px;
-  max-height: 320px;
+  max-width: 380px;
+  max-height: 340px;
   width: auto;
   height: auto;
   object-fit: contain;
-  filter: drop-shadow(0 25px 35px rgba(0, 0, 0, 0.8)) drop-shadow(0 0 35px rgba(56, 189, 248, 0.28));
+  filter: drop-shadow(0 20px 30px rgba(9, 13, 22, 0.14)) drop-shadow(0 0 24px rgba(37, 99, 235, 0.12));
 }
 
 .hero-camera-caption {
-  margin-top: 16px;
-  font-size: 12px;
-  font-weight: 700;
-  letter-spacing: 0.8px;
-  color: var(--blue-light);
+  margin-top: 14px;
+  font-size: 11.5px;
+  font-weight: 800;
+  letter-spacing: 0.9px;
+  color: var(--blue);
   text-transform: uppercase;
-  background: rgba(10, 24, 46, 0.85);
-  border: 1px solid rgba(56, 189, 248, 0.25);
-  padding: 4px 14px;
+  background: var(--white);
+  border: 1px solid rgba(37, 99, 235, 0.2);
+  padding: 5px 16px;
   border-radius: 999px;
+  box-shadow: 0 4px 14px rgba(9, 13, 22, 0.06);
 }
 
 /* ==========================================================================
-   INFINITE MARQUEE TICKER (WHITE / BLACK / BLUE)
+   HIGH-CONTRAST MARQUEE TICKER (OBSIDIAN BLACK & ELECTRIC BLUE)
    ========================================================================== */
 .marquee-bar {
-  background: #050b14;
-  border-top: 1px solid rgba(56, 189, 248, 0.2);
-  border-bottom: 1px solid rgba(56, 189, 248, 0.2);
+  background: var(--black);
+  border-top: 1px solid rgba(15, 23, 42, 0.2);
+  border-bottom: 1px solid rgba(15, 23, 42, 0.2);
   overflow: hidden;
   white-space: nowrap;
-  padding: 13px 0;
+  padding: 14px 0;
 }
 
 .marquee-track {
@@ -468,7 +490,7 @@ header {
   font-size: 11.5px;
   font-weight: 800;
   letter-spacing: 1.6px;
-  color: #e2e8f0;
+  color: var(--white);
   text-transform: uppercase;
 }
 
@@ -483,7 +505,7 @@ header {
 }
 
 /* ==========================================================================
-   CATEGORIES SECTION: CLEAN WHITE CARDS WITH CRISP HARDWARE THUMBS
+   CATEGORIES SECTION: CLEAN WHITE CARDS WITH CRISP ARCHITECTURAL THUMBS
    ========================================================================== */
 .categories-section {
   padding: 85px 0 60px;
@@ -1125,7 +1147,7 @@ header {
 }
 
 /* ==========================================================================
-   INSTALLATION ENVIRONMENTS (REAL PHOTOS FROM ASSETS)
+   INSTALLATION ENVIRONMENTS (REAL ARCHITECTURAL PHOTOS)
    ========================================================================== */
 .environments-section {
   padding: 70px 0 90px;
@@ -1231,10 +1253,10 @@ header {
    FOOTER: OBSIDIAN BLACK & ELECTRIC BLUE
    ========================================================================== */
 footer {
-  background: #071324;
+  background: var(--black);
   color: #cbd5e1;
   padding: 75px 0 35px;
-  border-top: 1px solid rgba(56, 189, 248, 0.2);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .footer-top {
@@ -1398,7 +1420,7 @@ footer {
 <body>
 
 <!-- ==========================================================================
-     HEADER: TRANSLUCENT OBSIDIAN GLASS WITH INSTANT SEARCH & CART SYNC
+     HEADER: TRANSLUCENT FROSTED GLASS WITH INSTANT SEARCH & CART SYNC
      ========================================================================== -->
 <header>
   <div class="container nav">
@@ -1411,7 +1433,7 @@ footer {
 
     <nav class="nav-links">
       <a href="#catalog-section">Shop All</a>
-      <a href="javascript:void(0)" onclick="filterCategoryFromNav('wifi-camera')">Wi-Fi Cameras</a>
+      <a href="javascript:void(0)" onclick="filterCategoryFromNav('wifi-camera')">Smart Wi-Fi</a>
       <a href="javascript:void(0)" onclick="filterCategoryFromNav('4g-camera')">Solar 4G</a>
       <a href="javascript:void(0)" onclick="filterCategoryFromNav('nvr-dvr')">DVR &amp; NVR</a>
       <a href="javascript:void(0)" onclick="filterCategoryFromNav('accessory')">Accessories</a>
@@ -1434,24 +1456,24 @@ footer {
 </header>
 
 <!-- ==========================================================================
-     HERO: STATEMENT HEADLINE + TOTALLY AUTOMATIC CAMERA SHOWCASE
+     HERO: FULL AESTHETICS (LUMINOUS WHITE & BLUE STATEMENT + LUXURY HARDWARE)
      ========================================================================== -->
 <section class="hero" id="hero">
   <div class="container hero-main">
     <div class="hero-content">
       <div class="hero-tag">
         <span class="hero-tag-dot"></span>
-        <span>Precision Surveillance Hardware</span>
+        <span>Precision Surveillance Architecture</span>
       </div>
 
       <h1>
         See more.<br>
-        <span class="text-blue-gradient">Secure more.</span><br>
+        <span class="text-blue-statement">Secure more.</span><br>
         Worry less.
       </h1>
 
       <p class="hero-lead">
-        Official direct-procurement surveillance equipment. Over 100+ certified smart cameras, commercial PoE systems, solar off-grid solutions, and enterprise storage at wholesale factory pricing.
+        Intelligent optical surveillance architecture for private residences, enterprise facilities, and high-security perimeters. Certified Tier-1 hardware at direct factory pricing.
       </p>
 
       <div class="hero-actions">
@@ -1480,34 +1502,39 @@ footer {
       </div>
     </div>
 
-    <!-- REAL CAMERA STAGE: TOTALLY AUTOMATIC GSAP CROSSFADE -->
+    <!-- LUXURY ARCHITECTURAL CAMERA SHOWCASE STAGE (GSAP CROSSFADE) -->
     <div class="hero-camera-stage">
-      <div class="hero-camera-glow"></div>
+      <div class="hero-camera-ambient"></div>
+      <div class="hero-camera-pedestal"></div>
       <div class="hero-camera-deck" id="heroCameraDeck">
-        <div class="hero-camera-item active" data-title="Trueview 4G Solar PTZ Camera">
-          <img src="assets/official_trueview_solar_T18149-01.png" alt="Trueview 4G Solar PTZ Camera" loading="eager">
-          <span class="hero-camera-caption">Trueview 4G Solar PTZ Camera</span>
+        <!-- 1: Trueview Commercial High-Speed PTZ -->
+        <div class="hero-camera-item active" data-title="Trueview Commercial High-Speed PTZ">
+          <img src="assets/hero_camera_ptz_ai.png" alt="Trueview Commercial High-Speed PTZ" loading="eager">
+          <span class="hero-camera-caption">Trueview Commercial High-Speed PTZ</span>
         </div>
-        <div class="hero-camera-item" data-title="CP Plus 3MP Smart Dome Camera">
-          <img src="assets/official_bestseller_cpplus_e38q_transparent.png" alt="CP Plus 3MP Smart Dome Camera" loading="lazy">
-          <span class="hero-camera-caption">CP Plus 3MP Smart Dome Camera</span>
+        <!-- 2: Trueview 4G Autonomous Solar PTZ -->
+        <div class="hero-camera-item" data-title="Trueview 4G Autonomous Solar PTZ">
+          <img src="assets/hero_camera_solar_ai.png" alt="Trueview 4G Autonomous Solar PTZ" loading="lazy">
+          <span class="hero-camera-caption">Trueview 4G Autonomous Solar PTZ</span>
         </div>
-        <div class="hero-camera-item" data-title="iDADA 3MP Pan &amp; Tilt Smart Wi-Fi Camera">
-          <img src="assets/official_bestseller_idada_q2i_transparent.png" alt="iDADA 3MP Pan &amp; Tilt Smart Camera" loading="lazy">
-          <span class="hero-camera-caption">iDADA 3MP Pan &amp; Tilt Smart Camera</span>
+        <!-- 3: Enterprise Architectural Optical Dome -->
+        <div class="hero-camera-item" data-title="Enterprise Architectural Optical Dome">
+          <img src="assets/hero_camera_dome_ai.png" alt="Enterprise Architectural Optical Dome" loading="lazy">
+          <span class="hero-camera-caption">Enterprise Architectural Optical Dome</span>
         </div>
-        <div class="hero-camera-item" data-title="Trueview Commercial High-Speed PoE Camera">
-          <img src="assets/trueview_poe_4_2_transparent.png" alt="Trueview Commercial PoE Camera" loading="lazy">
-          <span class="hero-camera-caption">Trueview Commercial PoE Camera</span>
+        <!-- 4: Precision Commercial PoE Optical System -->
+        <div class="hero-camera-item" data-title="Precision Commercial PoE Optical System">
+          <img src="assets/hero_product_poe_v2.png" alt="Precision Commercial PoE Optical System" loading="lazy">
+          <span class="hero-camera-caption">Precision Commercial PoE Optical System</span>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- SEAMLESS VALUE TICKER STRIP -->
+  <!-- SEAMLESS HIGH-CONTRAST MARQUEE TICKER STRIP -->
   <div class="marquee-bar">
     <div class="marquee-track">
-      <div class="marquee-item"><span>CERTIFIED SURVEILLANCE HARDWARE</span><span class="marquee-sep">//</span></div>
+      <div class="marquee-item"><span>CERTIFIED SURVEILLANCE ARCHITECTURE</span><span class="marquee-sep">//</span></div>
       <div class="marquee-item"><span>100% GENUINE TAX INVOICES</span><span class="marquee-sep">//</span></div>
       <div class="marquee-item"><span>DIRECT FACTORY PRICING</span><span class="marquee-sep">//</span></div>
       <div class="marquee-item"><span>OFFICIAL MANUFACTURER WARRANTIES</span><span class="marquee-sep">//</span></div>
@@ -1515,7 +1542,7 @@ footer {
       <div class="marquee-item"><span>EXPRESS INSURED DISPATCH</span><span class="marquee-sep">//</span></div>
       <div class="marquee-item"><span>ZERO GREY-MARKET GUARANTEE</span><span class="marquee-sep">//</span></div>
       <!-- Duplicate set for seamless continuous loop -->
-      <div class="marquee-item"><span>CERTIFIED SURVEILLANCE HARDWARE</span><span class="marquee-sep">//</span></div>
+      <div class="marquee-item"><span>CERTIFIED SURVEILLANCE ARCHITECTURE</span><span class="marquee-sep">//</span></div>
       <div class="marquee-item"><span>100% GENUINE TAX INVOICES</span><span class="marquee-sep">//</span></div>
       <div class="marquee-item"><span>DIRECT FACTORY PRICING</span><span class="marquee-sep">//</span></div>
       <div class="marquee-item"><span>OFFICIAL MANUFACTURER WARRANTIES</span><span class="marquee-sep">//</span></div>
@@ -1527,7 +1554,7 @@ footer {
 </section>
 
 <!-- ==========================================================================
-     SHOP BY CATEGORY SECTION
+     SHOP BY CATEGORY SECTION: CLEAN LUXURY CARDS
      ========================================================================== -->
 <section class="categories-section" id="categories-section">
   <div class="container">
@@ -1538,10 +1565,10 @@ footer {
     </div>
 
     <div class="categories-grid">
-      <!-- 1: Wi-Fi Smart Cameras -->
+      <!-- 1: Smart Wi-Fi Cameras -->
       <div class="cat-card" onclick="filterCategoryFromNav('wifi-camera')">
         <div class="cat-card-img-wrap">
-          <img src="assets/official_bestseller_idada_q2i_transparent.png" alt="Smart Wi-Fi Cameras" loading="lazy">
+          <img src="assets/hero_camera_dome_ai.png" alt="Smart Wi-Fi Cameras" loading="lazy">
         </div>
         <div class="cat-card-body">
           <h3>Smart Wi-Fi Cameras</h3>
@@ -1553,7 +1580,7 @@ footer {
       <!-- 2: Solar 4G Off-Grid Systems -->
       <div class="cat-card" onclick="filterCategoryFromNav('4g-camera')">
         <div class="cat-card-img-wrap">
-          <img src="assets/official_trueview_solar_T18149-01.png" alt="Solar 4G Off-Grid Cameras" loading="lazy">
+          <img src="assets/hero_camera_solar_ai.png" alt="Solar 4G Off-Grid Cameras" loading="lazy">
         </div>
         <div class="cat-card-body">
           <h3>Solar 4G Off-Grid Cameras</h3>
@@ -1565,7 +1592,7 @@ footer {
       <!-- 3: Commercial PoE & Domes -->
       <div class="cat-card" onclick="filterCategoryFromNav('poe-switch')">
         <div class="cat-card-img-wrap">
-          <img src="assets/official_bestseller_cpplus_e38q_transparent.png" alt="Commercial PoE &amp; Dome Cameras" loading="lazy">
+          <img src="assets/hero_camera_ptz_ai.png" alt="Commercial PoE &amp; Dome Cameras" loading="lazy">
         </div>
         <div class="cat-card-body">
           <h3>Commercial PoE &amp; Domes</h3>
@@ -1808,7 +1835,7 @@ footer {
 </section>
 
 <!-- ==========================================================================
-     DEPLOYMENT ENVIRONMENTS
+     DEPLOYMENT ENVIRONMENTS (REAL ARCHITECTURAL PHOTOGRAPHY)
      ========================================================================== -->
 <section class="environments-section">
   <div class="container">
@@ -1969,7 +1996,7 @@ function directAddToCart(productId, event) {
 
   const cart = getLocalCart();
   const existing = cart.find(i => i.id === product.id || i.title === product.title);
-  const imgSrc = (product.images && product.images.length > 0) ? product.images[0] : 'assets/official_bestseller_idada_q2i.jpg';
+  const imgSrc = (product.images && product.images.length > 0) ? product.images[0] : 'assets/hero_camera_dome_ai.png';
 
   if (existing) {
     existing.quantity = (existing.quantity || 1) + 1;
@@ -2120,7 +2147,7 @@ function getFilteredProducts() {
 }
 
 function renderProductCard(p) {
-  const imgSrc = (p.images && p.images.length > 0) ? p.images[0] : 'assets/official_bestseller_idada_q2i.jpg';
+  const imgSrc = (p.images && p.images.length > 0) ? p.images[0] : 'assets/hero_camera_dome_ai.png';
   const badgeHtml = p.badge ? `<span class="prod-badge ${p.badge.includes('BEST') ? 'highlight' : ''}">${escapeHtml(p.badge)}</span>` : '';
   const chipsHtml = (p.chips || []).slice(0, 3).map(c => `<span class="prod-chip">${escapeHtml(c)}</span>`).join('');
   const priceDisplay = Number(p.price) ? `&#8377;${Number(p.price).toLocaleString('en-IN')}` : 'Contact for Quote';
