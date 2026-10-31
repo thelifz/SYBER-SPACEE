@@ -84,19 +84,19 @@ img {
 }
 
 /* ==========================================================================
-   HEADER: TWO-TIER FULL AESTHETIC GLASS HEADER
-   - TOP TIER: BRAND (LEFT) + CENTERED SEARCH BAR (MIDDLE) + CART & ADVISORY (RIGHT)
-   - SUB TIER: 6 BOXED CATEGORY TILES (EXACTLY AS DRAWN IN GREEN)
+   HEADER: FULLY TRANSPARENT SEAMLESS HEADER (NO LINES, NO BOUNDARIES)
+   - HOOKED DIRECTLY WITH 6 BOXED CATEGORY TILES
    ========================================================================== */
 header {
   position: sticky;
   top: 0;
   z-index: 100;
-  background: rgba(255, 255, 255, 0.94);
+  background: rgba(255, 255, 255, 0.75);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border-bottom: 1px solid rgba(15, 23, 42, 0.08);
-  box-shadow: 0 4px 20px rgba(9, 13, 22, 0.05);
+  border: none !important;
+  border-bottom: none !important;
+  box-shadow: none !important;
   transition: all 0.3s ease;
 }
 
@@ -104,7 +104,7 @@ header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 68px;
+  height: 64px;
   gap: 24px;
 }
 
@@ -156,8 +156,8 @@ header {
 
 .header-search-input {
   width: 100%;
-  border: 1px solid var(--border-light);
-  background: #f8fafc;
+  border: 1px solid rgba(15, 23, 42, 0.12);
+  background: rgba(255, 255, 255, 0.95);
   color: var(--black);
   border-radius: 999px;
   padding: 10px 88px 10px 40px;
@@ -165,7 +165,7 @@ header {
   font-family: inherit;
   outline: none;
   transition: all 0.25s ease;
-  box-shadow: inset 0 1px 2px rgba(9, 13, 22, 0.03);
+  box-shadow: 0 1px 4px rgba(9, 13, 22, 0.04);
 }
 
 .header-search-input:focus {
@@ -212,11 +212,12 @@ header {
   font-size: 12px;
   font-weight: 700;
   color: #334155;
-  background: #f8fafc;
-  border: 1px solid var(--border-light);
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(15, 23, 42, 0.1);
   border-radius: 12px;
   padding: 8px 14px;
   transition: all 0.2s ease;
+  box-shadow: 0 1px 3px rgba(9, 13, 22, 0.04);
 }
 
 .header-hotline-btn svg {
@@ -268,18 +269,20 @@ header {
   color: var(--blue);
 }
 
-/* SUBNAV BAR: 6 BOXED CATEGORY TILES (INSIDE GREEN BOX) */
+/* SUBNAV BAR: HOOKED DIRECTLY WITH HEADER (NO BOUNDARY LINE) */
 .header-subnav-bar {
-  border-top: 1px solid rgba(15, 23, 42, 0.06);
-  padding: 8px 0 10px;
-  background: rgba(255, 255, 255, 0.88);
+  border: none !important;
+  border-top: none !important;
+  padding: 0 0 10px;
+  margin-top: -2px;
+  background: transparent !important;
 }
 
 .subnav-inner {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 10px;
+  gap: 8px;
   flex-wrap: wrap;
 }
 
@@ -287,22 +290,22 @@ header {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  background: var(--white);
-  border: 1px solid var(--border-light);
-  border-radius: 10px;
-  padding: 7px 16px;
-  font-size: 13px;
+  background: #ffffff;
+  border: 1px solid rgba(15, 23, 42, 0.1);
+  border-radius: 999px;
+  padding: 6px 16px;
+  font-size: 12.5px;
   font-weight: 600;
   color: #1e293b;
   text-decoration: none;
-  transition: all 0.22s ease;
-  box-shadow: 0 1px 4px rgba(9, 13, 22, 0.03);
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 6px rgba(9, 13, 22, 0.04);
 }
 
 .nav-cat-box:hover {
   border-color: var(--blue);
   color: var(--blue);
-  background: rgba(37, 99, 235, 0.05);
+  background: rgba(37, 99, 235, 0.04);
   transform: translateY(-1px);
   box-shadow: 0 4px 12px rgba(37, 99, 235, 0.12);
 }
@@ -311,15 +314,17 @@ header {
   background: var(--blue);
   color: var(--white);
   border-color: var(--blue);
-  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.25);
+  box-shadow: 0 4px 14px rgba(37, 99, 235, 0.28);
 }
 
 /* ==========================================================================
-   HERO SECTION: FULL AESTHETICS (LUMINOUS WHITE, BLUE STATEMENT, BLACK)
+   HERO SECTION: SEAMLESS FLOW BEHIND TRANSPARENT HEADER
    ========================================================================== */
 .hero {
   position: relative;
   overflow: hidden;
+  margin-top: -108px;
+  padding-top: 130px;
   background: 
     radial-gradient(circle at 74% 45%, rgba(56, 189, 248, 0.14) 0%, rgba(37, 99, 235, 0.05) 36%, transparent 68%),
     linear-gradient(rgba(37, 99, 235, 0.025) 1px, transparent 1px),
@@ -327,7 +332,11 @@ header {
     linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
   background-size: 100% 100%, 42px 42px, 42px 42px, 100% 100%;
   color: var(--text-heading);
-  padding: 80px 0 0;
+  min-height: 600px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
   min-height: 600px;
   display: flex;
   flex-direction: column;
