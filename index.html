@@ -84,18 +84,16 @@ img {
 }
 
 /* ==========================================================================
-   HEADER: FULLY TRANSPARENT SEAMLESS HEADER (NO LINES, NO BOUNDARIES)
-   - HOOKED DIRECTLY WITH 6 BOXED CATEGORY TILES
+   HEADER: TWO-TIER WITH SHELF AND 3D HOOKED RIBBON BOOKMARK TABS
    ========================================================================== */
 header {
   position: sticky;
   top: 0;
   z-index: 100;
-  background: rgba(255, 255, 255, 0.75);
+  background: rgba(255, 255, 255, 0.94);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   border: none !important;
-  border-bottom: none !important;
   box-shadow: none !important;
   transition: all 0.3s ease;
 }
@@ -104,7 +102,7 @@ header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 64px;
+  height: 66px;
   gap: 24px;
 }
 
@@ -157,7 +155,7 @@ header {
 .header-search-input {
   width: 100%;
   border: 1px solid rgba(15, 23, 42, 0.12);
-  background: rgba(255, 255, 255, 0.95);
+  background: #f8fafc;
   color: var(--black);
   border-radius: 999px;
   padding: 10px 88px 10px 40px;
@@ -165,7 +163,7 @@ header {
   font-family: inherit;
   outline: none;
   transition: all 0.25s ease;
-  box-shadow: 0 1px 4px rgba(9, 13, 22, 0.04);
+  box-shadow: inset 0 1px 2px rgba(9, 13, 22, 0.03);
 }
 
 .header-search-input:focus {
@@ -212,8 +210,8 @@ header {
   font-size: 12px;
   font-weight: 700;
   color: #334155;
-  background: rgba(255, 255, 255, 0.9);
-  border: 1px solid rgba(15, 23, 42, 0.1);
+  background: #f8fafc;
+  border: 1px solid var(--border-light);
   border-radius: 12px;
   padding: 8px 14px;
   transition: all 0.2s ease;
@@ -269,62 +267,96 @@ header {
   color: var(--blue);
 }
 
-/* SUBNAV BAR: HOOKED DIRECTLY WITH HEADER (NO BOUNDARY LINE) */
-.header-subnav-bar {
-  border: none !important;
-  border-top: none !important;
-  padding: 0 0 10px;
-  margin-top: -2px;
-  background: transparent !important;
+/* HORIZONTAL SHELF & HOOKED 3D RIBBON BOOKMARK TABS (IN SAME ROYAL BLUE COLOR) */
+.header-shelf-bar {
+  position: relative;
+  width: 100%;
+  padding-bottom: 6px;
 }
 
-.subnav-inner {
+.shelf-line {
+  position: absolute;
+  top: 5px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent 0%, rgba(15, 23, 42, 0.12) 15%, rgba(15, 23, 42, 0.12) 85%, transparent 100%);
+  z-index: 0;
+}
+
+.shelf-tabs-container {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
-  gap: 8px;
-  flex-wrap: wrap;
+  gap: 12px;
+  position: relative;
+  z-index: 1;
 }
 
-.nav-cat-box {
+/* 3D HOOKED BOOKMARK RIBBON TAB */
+.nav-ribbon-tab {
+  position: relative;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  background: #ffffff;
-  border: 1px solid rgba(15, 23, 42, 0.1);
-  border-radius: 999px;
-  padding: 6px 16px;
-  font-size: 12.5px;
-  font-weight: 600;
-  color: #1e293b;
-  text-decoration: none;
-  transition: all 0.2s ease;
-  box-shadow: 0 2px 6px rgba(9, 13, 22, 0.04);
-}
-
-.nav-cat-box:hover {
-  border-color: var(--blue);
-  color: var(--blue);
-  background: rgba(37, 99, 235, 0.04);
-  transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.12);
-}
-
-.nav-cat-box.active {
   background: var(--blue);
   color: var(--white);
-  border-color: var(--blue);
-  box-shadow: 0 4px 14px rgba(37, 99, 235, 0.28);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.2px;
+  padding: 8px 20px 10px;
+  border-radius: 6px 6px 13px 13px;
+  text-decoration: none;
+  box-shadow: 0 6px 14px rgba(37, 99, 235, 0.28), 0 2px 4px rgba(0, 0, 0, 0.12);
+  transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
+  user-select: none;
+}
+
+/* 3D TOP FOLD OVER SHELF LINE */
+.nav-ribbon-tab::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 5px;
+  border-radius: 6px 6px 0 0;
+  background: linear-gradient(to bottom, rgba(15, 23, 42, 0.3) 0%, transparent 100%);
+  pointer-events: none;
+}
+
+.nav-ribbon-tab:hover {
+  background: var(--blue-hover);
+  color: var(--white);
+  transform: translateY(2px);
+  box-shadow: 0 10px 22px rgba(37, 99, 235, 0.42), 0 3px 6px rgba(0, 0, 0, 0.15);
+}
+
+.nav-ribbon-tab.active {
+  background: #1d4ed8;
+  color: var(--white);
+  box-shadow: 0 8px 20px rgba(29, 78, 216, 0.45), 0 2px 6px rgba(0, 0, 0, 0.18);
+  transform: translateY(1px);
+}
+
+.nav-ribbon-tab.active::after {
+  content: "";
+  position: absolute;
+  bottom: 3px;
+  width: 20px;
+  height: 3px;
+  background: #ffffff;
+  border-radius: 999px;
+  box-shadow: 0 0 6px rgba(255, 255, 255, 0.85);
 }
 
 /* ==========================================================================
-   HERO SECTION: SEAMLESS FLOW BEHIND TRANSPARENT HEADER
+   HERO SECTION: SEAMLESS FLOW BEHIND HEADER
    ========================================================================== */
 .hero {
   position: relative;
   overflow: hidden;
-  margin-top: -108px;
-  padding-top: 130px;
   background: 
     radial-gradient(circle at 74% 45%, rgba(56, 189, 248, 0.14) 0%, rgba(37, 99, 235, 0.05) 36%, transparent 68%),
     linear-gradient(rgba(37, 99, 235, 0.025) 1px, transparent 1px),
@@ -332,12 +364,8 @@ header {
     linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
   background-size: 100% 100%, 42px 42px, 42px 42px, 100% 100%;
   color: var(--text-heading);
-  min-height: 600px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-  min-height: 600px;
+  padding: 55px 0 0;
+  min-height: 580px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -1484,14 +1512,15 @@ footer {
     max-width: 100%;
     margin: 0;
   }
-  .subnav-inner {
+  .shelf-tabs-container {
     justify-content: flex-start;
     overflow-x: auto;
     flex-wrap: nowrap;
-    padding-bottom: 6px;
+    padding-bottom: 8px;
     -webkit-overflow-scrolling: touch;
+    gap: 8px;
   }
-  .nav-cat-box {
+  .nav-ribbon-tab {
     white-space: nowrap;
     flex-shrink: 0;
   }
@@ -1563,25 +1592,26 @@ footer {
     </div>
   </div>
 
-  <!-- SUB TIER: 6 BOXED NAVIGATION CATEGORIES (THE MIDDEL THINGS INSIDE BOXES) -->
-  <div class="header-subnav-bar">
-    <div class="container subnav-inner">
-      <a href="#catalog-section" class="nav-cat-box active" data-cat="all" onclick="selectNavBox(this, 'all')">
+  <!-- HORIZONTAL SHELF & HOOKED 3D RIBBON BOOKMARK TABS (IN SAME ROYAL BLUE COLOR) -->
+  <div class="header-shelf-bar">
+    <div class="shelf-line"></div>
+    <div class="container shelf-tabs-container">
+      <a href="#catalog-section" class="nav-ribbon-tab active" data-cat="all" onclick="selectNavBox(this, 'all')">
         <span>Shop All</span>
       </a>
-      <a href="javascript:void(0)" class="nav-cat-box" data-cat="wifi-camera" onclick="selectNavBox(this, 'wifi-camera')">
+      <a href="javascript:void(0)" class="nav-ribbon-tab" data-cat="wifi-camera" onclick="selectNavBox(this, 'wifi-camera')">
         <span>Smart Wi-Fi</span>
       </a>
-      <a href="javascript:void(0)" class="nav-cat-box" data-cat="4g-camera" onclick="selectNavBox(this, '4g-camera')">
+      <a href="javascript:void(0)" class="nav-ribbon-tab" data-cat="4g-camera" onclick="selectNavBox(this, '4g-camera')">
         <span>Solar 4G</span>
       </a>
-      <a href="javascript:void(0)" class="nav-cat-box" data-cat="nvr-dvr" onclick="selectNavBox(this, 'nvr-dvr')">
+      <a href="javascript:void(0)" class="nav-ribbon-tab" data-cat="nvr-dvr" onclick="selectNavBox(this, 'nvr-dvr')">
         <span>DVR &amp; NVR</span>
       </a>
-      <a href="javascript:void(0)" class="nav-cat-box" data-cat="accessory" onclick="selectNavBox(this, 'accessory')">
+      <a href="javascript:void(0)" class="nav-ribbon-tab" data-cat="accessory" onclick="selectNavBox(this, 'accessory')">
         <span>Accessories</span>
       </a>
-      <a href="#why-section" class="nav-cat-box" data-cat="why-syber" onclick="selectNavBox(this, 'why-syber')">
+      <a href="#why-section" class="nav-ribbon-tab" data-cat="why-syber" onclick="selectNavBox(this, 'why-syber')">
         <span>Why Syber</span>
       </a>
     </div>
@@ -2385,8 +2415,8 @@ function updateCatalogView(reset = true) {
 }
 
 function selectNavBox(el, cat) {
-  const boxes = document.querySelectorAll('.nav-cat-box');
-  boxes.forEach(b => b.classList.remove('active'));
+  const tabs = document.querySelectorAll('.nav-ribbon-tab');
+  tabs.forEach(b => b.classList.remove('active'));
   if (el) el.classList.add('active');
 
   if (cat === 'why-syber') {
@@ -2423,8 +2453,8 @@ function filterCategoryFromNav(cat) {
     }
   });
 
-  const boxes = document.querySelectorAll('.nav-cat-box');
-  boxes.forEach(b => {
+  const ribbonTabs = document.querySelectorAll('.nav-ribbon-tab');
+  ribbonTabs.forEach(b => {
     if (b.dataset.cat === cat) {
       b.classList.add('active');
     } else {
