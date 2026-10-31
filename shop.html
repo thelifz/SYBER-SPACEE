@@ -1,0 +1,1367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hardware Catalog | Syber Space The Surveillance Store</title>
+  <meta name="description" content="Certified commercial CCTV hardware, optical sensors, enterprise recording hubs, and surveillance storage at direct factory wholesale pricing.">
+
+  <!-- GOOGLE FONTS: PLUS JAKARTA SANS & INTER -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <script src="assets/gsap.min.js"></script>
+  <script src="products_data.js"></script>
+
+  <style>
+/* ==========================================================================
+   ROOT COLOR PALETTE & RESET
+   ========================================================================== */
+:root {
+  --blue: #2563eb;
+  --blue-hover: #1d4ed8;
+  --blue-light: #38bdf8;
+  --black: #090d16;
+  --white: #ffffff;
+  --bg-slate: #f8fafc;
+  --text-heading: #090d16;
+  --text-body: #334155;
+  --text-muted: #64748b;
+  --border-light: #e2e8f0;
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --shadow-sm: 0 2px 8px rgba(9, 13, 22, 0.04);
+  --shadow-md: 0 10px 24px rgba(9, 13, 22, 0.07);
+  --shadow-hover: 0 18px 36px rgba(37, 99, 235, 0.12);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-family: 'Plus Jakarta Sans', 'Inter', -apple-system, sans-serif;
+  color: var(--text-body);
+  background: #ffffff;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.container {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ==========================================================================
+   HEADER
+   ========================================================================== */
+header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(255, 255, 255, 0.98);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(15, 23, 42, 0.08);
+}
+
+.header-top-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 16px 0;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+}
+
+.brand-title {
+  font-size: 20px;
+  font-weight: 900;
+  letter-spacing: -0.5px;
+  color: var(--black);
+}
+
+.brand-subtitle {
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 1.4px;
+  color: var(--blue);
+  text-transform: uppercase;
+  display: block;
+  margin-top: 2px;
+}
+
+.header-search-wrap {
+  flex: 1;
+  max-width: 520px;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.header-search-wrap svg {
+  position: absolute;
+  left: 14px;
+  color: #94a3b8;
+  pointer-events: none;
+}
+
+.header-search-input {
+  width: 100%;
+  padding: 11px 90px 11px 40px;
+  font-size: 13.5px;
+  font-family: inherit;
+  border-radius: 999px;
+  border: 1px solid rgba(15, 23, 42, 0.12);
+  background: #f8fafc;
+  color: var(--text-heading);
+  outline: none;
+  transition: all 0.2s ease;
+}
+
+.header-search-input:focus {
+  border-color: var(--blue);
+  background: #ffffff;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+}
+
+.header-search-btn {
+  position: absolute;
+  right: 5px;
+  background: var(--blue);
+  color: #ffffff;
+  border: none;
+  border-radius: 999px;
+  padding: 7px 18px;
+  font-size: 12px;
+  font-weight: 700;
+  font-family: inherit;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.header-search-btn:hover {
+  background: var(--blue-hover);
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.header-hotline-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  font-weight: 700;
+  color: #334155;
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(15, 23, 42, 0.1);
+  border-radius: 12px;
+  padding: 8px 14px;
+  transition: all 0.2s ease;
+}
+
+.header-hotline-btn svg {
+  color: var(--blue);
+}
+
+.header-hotline-btn:hover {
+  border-color: var(--blue);
+  color: var(--blue);
+}
+
+.header-cart-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--black);
+  color: var(--white);
+  padding: 8px 16px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 700;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 12px rgba(9, 13, 22, 0.15);
+}
+
+.header-cart-pill:hover {
+  background: var(--blue);
+  transform: translateY(-1px);
+}
+
+.cart-pill-badge {
+  background: var(--blue);
+  color: var(--white);
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 800;
+  min-width: 18px;
+  height: 18px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 5px;
+}
+
+/* ==========================================================================
+   NAVIGATION SHELF BAR
+   ========================================================================== */
+.header-shelf-bar {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding-bottom: 8px;
+}
+
+.shelf-line {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent 0%, rgba(15, 23, 42, 0.15) 15%, rgba(15, 23, 42, 0.15) 85%, transparent 100%);
+}
+
+.shelf-tabs-container {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 14px;
+  position: relative;
+  z-index: 1;
+}
+
+.nav-ribbon-tab {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff !important;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.2px;
+  padding: 8px 20px 10px;
+  border-radius: 6px 6px 13px 13px;
+  text-decoration: none;
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.22), 0 2px 4px rgba(0, 0, 0, 0.12);
+  transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
+  user-select: none;
+}
+
+.nav-ribbon-tab::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 5px;
+  border-radius: 6px 6px 0 0;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.4) 0%, transparent 100%);
+  pointer-events: none;
+}
+
+.nav-ribbon-tab[data-cat="all"] { background: #0f1d40; }
+.nav-ribbon-tab[data-cat="all"]:hover { background: #1e3a8a; transform: translateY(2px); }
+.nav-ribbon-tab[data-cat="all"].active { background: #1e40af; border-bottom: 2px solid #38bdf8; transform: translateY(1px); }
+
+.nav-ribbon-tab[data-cat="wifi-camera"] { background: #331c0e; }
+.nav-ribbon-tab[data-cat="wifi-camera"]:hover { background: #4d2a15; transform: translateY(2px); }
+.nav-ribbon-tab[data-cat="wifi-camera"].active { background: #452410; border-bottom: 2px solid #f59e0b; transform: translateY(1px); }
+
+.nav-ribbon-tab[data-cat="4g-camera"] { background: #0f331f; }
+.nav-ribbon-tab[data-cat="4g-camera"]:hover { background: #184f30; transform: translateY(2px); }
+.nav-ribbon-tab[data-cat="4g-camera"].active { background: #144228; border-bottom: 2px solid #10b981; transform: translateY(1px); }
+
+.nav-ribbon-tab[data-cat="nvr-dvr"] { background: #3d0f1c; }
+.nav-ribbon-tab[data-cat="nvr-dvr"]:hover { background: #5c182c; transform: translateY(2px); }
+.nav-ribbon-tab[data-cat="nvr-dvr"].active { background: #4d1425; border-bottom: 2px solid #f43f5e; transform: translateY(1px); }
+
+.nav-ribbon-tab[data-cat="accessory"] { background: #0d323b; }
+.nav-ribbon-tab[data-cat="accessory"]:hover { background: #144b57; transform: translateY(2px); }
+.nav-ribbon-tab[data-cat="accessory"].active { background: #103f4a; border-bottom: 2px solid #06b6d4; transform: translateY(1px); }
+
+.nav-ribbon-tab[data-cat="home"] { background: #280e42; }
+.nav-ribbon-tab[data-cat="home"]:hover { background: #3f1767; transform: translateY(2px); }
+
+.nav-ribbon-tab.active::after {
+  content: "";
+  position: absolute;
+  bottom: 2px;
+  width: 18px;
+  height: 3px;
+  background: #ffffff;
+  border-radius: 999px;
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.9);
+}
+
+/* ==========================================================================
+   PAGE HERO BAR
+   ========================================================================== */
+.shop-hero-bar {
+  background: #090d16;
+  color: #ffffff;
+  padding: 38px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.shop-hero-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.shop-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 1.2px;
+  color: var(--blue-light);
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.shop-tag::before {
+  content: "";
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--blue-light);
+  box-shadow: 0 0 8px var(--blue-light);
+}
+
+.shop-title {
+  font-size: 32px;
+  font-weight: 900;
+  letter-spacing: -0.8px;
+  color: #ffffff;
+}
+
+.shop-desc {
+  font-size: 14.5px;
+  color: #94a3b8;
+  max-width: 580px;
+  margin-top: 6px;
+  line-height: 1.5;
+}
+
+.shop-perks-strip {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.shop-perk-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 999px;
+  padding: 6px 14px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #cbd5e1;
+}
+
+.shop-perk-pill svg {
+  color: var(--blue-light);
+}
+
+/* ==========================================================================
+   PRODUCT CATALOG SECTION: HIGH PERFORMANCE FOR 100+ ITEMS
+   ========================================================================== */
+.catalog-section {
+  padding: 40px 0 95px;
+  background: var(--bg-slate);
+}
+
+.catalog-header-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.catalog-filter-tabs {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.filter-tab {
+  background: var(--white);
+  border: 1px solid var(--border-light);
+  color: var(--text-body);
+  font-size: 13px;
+  font-weight: 600;
+  padding: 8px 18px;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-family: inherit;
+}
+
+.filter-tab:hover {
+  border-color: var(--blue);
+  color: var(--blue);
+}
+
+.filter-tab.active {
+  background: var(--blue);
+  border-color: var(--blue);
+  color: var(--white);
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+}
+
+.catalog-search-wrap {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.catalog-search-input {
+  border: 1px solid var(--border-light);
+  background: var(--white);
+  color: var(--text-heading);
+  border-radius: 12px;
+  padding: 9px 16px;
+  font-size: 13px;
+  font-family: inherit;
+  outline: none;
+  width: 280px;
+  transition: all 0.2s ease;
+}
+
+.catalog-search-input:focus {
+  border-color: var(--blue);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+}
+
+.catalog-results-info {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-muted);
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* PRODUCT GRID */
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.prod-card {
+  background: var(--white);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-md);
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: var(--shadow-sm);
+  transition: all 0.28s ease;
+  position: relative;
+}
+
+.prod-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--blue);
+  box-shadow: var(--shadow-hover);
+}
+
+.prod-badge {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background: var(--black);
+  color: var(--white);
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 0.8px;
+  padding: 3px 8px;
+  border-radius: 6px;
+  text-transform: uppercase;
+  z-index: 2;
+}
+
+.prod-badge.highlight {
+  background: var(--blue);
+}
+
+.prod-thumb-wrap {
+  height: 180px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fbfcfe;
+  border-radius: 10px;
+  margin-bottom: 14px;
+  padding: 12px;
+  position: relative;
+  overflow: hidden;
+}
+
+.prod-thumb-wrap img {
+  max-height: 155px;
+  max-width: 100%;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+}
+
+.prod-card:hover .prod-thumb-wrap img {
+  transform: scale(1.05);
+}
+
+.prod-brand {
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 1.2px;
+  color: var(--blue);
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+
+.prod-title {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text-heading);
+  line-height: 1.35;
+  margin-bottom: 8px;
+  height: 38px;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.prod-title a {
+  color: inherit;
+}
+
+.prod-title a:hover {
+  color: var(--blue);
+}
+
+.prod-chips {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  flex-wrap: wrap;
+  margin-bottom: 12px;
+  min-height: 22px;
+}
+
+.prod-chip {
+  background: var(--bg-slate);
+  border: 1px solid var(--border-light);
+  font-size: 10px;
+  font-weight: 600;
+  color: var(--text-body);
+  padding: 2px 7px;
+  border-radius: 4px;
+}
+
+.prod-price-row {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  margin-bottom: 14px;
+}
+
+.prod-price {
+  font-size: 18px;
+  font-weight: 900;
+  color: var(--black);
+}
+
+.prod-mrp {
+  font-size: 12px;
+  color: var(--text-muted);
+  text-decoration: line-through;
+}
+
+.prod-save {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--blue);
+}
+
+.prod-actions {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 8px;
+}
+
+.btn-add-cart {
+  background: var(--blue);
+  color: var(--white);
+  border: none;
+  border-radius: 9px;
+  padding: 9px 12px;
+  font-size: 12.5px;
+  font-weight: 700;
+  font-family: inherit;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  transition: all 0.2s ease;
+}
+
+.btn-add-cart:hover {
+  background: var(--blue-hover);
+  transform: translateY(-1px);
+}
+
+.btn-card-details {
+  background: var(--bg-slate);
+  border: 1px solid var(--border-light);
+  color: var(--text-heading);
+  border-radius: 9px;
+  padding: 9px 12px;
+  font-size: 12px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.btn-card-details:hover {
+  background: var(--white);
+  border-color: var(--blue);
+  color: var(--blue);
+}
+
+.catalog-load-more {
+  text-align: center;
+  margin-top: 36px;
+}
+
+.btn-load-more {
+  background: var(--white);
+  border: 1px solid var(--blue);
+  color: var(--blue);
+  font-size: 13.5px;
+  font-weight: 700;
+  font-family: inherit;
+  padding: 12px 32px;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 14px rgba(37, 99, 235, 0.1);
+}
+
+.btn-load-more:hover {
+  background: var(--blue);
+  color: var(--white);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(37, 99, 235, 0.25);
+}
+
+.catalog-empty {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 60px 20px;
+  background: var(--white);
+  border-radius: var(--radius-md);
+  border: 1px dashed var(--border-light);
+}
+
+.catalog-empty h4 {
+  font-size: 18px;
+  font-weight: 800;
+  color: var(--text-heading);
+  margin-bottom: 8px;
+}
+
+.catalog-empty p {
+  font-size: 14px;
+  color: var(--text-muted);
+}
+
+/* ==========================================================================
+   TOAST NOTIFICATION
+   ========================================================================== */
+.cart-toast {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  background: #090d16;
+  color: #ffffff;
+  padding: 14px 22px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 13.5px;
+  font-weight: 600;
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  z-index: 999;
+  transform: translateY(120px);
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.cart-toast.active {
+  transform: translateY(0);
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.toast-link {
+  color: var(--blue-light);
+  font-weight: 700;
+  margin-left: 6px;
+  text-decoration: underline;
+}
+
+/* ==========================================================================
+   FOOTER
+   ========================================================================== */
+footer {
+  background: #060913;
+  color: #94a3b8;
+  padding: 60px 0 35px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.footer-top {
+  display: grid;
+  grid-template-columns: 1.6fr 1fr 1fr 1.2fr;
+  gap: 40px;
+  margin-bottom: 50px;
+}
+
+.footer-brand h3 {
+  font-size: 20px;
+  font-weight: 900;
+  color: #ffffff;
+  letter-spacing: -0.4px;
+  margin-bottom: 12px;
+}
+
+.footer-brand p {
+  font-size: 13.5px;
+  line-height: 1.6;
+  max-width: 340px;
+  margin-bottom: 20px;
+}
+
+.footer-hotline {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(37, 99, 235, 0.12);
+  border: 1px solid rgba(37, 99, 235, 0.3);
+  color: var(--blue-light);
+  padding: 9px 18px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.footer-col h4 {
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.8px;
+  color: #ffffff;
+  text-transform: uppercase;
+  margin-bottom: 18px;
+}
+
+.footer-col ul {
+  list-style: none;
+}
+
+.footer-col li {
+  margin-bottom: 10px;
+  font-size: 13.5px;
+}
+
+.footer-col a:hover {
+  color: #ffffff;
+}
+
+.footer-bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding-top: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 12px;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.footer-badges {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.footer-badge-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--blue-light);
+}
+
+@media (max-width: 1024px) {
+  .products-grid { grid-template-columns: repeat(3, 1fr); }
+  .footer-top { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 768px) {
+  .products-grid { grid-template-columns: repeat(2, 1fr); }
+  .header-search-wrap { display: none; }
+  .footer-top { grid-template-columns: 1fr; }
+  .shelf-tabs-container { overflow-x: auto; justify-content: flex-start; padding-bottom: 10px; }
+}
+
+@media (max-width: 480px) {
+  .products-grid { grid-template-columns: 1fr; }
+}
+  </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="container header-top-row">
+    <a href="index.html" class="brand" aria-label="Syber Space Home">
+      <div class="brand-text">
+        <span class="brand-title">SYBER SPACE</span>
+        <span class="brand-subtitle">THE SURVEILLANCE STORE</span>
+      </div>
+    </a>
+
+    <div class="header-search-wrap">
+      <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+      <input type="text" id="headerSearchInput" class="header-search-input" placeholder="Search 100+ surveillance cameras, DVRs, kits..." autocomplete="off">
+      <button type="button" class="header-search-btn" id="headerSearchBtn" onclick="triggerHeaderSearch()">Search</button>
+    </div>
+
+    <div class="header-right">
+      <a href="https://wa.me/917511180808" target="_blank" class="header-hotline-btn">
+        <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+        <span>+91 75111 80808</span>
+      </a>
+
+      <a href="cart.html" class="header-cart-pill" id="headerCartBtn" aria-label="View Shopping Cart">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
+        <span>Cart</span>
+        <span class="cart-pill-badge" id="cart-counter">0</span>
+      </a>
+    </div>
+  </div>
+
+  <div class="header-shelf-bar">
+    <div class="shelf-line"></div>
+    <div class="container shelf-tabs-container">
+      <a href="javascript:void(0)" class="nav-ribbon-tab active" data-cat="all" onclick="selectNavBox(this, 'all')">
+        <span>Shop All</span>
+      </a>
+      <a href="javascript:void(0)" class="nav-ribbon-tab" data-cat="wifi-camera" onclick="selectNavBox(this, 'wifi-camera')">
+        <span>Smart Wi-Fi</span>
+      </a>
+      <a href="javascript:void(0)" class="nav-ribbon-tab" data-cat="4g-camera" onclick="selectNavBox(this, '4g-camera')">
+        <span>Solar 4G</span>
+      </a>
+      <a href="javascript:void(0)" class="nav-ribbon-tab" data-cat="nvr-dvr" onclick="selectNavBox(this, 'nvr-dvr')">
+        <span>DVR &amp; NVR</span>
+      </a>
+      <a href="javascript:void(0)" class="nav-ribbon-tab" data-cat="accessory" onclick="selectNavBox(this, 'accessory')">
+        <span>Accessories</span>
+      </a>
+      <a href="index.html" class="nav-ribbon-tab" data-cat="home">
+        <span>&larr; Home</span>
+      </a>
+    </div>
+  </div>
+</header>
+
+<!-- PAGE TITLE STRIP -->
+<div class="shop-hero-bar">
+  <div class="container shop-hero-head">
+    <div>
+      <div class="shop-tag">Official Direct Inventory</div>
+      <h1 class="shop-title" id="pageTitleHeading">Surveillance Hardware Catalog</h1>
+      <p class="shop-desc" id="pageTitleDesc">Authentic optical surveillance equipment, enterprise storage, and commercial PoE infrastructure directly from Tier-1 manufacturers.</p>
+    </div>
+    <div class="shop-perks-strip">
+      <div class="shop-perk-pill">
+        <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+        <span>100% Tax Invoiced</span>
+      </div>
+      <div class="shop-perk-pill">
+        <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+        <span>Official Warranties</span>
+      </div>
+      <div class="shop-perk-pill">
+        <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="1" y="3" width="15" height="13"></rect><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon><circle cx="5.5" cy="18.5" r="2.5"></circle><circle cx="18.5" cy="18.5" r="2.5"></circle></svg>
+        <span>Express Insured Dispatch</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- HARDWARE CATALOG SECTION -->
+<section class="catalog-section" id="catalog-section">
+  <div class="container">
+    <div class="catalog-header-bar">
+      <div class="catalog-filter-tabs" id="catalogFilterTabs">
+        <button type="button" class="filter-tab active" data-cat="all" onclick="filterFromTab('all')">All Hardware</button>
+        <button type="button" class="filter-tab" data-cat="wifi-camera" onclick="filterFromTab('wifi-camera')">Smart Wi-Fi</button>
+        <button type="button" class="filter-tab" data-cat="4g-camera" onclick="filterFromTab('4g-camera')">Solar 4G</button>
+        <button type="button" class="filter-tab" data-cat="nvr-dvr" onclick="filterFromTab('nvr-dvr')">DVR &amp; NVR</button>
+        <button type="button" class="filter-tab" data-cat="poe-switch" onclick="filterFromTab('poe-switch')">Commercial PoE</button>
+        <button type="button" class="filter-tab" data-cat="accessory" onclick="filterFromTab('accessory')">Storage &amp; Kits</button>
+      </div>
+
+      <div class="catalog-search-wrap">
+        <input type="text" id="catalogSearchInput" class="catalog-search-input" placeholder="Filter by model or brand...">
+      </div>
+    </div>
+
+    <div class="catalog-results-info">
+      <span id="catalogCountDisplay">Showing products</span>
+      <span>100% Certified Direct Factory Stock</span>
+    </div>
+
+    <div class="products-grid" id="productsGrid">
+      <!-- Injected dynamically from SYBER_PRODUCTS -->
+    </div>
+
+    <div class="catalog-load-more" id="catalogLoadMoreWrap">
+      <button type="button" class="btn-load-more" id="btnLoadMore" onclick="loadMoreHardware()">
+        Load More Hardware (+12)
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- TOAST NOTIFICATION -->
+<div class="cart-toast" id="cartToast">
+  <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" style="color: var(--blue-light);"><polyline points="20 6 9 17 4 12"></polyline></svg>
+  <span class="toast-msg" id="toastMsg">Added to cart</span>
+  <a href="cart.html" class="toast-link">View Cart &rarr;</a>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <h3>SYBER SPACE</h3>
+        <p>The Surveillance Store. Authorized dealer of certified commercial CCTV hardware, optical sensors, enterprise recording hubs, and surveillance storage.</p>
+        <a href="https://wa.me/917511180808" target="_blank" class="footer-hotline">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+          Direct Advisory: +91 75111 80808
+        </a>
+      </div>
+
+      <div class="footer-col">
+        <h4>Categories</h4>
+        <ul>
+          <li><a href="javascript:void(0)" onclick="filterFromTab('wifi-camera')">Smart Wi-Fi Cameras</a></li>
+          <li><a href="javascript:void(0)" onclick="filterFromTab('4g-camera')">Solar 4G Cameras</a></li>
+          <li><a href="javascript:void(0)" onclick="filterFromTab('nvr-dvr')">DVR &amp; NVR Systems</a></li>
+          <li><a href="javascript:void(0)" onclick="filterFromTab('poe-switch')">Commercial PoE Units</a></li>
+          <li><a href="javascript:void(0)" onclick="filterFromTab('accessory')">Surveillance Storage</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Direct Services</h4>
+        <ul>
+          <li><a href="cart.html">View Shopping Cart</a></li>
+          <li><a href="checkout.html">Direct B2B Checkout</a></li>
+          <li><a href="index.html#why-section">Quality Standards</a></li>
+          <li><a href="index.html#categories-section">Hardware Gateways</a></li>
+          <li><a href="https://wa.me/917511180808" target="_blank">Bulk Sizing Requests</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Support &amp; Standards</h4>
+        <ul>
+          <li><span>100% Tax Invoiced Orders</span></li>
+          <li><span>Manufacturer RMA Support</span></li>
+          <li><span>Direct Dispatch Logistics</span></li>
+          <li><span>Mon - Sat: 9:00 AM - 8:00 PM</span></li>
+          <li><span>Inquiries: sales@syberspace.com</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div>
+        &copy; <span id="currentYear"></span> Syber Space. All rights reserved. Precision Surveillance Systems.
+      </div>
+      <div class="footer-badges">
+        <span class="footer-badge-dot"></span>
+        <span>256-Bit SSL Encrypted Checkout</span>
+        <span class="footer-badge-dot"></span>
+        <span>HDFC SmartGateway Protected</span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+// 1. CART MANAGEMENT
+function getLocalCart() {
+  try {
+    const raw = localStorage.getItem('syber_cart') || localStorage.getItem('syber_cart_items');
+    return JSON.parse(raw || '[]');
+  } catch(e) {
+    return [];
+  }
+}
+
+function updateHeaderCartBadge() {
+  const cart = getLocalCart();
+  const totalCount = cart.reduce((sum, item) => sum + (Number(item.quantity || item.qty) || 1), 0);
+  const badge = document.getElementById('cart-counter');
+  if (badge) badge.textContent = totalCount;
+}
+
+function directAddToCart(productId, event) {
+  if (event) {
+    event.preventDefault();
+    event.stopPropagation();
+  }
+
+  if (typeof SYBER_PRODUCTS === 'undefined') return;
+  const product = SYBER_PRODUCTS.find(p => p.id === productId);
+  if (!product) return;
+
+  const cart = getLocalCart();
+  const existing = cart.find(i => i.id === product.id || i.title === product.title);
+  const imgSrc = (product.images && product.images.length > 0) ? product.images[0] : 'assets/official_bestseller_idada_q2i_transparent.png';
+
+  if (existing) {
+    existing.quantity = (existing.quantity || 1) + 1;
+    existing.qty = existing.quantity;
+  } else {
+    cart.push({
+      id: product.id,
+      title: product.title,
+      name: product.title,
+      brand: product.brand || 'SYBER',
+      price: Number(product.price) || 0,
+      mrp: product.mrp || '',
+      save: product.save || '',
+      img: imgSrc,
+      image: imgSrc,
+      qty: 1,
+      quantity: 1
+    });
+  }
+
+  try {
+    localStorage.setItem('syber_cart', JSON.stringify(cart));
+    localStorage.setItem('syber_cart_items', JSON.stringify(cart));
+  } catch(e) {}
+
+  updateHeaderCartBadge();
+  showCartToast(`Added "${product.title}" to cart`);
+}
+
+function showCartToast(msg) {
+  const toast = document.getElementById('cartToast');
+  const msgEl = document.getElementById('toastMsg');
+  if (!toast || !msgEl) return;
+  msgEl.textContent = msg;
+  toast.classList.add('active');
+  clearTimeout(window.__toastTimer);
+  window.__toastTimer = setTimeout(() => {
+    toast.classList.remove('active');
+  }, 3200);
+}
+
+// 2. DYNAMIC CATALOG ENGINE
+let activeCategory = 'all';
+let searchQuery = '';
+let renderedCount = 0;
+const BATCH_SIZE = 12;
+
+function getFilteredProducts() {
+  if (typeof SYBER_PRODUCTS === 'undefined') return [];
+  return SYBER_PRODUCTS.filter(item => {
+    let matchesCat = true;
+    if (activeCategory !== 'all') {
+      if (activeCategory === 'wifi-camera') {
+        matchesCat = item.category === 'wifi-camera';
+      } else if (activeCategory === '4g-camera') {
+        matchesCat = item.category === '4g-camera' || item.category === 'solar-hub';
+      } else if (activeCategory === 'nvr-dvr') {
+        matchesCat = item.category === 'nvr-dvr';
+      } else if (activeCategory === 'poe-switch') {
+        matchesCat = item.category === 'poe-switch' || item.category === 'ahd-camera' || item.category === 'router';
+      } else if (activeCategory === 'accessory') {
+        matchesCat = item.category === 'accessory' || item.category === 'doorbell';
+      } else {
+        matchesCat = item.category === activeCategory;
+      }
+    }
+
+    let matchesSearch = true;
+    if (searchQuery) {
+      const q = searchQuery.toLowerCase();
+      const titleMatch = (item.title || '').toLowerCase().includes(q);
+      const brandMatch = (item.brand || '').toLowerCase().includes(q);
+      const descMatch = (item.desc || '').toLowerCase().includes(q);
+      const chipsMatch = (item.chips || []).some(c => c.toLowerCase().includes(q));
+      matchesSearch = titleMatch || brandMatch || descMatch || chipsMatch;
+    }
+
+    return matchesCat && matchesSearch;
+  });
+}
+
+function renderProductCard(p) {
+  const imgSrc = (p.images && p.images.length > 0) ? p.images[0] : 'assets/official_bestseller_idada_q2i_transparent.png';
+  const badgeHtml = p.badge ? `<span class="prod-badge ${p.badge.includes('BEST') ? 'highlight' : ''}">${escapeHtml(p.badge)}</span>` : '';
+  const chipsHtml = (p.chips || []).slice(0, 3).map(c => `<span class="prod-chip">${escapeHtml(c)}</span>`).join('');
+  const priceDisplay = Number(p.price) ? `&#8377;${Number(p.price).toLocaleString('en-IN')}` : 'Contact for Quote';
+  const mrpHtml = p.mrp ? `<span class="prod-mrp">${escapeHtml(p.mrp)}</span>` : '';
+  const saveHtml = p.save ? `<span class="prod-save">${escapeHtml(p.save)}</span>` : '';
+
+  return `
+    <div class="prod-card" data-id="${escapeHtml(p.id)}">
+      ${badgeHtml}
+      <a href="product.html?id=${encodeURIComponent(p.id)}" class="prod-thumb-wrap" aria-label="${escapeHtml(p.title)}">
+        <img src="${escapeHtml(imgSrc)}" alt="${escapeHtml(p.title)}" loading="lazy" decoding="async">
+      </a>
+      <div>
+        <div class="prod-brand">${escapeHtml(p.brand || 'SYBER')}</div>
+        <h4 class="prod-title">
+          <a href="product.html?id=${encodeURIComponent(p.id)}">${escapeHtml(p.title)}</a>
+        </h4>
+        <div class="prod-chips">
+          ${chipsHtml}
+        </div>
+        <div class="prod-price-row">
+          <span class="prod-price">${priceDisplay}</span>
+          ${mrpHtml}
+          ${saveHtml}
+        </div>
+      </div>
+      <div class="prod-actions">
+        <button type="button" class="btn-add-cart" onclick="directAddToCart('${escapeHtml(p.id)}', event)">
+          <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+          <span>Add to Cart</span>
+        </button>
+        <a href="product.html?id=${encodeURIComponent(p.id)}" class="btn-card-details" aria-label="Details for ${escapeHtml(p.title)}">
+          <span>Details</span>
+        </a>
+      </div>
+    </div>
+  `;
+}
+
+function escapeHtml(str) {
+  return String(str || '').replace(/[&<>"']/g, m => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
+}
+
+function updateCatalogView(reset = true) {
+  const grid = document.getElementById('productsGrid');
+  const countDisplay = document.getElementById('catalogCountDisplay');
+  const loadMoreWrap = document.getElementById('catalogLoadMoreWrap');
+  if (!grid) return;
+
+  const filtered = getFilteredProducts();
+
+  if (reset) {
+    renderedCount = 0;
+    grid.innerHTML = '';
+  }
+
+  if (filtered.length === 0) {
+    grid.innerHTML = `
+      <div class="catalog-empty">
+        <h4>No matching hardware found</h4>
+        <p>Try refining your search terms or clearing category filters to view all products.</p>
+      </div>
+    `;
+    if (countDisplay) countDisplay.textContent = '0 products found';
+    if (loadMoreWrap) loadMoreWrap.style.display = 'none';
+    return;
+  }
+
+  const nextBatch = filtered.slice(renderedCount, renderedCount + BATCH_SIZE);
+  const cardsHtml = nextBatch.map(p => renderProductCard(p)).join('');
+  grid.insertAdjacentHTML('beforeend', cardsHtml);
+
+  renderedCount += nextBatch.length;
+
+  if (countDisplay) {
+    countDisplay.textContent = `Showing ${renderedCount} of ${filtered.length} products`;
+  }
+
+  if (loadMoreWrap) {
+    if (renderedCount < filtered.length) {
+      loadMoreWrap.style.display = 'block';
+      const remaining = filtered.length - renderedCount;
+      const btn = document.getElementById('btnLoadMore');
+      if (btn) btn.textContent = `Load More Hardware (+${Math.min(BATCH_SIZE, remaining)})`;
+    } else {
+      loadMoreWrap.style.display = 'none';
+    }
+  }
+
+  if (typeof gsap !== 'undefined' && nextBatch.length > 0) {
+    const cards = grid.querySelectorAll('.prod-card:not(.gsap-ready)');
+    cards.forEach(card => card.classList.add('gsap-ready'));
+    gsap.from(cards, {
+      opacity: 0,
+      y: 18,
+      duration: 0.4,
+      stagger: 0.04,
+      ease: 'power2.out'
+    });
+  }
+}
+
+function loadMoreHardware() {
+  updateCatalogView(false);
+}
+
+function filterFromTab(cat) {
+  activeCategory = cat;
+  const tabs = document.querySelectorAll('.filter-tab');
+  tabs.forEach(t => {
+    if (t.dataset.cat === cat) t.classList.add('active');
+    else t.classList.remove('active');
+  });
+
+  const ribbonTabs = document.querySelectorAll('.nav-ribbon-tab');
+  ribbonTabs.forEach(b => {
+    if (b.dataset.cat === cat) b.classList.add('active');
+    else b.classList.remove('active');
+  });
+
+  const titles = {
+    'all': 'Surveillance Hardware Catalog',
+    'wifi-camera': 'Smart Wi-Fi Surveillance Cameras',
+    '4g-camera': 'Solar 4G Autonomous Cameras',
+    'nvr-dvr': 'DVR & NVR Video Recording Hubs',
+    'poe-switch': 'Commercial PoE & Dome Systems',
+    'accessory': 'Surveillance Storage, Hard Drives & Kits'
+  };
+  const titleEl = document.getElementById('pageTitleHeading');
+  if (titleEl && titles[cat]) titleEl.textContent = titles[cat];
+
+  updateCatalogView(true);
+}
+
+function selectNavBox(el, cat) {
+  filterFromTab(cat);
+}
+
+function triggerHeaderSearch() {
+  const input = document.getElementById('headerSearchInput');
+  if (!input) return;
+  const q = input.value.trim();
+  searchQuery = q;
+  const catalogInput = document.getElementById('catalogSearchInput');
+  if (catalogInput) catalogInput.value = q;
+  updateCatalogView(true);
+}
+
+// 3. INITIALIZATION ON PAGE LOAD
+window.addEventListener('DOMContentLoaded', () => {
+  updateHeaderCartBadge();
+
+  // Read URL params
+  const urlParams = new URLSearchParams(window.location.search);
+  const catParam = urlParams.get('cat');
+  const searchParam = urlParams.get('search');
+
+  if (catParam) {
+    filterFromTab(catParam);
+  } else if (searchParam) {
+    searchQuery = searchParam;
+    const input = document.getElementById('headerSearchInput');
+    if (input) input.value = searchParam;
+    const catalogInput = document.getElementById('catalogSearchInput');
+    if (catalogInput) catalogInput.value = searchParam;
+    updateCatalogView(true);
+  } else {
+    updateCatalogView(true);
+  }
+
+  // Header Search on enter key
+  const headerSearchInput = document.getElementById('headerSearchInput');
+  if (headerSearchInput) {
+    headerSearchInput.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') {
+        e.preventDefault();
+        triggerHeaderSearch();
+      }
+    });
+  }
+
+  // Catalog search input typing listener with debounce
+  const catalogInput = document.getElementById('catalogSearchInput');
+  if (catalogInput) {
+    let debounceTimer;
+    catalogInput.addEventListener('input', (e) => {
+      clearTimeout(debounceTimer);
+      debounceTimer = setTimeout(() => {
+        searchQuery = e.target.value.trim();
+        const headerInput = document.getElementById('headerSearchInput');
+        if (headerInput) headerInput.value = searchQuery;
+        updateCatalogView(true);
+      }, 250);
+    });
+  }
+});
+</script>
+
+</body>
+</html>
