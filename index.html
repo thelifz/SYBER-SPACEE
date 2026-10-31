@@ -84,26 +84,28 @@ img {
 }
 
 /* ==========================================================================
-   HEADER: TRANSLUCENT FROSTED WHITE GLASS WITH OBSIDIAN & BLUE ACCENTS
+   HEADER: TWO-TIER FULL AESTHETIC GLASS HEADER
+   - TOP TIER: BRAND (LEFT) + CENTERED SEARCH BAR (MIDDLE) + CART & ADVISORY (RIGHT)
+   - SUB TIER: 6 BOXED CATEGORY TILES (EXACTLY AS DRAWN IN GREEN)
    ========================================================================== */
 header {
   position: sticky;
   top: 0;
   z-index: 100;
-  background: rgba(255, 255, 255, 0.92);
+  background: rgba(255, 255, 255, 0.94);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   border-bottom: 1px solid rgba(15, 23, 42, 0.08);
-  box-shadow: 0 2px 16px rgba(9, 13, 22, 0.04);
+  box-shadow: 0 4px 20px rgba(9, 13, 22, 0.05);
   transition: all 0.3s ease;
 }
 
-.nav {
+.header-top-row {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 72px;
-  gap: 20px;
+  height: 68px;
+  gap: 24px;
 }
 
 .brand {
@@ -111,6 +113,7 @@ header {
   align-items: center;
   gap: 10px;
   text-decoration: none;
+  flex-shrink: 0;
 }
 
 .brand-text {
@@ -134,60 +137,95 @@ header {
   text-transform: uppercase;
 }
 
-.nav-links {
-  display: flex;
-  align-items: center;
-  gap: 28px;
-  font-size: 13.5px;
-  font-weight: 600;
-  color: #334155;
-}
-
-.nav-links a:hover {
-  color: var(--blue);
-}
-
-.header-right {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-}
-
-.search-box {
+/* CENTERED SEARCH BAR (IN THE MIDDLE) */
+.header-search-wrap {
+  flex: 1;
+  max-width: 540px;
+  margin: 0 auto;
   position: relative;
   display: flex;
   align-items: center;
 }
 
-.search-box svg {
+.header-search-wrap svg {
   position: absolute;
-  left: 12px;
+  left: 14px;
   pointer-events: none;
   color: #64748b;
 }
 
-.header-search {
+.header-search-input {
+  width: 100%;
   border: 1px solid var(--border-light);
   background: #f8fafc;
   color: var(--black);
-  border-radius: 12px;
-  padding: 8px 14px 8px 34px;
-  width: 210px;
-  font-size: 12.5px;
+  border-radius: 999px;
+  padding: 10px 88px 10px 40px;
+  font-size: 13px;
   font-family: inherit;
   outline: none;
   transition: all 0.25s ease;
+  box-shadow: inset 0 1px 2px rgba(9, 13, 22, 0.03);
 }
 
-.header-search:focus {
+.header-search-input:focus {
   border-color: var(--blue);
   background: var(--white);
   box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
-  width: 250px;
 }
 
-.header-search::placeholder {
+.header-search-input::placeholder {
   color: #94a3b8;
+}
+
+.header-search-btn {
+  position: absolute;
+  right: 5px;
+  background: var(--blue);
+  color: var(--white);
+  border: none;
+  border-radius: 999px;
+  padding: 6px 14px;
+  font-size: 11.5px;
+  font-weight: 700;
+  cursor: pointer;
+  font-family: inherit;
+  transition: background 0.2s ease;
+}
+
+.header-search-btn:hover {
+  background: var(--blue-hover);
+}
+
+/* RIGHT CONTROLS: ADVISORY & CART PILL */
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-shrink: 0;
+}
+
+.header-hotline-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  font-weight: 700;
+  color: #334155;
+  background: #f8fafc;
+  border: 1px solid var(--border-light);
+  border-radius: 12px;
+  padding: 8px 14px;
+  transition: all 0.2s ease;
+}
+
+.header-hotline-btn svg {
+  color: var(--blue);
+}
+
+.header-hotline-btn:hover {
+  border-color: var(--blue);
+  color: var(--blue);
 }
 
 .header-cart-pill {
@@ -228,6 +266,52 @@ header {
 .header-cart-pill:hover .cart-pill-badge {
   background: var(--white);
   color: var(--blue);
+}
+
+/* SUBNAV BAR: 6 BOXED CATEGORY TILES (INSIDE GREEN BOX) */
+.header-subnav-bar {
+  border-top: 1px solid rgba(15, 23, 42, 0.06);
+  padding: 8px 0 10px;
+  background: rgba(255, 255, 255, 0.88);
+}
+
+.subnav-inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.nav-cat-box {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--white);
+  border: 1px solid var(--border-light);
+  border-radius: 10px;
+  padding: 7px 16px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #1e293b;
+  text-decoration: none;
+  transition: all 0.22s ease;
+  box-shadow: 0 1px 4px rgba(9, 13, 22, 0.03);
+}
+
+.nav-cat-box:hover {
+  border-color: var(--blue);
+  color: var(--blue);
+  background: rgba(37, 99, 235, 0.05);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.12);
+}
+
+.nav-cat-box.active {
+  background: var(--blue);
+  color: var(--white);
+  border-color: var(--blue);
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.25);
 }
 
 /* ==========================================================================
@@ -1374,17 +1458,33 @@ footer {
   .wholesale-actions {
     justify-content: center;
   }
+  .header-hotline-btn {
+    display: none;
+  }
 }
 
 @media (max-width: 768px) {
-  .nav-links {
-    display: none;
+  .header-top-row {
+    height: auto;
+    padding: 12px 0 8px;
+    flex-wrap: wrap;
+    gap: 12px;
   }
-  .header-search {
-    width: 150px;
+  .header-search-wrap {
+    order: 3;
+    max-width: 100%;
+    margin: 0;
   }
-  .header-search:focus {
-    width: 180px;
+  .subnav-inner {
+    justify-content: flex-start;
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    padding-bottom: 6px;
+    -webkit-overflow-scrolling: touch;
+  }
+  .nav-cat-box {
+    white-space: nowrap;
+    flex-shrink: 0;
   }
   .hero h1 {
     font-size: 42px;
@@ -1423,7 +1523,8 @@ footer {
      HEADER: TRANSLUCENT FROSTED GLASS WITH INSTANT SEARCH & CART SYNC
      ========================================================================== -->
 <header>
-  <div class="container nav">
+  <!-- TOP ROW: BRAND (LEFT) + SEARCH BAR (MIDDLE) + ADVISORY & CART (RIGHT) -->
+  <div class="container header-top-row">
     <a href="index.html" class="brand" aria-label="Syber Space Home">
       <div class="brand-text">
         <span class="brand-title">SYBER SPACE</span>
@@ -1431,25 +1532,48 @@ footer {
       </div>
     </a>
 
-    <nav class="nav-links">
-      <a href="#catalog-section">Shop All</a>
-      <a href="javascript:void(0)" onclick="filterCategoryFromNav('wifi-camera')">Smart Wi-Fi</a>
-      <a href="javascript:void(0)" onclick="filterCategoryFromNav('4g-camera')">Solar 4G</a>
-      <a href="javascript:void(0)" onclick="filterCategoryFromNav('nvr-dvr')">DVR &amp; NVR</a>
-      <a href="javascript:void(0)" onclick="filterCategoryFromNav('accessory')">Accessories</a>
-      <a href="#why-section">Why Syber</a>
-    </nav>
+    <!-- SEARCH BAR IN THE MIDDLE -->
+    <div class="header-search-wrap">
+      <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+      <input type="text" id="headerSearchInput" class="header-search-input" placeholder="Search 100+ surveillance cameras, DVRs, kits..." autocomplete="off">
+      <button type="button" class="header-search-btn" id="headerSearchBtn" onclick="triggerHeaderSearch()">Search</button>
+    </div>
 
+    <!-- RIGHT CONTROLS: ADVISORY & CART PILL -->
     <div class="header-right">
-      <div class="search-box">
-        <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
-        <input type="text" id="headerSearchInput" class="header-search" placeholder="Search 100+ items..." autocomplete="off">
-      </div>
+      <a href="https://wa.me/917511180808" target="_blank" class="header-hotline-btn">
+        <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+        <span>+91 75111 80808</span>
+      </a>
 
       <a href="cart.html" class="header-cart-pill" id="headerCartBtn" aria-label="View Shopping Cart">
         <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
         <span>Cart</span>
         <span class="cart-pill-badge" id="cart-counter">0</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- SUB TIER: 6 BOXED NAVIGATION CATEGORIES (THE MIDDEL THINGS INSIDE BOXES) -->
+  <div class="header-subnav-bar">
+    <div class="container subnav-inner">
+      <a href="#catalog-section" class="nav-cat-box active" data-cat="all" onclick="selectNavBox(this, 'all')">
+        <span>Shop All</span>
+      </a>
+      <a href="javascript:void(0)" class="nav-cat-box" data-cat="wifi-camera" onclick="selectNavBox(this, 'wifi-camera')">
+        <span>Smart Wi-Fi</span>
+      </a>
+      <a href="javascript:void(0)" class="nav-cat-box" data-cat="4g-camera" onclick="selectNavBox(this, '4g-camera')">
+        <span>Solar 4G</span>
+      </a>
+      <a href="javascript:void(0)" class="nav-cat-box" data-cat="nvr-dvr" onclick="selectNavBox(this, 'nvr-dvr')">
+        <span>DVR &amp; NVR</span>
+      </a>
+      <a href="javascript:void(0)" class="nav-cat-box" data-cat="accessory" onclick="selectNavBox(this, 'accessory')">
+        <span>Accessories</span>
+      </a>
+      <a href="#why-section" class="nav-cat-box" data-cat="why-syber" onclick="selectNavBox(this, 'why-syber')">
+        <span>Why Syber</span>
       </a>
     </div>
   </div>
@@ -2251,6 +2375,34 @@ function updateCatalogView(reset = true) {
   }
 }
 
+function selectNavBox(el, cat) {
+  const boxes = document.querySelectorAll('.nav-cat-box');
+  boxes.forEach(b => b.classList.remove('active'));
+  if (el) el.classList.add('active');
+
+  if (cat === 'why-syber') {
+    const whySec = document.getElementById('why-section');
+    if (whySec) whySec.scrollIntoView({ behavior: 'smooth' });
+    return;
+  }
+
+  filterCategoryFromNav(cat);
+}
+
+function triggerHeaderSearch() {
+  const input = document.getElementById('headerSearchInput');
+  if (!input) return;
+  const q = input.value.trim();
+  searchQuery = q;
+  const catalogInput = document.getElementById('catalogSearchInput');
+  if (catalogInput) catalogInput.value = q;
+  updateCatalogView(true);
+  const catSection = document.getElementById('catalog-section');
+  if (catSection) {
+    catSection.scrollIntoView({ behavior: 'smooth' });
+  }
+}
+
 function filterCategoryFromNav(cat) {
   activeCategory = cat;
   const tabs = document.querySelectorAll('.filter-tab');
@@ -2259,6 +2411,15 @@ function filterCategoryFromNav(cat) {
       t.classList.add('active');
     } else {
       t.classList.remove('active');
+    }
+  });
+
+  const boxes = document.querySelectorAll('.nav-cat-box');
+  boxes.forEach(b => {
+    if (b.dataset.cat === cat) {
+      b.classList.add('active');
+    } else {
+      b.classList.remove('active');
     }
   });
 
@@ -2316,6 +2477,11 @@ document.addEventListener('DOMContentLoaded', () => {
       const catSection = document.getElementById('catalog-section');
       if (catSection && window.scrollY < 300 && searchQuery.length > 1) {
         catSection.scrollIntoView({ behavior: 'smooth' });
+      }
+    });
+    headerSearch.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') {
+        triggerHeaderSearch();
       }
     });
   }
