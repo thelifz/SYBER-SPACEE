@@ -448,24 +448,44 @@ header {
 }
 
 .btn-hero-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
   background: rgba(15, 23, 42, 0.7);
   border: 1px solid rgba(255, 255, 255, 0.18);
   color: #ffffff;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 13px 24px;
+  border-radius: 12px;
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
 }
 
 .btn-hero-secondary:hover {
   background: rgba(30, 41, 59, 0.9);
   border-color: #a855f7;
   color: #c084fc;
+  transform: translateY(-2px);
 }
 
 .hero-hotline-strip {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  padding-top: 18px;
   border-top: 1px solid rgba(255, 255, 255, 0.12);
+  font-size: 12.5px;
   color: #94a3b8;
+  flex-wrap: wrap;
 }
 
 .hero-hotline-strip span {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
   color: #e2e8f0;
+  font-weight: 600;
 }
 
 .hero-hotline-strip svg {
@@ -575,49 +595,6 @@ header {
   box-shadow: 0 10px 28px rgba(37, 99, 235, 0.45);
 }
 
-.btn-hero-secondary {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  background: var(--white);
-  border: 1px solid var(--border-light);
-  color: var(--black);
-  font-size: 14px;
-  font-weight: 600;
-  padding: 13px 24px;
-  border-radius: 12px;
-  transition: all 0.25s ease;
-  box-shadow: var(--shadow-sm);
-}
-
-.btn-hero-secondary:hover {
-  border-color: var(--blue);
-  color: var(--blue);
-  transform: translateY(-2px);
-}
-
-.hero-hotline-strip {
-  display: flex;
-  align-items: center;
-  gap: 24px;
-  padding-top: 18px;
-  border-top: 1px solid var(--border-light);
-  font-size: 12.5px;
-  color: var(--text-muted);
-  flex-wrap: wrap;
-}
-
-.hero-hotline-strip span {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  color: #1e293b;
-  font-weight: 600;
-}
-
-.hero-hotline-strip svg {
-  color: var(--blue);
-}
 
 /* HIGH-AESTHETIC CAMERA SHOWCASE STAGE */
 .hero-camera-stage {
@@ -684,7 +661,7 @@ header {
   width: auto;
   height: auto;
   object-fit: contain;
-  filter: drop-shadow(0 20px 30px rgba(9, 13, 22, 0.14)) drop-shadow(0 0 24px rgba(37, 99, 235, 0.12));
+  filter: drop-shadow(0 20px 35px rgba(0, 0, 0, 0.5)) drop-shadow(0 0 24px rgba(168, 85, 247, 0.2));
 }
 
 .hero-camera-caption {
@@ -1785,25 +1762,25 @@ footer {
       <div class="hero-camera-ambient"></div>
       <div class="hero-camera-pedestal"></div>
       <div class="hero-camera-deck" id="heroCameraDeck">
-        <!-- 1: Trueview Commercial High-Speed PTZ -->
-        <div class="hero-camera-item active" data-title="Trueview Commercial High-Speed PTZ">
-          <img src="assets/hero_camera_ptz_ai.png" alt="Trueview Commercial High-Speed PTZ" loading="eager">
-          <span class="hero-camera-caption">Trueview Commercial High-Speed PTZ</span>
+        <!-- 1: Trueview 4G Solar PTZ Camera -->
+        <div class="hero-camera-item active" data-title="Trueview 4G Solar PTZ Camera">
+          <img src="assets/official_trueview_solar_T18149-01.png" alt="Trueview 4G Solar PTZ Camera" loading="eager">
+          <span class="hero-camera-caption">Trueview 4G Solar PTZ Camera</span>
         </div>
-        <!-- 2: Trueview 4G Autonomous Solar PTZ -->
-        <div class="hero-camera-item" data-title="Trueview 4G Autonomous Solar PTZ">
-          <img src="assets/hero_camera_solar_ai.png" alt="Trueview 4G Autonomous Solar PTZ" loading="lazy">
-          <span class="hero-camera-caption">Trueview 4G Autonomous Solar PTZ</span>
+        <!-- 2: CP Plus 3MP Smart Dome Camera -->
+        <div class="hero-camera-item" data-title="CP Plus 3MP Smart Dome Camera">
+          <img src="assets/official_bestseller_cpplus_e38q_transparent.png" alt="CP Plus 3MP Smart Dome Camera" loading="lazy">
+          <span class="hero-camera-caption">CP Plus 3MP Smart Dome Camera</span>
         </div>
-        <!-- 3: Enterprise Architectural Optical Dome -->
-        <div class="hero-camera-item" data-title="Enterprise Architectural Optical Dome">
-          <img src="assets/hero_camera_dome_ai.png" alt="Enterprise Architectural Optical Dome" loading="lazy">
-          <span class="hero-camera-caption">Enterprise Architectural Optical Dome</span>
+        <!-- 3: iDADA 3MP Pan & Tilt Smart Camera -->
+        <div class="hero-camera-item" data-title="iDADA 3MP Pan &amp; Tilt Smart Camera">
+          <img src="assets/official_bestseller_idada_q2i_transparent.png" alt="iDADA 3MP Pan &amp; Tilt Smart Camera" loading="lazy">
+          <span class="hero-camera-caption">iDADA 3MP Pan &amp; Tilt Smart Camera</span>
         </div>
-        <!-- 4: Precision Commercial PoE Optical System -->
-        <div class="hero-camera-item" data-title="Precision Commercial PoE Optical System">
-          <img src="assets/hero_product_poe_v2.png" alt="Precision Commercial PoE Optical System" loading="lazy">
-          <span class="hero-camera-caption">Precision Commercial PoE Optical System</span>
+        <!-- 4: Trueview Commercial High-Speed PoE Camera -->
+        <div class="hero-camera-item" data-title="Trueview Commercial High-Speed PoE Camera">
+          <img src="assets/trueview_poe_4_2_transparent.png" alt="Trueview Commercial High-Speed PoE Camera" loading="lazy">
+          <span class="hero-camera-caption">Trueview Commercial High-Speed PoE Camera</span>
         </div>
       </div>
     </div>
@@ -1846,7 +1823,7 @@ footer {
       <!-- 1: Smart Wi-Fi Cameras -->
       <div class="cat-card" onclick="filterCategoryFromNav('wifi-camera')">
         <div class="cat-card-img-wrap">
-          <img src="assets/hero_camera_dome_ai.png" alt="Smart Wi-Fi Cameras" loading="lazy">
+          <img src="assets/official_bestseller_idada_q2i_transparent.png" alt="Smart Wi-Fi Cameras" loading="lazy">
         </div>
         <div class="cat-card-body">
           <h3>Smart Wi-Fi Cameras</h3>
@@ -1858,7 +1835,7 @@ footer {
       <!-- 2: Solar 4G Off-Grid Systems -->
       <div class="cat-card" onclick="filterCategoryFromNav('4g-camera')">
         <div class="cat-card-img-wrap">
-          <img src="assets/hero_camera_solar_ai.png" alt="Solar 4G Off-Grid Cameras" loading="lazy">
+          <img src="assets/official_trueview_solar_T18149-01.png" alt="Solar 4G Off-Grid Cameras" loading="lazy">
         </div>
         <div class="cat-card-body">
           <h3>Solar 4G Off-Grid Cameras</h3>
@@ -1870,7 +1847,7 @@ footer {
       <!-- 3: Commercial PoE & Domes -->
       <div class="cat-card" onclick="filterCategoryFromNav('poe-switch')">
         <div class="cat-card-img-wrap">
-          <img src="assets/hero_camera_ptz_ai.png" alt="Commercial PoE &amp; Dome Cameras" loading="lazy">
+          <img src="assets/trueview_poe_4_2_transparent.png" alt="Commercial PoE &amp; Dome Cameras" loading="lazy">
         </div>
         <div class="cat-card-body">
           <h3>Commercial PoE &amp; Domes</h3>
@@ -2274,7 +2251,7 @@ function directAddToCart(productId, event) {
 
   const cart = getLocalCart();
   const existing = cart.find(i => i.id === product.id || i.title === product.title);
-  const imgSrc = (product.images && product.images.length > 0) ? product.images[0] : 'assets/hero_camera_dome_ai.png';
+  const imgSrc = (product.images && product.images.length > 0) ? product.images[0] : 'assets/official_bestseller_idada_q2i_transparent.png';
 
   if (existing) {
     existing.quantity = (existing.quantity || 1) + 1;
@@ -2425,7 +2402,7 @@ function getFilteredProducts() {
 }
 
 function renderProductCard(p) {
-  const imgSrc = (p.images && p.images.length > 0) ? p.images[0] : 'assets/hero_camera_dome_ai.png';
+  const imgSrc = (p.images && p.images.length > 0) ? p.images[0] : 'assets/official_bestseller_idada_q2i_transparent.png';
   const badgeHtml = p.badge ? `<span class="prod-badge ${p.badge.includes('BEST') ? 'highlight' : ''}">${escapeHtml(p.badge)}</span>` : '';
   const chipsHtml = (p.chips || []).slice(0, 3).map(c => `<span class="prod-chip">${escapeHtml(c)}</span>`).join('');
   const priceDisplay = Number(p.price) ? `&#8377;${Number(p.price).toLocaleString('en-IN')}` : 'Contact for Quote';
