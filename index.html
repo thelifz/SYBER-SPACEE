@@ -32,131 +32,107 @@
         </div>
     </nav>
 
-        <main>
-        <!-- UNIFIED TOP HERO SLIDESHOW: LIVE CCTV FEED & PROMOTIONAL OFFERS -->
-        <section class="top-hero-slideshow" id="hero-slideshow">
-            <div class="slideshow-container">
-                
-                <!-- SLIDE 1: LIVE SURVEILLANCE COMMAND FEED -->
-                <div class="slide active slide-hero-feed">
-                    <div class="slide-background">
-                        <video autoplay loop muted playsinline class="hero-video-stream">
-                            <source src="cctv_parking_video.mp4" type="video/mp4">
-                            <source src="gemini_generated_video_28a4423e.mp4" type="video/mp4">
-                        </video>
-                        <div class="static-noise"></div>
-                        <div class="bg-overlay"></div>
-                    </div>
-                    <div class="video-ui">
-                        <span class="cam-id">CAM-01 [MAIN ENTRANCE]</span>
-                        <span class="live-indicator"><span class="dot"></span> LIVE</span>
-                    </div>
-                    <div class="hero-feed-content">
-                        <h1 class="glitch" data-text="SEE MORE.&#10;SECURE MORE.&#10;WORRY LESS.&#10;SYBER SPACE.">SEE MORE.<br>SECURE MORE.<br>WORRY LESS.<br><span style="color:var(--accent);">SYBER SPACE.</span></h1>
-                        <p class="subtitle">NEXT-GENERATION OPTICAL SURVEILLANCE FOR ENTERPRISE &amp; RESIDENTIAL PROPERTIES.<br>PRECISION MONITORING. ZERO BLIND SPOTS.</p>
-                        <a href="#cameras" class="cta-btn">EXPLORE HARDWARE &rarr;</a>
-                    </div>
-                </div>
-
-                <!-- SLIDE 2: NIGHT VISION OPTICS -->
-                <div class="slide">
-                    <div class="slide-background">
-                        <img src="offer_bg_1.jpg" alt="Night Vision Surveillance">
-                        <div class="static-noise"></div>
-                        <div class="bg-overlay"></div>
-                    </div>
-                    <div class="slide-content">
-                        <div class="slide-badge">SPECIAL ACQUISITION</div>
-                        <h3>NIGHT VISION OPTICS V2</h3>
-                        <p class="discount">50% OFF</p>
-                        <p class="desc">Starlight low-light sensors with continuous high-definition night monitoring. Starting at ₹7,999.</p>
-                        <a href="#cameras" class="cta-btn cta-small">BUY NOW &bull; ₹7,999</a>
-                    </div>
-                </div>
-
-                <!-- SLIDE 3: ENTERPRISE PERIMETER BUNDLE -->
-                <div class="slide">
-                    <div class="slide-background">
-                        <img src="offer_bg_2.jpg" alt="Commercial CCTV Deployment">
-                        <div class="static-noise"></div>
-                        <div class="bg-overlay"></div>
-                    </div>
-                    <div class="slide-content">
-                        <div class="slide-badge">COMMERCIAL PROCUREMENT</div>
-                        <h3>ENTERPRISE PERIMETER BUNDLE</h3>
-                        <p class="discount">BUY 1 GET 2 FREE</p>
-                        <p class="desc">Multi-channel optical coverage with centralized 4K NVR recording. Special bundle at ₹24,999.</p>
-                        <a href="#cameras" class="cta-btn cta-small">BUY NOW &bull; ₹24,999</a>
-                    </div>
-                </div>
-
-                <!-- SLIDE 4: PANOPTICON PRO 360 -->
-                <div class="slide">
-                    <div class="slide-background">
-                        <img src="offer_bg_3.jpg" alt="High Speed PTZ Tracking">
-                        <div class="static-noise"></div>
-                        <div class="bg-overlay"></div>
-                    </div>
-                    <div class="slide-content">
-                        <div class="slide-badge">ACTIVE PATROL</div>
-                        <h3>PANOPTICON PRO 360</h3>
-                        <p class="discount">SAVE ₹12,500</p>
-                        <p class="desc">Enterprise-grade optical tracking and high-speed auto-patrol presets. Now at ₹31,999.</p>
-                        <a href="#cameras" class="cta-btn cta-small">BUY NOW &bull; ₹31,999</a>
-                    </div>
-                </div>
-
-                <!-- SLIDE 5: GHOST EYE DISCREET DOME -->
-                <div class="slide">
-                    <div class="slide-background">
-                        <img src="offer_bg_1.jpg" alt="Architectural Dome Camera">
-                        <div class="static-noise"></div>
-                        <div class="bg-overlay"></div>
-                    </div>
-                    <div class="slide-content">
-                        <div class="slide-badge">ARCHITECTURAL DESIGN</div>
-                        <h3>GHOST EYE DISCREET DOME</h3>
-                        <p class="discount">ONLY ₹5,999</p>
-                        <p class="desc">Architectural low-profile optical dome with wide-angle coverage. Regular ₹9,999.</p>
-                        <a href="#cameras" class="cta-btn cta-small">BUY NOW &bull; ₹5,999</a>
-                    </div>
-                </div>
-
-                <!-- SLIDE 6: ARMORED EXPEDITION SYSTEM -->
-                <div class="slide">
-                    <div class="slide-background">
-                        <img src="offer_bg_2.jpg" alt="Weatherproof CCTV Deployment">
-                        <div class="static-noise"></div>
-                        <div class="bg-overlay"></div>
-                    </div>
-                    <div class="slide-content">
-                        <div class="slide-badge">ALL-WEATHER ENCLOSURE</div>
-                        <h3>ARMORED EXPEDITION SYSTEM</h3>
-                        <p class="discount">60% OFF</p>
-                        <p class="desc">Weather-sealed IP67 commercial grade outdoor surveillance kit. Complete kit at ₹18,499.</p>
-                        <a href="#cameras" class="cta-btn cta-small">BUY NOW &bull; ₹18,499</a>
-                    </div>
-                </div>
-
-            </div>
-            <!-- SLIDE CONTROLS (PLACED CLEANLY BELOW THE GREEN CONTAINER) -->
-            <div class="slide-controls-bar">
-                <div class="slide-controls">
-                    <button id="prev-slide" class="slide-btn">[ PREV ]</button>
-                    <span id="slide-indicator">01 // 06</span>
-                    <button id="next-slide" class="slide-btn">[ NEXT ]</button>
+    <main>
+        <section class="hero">
+            <div class="hero-video-wrapper">
+                <video autoplay loop muted playsinline class="hero-video">
+                    <source src="cctv_parking_video.mp4" type="video/mp4">
+                    <source src="gemini_generated_video_28a4423e.mp4" type="video/mp4">
+                </video>
+                <div class="video-ui">
+                    <span class="cam-id">CAM-01 [MAIN ENTRANCE]</span>
+                    <span class="live-indicator"><span class="dot"></span> LIVE</span>
                 </div>
             </div>
-        </section>
-
-        <!-- ANGLED MARQUEE TICKER RIBBON -->
-        <div class="marquee-ribbon-wrapper">
+            
+            <div class="hero-content">
+                <h1 class="glitch" data-text="SEE MORE.&#10;SECURE MORE.&#10;WORRY LESS.&#10;SYBER SPACE.">SEE MORE.<br>SECURE MORE.<br>WORRY LESS.<br><span style="color:var(--accent);">SYBER SPACE.</span></h1>
+                <p class="subtitle">NEXT-GENERATION OPTICAL SURVEILLANCE FOR ENTERPRISE & RESIDENTIAL PROPERTIES.<br>PRECISION MONITORING. ZERO BLIND SPOTS.</p>
+                <a href="#cameras" class="cta-btn">EXPLORE HARDWARE &rarr;</a>
+            </div>
+            
             <div class="marquee">
                 <div class="marquee-inner">
                     <span>24/7 ACTIVE MONITORING // PRECISION OPTICS // ZERO BLIND SPOTS // CERTIFIED HARDWARE // DIRECT PROCUREMENT // ULTRA-HD NIGHT VISION // 24/7 ACTIVE MONITORING // PRECISION OPTICS // ZERO BLIND SPOTS //</span>
                 </div>
             </div>
-        </div>
+        </section>
+
+        <section class="offers-slideshow">
+            <div class="slideshow-container">
+                <div class="slide active">
+                    <div class="slide-background">
+                        <img src="offer_bg_1.jpg" alt="Cinematic CCTV 1">
+                        <div class="static-noise"></div>
+                        <div class="bg-overlay"></div>
+                    </div>
+                    <div class="slide-content">
+                        <h3>NIGHT VISION OPTICS V2</h3>
+                        <p class="discount">50% OFF</p>
+                        <p class="desc">Starlight low-light sensors with continuous high-definition night monitoring.</p>
+                        <button class="cta-btn cta-small">BUY NOW</button>
+                    </div>
+                </div>
+                <div class="slide">
+                    <div class="slide-background">
+                        <img src="offer_bg_2.jpg" alt="Cinematic CCTV 2">
+                        <div class="static-noise"></div>
+                        <div class="bg-overlay"></div>
+                    </div>
+                    <div class="slide-content">
+                        <h3>ENTERPRISE PERIMETER BUNDLE</h3>
+                        <p class="discount">BUY 1 GET 2 FREE</p>
+                        <p class="desc">Multi-channel optical coverage with centralized NVR recording.</p>
+                        <button class="cta-btn cta-small">BUY NOW</button>
+                    </div>
+                </div>
+                <div class="slide">
+                    <div class="slide-background">
+                        <img src="offer_bg_3.jpg" alt="Cinematic CCTV 3">
+                        <div class="static-noise"></div>
+                        <div class="bg-overlay"></div>
+                    </div>
+                    <div class="slide-content">
+                        <h3>PANOPTICON PRO 360</h3>
+                        <p class="discount">SAVE ₹12,500</p>
+                        <p class="desc">Enterprise-grade optical tracking and high-speed auto-patrol presets.</p>
+                        <button class="cta-btn cta-small">BUY NOW</button>
+                    </div>
+                </div>
+                <div class="slide">
+                    <div class="slide-background">
+                        <img src="offer_bg_1.jpg" alt="Cinematic CCTV 1">
+                        <div class="static-noise"></div>
+                        <div class="bg-overlay"></div>
+                    </div>
+                    <div class="slide-content">
+                        <h3>GHOST EYE DISCREET DOME</h3>
+                        <p class="discount">ONLY ₹5,999</p>
+                        <p class="desc">Architectural low-profile optical dome with wide-angle coverage.</p>
+                        <button class="cta-btn cta-small">BUY NOW</button>
+                    </div>
+                </div>
+                <div class="slide">
+                    <div class="slide-background">
+                        <img src="offer_bg_2.jpg" alt="Cinematic CCTV 2">
+                        <div class="static-noise"></div>
+                        <div class="bg-overlay"></div>
+                    </div>
+                    <div class="slide-content">
+                        <h3>ARMORED EXPEDITION SYSTEM</h3>
+                        <p class="discount">60% OFF</p>
+                        <p class="desc">Weather-sealed IP67 commercial grade outdoor surveillance kit.</p>
+                        <button class="cta-btn cta-small">BUY NOW</button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="slide-controls">
+                <button id="prev-slide" class="slide-btn">[ PREV ]</button>
+                <span id="slide-indicator">01 // 05</span>
+                <button id="next-slide" class="slide-btn">[ NEXT ]</button>
+            </div>
+        </section>
 
         <section class="products-section" id="cameras">
             <div class="products-header">
