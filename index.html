@@ -407,84 +407,36 @@ header {
 }
 
 /* ==========================================================================
-   AMAZON-STYLE PROMOTIONAL OFFER SHOWCASE & HERO DEALS CAROUSEL
+   OPEN ARCHITECTURAL HERO OFFER SHOWCASE (NO BOX, REFINED BRAND PALETTE)
    ========================================================================== */
-.promo-ticker-strip {
-  background: #0f172a;
-  color: #f8fafc;
-  font-size: 12.5px;
-  font-weight: 600;
-  padding: 10px 0;
-  border-bottom: 1px solid #1e293b;
-}
-
-.promo-ticker-inner {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 16px;
-  flex-wrap: wrap;
-}
-
-.promo-tag-red {
-  background: #cc0c39;
-  color: #ffffff;
-  font-size: 10.5px;
-  font-weight: 800;
-  letter-spacing: 0.8px;
-  padding: 3px 8px;
-  border-radius: 4px;
-  text-transform: uppercase;
-}
-
-.promo-text-lead {
-  font-weight: 700;
-  color: #ffffff;
-}
-
-.promo-ticker-perks {
-  display: flex;
-  align-items: center;
-  gap: 20px;
-  font-size: 12px;
-  color: #cbd5e1;
-}
-
-.promo-ticker-perks code {
-  background: rgba(255, 255, 255, 0.15);
-  padding: 2px 6px;
-  border-radius: 4px;
-  color: #38bdf8;
-  font-weight: 700;
-}
-
-/* HERO OFFER SHOWCASE SECTION */
 .hero-deal-section {
   position: relative;
-  background: linear-gradient(180deg, #f8fafc 0%, #ffffff 100%);
+  background: radial-gradient(circle at 75% 25%, rgba(37, 99, 235, 0.05) 0%, transparent 60%), #ffffff;
   border-bottom: 1px solid var(--border-light);
-  padding: 34px 0 48px;
+  padding: 38px 0 52px;
   overflow: hidden;
 }
 
+/* NO-BOX OPEN CAROUSEL WRAPPER */
 .deal-carousel-wrapper {
   position: relative;
-  background: #ffffff;
-  border: 1px solid var(--border-light);
-  border-radius: 20px;
-  box-shadow: 0 12px 36px rgba(15, 23, 42, 0.08), 0 2px 6px rgba(15, 23, 42, 0.04);
-  overflow: hidden;
-  margin-bottom: 34px;
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  overflow: visible;
+  margin-bottom: 28px;
 }
 
-/* CAROUSEL TABS HEADER */
+/* QUICK DEAL CATEGORY TABS: FLOATING PILLS */
 .deal-quick-tabs {
   display: flex;
   align-items: center;
-  gap: 8px;
-  padding: 12px 24px;
-  background: #f8fafc;
-  border-bottom: 1px solid var(--border-light);
+  justify-content: flex-start;
+  gap: 10px;
+  padding: 0 0 24px 0;
+  background: transparent;
+  border-bottom: none;
   overflow-x: auto;
 }
 
@@ -492,30 +444,33 @@ header {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  font-size: 12.5px;
+  font-size: 13px;
   font-weight: 700;
-  color: var(--text-muted);
-  background: transparent;
-  border: none;
-  padding: 7px 16px;
-  border-radius: 8px;
+  color: #475569;
+  background: #f1f5f9;
+  border: 1px solid #e2e8f0;
+  padding: 8px 20px;
+  border-radius: 999px;
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: all 0.22s ease;
   white-space: nowrap;
 }
 
 .deal-quick-tab:hover {
-  color: var(--text-heading);
-  background: rgba(15, 23, 42, 0.05);
+  color: #0f172a;
+  background: #e2e8f0;
+  transform: translateY(-1px);
 }
 
 .deal-quick-tab.active {
   color: #ffffff;
-  background: #0f172a;
-  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.18);
+  background: #2563eb;
+  border-color: #2563eb;
+  box-shadow: 0 4px 14px rgba(37, 99, 235, 0.28);
+  transform: translateY(-1px);
 }
 
-/* CAROUSEL SLIDES STAGE */
+/* OPEN SLIDES STAGE */
 .deal-slides-track {
   position: relative;
   min-height: 420px;
@@ -527,15 +482,15 @@ header {
   left: 0;
   width: 100%;
   height: 100%;
-  padding: 40px 48px;
+  padding: 10px 0 20px;
   display: grid;
-  grid-template-columns: 1.2fr 0.8fr;
+  grid-template-columns: 1.18fr 0.82fr;
   align-items: center;
-  gap: 40px;
+  gap: 48px;
   opacity: 0;
   visibility: hidden;
   transition: opacity 0.4s ease, transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.4s;
-  transform: translateX(16px);
+  transform: translateX(18px);
 }
 
 .deal-slide.active {
@@ -545,7 +500,7 @@ header {
   transform: translateX(0);
 }
 
-/* LEFT COLUMN: AMAZON-STYLE PROMO COPY */
+/* LEFT COLUMN: PROMO COPY & REFINED HEADLINE COLOR */
 .deal-slide-content {
   display: flex;
   flex-direction: column;
@@ -556,73 +511,89 @@ header {
   display: flex;
   align-items: center;
   gap: 10px;
-  margin-bottom: 14px;
+  margin-bottom: 16px;
   flex-wrap: wrap;
 }
 
-.amazon-deal-tag {
-  background: #cc0c39;
-  color: #ffffff;
+.deal-pill-accent {
   font-size: 11.5px;
   font-weight: 800;
   letter-spacing: 0.8px;
-  padding: 4px 10px;
-  border-radius: 4px;
+  padding: 4px 12px;
+  border-radius: 6px;
   text-transform: uppercase;
 }
 
 .deal-status-pill {
-  background: #eff6ff;
-  border: 1px solid #bfdbfe;
-  color: var(--blue);
-  font-size: 11px;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  color: #475569;
+  font-size: 11.5px;
   font-weight: 700;
-  padding: 3px 10px;
+  padding: 4px 12px;
   border-radius: 999px;
-  letter-spacing: 0.5px;
+  letter-spacing: 0.3px;
 }
 
 .deal-heading-label {
   font-size: 12px;
   font-weight: 800;
-  letter-spacing: 1.4px;
-  color: var(--text-muted);
+  letter-spacing: 1.6px;
+  color: #64748b;
   text-transform: uppercase;
-  margin-bottom: 6px;
+  margin-bottom: 8px;
 }
 
 .deal-title {
-  font-size: 32px;
+  font-size: 36px;
   font-weight: 900;
-  color: var(--text-heading);
-  line-height: 1.18;
-  margin-bottom: 12px;
+  color: #0f172a;
+  line-height: 1.16;
+  margin-bottom: 14px;
   letter-spacing: -0.8px;
 }
 
+/* REFINED COLOR GRADIENTS FOR OFFER HIGHLIGHTS */
 .deal-highlight-text {
   display: block;
-  font-size: 38px;
+  font-size: 42px;
   font-weight: 950;
-  color: #cc0c39;
   letter-spacing: -0.5px;
-  margin-top: 4px;
+  margin-top: 6px;
+}
+
+.highlight-blue {
+  background: linear-gradient(135deg, #1d4ed8 0%, #2563eb 50%, #0284c7 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.highlight-amber {
+  background: linear-gradient(135deg, #b45309 0%, #d97706 60%, #f59e0b 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.highlight-green {
+  background: linear-gradient(135deg, #047857 0%, #059669 60%, #10b981 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .deal-description {
-  font-size: 15px;
-  line-height: 1.6;
-  color: var(--text-muted);
-  margin-bottom: 22px;
-  max-width: 560px;
+  font-size: 15.5px;
+  line-height: 1.65;
+  color: #475569;
+  margin-bottom: 24px;
+  max-width: 580px;
 }
 
-/* TIMER & STOCK CLAIMED PROGRESS BAR (AMAZON URGENCY) */
+/* TIMER & STOCK CLAIMED PROGRESS BAR (REFINED BLUE/SLATE PALETTE) */
 .deal-urgency-row {
   display: flex;
   align-items: center;
-  gap: 24px;
-  margin-bottom: 26px;
+  gap: 22px;
+  margin-bottom: 28px;
   flex-wrap: wrap;
 }
 
@@ -630,28 +601,28 @@ header {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  background: #fff1f2;
-  border: 1px solid #fecdd3;
-  color: #9f1239;
+  background: #eff6ff;
+  border: 1px solid #bfdbfe;
+  color: #1e40af;
   font-size: 12.5px;
   font-weight: 700;
-  padding: 6px 14px;
+  padding: 7px 16px;
   border-radius: 8px;
 }
 
 .deal-timer-digits {
   font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-  font-size: 13.5px;
+  font-size: 14px;
   font-weight: 800;
   letter-spacing: 1px;
-  color: #be123c;
+  color: #1d4ed8;
 }
 
 .deal-claim-wrap {
   display: flex;
   align-items: center;
-  gap: 10px;
-  min-width: 200px;
+  gap: 12px;
+  min-width: 220px;
 }
 
 .deal-progress-track {
@@ -665,19 +636,19 @@ header {
 
 .deal-progress-bar {
   height: 100%;
-  background: linear-gradient(90deg, #cc0c39 0%, #e11d48 100%);
+  background: linear-gradient(90deg, #2563eb 0%, #38bdf8 100%);
   border-radius: 999px;
   transition: width 0.8s ease;
 }
 
 .deal-claim-label {
-  font-size: 12px;
+  font-size: 12.5px;
   font-weight: 700;
-  color: var(--text-heading);
+  color: #0f172a;
   white-space: nowrap;
 }
 
-/* DEAL ACTIONS */
+/* DEAL ACTION BUTTONS */
 .deal-actions-row {
   display: flex;
   align-items: center;
@@ -685,73 +656,74 @@ header {
   flex-wrap: wrap;
 }
 
-.btn-amazon-deal {
+.btn-deal-primary {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  background: #cc0c39;
+  background: #2563eb;
   color: #ffffff;
-  font-size: 14px;
+  font-size: 14.5px;
   font-weight: 800;
   letter-spacing: 0.2px;
-  padding: 13px 26px;
+  padding: 13px 28px;
   border-radius: 12px;
   text-decoration: none;
   transition: all 0.2s ease;
-  box-shadow: 0 6px 20px rgba(204, 12, 57, 0.25);
+  box-shadow: 0 6px 22px rgba(37, 99, 235, 0.28);
 }
 
-.btn-amazon-deal:hover {
-  background: #b00a30;
+.btn-deal-primary:hover {
+  background: #1d4ed8;
   transform: translateY(-2px);
-  box-shadow: 0 10px 24px rgba(204, 12, 57, 0.35);
+  box-shadow: 0 10px 28px rgba(37, 99, 235, 0.38);
 }
 
-.btn-amazon-secondary {
+.btn-deal-secondary {
   display: inline-flex;
   align-items: center;
   gap: 8px;
   background: #ffffff;
-  border: 1px solid var(--border-light);
-  color: var(--text-heading);
-  font-size: 14px;
+  border: 1px solid #cbd5e1;
+  color: #0f172a;
+  font-size: 14.5px;
   font-weight: 700;
-  padding: 13px 22px;
+  padding: 13px 24px;
   border-radius: 12px;
   text-decoration: none;
   transition: all 0.2s ease;
 }
 
-.btn-amazon-secondary:hover {
-  border-color: #0f172a;
+.btn-deal-secondary:hover {
+  border-color: #2563eb;
+  color: #2563eb;
   transform: translateY(-2px);
 }
 
-/* RIGHT COLUMN: STAGED HARDWARE VISUAL */
+/* RIGHT COLUMN: FLOATING HARDWARE VISUAL (NO ENCLOSING BOX) */
 .deal-stage-visual {
   position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 10px;
+  padding: 16px;
 }
 
 .deal-img-backdrop {
   position: relative;
   width: 100%;
-  max-width: 380px;
+  max-width: 420px;
   aspect-ratio: 4 / 3;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: radial-gradient(circle at center, rgba(37, 99, 235, 0.06) 0%, transparent 70%);
+  background: radial-gradient(circle at center, rgba(37, 99, 235, 0.08) 0%, transparent 70%);
 }
 
 .deal-primary-img {
-  max-width: 85%;
-  max-height: 270px;
+  max-width: 90%;
+  max-height: 290px;
   object-fit: contain;
-  filter: drop-shadow(0 16px 24px rgba(15, 23, 42, 0.12));
+  filter: drop-shadow(0 20px 28px rgba(15, 23, 42, 0.12));
   transition: transform 0.4s ease;
 }
 
@@ -761,56 +733,59 @@ header {
 
 .deal-floating-perk-badge {
   position: absolute;
-  bottom: 8px;
-  right: 8px;
+  bottom: 4px;
+  right: 4px;
   background: #ffffff;
-  border: 1px solid var(--border-light);
+  border: 1px solid #e2e8f0;
   border-radius: 10px;
-  padding: 7px 14px;
-  font-size: 11.5px;
+  padding: 8px 16px;
+  font-size: 12px;
   font-weight: 800;
   color: #0f172a;
-  box-shadow: 0 6px 18px rgba(15, 23, 42, 0.1);
+  box-shadow: 0 6px 20px rgba(15, 23, 42, 0.08);
 }
 
-/* CAROUSEL CONTROLS: ARROWS & PROGRESS */
-.carousel-nav-btn {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 42px;
-  height: 42px;
+/* CAROUSEL BOTTOM CONTROLS: ELEGANT AND NON-OVERLAPPING */
+.carousel-controls-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 18px;
+  border-top: 1px solid #f1f5f9;
+  margin-top: 10px;
+}
+
+.carousel-pills-nav {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.carousel-arrow-btn {
+  width: 38px;
+  height: 38px;
   border-radius: 50%;
   background: #ffffff;
-  border: 1px solid var(--border-light);
-  color: var(--text-heading);
+  border: 1px solid #cbd5e1;
+  color: #0f172a;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  z-index: 5;
-  box-shadow: 0 4px 14px rgba(15, 23, 42, 0.12);
   transition: all 0.2s ease;
 }
 
-.carousel-nav-btn:hover {
+.carousel-arrow-btn:hover {
   background: #0f172a;
   color: #ffffff;
   border-color: #0f172a;
-  transform: translateY(-50%) scale(1.06);
+  transform: scale(1.06);
 }
-
-.carousel-nav-btn.prev-btn { left: 16px; }
-.carousel-nav-btn.next-btn { right: 16px; }
 
 .carousel-dots-bar {
   display: flex;
   align-items: center;
-  justify-content: center;
   gap: 8px;
-  padding: 12px;
-  background: #f8fafc;
-  border-top: 1px solid var(--border-light);
 }
 
 .carousel-dot {
@@ -825,14 +800,14 @@ header {
 
 .carousel-dot.active {
   width: 28px;
-  background: #0f172a;
+  background: #2563eb;
 }
 
 /* ==========================================================================
-   AMAZON "TODAY'S LIGHTNING DEALS" 4-CARD SHOWCASE STRIP
+   TODAY'S LIGHTNING DEALS 4-CARD SHOWCASE (REFINED PALETTE)
    ========================================================================== */
 .lightning-deals-section {
-  margin-top: 12px;
+  margin-top: 16px;
 }
 
 .lightning-header-bar {
@@ -851,7 +826,7 @@ header {
 }
 
 .lightning-badge {
-  background: #cc0c39;
+  background: #2563eb;
   color: #ffffff;
   font-size: 11px;
   font-weight: 800;
@@ -885,7 +860,7 @@ header {
   text-decoration: underline;
 }
 
-/* 4-COLUMN AMAZON DEAL CARDS GRID */
+/* 4-COLUMN DEAL CARDS GRID */
 .lightning-grid-4 {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -909,8 +884,8 @@ header {
 
 .amazon-deal-tile:hover {
   transform: translateY(-4px);
-  border-color: #cbd5e1;
-  box-shadow: 0 12px 28px rgba(15, 23, 42, 0.08);
+  border-color: #2563eb;
+  box-shadow: 0 12px 28px rgba(37, 99, 235, 0.1);
 }
 
 .tile-img-stage {
@@ -944,16 +919,17 @@ header {
 }
 
 .tile-red-pill {
-  background: #cc0c39;
-  color: #ffffff;
+  background: #eff6ff;
+  border: 1px solid #bfdbfe;
+  color: #1e40af;
   font-size: 11px;
   font-weight: 800;
-  padding: 2px 7px;
-  border-radius: 3px;
+  padding: 2px 8px;
+  border-radius: 4px;
 }
 
 .tile-deal-label {
-  color: #cc0c39;
+  color: #2563eb;
   font-size: 11.5px;
   font-weight: 700;
 }
@@ -1005,7 +981,7 @@ header {
 
 .tile-progress-fill {
   height: 100%;
-  background: #cc0c39;
+  background: #2563eb;
   border-radius: 999px;
 }
 
@@ -1530,45 +1506,30 @@ footer {
   </header>
 
   <!-- ==========================================================================
-       AMAZON-STYLE PROMOTIONAL OFFER SHOWCASE & TODAY'S DEALS HUB
-       (HIGH-CONVERTING E-COMMERCE DEAL PRESENTATION ACROSS ALL 6 DEPARTMENTS)
+       OPEN ARCHITECTURAL HERO OFFER SHOWCASE & TODAY'S DEALS HUB
+       (BORDERLESS SEAMLESS HERO STAGE ACROSS ALL 6 DEPARTMENTS)
        ========================================================================== -->
 
-  <!-- 1. BANK & SEASONAL PROMO ANNOUNCEMENT RIBBON -->
-  <div class="promo-ticker-strip">
-    <div class="container promo-ticker-inner">
-      <div style="display: flex; align-items: center; gap: 10px;">
-        <span class="promo-tag-red">Limited Time Offer</span>
-        <span class="promo-text-lead">Mega Security Fest: Up to 55% Off Across All 6 Infrastructure Departments</span>
-      </div>
-      <div class="promo-ticker-perks">
-        <span><strong>HDFC SmartGateway:</strong> Flat 10% Instant Cash Discount | Code: <code>SYBERHDFC</code></span>
-        <span>Wholesale GST Invoicing Included</span>
-        <span>Priority 24-48h Dispatch</span>
-      </div>
-    </div>
-  </div>
-
-  <!-- 2. HERO DEALS CAROUSEL SECTION (AMAZON HERO BANNER STYLE) -->
+  <!-- HERO DEALS SECTION (NO BOX, SEAMLESS CANVAS) -->
   <section class="hero-deal-section">
     <div class="container">
       
-      <!-- CAROUSEL BOX -->
+      <!-- QUICK DEAL CATEGORY TABS: FLOATING PILLS -->
+      <div class="deal-quick-tabs">
+        <button type="button" class="deal-quick-tab active" data-slide="0">
+          <span>Perimeter Bundles (Buy 1 Get 2 Free)</span>
+        </button>
+        <button type="button" class="deal-quick-tab" data-slide="1">
+          <span>Smart VDP &amp; Access (Save &#8377;12,500)</span>
+        </button>
+        <button type="button" class="deal-quick-tab" data-slide="2">
+          <span>Copper &amp; Power Infrastructure (Flat 40% Off)</span>
+        </button>
+      </div>
+
+      <!-- OPEN CAROUSEL WRAPPER (NO ENCLOSING BOX) -->
       <div class="deal-carousel-wrapper">
         
-        <!-- QUICK DEAL CATEGORY TABS -->
-        <div class="deal-quick-tabs">
-          <button type="button" class="deal-quick-tab active" data-slide="0">
-            <span>Perimeter Bundles (Buy 1 Get 2 Free)</span>
-          </button>
-          <button type="button" class="deal-quick-tab" data-slide="1">
-            <span>Smart VDP &amp; Access (Save &#8377;12,500)</span>
-          </button>
-          <button type="button" class="deal-quick-tab" data-slide="2">
-            <span>Copper &amp; Power Infrastructure (Flat 40% Off)</span>
-          </button>
-        </div>
-
         <!-- SLIDES STAGE -->
         <div class="deal-slides-track">
           
@@ -1576,13 +1537,13 @@ footer {
           <div class="deal-slide active" data-index="0">
             <div class="deal-slide-content">
               <div class="deal-badge-row">
-                <span class="amazon-deal-tag">Limited Time Deal</span>
+                <span class="deal-pill-accent" style="background: #2563eb; color: #ffffff;">Limited Time Deal</span>
                 <span class="deal-status-pill">Tier-1 Commercial Surveillance</span>
               </div>
               <div class="deal-heading-label">Featured Clearance Special</div>
               <h1 class="deal-title">
                 Enterprise Perimeter 4K Bundle
-                <span class="deal-highlight-text">BUY 1 GET 2 FREE</span>
+                <span class="deal-highlight-text highlight-blue">BUY 1 GET 2 FREE</span>
               </h1>
               <p class="deal-description">
                 Comprehensive optical surveillance kit: multi-channel centralized NVR recording, high-velocity motorized PTZ motion tracking, and starlight ultra-HD night vision optics.
@@ -1605,10 +1566,10 @@ footer {
 
               <!-- Deal Actions -->
               <div class="deal-actions-row">
-                <a href="shop.html?deal=bundle" class="btn-amazon-deal">
+                <a href="shop.html?deal=bundle" class="btn-deal-primary">
                   <span>Claim Bundle Offer &rarr;</span>
                 </a>
-                <a href="#departments" class="btn-amazon-secondary">
+                <a href="#departments" class="btn-deal-secondary">
                   <span>Explore Departments &darr;</span>
                 </a>
               </div>
@@ -1628,13 +1589,13 @@ footer {
           <div class="deal-slide" data-index="1">
             <div class="deal-slide-content">
               <div class="deal-badge-row">
-                <span class="amazon-deal-tag">Deal of the Day</span>
+                <span class="deal-pill-accent" style="background: #d97706; color: #ffffff;">Deal of the Day</span>
                 <span class="deal-status-pill">Smart Entrance Architecture</span>
               </div>
               <div class="deal-heading-label">Villa &amp; Commercial Gate Special</div>
               <h2 class="deal-title">
                 Panopticon Pro 360 &amp; Smart VDP
-                <span class="deal-highlight-text">SAVE &#8377;12,500</span>
+                <span class="deal-highlight-text highlight-amber">SAVE &#8377;12,500</span>
               </h2>
               <p class="deal-description">
                 Autonomous access and visitor verification: 7-inch color touchscreen indoor station, full-duplex acoustic talkback, electronic 600lbs EM lock, and mobile app call diverting.
@@ -1657,10 +1618,10 @@ footer {
 
               <!-- Deal Actions -->
               <div class="deal-actions-row">
-                <a href="shop.html?cat=vdp" class="btn-amazon-deal">
+                <a href="shop.html?cat=vdp" class="btn-deal-primary">
                   <span>Shop VDP Deals &rarr;</span>
                 </a>
-                <a href="#departments" class="btn-amazon-secondary">
+                <a href="#departments" class="btn-deal-secondary">
                   <span>Explore Departments &darr;</span>
                 </a>
               </div>
@@ -1680,13 +1641,13 @@ footer {
           <div class="deal-slide" data-index="2">
             <div class="deal-slide-content">
               <div class="deal-badge-row">
-                <span class="amazon-deal-tag">Lightning Deal</span>
+                <span class="deal-pill-accent" style="background: #059669; color: #ffffff;">Lightning Deal</span>
                 <span class="deal-status-pill">Contractor Wholesale Supply</span>
               </div>
               <div class="deal-heading-label">Infrastructure Value Pack</div>
               <h2 class="deal-title">
                 Solid Copper CAT6 &amp; Regulated Power
-                <span class="deal-highlight-text">FLAT 40% OFF + FREE JUNCTION BOXES</span>
+                <span class="deal-highlight-text highlight-green">FLAT 40% OFF + FREE JUNCTION BOXES</span>
               </h2>
               <p class="deal-description">
                 100% pure solid bare copper CAT6 305m drums with centralized 12V 20A SMPS regulated power supply and heavy-duty IP66 weatherproof base boxes.
@@ -1709,10 +1670,10 @@ footer {
 
               <!-- Deal Actions -->
               <div class="deal-actions-row">
-                <a href="shop.html?cat=cables" class="btn-amazon-deal">
+                <a href="shop.html?cat=cables" class="btn-deal-primary">
                   <span>Claim Contractor Pack &rarr;</span>
                 </a>
-                <a href="#departments" class="btn-amazon-secondary">
+                <a href="#departments" class="btn-deal-secondary">
                   <span>Explore Departments &darr;</span>
                 </a>
               </div>
@@ -1730,24 +1691,26 @@ footer {
 
         </div>
 
-        <!-- CAROUSEL ARROWS -->
-        <button type="button" class="carousel-nav-btn prev-btn" aria-label="Previous Offer Slide">
-          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.4"><polyline points="15 18 9 12 15 6"></polyline></svg>
-        </button>
-        <button type="button" class="carousel-nav-btn next-btn" aria-label="Next Offer Slide">
-          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.4"><polyline points="9 18 15 12 9 6"></polyline></svg>
-        </button>
-
-        <!-- CAROUSEL DOTS -->
-        <div class="carousel-dots-bar">
-          <button type="button" class="carousel-dot active" data-slide="0" aria-label="Slide 1"></button>
-          <button type="button" class="carousel-dot" data-slide="1" aria-label="Slide 2"></button>
-          <button type="button" class="carousel-dot" data-slide="2" aria-label="Slide 3"></button>
+        <!-- CAROUSEL BOTTOM CONTROLS (NON-OVERLAPPING ELEGANT STRIP) -->
+        <div class="carousel-controls-bottom">
+          <div class="carousel-dots-bar">
+            <button type="button" class="carousel-dot active" data-slide="0" aria-label="Slide 1"></button>
+            <button type="button" class="carousel-dot" data-slide="1" aria-label="Slide 2"></button>
+            <button type="button" class="carousel-dot" data-slide="2" aria-label="Slide 3"></button>
+          </div>
+          <div class="carousel-pills-nav">
+            <button type="button" class="carousel-arrow-btn prev-btn" aria-label="Previous Offer Slide">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.4"><polyline points="15 18 9 12 15 6"></polyline></svg>
+            </button>
+            <button type="button" class="carousel-arrow-btn next-btn" aria-label="Next Offer Slide">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.4"><polyline points="9 18 15 12 9 6"></polyline></svg>
+            </button>
+          </div>
         </div>
 
       </div>
 
-      <!-- 3. AMAZON-STYLE "TODAY'S LIGHTNING DEALS" 4-CARD SHOWCASE -->
+      <!-- TODAY'S LIGHTNING DEALS 4-CARD SHOWCASE -->
       <div class="lightning-deals-section">
         <div class="lightning-header-bar">
           <div class="lightning-title-group">
@@ -1872,7 +1835,7 @@ footer {
         </div>
       </div>
 
-      <!-- 4. TRUST ASSURANCE STRIP -->
+      <!-- TRUST ASSURANCE STRIP -->
       <div class="hero-trust-bar" style="margin-top: 36px;">
         <div class="trust-item">
           <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
