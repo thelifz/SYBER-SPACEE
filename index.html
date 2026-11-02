@@ -407,123 +407,615 @@ header {
 }
 
 /* ==========================================================================
-   MINIMALIST HERO SECTION: CLEAN, ARCHITECTURAL, LUXURY STATEMENT
-   (NO SINGLE PRODUCT DISPLAY PINNED ON FRONT PAGE)
+   AMAZON-STYLE PROMOTIONAL OFFER SHOWCASE & HERO DEALS CAROUSEL
    ========================================================================== */
-.hero-minimal {
+.promo-ticker-strip {
+  background: #0f172a;
+  color: #f8fafc;
+  font-size: 12.5px;
+  font-weight: 600;
+  padding: 10px 0;
+  border-bottom: 1px solid #1e293b;
+}
+
+.promo-ticker-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.promo-tag-red {
+  background: #cc0c39;
+  color: #ffffff;
+  font-size: 10.5px;
+  font-weight: 800;
+  letter-spacing: 0.8px;
+  padding: 3px 8px;
+  border-radius: 4px;
+  text-transform: uppercase;
+}
+
+.promo-text-lead {
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.promo-ticker-perks {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  font-size: 12px;
+  color: #cbd5e1;
+}
+
+.promo-ticker-perks code {
+  background: rgba(255, 255, 255, 0.15);
+  padding: 2px 6px;
+  border-radius: 4px;
+  color: #38bdf8;
+  font-weight: 700;
+}
+
+/* HERO OFFER SHOWCASE SECTION */
+.hero-deal-section {
   position: relative;
-  background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+  background: linear-gradient(180deg, #f8fafc 0%, #ffffff 100%);
   border-bottom: 1px solid var(--border-light);
-  padding: 64px 0 54px;
+  padding: 34px 0 48px;
   overflow: hidden;
 }
 
-.hero-minimal-content {
-  text-align: center;
-  max-width: 880px;
-  margin: 0 auto;
+.deal-carousel-wrapper {
+  position: relative;
+  background: #ffffff;
+  border: 1px solid var(--border-light);
+  border-radius: 20px;
+  box-shadow: 0 12px 36px rgba(15, 23, 42, 0.08), 0 2px 6px rgba(15, 23, 42, 0.04);
+  overflow: hidden;
+  margin-bottom: 34px;
 }
 
-.hero-badge-pill {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 6px 18px;
-  background: #eff6ff;
-  border: 1px solid #bfdbfe;
-  border-radius: 999px;
-  font-size: 11px;
-  font-weight: 800;
-  letter-spacing: 1.4px;
-  color: var(--blue);
-  text-transform: uppercase;
-  margin-bottom: 20px;
-}
-
-.hero-badge-dot {
-  width: 7px;
-  height: 7px;
-  border-radius: 50%;
-  background: var(--blue);
-  box-shadow: 0 0 8px var(--blue);
-}
-
-.hero-minimal h1 {
-  font-size: 52px;
-  font-weight: 900;
-  line-height: 1.1;
-  letter-spacing: -1.4px;
-  color: var(--text-heading);
-  margin-bottom: 18px;
-}
-
-.hero-colored-subline {
-  display: block;
-  font-size: 26px;
-  font-weight: 800;
-  letter-spacing: 0.2px;
-  background: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  margin-top: 8px;
-}
-
-.hero-lead-text {
-  font-size: 16.5px;
-  line-height: 1.65;
-  color: var(--text-muted);
-  max-width: 720px;
-  margin: 0 auto 30px;
-}
-
-.hero-actions-row {
+/* CAROUSEL TABS HEADER */
+.deal-quick-tabs {
   display: flex;
   align-items: center;
+  gap: 8px;
+  padding: 12px 24px;
+  background: #f8fafc;
+  border-bottom: 1px solid var(--border-light);
+  overflow-x: auto;
+}
+
+.deal-quick-tab {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12.5px;
+  font-weight: 700;
+  color: var(--text-muted);
+  background: transparent;
+  border: none;
+  padding: 7px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.deal-quick-tab:hover {
+  color: var(--text-heading);
+  background: rgba(15, 23, 42, 0.05);
+}
+
+.deal-quick-tab.active {
+  color: #ffffff;
+  background: #0f172a;
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.18);
+}
+
+/* CAROUSEL SLIDES STAGE */
+.deal-slides-track {
+  position: relative;
+  min-height: 420px;
+}
+
+.deal-slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 40px 48px;
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  align-items: center;
+  gap: 40px;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.4s ease, transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.4s;
+  transform: translateX(16px);
+}
+
+.deal-slide.active {
+  position: relative;
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(0);
+}
+
+/* LEFT COLUMN: AMAZON-STYLE PROMO COPY */
+.deal-slide-content {
+  display: flex;
+  flex-direction: column;
   justify-content: center;
+}
+
+.deal-badge-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 14px;
+  flex-wrap: wrap;
+}
+
+.amazon-deal-tag {
+  background: #cc0c39;
+  color: #ffffff;
+  font-size: 11.5px;
+  font-weight: 800;
+  letter-spacing: 0.8px;
+  padding: 4px 10px;
+  border-radius: 4px;
+  text-transform: uppercase;
+}
+
+.deal-status-pill {
+  background: #eff6ff;
+  border: 1px solid #bfdbfe;
+  color: var(--blue);
+  font-size: 11px;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 999px;
+  letter-spacing: 0.5px;
+}
+
+.deal-heading-label {
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 1.4px;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+
+.deal-title {
+  font-size: 32px;
+  font-weight: 900;
+  color: var(--text-heading);
+  line-height: 1.18;
+  margin-bottom: 12px;
+  letter-spacing: -0.8px;
+}
+
+.deal-highlight-text {
+  display: block;
+  font-size: 38px;
+  font-weight: 950;
+  color: #cc0c39;
+  letter-spacing: -0.5px;
+  margin-top: 4px;
+}
+
+.deal-description {
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--text-muted);
+  margin-bottom: 22px;
+  max-width: 560px;
+}
+
+/* TIMER & STOCK CLAIMED PROGRESS BAR (AMAZON URGENCY) */
+.deal-urgency-row {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  margin-bottom: 26px;
+  flex-wrap: wrap;
+}
+
+.deal-timer-box {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #fff1f2;
+  border: 1px solid #fecdd3;
+  color: #9f1239;
+  font-size: 12.5px;
+  font-weight: 700;
+  padding: 6px 14px;
+  border-radius: 8px;
+}
+
+.deal-timer-digits {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 13.5px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  color: #be123c;
+}
+
+.deal-claim-wrap {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 200px;
+}
+
+.deal-progress-track {
+  flex: 1;
+  height: 8px;
+  background: #e2e8f0;
+  border-radius: 999px;
+  overflow: hidden;
+  position: relative;
+}
+
+.deal-progress-bar {
+  height: 100%;
+  background: linear-gradient(90deg, #cc0c39 0%, #e11d48 100%);
+  border-radius: 999px;
+  transition: width 0.8s ease;
+}
+
+.deal-claim-label {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--text-heading);
+  white-space: nowrap;
+}
+
+/* DEAL ACTIONS */
+.deal-actions-row {
+  display: flex;
+  align-items: center;
   gap: 14px;
   flex-wrap: wrap;
-  margin-bottom: 38px;
 }
 
-.btn-hero-primary {
+.btn-amazon-deal {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  background: var(--blue);
-  color: var(--white);
+  background: #cc0c39;
+  color: #ffffff;
   font-size: 14px;
-  font-weight: 700;
-  padding: 13px 28px;
+  font-weight: 800;
+  letter-spacing: 0.2px;
+  padding: 13px 26px;
   border-radius: 12px;
+  text-decoration: none;
   transition: all 0.2s ease;
-  box-shadow: 0 6px 20px rgba(37, 99, 235, 0.25);
+  box-shadow: 0 6px 20px rgba(204, 12, 57, 0.25);
 }
 
-.btn-hero-primary:hover {
-  background: var(--blue-hover);
+.btn-amazon-deal:hover {
+  background: #b00a30;
   transform: translateY(-2px);
-  box-shadow: 0 10px 28px rgba(37, 99, 235, 0.35);
+  box-shadow: 0 10px 24px rgba(204, 12, 57, 0.35);
 }
 
-.btn-hero-secondary {
+.btn-amazon-secondary {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  background: var(--white);
+  background: #ffffff;
   border: 1px solid var(--border-light);
   color: var(--text-heading);
   font-size: 14px;
   font-weight: 700;
-  padding: 13px 24px;
+  padding: 13px 22px;
   border-radius: 12px;
+  text-decoration: none;
   transition: all 0.2s ease;
-  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.04);
 }
 
-.btn-hero-secondary:hover {
-  border-color: var(--blue);
-  color: var(--blue);
+.btn-amazon-secondary:hover {
+  border-color: #0f172a;
   transform: translateY(-2px);
+}
+
+/* RIGHT COLUMN: STAGED HARDWARE VISUAL */
+.deal-stage-visual {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+}
+
+.deal-img-backdrop {
+  position: relative;
+  width: 100%;
+  max-width: 380px;
+  aspect-ratio: 4 / 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(circle at center, rgba(37, 99, 235, 0.06) 0%, transparent 70%);
+}
+
+.deal-primary-img {
+  max-width: 85%;
+  max-height: 270px;
+  object-fit: contain;
+  filter: drop-shadow(0 16px 24px rgba(15, 23, 42, 0.12));
+  transition: transform 0.4s ease;
+}
+
+.deal-slide.active:hover .deal-primary-img {
+  transform: scale(1.04) translateY(-4px);
+}
+
+.deal-floating-perk-badge {
+  position: absolute;
+  bottom: 8px;
+  right: 8px;
+  background: #ffffff;
+  border: 1px solid var(--border-light);
+  border-radius: 10px;
+  padding: 7px 14px;
+  font-size: 11.5px;
+  font-weight: 800;
+  color: #0f172a;
+  box-shadow: 0 6px 18px rgba(15, 23, 42, 0.1);
+}
+
+/* CAROUSEL CONTROLS: ARROWS & PROGRESS */
+.carousel-nav-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: #ffffff;
+  border: 1px solid var(--border-light);
+  color: var(--text-heading);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 5;
+  box-shadow: 0 4px 14px rgba(15, 23, 42, 0.12);
+  transition: all 0.2s ease;
+}
+
+.carousel-nav-btn:hover {
+  background: #0f172a;
+  color: #ffffff;
+  border-color: #0f172a;
+  transform: translateY(-50%) scale(1.06);
+}
+
+.carousel-nav-btn.prev-btn { left: 16px; }
+.carousel-nav-btn.next-btn { right: 16px; }
+
+.carousel-dots-bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px;
+  background: #f8fafc;
+  border-top: 1px solid var(--border-light);
+}
+
+.carousel-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  background: #cbd5e1;
+  border: none;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.carousel-dot.active {
+  width: 28px;
+  background: #0f172a;
+}
+
+/* ==========================================================================
+   AMAZON "TODAY'S LIGHTNING DEALS" 4-CARD SHOWCASE STRIP
+   ========================================================================== */
+.lightning-deals-section {
+  margin-top: 12px;
+}
+
+.lightning-header-bar {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.lightning-title-group {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.lightning-badge {
+  background: #cc0c39;
+  color: #ffffff;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.8px;
+  padding: 4px 10px;
+  border-radius: 4px;
+  text-transform: uppercase;
+}
+
+.lightning-heading {
+  font-size: 24px;
+  font-weight: 900;
+  letter-spacing: -0.4px;
+  color: var(--text-heading);
+  margin: 0;
+}
+
+.lightning-view-all {
+  font-size: 13.5px;
+  font-weight: 700;
+  color: var(--blue);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  transition: all 0.2s ease;
+}
+
+.lightning-view-all:hover {
+  color: var(--blue-hover);
+  text-decoration: underline;
+}
+
+/* 4-COLUMN AMAZON DEAL CARDS GRID */
+.lightning-grid-4 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.amazon-deal-tile {
+  background: #ffffff;
+  border: 1px solid var(--border-light);
+  border-radius: 14px;
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-decoration: none;
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.04);
+  transition: all 0.25s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.amazon-deal-tile:hover {
+  transform: translateY(-4px);
+  border-color: #cbd5e1;
+  box-shadow: 0 12px 28px rgba(15, 23, 42, 0.08);
+}
+
+.tile-img-stage {
+  width: 100%;
+  aspect-ratio: 1;
+  background: #f8fafc;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  margin-bottom: 14px;
+}
+
+.tile-img-stage img {
+  max-width: 85%;
+  max-height: 125px;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+}
+
+.amazon-deal-tile:hover .tile-img-stage img {
+  transform: scale(1.06);
+}
+
+.tile-badge-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.tile-red-pill {
+  background: #cc0c39;
+  color: #ffffff;
+  font-size: 11px;
+  font-weight: 800;
+  padding: 2px 7px;
+  border-radius: 3px;
+}
+
+.tile-deal-label {
+  color: #cc0c39;
+  font-size: 11.5px;
+  font-weight: 700;
+}
+
+.tile-price-row {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  margin-bottom: 6px;
+}
+
+.tile-deal-price {
+  font-size: 20px;
+  font-weight: 900;
+  color: var(--text-heading);
+}
+
+.tile-strike-mrp {
+  font-size: 12.5px;
+  color: var(--text-muted);
+  text-decoration: line-through;
+}
+
+.tile-title {
+  font-size: 13.5px;
+  font-weight: 700;
+  color: var(--text-heading);
+  line-height: 1.35;
+  margin-bottom: 12px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.tile-progress-box {
+  margin-top: auto;
+  padding-top: 10px;
+  border-top: 1px solid #f1f5f9;
+}
+
+.tile-progress-track {
+  height: 5px;
+  background: #e2e8f0;
+  border-radius: 999px;
+  overflow: hidden;
+  margin-bottom: 4px;
+}
+
+.tile-progress-fill {
+  height: 100%;
+  background: #cc0c39;
+  border-radius: 999px;
+}
+
+.tile-meta-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 11px;
+  color: var(--text-muted);
+  font-weight: 600;
 }
 
 /* MINIMALIST TRUST STRIP */
@@ -881,6 +1373,21 @@ footer {
 
 /* RESPONSIVE DESIGN */
 @media (max-width: 1080px) {
+  .deal-slide {
+    grid-template-columns: 1fr;
+    gap: 24px;
+    padding: 30px 24px;
+  }
+  .deal-stage-visual {
+    order: -1;
+  }
+  .deal-img-backdrop {
+    max-width: 280px;
+  }
+  .lightning-grid-4 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
   .categories-grid-6 {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -900,6 +1407,19 @@ footer {
 }
 
 @media (max-width: 768px) {
+  .lightning-grid-4 {
+    grid-template-columns: 1fr;
+  }
+  .deal-title {
+    font-size: 24px;
+  }
+  .deal-highlight-text {
+    font-size: 28px;
+  }
+  .promo-ticker-perks {
+    display: none;
+  }
+
   .categories-grid-6,
   .brands-grid-clean,
   .assurance-grid {
@@ -1010,36 +1530,350 @@ footer {
   </header>
 
   <!-- ==========================================================================
-       HERO SECTION: SIMPLE, MINIMALIST & PROFESSIONAL
-       (STRICTLY NO PRODUCT DISPLAY ON FRONT PAGE)
+       AMAZON-STYLE PROMOTIONAL OFFER SHOWCASE & TODAY'S DEALS HUB
+       (HIGH-CONVERTING E-COMMERCE DEAL PRESENTATION ACROSS ALL 6 DEPARTMENTS)
        ========================================================================== -->
-  <section class="hero-minimal">
-    <div class="container hero-minimal-content">
-      <div class="hero-badge-pill">
-        <span class="hero-badge-dot"></span>
-        <span>Commercial &amp; Residential Security Ecosystem</span>
+
+  <!-- 1. BANK & SEASONAL PROMO ANNOUNCEMENT RIBBON -->
+  <div class="promo-ticker-strip">
+    <div class="container promo-ticker-inner">
+      <div style="display: flex; align-items: center; gap: 10px;">
+        <span class="promo-tag-red">Limited Time Offer</span>
+        <span class="promo-text-lead">Mega Security Fest: Up to 55% Off Across All 6 Infrastructure Departments</span>
+      </div>
+      <div class="promo-ticker-perks">
+        <span><strong>HDFC SmartGateway:</strong> Flat 10% Instant Cash Discount | Code: <code>SYBERHDFC</code></span>
+        <span>Wholesale GST Invoicing Included</span>
+        <span>Priority 24-48h Dispatch</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2. HERO DEALS CAROUSEL SECTION (AMAZON HERO BANNER STYLE) -->
+  <section class="hero-deal-section">
+    <div class="container">
+      
+      <!-- CAROUSEL BOX -->
+      <div class="deal-carousel-wrapper">
+        
+        <!-- QUICK DEAL CATEGORY TABS -->
+        <div class="deal-quick-tabs">
+          <button type="button" class="deal-quick-tab active" data-slide="0">
+            <span>Perimeter Bundles (Buy 1 Get 2 Free)</span>
+          </button>
+          <button type="button" class="deal-quick-tab" data-slide="1">
+            <span>Smart VDP &amp; Access (Save &#8377;12,500)</span>
+          </button>
+          <button type="button" class="deal-quick-tab" data-slide="2">
+            <span>Copper &amp; Power Infrastructure (Flat 40% Off)</span>
+          </button>
+        </div>
+
+        <!-- SLIDES STAGE -->
+        <div class="deal-slides-track">
+          
+          <!-- SLIDE 1: ENTERPRISE PERIMETER 4K BUNDLE -->
+          <div class="deal-slide active" data-index="0">
+            <div class="deal-slide-content">
+              <div class="deal-badge-row">
+                <span class="amazon-deal-tag">Limited Time Deal</span>
+                <span class="deal-status-pill">Tier-1 Commercial Surveillance</span>
+              </div>
+              <div class="deal-heading-label">Featured Clearance Special</div>
+              <h1 class="deal-title">
+                Enterprise Perimeter 4K Bundle
+                <span class="deal-highlight-text">BUY 1 GET 2 FREE</span>
+              </h1>
+              <p class="deal-description">
+                Comprehensive optical surveillance kit: multi-channel centralized NVR recording, high-velocity motorized PTZ motion tracking, and starlight ultra-HD night vision optics.
+              </p>
+              
+              <!-- Urgency: Timer + Stock Claimed Bar -->
+              <div class="deal-urgency-row">
+                <div class="deal-timer-box">
+                  <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.4"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                  <span>Deal Ends In:</span>
+                  <strong class="deal-timer-digits" id="heroDealTimer">04h : 28m : 15s</strong>
+                </div>
+                <div class="deal-claim-wrap">
+                  <div class="deal-progress-track">
+                    <div class="deal-progress-bar" style="width: 84%;"></div>
+                  </div>
+                  <span class="deal-claim-label">84% Claimed</span>
+                </div>
+              </div>
+
+              <!-- Deal Actions -->
+              <div class="deal-actions-row">
+                <a href="shop.html?deal=bundle" class="btn-amazon-deal">
+                  <span>Claim Bundle Offer &rarr;</span>
+                </a>
+                <a href="#departments" class="btn-amazon-secondary">
+                  <span>Explore Departments &darr;</span>
+                </a>
+              </div>
+            </div>
+
+            <div class="deal-stage-visual">
+              <div class="deal-img-backdrop">
+                <img src="assets/official_bestseller_cpplus_e38q_transparent.png" alt="Enterprise Perimeter CCTV Bundle" class="deal-primary-img">
+                <div class="deal-floating-perk-badge">
+                  <span>Save &#8377;8,499 + Free NVR Hub</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- SLIDE 2: PANOPTICON PRO 360 & VDP INTERCOM -->
+          <div class="deal-slide" data-index="1">
+            <div class="deal-slide-content">
+              <div class="deal-badge-row">
+                <span class="amazon-deal-tag">Deal of the Day</span>
+                <span class="deal-status-pill">Smart Entrance Architecture</span>
+              </div>
+              <div class="deal-heading-label">Villa &amp; Commercial Gate Special</div>
+              <h2 class="deal-title">
+                Panopticon Pro 360 &amp; Smart VDP
+                <span class="deal-highlight-text">SAVE &#8377;12,500</span>
+              </h2>
+              <p class="deal-description">
+                Autonomous access and visitor verification: 7-inch color touchscreen indoor station, full-duplex acoustic talkback, electronic 600lbs EM lock, and mobile app call diverting.
+              </p>
+              
+              <!-- Urgency: Timer + Stock Claimed Bar -->
+              <div class="deal-urgency-row">
+                <div class="deal-timer-box">
+                  <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.4"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                  <span>Deal Ends In:</span>
+                  <strong class="deal-timer-digits">06h : 45m : 30s</strong>
+                </div>
+                <div class="deal-claim-wrap">
+                  <div class="deal-progress-track">
+                    <div class="deal-progress-bar" style="width: 89%;"></div>
+                  </div>
+                  <span class="deal-claim-label">89% Claimed</span>
+                </div>
+              </div>
+
+              <!-- Deal Actions -->
+              <div class="deal-actions-row">
+                <a href="shop.html?cat=vdp" class="btn-amazon-deal">
+                  <span>Shop VDP Deals &rarr;</span>
+                </a>
+                <a href="#departments" class="btn-amazon-secondary">
+                  <span>Explore Departments &darr;</span>
+                </a>
+              </div>
+            </div>
+
+            <div class="deal-stage-visual">
+              <div class="deal-img-backdrop">
+                <img src="assets/trueview_doorbell_1.webp" alt="Video Door Phone Intercom Kit" class="deal-primary-img">
+                <div class="deal-floating-perk-badge">
+                  <span>Includes 2-Way Voice Intercom</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- SLIDE 3: SOLID COPPER CAT6 & REGULATED POWER -->
+          <div class="deal-slide" data-index="2">
+            <div class="deal-slide-content">
+              <div class="deal-badge-row">
+                <span class="amazon-deal-tag">Lightning Deal</span>
+                <span class="deal-status-pill">Contractor Wholesale Supply</span>
+              </div>
+              <div class="deal-heading-label">Infrastructure Value Pack</div>
+              <h2 class="deal-title">
+                Solid Copper CAT6 &amp; Regulated Power
+                <span class="deal-highlight-text">FLAT 40% OFF + FREE JUNCTION BOXES</span>
+              </h2>
+              <p class="deal-description">
+                100% pure solid bare copper CAT6 305m drums with centralized 12V 20A SMPS regulated power supply and heavy-duty IP66 weatherproof base boxes.
+              </p>
+              
+              <!-- Urgency: Timer + Stock Claimed Bar -->
+              <div class="deal-urgency-row">
+                <div class="deal-timer-box">
+                  <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.4"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                  <span>Deal Ends In:</span>
+                  <strong class="deal-timer-digits">03h : 14m : 50s</strong>
+                </div>
+                <div class="deal-claim-wrap">
+                  <div class="deal-progress-track">
+                    <div class="deal-progress-bar" style="width: 93%;"></div>
+                  </div>
+                  <span class="deal-claim-label">93% Claimed</span>
+                </div>
+              </div>
+
+              <!-- Deal Actions -->
+              <div class="deal-actions-row">
+                <a href="shop.html?cat=cables" class="btn-amazon-deal">
+                  <span>Claim Contractor Pack &rarr;</span>
+                </a>
+                <a href="#departments" class="btn-amazon-secondary">
+                  <span>Explore Departments &darr;</span>
+                </a>
+              </div>
+            </div>
+
+            <div class="deal-stage-visual">
+              <div class="deal-img-backdrop">
+                <img src="assets/acc_official_cat6_drum.png" alt="CAT6 Pure Copper Drum" class="deal-primary-img">
+                <div class="deal-floating-perk-badge">
+                  <span>100% Solid Bare Copper</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- CAROUSEL ARROWS -->
+        <button type="button" class="carousel-nav-btn prev-btn" aria-label="Previous Offer Slide">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.4"><polyline points="15 18 9 12 15 6"></polyline></svg>
+        </button>
+        <button type="button" class="carousel-nav-btn next-btn" aria-label="Next Offer Slide">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.4"><polyline points="9 18 15 12 9 6"></polyline></svg>
+        </button>
+
+        <!-- CAROUSEL DOTS -->
+        <div class="carousel-dots-bar">
+          <button type="button" class="carousel-dot active" data-slide="0" aria-label="Slide 1"></button>
+          <button type="button" class="carousel-dot" data-slide="1" aria-label="Slide 2"></button>
+          <button type="button" class="carousel-dot" data-slide="2" aria-label="Slide 3"></button>
+        </div>
+
       </div>
 
-      <h1>
-        Next-Gen Security Infrastructure
-        <span class="hero-colored-subline">CCTV // VDP // Intrusion Alarm // Access Control // Cables</span>
-      </h1>
+      <!-- 3. AMAZON-STYLE "TODAY'S LIGHTNING DEALS" 4-CARD SHOWCASE -->
+      <div class="lightning-deals-section">
+        <div class="lightning-header-bar">
+          <div class="lightning-title-group">
+            <span class="lightning-badge">Today's Deals</span>
+            <h2 class="lightning-heading">Limited-Time Category Specials</h2>
+          </div>
+          <a href="shop.html" class="lightning-view-all">
+            <span>See all deals in Shop &rarr;</span>
+          </a>
+        </div>
 
-      <p class="hero-lead-text">
-        Direct-procurement platform for precision optical surveillance, smart video door phones, autonomous intrusion detection, biometric access architecture, solid copper cables, and enterprise power subsystems.
-      </p>
+        <div class="lightning-grid-4">
+          
+          <!-- Deal 1: CCTV -->
+          <a href="shop.html?cat=cctv" class="amazon-deal-tile">
+            <div>
+              <div class="tile-img-stage">
+                <img src="assets/official_bestseller_cpplus_e38q_transparent.png" alt="CCTV Cameras" loading="lazy">
+              </div>
+              <div class="tile-badge-row">
+                <span class="tile-red-pill">-44% OFF</span>
+                <span class="tile-deal-label">Deal of the Day</span>
+              </div>
+              <div class="tile-price-row">
+                <span class="tile-deal-price">&#8377;1,850</span>
+                <span class="tile-strike-mrp">&#8377;3,299</span>
+              </div>
+              <div class="tile-title">CP PLUS 3MP Wi-Fi Smart PTZ Camera with 360 Coverage</div>
+            </div>
+            <div class="tile-progress-box">
+              <div class="tile-progress-track">
+                <div class="tile-progress-fill" style="width: 76%;"></div>
+              </div>
+              <div class="tile-meta-row">
+                <span>76% Claimed</span>
+                <span class="tile-short-timer">Ends in 04:22:15</span>
+              </div>
+            </div>
+          </a>
 
-      <div class="hero-actions-row">
-        <a href="#departments" class="btn-hero-primary">
-          <span>Browse All 6 Departments &darr;</span>
-        </a>
-        <a href="https://wa.me/917511180808?text=Hello%20Syber%20Space%2C%20I%20need%20a%20B2B%20wholesale%20quotation." target="_blank" rel="noopener noreferrer" class="btn-hero-secondary">
-          <span>Request B2B Quotation &rarr;</span>
-        </a>
+          <!-- Deal 2: VDP -->
+          <a href="shop.html?cat=vdp" class="amazon-deal-tile">
+            <div>
+              <div class="tile-img-stage">
+                <img src="assets/trueview_doorbell_1.webp" alt="Video Door Phone" loading="lazy">
+              </div>
+              <div class="tile-badge-row">
+                <span class="tile-red-pill">-38% OFF</span>
+                <span class="tile-deal-label">Limited Time Deal</span>
+              </div>
+              <div class="tile-price-row">
+                <span class="tile-deal-price">&#8377;2,450</span>
+                <span class="tile-strike-mrp">&#8377;3,950</span>
+              </div>
+              <div class="tile-title">Trueview Smart Wi-Fi 2-Way Audio Doorbell with Night Vision</div>
+            </div>
+            <div class="tile-progress-box">
+              <div class="tile-progress-track">
+                <div class="tile-progress-fill" style="width: 88%;"></div>
+              </div>
+              <div class="tile-meta-row">
+                <span>88% Claimed</span>
+                <span class="tile-short-timer">Ends in 06:14:05</span>
+              </div>
+            </div>
+          </a>
+
+          <!-- Deal 3: Intrusion Alarm -->
+          <a href="shop.html?cat=alarm" class="amazon-deal-tile">
+            <div>
+              <div class="tile-img-stage">
+                <img src="assets/product_features/cpplus_e21_feature_motion.jpg" alt="Intrusion Alarm System" loading="lazy">
+              </div>
+              <div class="tile-badge-row">
+                <span class="tile-red-pill">-42% OFF</span>
+                <span class="tile-deal-label">Lightning Deal</span>
+              </div>
+              <div class="tile-price-row">
+                <span class="tile-deal-price">&#8377;1,650</span>
+                <span class="tile-strike-mrp">&#8377;2,850</span>
+              </div>
+              <div class="tile-title">Syber 120dB Smart Siren + PIR Motion Intrusion Kit</div>
+            </div>
+            <div class="tile-progress-box">
+              <div class="tile-progress-track">
+                <div class="tile-progress-fill" style="width: 64%;"></div>
+              </div>
+              <div class="tile-meta-row">
+                <span>64% Claimed</span>
+                <span class="tile-short-timer">Ends in 03:45:50</span>
+              </div>
+            </div>
+          </a>
+
+          <!-- Deal 4: Cables & Infrastructure -->
+          <a href="shop.html?cat=cables" class="amazon-deal-tile">
+            <div>
+              <div class="tile-img-stage">
+                <img src="assets/acc_official_cat6_drum.png" alt="Cables & Hardware" loading="lazy">
+              </div>
+              <div class="tile-badge-row">
+                <span class="tile-red-pill">-35% OFF</span>
+                <span class="tile-deal-label">Contractor Deal</span>
+              </div>
+              <div class="tile-price-row">
+                <span class="tile-deal-price">&#8377;3,850</span>
+                <span class="tile-strike-mrp">&#8377;5,900</span>
+              </div>
+              <div class="tile-title">Pure Solid Bare Copper CAT6 305m Drum + RJ45 Pack</div>
+            </div>
+            <div class="tile-progress-box">
+              <div class="tile-progress-track">
+                <div class="tile-progress-fill" style="width: 92%;"></div>
+              </div>
+              <div class="tile-meta-row">
+                <span>92% Claimed</span>
+                <span class="tile-short-timer">Ends in 05:10:20</span>
+              </div>
+            </div>
+          </a>
+
+        </div>
       </div>
 
-      <!-- Trust Bar -->
-      <div class="hero-trust-bar">
+      <!-- 4. TRUST ASSURANCE STRIP -->
+      <div class="hero-trust-bar" style="margin-top: 36px;">
         <div class="trust-item">
           <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
           <span>Certified Tier-1 Hardware</span>
@@ -1057,6 +1891,7 @@ footer {
           <span>1-Year Official Manufacturer Warranty</span>
         </div>
       </div>
+
     </div>
   </section>
 
@@ -1417,6 +2252,124 @@ footer {
     });
 
     // Category cards are fully styled with native responsive CSS and micro-interactions
-  </script>
+  
+    // Amazon-Style Live Countdown Timer
+    function initDealTimers() {
+      function updateTimers() {
+        const now = new Date();
+        const midnight = new Date();
+        midnight.setHours(23, 59, 59, 999);
+        let diff = Math.floor((midnight - now) / 1000);
+        if (diff < 0) diff = 86400 + diff;
+
+        const h = String(Math.floor(diff / 3600)).padStart(2, '0');
+        const m = String(Math.floor((diff % 3600) / 60)).padStart(2, '0');
+        const s = String(diff % 60).padStart(2, '0');
+        const timeStr = `${h}h : ${m}m : ${s}s`;
+
+        const timerEls = document.querySelectorAll('.deal-timer-digits');
+        timerEls.forEach(el => {
+          el.textContent = timeStr;
+        });
+
+        const shortTimer = `${h}:${m}:${s}`;
+        const shortEls = document.querySelectorAll('.tile-short-timer');
+        shortEls.forEach(el => {
+          el.textContent = 'Ends in ' + shortTimer;
+        });
+      }
+
+      updateTimers();
+      setInterval(updateTimers, 1000);
+    }
+
+    // Amazon-Style Hero Deal Carousel
+    function initHeroOfferCarousel() {
+      const slides = document.querySelectorAll('.deal-slide');
+      const tabs = document.querySelectorAll('.deal-quick-tab');
+      const dots = document.querySelectorAll('.carousel-dot');
+      const prevBtn = document.querySelector('.prev-btn');
+      const nextBtn = document.querySelector('.next-btn');
+      const wrapper = document.querySelector('.deal-carousel-wrapper');
+
+      if (slides.length === 0) return;
+
+      let current = 0;
+      let timer = null;
+
+      function goToSlide(index) {
+        if (index < 0) index = slides.length - 1;
+        if (index >= slides.length) index = 0;
+        current = index;
+
+        slides.forEach((s, i) => {
+          s.classList.toggle('active', i === current);
+        });
+        tabs.forEach((t, i) => {
+          t.classList.toggle('active', i === current);
+        });
+        dots.forEach((d, i) => {
+          d.classList.toggle('active', i === current);
+        });
+      }
+
+      function startAutoplay() {
+        stopAutoplay();
+        timer = setInterval(() => {
+          goToSlide(current + 1);
+        }, 5500);
+      }
+
+      function stopAutoplay() {
+        if (timer) clearInterval(timer);
+      }
+
+      if (prevBtn) {
+        prevBtn.addEventListener('click', () => {
+          goToSlide(current - 1);
+          startAutoplay();
+        });
+      }
+
+      if (nextBtn) {
+        nextBtn.addEventListener('click', () => {
+          goToSlide(current + 1);
+          startAutoplay();
+        });
+      }
+
+      tabs.forEach((tab, i) => {
+        tab.addEventListener('click', () => {
+          goToSlide(i);
+          startAutoplay();
+        });
+      });
+
+      dots.forEach((dot, i) => {
+        dot.addEventListener('click', () => {
+          goToSlide(i);
+          startAutoplay();
+        });
+      });
+
+      if (wrapper) {
+        wrapper.addEventListener('mouseenter', stopAutoplay);
+        wrapper.addEventListener('mouseleave', startAutoplay);
+      }
+
+      startAutoplay();
+    }
+
+    // Initialize timers and carousel on DOMContentLoaded
+    document.addEventListener('DOMContentLoaded', () => {
+      initDealTimers();
+      initHeroOfferCarousel();
+    });
+    // In case DOM already loaded
+    if (document.readyState === 'interactive' || document.readyState === 'complete') {
+      initDealTimers();
+      initHeroOfferCarousel();
+    }
+</script>
 </body>
 </html>
