@@ -83,7 +83,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
         opacity: 0.5
     });
 
-    // Unified Hero Surveillance Stage Logic: Dual Videos + Offers at the exact same spot (Borderless)
+    // Unified Hero Surveillance Stage Logic: Dual Videos + Real Camera Offers (Clean Controls)
     const video1 = document.getElementById('hero-video-1');
     const video2 = document.getElementById('hero-video-2');
     const allStageSlides = document.querySelectorAll('.stage-slide');
@@ -93,14 +93,10 @@ document.addEventListener("DOMContentLoaded", (event) => {
     const stageCamName = document.getElementById('stage-cam-name');
     const stageModeTag = document.getElementById('stage-mode-tag');
 
-    const btnFeed1 = document.getElementById('btn-feed-1');
-    const btnFeed2 = document.getElementById('btn-feed-2');
-    const btnOffers = document.getElementById('btn-offers');
-
     // Index map:
     // 0 = Video 1 (CAM-01 [MAIN ENTRANCE])
-    // 1 = Video 2 (CAM-02 [PERIMETER OPTICS])
-    // 2..6 = Offers 1..5
+    // 1 = Video 2 (CAM-02 [COMMERCIAL AISLE 07])
+    // 2..6 = Real Camera Offers 1..5
     let currentSlideIdx = 0;
     let autoRotateTimer = null;
     let initialSequenceDone = false;
@@ -110,19 +106,15 @@ document.addEventListener("DOMContentLoaded", (event) => {
         allStageSlides.forEach(s => s.classList.remove('active'));
         allStageSlides[idx].classList.add('active');
 
-        // Reset pill buttons
-        [btnFeed1, btnFeed2, btnOffers].forEach(btn => btn && btn.classList.remove('active-pill'));
-
         // Pause both videos when not active
         if (video1 && idx !== 0) video1.pause();
         if (video2 && idx !== 1) video2.pause();
 
         if (idx === 0) {
-            // Video 1: CAM-01
+            // Video 1: CAM-01 [MAIN ENTRANCE]
             if (indicator) indicator.textContent = 'CAM-01';
             if (stageCamName) stageCamName.textContent = 'CAM-01 [MAIN ENTRANCE]';
             if (stageModeTag) stageModeTag.textContent = '[LIVE FEED]';
-            if (btnFeed1) btnFeed1.classList.add('active-pill');
 
             if (video1) {
                 video1.currentTime = 0;
@@ -133,11 +125,10 @@ document.addEventListener("DOMContentLoaded", (event) => {
             if (txt) gsap.fromTo(txt, { opacity: 0, y: 15 }, { opacity: 1, y: 0, duration: 0.5, ease: 'power2.out' });
 
         } else if (idx === 1) {
-            // Video 2: CAM-02
+            // Video 2: CAM-02 [COMMERCIAL AISLE 07]
             if (indicator) indicator.textContent = 'CAM-02';
-            if (stageCamName) stageCamName.textContent = 'CAM-02 [PERIMETER PATROL]';
+            if (stageCamName) stageCamName.textContent = 'CAM-02 [COMMERCIAL AISLE 07]';
             if (stageModeTag) stageModeTag.textContent = '[LIVE FEED]';
-            if (btnFeed2) btnFeed2.classList.add('active-pill');
 
             if (video2) {
                 video2.currentTime = 0;
@@ -153,13 +144,20 @@ document.addEventListener("DOMContentLoaded", (event) => {
             if (indicator) indicator.textContent = `0${offerNumber} // 05`;
             if (stageCamName) stageCamName.textContent = 'SYBER SPACE // PROMOTIONAL PROTOCOL';
             if (stageModeTag) stageModeTag.textContent = `[OFFER 0${offerNumber}]`;
-            if (btnOffers) btnOffers.classList.add('active-pill');
 
             const content = allStageSlides[idx].querySelector('.slide-content');
+            const camVisual = allStageSlides[idx].querySelector('.offer-camera-visual');
+
             if (content) {
                 gsap.fromTo(content, 
-                    { opacity: 0, x: -35, skewX: 6 }, 
-                    { opacity: 1, x: 0, skewX: 0, duration: 0.45, ease: 'power2.out' }
+                    { opacity: 0, x: -30 }, 
+                    { opacity: 1, x: 0, duration: 0.45, ease: 'power2.out' }
+                );
+            }
+            if (camVisual) {
+                gsap.fromTo(camVisual, 
+                    { opacity: 0, scale: 0.9, y: 10 }, 
+                    { opacity: 1, scale: 1, y: 0, duration: 0.55, ease: 'back.out(1.5)' }
                 );
             }
         }
@@ -176,25 +174,31 @@ document.addEventListener("DOMContentLoaded", (event) => {
         }, 4500);
     }
 
-    // Natural sequence: Video 1 plays -> Video 2 plays -> Offers appear at exact same spot
+    // Natural sequence: Video 1 (5.8s) -> Video 2 (5.8s) -> Offers appear at exact same spot
     function runInitialSequence() {
         if (initialSequenceDone) return;
 
-        // When Video 1 ends (or after 5.8s) -> move to Video 2
+        // When Video 1 ends -> move to Video 2
         let video1Done = false;
         function toVideo2() {
             if (video1Done) return;
             video1Done = true;
             activateSlide(1);
 
-            // When Video 2 plays for 6.5s -> move to Offer 1
-            setTimeout(() => {
-                if (currentSlideIdx === 1) {
-                    initialSequenceDone = true;
-                    activateSlide(2);
-                    startOffersAutoRotate();
-                }
-            }, 6500);
+            // When Video 2 ends -> move to Offer 1
+            let video2Done = false;
+            function toOffers() {
+                if (video2Done) return;
+                video2Done = true;
+                initialSequenceDone = true;
+                activateSlide(2);
+                startOffersAutoRotate();
+            }
+
+            if (video2) {
+                video2.addEventListener('ended', toOffers);
+            }
+            setTimeout(toOffers, 6000);
         }
 
         if (video1) {
@@ -205,7 +209,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
 
     runInitialSequence();
 
-    // User Controls
+    // User Controls: [ PREV ] and [ NEXT ] only
     if (nextBtn) {
         nextBtn.addEventListener('click', () => {
             clearInterval(autoRotateTimer);
@@ -221,28 +225,6 @@ document.addEventListener("DOMContentLoaded", (event) => {
             let prev = (currentSlideIdx - 1 + allStageSlides.length) % allStageSlides.length;
             activateSlide(prev);
             if (prev >= 2) startOffersAutoRotate();
-        });
-    }
-
-    if (btnFeed1) {
-        btnFeed1.addEventListener('click', () => {
-            clearInterval(autoRotateTimer);
-            activateSlide(0);
-        });
-    }
-
-    if (btnFeed2) {
-        btnFeed2.addEventListener('click', () => {
-            clearInterval(autoRotateTimer);
-            activateSlide(1);
-        });
-    }
-
-    if (btnOffers) {
-        btnOffers.addEventListener('click', () => {
-            clearInterval(autoRotateTimer);
-            activateSlide(2);
-            startOffersAutoRotate();
         });
     }
 
