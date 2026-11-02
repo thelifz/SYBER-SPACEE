@@ -37,7 +37,6 @@
             <div class="hero-video-wrapper">
                 <video autoplay loop muted playsinline class="hero-video">
                     <source src="cctv_parking_video.mp4" type="video/mp4">
-                    <source src="gemini_generated_video_28a4423e.mp4" type="video/mp4">
                 </video>
                 <div class="video-ui">
                     <span class="cam-id">CAM-01 [MAIN ENTRANCE]</span>
@@ -363,18 +362,97 @@
                 <p>Intelligent AI-driven spatial recognition identifies perimeter activity with sub-second latency. Continuous perimeter coverage ensures physical assets remain secure 24/7.</p>
             </div>
             <div class="feature-cam-container">
-                 <div class="security-feed">
-                     <video autoplay loop muted playsinline>
-                        <source src="gemini_generated_video_28a4423e.mp4" type="video/mp4">
-                    </video>
-                    <div class="target-box">
-                        <div class="corner tl"></div>
-                        <div class="corner tr"></div>
-                        <div class="corner bl"></div>
-                        <div class="corner br"></div>
-                        <div class="target-label">SUBJECT IDENTIFIED</div>
-                    </div>
+                 <div class="security-feed" id="surveillance-scanner">
+                     <div class="scanner-screen">
+                         <!-- Surveillance Camera Imagery Backdrop -->
+                         <img src="assets/cinematic_env_commercial.jpg" alt="Commercial Perimeter Surveillance Feed" class="scanner-bg">
+                         <div class="scanner-scanlines"></div>
+                         <div class="scanner-vignette"></div>
+
+                         <!-- Telemetry Header -->
+                         <div class="scanner-header">
+                             <div class="feed-id">
+                                 <span class="live-dot"></span>
+                                 <span>CAM-04 // COMMERCIAL PERIMETER [GATE 7]</span>
+                             </div>
+                             <div class="feed-specs">
+                                 <span class="rec-badge">[REC]</span>
+                                 <span id="scanner-fps">60.0 FPS</span>
+                                 <span>4K OPTICAL AI</span>
+                             </div>
+                         </div>
+
+                         <!-- SVG Vector Radar & Crosshair HUD -->
+                         <svg class="scanner-svg-hud" viewBox="0 0 600 400" preserveAspectRatio="none">
+                             <!-- Target range rings -->
+                             <circle cx="300" cy="200" r="70" class="hud-ring r1" />
+                             <circle cx="300" cy="200" r="130" class="hud-ring r2" />
+                             <circle cx="300" cy="200" r="185" class="hud-ring r3" />
+                             <!-- Crosshair axes -->
+                             <line x1="300" y1="20" x2="300" y2="380" class="hud-axis" />
+                             <line x1="20" y1="200" x2="580" y2="200" class="hud-axis" />
+                             <!-- Dynamic laser tracker line from origin to target -->
+                             <line x1="30" y1="30" x2="260" y2="180" class="hud-tracker-line" id="hud-tracker-line" />
+                         </svg>
+
+                         <!-- Animated Laser Scanning Beam -->
+                         <div class="hud-laser-beam" id="hud-laser-beam"></div>
+
+                         <!-- AI Target Acquisition 1 (Primary Tracking Target) -->
+                         <div class="target-box target-alpha" id="target-alpha">
+                             <div class="corner tl"></div>
+                             <div class="corner tr"></div>
+                             <div class="corner bl"></div>
+                             <div class="corner br"></div>
+                             <div class="target-center-cross"></div>
+                             <div class="target-label">
+                                 <span class="status-tag">LOCKED</span>
+                                 <span class="target-id">OBJ-01 [VEHICLE]</span>
+                                 <span class="target-stat" id="target-alpha-conf">99.4%</span>
+                             </div>
+                         </div>
+
+                         <!-- AI Target Acquisition 2 (Secondary Perimeter Target) -->
+                         <div class="target-box target-beta" id="target-beta">
+                             <div class="corner tl"></div>
+                             <div class="corner tr"></div>
+                             <div class="corner bl"></div>
+                             <div class="corner br"></div>
+                             <div class="target-label">
+                                 <span class="status-tag tag-green">PATROL</span>
+                                 <span class="target-id">PERIMETER B [ACTIVE]</span>
+                             </div>
+                         </div>
+
+                         <!-- Interactive Mouse Reticle -->
+                         <div class="interactive-reticle" id="interactive-reticle">
+                             <div class="reticle-circle"></div>
+                             <div class="reticle-crosshair-h"></div>
+                             <div class="reticle-crosshair-v"></div>
+                             <div class="reticle-tag" id="reticle-tag">INTERACTIVE AIM: ACTIVE</div>
+                         </div>
+
+                         <!-- Click Ripple Container -->
+                         <div class="scanner-clicks" id="scanner-clicks"></div>
+
+                         <!-- Telemetry Footer Bar -->
+                         <div class="scanner-footer">
+                             <div class="telemetry-item">
+                                 <span class="label">COORDS:</span>
+                                 <span class="val" id="telemetry-coords">X: 300.0 | Y: 200.0</span>
+                             </div>
+                             <div class="telemetry-item">
+                                 <span class="label">AZIMUTH:</span>
+                                 <span class="val" id="telemetry-az">042.8&deg;</span>
+                             </div>
+                             <div class="telemetry-item">
+                                 <span class="label">STATUS:</span>
+                                 <span class="val alert-green">TARGET ACQUIRED</span>
+                             </div>
+                         </div>
+                     </div>
                  </div>
+            </div>
             </div>
         </section>
         

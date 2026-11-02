@@ -52,18 +52,185 @@ document.addEventListener("DOMContentLoaded", (event) => {
         ease: 'back.out(1.7)'
     });
 
-    // Feature Section Parallax / Pinning
+    // Feature Section Parallax & GSAP Surveillance Scanner HUD
     const featureSection = document.querySelector('.feature-section');
-    gsap.from('.feature-cam-container', {
-        scrollTrigger: {
+    const targetAlpha = document.getElementById('target-alpha');
+    const targetBeta = document.getElementById('target-beta');
+    const trackerLine = document.getElementById('hud-tracker-line');
+    const targetAlphaConf = document.getElementById('target-alpha-conf');
+    const laserBeam = document.getElementById('hud-laser-beam');
+    const scanner = document.getElementById('surveillance-scanner');
+    const reticle = document.getElementById('interactive-reticle');
+    const telemetryCoords = document.getElementById('telemetry-coords');
+    const telemetryAz = document.getElementById('telemetry-az');
+    const scannerClicks = document.getElementById('scanner-clicks');
+
+    // 1. Target Alpha Dynamic Tracking Patrol Timeline
+    if (targetAlpha && trackerLine) {
+        const alphaTl = gsap.timeline({ repeat: -1, yoyo: true });
+        alphaTl.to(targetAlpha, { left: '38%', top: '46%', duration: 4, ease: 'sine.inOut' })
+               .to(targetAlpha, { left: '58%', top: '54%', duration: 5, ease: 'power1.inOut' })
+               .to(targetAlpha, { left: '26%', top: '60%', duration: 4.5, ease: 'sine.inOut' })
+               .to(targetAlpha, { left: '46%', top: '36%', duration: 4, ease: 'power2.inOut' });
+
+        // Update vector tracker line on GSAP ticker
+        gsap.ticker.add(() => {
+            if (!targetAlpha.isConnected) return;
+            const x = targetAlpha.offsetLeft + targetAlpha.offsetWidth / 2;
+            const y = targetAlpha.offsetTop + targetAlpha.offsetHeight / 2;
+            trackerLine.setAttribute('x2', x);
+            trackerLine.setAttribute('y2', y);
+        });
+
+        // Corner brackets pulse
+        gsap.to('#target-alpha .corner', {
+            scale: 1.25,
+            repeat: -1,
+            yoyo: true,
+            duration: 0.75,
+            stagger: 0.1,
+            ease: 'power1.inOut'
+        });
+
+        // Fluctuating AI confidence readout
+        const confValues = ['99.2%', '99.4%', '99.7%', '99.9%', '99.3%'];
+        let confIdx = 0;
+        setInterval(() => {
+            if (targetAlphaConf) {
+                confIdx = (confIdx + 1) % confValues.length;
+                targetAlphaConf.textContent = confValues[confIdx];
+            }
+        }, 1800);
+    }
+
+    // 2. Target Beta Secondary Patrol
+    if (targetBeta) {
+        gsap.to(targetBeta, {
+            left: '64%',
+            top: '26%',
+            repeat: -1,
+            yoyo: true,
+            duration: 5.5,
+            ease: 'sine.inOut'
+        });
+        gsap.to('#target-beta .corner', {
+            scale: 1.2,
+            repeat: -1,
+            yoyo: true,
+            duration: 1,
+            ease: 'power1.inOut'
+        });
+    }
+
+    // 3. Laser Beam Continuous Scanning
+    if (laserBeam) {
+        gsap.fromTo(laserBeam, 
+            { left: '2%', opacity: 0.9 }, 
+            { left: '98%', opacity: 0.35, repeat: -1, yoyo: true, duration: 3.2, ease: 'sine.inOut' }
+        );
+    }
+
+    // 4. Concentric HUD Radar Rings
+    gsap.to('.hud-ring.r1', { scale: 1.08, transformOrigin: '300px 200px', duration: 2, repeat: -1, yoyo: true, ease: 'sine.inOut' });
+    gsap.to('.hud-ring.r3', { scale: 1.04, transformOrigin: '300px 200px', duration: 2.8, repeat: -1, yoyo: true, ease: 'sine.inOut' });
+
+    // 5. Interactive Mouse Aiming Reticle & Telemetry Tracking
+    if (scanner && reticle) {
+        scanner.addEventListener('mousemove', (e) => {
+            const rect = scanner.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+
+            gsap.to(reticle, {
+                left: x,
+                top: y,
+                opacity: 1,
+                duration: 0.18,
+                ease: 'power2.out',
+                overwrite: 'auto'
+            });
+
+            if (telemetryCoords) {
+                telemetryCoords.textContent = `X: ${x.toFixed(1)} | Y: ${y.toFixed(1)}`;
+            }
+            if (telemetryAz) {
+                const angle = ((Math.atan2(y - rect.height / 2, x - rect.width / 2) * 180 / Math.PI + 360) % 360).toFixed(1);
+                telemetryAz.innerHTML = `${angle}&deg;`;
+            }
+        });
+
+        scanner.addEventListener('mouseleave', () => {
+            gsap.to(reticle, { opacity: 0, duration: 0.4 });
+            if (telemetryCoords) {
+                telemetryCoords.textContent = 'X: 300.0 | Y: 200.0';
+            }
+            if (telemetryAz) {
+                telemetryAz.innerHTML = '042.8&deg;';
+            }
+        });
+
+        scanner.addEventListener('click', (e) => {
+            const rect = scanner.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+
+            const pulse = document.createElement('div');
+            pulse.className = 'click-pulse-ring';
+            pulse.style.left = `${x}px`;
+            pulse.style.top = `${y}px`;
+            if (scannerClicks) scannerClicks.appendChild(pulse);
+
+            gsap.fromTo(pulse, 
+                { scale: 0.2, opacity: 1 }, 
+                { scale: 3.2, opacity: 0, duration: 0.65, ease: 'power2.out', onComplete: () => pulse.remove() }
+            );
+        });
+    }
+
+    // 6. ScrollTrigger Section Reveal
+    if (featureSection) {
+        ScrollTrigger.create({
             trigger: featureSection,
-            start: 'top center',
-            end: 'bottom center',
-            scrub: true
-        },
-        y: 100,
-        rotation: 2
-    });
+            start: 'top 75%',
+            onEnter: () => {
+                gsap.fromTo('.scanner-screen', 
+                    { scaleY: 0.05, opacity: 0, filter: 'brightness(3)' }, 
+                    { scaleY: 1, opacity: 1, filter: 'brightness(1)', duration: 0.65, ease: 'power3.out' }
+                );
+                gsap.from(['#target-alpha', '#target-beta'], {
+                    scale: 2.2,
+                    opacity: 0,
+                    stagger: 0.25,
+                    duration: 0.8,
+                    ease: 'back.out(2)'
+                });
+                gsap.from('.hud-ring, .hud-axis', {
+                    opacity: 0,
+                    scale: 0.8,
+                    transformOrigin: '300px 200px',
+                    duration: 0.9,
+                    stagger: 0.08,
+                    ease: 'power2.out'
+                });
+            },
+            once: true
+        });
+
+        gsap.fromTo('.feature-cam-container', 
+            { y: 60, rotateX: 6 }, 
+            {
+                scrollTrigger: {
+                    trigger: featureSection,
+                    start: 'top center',
+                    end: 'bottom center',
+                    scrub: 1.2
+                },
+                y: -40,
+                rotateX: -4,
+                ease: 'none'
+            }
+        );
+    }
 
     // Marquee Scroll direction
     let mm = gsap.matchMedia();
