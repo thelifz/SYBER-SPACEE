@@ -3,16 +3,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
     // GSAP Plugins
     gsap.registerPlugin(ScrollTrigger);
 
-    // Live Timecode update
-    const timecodeEl = document.getElementById('timecode');
-    setInterval(() => {
-        const now = new Date();
-        const hrs = String(now.getHours()).padStart(2, '0');
-        const mins = String(now.getMinutes()).padStart(2, '0');
-        const secs = String(now.getSeconds()).padStart(2, '0');
-        const ms = String(Math.floor(now.getMilliseconds() / 10)).padStart(2, '0');
-        timecodeEl.innerText = `${hrs}:${mins}:${secs}:${ms}`;
-    }, 40);
+    // Timecode removed per design update
 
     // GSAP Hero Animations
     gsap.from('.hero-video-wrapper', {
@@ -135,40 +126,48 @@ document.addEventListener("DOMContentLoaded", (event) => {
         startSlideshow();
     }
 
-    // Filtering Logic (Brand, Feature, Price)
+        // Filtering Logic (Brand, Feature, Price, Search)
     const brandCheckboxes = document.querySelectorAll('.brand-filter');
     const featureCheckboxes = document.querySelectorAll('.feature-filter');
     const priceSlider = document.getElementById('price-slider');
     const priceDisplay = document.getElementById('price-display');
     const productCards = document.querySelectorAll('.product-card');
+    const navSearchInput = document.getElementById('nav-search-input');
 
     function filterProducts() {
         const checkedBrands = Array.from(brandCheckboxes).filter(cb => cb.checked).map(cb => cb.value);
         const checkedFeatures = Array.from(featureCheckboxes).filter(cb => cb.checked).map(cb => cb.value);
         const maxPrice = parseFloat(priceSlider.value);
+        const searchTerm = (navSearchInput ? navSearchInput.value : '').toLowerCase().trim();
 
         // Update price label with comma formatting
-        priceDisplay.innerText = maxPrice.toLocaleString('en-IN');
+        if (priceDisplay) priceDisplay.innerText = maxPrice.toLocaleString('en-US');
 
         productCards.forEach(card => {
-            const cardBrand = card.getAttribute('data-brand');
-            const cardPrice = parseFloat(card.getAttribute('data-price'));
-            const cardFeaturesStr = card.getAttribute('data-features') || "";
+            const cardBrand = card.getAttribute('data-brand') || '';
+            const cardPrice = parseFloat(card.getAttribute('data-price') || 0);
+            const cardFeaturesStr = card.getAttribute('data-features') || '';
             const cardFeaturesArray = cardFeaturesStr.split(',');
+
+            const titleText = (card.querySelector('h3')?.innerText || '').toLowerCase();
+            const descText = (card.querySelector('p')?.innerText || '').toLowerCase();
 
             // Check Brand match
             const brandMatch = checkedBrands.length === 0 || checkedBrands.includes(cardBrand);
 
-            // Check Feature match (product must have ALL selected features)
+            // Check Feature match
             const featureMatch = checkedFeatures.every(feat => cardFeaturesArray.includes(feat));
 
             // Check Price match
             const priceMatch = cardPrice <= maxPrice;
 
-            if (brandMatch && featureMatch && priceMatch) {
+            // Check Search match
+            const searchMatch = !searchTerm || titleText.includes(searchTerm) || descText.includes(searchTerm) || cardBrand.toLowerCase().includes(searchTerm);
+
+            if (brandMatch && featureMatch && priceMatch && searchMatch) {
                 if (card.style.display === 'none' || card.style.display === '') {
                     card.style.display = 'flex';
-                    gsap.fromTo(card, {opacity: 0, scale: 0.9}, {opacity: 1, scale: 1, duration: 0.3});
+                    gsap.fromTo(card, {opacity: 0, scale: 0.95}, {opacity: 1, scale: 1, duration: 0.25});
                 }
             } else {
                 card.style.display = 'none';
@@ -178,10 +177,39 @@ document.addEventListener("DOMContentLoaded", (event) => {
         ScrollTrigger.refresh();
     }
 
+    window.triggerSearchScroll = function() {
+        filterProducts();
+        const target = document.getElementById('cameras');
+        if (target) target.scrollIntoView({ behavior: 'smooth' });
+    };
+
+    if (navSearchInput) {
+        navSearchInput.addEventListener('input', () => {
+            filterProducts();
+        });
+        navSearchInput.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter') {
+                e.preventDefault();
+                triggerSearchScroll();
+            }
+        });
+
+        // Check if query string has ?q=
+        const urlParams = new URLSearchParams(window.location.search);
+        const initialQuery = urlParams.get('q');
+        if (initialQuery) {
+            navSearchInput.value = initialQuery;
+            setTimeout(() => {
+                filterProducts();
+                triggerSearchScroll();
+            }, 300);
+        }
+    }
+
     // Add event listeners to all filters
     brandCheckboxes.forEach(cb => cb.addEventListener('change', filterProducts));
     featureCheckboxes.forEach(cb => cb.addEventListener('change', filterProducts));
-    priceSlider.addEventListener('input', filterProducts);
+    if (priceSlider) priceSlider.addEventListener('input', filterProducts);
 
     // Initial filter run
     filterProducts();
