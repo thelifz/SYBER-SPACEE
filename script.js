@@ -83,53 +83,125 @@ document.addEventListener("DOMContentLoaded", (event) => {
         opacity: 0.5
     });
 
-    // Offers Slideshow Logic
-    const slides = document.querySelectorAll('.slide');
+    // Unified Hero Surveillance Stage Logic (Video plays first -> Offers appear on the exact same spot)
+    const videoSlide = document.getElementById('slide-video');
+    const heroVideo = document.getElementById('hero-surveillance-video');
+    const offerSlides = document.querySelectorAll('.stage-slide.offer-slide');
+    const allStageSlides = document.querySelectorAll('.stage-slide');
     const prevBtn = document.getElementById('prev-slide');
     const nextBtn = document.getElementById('next-slide');
     const indicator = document.getElementById('slide-indicator');
-    let currentSlide = 0;
-    let slideInterval;
+    const btnReplayLive = document.getElementById('btn-replay-live');
+    const stageModeTag = document.getElementById('stage-mode-tag');
 
-    function updateSlide(index) {
-        slides.forEach(slide => slide.classList.remove('active'));
-        slides[index].classList.add('active');
-        indicator.innerText = `0${index + 1} // 0${slides.length}`;
-        
-        // Add a small GSAP glitch/fade effect on text
-        const content = slides[index].querySelector('.slide-content');
-        gsap.fromTo(content, 
-            { opacity: 0, x: -50, skewX: 10 }, 
-            { opacity: 1, x: 0, skewX: 0, duration: 0.5, ease: 'back.out(1.7)' }
-        );
+    let currentSlideIdx = 0; // 0 = video, 1..5 = offers
+    let slideshowTimer = null;
+    let videoHasEnded = false;
+
+    function activateSlide(idx) {
+        currentSlideIdx = idx;
+        allStageSlides.forEach(s => s.classList.remove('active'));
+        allStageSlides[idx].classList.add('active');
+
+        if (idx === 0) {
+            // Live Video Active
+            if (indicator) indicator.textContent = 'LIVE FEED';
+            if (stageModeTag) stageModeTag.textContent = '[LIVE FEED]';
+            if (btnReplayLive) btnReplayLive.classList.add('active-pill');
+
+            if (heroVideo) {
+                heroVideo.currentTime = 0;
+                heroVideo.play().catch(() => {});
+            }
+
+            const videoText = allStageSlides[0].querySelector('.hero-text-overlay');
+            if (videoText) {
+                gsap.fromTo(videoText, { opacity: 0, y: 15 }, { opacity: 1, y: 0, duration: 0.5, ease: 'power2.out' });
+            }
+        } else {
+            // Offer Slide Active (1..5 corresponds to offer 0..4)
+            const offerNum = idx; // 1 to 5
+            if (indicator) indicator.textContent = `0${offerNum} // 0${offerSlides.length}`;
+            if (stageModeTag) stageModeTag.textContent = `[OFFER PROTOCOL 0${offerNum}]`;
+            if (btnReplayLive) btnReplayLive.classList.remove('active-pill');
+
+            const content = allStageSlides[idx].querySelector('.slide-content');
+            if (content) {
+                gsap.fromTo(content, 
+                    { opacity: 0, x: -40, skewX: 8 }, 
+                    { opacity: 1, x: 0, skewX: 0, duration: 0.45, ease: 'power2.out' }
+                );
+            }
+        }
     }
 
-    function nextSlide() {
-        currentSlide = (currentSlide + 1) % slides.length;
-        updateSlide(currentSlide);
+    function advanceToNextOffer() {
+        // Rotate among offers (1 to 5)
+        let nextIdx = currentSlideIdx + 1;
+        if (nextIdx > offerSlides.length) {
+            nextIdx = 1; // loop back to first offer
+        }
+        activateSlide(nextIdx);
     }
 
-    function prevSlide() {
-        currentSlide = (currentSlide - 1 + slides.length) % slides.length;
-        updateSlide(currentSlide);
+    function startOffersAutoRotate() {
+        clearInterval(slideshowTimer);
+        slideshowTimer = setInterval(advanceToNextOffer, 4500);
     }
 
-    function startSlideshow() {
-        slideInterval = setInterval(nextSlide, 4000);
+    function transitionFromVideoToOffers() {
+        if (videoHasEnded) return;
+        videoHasEnded = true;
+        // Smooth transition to Offer 1 at the exact same spot
+        activateSlide(1);
+        startOffersAutoRotate();
     }
 
-    function resetInterval() {
-        clearInterval(slideInterval);
-        startSlideshow();
+    // Video Lifecycle: "this video part will only play, then we need the offer at the same spot of the video"
+    if (heroVideo) {
+        // When video finishes playing naturally
+        heroVideo.addEventListener('ended', () => {
+            transitionFromVideoToOffers();
+        });
+
+        // Fail-safe: transition after 7.5 seconds if video duration is long or ended doesn't fire
+        setTimeout(() => {
+            if (currentSlideIdx === 0 && !videoHasEnded) {
+                transitionFromVideoToOffers();
+            }
+        }, 7500);
     }
 
-    if (slides.length > 0) {
-        nextBtn.addEventListener('click', () => { nextSlide(); resetInterval(); });
-        prevBtn.addEventListener('click', () => { prevSlide(); resetInterval(); });
-        startSlideshow();
+    // User controls
+    if (nextBtn) {
+        nextBtn.addEventListener('click', () => {
+            clearInterval(slideshowTimer);
+            let nextIdx = (currentSlideIdx + 1) % allStageSlides.length;
+            if (nextIdx === 0) nextIdx = 1; // skip video in quick next click, or cycle
+            activateSlide(nextIdx);
+            startOffersAutoRotate();
+        });
     }
 
-        // Filtering Logic (Brand, Feature, Price, Search)
+    if (prevBtn) {
+        prevBtn.addEventListener('click', () => {
+            clearInterval(slideshowTimer);
+            let prevIdx = currentSlideIdx - 1;
+            if (prevIdx < 1) prevIdx = offerSlides.length; // cycle offers
+            activateSlide(prevIdx);
+            startOffersAutoRotate();
+        });
+    }
+
+    if (btnReplayLive) {
+        btnReplayLive.addEventListener('click', () => {
+            clearInterval(slideshowTimer);
+            videoHasEnded = false;
+            activateSlide(0);
+        });
+    }
+
+    // Filtering Logic (Brand, Feature, Price, Search)
     const brandCheckboxes = document.querySelectorAll('.brand-filter');
     const featureCheckboxes = document.querySelectorAll('.feature-filter');
     const priceSlider = document.getElementById('price-slider');
