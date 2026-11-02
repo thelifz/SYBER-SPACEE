@@ -26,7 +26,7 @@
         </div>
 
         <div class="nav-links">
-            <a href="#cameras">CAMERAS</a>
+            <a href="product.html">CAMERAS</a>
             <a href="#about">ABOUT</a>
             <a href="cart.html">CART (0)</a>
         </div>
@@ -62,7 +62,7 @@
                         <div class="hero-text-overlay">
                             <h1 class="glitch" data-text="SEE MORE.&#10;SECURE MORE.&#10;WORRY LESS.&#10;SYBER SPACE.">SEE MORE.<br>SECURE MORE.<br>WORRY LESS.<br><span style="color:var(--accent);">SYBER SPACE.</span></h1>
                             <p class="subtitle">NEXT-GENERATION OPTICAL SURVEILLANCE FOR ENTERPRISE &amp; RESIDENTIAL PROPERTIES.<br>PRECISION MONITORING. ZERO BLIND SPOTS.</p>
-                            <a href="#cameras" class="cta-btn">EXPLORE HARDWARE &rarr;</a>
+                            <a href="product.html" class="cta-btn">EXPLORE HARDWARE &rarr;</a>
                         </div>
                     </div>
 
@@ -95,7 +95,7 @@
                                 <h3>TRUEVIEW 4G SOLAR DUAL-LENS PT</h3>
                                 <p class="discount">SAVE ₹12,500</p>
                                 <p class="desc">Continuous solar charging with dual optical sensors and high-speed mobile connectivity.</p>
-                                <button class="cta-btn cta-small" onclick="document.getElementById('cameras').scrollIntoView({behavior:'smooth'})">BUY NOW</button>
+                                <button class="cta-btn cta-small" onclick="window.location.href='product.html?id=trueview-solar-4g-sim-outdoor-pan-tilt-camera'">BUY NOW</button>
                             </div>
                             <div class="offer-camera-visual">
                                 <div class="cam-spotlight"></div>
@@ -118,7 +118,7 @@
                                 <h3>CP PLUS EZYKAM+ 4K 360&deg; AI</h3>
                                 <p class="discount">BUY 1 GET 2 FREE</p>
                                 <p class="desc">AI human detection with 360-degree motor rotation and full color starlight night vision.</p>
-                                <button class="cta-btn cta-small" onclick="document.getElementById('cameras').scrollIntoView({behavior:'smooth'})">BUY NOW</button>
+                                <button class="cta-btn cta-small" onclick="window.location.href='product.html?id=cp-plus-ezykam-cp-e28q-2mp-pan-tilt-wi-fi-camera'">BUY NOW</button>
                             </div>
                             <div class="offer-camera-visual">
                                 <div class="cam-spotlight"></div>
@@ -141,7 +141,7 @@
                                 <h3>iDADA Q2i ROTATING DOME</h3>
                                 <p class="discount">ONLY ₹5,999</p>
                                 <p class="desc">Ultra-clear optical pan-tilt dome with 512GB local storage support and instant mobile telemetry.</p>
-                                <button class="cta-btn cta-small" onclick="document.getElementById('cameras').scrollIntoView({behavior:'smooth'})">BUY NOW</button>
+                                <button class="cta-btn cta-small" onclick="window.location.href='product.html?id=idada-id-q2i35s-td-3mp-pan-tilt-smart-wi-fi-camera'">BUY NOW</button>
                             </div>
                             <div class="offer-camera-visual">
                                 <div class="cam-spotlight"></div>
@@ -164,7 +164,7 @@
                                 <h3>TRUEVIEW ALL-WEATHER AHD BULLET</h3>
                                 <p class="discount">50% OFF</p>
                                 <p class="desc">IP67 weather-sealed high-precision optical bullet camera with long-range IR night illuminators.</p>
-                                <button class="cta-btn cta-small" onclick="document.getElementById('cameras').scrollIntoView({behavior:'smooth'})">BUY NOW</button>
+                                <button class="cta-btn cta-small" onclick="window.location.href='product.html?id=trueview-solar-4g-sim-outdoor-pan-tilt-camera'">BUY NOW</button>
                             </div>
                             <div class="offer-camera-visual">
                                 <div class="cam-spotlight"></div>
@@ -187,7 +187,7 @@
                                 <h3>CP PLUS ARMORED EXPEDITION DOME</h3>
                                 <p class="discount">60% OFF</p>
                                 <p class="desc">Vandal-resistant IK10 optical dome designed for enterprise facilities and high-traffic perimeters.</p>
-                                <button class="cta-btn cta-small" onclick="document.getElementById('cameras').scrollIntoView({behavior:'smooth'})">BUY NOW</button>
+                                <button class="cta-btn cta-small" onclick="window.location.href='product.html?id=cp-plus-ezykam-cp-z45q-4mp-outdoor-full-color-wi-fi-pt-camera'">BUY NOW</button>
                             </div>
                             <div class="offer-camera-visual">
                                 <div class="cam-spotlight"></div>
@@ -239,11 +239,9 @@
                     <h3 class="filter-title">FILTERS</h3>
                     <div class="filter-group">
                         <h4>Brands</h4>
-                        <label><input type="checkbox" class="brand-filter" value="Hikvision" checked> Hikvision</label>
-                        <label><input type="checkbox" class="brand-filter" value="Dahua" checked> Dahua Technology</label>
-                        <label><input type="checkbox" class="brand-filter" value="Axis" checked> Axis Communications</label>
-                        <label><input type="checkbox" class="brand-filter" value="Lorex" checked> Lorex</label>
-                        <label><input type="checkbox" class="brand-filter" value="Bosch" checked> Bosch Security</label>
+                        <label><input type="checkbox" class="brand-filter" value="CPPLUS" checked> CP PLUS</label>
+                        <label><input type="checkbox" class="brand-filter" value="TRUEVIEW" checked> Trueview</label>
+                        <label><input type="checkbox" class="brand-filter" value="IDADA" checked> iDADA</label>
                     </div>
                     <div class="filter-group">
                         <h4>Features</h4>
@@ -260,177 +258,110 @@
                 </aside>
 
                 <div class="product-grid ecom-grid">
-                    <!-- Product 1 -->
-                    <div class="product-card p-1" data-brand="Hikvision" data-price="15999" data-features="nv,mt">
-                        <div class="badge bestseller">BESTSELLER</div>
+                    <!-- Product 1: CP PLUS Ezykam CP-E28Q -->
+                    <div class="product-card p-1" data-brand="CPPLUS" data-price="1980" data-features="nv,mt,2w" onclick="window.location.href='product.html?id=cp-plus-ezykam-cp-e28q-2mp-pan-tilt-wi-fi-camera'" style="cursor:pointer;">
+                        <div class="badge bestseller">#1 BESTSELLER</div>
                         <div class="product-img-container">
-                            <img src="stalker_3000.jpg" alt="The Stalker 3000">
+                            <img src="assets/official_bestseller_cpplus_e38q_transparent.png" alt="CP PLUS Ezykam CP-E28Q">
                         </div>
                         <div class="product-info">
-                            <span class="brand-name">Hikvision</span>
-                            <h3>STALKER 3000 PRO</h3>
-                            <div class="rating"><span class="star-rating">&#9733;&#9733;&#9733;&#9733;&#9733;</span> <span class="review-count">(128)</span></div>
-                            <p>Infrared night vision, intelligent motion tracking, and IP66 casing.</p>
+                            <span class="brand-name">CP PLUS</span>
+                            <h3>CP PLUS Ezykam CP-E28Q 2MP Wi-Fi</h3>
+                            <div class="rating"><span class="star-rating">&#9733;&#9733;&#9733;&#9733;&#9733;</span> <span class="review-count">(142)</span></div>
+                            <p>360-degree motorized pan & tilt, AI humanoid tracking, full-duplex talkback.</p>
                             <div class="price-row">
-                                <span class="price">₹15,999</span>
-                                <button class="add-cart">[ ADD TO CART ]</button>
+                                <span class="price">₹1,980 <span class="old-price">₹3,100</span></span>
+                                <button class="add-cart" onclick="event.stopPropagation(); window.location.href='product.html?id=cp-plus-ezykam-cp-e28q-2mp-pan-tilt-wi-fi-camera'">[ VIEW SPECS ]</button>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Product 2 -->
-                    <div class="product-card p-2" data-brand="Dahua" data-price="11999" data-features="nv">
+                    <!-- Product 2: Trueview 4G Solar PTZ -->
+                    <div class="product-card p-2" data-brand="TRUEVIEW" data-price="4950" data-features="nv,mt,4k" onclick="window.location.href='product.html?id=trueview-solar-4g-sim-outdoor-pan-tilt-camera'" style="cursor:pointer;">
+                        <div class="badge new">SOLAR 4G</div>
                         <div class="product-img-container">
-                            <img src="ghost_eye.jpg" alt="Ghost Eye">
+                            <img src="assets/official_trueview_solar_4G-Mini-PT-Solar-Linkage-Camera-01.webp" alt="Trueview 4G Solar Smart PTZ Camera">
                         </div>
                         <div class="product-info">
-                            <span class="brand-name">Dahua Technology</span>
-                            <h3>GHOST EYE COMPACT DOME</h3>
-                            <div class="rating"><span class="star-rating">&#9733;&#9733;&#9733;&#9733;&#9734;</span> <span class="review-count">(84)</span></div>
-                            <p>Low-profile ceiling mount with 110-degree wide field of view.</p>
+                            <span class="brand-name">Trueview</span>
+                            <h3>Trueview 4G Solar Smart PTZ</h3>
+                            <div class="rating"><span class="star-rating">&#9733;&#9733;&#9733;&#9733;&#9733;</span> <span class="review-count">(89)</span></div>
+                            <p>Autonomous 4G cellular off-grid surveillance with integrated solar battery array.</p>
                             <div class="price-row">
-                                <span class="price">₹11,999</span>
-                                <button class="add-cart">[ ADD TO CART ]</button>
+                                <span class="price">₹4,950 <span class="old-price">₹8,999</span></span>
+                                <button class="add-cart" onclick="event.stopPropagation(); window.location.href='product.html?id=trueview-solar-4g-sim-outdoor-pan-tilt-camera'">[ VIEW SPECS ]</button>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Product 3 -->
-                    <div class="product-card p-3" data-brand="Axis" data-price="31999" data-features="nv,mt,4k">
-                        <div class="badge new">NEW</div>
+                    <!-- Product 3: iDADA Q2i Smart Dome -->
+                    <div class="product-card p-3" data-brand="IDADA" data-price="1850" data-features="nv,mt,2w" onclick="window.location.href='product.html?id=idada-id-q2i35s-td-3mp-pan-tilt-smart-wi-fi-camera'" style="cursor:pointer;">
+                        <div class="badge bestseller">HOT DEAL</div>
                         <div class="product-img-container">
-                            <img src="panopticon_pro.jpg" alt="Panopticon Pro">
+                            <img src="assets/official_bestseller_idada_q2i_transparent.png" alt="iDADA Q2i Smart Dome">
                         </div>
                         <div class="product-info">
-                            <span class="brand-name">Axis Communications</span>
-                            <h3>PANOPTICON 360 PTZ</h3>
-                            <div class="rating"><span class="star-rating">&#9733;&#9733;&#9733;&#9733;&#9733;</span> <span class="review-count">(42)</span></div>
-                            <p>Continuous 360-degree pan-tilt-zoom with optical precision.</p>
+                            <span class="brand-name">iDADA</span>
+                            <h3>iDADA Q2i 3MP Smart Dome</h3>
+                            <div class="rating"><span class="star-rating">&#9733;&#9733;&#9733;&#9733;&#9733;</span> <span class="review-count">(56)</span></div>
+                            <p>Ultra-clear 3MP optical sensor with 512GB local SD storage and motion alarms.</p>
                             <div class="price-row">
-                                <span class="price">₹31,999</span>
-                                <button class="add-cart">[ ADD TO CART ]</button>
+                                <span class="price">₹1,850 <span class="old-price">₹3,499</span></span>
+                                <button class="add-cart" onclick="event.stopPropagation(); window.location.href='product.html?id=idada-id-q2i35s-td-3mp-pan-tilt-smart-wi-fi-camera'">[ VIEW SPECS ]</button>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Product 4 -->
-                    <div class="product-card p-4" data-brand="Lorex" data-price="6999" data-features="nv">
-                        <div class="badge sale">15% OFF</div>
+                    <!-- Product 4: CP PLUS Armored Dome CP-Z45Q -->
+                    <div class="product-card p-4" data-brand="CPPLUS" data-price="3450" data-features="nv,mt,4k" onclick="window.location.href='product.html?id=cp-plus-ezykam-cp-z45q-4mp-outdoor-full-color-wi-fi-pt-camera'" style="cursor:pointer;">
+                        <div class="badge sale">OUTDOOR</div>
                         <div class="product-img-container">
-                            <img src="stalker_3000.jpg" alt="Sentry V1">
+                            <img src="assets/cp_z45q_1.png" alt="CP PLUS Armored Dome">
                         </div>
                         <div class="product-info">
-                            <span class="brand-name">Lorex</span>
-                            <h3>SENTRY V1 COMMERCIAL BULLET</h3>
-                            <div class="rating"><span class="star-rating">&#9733;&#9733;&#9733;&#9734;&#9734;</span> <span class="review-count">(12)</span></div>
-                            <p>All-weather IP67 outdoor perimeter surveillance with smart IR.</p>
+                            <span class="brand-name">CP PLUS</span>
+                            <h3>CP PLUS 4MP Armored Dome</h3>
+                            <div class="rating"><span class="star-rating">&#9733;&#9733;&#9733;&#9733;&#9734;</span> <span class="review-count">(37)</span></div>
+                            <p>Vandal-resistant outdoor IP66 casing with full-color starlight night vision.</p>
                             <div class="price-row">
-                                <span class="price">₹6,999 <span class="old-price">₹8,499</span></span>
-                                <button class="add-cart">[ ADD TO CART ]</button>
+                                <span class="price">₹3,450 <span class="old-price">₹5,999</span></span>
+                                <button class="add-cart" onclick="event.stopPropagation(); window.location.href='product.html?id=cp-plus-ezykam-cp-z45q-4mp-outdoor-full-color-wi-fi-pt-camera'">[ VIEW SPECS ]</button>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Product 5 -->
-                    <div class="product-card p-5" data-brand="Bosch" data-price="18499" data-features="4k,2w">
+                    <!-- Product 5: CP PLUS Ezykam CP-E38Q -->
+                    <div class="product-card p-5" data-brand="CPPLUS" data-price="2235" data-features="nv,mt,2w" onclick="window.location.href='product.html?id=cp-plus-ezykam-cp-e38q-3mp-pan-tilt-wi-fi-camera'" style="cursor:pointer;">
+                        <div class="badge new">3MP 2K</div>
                         <div class="product-img-container">
-                            <img src="ghost_eye.jpg" alt="Shadow Dome">
+                            <img src="assets/official_bestseller_cpplus_e38q_transparent.png" alt="CP PLUS Ezykam CP-E38Q">
                         </div>
                         <div class="product-info">
-                            <span class="brand-name">Bosch Security</span>
-                            <h3>SHADOW DOME 4K ULTRA HD</h3>
-                            <div class="rating"><span class="star-rating">&#9733;&#9733;&#9733;&#9733;&#9733;</span> <span class="review-count">(215)</span></div>
-                            <p>3840x2160 resolution sensor with integrated two-way communications.</p>
+                            <span class="brand-name">CP PLUS</span>
+                            <h3>CP PLUS Ezykam CP-E38Q 3MP</h3>
+                            <div class="rating"><span class="star-rating">&#9733;&#9733;&#9733;&#9733;&#9733;</span> <span class="review-count">(94)</span></div>
+                            <p>Enhanced 3MP 2K crystal sensor with motorized PT sweeps and cloud playback.</p>
                             <div class="price-row">
-                                <span class="price">₹18,499</span>
-                                <button class="add-cart">[ ADD TO CART ]</button>
+                                <span class="price">₹2,235 <span class="old-price">₹3,499</span></span>
+                                <button class="add-cart" onclick="event.stopPropagation(); window.location.href='product.html?id=cp-plus-ezykam-cp-e38q-3mp-pan-tilt-wi-fi-camera'">[ VIEW SPECS ]</button>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Product 6 -->
-                    <div class="product-card p-6" data-brand="Hikvision" data-price="35999" data-features="mt,2w">
+                    <!-- Product 6: Trueview All-Weather Bullet -->
+                    <div class="product-card p-6" data-brand="TRUEVIEW" data-price="1450" data-features="nv" onclick="window.location.href='product.html?id=trueview-solar-4g-sim-outdoor-pan-tilt-camera'" style="cursor:pointer;">
+                        <div class="badge bestseller">POPULAR</div>
                         <div class="product-img-container">
-                            <img src="panopticon_pro.jpg" alt="Omni-Tracker">
+                            <img src="assets/trueview_ahd_bullet_1.webp" alt="Trueview All-Weather Bullet">
                         </div>
                         <div class="product-info">
-                            <span class="brand-name">Hikvision</span>
-                            <h3>OMNI-TRACKER AI PTZ</h3>
-                            <div class="rating"><span class="star-rating">&#9733;&#9733;&#9733;&#9733;&#9734;</span> <span class="review-count">(56)</span></div>
-                            <p>Autonomous AI human recognition with optical auto-patrol presets.</p>
+                            <span class="brand-name">Trueview</span>
+                            <h3>Trueview All-Weather Bullet</h3>
+                            <div class="rating"><span class="star-rating">&#9733;&#9733;&#9733;&#9733;&#9734;</span> <span class="review-count">(61)</span></div>
+                            <p>IP67 weatherproof casing with long-range smart IR array for perimeter defense.</p>
                             <div class="price-row">
-                                <span class="price">₹35,999</span>
-                                <button class="add-cart">[ ADD TO CART ]</button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Product 7 -->
-                    <div class="product-card p-7" data-brand="Dahua" data-price="3999" data-features="nv">
-                        <div class="badge sale">CLEARANCE</div>
-                        <div class="product-img-container">
-                            <img src="stalker_3000.jpg" alt="Night Owl">
-                        </div>
-                        <div class="product-info">
-                            <span class="brand-name">Dahua Technology</span>
-                            <h3>NIGHT OWL HD OPTICAL</h3>
-                            <div class="rating"><span class="star-rating">&#9733;&#9733;&#9734;&#9734;&#9734;</span> <span class="review-count">(9)</span></div>
-                            <p>High-definition surveillance with 25-meter infrared range.</p>
-                            <div class="price-row">
-                                <span class="price">₹3,999 <span class="old-price">₹6,499</span></span>
-                                <button class="add-cart">[ ADD TO CART ]</button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Product 8 -->
-                    <div class="product-card p-8" data-brand="Axis" data-price="10499" data-features="2w">
-                        <div class="product-img-container">
-                            <img src="ghost_eye.jpg" alt="Ceiling Creeper">
-                        </div>
-                        <div class="product-info">
-                            <span class="brand-name">Axis Communications</span>
-                            <h3>CEILING SENTRY V2 DOME</h3>
-                            <div class="rating"><span class="star-rating">&#9733;&#9733;&#9733;&#9733;&#9734;</span> <span class="review-count">(112)</span></div>
-                            <p>Architectural flush-mount dome with omnidirectional audio sensing.</p>
-                            <div class="price-row">
-                                <span class="price">₹10,499</span>
-                                <button class="add-cart">[ ADD TO CART ]</button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Product 9 -->
-                    <div class="product-card p-9" data-brand="Lorex" data-price="22499" data-features="nv,2w">
-                        <div class="badge new">NEW</div>
-                        <div class="product-img-container">
-                            <img src="stalker_3000.jpg" alt="The Obelisk">
-                        </div>
-                        <div class="product-info">
-                            <span class="brand-name">Lorex</span>
-                            <h3>OBELISK ACTIVE DEFENSE</h3>
-                            <div class="rating"><span class="star-rating">&#9733;&#9733;&#9733;&#9733;&#9733;</span> <span class="review-count">(3)</span></div>
-                            <p>Visible deterrence architecture with dual strobes and siren.</p>
-                            <div class="price-row">
-                                <span class="price">₹22,499</span>
-                                <button class="add-cart">[ ADD TO CART ]</button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Product 10 -->
-                    <div class="product-card p-10" data-brand="Bosch" data-price="71999" data-features="nv,mt,4k">
-                        <div class="product-img-container">
-                            <img src="panopticon_pro.jpg" alt="Perimeter Guard">
-                        </div>
-                        <div class="product-info">
-                            <span class="brand-name">Bosch Security</span>
-                            <h3>PERIMETER GUARD MAX THERMAL</h3>
-                            <div class="rating"><span class="star-rating">&#9733;&#9733;&#9733;&#9733;&#9733;</span> <span class="review-count">(88)</span></div>
-                            <p>Commercial-grade thermal bi-spectrum optical surveillance system.</p>
-                            <div class="price-row">
-                                <span class="price">₹71,999</span>
-                                <button class="add-cart">[ ADD TO CART ]</button>
+                                <span class="price">₹1,450 <span class="old-price">₹2,999</span></span>
+                                <button class="add-cart" onclick="event.stopPropagation(); window.location.href='product.html?id=trueview-solar-4g-sim-outdoor-pan-tilt-camera'">[ VIEW SPECS ]</button>
                             </div>
                         </div>
                     </div>

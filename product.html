@@ -3,10 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="color-scheme" content="only light">
-    <meta name="supported-color-schemes" content="light">
-    <meta name="theme-color" content="#ffffff">
-    <meta name="apple-mobile-web-app-status-bar-style" content="default">
     <title>Hardware Specification — SYBER SPACE Precision Surveillance</title>
     
     <!-- Google Fonts: Space Grotesk, Inter & Space Mono -->
@@ -14,42 +10,21 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700;800;900&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
     
-    <link rel="stylesheet" href="style.css?v=9.0.0">
+    <link rel="stylesheet" href="product.css?v=1.0.0">
 
     <style>
         /* Product Page Specific Layout & Overrides */
-        html {
-            color-scheme: only light !important;
-            background-color: #ffffff !important;
-            background: #ffffff !important;
-            color: #0f172a !important;
-            overscroll-behavior: none !important;
-            overscroll-behavior-y: none !important;
-            overscroll-behavior-x: none !important;
-        }
-
         body {
-            color-scheme: only light !important;
-            background-color: #ffffff !important;
-            background: #ffffff !important;
-            color: #0f172a !important;
+            background-color: #ffffff;
+            color: #0f172a;
             font-family: var(--font-body, 'Inter', sans-serif);
             margin: 0;
             padding: 0;
-            overflow-x: clip;
-            overscroll-behavior: none !important;
-            overscroll-behavior-y: none !important;
-            overscroll-behavior-x: none !important;
-        }
-
-        html, body {
-            overscroll-behavior: none !important;
-            overscroll-behavior-y: none !important;
-            overscroll-behavior-x: none !important;
+            overflow-x: hidden;
         }
 
         .product-page-main {
-            padding-top: 0; /* Precision clearance for floating header */
+            padding-top: 74px; /* Precision clearance for floating header */
             background-color: #ffffff;
         }
 
@@ -138,15 +113,15 @@
         }
 
         .ugb-card {
-            background: #ffffff;
-            border: 1.5px solid #e2e8f0;
+            background: linear-gradient(135deg, #f8fafc 0%, #eff6ff 100%);
+            border: 1.5px solid rgba(37, 99, 235, 0.25);
             border-radius: 16px;
             padding: 2rem 2.5rem;
             display: flex;
             align-items: center;
             justify-content: space-between;
             gap: 2rem;
-            box-shadow: 0 4px 16px rgba(15, 23, 42, 0.04);
+            box-shadow: 0 8px 24px rgba(37, 99, 235, 0.06);
         }
 
         .ugb-left {
@@ -157,7 +132,7 @@
             display: inline-flex;
             align-items: center;
             gap: 0.45rem;
-            background: #0f172a;
+            background: #2563eb;
             color: #ffffff;
             font-family: 'Space Mono', monospace;
             font-size: 0.68rem;
@@ -202,7 +177,7 @@
             align-items: center;
             gap: 0.55rem;
             box-shadow: 0 8px 24px rgba(37, 211, 102, 0.28);
-            transition: all 0.2s ease-out;
+            transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
         .btn-ugb-wa:hover {
@@ -236,9 +211,6 @@
             margin: 0.85rem 0 1rem;
             align-items: center;
             flex-wrap: wrap;
-            overscroll-behavior: none;
-            overscroll-behavior-x: none;
-            overscroll-behavior-y: none;
         }
 
         .pdp-gallery-thumb {
@@ -250,7 +222,7 @@
             padding: 2px;
             cursor: pointer;
             overflow: hidden;
-            transition: all 0.22s ease-out;
+            transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -271,9 +243,9 @@
         }
 
         .pdp-gallery-thumb.active {
-            border-color: #0f172a;
+            border-color: #2563eb;
             background: #ffffff;
-            box-shadow: 0 0 0 2px rgba(15, 23, 42, 0.22);
+            box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.3);
             transform: scale(1.06);
         }
 
@@ -310,55 +282,73 @@
                 </div>
             </a>
 
-            <!-- Navigation Links (Matching User Reference: Categories, Best Sellers, Why Syber Space, Contact) -->
-            <nav class="header-nav-menu" aria-label="Main Navigation">
-                <a href="index.html#categories-by-brand" class="header-nav-item">Categories</a>
-                <a href="index.html#categories-by-brand" class="header-nav-item">Best Sellers</a>
-                <a href="index.html#why-us" class="header-nav-item">Why Syber Space</a>
-                <a href="contact.html" class="header-nav-item">Contact</a>
-            </nav>
-
-            <!-- Right Controls: Search Pill & Cart Pill Button (Matching Reference Wishlist Button Layout: Wishlist = Cart) -->
-            <div class="header-right-group">
-
-                <!-- Search Pill Input (Matching Reference [Search products...]) -->
-                <div class="header-search-pill-wrap" id="jeko-search-box">
-                    <div class="header-search-pill-box">
-                        <input type="text" id="jeko-search-input" class="header-search-pill-input" placeholder="Search products..." autocomplete="off">
-                    </div>
-
-                    <!-- Live Search Dropdown -->
-                    <div class="jeko-search-dropdown" id="jeko-search-dropdown" style="display: none;">
-                        <div class="jeko-search-quick-tags">
-                            <span class="jst-label">POPULAR:</span>
-                            <button type="button" class="jst-chip" onclick="quickFillSearch('Solar')">4G Solar PTZ</button>
-                            <button type="button" class="jst-chip" onclick="quickFillSearch('CP Plus')">CP Plus 2K</button>
-                            <button type="button" class="jst-chip" onclick="quickFillSearch('iDADA')">iDADA 3MP</button>
-                            <button type="button" class="jst-chip" onclick="quickFillSearch('SMPS')">12V 10A SMPS</button>
-                            <button type="button" class="jst-chip" onclick="quickFillSearch('SkyHawk')">4TB SkyHawk</button>
-                        </div>
-                        <div class="jeko-search-results-list" id="jeko-search-results"></div>
-                    </div>
+            <!-- Center: Curvy Search Bar with Integrated Search Button -->
+            <div class="iphone-search-wrapper" id="jeko-search-box">
+                <div class="iphone-search-box">
+                    <input type="text" id="jeko-search-input" class="iphone-search-input" placeholder="Search for products, brands, categories, Trueview, iDADA..." autocomplete="off">
+                    <button type="button" class="btn-search-icon" aria-label="Search" onclick="triggerSearchAction()">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="11" cy="11" r="7.5"></circle>
+                            <line x1="21" y1="21" x2="16.5" y2="16.5"></line>
+                        </svg>
+                    </button>
                 </div>
 
-                <!-- Cart Pill Button (Exact Wishlist Pill Styling from Reference: Wishlist = Cart) -->
-                <a href="cart.html" class="header-cart-pill-btn btn-cart-trigger" id="header-cart-btn" aria-label="View Shopping Cart" title="View Shopping Cart">
-                    <svg class="cart-pill-svg" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                        <circle cx="9" cy="21" r="1"></circle>
-                        <circle cx="20" cy="21" r="1"></circle>
-                        <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
-                    </svg>
-                    <span class="cart-pill-label">Cart</span>
-                    <span class="cart-pill-badge" id="cart-counter">0</span>
+                <!-- Live Search Dropdown -->
+                <div class="jeko-search-dropdown" id="jeko-search-dropdown" style="display: none;">
+                    <div class="jeko-search-quick-tags">
+                        <span class="jst-label">POPULAR:</span>
+                        <button type="button" class="jst-chip" onclick="quickFillSearch('Solar')">4G Solar PTZ</button>
+                        <button type="button" class="jst-chip" onclick="quickFillSearch('CP Plus')">CP Plus 2K</button>
+                        <button type="button" class="jst-chip" onclick="quickFillSearch('iDADA')">iDADA 3MP</button>
+                        <button type="button" class="jst-chip" onclick="quickFillSearch('SMPS')">12V 10A SMPS</button>
+                        <button type="button" class="jst-chip" onclick="quickFillSearch('SkyHawk')">4TB SkyHawk</button>
+                    </div>
+                    <div class="jeko-search-results-list" id="jeko-search-results"></div>
+                </div>
+            </div>
+
+            <!-- Right: Action Pillars (WhatsApp, Call Us, Shopping Cart) -->
+            <div class="iphone-actions-group">
+                
+                <!-- WhatsApp -->
+                <a href="https://wa.me/917511180808?text=Hello%20Syber%20Space%2C%20I%20am%20inquiring%20about%20CCTV%20surveillance%20cameras." target="_blank" rel="noopener noreferrer" class="iphone-action-link">
+                    <div class="ia-icon-wrap wa-icon-color">
+                        <svg viewBox="0 0 24 24" width="28" height="28" fill="none">
+                            <path fill="#25D366" d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2z"/>
+                            <path fill="#FFFFFF" d="M17.47 14.38c-.28-.14-1.66-.82-1.92-.91-.26-.1-.45-.14-.64.14-.19.28-.73.91-.9 1.1-.17.19-.34.21-.62.07-.28-.14-1.18-.44-2.25-1.4-.83-.74-1.39-1.66-1.55-1.94-.16-.28-.02-.43.12-.57.13-.13.28-.34.42-.51.14-.17.19-.28.28-.47.1-.19.05-.35-.02-.5-.07-.14-.64-1.54-.88-2.11-.23-.55-.47-.48-.64-.49-.17-.01-.36-.01-.56-.01-.2 0-.52.07-.79.37-.27.29-1.04 1.02-1.04 2.48 0 1.46 1.06 2.87 1.21 3.07.15.2 2.09 3.19 5.06 4.47.71.31 1.26.49 1.69.63.71.23 1.36.2 1.87.12.57-.09 1.66-.68 1.9-1.33.23-.65.23-1.21.16-1.33-.07-.12-.26-.19-.54-.33z"/>
+                        </svg>
+                    </div>
+                    <div class="ia-text-col">
+                        <span class="ia-sub-label">WhatsApp</span>
+                        <strong class="ia-main-val">Get Support</strong>
+                    </div>
                 </a>
 
-                <!-- WhatsApp Support Anchor (Native HTML, No Emojis) -->
-                <a href="https://wa.me/917511180808" target="_blank" rel="noopener noreferrer" class="header-wa-pill-btn" id="header-whatsapp-support-btn" title="Contact Support on WhatsApp" aria-label="WhatsApp Support">
-                    <svg viewBox="0 0 24 24" width="18" height="18" fill="none">
-                        <path fill="#25D366" d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2z"/>
-                        <path fill="#FFFFFF" d="M17.47 14.38c-.28-.14-1.66-.82-1.92-.91-.26-.1-.45-.14-.64.14-.19.28-.73.91-.9 1.1-.17.19-.34.21-.62.07-.28-.14-1.18-.44-2.25-1.4-.83-.74-1.39-1.66-1.55-1.94-.16-.28-.02-.43.12-.57.13-.13.28-.34.42-.51.14-.17.19-.28.28-.47.1-.19.05-.35-.02-.5-.07-.14-.64-1.54-.88-2.11-.23-.55-.47-.48-.64-.49-.17-.01-.36-.01-.56-.01-.2 0-.52.07-.79.37-.27.29-1.04 1.02-1.04 2.48 0 1.46 1.06 2.87 1.21 3.07.15.2 2.09 3.19 5.06 4.47.71.31 1.26.49 1.69.63.71.23 1.36.2 1.87.12.57-.09 1.66-.68 1.9-1.33.23-.65.23-1.21.16-1.33-.07-.12-.26-.19-.54-.33z"/>
-                    </svg>
+                <!-- Call Us -->
+                <a href="tel:+917511180808" class="iphone-action-link desktop-only">
+                    <div class="ia-text-col">
+                        <span class="ia-sub-label">Call Us</span>
+                        <strong class="ia-main-val">+91 75111 80808</strong>
+                    </div>
                 </a>
+
+                <!-- Shopping Cart Page Link -->
+                <a href="cart.html" class="iphone-action-link btn-cart-trigger" aria-label="View Shopping Cart" title="View Shopping Cart">
+                    <div class="ia-icon-wrap cart-icon-pos">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="9" cy="21" r="1"></circle>
+                            <circle cx="20" cy="21" r="1"></circle>
+                            <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                        </svg>
+                        <span class="cart-pill-badge" id="cart-counter">0</span>
+                    </div>
+                    <div class="ia-text-col">
+                        <span class="ia-sub-label">Shopping</span>
+                        <strong class="ia-main-val">Cart</strong>
+                    </div>
+                </a>
+
             </div>
 
         </header>
@@ -378,9 +368,9 @@
 
                     <!-- 1. LEFT SIDE: SCROLLING FEATURES TRACK -->
                     <div class="asus-features-col">
-                        <div class="asus-features-header-micro" aria-hidden="true">
-                            <span class="afh-label" style="display:none;"></span>
-                            <span class="afh-count" id="afh-step-indicator" style="display:none;"></span>
+                        <div class="asus-features-header-micro">
+                            <span class="afh-label">HARDWARE SUBSYSTEMS</span>
+                            <span class="afh-count" id="afh-step-indicator">STAGE 1 / 5</span>
                         </div>
                         <div class="asus-features-track" id="asus-features-track">
                             <!-- Populated dynamically by renderProductData() with smooth Jesko Jets typography -->
@@ -390,9 +380,7 @@
                     <!-- 2. CENTER: PINNED CAMERA VISUAL (PURE MINIMAL WHITE CANVAS WITH INTERACTIVE ZOOM) -->
                     <div class="asus-center-stage" id="asus-center-stage">
                         <div class="asus-product-visual-wrap" id="asus-product-wrap" onclick="toggleProductZoom()">
-                            <div class="pdp-camera-deck" id="pdp-camera-deck">
-                                <img src="assets/hero_product_solar_v2.png" alt="CCTV Camera" class="pdp-stage-img active" id="asus-camera-img">
-                            </div>
+                            <img src="assets/hero_product_solar_v2.png" alt="CCTV Camera" class="asus-pinned-camera-img" id="asus-camera-img">
                             <div class="asus-product-shadow"></div>
                         </div>
                         <button type="button" class="asus-zoom-pill" id="asus-zoom-pill" onclick="toggleProductZoom()" title="Click to zoom in/out">
@@ -447,7 +435,7 @@
                             </div>
                             <div class="abd-perk-item">
                                 <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                                <span>Fast Express Kerala Dispatch (24-48h)</span>
+                                <span>Fast Express Dispatch (24-48h)</span>
                             </div>
                             <div class="abd-perk-item">
                                 <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
@@ -496,7 +484,7 @@
                             <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
                             <span id="btn-fbt-text">Add All 3 to Cart</span>
                         </button>
-                        <span class="fbt-dispatch-note">Includes Free Express Delivery in Kerala</span>
+                        <span class="fbt-dispatch-note">Includes Free Express Delivery</span>
                     </div>
                 </div>
             </div>
@@ -632,7 +620,7 @@
     <!-- Core Scripts: GSAP & ScrollTrigger -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-    <script src="products_data.js?v=9.0.0"></script>
+    <script src="products_data.js?v=6.2"></script>
 
     <script>
         // ======================================================================
@@ -693,8 +681,8 @@
                             status: 'RV TOLERANCE CALIBRATED',
                             pointerLabel: '02 // RV TOLERANCE ARMED',
                             image: getImg(1),
-                            bg: '#ffffff',
-                            theme: 'light',
+                            bg: '#041a24',
+                            theme: 'dark',
                             motion: { rotateY: 0, rotateZ: 0, scale: 1.05 }
                         },
                         {
@@ -719,8 +707,8 @@
                             status: 'HIGH-BANDWIDTH BUS READY',
                             pointerLabel: '04 // HIGH-SPEED BUS',
                             image: getImg(3),
-                            bg: '#ffffff',
-                            theme: 'light',
+                            bg: '#0b0e13',
+                            theme: 'dark',
                             motion: { rotateY: 0, rotateZ: 0, scale: 1.1 }
                         },
                         {
@@ -732,8 +720,8 @@
                             status: 'THERMAL ARCHITECTURE SECURE',
                             pointerLabel: '05 // LOW-HEAT DESIGN',
                             image: getImg(4),
-                            bg: '#ffffff',
-                            theme: 'light',
+                            bg: '#0b0e13',
+                            theme: 'dark',
                             motion: { rotateY: 0, rotateZ: 0, scale: 1.02 }
                         }
                     ],
@@ -879,7 +867,7 @@
                             status: 'CELLULAR LINK STANDBY',
                             pointerLabel: '02 // 4G LTE CORE',
                             image: getImg(1),
-                            bg: '#ffffff',
+                            bg: '#f8f7f3',
                             theme: 'light',
                             motion: { rotateY: 0, rotateZ: 0, scale: 1.05 }
                         },
@@ -905,7 +893,7 @@
                             status: 'NEURAL INFERENCE ACTIVE',
                             pointerLabel: '04 // NEURAL AI OPTICS',
                             image: getImg(3),
-                            bg: '#ffffff',
+                            bg: '#f8f7f3',
                             theme: 'light',
                             motion: { rotateY: 0, rotateZ: 0, scale: 1.12 }
                         },
@@ -943,9 +931,16 @@
             const isIdada = title.includes('idada') || brand.includes('IDADA');
             const isCpPlus = title.includes('cp plus') || title.includes('ezykam') || brand.includes('CPPLUS');
 
-            // Pure white background matching hero canvas across all stages
-            const wifiBgs = ['#ffffff', '#ffffff', '#ffffff', '#ffffff', '#ffffff'];
-            const wifiThemes = ['light', 'light', 'light', 'light', 'light'];
+            // Adaptive backgrounds tailored to the specific product images
+            const wifiBgs = isIdada ? 
+                ['#e5e1de', '#f5d9ca', '#ffffff', '#ffffff', '#ffffff'] :
+                isCpPlus ? 
+                ['#ffffff', '#e0e0de', '#271b15', '#dededc', '#fafafa'] :
+                ['#ffffff', '#f8fafc', '#ffffff', '#f8fafc', '#ffffff'];
+
+            const wifiThemes = isCpPlus ?
+                ['light', 'light', 'dark', 'light', 'light'] :
+                ['light', 'light', 'light', 'light', 'light'];
 
             return {
                 telemetry: [
@@ -1084,6 +1079,7 @@
                 featuresTrack.innerHTML = showcaseData.features.map((feat, idx) => `
                     <div class="asus-feature-card ${idx === 0 ? 'active' : ''}" data-feature="${idx}" id="feat-${idx+1}">
                         <div class="afc-header">
+                            <span class="afc-index">${feat.index}</span>
                             <div class="afc-meta">
                                 <span class="afc-kicker">${feat.kicker}</span>
                                 <h3 class="afc-title">${feat.title}</h3>
@@ -1096,17 +1092,13 @@
                 `).join('');
             }
 
-            // 2. Center Product Visual: Preload All 5 Stage Images in Deck for Zero-Bump Jesko Jets Transition
-            const cameraDeck = document.getElementById('pdp-camera-deck');
-            if (cameraDeck && showcaseData.features) {
-                cameraDeck.innerHTML = showcaseData.features.map((feat, idx) => `
-                    <img src="${feat.image}" 
-                         alt="${feat.title}" 
-                         class="pdp-stage-img ${idx === 0 ? 'active' : ''}" 
-                         data-stage="${idx}"
-                         loading="eager"
-                         style="opacity: ${idx === 0 ? '1' : '0'}; filter: ${idx === 0 ? 'blur(0px) drop-shadow(0 20px 35px rgba(15, 23, 42, 0.12))' : 'blur(8px) drop-shadow(0 20px 35px rgba(15, 23, 42, 0.12))'};">
-                `).join('');
+            // 2. Center Product Visual & Feature Gallery Strip
+            const camImg = document.getElementById('asus-camera-img');
+            const imgSrc = (p.images && p.images.length > 0) ? p.images[0] : 'assets/hero_product_solar_v2.png';
+            if (camImg) {
+                camImg.src = imgSrc;
+                camImg.alt = p.title;
+                camImg.setAttribute('data-active-image', imgSrc);
             }
 
             const galleryStrip = document.getElementById('pdp-gallery-strip');
@@ -1132,8 +1124,6 @@
             if (buyTitle) buyTitle.textContent = p.title;
             if (modelCode) modelCode.textContent = showcaseData.modelCode;
             if (priceVal) priceVal.textContent = Number(p.price).toLocaleString('en-IN');
-            const msdPrice = document.getElementById('msd-price-val');
-            if (msdPrice) msdPrice.textContent = '₹' + Number(p.price).toLocaleString('en-IN');
             if (mrpVal && p.mrp) mrpVal.textContent = `${p.mrp} M.R.P.`;
             if (discountVal && p.save) discountVal.textContent = p.save.toUpperCase();
             if (badgePill && p.badge) badgePill.textContent = p.badge.toUpperCase();
@@ -1197,32 +1187,36 @@
                 showcaseTl.kill();
             }
 
-            // Only pin with ScrollTrigger on desktop viewports (> 860px)
-            if (window.innerWidth > 860) {
-                showcaseTl = gsap.timeline({
-                    scrollTrigger: {
-                        trigger: '#asus-stage-viewport',
-                        start: 'top top+=74',
-                        end: '+=1800',
-                        pin: true,
-                        scrub: true,
-                        anticipatePin: 1,
-                        invalidateOnRefresh: true,
-                        onUpdate: (self) => {
-                            if (isProgrammaticScroll) return;
-                            const progress = self.progress;
-                            const count = SHOWCASE_FEATURE_DATA.length;
-                            if (count === 0) return;
-                            const targetIdx = Math.min(count - 1, Math.floor(progress * count));
-                            
-                            if (targetIdx !== currentShowcaseIndex) {
-                                setActiveShowcaseFeature(targetIdx);
-                            }
+            // Pin stage viewport with GSAP ScrollTrigger
+            showcaseTl = gsap.timeline({
+                scrollTrigger: {
+                    trigger: '#asus-stage-viewport',
+                    start: 'top top+=74',
+                    end: '+=1800',
+                    pin: true,
+                    scrub: 0.8,
+                    anticipatePin: 1,
+                    invalidateOnRefresh: true,
+                    onUpdate: (self) => {
+                        if (isProgrammaticScroll) return;
+                        const progress = self.progress;
+                        const count = SHOWCASE_FEATURE_DATA.length;
+                        if (count === 0) return;
+                        const targetIdx = Math.min(count - 1, Math.floor(progress * count));
+                        
+                        if (targetIdx !== currentShowcaseIndex) {
+                            setActiveShowcaseFeature(targetIdx);
+                        }
+
+                        // Product stays completely still and upright (NO TILTING)
+                        if (cameraImg && !isZoomLocked && !isHoverZooming) {
+                            cameraImg.style.transform = 'scale(1)';
                         }
                     }
-                });
-                ScrollTrigger.refresh();
-            }
+                }
+            });
+
+            ScrollTrigger.refresh();
         }
 
         let isProgrammaticScroll = false;
@@ -1232,24 +1226,24 @@
 
         function toggleProductZoom() {
             isZoomLocked = !isZoomLocked;
-            const cameraDeck = document.getElementById('pdp-camera-deck');
+            const cameraImg = document.getElementById('asus-camera-img');
             const zoomText = document.getElementById('zoom-pill-text');
             const zoomIconV = document.getElementById('zoom-icon-v');
             const visualWrap = document.getElementById('asus-product-wrap');
 
-            if (!cameraDeck) return;
+            if (!cameraImg) return;
 
             if (isZoomLocked) {
-                cameraDeck.style.transformOrigin = 'center center';
-                cameraDeck.style.transform = 'scale(2.2)';
-                cameraDeck.style.cursor = 'zoom-out';
+                cameraImg.style.transformOrigin = 'center center';
+                cameraImg.style.transform = 'scale(2.2)';
+                cameraImg.style.cursor = 'zoom-out';
                 if (visualWrap) visualWrap.style.cursor = 'zoom-out';
                 if (zoomText) zoomText.textContent = 'ZOOM OUT (ESC)';
                 if (zoomIconV) zoomIconV.style.display = 'none';
             } else {
-                cameraDeck.style.transformOrigin = 'center center';
-                cameraDeck.style.transform = 'scale(1)';
-                cameraDeck.style.cursor = 'zoom-in';
+                cameraImg.style.transformOrigin = 'center center';
+                cameraImg.style.transform = 'scale(1)';
+                cameraImg.style.cursor = 'zoom-in';
                 if (visualWrap) visualWrap.style.cursor = 'zoom-in';
                 if (zoomText) zoomText.textContent = 'CLICK TO ZOOM';
                 if (zoomIconV) zoomIconV.style.display = 'block';
@@ -1258,15 +1252,15 @@
 
         function initProductImageZoom() {
             const visualWrap = document.getElementById('asus-product-wrap');
-            const cameraDeck = document.getElementById('pdp-camera-deck');
-            if (!visualWrap || !cameraDeck) return;
+            const cameraImg = document.getElementById('asus-camera-img');
+            if (!visualWrap || !cameraImg) return;
 
             visualWrap.addEventListener('mousemove', (e) => {
                 if (isZoomLocked) {
                     const rect = visualWrap.getBoundingClientRect();
                     const xPercent = Math.max(0, Math.min(100, ((e.clientX - rect.left) / rect.width) * 100));
                     const yPercent = Math.max(0, Math.min(100, ((e.clientY - rect.top) / rect.height) * 100));
-                    cameraDeck.style.transformOrigin = `${xPercent}% ${yPercent}%`;
+                    cameraImg.style.transformOrigin = `${xPercent}% ${yPercent}%`;
                     return;
                 }
 
@@ -1275,15 +1269,15 @@
                 const xPercent = Math.max(0, Math.min(100, ((e.clientX - rect.left) / rect.width) * 100));
                 const yPercent = Math.max(0, Math.min(100, ((e.clientY - rect.top) / rect.height) * 100));
                 
-                cameraDeck.style.transformOrigin = `${xPercent}% ${yPercent}%`;
-                cameraDeck.style.transform = 'scale(1.75)';
+                cameraImg.style.transformOrigin = `${xPercent}% ${yPercent}%`;
+                cameraImg.style.transform = 'scale(1.75)';
             });
 
             visualWrap.addEventListener('mouseleave', () => {
                 isHoverZooming = false;
                 if (!isZoomLocked) {
-                    cameraDeck.style.transformOrigin = 'center center';
-                    cameraDeck.style.transform = 'scale(1)';
+                    cameraImg.style.transformOrigin = 'center center';
+                    cameraImg.style.transform = 'scale(1)';
                 }
             });
 
@@ -1336,14 +1330,14 @@
                         gsap.to(card, { opacity: 1, filter: 'blur(0px)', duration: 0.5, ease: 'power3.out' });
                         if (titleEl) {
                             gsap.fromTo(titleEl, 
-                                { filter: 'blur(6px)', opacity: 0.3 }, 
-                                { filter: 'blur(0px)', opacity: 1, duration: 0.35, ease: 'power2.out' }
+                                { filter: 'blur(12px)', opacity: 0.2, y: 12 }, 
+                                { filter: 'blur(0px)', opacity: 1, y: 0, duration: 0.55, ease: 'power3.out' }
                             );
                         }
                         if (descEl) {
                             gsap.fromTo(descEl, 
-                                { filter: 'blur(4px)', opacity: 0.3 }, 
-                                { filter: 'blur(0px)', opacity: 1, duration: 0.35, ease: 'power2.out' }
+                                { filter: 'blur(8px)', opacity: 0.15, y: 8 }, 
+                                { filter: 'blur(0px)', opacity: 1, y: 0, duration: 0.65, delay: 0.05, ease: 'power3.out' }
                             );
                         }
                     } else {
@@ -1362,52 +1356,55 @@
                 const item = SHOWCASE_FEATURE_DATA[index];
                 if (stepIndicator) stepIndicator.textContent = `STAGE ${index + 1} / ${SHOWCASE_FEATURE_DATA.length}`;
 
-                // 1. Pure White Stage Background (Hero Canvas Match)
+                // 1. Adaptive Stage Background & Theme Switching
                 const stageSection = document.getElementById('hardware-showcase');
                 const stageViewport = document.getElementById('asus-stage-viewport');
-                const targetBg = '#ffffff';
+                const targetBg = item.bg || '#ffffff';
+                const isDark = (item.theme === 'dark');
 
                 if (stageSection) {
-                    stageSection.classList.remove('theme-dark');
+                    stageSection.classList.toggle('theme-dark', isDark);
                 }
-                document.body.classList.remove('pdp-dark-mode');
+                document.body.classList.toggle('pdp-dark-mode', isDark);
 
-                const targets = [stageSection, stageViewport, document.querySelector('.product-page-main'), document.body];
-                targets.forEach(el => {
-                    if (el) el.style.backgroundColor = '#ffffff';
-                });
-                if (typeof gsap !== 'undefined') {
-                    gsap.set(['#hardware-showcase', '#asus-stage-viewport', '.product-page-main', 'body'], {
-                        backgroundColor: '#ffffff'
+                if (typeof gsap !== 'undefined' && !instant) {
+                    gsap.to(['#hardware-showcase', '#asus-stage-viewport', '.product-page-main'], {
+                        backgroundColor: targetBg,
+                        duration: 0.5,
+                        ease: 'power2.out'
                     });
+                } else {
+                    const targets = [stageSection, stageViewport, document.querySelector('.product-page-main')];
+                    targets.forEach(el => {
+                        if (el) el.style.backgroundColor = targetBg;
+                    });
+                    if (typeof gsap !== 'undefined') {
+                        gsap.set(['#hardware-showcase', '#asus-stage-viewport', '.product-page-main'], {
+                            backgroundColor: targetBg
+                        });
+                    }
                 }
 
-                // 2. Camera Image: Jesko Jets Optical Dissolve Across Preloaded Layers (ZERO BUMP)
-                const stageImgs = document.querySelectorAll('.pdp-stage-img');
-                stageImgs.forEach((img, i) => {
-                    if (i === index) {
-                        img.classList.add('active');
+                // 2. Camera Image: Jesko Jets Cinematic Lens Blur & Crossfade
+                if (cameraImg) {
+                    if (!isZoomLocked && !isHoverZooming) {
+                        cameraImg.style.transform = 'scale(1)';
+                    }
+
+                    if (item.image && cameraImg.getAttribute('data-active-image') !== item.image) {
+                        cameraImg.setAttribute('data-active-image', item.image);
+                        cameraImg.src = item.image;
                         if (typeof gsap !== 'undefined' && !instant) {
-                            gsap.fromTo(img, 
-                                { opacity: 0, filter: 'blur(8px) drop-shadow(0 20px 35px rgba(15, 23, 42, 0.12))' }, 
-                                { opacity: 1, filter: 'blur(0px) drop-shadow(0 20px 35px rgba(15, 23, 42, 0.12))', duration: 0.5, ease: 'power2.out' }
+                            gsap.fromTo(cameraImg, 
+                                { filter: 'blur(14px) drop-shadow(0 20px 35px rgba(15, 23, 42, 0.12))', opacity: 0.3, scale: 0.96 }, 
+                                { filter: 'blur(0px) drop-shadow(0 20px 35px rgba(15, 23, 42, 0.12))', opacity: 1, scale: isZoomLocked ? 2.2 : 1, duration: 0.6, ease: 'power3.out' }
                             );
                         } else {
-                            img.style.opacity = '1';
-                            img.style.filter = 'blur(0px) drop-shadow(0 20px 35px rgba(15, 23, 42, 0.12))';
-                        }
-                    } else {
-                        if (img.classList.contains('active')) {
-                            img.classList.remove('active');
-                            if (typeof gsap !== 'undefined' && !instant) {
-                                gsap.to(img, { opacity: 0, filter: 'blur(8px) drop-shadow(0 20px 35px rgba(15, 23, 42, 0.12))', duration: 0.45, ease: 'power2.out' });
-                            } else {
-                                img.style.opacity = '0';
-                                img.style.filter = 'blur(8px) drop-shadow(0 20px 35px rgba(15, 23, 42, 0.12))';
-                            }
+                            cameraImg.style.opacity = '1';
+                            cameraImg.style.filter = 'drop-shadow(0 20px 35px rgba(15, 23, 42, 0.12))';
                         }
                     }
-                });
+                }
             }
         }
         
@@ -1416,7 +1413,7 @@
             if (!currentProduct) return;
 
             const cart = JSON.parse(localStorage.getItem('syber_cart') || '[]');
-            const existing = cart.find(i => (i.name === currentProduct.title || i.title === currentProduct.title || i.id === currentProduct.id));
+            const existing = cart.find(i => i.name === currentProduct.title);
             
             const imgSrc = (currentProduct.images && currentProduct.images.length > 0) ? currentProduct.images[0] : 'assets/hero_product_solar_v2.png';
 
@@ -1424,16 +1421,9 @@
                 existing.quantity = (existing.quantity || 1) + 1;
             } else {
                 cart.push({
-                    id: currentProduct.id || ('prod-' + currentProduct.title.toLowerCase().replace(/[^a-z0-9]+/g, '-')),
-                    title: currentProduct.title,
                     name: currentProduct.title,
-                    brand: currentProduct.brand || 'TRUEVIEW',
-                    price: Number(currentProduct.price) || 0,
-                    mrp: currentProduct.mrp || '',
-                    save: currentProduct.save || '',
-                    img: imgSrc,
+                    price: currentProduct.price,
                     image: imgSrc,
-                    qty: 1,
                     quantity: 1
                 });
             }
@@ -1446,7 +1436,7 @@
 
             if (buyNow) {
                 setTimeout(() => {
-                    window.location.href = 'checkout.html';
+                    window.location.href = 'cart.html?checkout=1';
                 }, 300);
             }
         }
@@ -1710,7 +1700,7 @@
                         </div>
                         <a href="product.html?id=${acc.id}" class="acc-card-title" title="${acc.title}">${acc.title}</a>
                         <div class="acc-card-rating">
-                             <span>Rating: ${acc.rating || '4.9'} / 5</span>
+                            &#9733;&#9733;&#9733;&#9733;&#9733; <span>(${acc.rating || '4.9'})</span>
                         </div>
                         <div class="acc-card-price-row">
                             <span class="acc-card-price">₹${Number(acc.price).toLocaleString('en-IN')}</span>
@@ -1821,21 +1811,5 @@
             });
         }
     </script>
-
-    <!-- MOBILE STICKY PURCHASE BAR -->
-    <div class="mobile-sticky-dock" id="mobile-sticky-dock">
-        <div class="msd-price-col">
-            <span class="msd-sub">WHOLESALE</span>
-            <strong class="msd-price" id="msd-price-val">₹0</strong>
-        </div>
-        <div class="msd-actions">
-            <button type="button" class="msd-btn-cart" onclick="addProductToCart(false)">
-                <span>+ CART</span>
-            </button>
-            <button type="button" class="msd-btn-buynow" onclick="addProductToCart(true)">
-                <span>BUY NOW</span>
-            </button>
-        </div>
-    </div>
 </body>
 </html>
