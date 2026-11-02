@@ -285,28 +285,29 @@ header {
   pointer-events: none;
 }
 
-.nav-ribbon-tab[data-cat="all"] { background: #0f1d40; }
-.nav-ribbon-tab[data-cat="all"]:hover { background: #1e3a8a; transform: translateY(2px); }
-.nav-ribbon-tab[data-cat="all"].active { background: #1e40af; border-bottom: 2px solid #38bdf8; transform: translateY(1px); }
+.nav-ribbon-tab[data-cat="cctv"] { background: #2563eb; color: #ffffff !important; }
+.nav-ribbon-tab[data-cat="cctv"]:hover { background: #1d4ed8; transform: translateY(2px); }
 
-.nav-ribbon-tab[data-cat="wifi-camera"] { background: #331c0e; }
-.nav-ribbon-tab[data-cat="wifi-camera"]:hover { background: #4d2a15; transform: translateY(2px); }
-.nav-ribbon-tab[data-cat="wifi-camera"].active { background: #452410; border-bottom: 2px solid #f59e0b; transform: translateY(1px); }
+.nav-ribbon-tab[data-cat="vdp"] { background: #fcd34d; color: #78350f !important; }
+.nav-ribbon-tab[data-cat="vdp"]:hover { background: #fbbf24; transform: translateY(2px); }
 
-.nav-ribbon-tab[data-cat="4g-camera"] { background: #0f331f; }
-.nav-ribbon-tab[data-cat="4g-camera"]:hover { background: #184f30; transform: translateY(2px); }
-.nav-ribbon-tab[data-cat="4g-camera"].active { background: #144228; border-bottom: 2px solid #10b981; transform: translateY(1px); }
+.nav-ribbon-tab[data-cat="alarm"] { background: #86efac; color: #064e3b !important; }
+.nav-ribbon-tab[data-cat="alarm"]:hover { background: #4ade80; transform: translateY(2px); }
 
-.nav-ribbon-tab[data-cat="nvr-dvr"] { background: #3d0f1c; }
-.nav-ribbon-tab[data-cat="nvr-dvr"]:hover { background: #5c182c; transform: translateY(2px); }
-.nav-ribbon-tab[data-cat="nvr-dvr"].active { background: #4d1425; border-bottom: 2px solid #f43f5e; transform: translateY(1px); }
+.nav-ribbon-tab[data-cat="access"] { background: #fda4af; color: #881337 !important; }
+.nav-ribbon-tab[data-cat="access"]:hover { background: #f43f5e; color: #ffffff !important; transform: translateY(2px); }
 
-.nav-ribbon-tab[data-cat="accessory"] { background: #0d323b; }
-.nav-ribbon-tab[data-cat="accessory"]:hover { background: #144b57; transform: translateY(2px); }
-.nav-ribbon-tab[data-cat="accessory"].active { background: #103f4a; border-bottom: 2px solid #06b6d4; transform: translateY(1px); }
+.nav-ribbon-tab[data-cat="cables"] { background: #99f6e4; color: #134e4a !important; }
+.nav-ribbon-tab[data-cat="cables"]:hover { background: #2dd4bf; transform: translateY(2px); }
 
-.nav-ribbon-tab[data-cat="home"] { background: #280e42; }
-.nav-ribbon-tab[data-cat="home"]:hover { background: #3f1767; transform: translateY(2px); }
+.nav-ribbon-tab[data-cat="accessory"] { background: #ddd6fe; color: #4c1d95 !important; }
+.nav-ribbon-tab[data-cat="accessory"]:hover { background: #c084fc; color: #ffffff !important; transform: translateY(2px); }
+
+.nav-ribbon-tab[data-cat="all"] { background: #334155; color: #ffffff !important; }
+.nav-ribbon-tab[data-cat="all"]:hover { background: #0f172a; transform: translateY(2px); }
+
+.nav-ribbon-tab[data-cat="home"] { background: #0f172a; color: #ffffff !important; }
+.nav-ribbon-tab[data-cat="home"]:hover { background: #1e293b; transform: translateY(2px); }
 
 .nav-ribbon-tab.active::after {
   content: "";
@@ -902,19 +903,25 @@ footer {
       <a href="javascript:void(0)" class="nav-ribbon-tab active" data-cat="all" onclick="selectNavBox(this, 'all')">
         <span>Shop All</span>
       </a>
-      <a href="javascript:void(0)" class="nav-ribbon-tab" data-cat="wifi-camera" onclick="selectNavBox(this, 'wifi-camera')">
-        <span>Smart Wi-Fi</span>
+      <a href="javascript:void(0)" class="nav-ribbon-tab" data-cat="cctv" onclick="selectNavBox(this, 'cctv')">
+        <span>CCTV</span>
       </a>
-      <a href="javascript:void(0)" class="nav-ribbon-tab" data-cat="4g-camera" onclick="selectNavBox(this, '4g-camera')">
-        <span>Solar 4G</span>
+      <a href="javascript:void(0)" class="nav-ribbon-tab" data-cat="vdp" onclick="selectNavBox(this, 'vdp')">
+        <span>VDP</span>
       </a>
-      <a href="javascript:void(0)" class="nav-ribbon-tab" data-cat="nvr-dvr" onclick="selectNavBox(this, 'nvr-dvr')">
-        <span>DVR &amp; NVR</span>
+      <a href="javascript:void(0)" class="nav-ribbon-tab" data-cat="alarm" onclick="selectNavBox(this, 'alarm')">
+        <span>Intrusion Alarm</span>
+      </a>
+      <a href="javascript:void(0)" class="nav-ribbon-tab" data-cat="access" onclick="selectNavBox(this, 'access')">
+        <span>Access Control</span>
+      </a>
+      <a href="javascript:void(0)" class="nav-ribbon-tab" data-cat="cables" onclick="selectNavBox(this, 'cables')">
+        <span>Cables</span>
       </a>
       <a href="javascript:void(0)" class="nav-ribbon-tab" data-cat="accessory" onclick="selectNavBox(this, 'accessory')">
         <span>Accessories</span>
       </a>
-      <a href="index.html" class="nav-ribbon-tab" data-cat="home">
+      <a href="index.html" class="nav-ribbon-tab" data-cat="home" style="background:#0f172a; color:#fff !important;">
         <span>&larr; Home</span>
       </a>
     </div>
@@ -952,11 +959,12 @@ footer {
     <div class="catalog-header-bar">
       <div class="catalog-filter-tabs" id="catalogFilterTabs">
         <button type="button" class="filter-tab active" data-cat="all" onclick="filterFromTab('all')">All Hardware</button>
-        <button type="button" class="filter-tab" data-cat="wifi-camera" onclick="filterFromTab('wifi-camera')">Smart Wi-Fi</button>
-        <button type="button" class="filter-tab" data-cat="4g-camera" onclick="filterFromTab('4g-camera')">Solar 4G</button>
-        <button type="button" class="filter-tab" data-cat="nvr-dvr" onclick="filterFromTab('nvr-dvr')">DVR &amp; NVR</button>
-        <button type="button" class="filter-tab" data-cat="poe-switch" onclick="filterFromTab('poe-switch')">Commercial PoE</button>
-        <button type="button" class="filter-tab" data-cat="accessory" onclick="filterFromTab('accessory')">Storage &amp; Kits</button>
+        <button type="button" class="filter-tab" data-cat="cctv" onclick="filterFromTab('cctv')">CCTV Cameras</button>
+        <button type="button" class="filter-tab" data-cat="vdp" onclick="filterFromTab('vdp')">Video Door Phones</button>
+        <button type="button" class="filter-tab" data-cat="alarm" onclick="filterFromTab('alarm')">Intrusion Alarms</button>
+        <button type="button" class="filter-tab" data-cat="access" onclick="filterFromTab('access')">Access Control</button>
+        <button type="button" class="filter-tab" data-cat="cables" onclick="filterFromTab('cables')">Cables &amp; Wire</button>
+        <button type="button" class="filter-tab" data-cat="accessory" onclick="filterFromTab('accessory')">Accessories</button>
       </div>
 
       <div class="catalog-search-wrap">
@@ -1134,16 +1142,18 @@ function getFilteredProducts() {
   return SYBER_PRODUCTS.filter(item => {
     let matchesCat = true;
     if (activeCategory !== 'all') {
-      if (activeCategory === 'wifi-camera') {
-        matchesCat = item.category === 'wifi-camera';
-      } else if (activeCategory === '4g-camera') {
-        matchesCat = item.category === '4g-camera' || item.category === 'solar-hub';
-      } else if (activeCategory === 'nvr-dvr') {
-        matchesCat = item.category === 'nvr-dvr';
-      } else if (activeCategory === 'poe-switch') {
-        matchesCat = item.category === 'poe-switch' || item.category === 'ahd-camera' || item.category === 'router';
+      if (activeCategory === 'cctv') {
+        matchesCat = ['wifi-camera', '4g-camera', 'solar-hub', 'nvr-dvr', 'poe-switch', 'ahd-camera', 'router', 'cctv'].includes(item.category);
+      } else if (activeCategory === 'vdp') {
+        matchesCat = item.category === 'vdp' || item.category === 'doorbell';
+      } else if (activeCategory === 'alarm') {
+        matchesCat = item.category === 'alarm';
+      } else if (activeCategory === 'access') {
+        matchesCat = item.category === 'access';
+      } else if (activeCategory === 'cables') {
+        matchesCat = item.category === 'cables';
       } else if (activeCategory === 'accessory') {
-        matchesCat = item.category === 'accessory' || item.category === 'doorbell';
+        matchesCat = item.category === 'accessory';
       } else {
         matchesCat = item.category === activeCategory;
       }
@@ -1286,12 +1296,13 @@ function filterFromTab(cat) {
   });
 
   const titles = {
-    'all': 'Surveillance Hardware Catalog',
-    'wifi-camera': 'Smart Wi-Fi Surveillance Cameras',
-    '4g-camera': 'Solar 4G Autonomous Cameras',
-    'nvr-dvr': 'DVR & NVR Video Recording Hubs',
-    'poe-switch': 'Commercial PoE & Dome Systems',
-    'accessory': 'Surveillance Storage, Hard Drives & Kits'
+    'all': 'Complete Security & Hardware Catalog',
+    'cctv': 'CCTV Surveillance Systems & Cameras',
+    'vdp': 'Video Door Phones (VDP) & Intercoms',
+    'alarm': 'Intrusion Alarm Systems & Sensors',
+    'access': 'Access Control & Biometric Systems',
+    'cables': 'Cables, Pure Copper & Networking',
+    'accessory': 'Hardware Accessories, SMPS & Storage'
   };
   const titleEl = document.getElementById('pageTitleHeading');
   if (titleEl && titles[cat]) titleEl.textContent = titles[cat];

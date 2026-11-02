@@ -1,399 +1,1422 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SYBER SPACE // Precision Surveillance Systems</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&family=Syne:wght@400..800&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Syber Space | Official Security &amp; Surveillance Infrastructure</title>
+  <meta name="description" content="Official direct-procurement store for CCTV surveillance systems, video door phones (VDP), intrusion alarms, biometric access control, solid copper cables, and enterprise security accessories.">
+  
+  <!-- Google Fonts: Inter & Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@500;600;700;800;900&display=swap" rel="stylesheet">
+  
+  <script src="assets/gsap.min.js"></script>
+  <script src="products_data.js"></script>
+
+  <style>
+/* ==========================================================================
+   SYBER SPACE // MINIMALIST E-COMMERCE ARCHITECTURE
+   LIGHT PALETTE: PURE WHITE, SLATE, ROYAL BLUE & VIBRANT PASTEL TABS
+   ========================================================================== */
+:root {
+  --white: #ffffff;
+  --bg-slate: #f8fafc;
+  --bg-card: #ffffff;
+  --black: #090d16;
+  --text-heading: #0f172a;
+  --text-body: #334155;
+  --text-muted: #64748b;
+  --blue: #2563eb;
+  --blue-hover: #1d4ed8;
+  --blue-light: #38bdf8;
+  --border-light: #e2e8f0;
+  --border-subtle: #edf2f7;
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 22px;
+  --shadow-sm: 0 2px 8px rgba(15, 23, 42, 0.04);
+  --shadow-card: 0 10px 30px rgba(15, 23, 42, 0.06);
+  --shadow-hover: 0 18px 42px rgba(37, 99, 235, 0.12);
+  --font-main: 'Plus Jakarta Sans', 'Inter', -apple-system, sans-serif;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  color-scheme: only light;
+  background-color: var(--white);
+}
+
+body {
+  background-color: var(--white);
+  color: var(--text-body);
+  font-family: var(--font-main);
+  overflow-x: hidden;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+.container {
+  max-width: 1260px;
+  padding: 0 24px;
+  margin: 0 auto;
+}
+
+/* ==========================================================================
+   HEADER: CLEAN WHITE WITH CENTER SEARCH, CONTACT, CART PILL & 3D HOOKED TABS
+   ========================================================================== */
+header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(255, 255, 255, 0.96);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border-light);
+  box-shadow: 0 4px 20px rgba(15, 23, 42, 0.04);
+  transition: all 0.25s ease;
+}
+
+.nav {
+  height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  flex-shrink: 0;
+}
+
+.brand-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.brand-title {
+  font-size: 21px;
+  font-weight: 900;
+  letter-spacing: 1.2px;
+  color: var(--black);
+  line-height: 1.05;
+}
+
+.brand-subtitle {
+  font-size: 9px;
+  letter-spacing: 2.2px;
+  font-weight: 800;
+  color: var(--blue);
+  text-transform: uppercase;
+  margin-top: 2px;
+}
+
+/* CENTER SEARCH PILL */
+.header-search-wrap {
+  flex: 1;
+  max-width: 580px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  background: var(--bg-slate);
+  border: 1px solid var(--border-light);
+  border-radius: 999px;
+  padding: 5px 6px 5px 18px;
+  box-shadow: inset 0 1px 3px rgba(15, 23, 42, 0.04);
+  transition: all 0.2s ease;
+}
+
+.header-search-wrap:focus-within {
+  border-color: var(--blue);
+  background: var(--white);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+}
+
+.header-search-wrap svg {
+  color: var(--text-muted);
+  flex-shrink: 0;
+  margin-right: 10px;
+}
+
+.header-search-input {
+  width: 100%;
+  border: none;
+  background: transparent;
+  font-size: 13.5px;
+  font-family: inherit;
+  color: var(--text-heading);
+  outline: none;
+}
+
+.header-search-input::placeholder {
+  color: var(--text-muted);
+}
+
+.header-search-btn {
+  background: var(--blue);
+  color: var(--white);
+  border: none;
+  border-radius: 999px;
+  padding: 8px 18px;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s ease;
+  flex-shrink: 0;
+}
+
+.header-search-btn:hover {
+  background: var(--blue-hover);
+}
+
+/* RIGHT CONTROLS: PHONE PILL & CART PILL */
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-shrink: 0;
+}
+
+.header-hotline-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  background: var(--bg-slate);
+  border: 1px solid var(--border-light);
+  border-radius: 999px;
+  font-size: 12.5px;
+  font-weight: 700;
+  color: var(--text-heading);
+  transition: all 0.2s ease;
+}
+
+.header-hotline-btn svg {
+  color: var(--blue);
+}
+
+.header-hotline-btn:hover {
+  border-color: var(--blue);
+  color: var(--blue);
+  background: var(--white);
+}
+
+.header-cart-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--black);
+  border: 1px solid var(--black);
+  border-radius: 999px;
+  padding: 8px 16px;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--white);
+  text-decoration: none;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.12);
+}
+
+.header-cart-pill:hover {
+  background: var(--blue);
+  border-color: var(--blue);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(37, 99, 235, 0.28);
+}
+
+.cart-pill-badge {
+  background: var(--blue);
+  color: var(--white);
+  font-size: 10.5px;
+  font-weight: 900;
+  padding: 2px 7px;
+  border-radius: 999px;
+  min-width: 18px;
+  text-align: center;
+  line-height: 14px;
+}
+
+.header-cart-pill:hover .cart-pill-badge {
+  background: var(--white);
+  color: var(--blue);
+}
+
+/* ==========================================================================
+   SHELF BAR & 3D HOOKED RIBBON BOOKMARK TABS (EXACT MATCH TO REFERENCE)
+   ========================================================================== */
+.header-shelf-bar {
+  position: relative;
+  width: 100%;
+  padding-bottom: 8px;
+}
+
+.shelf-line {
+  position: absolute;
+  top: 5px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent 0%, #cbd5e1 15%, #cbd5e1 85%, transparent 100%);
+  z-index: 0;
+}
+
+.shelf-tabs-container {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 12px;
+  position: relative;
+  z-index: 1;
+}
+
+.nav-ribbon-tab {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.15px;
+  padding: 8px 18px 10px;
+  border-radius: 6px 6px 13px 13px;
+  text-decoration: none;
+  box-shadow: 0 6px 14px rgba(15, 23, 42, 0.12), 0 2px 4px rgba(15, 23, 42, 0.06);
+  transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
+  user-select: none;
+}
+
+/* 3D TOP FOLD OVER SHELF LINE */
+.nav-ribbon-tab::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 5px;
+  border-radius: 6px 6px 0 0;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.18) 0%, transparent 100%);
+  pointer-events: none;
+}
+
+.nav-ribbon-tab:hover {
+  transform: translateY(2px);
+  box-shadow: 0 8px 18px rgba(15, 23, 42, 0.18);
+}
+
+.nav-ribbon-tab.active {
+  transform: translateY(1px);
+}
+
+.nav-ribbon-tab.active::after {
+  content: "";
+  position: absolute;
+  bottom: 2px;
+  width: 18px;
+  height: 3px;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 999px;
+  box-shadow: 0 0 6px rgba(255, 255, 255, 0.8);
+}
+
+/* 1. CCTV TAB: SOLID ROYAL BLUE (ACTIVE DEFAULT) */
+.nav-ribbon-tab[data-cat="cctv"] {
+  background: #2563eb;
+  color: #ffffff !important;
+}
+.nav-ribbon-tab[data-cat="cctv"]:hover {
+  background: #1d4ed8;
+}
+
+/* 2. VDP TAB: WARM AMBER GOLD */
+.nav-ribbon-tab[data-cat="vdp"] {
+  background: #fcd34d;
+  color: #78350f !important;
+}
+.nav-ribbon-tab[data-cat="vdp"]:hover {
+  background: #fbbf24;
+}
+
+/* 3. INTRUSION ALARM TAB: FRESH PASTEL GREEN */
+.nav-ribbon-tab[data-cat="alarm"] {
+  background: #86efac;
+  color: #064e3b !important;
+}
+.nav-ribbon-tab[data-cat="alarm"]:hover {
+  background: #4ade80;
+}
+
+/* 4. ACCESS CONTROL TAB: PASTEL ROSE PINK */
+.nav-ribbon-tab[data-cat="access"] {
+  background: #fda4af;
+  color: #881337 !important;
+}
+.nav-ribbon-tab[data-cat="access"]:hover {
+  background: #f43f5e;
+  color: #ffffff !important;
+}
+
+/* 5. CABLES TAB: AQUA MINT CYAN */
+.nav-ribbon-tab[data-cat="cables"] {
+  background: #99f6e4;
+  color: #134e4a !important;
+}
+.nav-ribbon-tab[data-cat="cables"]:hover {
+  background: #2dd4bf;
+}
+
+/* 6. ACCESSORIES TAB: LAVENDER PURPLE */
+.nav-ribbon-tab[data-cat="accessory"] {
+  background: #ddd6fe;
+  color: #4c1d95 !important;
+}
+.nav-ribbon-tab[data-cat="accessory"]:hover {
+  background: #c084fc;
+  color: #ffffff !important;
+}
+
+/* 7. SHOP ALL TAB: SLATE NOIR */
+.nav-ribbon-tab[data-cat="all"] {
+  background: #334155;
+  color: #ffffff !important;
+}
+.nav-ribbon-tab[data-cat="all"]:hover {
+  background: #0f172a;
+}
+
+/* ==========================================================================
+   MINIMALIST HERO SECTION: CLEAN, ARCHITECTURAL, LUXURY STATEMENT
+   (NO SINGLE PRODUCT DISPLAY PINNED ON FRONT PAGE)
+   ========================================================================== */
+.hero-minimal {
+  position: relative;
+  background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+  border-bottom: 1px solid var(--border-light);
+  padding: 64px 0 54px;
+  overflow: hidden;
+}
+
+.hero-minimal-content {
+  text-align: center;
+  max-width: 880px;
+  margin: 0 auto;
+}
+
+.hero-badge-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 18px;
+  background: #eff6ff;
+  border: 1px solid #bfdbfe;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 1.4px;
+  color: var(--blue);
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+
+.hero-badge-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--blue);
+  box-shadow: 0 0 8px var(--blue);
+}
+
+.hero-minimal h1 {
+  font-size: 52px;
+  font-weight: 900;
+  line-height: 1.1;
+  letter-spacing: -1.4px;
+  color: var(--text-heading);
+  margin-bottom: 18px;
+}
+
+.hero-colored-subline {
+  display: block;
+  font-size: 26px;
+  font-weight: 800;
+  letter-spacing: 0.2px;
+  background: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-top: 8px;
+}
+
+.hero-lead-text {
+  font-size: 16.5px;
+  line-height: 1.65;
+  color: var(--text-muted);
+  max-width: 720px;
+  margin: 0 auto 30px;
+}
+
+.hero-actions-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin-bottom: 38px;
+}
+
+.btn-hero-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--blue);
+  color: var(--white);
+  font-size: 14px;
+  font-weight: 700;
+  padding: 13px 28px;
+  border-radius: 12px;
+  transition: all 0.2s ease;
+  box-shadow: 0 6px 20px rgba(37, 99, 235, 0.25);
+}
+
+.btn-hero-primary:hover {
+  background: var(--blue-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 28px rgba(37, 99, 235, 0.35);
+}
+
+.btn-hero-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--white);
+  border: 1px solid var(--border-light);
+  color: var(--text-heading);
+  font-size: 14px;
+  font-weight: 700;
+  padding: 13px 24px;
+  border-radius: 12px;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.04);
+}
+
+.btn-hero-secondary:hover {
+  border-color: var(--blue);
+  color: var(--blue);
+  transform: translateY(-2px);
+}
+
+/* MINIMALIST TRUST STRIP */
+.hero-trust-bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 28px;
+  flex-wrap: wrap;
+  padding-top: 24px;
+  border-top: 1px solid var(--border-light);
+  font-size: 12.5px;
+  color: var(--text-muted);
+}
+
+.trust-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+  color: var(--text-body);
+}
+
+.trust-item svg {
+  color: var(--blue);
+  flex-shrink: 0;
+}
+
+/* ==========================================================================
+   THE 6 CORE CATEGORY GATEWAY CARDS: SPACIOUS, MINIMALIST, HIGH-END E-COMMERCE
+   ========================================================================== */
+.departments-section {
+  padding: 72px 0 84px;
+  background: var(--white);
+}
+
+.section-head-center {
+  text-align: center;
+  max-width: 720px;
+  margin: 0 auto 52px;
+}
+
+.section-tag-sm {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 1.6px;
+  color: var(--blue);
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.section-heading-lg {
+  font-size: 34px;
+  font-weight: 900;
+  letter-spacing: -0.6px;
+  color: var(--text-heading);
+  line-height: 1.2;
+  margin-bottom: 12px;
+}
+
+.section-subtext {
+  font-size: 15px;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+.categories-grid-6 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.cat-gateway-card {
+  position: relative;
+  background: var(--white);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-md);
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-decoration: none;
+  cursor: pointer;
+  box-shadow: var(--shadow-sm);
+  transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+  overflow: hidden;
+}
+
+.cat-gateway-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--blue);
+  box-shadow: var(--shadow-hover);
+}
+
+.cat-badge-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.cat-badge-label {
+  font-size: 10.5px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  padding: 3px 10px;
+  border-radius: 999px;
+  background: var(--bg-slate);
+  color: var(--text-muted);
+}
+
+.cat-price-from {
+  font-size: 12px;
+  font-weight: 800;
+  color: var(--blue);
+}
+
+.cat-img-stage {
+  height: 180px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg-slate);
+  border-radius: 12px;
+  margin-bottom: 20px;
+  padding: 16px;
+  position: relative;
+  overflow: hidden;
+}
+
+.cat-img-stage img {
+  max-height: 145px;
+  max-width: 100%;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+}
+
+.cat-gateway-card:hover .cat-img-stage img {
+  transform: scale(1.08);
+}
+
+.cat-info-block h3 {
+  font-size: 19px;
+  font-weight: 800;
+  color: var(--text-heading);
+  margin-bottom: 8px;
+  line-height: 1.25;
+}
+
+.cat-info-block p {
+  font-size: 13.5px;
+  color: var(--text-muted);
+  line-height: 1.55;
+  margin-bottom: 16px;
+}
+
+.cat-chips-strip {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+  margin-bottom: 18px;
+}
+
+.cat-chip {
+  font-size: 11px;
+  font-weight: 600;
+  padding: 3px 9px;
+  background: #f1f5f9;
+  border-radius: 6px;
+  color: var(--text-body);
+}
+
+.cat-card-action {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  font-weight: 800;
+  color: var(--blue);
+  transition: gap 0.2s ease;
+}
+
+.cat-gateway-card:hover .cat-card-action {
+  color: var(--blue-hover);
+  gap: 10px;
+}
+
+/* ==========================================================================
+   BRAND PARTNERSHIPS SECTION (MINIMALIST WHITE)
+   ========================================================================== */
+.brands-section-minimal {
+  padding: 56px 0 64px;
+  background: var(--bg-slate);
+  border-top: 1px solid var(--border-light);
+  border-bottom: 1px solid var(--border-light);
+}
+
+.brands-grid-clean {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+}
+
+.brand-partner-card {
+  background: var(--white);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-sm);
+  padding: 20px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.brand-partner-card:hover {
+  border-color: var(--blue);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-sm);
+}
+
+.brand-partner-name {
+  font-size: 18px;
+  font-weight: 900;
+  letter-spacing: 0.8px;
+  color: var(--text-heading);
+  margin-bottom: 4px;
+}
+
+.brand-partner-badge {
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: var(--blue);
+  text-transform: uppercase;
+}
+
+/* ==========================================================================
+   WHOLESALE ASSURANCE & WHY US SECTION
+   ========================================================================== */
+.assurance-section {
+  padding: 72px 0;
+  background: var(--white);
+}
+
+.assurance-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.assurance-card {
+  background: var(--bg-slate);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-md);
+  padding: 24px 20px;
+  transition: all 0.2s ease;
+}
+
+.assurance-card:hover {
+  background: var(--white);
+  border-color: var(--blue);
+  box-shadow: var(--shadow-sm);
+}
+
+.assurance-icon {
+  width: 42px;
+  height: 42px;
+  border-radius: 10px;
+  background: #eff6ff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--blue);
+  margin-bottom: 16px;
+}
+
+.assurance-card h4 {
+  font-size: 16px;
+  font-weight: 800;
+  color: var(--text-heading);
+  margin-bottom: 6px;
+}
+
+.assurance-card p {
+  font-size: 13px;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+/* ==========================================================================
+   FOOTER: CLEAN MINIMALIST
+   ========================================================================== */
+footer {
+  background: #ffffff;
+  border-top: 1px solid var(--border-light);
+  padding: 48px 0 32px;
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+.footer-top {
+  display: grid;
+  grid-template-columns: 1.4fr repeat(3, 1fr);
+  gap: 36px;
+  margin-bottom: 40px;
+}
+
+.footer-col h5 {
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  color: var(--text-heading);
+  margin-bottom: 16px;
+}
+
+.footer-links {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.footer-links a:hover {
+  color: var(--blue);
+}
+
+.footer-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 24px;
+  border-top: 1px solid var(--border-light);
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
+.footer-gateway-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--bg-slate);
+  border: 1px solid var(--border-light);
+  padding: 5px 12px;
+  border-radius: 6px;
+  font-size: 11.5px;
+  font-weight: 700;
+  color: var(--text-body);
+}
+
+/* RESPONSIVE DESIGN */
+@media (max-width: 1080px) {
+  .categories-grid-6 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .brands-grid-clean,
+  .assurance-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .footer-top {
+    grid-template-columns: 1fr 1fr;
+  }
+  .hero-minimal h1 {
+    font-size: 40px;
+  }
+  .hero-colored-subline {
+    font-size: 21px;
+  }
+}
+
+@media (max-width: 768px) {
+  .categories-grid-6,
+  .brands-grid-clean,
+  .assurance-grid {
+    grid-template-columns: 1fr;
+  }
+  .shelf-tabs-container {
+    justify-content: flex-start;
+    overflow-x: auto;
+    padding-bottom: 6px;
+    gap: 8px;
+  }
+  .nav-ribbon-tab {
+    flex-shrink: 0;
+    white-space: nowrap;
+  }
+  .header-hotline-btn {
+    display: none;
+  }
+  .footer-top {
+    grid-template-columns: 1fr;
+  }
+  .hero-minimal h1 {
+    font-size: 32px;
+  }
+  .hero-colored-subline {
+    font-size: 18px;
+  }
+}
+  </style>
 </head>
 <body>
-    <div class="crt-overlay"></div>
-    <div class="scanlines"></div>
 
-        <nav class="navbar">
-        <div class="logo"><a href="index.html" style="text-decoration:none; color:inherit;">SYBER SPACE</a></div>
+  <!-- ==========================================================================
+       TOP GLOBAL HEADER WITH SHELF LINE & 3D HOOKED RIBBON BOOKMARK TABS
+       ========================================================================== -->
+  <header>
+    <div class="container nav">
+      <!-- Left: Wordmark Logo -->
+      <a href="index.html" class="brand">
+        <div class="brand-text">
+          <span class="brand-title">SYBER SPACE</span>
+          <span class="brand-subtitle">THE SURVEILLANCE STORE</span>
+        </div>
+      </a>
+
+      <!-- Center: Search Input Bar -->
+      <div class="header-search-wrap">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+        <input type="text" id="headerSearchInput" class="header-search-input" placeholder="Search 100+ surveillance cameras, DVRs, kits, VDP, alarms..." autocomplete="off">
+        <button type="button" class="header-search-btn" id="headerSearchBtn" onclick="triggerHeaderSearch()">Search</button>
+      </div>
+
+      <!-- Right: Phone Hotline & Cart Pill -->
+      <div class="header-right">
+        <a href="tel:+917511180808" class="header-hotline-btn" title="Call Technical Sales Support">
+          <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+          <span>+91 75111 80808</span>
+        </a>
+
+        <a href="cart.html" class="header-cart-pill" id="headerCartBtn" title="View Shopping Cart">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
+          <span>Cart</span>
+          <span class="cart-pill-badge" id="cartBadge">0</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- HORIZONTAL SHELF & 3D HOOKED RIBBON BOOKMARK TABS -->
+    <div class="header-shelf-bar">
+      <div class="shelf-line"></div>
+      <div class="container shelf-tabs-container">
+        <!-- Tab 1: CCTV -->
+        <a href="shop.html?cat=cctv" class="nav-ribbon-tab active" data-cat="cctv">
+          <span>CCTV</span>
+        </a>
+
+        <!-- Tab 2: VDP (Video Door Phone) -->
+        <a href="shop.html?cat=vdp" class="nav-ribbon-tab" data-cat="vdp">
+          <span>VDP</span>
+        </a>
+
+        <!-- Tab 3: Intrusion Alarm -->
+        <a href="shop.html?cat=alarm" class="nav-ribbon-tab" data-cat="alarm">
+          <span>Intrusion Alarm</span>
+        </a>
+
+        <!-- Tab 4: Access Control -->
+        <a href="shop.html?cat=access" class="nav-ribbon-tab" data-cat="access">
+          <span>Access Control</span>
+        </a>
+
+        <!-- Tab 5: Cables -->
+        <a href="shop.html?cat=cables" class="nav-ribbon-tab" data-cat="cables">
+          <span>Cables</span>
+        </a>
+
+        <!-- Tab 6: Accessories -->
+        <a href="shop.html?cat=accessory" class="nav-ribbon-tab" data-cat="accessory">
+          <span>Accessories</span>
+        </a>
+
+        <!-- Tab 7: Shop All -->
+        <a href="shop.html" class="nav-ribbon-tab" data-cat="all">
+          <span>Shop All</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ==========================================================================
+       HERO SECTION: SIMPLE, MINIMALIST & PROFESSIONAL
+       (STRICTLY NO PRODUCT DISPLAY ON FRONT PAGE)
+       ========================================================================== -->
+  <section class="hero-minimal">
+    <div class="container hero-minimal-content">
+      <div class="hero-badge-pill">
+        <span class="hero-badge-dot"></span>
+        <span>Commercial &amp; Residential Security Ecosystem</span>
+      </div>
+
+      <h1>
+        Next-Gen Security Infrastructure
+        <span class="hero-colored-subline">CCTV // VDP // Intrusion Alarm // Access Control // Cables</span>
+      </h1>
+
+      <p class="hero-lead-text">
+        Direct-procurement platform for precision optical surveillance, smart video door phones, autonomous intrusion detection, biometric access architecture, solid copper cables, and enterprise power subsystems.
+      </p>
+
+      <div class="hero-actions-row">
+        <a href="#departments" class="btn-hero-primary">
+          <span>Browse All 6 Departments &darr;</span>
+        </a>
+        <a href="https://wa.me/917511180808?text=Hello%20Syber%20Space%2C%20I%20need%20a%20B2B%20wholesale%20quotation." target="_blank" rel="noopener noreferrer" class="btn-hero-secondary">
+          <span>Request B2B Quotation &rarr;</span>
+        </a>
+      </div>
+
+      <!-- Trust Bar -->
+      <div class="hero-trust-bar">
+        <div class="trust-item">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+          <span>Certified Tier-1 Hardware</span>
+        </div>
+        <div class="trust-item">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="2" y="5" width="20" height="14" rx="2"></rect><line x1="2" y1="10" x2="22" y2="10"></line></svg>
+          <span>Wholesale GST Tax Credit Included</span>
+        </div>
+        <div class="trust-item">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+          <span>Fast Priority Dispatch (24-48h)</span>
+        </div>
+        <div class="trust-item">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+          <span>1-Year Official Manufacturer Warranty</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       THE 6 CORE CATEGORY GATEWAY CARDS: GIVING SPACE TO ALL 6 CATEGORIES
+       ========================================================================== -->
+  <section class="departments-section" id="departments">
+    <div class="container">
+      <div class="section-head-center">
+        <span class="section-tag-sm">Infrastructure Gateway</span>
+        <h2 class="section-heading-lg">Shop by Security Category</h2>
+        <p class="section-subtext">
+          Select an infrastructure department to explore certified commercial hardware, full technical specifications, and bulk contractor pricing.
+        </p>
+      </div>
+
+      <div class="categories-grid-6">
         
-        <div class="nav-search-wrapper">
-            <div class="nav-search-box">
-                <svg class="search-icon" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.2">
-                    <circle cx="11" cy="11" r="8"></circle>
-                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-                </svg>
-                <input type="text" id="nav-search-input" class="nav-search-input" placeholder="SEARCH SURVEILLANCE HARDWARE, PTZ, NVRS..." autocomplete="off">
-                <button type="button" class="nav-search-submit" onclick="triggerSearchScroll()">[ SEARCH ]</button>
+        <!-- 1. CCTV Surveillance -->
+        <a href="shop.html?cat=cctv" class="cat-gateway-card">
+          <div>
+            <div class="cat-badge-row">
+              <span class="cat-badge-label">Optical Surveillance</span>
+              <span class="cat-price-from">From &#8377;1,450</span>
             </div>
+            <div class="cat-img-stage">
+              <img src="assets/official_bestseller_cpplus_e38q_transparent.png" alt="CCTV Cameras" loading="eager">
+            </div>
+            <div class="cat-info-block">
+              <h3>1. CCTV Cameras &amp; Systems</h3>
+              <p>Motorized 360&deg; PTZ, autonomous 4G solar off-grid cameras, starlight night vision, and multi-channel 4K NVR recording hubs.</p>
+              <div class="cat-chips-strip">
+                <span class="cat-chip">Wi-Fi PTZ</span>
+                <span class="cat-chip">4G Solar</span>
+                <span class="cat-chip">Armored Dome</span>
+                <span class="cat-chip">NVR / DVR</span>
+              </div>
+            </div>
+          </div>
+          <div class="cat-card-action">
+            <span>Explore CCTV Systems &rarr;</span>
+          </div>
+        </a>
+
+        <!-- 2. Video Door Phones (VDP) -->
+        <a href="shop.html?cat=vdp" class="cat-gateway-card">
+          <div>
+            <div class="cat-badge-row">
+              <span class="cat-badge-label">Smart Intercom</span>
+              <span class="cat-price-from">From &#8377;2,450</span>
+            </div>
+            <div class="cat-img-stage">
+              <img src="assets/trueview_doorbell_1.webp" alt="Video Door Phone VDP" loading="eager">
+            </div>
+            <div class="cat-info-block">
+              <h3>2. Video Door Phones (VDP)</h3>
+              <p>Smart Wi-Fi video doorbells, 2-way acoustic talkback, 7-inch indoor touchscreen monitors, electronic door release, and mobile divert.</p>
+              <div class="cat-chips-strip">
+                <span class="cat-chip">Smart Doorbell</span>
+                <span class="cat-chip">7" Touchscreen</span>
+                <span class="cat-chip">2-Way Audio</span>
+                <span class="cat-chip">Door Unlock</span>
+              </div>
+            </div>
+          </div>
+          <div class="cat-card-action">
+            <span>Explore VDP Systems &rarr;</span>
+          </div>
+        </a>
+
+        <!-- 3. Intrusion Alarm -->
+        <a href="shop.html?cat=alarm" class="cat-gateway-card">
+          <div>
+            <div class="cat-badge-row">
+              <span class="cat-badge-label">Active Defense</span>
+              <span class="cat-price-from">From &#8377;1,250</span>
+            </div>
+            <div class="cat-img-stage">
+              <img src="assets/product_features/cpplus_e21_feature_motion.jpg" alt="Intrusion Alarm System" loading="lazy">
+            </div>
+            <div class="cat-info-block">
+              <h3>3. Intrusion Alarm Systems</h3>
+              <p>Autonomous wireless perimeter defense: dual-element PIR motion discriminators, magnetic door/shutter switches, and 120dB GSM/Wi-Fi siren hubs.</p>
+              <div class="cat-chips-strip">
+                <span class="cat-chip">Wireless PIR</span>
+                <span class="cat-chip">Shutter Sensors</span>
+                <span class="cat-chip">120dB Siren</span>
+                <span class="cat-chip">GSM Hub</span>
+              </div>
+            </div>
+          </div>
+          <div class="cat-card-action">
+            <span>Explore Intrusion Alarms &rarr;</span>
+          </div>
+        </a>
+
+        <!-- 4. Access Control -->
+        <a href="shop.html?cat=access" class="cat-gateway-card">
+          <div>
+            <div class="cat-badge-row">
+              <span class="cat-badge-label">Identity &amp; Biometrics</span>
+              <span class="cat-price-from">From &#8377;2,150</span>
+            </div>
+            <div class="cat-img-stage">
+              <img src="assets/product_features/trueview_feature_2.jpg" alt="Access Control & Biometrics" loading="lazy">
+            </div>
+            <div class="cat-info-block">
+              <h3>4. Access Control &amp; Biometrics</h3>
+              <p>Biometric fingerprint time-attendance terminals, RFID card scanners, contactless facial recognition readers, and heavy-duty 600lbs EM locks.</p>
+              <div class="cat-chips-strip">
+                <span class="cat-chip">Fingerprint &amp; Face</span>
+                <span class="cat-chip">RFID Smart Cards</span>
+                <span class="cat-chip">600lbs EM Locks</span>
+                <span class="cat-chip">Wiegand Sync</span>
+              </div>
+            </div>
+          </div>
+          <div class="cat-card-action">
+            <span>Explore Access Control &rarr;</span>
+          </div>
+        </a>
+
+        <!-- 5. Cables & Networking -->
+        <a href="shop.html?cat=cables" class="cat-gateway-card">
+          <div>
+            <div class="cat-badge-row">
+              <span class="cat-badge-label">Copper Infrastructure</span>
+              <span class="cat-price-from">From &#8377;180</span>
+            </div>
+            <div class="cat-img-stage">
+              <img src="assets/acc_official_cat6_drum.png" alt="CCTV Cables" loading="lazy">
+            </div>
+            <div class="cat-info-block">
+              <h3>5. Cables &amp; Networking</h3>
+              <p>100% pure solid bare copper CAT6 305m drums, shielded 3+1 CCTV video &amp; power coaxial cables, molded RJ45 patch cords, and gigabit PoE switches.</p>
+              <div class="cat-chips-strip">
+                <span class="cat-chip">CAT6 305m Drum</span>
+                <span class="cat-chip">3+1 Coaxial</span>
+                <span class="cat-chip">Patch Cords</span>
+                <span class="cat-chip">PoE Switches</span>
+              </div>
+            </div>
+          </div>
+          <div class="cat-card-action">
+            <span>Explore Cables &amp; Wire &rarr;</span>
+          </div>
+        </a>
+
+        <!-- 6. Hardware & Power Accessories -->
+        <a href="shop.html?cat=accessory" class="cat-gateway-card">
+          <div>
+            <div class="cat-badge-row">
+              <span class="cat-badge-label">Installer Essentials</span>
+              <span class="cat-price-from">From &#8377;180</span>
+            </div>
+            <div class="cat-img-stage">
+              <img src="assets/acc_official_smps.png" alt="Power & Hardware Accessories" loading="lazy">
+            </div>
+            <div class="cat-info-block">
+              <h3>6. Hardware &amp; Power Accessories</h3>
+              <p>Centralized regulated 12V SMPS units (5A/10A/20A), IP66 weatherproof round junction deep-base boxes, BNC/DC connectors, and Seagate SkyHawk HDDs.</p>
+              <div class="cat-chips-strip">
+                <span class="cat-chip">12V SMPS Units</span>
+                <span class="cat-chip">IP66 Base Boxes</span>
+                <span class="cat-chip">SkyHawk 4TB</span>
+                <span class="cat-chip">Connectors</span>
+              </div>
+            </div>
+          </div>
+          <div class="cat-card-action">
+            <span>Explore Accessories &rarr;</span>
+          </div>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       BRAND PARTNERSHIPS SECTION (MINIMALIST WHITE)
+       ========================================================================== -->
+  <section class="brands-section-minimal">
+    <div class="container">
+      <div class="section-head-center" style="margin-bottom: 32px;">
+        <span class="section-tag-sm">Certified Hardware</span>
+        <h2 class="section-heading-lg" style="font-size: 26px;">Authorized Brand Partnerships</h2>
+      </div>
+
+      <div class="brands-grid-clean">
+        <div class="brand-partner-card">
+          <span class="brand-partner-name">CP PLUS</span>
+          <span class="brand-partner-badge">Authorized Partner &bull; 9 Models</span>
+        </div>
+        <div class="brand-partner-card">
+          <span class="brand-partner-name">Trueview</span>
+          <span class="brand-partner-badge">Tier-1 Direct &bull; 31 Models</span>
+        </div>
+        <div class="brand-partner-card">
+          <span class="brand-partner-name">iDADA</span>
+          <span class="brand-partner-badge">Official Partner &bull; Smart Series</span>
+        </div>
+        <div class="brand-partner-card">
+          <span class="brand-partner-name">Seagate</span>
+          <span class="brand-partner-badge">SkyHawk Partner &bull; Surveillance</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       WHOLESALE & WHY US ASSURANCE GRID
+       ========================================================================== -->
+  <section class="assurance-section">
+    <div class="container">
+      <div class="section-head-center">
+        <span class="section-tag-sm">Procurement Assurance</span>
+        <h2 class="section-heading-lg">Why Procure from Syber Space</h2>
+      </div>
+
+      <div class="assurance-grid">
+        <div class="assurance-card">
+          <div class="assurance-icon">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+          </div>
+          <h4>Wholesale GST Invoicing</h4>
+          <p>Every commercial order includes genuine GST invoices with input tax credit for contractors and businesses.</p>
         </div>
 
-        <div class="nav-links">
-            <a href="product.html">CAMERAS</a>
-            <a href="#about">ABOUT</a>
-            <a href="cart.html">CART (0)</a>
+        <div class="assurance-card">
+          <div class="assurance-icon">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+          </div>
+          <h4>Fast Priority Dispatch</h4>
+          <p>Verified orders dispatched within 24 to 48 business hours with express logistics and tracking numbers.</p>
         </div>
-    </nav>
 
-    <main>
-        <section class="hero">
-            <div class="surveillance-stage">
-                <!-- Top Telemetry Header -->
-                <div class="stage-telemetry">
-                    <div class="stage-cam-info">
-                        <span class="live-dot"></span>
-                        <span id="stage-cam-name">CAM-01 [MAIN ENTRANCE]</span>
-                    </div>
-                    <div class="stage-mode-badge" id="stage-mode-badge">
-                        <span class="mode-tag" id="stage-mode-tag">[LIVE FEED]</span>
-                        <span class="rec-dot">● REC</span>
-                    </div>
-                </div>
-
-                <!-- VIEWPORT AREA (Exact same spot for both videos and offers - borderless) -->
-                <div class="stage-viewport" id="hero-viewport">
-
-                    <!-- SLIDE 0: SURVEILLANCE VIDEO 1 (CAM-01 [MAIN ENTRANCE]) -->
-                    <div class="stage-slide video-slide active" id="slide-video-1">
-                        <div class="video-bg-container">
-                            <video id="hero-video-1" autoplay muted playsinline class="hero-video">
-                                <source src="cctv_parking_video.mp4" type="video/mp4">
-                            </video>
-                            <div class="static-noise"></div>
-                            <div class="stage-overlay"></div>
-                        </div>
-                        <div class="hero-text-overlay">
-                            <h1 class="glitch" data-text="SEE MORE.&#10;SECURE MORE.&#10;WORRY LESS.&#10;SYBER SPACE.">SEE MORE.<br>SECURE MORE.<br>WORRY LESS.<br><span style="color:var(--accent);">SYBER SPACE.</span></h1>
-                            <p class="subtitle">NEXT-GENERATION OPTICAL SURVEILLANCE FOR ENTERPRISE &amp; RESIDENTIAL PROPERTIES.<br>PRECISION MONITORING. ZERO BLIND SPOTS.</p>
-                            <a href="product.html" class="cta-btn">EXPLORE HARDWARE &rarr;</a>
-                        </div>
-                    </div>
-
-                    <!-- SLIDE 1: SURVEILLANCE VIDEO 2 (CAM-02 [COMMERCIAL AISLE 07]) -->
-                    <div class="stage-slide video-slide" id="slide-video-2">
-                        <div class="video-bg-container">
-                            <video id="hero-video-2" muted playsinline class="hero-video">
-                                <source src="cctv_aisle_video.mp4" type="video/mp4">
-                            </video>
-                            <div class="static-noise"></div>
-                            <div class="stage-overlay"></div>
-                        </div>
-                        <div class="hero-text-overlay">
-                            <h1 class="glitch" data-text="SEE MORE.&#10;SECURE MORE.&#10;WORRY LESS.&#10;SYBER SPACE.">SEE MORE.<br>SECURE MORE.<br>WORRY LESS.<br><span style="color:var(--accent);">SYBER SPACE.</span></h1>
-                            <p class="subtitle">HIGH-DEFINITION INTERIOR AISLE TELEMETRY. ZERO BLIND SPOTS.<br>CONTINUOUS SURVEILLANCE RECORDING.</p>
-                            <a href="#cameras" class="cta-btn">EXPLORE HARDWARE &rarr;</a>
-                        </div>
-                    </div>
-
-                    <!-- SLIDE 2: OFFER 1 - TRUEVIEW SOLAR DUAL LENS (REAL CAMERA) -->
-                    <div class="stage-slide offer-slide" id="offer-slide-0">
-                        <div class="slide-background">
-                            <img src="offer_bg_1.jpg" alt="Trueview Surveillance Environment">
-                            <div class="static-noise"></div>
-                            <div class="bg-overlay"></div>
-                        </div>
-                        <div class="offer-grid-layout">
-                            <div class="slide-content">
-                                <span class="offer-brand-badge">TRUEVIEW // OFFICIAL TIER-1</span>
-                                <h3>TRUEVIEW 4G SOLAR DUAL-LENS PT</h3>
-                                <p class="discount">SAVE ₹12,500</p>
-                                <p class="desc">Continuous solar charging with dual optical sensors and high-speed mobile connectivity.</p>
-                                <button class="cta-btn cta-small" onclick="window.location.href='product.html?id=trueview-solar-4g-sim-outdoor-pan-tilt-camera'">BUY NOW</button>
-                            </div>
-                            <div class="offer-camera-visual">
-                                <div class="cam-spotlight"></div>
-                                <img src="assets/official_trueview_solar_4G-Mini-PT-Solar-Linkage-Camera-01.webp" alt="Trueview Solar Dual Lens Camera" class="offer-camera-img">
-                                <span class="cam-model-tag">TRUEVIEW 4G SOLAR PT</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- SLIDE 3: OFFER 2 - CP PLUS EZYKAM+ 4K (REAL CAMERA) -->
-                    <div class="stage-slide offer-slide" id="offer-slide-1">
-                        <div class="slide-background">
-                            <img src="offer_bg_2.jpg" alt="CP PLUS Surveillance Environment">
-                            <div class="static-noise"></div>
-                            <div class="bg-overlay"></div>
-                        </div>
-                        <div class="offer-grid-layout">
-                            <div class="slide-content">
-                                <span class="offer-brand-badge">CP PLUS // OFFICIAL SECURITY</span>
-                                <h3>CP PLUS EZYKAM+ 4K 360&deg; AI</h3>
-                                <p class="discount">BUY 1 GET 2 FREE</p>
-                                <p class="desc">AI human detection with 360-degree motor rotation and full color starlight night vision.</p>
-                                <button class="cta-btn cta-small" onclick="window.location.href='product.html?id=cp-plus-ezykam-cp-e28q-2mp-pan-tilt-wi-fi-camera'">BUY NOW</button>
-                            </div>
-                            <div class="offer-camera-visual">
-                                <div class="cam-spotlight"></div>
-                                <img src="assets/official_bestseller_cpplus_e38q_transparent.png" alt="CP PLUS Ezykam Camera" class="offer-camera-img">
-                                <span class="cam-model-tag">CP PLUS EZYKAM+</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- SLIDE 4: OFFER 3 - iDADA Q2i SMART ROTATING DOME (REAL CAMERA) -->
-                    <div class="stage-slide offer-slide" id="offer-slide-2">
-                        <div class="slide-background">
-                            <img src="offer_bg_3.jpg" alt="iDADA Surveillance Environment">
-                            <div class="static-noise"></div>
-                            <div class="bg-overlay"></div>
-                        </div>
-                        <div class="offer-grid-layout">
-                            <div class="slide-content">
-                                <span class="offer-brand-badge">iDADA // WIRELESS SURVEILLANCE</span>
-                                <h3>iDADA Q2i ROTATING DOME</h3>
-                                <p class="discount">ONLY ₹5,999</p>
-                                <p class="desc">Ultra-clear optical pan-tilt dome with 512GB local storage support and instant mobile telemetry.</p>
-                                <button class="cta-btn cta-small" onclick="window.location.href='product.html?id=idada-id-q2i35s-td-3mp-pan-tilt-smart-wi-fi-camera'">BUY NOW</button>
-                            </div>
-                            <div class="offer-camera-visual">
-                                <div class="cam-spotlight"></div>
-                                <img src="assets/official_bestseller_idada_q2i_transparent.png" alt="iDADA Q2i Rotating Dome" class="offer-camera-img">
-                                <span class="cam-model-tag">iDADA Q2i SMART DOME</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- SLIDE 5: OFFER 4 - TRUEVIEW COMMERCIAL AHD BULLET (REAL CAMERA) -->
-                    <div class="stage-slide offer-slide" id="offer-slide-3">
-                        <div class="slide-background">
-                            <img src="offer_bg_1.jpg" alt="Trueview AHD Bullet Environment">
-                            <div class="static-noise"></div>
-                            <div class="bg-overlay"></div>
-                        </div>
-                        <div class="offer-grid-layout">
-                            <div class="slide-content">
-                                <span class="offer-brand-badge">TRUEVIEW // COMMERCIAL HARDWARE</span>
-                                <h3>TRUEVIEW ALL-WEATHER AHD BULLET</h3>
-                                <p class="discount">50% OFF</p>
-                                <p class="desc">IP67 weather-sealed high-precision optical bullet camera with long-range IR night illuminators.</p>
-                                <button class="cta-btn cta-small" onclick="window.location.href='product.html?id=trueview-solar-4g-sim-outdoor-pan-tilt-camera'">BUY NOW</button>
-                            </div>
-                            <div class="offer-camera-visual">
-                                <div class="cam-spotlight"></div>
-                                <img src="assets/trueview_ahd_bullet_1.webp" alt="Trueview AHD Bullet Camera" class="offer-camera-img">
-                                <span class="cam-model-tag">TRUEVIEW AHD BULLET</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- SLIDE 6: OFFER 5 - CP PLUS ARMORED EXPEDITION (REAL CAMERA) -->
-                    <div class="stage-slide offer-slide" id="offer-slide-4">
-                        <div class="slide-background">
-                            <img src="offer_bg_2.jpg" alt="CP PLUS Armored Dome Environment">
-                            <div class="static-noise"></div>
-                            <div class="bg-overlay"></div>
-                        </div>
-                        <div class="offer-grid-layout">
-                            <div class="slide-content">
-                                <span class="offer-brand-badge">CP PLUS // ENTERPRISE EXPEDITION</span>
-                                <h3>CP PLUS ARMORED EXPEDITION DOME</h3>
-                                <p class="discount">60% OFF</p>
-                                <p class="desc">Vandal-resistant IK10 optical dome designed for enterprise facilities and high-traffic perimeters.</p>
-                                <button class="cta-btn cta-small" onclick="window.location.href='product.html?id=cp-plus-ezykam-cp-z45q-4mp-outdoor-full-color-wi-fi-pt-camera'">BUY NOW</button>
-                            </div>
-                            <div class="offer-camera-visual">
-                                <div class="cam-spotlight"></div>
-                                <img src="assets/cp_z45q_1.png" alt="CP PLUS Armored Dome Camera" class="offer-camera-img">
-                                <span class="cam-model-tag">CP PLUS ARMORED DOME</span>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-
-                <!-- BOTTOM CONTROLS BAR (No cam-1 / cam-2 / offers pills) -->
-                <div class="stage-controls">
-                    <div class="stage-status-left">
-                        <span class="live-status-pill">[ SYSTEM READY ]</span>
-                    </div>
-                    <div class="slide-nav-arrows">
-                        <button id="prev-slide" class="slide-btn">[ PREV ]</button>
-                        <span id="slide-indicator">CAM-01</span>
-                        <button id="next-slide" class="slide-btn">[ NEXT ]</button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Angled Marquee Ribbon -->
-            <div class="marquee">
-                <div class="marquee-inner">
-                    <span>24/7 ACTIVE MONITORING // PRECISION OPTICS // ZERO BLIND SPOTS // CERTIFIED HARDWARE // DIRECT PROCUREMENT // ULTRA-HD NIGHT VISION // 24/7 ACTIVE MONITORING // PRECISION OPTICS // ZERO BLIND SPOTS //</span>
-                </div>
-            </div>
-        </section>
-
-        <section class="products-section" id="cameras">
-            <div class="products-header">
-                <h2 class="section-title" data-text="SHOP ALL CAMERAS">SHOP ALL CAMERAS</h2>
-                <div class="products-sort">
-                    <label>Sort by:</label>
-                    <select class="sort-select">
-                        <option>Recommended</option>
-                        <option>Price: Low to High</option>
-                        <option>Price: High to Low</option>
-                        <option>New Arrivals</option>
-                    </select>
-                </div>
-            </div>
-            
-            <div class="ecom-layout">
-                <aside class="sidebar-filters">
-                    <h3 class="filter-title">FILTERS</h3>
-                    <div class="filter-group">
-                        <h4>Brands</h4>
-                        <label><input type="checkbox" class="brand-filter" value="CPPLUS" checked> CP PLUS</label>
-                        <label><input type="checkbox" class="brand-filter" value="TRUEVIEW" checked> Trueview</label>
-                        <label><input type="checkbox" class="brand-filter" value="IDADA" checked> iDADA</label>
-                    </div>
-                    <div class="filter-group">
-                        <h4>Features</h4>
-                        <label><input type="checkbox" class="feature-filter" value="nv"> Night Vision (IR)</label>
-                        <label><input type="checkbox" class="feature-filter" value="mt"> Motion Tracking</label>
-                        <label><input type="checkbox" class="feature-filter" value="2w"> 2-Way Audio</label>
-                        <label><input type="checkbox" class="feature-filter" value="4k"> 4K Resolution</label>
-                    </div>
-                    <div class="filter-group">
-                        <h4>Price Range</h4>
-                        <input type="range" min="0" max="80000" step="1000" value="80000" id="price-slider" class="price-slider">
-                        <p class="price-label">Up to ₹<span id="price-display">80,000</span></p>
-                    </div>
-                </aside>
-
-                <div class="product-grid ecom-grid">
-                    <!-- Product 1: CP PLUS Ezykam CP-E28Q -->
-                    <div class="product-card p-1" data-brand="CPPLUS" data-price="1980" data-features="nv,mt,2w" onclick="window.location.href='product.html?id=cp-plus-ezykam-cp-e28q-2mp-pan-tilt-wi-fi-camera'" style="cursor:pointer;">
-                        <div class="badge bestseller">#1 BESTSELLER</div>
-                        <div class="product-img-container">
-                            <img src="assets/official_bestseller_cpplus_e38q_transparent.png" alt="CP PLUS Ezykam CP-E28Q">
-                        </div>
-                        <div class="product-info">
-                            <span class="brand-name">CP PLUS</span>
-                            <h3>CP PLUS Ezykam CP-E28Q 2MP Wi-Fi</h3>
-                            <div class="rating"><span class="star-rating">&#9733;&#9733;&#9733;&#9733;&#9733;</span> <span class="review-count">(142)</span></div>
-                            <p>360-degree motorized pan & tilt, AI humanoid tracking, full-duplex talkback.</p>
-                            <div class="price-row">
-                                <span class="price">₹1,980 <span class="old-price">₹3,100</span></span>
-                                <button class="add-cart" onclick="event.stopPropagation(); window.location.href='product.html?id=cp-plus-ezykam-cp-e28q-2mp-pan-tilt-wi-fi-camera'">[ VIEW SPECS ]</button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Product 2: Trueview 4G Solar PTZ -->
-                    <div class="product-card p-2" data-brand="TRUEVIEW" data-price="4950" data-features="nv,mt,4k" onclick="window.location.href='product.html?id=trueview-solar-4g-sim-outdoor-pan-tilt-camera'" style="cursor:pointer;">
-                        <div class="badge new">SOLAR 4G</div>
-                        <div class="product-img-container">
-                            <img src="assets/official_trueview_solar_4G-Mini-PT-Solar-Linkage-Camera-01.webp" alt="Trueview 4G Solar Smart PTZ Camera">
-                        </div>
-                        <div class="product-info">
-                            <span class="brand-name">Trueview</span>
-                            <h3>Trueview 4G Solar Smart PTZ</h3>
-                            <div class="rating"><span class="star-rating">&#9733;&#9733;&#9733;&#9733;&#9733;</span> <span class="review-count">(89)</span></div>
-                            <p>Autonomous 4G cellular off-grid surveillance with integrated solar battery array.</p>
-                            <div class="price-row">
-                                <span class="price">₹4,950 <span class="old-price">₹8,999</span></span>
-                                <button class="add-cart" onclick="event.stopPropagation(); window.location.href='product.html?id=trueview-solar-4g-sim-outdoor-pan-tilt-camera'">[ VIEW SPECS ]</button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Product 3: iDADA Q2i Smart Dome -->
-                    <div class="product-card p-3" data-brand="IDADA" data-price="1850" data-features="nv,mt,2w" onclick="window.location.href='product.html?id=idada-id-q2i35s-td-3mp-pan-tilt-smart-wi-fi-camera'" style="cursor:pointer;">
-                        <div class="badge bestseller">HOT DEAL</div>
-                        <div class="product-img-container">
-                            <img src="assets/official_bestseller_idada_q2i_transparent.png" alt="iDADA Q2i Smart Dome">
-                        </div>
-                        <div class="product-info">
-                            <span class="brand-name">iDADA</span>
-                            <h3>iDADA Q2i 3MP Smart Dome</h3>
-                            <div class="rating"><span class="star-rating">&#9733;&#9733;&#9733;&#9733;&#9733;</span> <span class="review-count">(56)</span></div>
-                            <p>Ultra-clear 3MP optical sensor with 512GB local SD storage and motion alarms.</p>
-                            <div class="price-row">
-                                <span class="price">₹1,850 <span class="old-price">₹3,499</span></span>
-                                <button class="add-cart" onclick="event.stopPropagation(); window.location.href='product.html?id=idada-id-q2i35s-td-3mp-pan-tilt-smart-wi-fi-camera'">[ VIEW SPECS ]</button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Product 4: CP PLUS Armored Dome CP-Z45Q -->
-                    <div class="product-card p-4" data-brand="CPPLUS" data-price="3450" data-features="nv,mt,4k" onclick="window.location.href='product.html?id=cp-plus-ezykam-cp-z45q-4mp-outdoor-full-color-wi-fi-pt-camera'" style="cursor:pointer;">
-                        <div class="badge sale">OUTDOOR</div>
-                        <div class="product-img-container">
-                            <img src="assets/cp_z45q_1.png" alt="CP PLUS Armored Dome">
-                        </div>
-                        <div class="product-info">
-                            <span class="brand-name">CP PLUS</span>
-                            <h3>CP PLUS 4MP Armored Dome</h3>
-                            <div class="rating"><span class="star-rating">&#9733;&#9733;&#9733;&#9733;&#9734;</span> <span class="review-count">(37)</span></div>
-                            <p>Vandal-resistant outdoor IP66 casing with full-color starlight night vision.</p>
-                            <div class="price-row">
-                                <span class="price">₹3,450 <span class="old-price">₹5,999</span></span>
-                                <button class="add-cart" onclick="event.stopPropagation(); window.location.href='product.html?id=cp-plus-ezykam-cp-z45q-4mp-outdoor-full-color-wi-fi-pt-camera'">[ VIEW SPECS ]</button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Product 5: CP PLUS Ezykam CP-E38Q -->
-                    <div class="product-card p-5" data-brand="CPPLUS" data-price="2235" data-features="nv,mt,2w" onclick="window.location.href='product.html?id=cp-plus-ezykam-cp-e38q-3mp-pan-tilt-wi-fi-camera'" style="cursor:pointer;">
-                        <div class="badge new">3MP 2K</div>
-                        <div class="product-img-container">
-                            <img src="assets/official_bestseller_cpplus_e38q_transparent.png" alt="CP PLUS Ezykam CP-E38Q">
-                        </div>
-                        <div class="product-info">
-                            <span class="brand-name">CP PLUS</span>
-                            <h3>CP PLUS Ezykam CP-E38Q 3MP</h3>
-                            <div class="rating"><span class="star-rating">&#9733;&#9733;&#9733;&#9733;&#9733;</span> <span class="review-count">(94)</span></div>
-                            <p>Enhanced 3MP 2K crystal sensor with motorized PT sweeps and cloud playback.</p>
-                            <div class="price-row">
-                                <span class="price">₹2,235 <span class="old-price">₹3,499</span></span>
-                                <button class="add-cart" onclick="event.stopPropagation(); window.location.href='product.html?id=cp-plus-ezykam-cp-e38q-3mp-pan-tilt-wi-fi-camera'">[ VIEW SPECS ]</button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Product 6: Trueview All-Weather Bullet -->
-                    <div class="product-card p-6" data-brand="TRUEVIEW" data-price="1450" data-features="nv" onclick="window.location.href='product.html?id=trueview-solar-4g-sim-outdoor-pan-tilt-camera'" style="cursor:pointer;">
-                        <div class="badge bestseller">POPULAR</div>
-                        <div class="product-img-container">
-                            <img src="assets/trueview_ahd_bullet_1.webp" alt="Trueview All-Weather Bullet">
-                        </div>
-                        <div class="product-info">
-                            <span class="brand-name">Trueview</span>
-                            <h3>Trueview All-Weather Bullet</h3>
-                            <div class="rating"><span class="star-rating">&#9733;&#9733;&#9733;&#9733;&#9734;</span> <span class="review-count">(61)</span></div>
-                            <p>IP67 weatherproof casing with long-range smart IR array for perimeter defense.</p>
-                            <div class="price-row">
-                                <span class="price">₹1,450 <span class="old-price">₹2,999</span></span>
-                                <button class="add-cart" onclick="event.stopPropagation(); window.location.href='product.html?id=trueview-solar-4g-sim-outdoor-pan-tilt-camera'">[ VIEW SPECS ]</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="feature-section" id="about">
-            <div class="feature-text">
-                <div class="about-us-block">
-                    <h3 class="about-title">ABOUT SYBER SPACE</h3>
-                    <p>SYBER SPACE delivers certified optical surveillance architecture and hardware direct from manufacturer lines to enterprise facilities, commercial spaces, and private residences.</p>
-                    <p>Every system includes authentic manufacturer warranty backing, direct technical advisory, and insured priority dispatch. For expedited claim processing and guaranteed warranty coverage, always record an uninterrupted unboxing video upon parcel receipt. Our dedicated engineering support desk is available to verify and assist.</p>
-                </div>
-            </div>
-        </section>
-            <div class="roam-cam rc-2"></div>
+        <div class="assurance-card">
+          <div class="assurance-icon">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+          </div>
+          <h4>1-Year Official Warranty</h4>
+          <p>Complete 1-year brand warranty backed by direct replacement support on genuine manufacturing defects.</p>
         </div>
-    </main>
 
-    <footer>
-        <div class="footer-content">
-            <p>&copy; 2026 SYBER SPACE. All rights reserved. Enterprise and residential optical surveillance architecture.</p>
-            <p>Direct Advisory Hotline: +91 75111 80808 | Support Desk: info.syberspacestore@gmail.com</p>
+        <div class="assurance-card">
+          <div class="assurance-icon">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.2"><polygon points="23 7 16 12 23 17 23 7"></polygon><rect x="1" y="5" width="15" height="14" rx="2" ry="2"></rect></svg>
+          </div>
+          <h4>Unboxing Video Replacement</h4>
+          <p>Continuous unboxing video policy guarantees 100% instant hassle-free replacement in case of transit damage.</p>
         </div>
-    </footer>
+      </div>
+    </div>
+  </section>
 
-    <!-- GSAP and Plugins -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/CustomEase.min.js"></script>
-    <script src="script.js"></script>
-    <script src="cart.js"></script>
+  <!-- ==========================================================================
+       CLEAN MINIMALIST FOOTER
+       ========================================================================== -->
+  <footer>
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-col">
+          <h5 style="color: var(--black); font-size: 16px;">SYBER SPACE</h5>
+          <p style="margin-bottom: 12px; line-height: 1.6;">
+            The Surveillance Store. Precision optical hardware, video door phones, alarms, access control, and cables for residential and enterprise security infrastructure.
+          </p>
+          <div class="footer-gateway-badge">
+            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+            <span>HDFC SmartGateway Protected</span>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h5>Departments</h5>
+          <ul class="footer-links">
+            <li><a href="shop.html?cat=cctv">CCTV Cameras</a></li>
+            <li><a href="shop.html?cat=vdp">Video Door Phones</a></li>
+            <li><a href="shop.html?cat=alarm">Intrusion Alarms</a></li>
+            <li><a href="shop.html?cat=access">Access Control</a></li>
+            <li><a href="shop.html?cat=cables">Cables &amp; Wire</a></li>
+            <li><a href="shop.html?cat=accessory">Power &amp; Accessories</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h5>Brands</h5>
+          <ul class="footer-links">
+            <li><a href="shop.html?search=CP+PLUS">CP PLUS</a></li>
+            <li><a href="shop.html?search=Trueview">Trueview</a></li>
+            <li><a href="shop.html?search=iDADA">iDADA</a></li>
+            <li><a href="shop.html?search=Seagate">Seagate SkyHawk</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h5>Direct Contact</h5>
+          <ul class="footer-links">
+            <li><a href="tel:+917511180808">Phone: +91 75111 80808</a></li>
+            <li><a href="https://wa.me/917511180808" target="_blank" rel="noopener noreferrer">WhatsApp Support</a></li>
+            <li><a href="cart.html">View Shopping Cart</a></li>
+            <li><a href="shop.html">Complete Hardware Catalog</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>
+          &copy; <span id="currentYear"></span> SYBER SPACE. All rights reserved. Zero middlemen &bull; Factory wholesale direct.
+        </div>
+        <div>
+          Official Security &amp; Surveillance Hardware Distribution.
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+    // Update cart counter from localStorage
+    function updateHeaderCartBadge() {
+      try {
+        const raw = localStorage.getItem('syber_cart') || localStorage.getItem('syber_cart_items') || '[]';
+        const cart = JSON.parse(raw);
+        const count = cart.reduce((acc, item) => acc + (item.quantity || 1), 0);
+        const badge = document.getElementById('cartBadge');
+        if (badge) badge.textContent = count;
+      } catch (e) {
+        console.error(e);
+      }
+    }
+    updateHeaderCartBadge();
+
+    // Header Search Input
+    function triggerHeaderSearch() {
+      const input = document.getElementById('headerSearchInput');
+      if (!input) return;
+      const q = input.value.trim();
+      if (q) {
+        window.location.href = 'shop.html?search=' + encodeURIComponent(q);
+      }
+    }
+
+    const headerSearchInput = document.getElementById('headerSearchInput');
+    if (headerSearchInput) {
+      headerSearchInput.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') {
+          triggerHeaderSearch();
+        }
+      });
+    }
+
+    // Storage listener across windows
+    window.addEventListener('storage', (e) => {
+      if (e.key === 'syber_cart' || e.key === 'syber_cart_items') {
+        updateHeaderCartBadge();
+      }
+    });
+
+    // Category cards are fully styled with native responsive CSS and micro-interactions
+  </script>
 </body>
 </html>

@@ -1,3 +1,5 @@
+// SYBER SPACE SURVEILLANCE & SECURITY HARDWARE CATALOG
+// Auto-generated & validated data structure
 const SYBER_PRODUCTS = [
   {
     "id": "idada-id-q2i35s-td-3mp-pan-tilt-smart-wi-fi-camera",
@@ -1461,6 +1463,295 @@ const SYBER_PRODUCTS = [
       "assets/product_features/trueview_feature_4.jpg",
       "assets/product_features/tv_4g_1.jpeg"
     ]
+  },
+  {
+    "id": "trueview-smart-wifi-video-doorbell-vdp",
+    "title": "Trueview Smart Wi-Fi Video Doorbell with 2-Way Audio",
+    "brand": "TRUEVIEW",
+    "category": "vdp",
+    "price": 2450,
+    "mrp": "₹4,999",
+    "save": "SAVE 51%",
+    "rating": 4.9,
+    "reviews": 64,
+    "badge": "SMART VDP",
+    "desc": "1080p full HD smart video doorbell with PIR human motion detection, 2-way full-duplex talkback, instant mobile ring alert, and night vision.",
+    "images": [
+      "assets/trueview_doorbell_1.webp"
+    ],
+    "chips": [
+      "1080p Full HD",
+      "PIR Detection",
+      "2-Way Talkback",
+      "Mobile Unlock"
+    ]
+  },
+  {
+    "id": "cp-plus-7inch-touchscreen-color-vdp-kit",
+    "title": "CP PLUS 7-Inch Color Video Door Phone Intercom Kit",
+    "brand": "CPPLUS",
+    "category": "vdp",
+    "price": 5850,
+    "mrp": "₹9,800",
+    "save": "SAVE 40%",
+    "rating": 4.8,
+    "reviews": 42,
+    "badge": "COMPLETE KIT",
+    "desc": "Premium 7-inch indoor color touchscreen monitor paired with vandal-resistant outdoor pinhole night vision camera station and electronic door release.",
+    "images": [
+      "assets/trueview_doorbell_2.webp"
+    ],
+    "chips": [
+      "7\" Touchscreen",
+      "Electronic Lock Release",
+      "Night Vision",
+      "2-Wire Easy Fit"
+    ]
+  },
+  {
+    "id": "trueview-villa-multi-apartment-ip-vdp-station",
+    "title": "Trueview Villa IP Video Door Phone & Intercom Station",
+    "brand": "TRUEVIEW",
+    "category": "vdp",
+    "price": 8990,
+    "mrp": "₹14,500",
+    "save": "SAVE 38%",
+    "rating": 5,
+    "reviews": 29,
+    "badge": "ENTERPRISE VDP",
+    "desc": "Commercial IP-based villa and apartment intercom with RFID card unlock, smartphone call divert, HD optical sensor, and PoE connectivity.",
+    "images": [
+      "assets/trueview_doorbell_3.webp"
+    ],
+    "chips": [
+      "IP Network PoE",
+      "RFID Card Unlock",
+      "Smartphone Divert",
+      "Weatherproof IP65"
+    ]
+  },
+  {
+    "id": "cp-plus-wireless-pir-motion-alarm-sensor",
+    "title": "CP PLUS Intelligent Wireless PIR Motion Intrusion Sensor",
+    "brand": "CPPLUS",
+    "category": "alarm",
+    "price": 1250,
+    "mrp": "₹2,100",
+    "save": "SAVE 40%",
+    "rating": 4.8,
+    "reviews": 58,
+    "badge": "PIR SENSOR",
+    "desc": "Precision dual-element infrared motion detector with pet immunity up to 20kg, 12m wide-angle coverage, and 433MHz encrypted wireless link.",
+    "images": [
+      "assets/product_features/cpplus_e21_feature_motion.jpg"
+    ],
+    "chips": [
+      "12m Detection",
+      "Pet Immunity",
+      "Encrypted 433MHz",
+      "2-Year Battery Life"
+    ]
+  },
+  {
+    "id": "syber-wireless-smart-intrusion-alarm-hub-kit",
+    "title": "Syber Space Smart Wireless Intrusion Alarm Kit with 120dB Siren Hub",
+    "brand": "SYBER",
+    "category": "alarm",
+    "price": 4999,
+    "mrp": "₹8,499",
+    "save": "SAVE 41%",
+    "rating": 4.9,
+    "reviews": 37,
+    "badge": "FULL ALARM SYSTEM",
+    "desc": "Complete perimeter intrusion security system: GSM auto-dialler hub, high-decibel 120dB outdoor siren, 2x PIR motion sensors, 2x magnetic door sensors, and 2x remote fobs.",
+    "images": [
+      "assets/product_features/cpplus_e21_feature_audio.jpg"
+    ],
+    "chips": [
+      "GSM + Wi-Fi Hub",
+      "120dB Piercing Siren",
+      "Door & PIR Sensors",
+      "Instant Mobile Alert"
+    ]
+  },
+  {
+    "id": "heavy-duty-magnetic-door-shutter-sensor",
+    "title": "Heavy-Duty Magnetic Door & Rolling Shutter Alarm Contact",
+    "brand": "SYBER",
+    "category": "alarm",
+    "price": 850,
+    "mrp": "₹1,400",
+    "save": "SAVE 39%",
+    "rating": 4.7,
+    "reviews": 49,
+    "badge": "SHUTTER GUARD",
+    "desc": "Armored zinc-alloy magnetic reed switch sensor designed for commercial rolling shutters, perimeter gates, and heavy warehouse doors.",
+    "images": [
+      "assets/product_features/trueview_feature_3.jpg"
+    ],
+    "chips": [
+      "Zinc Alloy Armored",
+      "Rolling Shutter Fit",
+      "Wide Gap 50mm",
+      "Tamper Proof"
+    ]
+  },
+  {
+    "id": "biometric-fingerprint-rfid-time-attendance-terminal",
+    "title": "Biometric Fingerprint & RFID Card Time-Attendance Terminal",
+    "brand": "SYBER",
+    "category": "access",
+    "price": 3450,
+    "mrp": "₹5,900",
+    "save": "SAVE 42%",
+    "rating": 4.9,
+    "reviews": 73,
+    "badge": "BIOMETRIC ATTENDANCE",
+    "desc": "Optical 360-degree fingerprint identification with 1,000 user capacity, 100,000 log buffer, RFID proximity card reader, and USB/TCP/IP network sync.",
+    "images": [
+      "assets/product_features/trueview_feature_2.jpg"
+    ],
+    "chips": [
+      "Optical Fingerprint",
+      "RFID Card Reader",
+      "TCP/IP & USB Sync",
+      "Battery Backup"
+    ]
+  },
+  {
+    "id": "facial-recognition-biometric-access-reader",
+    "title": "AI Facial Recognition & Temperature Access Control Reader",
+    "brand": "SYBER",
+    "category": "access",
+    "price": 6900,
+    "mrp": "₹11,500",
+    "save": "SAVE 40%",
+    "rating": 5,
+    "reviews": 31,
+    "badge": "TOUCHLESS AI ACCESS",
+    "desc": "High-speed 0.2s binocular facial recognition with live anti-spoofing algorithm, dual infrared illumination, and electromagnetic door lock control.",
+    "images": [
+      "assets/product_features/trueview_feature_4.jpg"
+    ],
+    "chips": [
+      "0.2s Dual-Cam AI",
+      "Anti-Photo Spoofing",
+      "Wiegand Output",
+      "Access Controller"
+    ]
+  },
+  {
+    "id": "heavy-duty-600lbs-electromagnetic-em-lock-kit",
+    "title": "Heavy-Duty 600lbs Electromagnetic Lock (EM Lock) Kit with Bracket",
+    "brand": "SYBER",
+    "category": "access",
+    "price": 2150,
+    "mrp": "₹3,800",
+    "save": "SAVE 43%",
+    "rating": 4.8,
+    "reviews": 82,
+    "badge": "FAIL-SAFE LOCK",
+    "desc": "280kg (600lbs) holding force electromagnetic lock with anodized aluminum casing, surge protection, LED indicator, and universal ZL bracket.",
+    "images": [
+      "assets/product_features/trueview_feature_5.jpg"
+    ],
+    "chips": [
+      "280kg / 600lbs Hold",
+      "ZL Mounting Bracket",
+      "12V DC Regulated",
+      "LED Lock Status"
+    ]
+  },
+  {
+    "id": "pure-copper-cat6-305m-network-cable-drum",
+    "title": "Pure Solid Bare Copper CAT6 305-Meter UTP Network Cable Drum",
+    "brand": "SYBER",
+    "category": "cables",
+    "price": 6800,
+    "mrp": "₹10,500",
+    "save": "SAVE 35%",
+    "rating": 5,
+    "reviews": 114,
+    "badge": "100% PURE COPPER",
+    "desc": "High-grade 23AWG 100% solid bare copper CAT6 UTP cable drum (305 meters) with 550MHz bandwidth, low crosstalk PE separator, and FR-PVC jacket.",
+    "images": [
+      "assets/acc_official_cat6_drum.png"
+    ],
+    "chips": [
+      "23AWG Solid Copper",
+      "305m Pull Box",
+      "Gigabit PoE Ready",
+      "Low Crosstalk"
+    ]
+  },
+  {
+    "id": "syber-3-plus-1-coaxial-cctv-cable-90m",
+    "title": "Syber Space 3+1 Solid Copper CCTV Coaxial Cable 90m",
+    "brand": "SYBER",
+    "category": "cables",
+    "price": 1450,
+    "mrp": "₹2,400",
+    "save": "SAVE 40%",
+    "rating": 4.8,
+    "reviews": 93,
+    "badge": "HEAVY DUTY 90M",
+    "desc": "High-density copper braided RG59 coaxial video core bundled with 3 color-coded insulated power conductors for zero video hum and interference.",
+    "images": [
+      "assets/acc_cable_coaxial_3_1_90m.jpg"
+    ],
+    "chips": [
+      "90m Roll",
+      "Solid Copper Core",
+      "High Density Braid",
+      "Zero Signal Loss"
+    ]
+  },
+  {
+    "id": "syber-3-plus-1-coaxial-cctv-cable-180m",
+    "title": "Syber Space 3+1 Solid Copper CCTV Coaxial Cable 180m Drum",
+    "brand": "SYBER",
+    "category": "cables",
+    "price": 2800,
+    "mrp": "₹4,600",
+    "save": "SAVE 39%",
+    "rating": 4.9,
+    "reviews": 68,
+    "badge": "HEAVY DUTY 180M",
+    "desc": "Professional installer 180-meter drum of 3+1 CCTV cable featuring dual-layer shielding, heavy outdoor PVC sheath, and low voltage-drop conductors.",
+    "images": [
+      "assets/acc_cable_coaxial_3_1_180m.jpg"
+    ],
+    "chips": [
+      "180m Drum",
+      "Dual-Layer Shield",
+      "Low Voltage Drop",
+      "Weatherproof Sheath"
+    ]
+  },
+  {
+    "id": "molded-snagless-rj45-cat6-patch-cord-3m",
+    "title": "Molded Snagless Gigabit RJ45 CAT6 Patch Cord 3-Meter",
+    "brand": "SYBER",
+    "category": "cables",
+    "price": 180,
+    "mrp": "₹350",
+    "save": "SAVE 49%",
+    "rating": 4.8,
+    "reviews": 142,
+    "badge": "PATCH CORD",
+    "desc": "High-speed 1000Mbps gold-plated RJ45 patch cable with molded strain relief boot and flexible snagless connector for NVRs, PoE switches, and routers.",
+    "images": [
+      "assets/acc_cat6_patch_cord_3m.jpg"
+    ],
+    "chips": [
+      "Gigabit 1000Mbps",
+      "Gold-Plated Contacts",
+      "Snagless Boot",
+      "Pure Stranded Copper"
+    ]
   }
 ];
-if (typeof module !== "undefined") module.exports = SYBER_PRODUCTS;
+
+if (typeof module !== 'undefined' && module.exports) {
+  module.exports = SYBER_PRODUCTS;
+}
