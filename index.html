@@ -47,13 +47,13 @@
                     </div>
                 </div>
 
-                <!-- VIEWPORT AREA (Exact same spot for video and offers) -->
+                <!-- VIEWPORT AREA (Exact same spot for both videos and offers - borderless) -->
                 <div class="stage-viewport" id="hero-viewport">
 
-                    <!-- SLIDE 0: HERO SURVEILLANCE VIDEO & GLITCH HEADLINE -->
-                    <div class="stage-slide video-slide active" id="slide-video">
+                    <!-- SLIDE 0: SURVEILLANCE VIDEO 1 (CAM-01 [MAIN ENTRANCE]) -->
+                    <div class="stage-slide video-slide active" id="slide-video-1">
                         <div class="video-bg-container">
-                            <video id="hero-surveillance-video" autoplay muted playsinline class="hero-video">
+                            <video id="hero-video-1" autoplay muted playsinline class="hero-video">
                                 <source src="cctv_parking_video.mp4" type="video/mp4">
                             </video>
                             <div class="static-noise"></div>
@@ -66,7 +66,23 @@
                         </div>
                     </div>
 
-                    <!-- SLIDE 1: OFFER - NIGHT VISION OPTICS -->
+                    <!-- SLIDE 1: SURVEILLANCE VIDEO 2 (CAM-02 [PERIMETER OPTICS]) -->
+                    <div class="stage-slide video-slide" id="slide-video-2">
+                        <div class="video-bg-container">
+                            <video id="hero-video-2" muted playsinline class="hero-video">
+                                <source src="gemini_generated_video_28a4423e.mp4" type="video/mp4">
+                            </video>
+                            <div class="static-noise"></div>
+                            <div class="stage-overlay"></div>
+                        </div>
+                        <div class="hero-text-overlay">
+                            <h1 class="glitch" data-text="SEE MORE.&#10;SECURE MORE.&#10;WORRY LESS.&#10;SYBER SPACE.">SEE MORE.<br>SECURE MORE.<br>WORRY LESS.<br><span style="color:var(--accent);">SYBER SPACE.</span></h1>
+                            <p class="subtitle">AI-POWERED PERIMETER TARGET TRACKING. SUB-SECOND INCIDENT RESPONSE.<br>CONTINUOUS SURVEILLANCE COVERAGE.</p>
+                            <a href="#cameras" class="cta-btn">EXPLORE HARDWARE &rarr;</a>
+                        </div>
+                    </div>
+
+                    <!-- SLIDE 2: OFFER - NIGHT VISION OPTICS -->
                     <div class="stage-slide offer-slide" id="offer-slide-0">
                         <div class="slide-background">
                             <img src="offer_bg_1.jpg" alt="Night Vision Surveillance">
@@ -81,7 +97,7 @@
                         </div>
                     </div>
 
-                    <!-- SLIDE 2: OFFER - ENTERPRISE PERIMETER BUNDLE -->
+                    <!-- SLIDE 3: OFFER - ENTERPRISE PERIMETER BUNDLE -->
                     <div class="stage-slide offer-slide" id="offer-slide-1">
                         <div class="slide-background">
                             <img src="offer_bg_2.jpg" alt="Enterprise Perimeter Bundle">
@@ -96,7 +112,7 @@
                         </div>
                     </div>
 
-                    <!-- SLIDE 3: OFFER - PANOPTICON PRO 360 -->
+                    <!-- SLIDE 4: OFFER - PANOPTICON PRO 360 -->
                     <div class="stage-slide offer-slide" id="offer-slide-2">
                         <div class="slide-background">
                             <img src="offer_bg_3.jpg" alt="Panopticon Pro 360">
@@ -111,7 +127,7 @@
                         </div>
                     </div>
 
-                    <!-- SLIDE 4: OFFER - GHOST EYE DISCREET DOME -->
+                    <!-- SLIDE 5: OFFER - GHOST EYE DISCREET DOME -->
                     <div class="stage-slide offer-slide" id="offer-slide-3">
                         <div class="slide-background">
                             <img src="offer_bg_1.jpg" alt="Ghost Eye Discreet Dome">
@@ -126,7 +142,7 @@
                         </div>
                     </div>
 
-                    <!-- SLIDE 5: OFFER - ARMORED EXPEDITION SYSTEM -->
+                    <!-- SLIDE 6: OFFER - ARMORED EXPEDITION SYSTEM -->
                     <div class="stage-slide offer-slide" id="offer-slide-4">
                         <div class="slide-background">
                             <img src="offer_bg_2.jpg" alt="Armored Expedition System">
@@ -143,12 +159,16 @@
 
                 </div>
 
-                <!-- BOTTOM CONTROLS BAR (Right on that spot!) -->
+                <!-- BOTTOM CONTROLS BAR (Clean & borderless) -->
                 <div class="stage-controls">
-                    <button id="btn-replay-live" class="stage-pill-btn active-pill" title="Switch to Live Surveillance Video">[ LIVE FEED ]</button>
+                    <div class="stage-feed-selectors">
+                        <button id="btn-feed-1" class="stage-pill-btn active-pill" title="CAM-01 [MAIN ENTRANCE]">[ CAM-01 ]</button>
+                        <button id="btn-feed-2" class="stage-pill-btn" title="CAM-02 [PERIMETER]">[ CAM-02 ]</button>
+                        <button id="btn-offers" class="stage-pill-btn" title="Promotional Offers">[ OFFERS ]</button>
+                    </div>
                     <div class="slide-nav-arrows">
                         <button id="prev-slide" class="slide-btn">[ PREV ]</button>
-                        <span id="slide-indicator">LIVE FEED</span>
+                        <span id="slide-indicator">CAM-01</span>
                         <button id="next-slide" class="slide-btn">[ NEXT ]</button>
                     </div>
                 </div>
