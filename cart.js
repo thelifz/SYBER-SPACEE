@@ -1,12 +1,12 @@
 // Shared Cart Logic using localStorage
 
 function getCart() {
-    const cart = localStorage.getItem('observe_cart');
+    const cart = localStorage.getItem('syberspace_cart');
     return cart ? JSON.parse(cart) : [];
 }
 
 function saveCart(cart) {
-    localStorage.setItem('observe_cart', JSON.stringify(cart));
+    localStorage.setItem('syberspace_cart', JSON.stringify(cart));
     updateCartCount();
 }
 
@@ -71,8 +71,8 @@ function renderCart() {
     if (cart.length === 0) {
         cartItemsContainer.innerHTML = `
             <div class="empty-cart-msg">
-                [ NO TARGETS ACQUIRED YET ]<br><br>
-                YOUR CART IS EMPTY.
+                [ NO HARDWARE SELECTED ]<br><br>
+                YOUR CART IS CURRENTLY EMPTY.
             </div>
         `;
         summarySubtotal.innerText = '₹0';
@@ -133,7 +133,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             // Visual feedback
             const originalText = btn.innerText;
-            btn.innerText = '[ ACQUIRED ]';
+            btn.innerText = '[ ADDED TO CART ]';
             btn.style.background = 'var(--accent)';
             btn.style.color = '#000';
             
@@ -144,30 +144,4 @@ document.addEventListener('DOMContentLoaded', () => {
             }, 1000);
         });
     });
-
-    // Theme Toggle Logic
-    const themeBtn = document.getElementById('theme-toggle');
-    
-    function applyTheme(theme) {
-        if (theme === 'y2k') {
-            document.body.classList.add('y2k-theme');
-            if (themeBtn) themeBtn.innerText = '[ MODE: GEN-Z ]';
-        } else {
-            document.body.classList.remove('y2k-theme');
-            if (themeBtn) themeBtn.innerText = '[ MODE: Y2K ]';
-        }
-    }
-
-    // Load saved theme
-    const savedTheme = localStorage.getItem('observe_theme') || 'genz';
-    applyTheme(savedTheme);
-
-    if (themeBtn) {
-        themeBtn.addEventListener('click', () => {
-            const isY2K = document.body.classList.contains('y2k-theme');
-            const newTheme = isY2K ? 'genz' : 'y2k';
-            localStorage.setItem('observe_theme', newTheme);
-            applyTheme(newTheme);
-        });
-    }
 });
