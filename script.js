@@ -80,7 +80,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
         opacity: 0.5
     });
 
-    // Offers Slideshow Logic
+        // Unified Slideshow Logic (Live Feed + 5 Offers)
     const slides = document.querySelectorAll('.slide');
     const prevBtn = document.getElementById('prev-slide');
     const nextBtn = document.getElementById('next-slide');
@@ -91,14 +91,18 @@ document.addEventListener("DOMContentLoaded", (event) => {
     function updateSlide(index) {
         slides.forEach(slide => slide.classList.remove('active'));
         slides[index].classList.add('active');
-        indicator.innerText = `0${index + 1} // 0${slides.length}`;
+        if (indicator) {
+            indicator.innerText = `0${index + 1} // 0${slides.length}`;
+        }
         
-        // Add a small GSAP glitch/fade effect on text
-        const content = slides[index].querySelector('.slide-content');
-        gsap.fromTo(content, 
-            { opacity: 0, x: -50, skewX: 10 }, 
-            { opacity: 1, x: 0, skewX: 0, duration: 0.5, ease: 'back.out(1.7)' }
-        );
+        // Add a smooth GSAP glitch/fade effect on text content
+        const content = slides[index].querySelector('.slide-content') || slides[index].querySelector('.hero-feed-content');
+        if (content) {
+            gsap.fromTo(content, 
+                { opacity: 0, y: 15 }, 
+                { opacity: 1, y: 0, duration: 0.45, ease: 'power2.out' }
+            );
+        }
     }
 
     function nextSlide() {
@@ -112,11 +116,17 @@ document.addEventListener("DOMContentLoaded", (event) => {
     }
 
     function startSlideshow() {
-        slideInterval = setInterval(nextSlide, 4000);
+        slideInterval = setInterval(nextSlide, 5000);
     }
 
     function resetInterval() {
         clearInterval(slideInterval);
+        startSlideshow();
+    }
+
+    if (slides.length > 0) {
+        if (nextBtn) nextBtn.addEventListener('click', () => { nextSlide(); resetInterval(); });
+        if (prevBtn) prevBtn.addEventListener('click', () => { prevSlide(); resetInterval(); });
         startSlideshow();
     }
 
