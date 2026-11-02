@@ -3,360 +3,179 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="color-scheme" content="only light">
-    <meta name="supported-color-schemes" content="light">
-    <meta name="theme-color" content="#ffffff">
-    <meta name="apple-mobile-web-app-status-bar-style" content="default">
-    <title>Shopping Cart &bull; SYBER SPACE The Surveillance Store</title>
-    <meta name="description" content="Verified commercial CCTV shopping cart and wholesale procurement terminal. Direct dispatch from Kerala warehouse.">
-    
-    <!-- Google Fonts: Inter & Space Grotesk -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@500;600;700;800;900&display=swap" rel="stylesheet">
-    
-    <link rel="stylesheet" href="style.css?v=9.0.0">
+    <title>CART [ OBSERVE. ]</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&family=Syne:wght@400..800&display=swap" rel="stylesheet">
     <style>
-        html, body {
-            color-scheme: only light !important;
-            background-color: #ffffff !important;
-            background: #ffffff !important;
-            color: #0f172a !important;
-            overscroll-behavior: none;
+        .cart-container {
+            padding: 150px 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .cart-header {
+            font-family: var(--font-display);
+            font-size: 3rem;
+            margin-bottom: 2rem;
+            border-bottom: 1px solid var(--accent);
+            padding-bottom: 1rem;
+            text-transform: uppercase;
+        }
+
+        .cart-content {
+            display: flex;
+            gap: 4rem;
+        }
+
+        .cart-items {
+            flex: 2;
+        }
+
+        .empty-cart-msg {
+            font-family: var(--font-mono);
+            color: #888;
+            font-size: 1.2rem;
+            padding: 3rem 0;
+            border: 1px dashed rgba(255,255,255,0.2);
+            text-align: center;
+            background: rgba(0,0,0,0.5);
+        }
+
+        .cart-summary {
+            flex: 1;
+            background: #0a0a0a;
+            border: 1px solid rgba(255,255,255,0.2);
+            padding: 2rem;
+            height: fit-content;
+        }
+
+        .summary-title {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            border-bottom: 1px dashed rgba(255,255,255,0.2);
+            padding-bottom: 1rem;
+        }
+
+        .summary-row {
+            display: flex;
+            justify-content: space-between;
+            font-family: var(--font-mono);
+            margin-bottom: 1rem;
+            color: #ccc;
+        }
+
+        .summary-total {
+            margin-top: 2rem;
+            padding-top: 1rem;
+            border-top: 1px solid var(--accent);
+            color: var(--accent);
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .checkout-btn {
+            width: 100%;
+            padding: 1rem;
+            margin-top: 2rem;
+            background: var(--accent);
+            color: #000;
+            border: none;
+            font-family: var(--font-mono);
+            font-size: 1.2rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .checkout-btn:hover {
+            background: #fff;
+            box-shadow: 0 0 15px var(--accent);
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-top: 2rem;
+            color: #aaa;
+            font-family: var(--font-mono);
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            transition: all 0.3s;
+        }
+
+        .back-link:hover {
+            color: var(--accent);
+            border-bottom-color: var(--accent);
+        }
+
+        @media (max-width: 768px) {
+            .cart-content {
+                flex-direction: column;
+            }
         }
     </style>
 </head>
-<body class="jeko-theme-white cart-page-body">
+<body>
+    <div class="crt-overlay"></div>
+    <div class="scanlines"></div>
 
-    <!-- ======================================================================
-         FLOATING LUXURY E-COMMERCE HEADER (NO LOGO ICON)
-         ====================================================================== -->
-    <div class="iphone-header-wrapper">
-        <header class="iphone-header-glass">
-            
-            <!-- Left: Brand Title & Slogan (No Logo Icon) -->
-            <a href="index.html" class="iphone-brand-group" title="SYBER SPACE - The Surveillance Store">
-                <div class="iphone-brand-text">
-                    <span class="brand-title">SYBER SPACE</span>
-                    <span class="brand-slogan">THE SURVEILLANCE STORE</span>
+    <nav class="navbar">
+        <div class="logo">OBSERVE.</div>
+        <div class="nav-links">
+            <a href="index.html#cameras">CAMERAS</a>
+            <a href="index.html#about">ABOUT</a>
+            <a href="cart.html">CART (0)</a>
+            <button id="theme-toggle" class="theme-btn">[ MODE: Y2K ]</button>
+        </div>
+    </nav>
+
+    <main class="cart-container">
+        <h1 class="cart-header">SECURE CART</h1>
+        
+        <div class="cart-content">
+            <div class="cart-items">
+                <div class="empty-cart-msg">
+                    [ NO TARGETS ACQUIRED YET ]<br><br>
+                    YOUR CART IS EMPTY.
                 </div>
-            </a>
-
-            <!-- Center: Curvy Search Bar -->
-            <div class="iphone-search-wrapper" id="jeko-search-box">
-                <form class="iphone-search-box" action="index.html" method="get" onsubmit="handleCartSearch(event)">
-                    <input type="text" id="cart-search-input" class="iphone-search-input" placeholder="Search 4G solar, Wi-Fi, CP Plus, Trueview, iDADA..." autocomplete="off">
-                    <button type="submit" class="btn-search-icon" aria-label="Search">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                            <circle cx="11" cy="11" r="7.5"></circle>
-                            <line x1="21" y1="21" x2="16.5" y2="16.5"></line>
-                        </svg>
-                    </button>
-                </form>
             </div>
 
-            <!-- Right: Action Pillars (WhatsApp, Call Us, Active Cart) -->
-            <div class="iphone-actions-group">
+            <div class="cart-summary">
+                <h3 class="summary-title">ORDER SUMMARY</h3>
                 
-                <!-- WhatsApp Support -->
-                <a href="https://wa.me/917511180808" target="_blank" rel="noopener noreferrer" class="iphone-action-link" id="header-whatsapp-support-btn" title="Contact Support on WhatsApp">
-                    <div class="ia-icon-wrap wa-icon-color">
-                        <svg viewBox="0 0 24 24" width="28" height="28" fill="none">
-                            <path fill="#25D366" d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2z"/>
-                            <path fill="#FFFFFF" d="M17.47 14.38c-.28-.14-1.66-.82-1.92-.91-.26-.1-.45-.14-.64.14-.19.28-.73.91-.9 1.1-.17.19-.34.21-.62.07-.28-.14-1.18-.44-2.25-1.4-.83-.74-1.39-1.66-1.55-1.94-.16-.28-.02-.43.12-.57.13-.13.28-.34.42-.51.14-.17.19-.28.28-.47.1-.19.05-.35-.02-.5-.07-.14-.64-1.54-.88-2.11-.23-.55-.47-.48-.64-.49-.17-.01-.36-.01-.56-.01-.2 0-.52.07-.79.37-.27.29-1.04 1.02-1.04 2.48 0 1.46 1.06 2.87 1.21 3.07.15.2 2.09 3.19 5.06 4.47.71.31 1.26.49 1.69.63.71.23 1.36.2 1.87.12.57-.09 1.66-.68 1.9-1.33.23-.65.23-1.21.16-1.33-.07-.12-.26-.19-.54-.33z"/>
-                        </svg>
-                    </div>
-                    <div class="ia-text-col">
-                        <span class="ia-sub-label">WhatsApp</span>
-                        <strong class="ia-main-val">Get Support</strong>
-                    </div>
-                </a>
-
-                <!-- Call Warehouse -->
-                <a href="tel:+917511180808" class="iphone-action-link desktop-only">
-                    <div class="ia-text-col">
-                        <span class="ia-sub-label">Call Us</span>
-                        <strong class="ia-main-val">+91 75111 80808</strong>
-                    </div>
-                </a>
-
-                <!-- Shopping Cart (Current Active Page) -->
-                <a href="cart.html" class="iphone-action-link btn-cart-trigger is-active-page" aria-label="Shopping Cart">
-                    <div class="ia-icon-wrap cart-icon-pos">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                            <circle cx="9" cy="21" r="1"></circle>
-                            <circle cx="20" cy="21" r="1"></circle>
-                            <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
-                        </svg>
-                        <span class="cart-pill-badge" id="cart-counter">0</span>
-                    </div>
-                    <div class="ia-text-col">
-                        <span class="ia-sub-label">Shopping</span>
-                        <strong class="ia-main-val">Cart</strong>
-                    </div>
-                </a>
-
-            </div>
-
-        </header>
-    </div>
-
-    <!-- ======================================================================
-         MAIN E-COMMERCE CART PAGE CONTENT
-         ====================================================================== -->
-    <main class="cart-window-main">
-        <div class="cart-window-container">
-            
-            <!-- Breadcrumbs -->
-            <nav class="cart-breadcrumbs-bar" aria-label="Breadcrumb">
-                <a href="index.html" class="cb-link">Store Home</a>
-                <span class="cb-sep">/</span>
-                <span class="cb-current">Shopping Cart</span>
-            </nav>
-
-            <!-- Page Title Block -->
-            <div class="cart-win-header-block">
-                <div class="cart-win-kicker-row" style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px;">
-                    <div>
-                        <span class="cart-win-kicker">VERIFIED COMMERCIAL BASKET</span>
-                        <span class="cart-win-items-count" id="cart-total-badge">0 ITEMS</span>
-                    </div>
-
+                <div class="summary-row">
+                    <span>SUBTOTAL</span>
+                    <span id="summary-subtotal">₹0</span>
                 </div>
-                <h1 class="cart-win-title">Shopping Cart</h1>
-                <p class="cart-win-subtitle">
-                    Official authorized hardware with 100% genuine manufacturer warranty, GST tax invoice, and insured express delivery across India.
-                </p>
-            </div>
+                <div class="summary-row">
+                    <span>SHIPPING</span>
+                    <span>FREE</span>
+                </div>
+                <div class="summary-row">
+                    <span>TAX (GST 18%)</span>
+                    <span id="summary-gst">₹0</span>
+                </div>
 
-            <!-- Dynamic Cart Content Wrapper -->
-            <div id="cart-content-wrapper">
-                <!-- Injected dynamically by cart.js -->
-            </div>
+                <div class="summary-row summary-total">
+                    <span>TOTAL</span>
+                    <span id="summary-total">₹0</span>
+                </div>
 
+                <button class="checkout-btn">[ INITIATE SECURE CHECKOUT ]</button>
+
+                <a href="index.html" class="back-link">← RETURN TO SURVEILLANCE</a>
+            </div>
         </div>
     </main>
 
-    <!-- ======================================================================
-         MINIMALIST SITE FOOTER
-         ====================================================================== -->
-    <footer class="site-footer">
-        <div class="footer-container">
-            <div class="footer-grid">
-                
-                <div class="footer-brand-col">
-                    <div class="footer-brand-name">SYBER SPACE</div>
-                    <p class="footer-brand-desc">
-                        Authorized security systems distributor based in Kerala. Supplying genuine CCTV hardware, 4G solar surveillance, and enterprise storage across India.
-                    </p>
-                    <div class="footer-badge-dist">
-                        <span>&#10003;</span> AUTHORIZED DIRECT DISTRIBUTOR
-                    </div>
-                </div>
-
-                <div class="footer-links-col">
-                    <h4 class="footer-col-title">NAVIGATION</h4>
-                    <ul class="footer-links">
-                        <li><a href="index.html#categories-by-brand">Categories by Brand</a></li>
-                        <li><a href="index.html#camera-finder">Smart Camera Finder</a></li>
-                        <li><a href="index.html#about">About Syber Space</a></li>
-                        <li><a href="index.html#why-us">Why Choose Us</a></li>
-                    </ul>
-                </div>
-
-                <div class="footer-links-col">
-                    <h4 class="footer-col-title">TOP BRANDS</h4>
-                    <ul class="footer-links">
-                        <li><a href="index.html?brand=TRUEVIEW">Trueview Surveillance</a></li>
-                        <li><a href="index.html?brand=CPPLUS">CP Plus Authorized</a></li>
-                        <li><a href="index.html?brand=IDADA">iDADA Smart Security</a></li>
-                        <li><a href="index.html?brand=SEAGATE">Seagate SkyHawk</a></li>
-                    </ul>
-                </div>
-
-                <div class="footer-contact-col">
-                    <h4 class="footer-col-title">KERALA HQ &amp; DESK</h4>
-                    <div class="footer-contact-info">
-                        <p>Kochi, Kerala, India</p>
-                        <p>Direct Desk: <a href="tel:+917511180808">+91 75111 80808</a></p>
-                        <p>Email: <a href="mailto:info.syberspacestore@gmail.com">info.syberspacestore@gmail.com</a></p>
-                        <p>Dispatch: 5–7 Days Insured Delivery</p>
-                    </div>
-                </div>
-
-            </div>
-
-            <div class="footer-bottom-bar">
-                <span>&copy; 2026 Syber Space. Authorized Surveillance Distribution. All rights reserved.</span>
-                <span>Unboxing video required for transit warranty claims.</span>
-            </div>
+    <footer>
+        <div class="footer-content">
+            <p>© 2026 OBSERVE. All rights reserved. Securing your perimeter.</p>
+            <p>Contact: BUD.websitedeveloping@gmail.com | PH: +91 80738 96391</p>
         </div>
     </footer>
 
-    <!-- ======================================================================
-         HDFC BANK SMARTGATEWAY MULTI-RAIL CHECKOUT TERMINAL
-         Clean Minimalist Modal for Card / UPI / NetBanking
-         ====================================================================== -->
-    <div id="hdfc-checkout-modal" class="hdfc-overlay" style="display: none;" role="dialog" aria-modal="true" aria-labelledby="hdfc-modal-title">
-        <div class="hdfc-terminal-window">
-            
-            <!-- Terminal Header -->
-            <div class="hdfc-header-bar">
-                <div class="hdfc-header-brand">
-                    <span class="hdfc-logo-box">HDFC BANK</span>
-                    <div class="hdfc-header-title">
-                        <span class="hdfc-title-main" id="hdfc-modal-title">SmartGateway 256-Bit SSL Payment Engine</span>
-                        <span class="hdfc-title-sub">Authorized Wholesale Merchant Terminal // Kerala HQ</span>
-                    </div>
-                </div>
-                <button type="button" class="hdfc-close-btn" onclick="closeHdfcModal()" aria-label="Close Payment Terminal">ESC / &times;</button>
-            </div>
-
-            <!-- Live Telemetry Strip -->
-            <div class="hdfc-telemetry-strip">
-                <div>
-                    <span>MERCHANT: <strong>SYBER SPACE DIRECT</strong></span>
-                    <span style="margin: 0 8px; opacity:0.4;">//</span>
-                    <span>TID: <strong>88102941</strong></span>
-                    <span style="margin: 0 8px; opacity:0.4;">//</span>
-                    <span>ORDER REF: <strong id="hdfc-order-ref">SS-ORD-PENDING</strong></span>
-                </div>
-                <div style="display:flex; align-items:baseline; gap:8px;">
-                    <span style="font-size:0.75rem;">PAYABLE:</span>
-                    <span class="hdfc-amount-callout" id="hdfc-total-amount">&#8377;0</span>
-                </div>
-            </div>
-
-            <!-- Terminal Body -->
-            <div class="hdfc-modal-body" id="hdfc-modal-body">
-                <!-- Populated via cart.js -->
-            </div>
-
-        </div>
-    </div>
-
-
-    <!-- ======================================================================
-         REFUND & EXCHANGE REQUEST MODAL
-         Wholesale Policy: No Order Cancellation // Only Refund & Exchange
-         ====================================================================== -->
-    <div id="refund-exchange-modal" class="hdfc-overlay" style="display: none;" role="dialog" aria-modal="true" aria-labelledby="refund-modal-title">
-        <div class="hdfc-terminal-window refund-modal-window">
-            
-            <!-- Modal Header -->
-            <div class="hdfc-header-bar">
-                <div class="hdfc-header-brand">
-                    <span class="hdfc-logo-box" style="background:#0f172a; color:#fff;">WARRANTY</span>
-                    <div class="hdfc-header-title">
-                        <span class="hdfc-title-main" id="refund-modal-title">REQUEST REFUND / EXCHANGE</span>
-                        <span class="hdfc-title-sub">Syber Space Authorized Surveillance // Kerala Desk</span>
-                    </div>
-                </div>
-                <button type="button" class="hdfc-close-btn" onclick="closeRefundModal()" aria-label="Close Modal">&times;</button>
-            </div>
-
-            <!-- Policy Alert Strip -->
-            <div class="refund-policy-alert">
-                <div class="rpa-badge">POLICY NOTICE</div>
-                <div class="rpa-text">
-                    <strong>NO ORDER CANCELLATIONS:</strong> Wholesale surveillance hardware is queued immediately for warehouse testing, serial number registration, and same-day transit insurance. Once an order is authorized, cancellations cannot be processed.
-                    <br>
-                    <strong>100% REFUND &amp; EXCHANGE GUARANTEE:</strong> You can submit a request below for a full <strong>Refund</strong> or <strong>Hardware Replacement / Exchange</strong> under our 7-Day Replacement Policy. Continuous unboxing video required for courier damage / defect claims.
-                </div>
-            </div>
-
-            <!-- Modal Body Form -->
-            <div class="refund-modal-body" id="refund-modal-content">
-                <form id="refund-exchange-form" onsubmit="handleRefundSubmit(event)">
-                    <div class="hdfc-grid-form">
-                        <div class="hdfc-field-group">
-                            <label for="ref-order-id">Order Reference / Invoice ID *</label>
-                            <input type="text" id="ref-order-id" required placeholder="e.g. SS-HDFC-889956">
-                        </div>
-
-                        <div class="hdfc-field-group">
-                            <label for="ref-cust-name">Customer Name *</label>
-                            <input type="text" id="ref-cust-name" required placeholder="Full Name as on tax invoice">
-                        </div>
-
-                        <div class="hdfc-field-group">
-                            <label for="ref-cust-phone">Registered Phone (+91) *</label>
-                            <input type="tel" id="ref-cust-phone" required pattern="[0-9]{10}" placeholder="10-digit mobile number">
-                        </div>
-
-                        <div class="hdfc-field-group">
-                            <label for="ref-cust-email">Registered Email Address *</label>
-                            <input type="email" id="ref-cust-email" required placeholder="Email used during checkout">
-                        </div>
-
-                        <div class="hdfc-field-group span-2">
-                            <label>Request Category *</label>
-                            <div class="refund-category-selector">
-                                <label class="refund-cat-pill">
-                                    <input type="radio" name="refund-type" value="REFUND" checked onchange="toggleRefundFields(this.value)">
-                                    <span class="rcp-label">
-                                        <strong>FULL REFUND</strong>
-                                        <small>Return hardware for 100% UPI or Bank account credit</small>
-                                    </span>
-                                </label>
-                                <label class="refund-cat-pill">
-                                    <input type="radio" name="refund-type" value="EXCHANGE" onchange="toggleRefundFields(this.value)">
-                                    <span class="rcp-label">
-                                        <strong>HARDWARE EXCHANGE</strong>
-                                        <small>Replace defective unit or switch model under 7-day guarantee</small>
-                                    </span>
-                                </label>
-                            </div>
-                        </div>
-
-                        <div class="hdfc-field-group span-2">
-                            <label for="ref-reason">Primary Reason *</label>
-                            <select id="ref-reason" required>
-                                <option value="" disabled selected>Select reason for refund or exchange</option>
-                                <option value="DEFECTIVE_HARDWARE">Hardware Defect / Camera Not Powering On</option>
-                                <option value="TRANSIT_DAMAGE">Physical Damage in Transit (Continuous Unboxing Video Available)</option>
-                                <option value="INCORRECT_MODEL">Received Different Model or Resolution from Order</option>
-                                <option value="INCOMPATIBLE_SPECS">Incompatible with Existing DVR/NVR Setup</option>
-                                <option value="UPGRADE_EXCHANGE">Want to Exchange for Higher Resolution / Solar PTZ</option>
-                                <option value="OTHER_ISSUE">Other Valid Hardware Issue</option>
-                            </select>
-                        </div>
-
-                        <div class="hdfc-field-group span-2" id="refund-payout-box">
-                            <label for="ref-payout-info">Refund Payout Details (UPI VPA or Bank Account + IFSC) *</label>
-                            <input type="text" id="ref-payout-info" placeholder="e.g. yourname@okaxis OR Bank A/C: 1234567890, IFSC: HDFC0001234">
-                            <small class="hdfc-field-note" style="display:block; margin-top:4px; font-size:0.75rem; color:#64748b;">For approved refunds, credit is processed directly to this account within 24-48 hours upon return verification.</small>
-                        </div>
-
-                        <div class="hdfc-field-group span-2">
-                            <label for="ref-notes">Additional Details / Item Description (Optional)</label>
-                            <textarea id="ref-notes" rows="3" placeholder="Describe the defect, condition of the box, serial numbers, or replacement model desired..."></textarea>
-                        </div>
-
-                        <div class="hdfc-field-group span-2">
-                            <label class="refund-checkbox-label">
-                                <input type="checkbox" id="ref-unboxing-confirm" required>
-                                <span>I confirm that a continuous, uncut unboxing video of the delivery parcel is available for transit damage / defect verification as required by company terms.</span>
-                            </label>
-                        </div>
-                    </div>
-
-                    <div class="refund-modal-footer">
-                        <button type="button" class="btn-refund-close" onclick="closeRefundModal()">CLOSE</button>
-                        <button type="submit" class="btn-refund-submit">TRANSMIT REQUEST TO info.syberspacestore@gmail.com &rarr;</button>
-                    </div>
-                </form>
-            </div>
-
-        </div>
-    </div>
-
-    <!-- Toast Notification -->
-    <div class="toast-notify" id="toast-notify"></div>
-
-    <!-- Scripts -->
-    <script src="products_data.js?v=9.0.0"></script>
-    <script src="qrcode.min.js"></script>
-    <script src="cart.js?v=9.0.0"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="cart.js"></script>
 </body>
 </html>
