@@ -3,2336 +3,959 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Syber Space | Official Security &amp; Surveillance Infrastructure</title>
-  <meta name="description" content="Official direct-procurement store for CCTV surveillance systems, video door phones (VDP), intrusion alarms, biometric access control, solid copper cables, and enterprise security accessories.">
-  
-  <!-- Google Fonts: Inter & Plus Jakarta Sans -->
+  <title>SYBER SPACE - Securing Your Space, Smarter</title>
+  <meta name="description" content="State-of-the-art security systems for home and business. CCTV cameras, smart video door phones, biometric access control, and certified security cables.">
+
+  <!-- Google Fonts: Plus Jakarta Sans -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@500;600;700;800;900&display=swap" rel="stylesheet">
-  
-  <script src="assets/gsap.min.js"></script>
-  <script src="products_data.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 
   <style>
-/* ==========================================================================
-   SYBER SPACE // MINIMALIST E-COMMERCE ARCHITECTURE
-   LIGHT PALETTE: PURE WHITE, SLATE, ROYAL BLUE & VIBRANT PASTEL TABS
-   ========================================================================== */
-:root {
-  --white: #ffffff;
-  --bg-slate: #f8fafc;
-  --bg-card: #ffffff;
-  --black: #090d16;
-  --text-heading: #0f172a;
-  --text-body: #334155;
-  --text-muted: #64748b;
-  --blue: #2563eb;
-  --blue-hover: #1d4ed8;
-  --blue-light: #38bdf8;
-  --border-light: #e2e8f0;
-  --border-subtle: #edf2f7;
-  --radius-sm: 8px;
-  --radius-md: 14px;
-  --radius-lg: 22px;
-  --shadow-sm: 0 2px 8px rgba(15, 23, 42, 0.04);
-  --shadow-card: 0 10px 30px rgba(15, 23, 42, 0.06);
-  --shadow-hover: 0 18px 42px rgba(37, 99, 235, 0.12);
-  --font-main: 'Plus Jakarta Sans', 'Inter', -apple-system, sans-serif;
-}
-
-*, *::before, *::after {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-html {
-  scroll-behavior: smooth;
-  color-scheme: only light;
-  background-color: var(--white);
-}
-
-body {
-  background-color: var(--white);
-  color: var(--text-body);
-  font-family: var(--font-main);
-  overflow-x: hidden;
-  line-height: 1.6;
-  -webkit-font-smoothing: antialiased;
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
-  transition: all 0.2s ease;
-}
-
-img {
-  max-width: 100%;
-  height: auto;
-  display: block;
-}
-
-.container {
-  max-width: 1260px;
-  padding: 0 24px;
-  margin: 0 auto;
-}
-
-/* ==========================================================================
-   HEADER: CLEAN WHITE WITH CENTER SEARCH, CONTACT, CART PILL & 3D HOOKED TABS
-   ========================================================================== */
-header {
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  background: rgba(255, 255, 255, 0.96);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border-bottom: 1px solid var(--border-light);
-  box-shadow: 0 4px 20px rgba(15, 23, 42, 0.04);
-  transition: all 0.25s ease;
-}
-
-.nav {
-  height: 72px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 20px;
-}
-
-.brand {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  text-decoration: none;
-  flex-shrink: 0;
-}
-
-.brand-text {
-  display: flex;
-  flex-direction: column;
-}
-
-.brand-title {
-  font-size: 21px;
-  font-weight: 900;
-  letter-spacing: 1.2px;
-  color: var(--black);
-  line-height: 1.05;
-}
-
-.brand-subtitle {
-  font-size: 9px;
-  letter-spacing: 2.2px;
-  font-weight: 800;
-  color: var(--blue);
-  text-transform: uppercase;
-  margin-top: 2px;
-}
-
-/* CENTER SEARCH PILL */
-.header-search-wrap {
-  flex: 1;
-  max-width: 580px;
-  position: relative;
-  display: flex;
-  align-items: center;
-  background: var(--bg-slate);
-  border: 1px solid var(--border-light);
-  border-radius: 999px;
-  padding: 5px 6px 5px 18px;
-  box-shadow: inset 0 1px 3px rgba(15, 23, 42, 0.04);
-  transition: all 0.2s ease;
-}
-
-.header-search-wrap:focus-within {
-  border-color: var(--blue);
-  background: var(--white);
-  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
-}
-
-.header-search-wrap svg {
-  color: var(--text-muted);
-  flex-shrink: 0;
-  margin-right: 10px;
-}
-
-.header-search-input {
-  width: 100%;
-  border: none;
-  background: transparent;
-  font-size: 13.5px;
-  font-family: inherit;
-  color: var(--text-heading);
-  outline: none;
-}
-
-.header-search-input::placeholder {
-  color: var(--text-muted);
-}
-
-.header-search-btn {
-  background: var(--blue);
-  color: var(--white);
-  border: none;
-  border-radius: 999px;
-  padding: 8px 18px;
-  font-size: 13px;
-  font-weight: 700;
-  cursor: pointer;
-  transition: background 0.2s ease;
-  flex-shrink: 0;
-}
-
-.header-search-btn:hover {
-  background: var(--blue-hover);
-}
-
-/* RIGHT CONTROLS: PHONE PILL & CART PILL */
-.header-right {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  flex-shrink: 0;
-}
-
-.header-hotline-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 8px 16px;
-  background: var(--bg-slate);
-  border: 1px solid var(--border-light);
-  border-radius: 999px;
-  font-size: 12.5px;
-  font-weight: 700;
-  color: var(--text-heading);
-  transition: all 0.2s ease;
-}
-
-.header-hotline-btn svg {
-  color: var(--blue);
-}
-
-.header-hotline-btn:hover {
-  border-color: var(--blue);
-  color: var(--blue);
-  background: var(--white);
-}
-
-.header-cart-pill {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  background: var(--black);
-  border: 1px solid var(--black);
-  border-radius: 999px;
-  padding: 8px 16px;
-  font-size: 13px;
-  font-weight: 700;
-  color: var(--white);
-  text-decoration: none;
-  transition: all 0.2s ease;
-  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.12);
-}
-
-.header-cart-pill:hover {
-  background: var(--blue);
-  border-color: var(--blue);
-  transform: translateY(-1px);
-  box-shadow: 0 6px 18px rgba(37, 99, 235, 0.28);
-}
-
-.cart-pill-badge {
-  background: var(--blue);
-  color: var(--white);
-  font-size: 10.5px;
-  font-weight: 900;
-  padding: 2px 7px;
-  border-radius: 999px;
-  min-width: 18px;
-  text-align: center;
-  line-height: 14px;
-}
-
-.header-cart-pill:hover .cart-pill-badge {
-  background: var(--white);
-  color: var(--blue);
-}
-
-/* ==========================================================================
-   SHELF BAR & 3D HOOKED RIBBON BOOKMARK TABS (EXACT MATCH TO REFERENCE)
-   ========================================================================== */
-.header-shelf-bar {
-  position: relative;
-  width: 100%;
-  padding-bottom: 8px;
-}
-
-.shelf-line {
-  position: absolute;
-  top: 5px;
-  left: 0;
-  right: 0;
-  height: 2px;
-  background: linear-gradient(90deg, transparent 0%, #cbd5e1 15%, #cbd5e1 85%, transparent 100%);
-  z-index: 0;
-}
-
-.shelf-tabs-container {
-  display: flex;
-  align-items: flex-start;
-  justify-content: center;
-  gap: 12px;
-  position: relative;
-  z-index: 1;
-}
-
-.nav-ribbon-tab {
-  position: relative;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 13px;
-  font-weight: 700;
-  letter-spacing: 0.15px;
-  padding: 8px 18px 10px;
-  border-radius: 6px 6px 13px 13px;
-  text-decoration: none;
-  box-shadow: 0 6px 14px rgba(15, 23, 42, 0.12), 0 2px 4px rgba(15, 23, 42, 0.06);
-  transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
-  cursor: pointer;
-  user-select: none;
-}
-
-/* 3D TOP FOLD OVER SHELF LINE */
-.nav-ribbon-tab::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 5px;
-  border-radius: 6px 6px 0 0;
-  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.18) 0%, transparent 100%);
-  pointer-events: none;
-}
-
-.nav-ribbon-tab:hover {
-  transform: translateY(2px);
-  box-shadow: 0 8px 18px rgba(15, 23, 42, 0.18);
-}
-
-.nav-ribbon-tab.active {
-  transform: translateY(1px);
-}
-
-.nav-ribbon-tab.active::after {
-  content: "";
-  position: absolute;
-  bottom: 2px;
-  width: 18px;
-  height: 3px;
-  background: rgba(255, 255, 255, 0.95);
-  border-radius: 999px;
-  box-shadow: 0 0 6px rgba(255, 255, 255, 0.8);
-}
-
-/* 1. CCTV TAB: SOLID ROYAL BLUE (ACTIVE DEFAULT) */
-.nav-ribbon-tab[data-cat="cctv"] {
-  background: #2563eb;
-  color: #ffffff !important;
-}
-.nav-ribbon-tab[data-cat="cctv"]:hover {
-  background: #1d4ed8;
-}
-
-/* 2. VDP TAB: WARM AMBER GOLD */
-.nav-ribbon-tab[data-cat="vdp"] {
-  background: #fcd34d;
-  color: #78350f !important;
-}
-.nav-ribbon-tab[data-cat="vdp"]:hover {
-  background: #fbbf24;
-}
-
-/* 3. INTRUSION ALARM TAB: FRESH PASTEL GREEN */
-.nav-ribbon-tab[data-cat="alarm"] {
-  background: #86efac;
-  color: #064e3b !important;
-}
-.nav-ribbon-tab[data-cat="alarm"]:hover {
-  background: #4ade80;
-}
-
-/* 4. ACCESS CONTROL TAB: PASTEL ROSE PINK */
-.nav-ribbon-tab[data-cat="access"] {
-  background: #fda4af;
-  color: #881337 !important;
-}
-.nav-ribbon-tab[data-cat="access"]:hover {
-  background: #f43f5e;
-  color: #ffffff !important;
-}
-
-/* 5. CABLES TAB: AQUA MINT CYAN */
-.nav-ribbon-tab[data-cat="cables"] {
-  background: #99f6e4;
-  color: #134e4a !important;
-}
-.nav-ribbon-tab[data-cat="cables"]:hover {
-  background: #2dd4bf;
-}
-
-/* 6. ACCESSORIES TAB: LAVENDER PURPLE */
-.nav-ribbon-tab[data-cat="accessory"] {
-  background: #ddd6fe;
-  color: #4c1d95 !important;
-}
-.nav-ribbon-tab[data-cat="accessory"]:hover {
-  background: #c084fc;
-  color: #ffffff !important;
-}
-
-/* 7. SHOP ALL TAB: SLATE NOIR */
-.nav-ribbon-tab[data-cat="all"] {
-  background: #334155;
-  color: #ffffff !important;
-}
-.nav-ribbon-tab[data-cat="all"]:hover {
-  background: #0f172a;
-}
-
-/* ==========================================================================
-   OPEN ARCHITECTURAL HERO OFFER SHOWCASE (NO BOX, REFINED BRAND PALETTE)
-   ========================================================================== */
-.hero-deal-section {
-  position: relative;
-  background: radial-gradient(circle at 75% 25%, rgba(37, 99, 235, 0.05) 0%, transparent 60%), #ffffff;
-  border-bottom: 1px solid var(--border-light);
-  padding: 38px 0 52px;
-  overflow: hidden;
-}
-
-/* NO-BOX OPEN CAROUSEL WRAPPER */
-.deal-carousel-wrapper {
-  position: relative;
-  background: transparent;
-  border: none;
-  border-radius: 0;
-  box-shadow: none;
-  overflow: visible;
-  margin-bottom: 28px;
-}
-
-/* QUICK DEAL CATEGORY TABS: FLOATING PILLS */
-.deal-quick-tabs {
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  gap: 10px;
-  padding: 0 0 24px 0;
-  background: transparent;
-  border-bottom: none;
-  overflow-x: auto;
-}
-
-.deal-quick-tab {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  font-size: 13px;
-  font-weight: 700;
-  color: #475569;
-  background: #f1f5f9;
-  border: 1px solid #e2e8f0;
-  padding: 8px 20px;
-  border-radius: 999px;
-  cursor: pointer;
-  transition: all 0.22s ease;
-  white-space: nowrap;
-}
-
-.deal-quick-tab:hover {
-  color: #0f172a;
-  background: #e2e8f0;
-  transform: translateY(-1px);
-}
-
-.deal-quick-tab.active {
-  color: #ffffff;
-  background: #2563eb;
-  border-color: #2563eb;
-  box-shadow: 0 4px 14px rgba(37, 99, 235, 0.28);
-  transform: translateY(-1px);
-}
-
-/* OPEN SLIDES STAGE */
-.deal-slides-track {
-  position: relative;
-  min-height: 420px;
-}
-
-.deal-slide {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  padding: 10px 0 20px;
-  display: grid;
-  grid-template-columns: 1.18fr 0.82fr;
-  align-items: center;
-  gap: 48px;
-  opacity: 0;
-  visibility: hidden;
-  transition: opacity 0.4s ease, transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.4s;
-  transform: translateX(18px);
-}
-
-.deal-slide.active {
-  position: relative;
-  opacity: 1;
-  visibility: visible;
-  transform: translateX(0);
-}
-
-/* LEFT COLUMN: PROMO COPY & REFINED HEADLINE COLOR */
-.deal-slide-content {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-.deal-badge-row {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  margin-bottom: 16px;
-  flex-wrap: wrap;
-}
-
-.deal-pill-accent {
-  font-size: 11.5px;
-  font-weight: 800;
-  letter-spacing: 0.8px;
-  padding: 4px 12px;
-  border-radius: 6px;
-  text-transform: uppercase;
-}
-
-.deal-status-pill {
-  background: #f8fafc;
-  border: 1px solid #e2e8f0;
-  color: #475569;
-  font-size: 11.5px;
-  font-weight: 700;
-  padding: 4px 12px;
-  border-radius: 999px;
-  letter-spacing: 0.3px;
-}
-
-.deal-heading-label {
-  font-size: 12px;
-  font-weight: 800;
-  letter-spacing: 1.6px;
-  color: #64748b;
-  text-transform: uppercase;
-  margin-bottom: 8px;
-}
-
-.deal-title {
-  font-size: 36px;
-  font-weight: 900;
-  color: #0f172a;
-  line-height: 1.16;
-  margin-bottom: 14px;
-  letter-spacing: -0.8px;
-}
-
-/* REFINED COLOR GRADIENTS FOR OFFER HIGHLIGHTS */
-.deal-highlight-text {
-  display: block;
-  font-size: 42px;
-  font-weight: 950;
-  letter-spacing: -0.5px;
-  margin-top: 6px;
-}
-
-.highlight-blue {
-  background: linear-gradient(135deg, #1d4ed8 0%, #2563eb 50%, #0284c7 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-.highlight-amber {
-  background: linear-gradient(135deg, #b45309 0%, #d97706 60%, #f59e0b 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-.highlight-green {
-  background: linear-gradient(135deg, #047857 0%, #059669 60%, #10b981 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-.deal-description {
-  font-size: 15.5px;
-  line-height: 1.65;
-  color: #475569;
-  margin-bottom: 24px;
-  max-width: 580px;
-}
-
-/* TIMER & STOCK CLAIMED PROGRESS BAR (REFINED BLUE/SLATE PALETTE) */
-.deal-urgency-row {
-  display: flex;
-  align-items: center;
-  gap: 22px;
-  margin-bottom: 28px;
-  flex-wrap: wrap;
-}
-
-.deal-timer-box {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  background: #eff6ff;
-  border: 1px solid #bfdbfe;
-  color: #1e40af;
-  font-size: 12.5px;
-  font-weight: 700;
-  padding: 7px 16px;
-  border-radius: 8px;
-}
-
-.deal-timer-digits {
-  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-  font-size: 14px;
-  font-weight: 800;
-  letter-spacing: 1px;
-  color: #1d4ed8;
-}
-
-.deal-claim-wrap {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  min-width: 220px;
-}
-
-.deal-progress-track {
-  flex: 1;
-  height: 8px;
-  background: #e2e8f0;
-  border-radius: 999px;
-  overflow: hidden;
-  position: relative;
-}
-
-.deal-progress-bar {
-  height: 100%;
-  background: linear-gradient(90deg, #2563eb 0%, #38bdf8 100%);
-  border-radius: 999px;
-  transition: width 0.8s ease;
-}
-
-.deal-claim-label {
-  font-size: 12.5px;
-  font-weight: 700;
-  color: #0f172a;
-  white-space: nowrap;
-}
-
-/* DEAL ACTION BUTTONS */
-.deal-actions-row {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  flex-wrap: wrap;
-}
-
-.btn-deal-primary {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  background: #2563eb;
-  color: #ffffff;
-  font-size: 14.5px;
-  font-weight: 800;
-  letter-spacing: 0.2px;
-  padding: 13px 28px;
-  border-radius: 12px;
-  text-decoration: none;
-  transition: all 0.2s ease;
-  box-shadow: 0 6px 22px rgba(37, 99, 235, 0.28);
-}
-
-.btn-deal-primary:hover {
-  background: #1d4ed8;
-  transform: translateY(-2px);
-  box-shadow: 0 10px 28px rgba(37, 99, 235, 0.38);
-}
-
-.btn-deal-secondary {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  background: #ffffff;
-  border: 1px solid #cbd5e1;
-  color: #0f172a;
-  font-size: 14.5px;
-  font-weight: 700;
-  padding: 13px 24px;
-  border-radius: 12px;
-  text-decoration: none;
-  transition: all 0.2s ease;
-}
-
-.btn-deal-secondary:hover {
-  border-color: #2563eb;
-  color: #2563eb;
-  transform: translateY(-2px);
-}
-
-/* RIGHT COLUMN: FLOATING HARDWARE VISUAL (NO ENCLOSING BOX) */
-.deal-stage-visual {
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 16px;
-}
-
-.deal-img-backdrop {
-  position: relative;
-  width: 100%;
-  max-width: 420px;
-  aspect-ratio: 4 / 3;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: radial-gradient(circle at center, rgba(37, 99, 235, 0.08) 0%, transparent 70%);
-}
-
-.deal-primary-img {
-  max-width: 90%;
-  max-height: 290px;
-  object-fit: contain;
-  filter: drop-shadow(0 20px 28px rgba(15, 23, 42, 0.12));
-  transition: transform 0.4s ease;
-}
-
-.deal-slide.active:hover .deal-primary-img {
-  transform: scale(1.04) translateY(-4px);
-}
-
-.deal-floating-perk-badge {
-  position: absolute;
-  bottom: 4px;
-  right: 4px;
-  background: #ffffff;
-  border: 1px solid #e2e8f0;
-  border-radius: 10px;
-  padding: 8px 16px;
-  font-size: 12px;
-  font-weight: 800;
-  color: #0f172a;
-  box-shadow: 0 6px 20px rgba(15, 23, 42, 0.08);
-}
-
-/* CAROUSEL BOTTOM CONTROLS: ELEGANT AND NON-OVERLAPPING */
-.carousel-controls-bottom {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding-top: 18px;
-  border-top: 1px solid #f1f5f9;
-  margin-top: 10px;
-}
-
-.carousel-pills-nav {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.carousel-arrow-btn {
-  width: 38px;
-  height: 38px;
-  border-radius: 50%;
-  background: #ffffff;
-  border: 1px solid #cbd5e1;
-  color: #0f172a;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  transition: all 0.2s ease;
-}
-
-.carousel-arrow-btn:hover {
-  background: #0f172a;
-  color: #ffffff;
-  border-color: #0f172a;
-  transform: scale(1.06);
-}
-
-.carousel-dots-bar {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.carousel-dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 999px;
-  background: #cbd5e1;
-  border: none;
-  cursor: pointer;
-  transition: all 0.25s ease;
-}
-
-.carousel-dot.active {
-  width: 28px;
-  background: #2563eb;
-}
-
-/* ==========================================================================
-   TODAY'S LIGHTNING DEALS 4-CARD SHOWCASE (REFINED PALETTE)
-   ========================================================================== */
-.lightning-deals-section {
-  margin-top: 16px;
-}
-
-.lightning-header-bar {
-  display: flex;
-  align-items: flex-end;
-  justify-content: space-between;
-  margin-bottom: 20px;
-  flex-wrap: wrap;
-  gap: 12px;
-}
-
-.lightning-title-group {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-
-.lightning-badge {
-  background: #2563eb;
-  color: #ffffff;
-  font-size: 11px;
-  font-weight: 800;
-  letter-spacing: 0.8px;
-  padding: 4px 10px;
-  border-radius: 4px;
-  text-transform: uppercase;
-}
-
-.lightning-heading {
-  font-size: 24px;
-  font-weight: 900;
-  letter-spacing: -0.4px;
-  color: var(--text-heading);
-  margin: 0;
-}
-
-.lightning-view-all {
-  font-size: 13.5px;
-  font-weight: 700;
-  color: var(--blue);
-  text-decoration: none;
-  display: inline-flex;
-  align-items: center;
-  gap: 4px;
-  transition: all 0.2s ease;
-}
-
-.lightning-view-all:hover {
-  color: var(--blue-hover);
-  text-decoration: underline;
-}
-
-/* 4-COLUMN DEAL CARDS GRID */
-.lightning-grid-4 {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 20px;
-}
-
-.amazon-deal-tile {
-  background: #ffffff;
-  border: 1px solid var(--border-light);
-  border-radius: 14px;
-  padding: 18px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  text-decoration: none;
-  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.04);
-  transition: all 0.25s ease;
-  position: relative;
-  overflow: hidden;
-}
-
-.amazon-deal-tile:hover {
-  transform: translateY(-4px);
-  border-color: #2563eb;
-  box-shadow: 0 12px 28px rgba(37, 99, 235, 0.1);
-}
-
-.tile-img-stage {
-  width: 100%;
-  aspect-ratio: 1;
-  background: #f8fafc;
-  border-radius: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 16px;
-  margin-bottom: 14px;
-}
-
-.tile-img-stage img {
-  max-width: 85%;
-  max-height: 125px;
-  object-fit: contain;
-  transition: transform 0.3s ease;
-}
-
-.amazon-deal-tile:hover .tile-img-stage img {
-  transform: scale(1.06);
-}
-
-.tile-badge-row {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  margin-bottom: 8px;
-}
-
-.tile-red-pill {
-  background: #eff6ff;
-  border: 1px solid #bfdbfe;
-  color: #1e40af;
-  font-size: 11px;
-  font-weight: 800;
-  padding: 2px 8px;
-  border-radius: 4px;
-}
-
-.tile-deal-label {
-  color: #2563eb;
-  font-size: 11.5px;
-  font-weight: 700;
-}
-
-.tile-price-row {
-  display: flex;
-  align-items: baseline;
-  gap: 8px;
-  margin-bottom: 6px;
-}
-
-.tile-deal-price {
-  font-size: 20px;
-  font-weight: 900;
-  color: var(--text-heading);
-}
-
-.tile-strike-mrp {
-  font-size: 12.5px;
-  color: var(--text-muted);
-  text-decoration: line-through;
-}
-
-.tile-title {
-  font-size: 13.5px;
-  font-weight: 700;
-  color: var(--text-heading);
-  line-height: 1.35;
-  margin-bottom: 12px;
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-}
-
-.tile-progress-box {
-  margin-top: auto;
-  padding-top: 10px;
-  border-top: 1px solid #f1f5f9;
-}
-
-.tile-progress-track {
-  height: 5px;
-  background: #e2e8f0;
-  border-radius: 999px;
-  overflow: hidden;
-  margin-bottom: 4px;
-}
-
-.tile-progress-fill {
-  height: 100%;
-  background: #2563eb;
-  border-radius: 999px;
-}
-
-.tile-meta-row {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  font-size: 11px;
-  color: var(--text-muted);
-  font-weight: 600;
-}
-
-/* MINIMALIST TRUST STRIP */
-.hero-trust-bar {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 28px;
-  flex-wrap: wrap;
-  padding-top: 24px;
-  border-top: 1px solid var(--border-light);
-  font-size: 12.5px;
-  color: var(--text-muted);
-}
-
-.trust-item {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  font-weight: 600;
-  color: var(--text-body);
-}
-
-.trust-item svg {
-  color: var(--blue);
-  flex-shrink: 0;
-}
-
-/* ==========================================================================
-   THE 6 CORE CATEGORY GATEWAY CARDS: SPACIOUS, MINIMALIST, HIGH-END E-COMMERCE
-   ========================================================================== */
-.departments-section {
-  padding: 72px 0 84px;
-  background: var(--white);
-}
-
-.section-head-center {
-  text-align: center;
-  max-width: 720px;
-  margin: 0 auto 52px;
-}
-
-.section-tag-sm {
-  display: inline-block;
-  font-size: 11px;
-  font-weight: 800;
-  letter-spacing: 1.6px;
-  color: var(--blue);
-  text-transform: uppercase;
-  margin-bottom: 10px;
-}
-
-.section-heading-lg {
-  font-size: 34px;
-  font-weight: 900;
-  letter-spacing: -0.6px;
-  color: var(--text-heading);
-  line-height: 1.2;
-  margin-bottom: 12px;
-}
-
-.section-subtext {
-  font-size: 15px;
-  color: var(--text-muted);
-  line-height: 1.6;
-}
-
-.categories-grid-6 {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
-}
-
-.cat-gateway-card {
-  position: relative;
-  background: var(--white);
-  border: 1px solid var(--border-light);
-  border-radius: var(--radius-md);
-  padding: 24px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  text-decoration: none;
-  cursor: pointer;
-  box-shadow: var(--shadow-sm);
-  transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
-  overflow: hidden;
-}
-
-.cat-gateway-card:hover {
-  transform: translateY(-5px);
-  border-color: var(--blue);
-  box-shadow: var(--shadow-hover);
-}
-
-.cat-badge-row {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 16px;
-}
-
-.cat-badge-label {
-  font-size: 10.5px;
-  font-weight: 800;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  padding: 3px 10px;
-  border-radius: 999px;
-  background: var(--bg-slate);
-  color: var(--text-muted);
-}
-
-.cat-price-from {
-  font-size: 12px;
-  font-weight: 800;
-  color: var(--blue);
-}
-
-.cat-img-stage {
-  height: 180px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: var(--bg-slate);
-  border-radius: 12px;
-  margin-bottom: 20px;
-  padding: 16px;
-  position: relative;
-  overflow: hidden;
-}
-
-.cat-img-stage img {
-  max-height: 145px;
-  max-width: 100%;
-  object-fit: contain;
-  transition: transform 0.3s ease;
-}
-
-.cat-gateway-card:hover .cat-img-stage img {
-  transform: scale(1.08);
-}
-
-.cat-info-block h3 {
-  font-size: 19px;
-  font-weight: 800;
-  color: var(--text-heading);
-  margin-bottom: 8px;
-  line-height: 1.25;
-}
-
-.cat-info-block p {
-  font-size: 13.5px;
-  color: var(--text-muted);
-  line-height: 1.55;
-  margin-bottom: 16px;
-}
-
-.cat-chips-strip {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  flex-wrap: wrap;
-  margin-bottom: 18px;
-}
-
-.cat-chip {
-  font-size: 11px;
-  font-weight: 600;
-  padding: 3px 9px;
-  background: #f1f5f9;
-  border-radius: 6px;
-  color: var(--text-body);
-}
-
-.cat-card-action {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  font-size: 13px;
-  font-weight: 800;
-  color: var(--blue);
-  transition: gap 0.2s ease;
-}
-
-.cat-gateway-card:hover .cat-card-action {
-  color: var(--blue-hover);
-  gap: 10px;
-}
-
-/* ==========================================================================
-   BRAND PARTNERSHIPS SECTION (MINIMALIST WHITE)
-   ========================================================================== */
-.brands-section-minimal {
-  padding: 56px 0 64px;
-  background: var(--bg-slate);
-  border-top: 1px solid var(--border-light);
-  border-bottom: 1px solid var(--border-light);
-}
-
-.brands-grid-clean {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 18px;
-}
-
-.brand-partner-card {
-  background: var(--white);
-  border: 1px solid var(--border-light);
-  border-radius: var(--radius-sm);
-  padding: 20px;
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  transition: all 0.2s ease;
-}
-
-.brand-partner-card:hover {
-  border-color: var(--blue);
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-sm);
-}
-
-.brand-partner-name {
-  font-size: 18px;
-  font-weight: 900;
-  letter-spacing: 0.8px;
-  color: var(--text-heading);
-  margin-bottom: 4px;
-}
-
-.brand-partner-badge {
-  font-size: 10.5px;
-  font-weight: 700;
-  letter-spacing: 1px;
-  color: var(--blue);
-  text-transform: uppercase;
-}
-
-/* ==========================================================================
-   WHOLESALE ASSURANCE & WHY US SECTION
-   ========================================================================== */
-.assurance-section {
-  padding: 72px 0;
-  background: var(--white);
-}
-
-.assurance-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 20px;
-}
-
-.assurance-card {
-  background: var(--bg-slate);
-  border: 1px solid var(--border-light);
-  border-radius: var(--radius-md);
-  padding: 24px 20px;
-  transition: all 0.2s ease;
-}
-
-.assurance-card:hover {
-  background: var(--white);
-  border-color: var(--blue);
-  box-shadow: var(--shadow-sm);
-}
-
-.assurance-icon {
-  width: 42px;
-  height: 42px;
-  border-radius: 10px;
-  background: #eff6ff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--blue);
-  margin-bottom: 16px;
-}
-
-.assurance-card h4 {
-  font-size: 16px;
-  font-weight: 800;
-  color: var(--text-heading);
-  margin-bottom: 6px;
-}
-
-.assurance-card p {
-  font-size: 13px;
-  color: var(--text-muted);
-  line-height: 1.5;
-}
-
-/* ==========================================================================
-   FOOTER: CLEAN MINIMALIST
-   ========================================================================== */
-footer {
-  background: #ffffff;
-  border-top: 1px solid var(--border-light);
-  padding: 48px 0 32px;
-  font-size: 13px;
-  color: var(--text-muted);
-}
-
-.footer-top {
-  display: grid;
-  grid-template-columns: 1.4fr repeat(3, 1fr);
-  gap: 36px;
-  margin-bottom: 40px;
-}
-
-.footer-col h5 {
-  font-size: 13px;
-  font-weight: 800;
-  letter-spacing: 0.8px;
-  text-transform: uppercase;
-  color: var(--text-heading);
-  margin-bottom: 16px;
-}
-
-.footer-links {
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-.footer-links a:hover {
-  color: var(--blue);
-}
-
-.footer-bottom {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding-top: 24px;
-  border-top: 1px solid var(--border-light);
-  flex-wrap: wrap;
-  gap: 14px;
-}
-
-.footer-gateway-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  background: var(--bg-slate);
-  border: 1px solid var(--border-light);
-  padding: 5px 12px;
-  border-radius: 6px;
-  font-size: 11.5px;
-  font-weight: 700;
-  color: var(--text-body);
-}
-
-/* RESPONSIVE DESIGN */
-@media (max-width: 1080px) {
-  .deal-slide {
-    grid-template-columns: 1fr;
-    gap: 24px;
-    padding: 30px 24px;
-  }
-  .deal-stage-visual {
-    order: -1;
-  }
-  .deal-img-backdrop {
-    max-width: 280px;
-  }
-  .lightning-grid-4 {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .categories-grid-6 {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  .brands-grid-clean,
-  .assurance-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  .footer-top {
-    grid-template-columns: 1fr 1fr;
-  }
-  .hero-minimal h1 {
-    font-size: 40px;
-  }
-  .hero-colored-subline {
-    font-size: 21px;
-  }
-}
-
-@media (max-width: 768px) {
-  .lightning-grid-4 {
-    grid-template-columns: 1fr;
-  }
-  .deal-title {
-    font-size: 24px;
-  }
-  .deal-highlight-text {
-    font-size: 28px;
-  }
-  .promo-ticker-perks {
-    display: none;
-  }
-
-  .categories-grid-6,
-  .brands-grid-clean,
-  .assurance-grid {
-    grid-template-columns: 1fr;
-  }
-  .shelf-tabs-container {
-    justify-content: flex-start;
-    overflow-x: auto;
-    padding-bottom: 6px;
-    gap: 8px;
-  }
-  .nav-ribbon-tab {
-    flex-shrink: 0;
-    white-space: nowrap;
-  }
-  .header-hotline-btn {
-    display: none;
-  }
-  .footer-top {
-    grid-template-columns: 1fr;
-  }
-  .hero-minimal h1 {
-    font-size: 32px;
-  }
-  .hero-colored-subline {
-    font-size: 18px;
-  }
-}
+    /* ==========================================================================
+       RESET & BASE DESIGN SYSTEM
+       ========================================================================== */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --primary-blue: #1e60ff;
+      --primary-blue-hover: #1450e0;
+      --text-main: #111827;
+      --text-muted: #4b5563;
+      --text-light: #6b7280;
+      --bg-canvas: #ffffff;
+      --card-bg: #f8fafc;
+      --card-border: #e2e8f0;
+      --border-light: #e5e7eb;
+      --font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    }
+
+    body {
+      font-family: var(--font-family);
+      background-color: var(--bg-canvas);
+      color: var(--text-main);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      line-height: 1.5;
+      overflow-x: hidden;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1140px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* ==========================================================================
+       TOP NAVIGATION BAR
+       ========================================================================== */
+    .site-header {
+      width: 100%;
+      background: #ffffff;
+      border-bottom: 1px solid rgba(229, 231, 235, 0.7);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .nav-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 72px;
+    }
+
+    /* LOGO */
+    .brand-logo {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      color: var(--text-main);
+    }
+
+    .brand-logo-img {
+      width: 28px;
+      height: 28px;
+      object-fit: contain;
+    }
+
+    .brand-logo-text {
+      font-size: 19px;
+      font-weight: 800;
+      letter-spacing: -0.2px;
+      color: var(--text-main);
+      text-transform: uppercase;
+    }
+
+    /* NAV LINKS */
+    .nav-links-menu {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      list-style: none;
+    }
+
+    .nav-item-link {
+      font-size: 14.5px;
+      font-weight: 500;
+      color: var(--text-muted);
+      text-decoration: none;
+      transition: color 0.2s ease;
+      position: relative;
+    }
+
+    .nav-item-link:hover {
+      color: var(--text-main);
+    }
+
+    .nav-item-link.active {
+      color: var(--primary-blue);
+      font-weight: 600;
+    }
+
+    /* NAV RIGHT CONTROLS */
+    .nav-right-tools {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .search-pill-box {
+      position: relative;
+      width: 175px;
+    }
+
+    .search-pill-input {
+      width: 100%;
+      padding: 7px 34px 7px 16px;
+      font-size: 13.5px;
+      font-family: inherit;
+      color: var(--text-main);
+      background: #ffffff;
+      border: 1px solid var(--border-light);
+      border-radius: 9999px;
+      outline: none;
+      transition: all 0.2s ease;
+    }
+
+    .search-pill-input:focus {
+      border-color: var(--primary-blue);
+      box-shadow: 0 0 0 3px rgba(30, 96, 255, 0.12);
+      width: 210px;
+    }
+
+    .search-pill-icon {
+      position: absolute;
+      right: 12px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 15px;
+      height: 15px;
+      color: #9ca3af;
+      pointer-events: none;
+    }
+
+    .nav-icon-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 36px;
+      height: 36px;
+      color: var(--text-muted);
+      background: transparent;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      position: relative;
+    }
+
+    .nav-icon-btn:hover {
+      color: var(--text-main);
+      background: #f3f4f6;
+    }
+
+    .cart-badge-pill {
+      position: absolute;
+      top: 0;
+      right: -2px;
+      background: var(--primary-blue);
+      color: #ffffff;
+      font-size: 10.5px;
+      font-weight: 700;
+      width: 17px;
+      height: 17px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      line-height: 1;
+    }
+
+    /* ==========================================================================
+       HERO SECTION: "SECURING YOUR SPACE, SMARTER"
+       ========================================================================== */
+    .hero-main-section {
+      padding: 56px 0 54px;
+      background: #ffffff;
+    }
+
+    .hero-grid-2col {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      align-items: center;
+      gap: 36px;
+    }
+
+    .hero-col-left {
+      max-width: 540px;
+    }
+
+    .hero-headline {
+      font-size: 46px;
+      font-weight: 900;
+      line-height: 1.14;
+      letter-spacing: -0.6px;
+      color: var(--text-main);
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+
+    .hero-tagline {
+      font-size: 16.5px;
+      line-height: 1.5;
+      color: var(--text-muted);
+      margin-bottom: 30px;
+      font-weight: 400;
+    }
+
+    .hero-actions-group {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .btn-pill-primary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--primary-blue);
+      color: #ffffff;
+      font-size: 14.5px;
+      font-weight: 600;
+      padding: 11px 26px;
+      border-radius: 9999px;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      box-shadow: 0 4px 14px rgba(30, 96, 255, 0.22);
+    }
+
+    .btn-pill-primary:hover {
+      background: var(--primary-blue-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 18px rgba(30, 96, 255, 0.32);
+    }
+
+    .btn-pill-secondary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: #ffffff;
+      border: 1.5px solid #111827;
+      color: #111827;
+      font-size: 14.5px;
+      font-weight: 600;
+      padding: 10px 24px;
+      border-radius: 9999px;
+      text-decoration: none;
+      transition: all 0.2s ease;
+    }
+
+    .btn-pill-secondary:hover {
+      background: #111827;
+      color: #ffffff;
+      transform: translateY(-2px);
+    }
+
+    .hero-col-right {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+    }
+
+    .hero-composite-img {
+      max-width: 100%;
+      height: auto;
+      object-fit: contain;
+      filter: drop-shadow(0 14px 28px rgba(15, 23, 42, 0.06));
+    }
+
+    /* ==========================================================================
+       "OUR PRODUCTS" 4-CARD CATEGORY GRID
+       ========================================================================== */
+    .products-overview-section {
+      padding: 24px 0 48px;
+      background: #ffffff;
+    }
+
+    .section-title-clean {
+      font-size: 23px;
+      font-weight: 800;
+      letter-spacing: -0.3px;
+      color: var(--text-main);
+      margin-bottom: 22px;
+      text-align: left;
+    }
+
+    .products-grid-4 {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+    }
+
+    .clean-product-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 16px;
+      padding: 20px 16px 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      text-align: center;
+      text-decoration: none;
+      transition: all 0.25s ease;
+      min-height: 290px;
+    }
+
+    .clean-product-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 28px rgba(15, 23, 42, 0.08);
+      border-color: #cbd5e1;
+    }
+
+    .card-top-title {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--text-main);
+      margin-bottom: 12px;
+      text-align: center;
+    }
+
+    .card-media-stage {
+      height: 105px;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 12px;
+    }
+
+    .card-media-stage img {
+      max-height: 95px;
+      max-width: 85%;
+      object-fit: contain;
+      transition: transform 0.25s ease;
+    }
+
+    .clean-product-card:hover .card-media-stage img {
+      transform: scale(1.06);
+    }
+
+    .card-bottom-title {
+      font-size: 13.5px;
+      font-weight: 600;
+      color: #374151;
+      margin-bottom: 14px;
+      text-align: center;
+    }
+
+    .card-action-btn {
+      background: var(--primary-blue);
+      color: #ffffff;
+      font-size: 12.5px;
+      font-weight: 600;
+      padding: 7px 22px;
+      border-radius: 9999px;
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.2s ease;
+      width: auto;
+    }
+
+    .card-action-btn:hover {
+      background: var(--primary-blue-hover);
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px rgba(30, 96, 255, 0.25);
+    }
+
+    /* ==========================================================================
+       TRUST PILLARS STRIP
+       ========================================================================== */
+    .trust-pillars-strip {
+      padding: 34px 0 28px;
+      border-top: 1px solid var(--border-light);
+      background: #ffffff;
+    }
+
+    .trust-pillars-flex {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 32px;
+    }
+
+    .trust-pillar-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .trust-icon-wrap {
+      width: 32px;
+      height: 32px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      color: var(--text-main);
+    }
+
+    .trust-text-label {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--text-main);
+      letter-spacing: -0.1px;
+    }
+
+    /* ==========================================================================
+       PARTNER BRANDS LOGOS STRIP
+       ========================================================================== */
+    .brand-logos-strip {
+      padding: 24px 0 44px;
+      background: #ffffff;
+    }
+
+    .brand-logos-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 32px;
+      opacity: 0.55;
+      filter: grayscale(100%);
+      transition: opacity 0.2s ease;
+    }
+
+    .brand-logos-row:hover {
+      opacity: 0.85;
+    }
+
+    .brand-logo-text-item {
+      font-size: 17px;
+      font-weight: 800;
+      letter-spacing: 0.5px;
+      color: #6b7280;
+      text-transform: uppercase;
+      user-select: none;
+    }
+
+    /* ==========================================================================
+       MINIMALIST ASSURANCE FOOTER
+       ========================================================================== */
+    .minimal-footer {
+      background: #ffffff;
+      border-top: 1px solid var(--border-light);
+      padding: 38px 0 28px;
+      color: var(--text-muted);
+      font-size: 13.5px;
+    }
+
+    .footer-content-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      flex-wrap: wrap;
+      margin-bottom: 24px;
+    }
+
+    .footer-b2b-box {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .footer-hotline-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: #f3f4f6;
+      border: 1px solid var(--border-light);
+      padding: 6px 14px;
+      border-radius: 9999px;
+      color: var(--text-main);
+      font-size: 13px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: all 0.2s ease;
+    }
+
+    .footer-hotline-pill:hover {
+      background: #e5e7eb;
+      color: var(--primary-blue);
+    }
+
+    .footer-links-list {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      list-style: none;
+    }
+
+    .footer-links-list a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 13px;
+      transition: color 0.2s ease;
+    }
+
+    .footer-links-list a:hover {
+      color: var(--text-main);
+    }
+
+    .footer-bottom-copy {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-top: 20px;
+      border-top: 1px solid #f3f4f6;
+      font-size: 12px;
+      color: var(--text-light);
+    }
+
+    .hdfc-badge-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 11.5px;
+      font-weight: 700;
+      color: #0f172a;
+    }
+
+    /* TOAST NOTIFICATION */
+    .cart-toast-notification {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      background: #111827;
+      color: #ffffff;
+      padding: 12px 22px;
+      border-radius: 12px;
+      font-size: 13.5px;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      box-shadow: 0 10px 28px rgba(0, 0, 0, 0.18);
+      z-index: 1000;
+      transform: translateY(100px);
+      opacity: 0;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      pointer-events: none;
+    }
+
+    .cart-toast-notification.show {
+      transform: translateY(0);
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    /* ==========================================================================
+       RESPONSIVE DESIGN
+       ========================================================================== */
+    @media (max-width: 980px) {
+      .hero-grid-2col {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 32px;
+      }
+      .hero-col-left {
+        max-width: 100%;
+      }
+      .hero-actions-group {
+        justify-content: center;
+      }
+      .hero-col-right {
+        justify-content: center;
+      }
+      .products-grid-4 {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .trust-pillars-flex {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 24px;
+      }
+      .brand-logos-row {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .nav-links-menu {
+        display: none;
+      }
+      .hero-headline {
+        font-size: 34px;
+      }
+      .products-grid-4 {
+        grid-template-columns: 1fr;
+      }
+      .trust-pillars-flex {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .footer-content-row {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .footer-bottom-copy {
+        flex-direction: column;
+        gap: 12px;
+        align-items: flex-start;
+      }
+    }
   </style>
 </head>
 <body>
 
   <!-- ==========================================================================
-       TOP GLOBAL HEADER WITH SHELF LINE & 3D HOOKED RIBBON BOOKMARK TABS
+       TOP NAVIGATION BAR
        ========================================================================== -->
-  <header>
-    <div class="container nav">
-      <!-- Left: Wordmark Logo -->
-      <a href="index.html" class="brand">
-        <div class="brand-text">
-          <span class="brand-title">SYBER SPACE</span>
-          <span class="brand-subtitle">THE SURVEILLANCE STORE</span>
-        </div>
+  <header class="site-header">
+    <div class="container nav-container">
+      
+      <!-- LOGO -->
+      <a href="index.html" class="brand-logo" aria-label="Syber Space Home">
+        <img src="assets/mockup_logo_planet.png" alt="Syber Space" class="brand-logo-img">
+        <span class="brand-logo-text">SYBER SPACE</span>
       </a>
 
-      <!-- Center: Search Input Bar -->
-      <div class="header-search-wrap">
-        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
-        <input type="text" id="headerSearchInput" class="header-search-input" placeholder="Search 100+ surveillance cameras, DVRs, kits, VDP, alarms..." autocomplete="off">
-        <button type="button" class="header-search-btn" id="headerSearchBtn" onclick="triggerHeaderSearch()">Search</button>
+      <!-- CENTER NAV LINKS -->
+      <nav aria-label="Primary Navigation">
+        <ul class="nav-links-menu">
+          <li><a href="index.html" class="nav-item-link active">Home</a></li>
+          <li><a href="shop.html" class="nav-item-link">Shop</a></li>
+          <li><a href="shop.html?cat=solutions" class="nav-item-link">Solutions</a></li>
+          <li><a href="https://wa.me/917511180808" target="_blank" rel="noopener noreferrer" class="nav-item-link">Support</a></li>
+          <li><a href="brand.html" class="nav-item-link">About</a></li>
+        </ul>
+      </nav>
+
+      <!-- RIGHT UTILITIES -->
+      <div class="nav-right-tools">
+        
+        <!-- SEARCH PILL -->
+        <div class="search-pill-box">
+          <input type="text" class="search-pill-input" id="headerSearch" placeholder="Search" aria-label="Search security products">
+          <svg class="search-pill-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+        </div>
+
+        <!-- USER PROFILE ICON -->
+        <button type="button" class="nav-icon-btn" aria-label="User Account">
+          <svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+            <circle cx="12" cy="7" r="4"></circle>
+          </svg>
+        </button>
+
+        <!-- CART ICON WITH BADGE -->
+        <a href="cart.html" class="nav-icon-btn" aria-label="Shopping Cart">
+          <svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="9" cy="21" r="1"></circle>
+            <circle cx="20" cy="21" r="1"></circle>
+            <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+          </svg>
+          <span class="cart-badge-pill" id="cartBadgeCount">1</span>
+        </a>
+
       </div>
 
-      <!-- Right: Phone Hotline & Cart Pill -->
-      <div class="header-right">
-        <a href="tel:+917511180808" class="header-hotline-btn" title="Call Technical Sales Support">
-          <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
-          <span>+91 75111 80808</span>
-        </a>
-
-        <a href="cart.html" class="header-cart-pill" id="headerCartBtn" title="View Shopping Cart">
-          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
-          <span>Cart</span>
-          <span class="cart-pill-badge" id="cartBadge">0</span>
-        </a>
-      </div>
-    </div>
-
-    <!-- HORIZONTAL SHELF & 3D HOOKED RIBBON BOOKMARK TABS -->
-    <div class="header-shelf-bar">
-      <div class="shelf-line"></div>
-      <div class="container shelf-tabs-container">
-        <!-- Tab 1: CCTV -->
-        <a href="shop.html?cat=cctv" class="nav-ribbon-tab active" data-cat="cctv">
-          <span>CCTV</span>
-        </a>
-
-        <!-- Tab 2: VDP (Video Door Phone) -->
-        <a href="shop.html?cat=vdp" class="nav-ribbon-tab" data-cat="vdp">
-          <span>VDP</span>
-        </a>
-
-        <!-- Tab 3: Intrusion Alarm -->
-        <a href="shop.html?cat=alarm" class="nav-ribbon-tab" data-cat="alarm">
-          <span>Intrusion Alarm</span>
-        </a>
-
-        <!-- Tab 4: Access Control -->
-        <a href="shop.html?cat=access" class="nav-ribbon-tab" data-cat="access">
-          <span>Access Control</span>
-        </a>
-
-        <!-- Tab 5: Cables -->
-        <a href="shop.html?cat=cables" class="nav-ribbon-tab" data-cat="cables">
-          <span>Cables</span>
-        </a>
-
-        <!-- Tab 6: Accessories -->
-        <a href="shop.html?cat=accessory" class="nav-ribbon-tab" data-cat="accessory">
-          <span>Accessories</span>
-        </a>
-
-        <!-- Tab 7: Shop All -->
-        <a href="shop.html" class="nav-ribbon-tab" data-cat="all">
-          <span>Shop All</span>
-        </a>
-      </div>
     </div>
   </header>
 
   <!-- ==========================================================================
-       OPEN ARCHITECTURAL HERO OFFER SHOWCASE & TODAY'S DEALS HUB
-       (BORDERLESS SEAMLESS HERO STAGE ACROSS ALL 6 DEPARTMENTS)
+       HERO SECTION: "SECURING YOUR SPACE, SMARTER"
        ========================================================================== -->
-
-  <!-- HERO DEALS SECTION (NO BOX, SEAMLESS CANVAS) -->
-  <section class="hero-deal-section">
-    <div class="container">
+  <section class="hero-main-section">
+    <div class="container hero-grid-2col">
       
-      <!-- QUICK DEAL CATEGORY TABS: FLOATING PILLS -->
-      <div class="deal-quick-tabs">
-        <button type="button" class="deal-quick-tab active" data-slide="0">
-          <span>Perimeter Bundles (Buy 1 Get 2 Free)</span>
-        </button>
-        <button type="button" class="deal-quick-tab" data-slide="1">
-          <span>Smart VDP &amp; Access (Save &#8377;12,500)</span>
-        </button>
-        <button type="button" class="deal-quick-tab" data-slide="2">
-          <span>Copper &amp; Power Infrastructure (Flat 40% Off)</span>
-        </button>
-      </div>
-
-      <!-- OPEN CAROUSEL WRAPPER (NO ENCLOSING BOX) -->
-      <div class="deal-carousel-wrapper">
-        
-        <!-- SLIDES STAGE -->
-        <div class="deal-slides-track">
-          
-          <!-- SLIDE 1: ENTERPRISE PERIMETER 4K BUNDLE -->
-          <div class="deal-slide active" data-index="0">
-            <div class="deal-slide-content">
-              <div class="deal-badge-row">
-                <span class="deal-pill-accent" style="background: #2563eb; color: #ffffff;">Limited Time Deal</span>
-                <span class="deal-status-pill">Tier-1 Commercial Surveillance</span>
-              </div>
-              <div class="deal-heading-label">Featured Clearance Special</div>
-              <h1 class="deal-title">
-                Enterprise Perimeter 4K Bundle
-                <span class="deal-highlight-text highlight-blue">BUY 1 GET 2 FREE</span>
-              </h1>
-              <p class="deal-description">
-                Comprehensive optical surveillance kit: multi-channel centralized NVR recording, high-velocity motorized PTZ motion tracking, and starlight ultra-HD night vision optics.
-              </p>
-              
-              <!-- Urgency: Timer + Stock Claimed Bar -->
-              <div class="deal-urgency-row">
-                <div class="deal-timer-box">
-                  <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.4"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
-                  <span>Deal Ends In:</span>
-                  <strong class="deal-timer-digits" id="heroDealTimer">04h : 28m : 15s</strong>
-                </div>
-                <div class="deal-claim-wrap">
-                  <div class="deal-progress-track">
-                    <div class="deal-progress-bar" style="width: 84%;"></div>
-                  </div>
-                  <span class="deal-claim-label">84% Claimed</span>
-                </div>
-              </div>
-
-              <!-- Deal Actions -->
-              <div class="deal-actions-row">
-                <a href="shop.html?deal=bundle" class="btn-deal-primary">
-                  <span>Claim Bundle Offer &rarr;</span>
-                </a>
-                <a href="#departments" class="btn-deal-secondary">
-                  <span>Explore Departments &darr;</span>
-                </a>
-              </div>
-            </div>
-
-            <div class="deal-stage-visual">
-              <div class="deal-img-backdrop">
-                <img src="assets/official_bestseller_cpplus_e38q_transparent.png" alt="Enterprise Perimeter CCTV Bundle" class="deal-primary-img">
-                <div class="deal-floating-perk-badge">
-                  <span>Save &#8377;8,499 + Free NVR Hub</span>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- SLIDE 2: PANOPTICON PRO 360 & VDP INTERCOM -->
-          <div class="deal-slide" data-index="1">
-            <div class="deal-slide-content">
-              <div class="deal-badge-row">
-                <span class="deal-pill-accent" style="background: #d97706; color: #ffffff;">Deal of the Day</span>
-                <span class="deal-status-pill">Smart Entrance Architecture</span>
-              </div>
-              <div class="deal-heading-label">Villa &amp; Commercial Gate Special</div>
-              <h2 class="deal-title">
-                Panopticon Pro 360 &amp; Smart VDP
-                <span class="deal-highlight-text highlight-amber">SAVE &#8377;12,500</span>
-              </h2>
-              <p class="deal-description">
-                Autonomous access and visitor verification: 7-inch color touchscreen indoor station, full-duplex acoustic talkback, electronic 600lbs EM lock, and mobile app call diverting.
-              </p>
-              
-              <!-- Urgency: Timer + Stock Claimed Bar -->
-              <div class="deal-urgency-row">
-                <div class="deal-timer-box">
-                  <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.4"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
-                  <span>Deal Ends In:</span>
-                  <strong class="deal-timer-digits">06h : 45m : 30s</strong>
-                </div>
-                <div class="deal-claim-wrap">
-                  <div class="deal-progress-track">
-                    <div class="deal-progress-bar" style="width: 89%;"></div>
-                  </div>
-                  <span class="deal-claim-label">89% Claimed</span>
-                </div>
-              </div>
-
-              <!-- Deal Actions -->
-              <div class="deal-actions-row">
-                <a href="shop.html?cat=vdp" class="btn-deal-primary">
-                  <span>Shop VDP Deals &rarr;</span>
-                </a>
-                <a href="#departments" class="btn-deal-secondary">
-                  <span>Explore Departments &darr;</span>
-                </a>
-              </div>
-            </div>
-
-            <div class="deal-stage-visual">
-              <div class="deal-img-backdrop">
-                <img src="assets/trueview_doorbell_1.webp" alt="Video Door Phone Intercom Kit" class="deal-primary-img">
-                <div class="deal-floating-perk-badge">
-                  <span>Includes 2-Way Voice Intercom</span>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- SLIDE 3: SOLID COPPER CAT6 & REGULATED POWER -->
-          <div class="deal-slide" data-index="2">
-            <div class="deal-slide-content">
-              <div class="deal-badge-row">
-                <span class="deal-pill-accent" style="background: #059669; color: #ffffff;">Lightning Deal</span>
-                <span class="deal-status-pill">Contractor Wholesale Supply</span>
-              </div>
-              <div class="deal-heading-label">Infrastructure Value Pack</div>
-              <h2 class="deal-title">
-                Solid Copper CAT6 &amp; Regulated Power
-                <span class="deal-highlight-text highlight-green">FLAT 40% OFF + FREE JUNCTION BOXES</span>
-              </h2>
-              <p class="deal-description">
-                100% pure solid bare copper CAT6 305m drums with centralized 12V 20A SMPS regulated power supply and heavy-duty IP66 weatherproof base boxes.
-              </p>
-              
-              <!-- Urgency: Timer + Stock Claimed Bar -->
-              <div class="deal-urgency-row">
-                <div class="deal-timer-box">
-                  <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.4"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
-                  <span>Deal Ends In:</span>
-                  <strong class="deal-timer-digits">03h : 14m : 50s</strong>
-                </div>
-                <div class="deal-claim-wrap">
-                  <div class="deal-progress-track">
-                    <div class="deal-progress-bar" style="width: 93%;"></div>
-                  </div>
-                  <span class="deal-claim-label">93% Claimed</span>
-                </div>
-              </div>
-
-              <!-- Deal Actions -->
-              <div class="deal-actions-row">
-                <a href="shop.html?cat=cables" class="btn-deal-primary">
-                  <span>Claim Contractor Pack &rarr;</span>
-                </a>
-                <a href="#departments" class="btn-deal-secondary">
-                  <span>Explore Departments &darr;</span>
-                </a>
-              </div>
-            </div>
-
-            <div class="deal-stage-visual">
-              <div class="deal-img-backdrop">
-                <img src="assets/acc_official_cat6_drum.png" alt="CAT6 Pure Copper Drum" class="deal-primary-img">
-                <div class="deal-floating-perk-badge">
-                  <span>100% Solid Bare Copper</span>
-                </div>
-              </div>
-            </div>
-          </div>
-
-        </div>
-
-        <!-- CAROUSEL BOTTOM CONTROLS (NON-OVERLAPPING ELEGANT STRIP) -->
-        <div class="carousel-controls-bottom">
-          <div class="carousel-dots-bar">
-            <button type="button" class="carousel-dot active" data-slide="0" aria-label="Slide 1"></button>
-            <button type="button" class="carousel-dot" data-slide="1" aria-label="Slide 2"></button>
-            <button type="button" class="carousel-dot" data-slide="2" aria-label="Slide 3"></button>
-          </div>
-          <div class="carousel-pills-nav">
-            <button type="button" class="carousel-arrow-btn prev-btn" aria-label="Previous Offer Slide">
-              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.4"><polyline points="15 18 9 12 15 6"></polyline></svg>
-            </button>
-            <button type="button" class="carousel-arrow-btn next-btn" aria-label="Next Offer Slide">
-              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.4"><polyline points="9 18 15 12 9 6"></polyline></svg>
-            </button>
-          </div>
-        </div>
-
-      </div>
-
-      <!-- TODAY'S LIGHTNING DEALS 4-CARD SHOWCASE -->
-      <div class="lightning-deals-section">
-        <div class="lightning-header-bar">
-          <div class="lightning-title-group">
-            <span class="lightning-badge">Today's Deals</span>
-            <h2 class="lightning-heading">Limited-Time Category Specials</h2>
-          </div>
-          <a href="shop.html" class="lightning-view-all">
-            <span>See all deals in Shop &rarr;</span>
-          </a>
-        </div>
-
-        <div class="lightning-grid-4">
-          
-          <!-- Deal 1: CCTV -->
-          <a href="shop.html?cat=cctv" class="amazon-deal-tile">
-            <div>
-              <div class="tile-img-stage">
-                <img src="assets/official_bestseller_cpplus_e38q_transparent.png" alt="CCTV Cameras" loading="lazy">
-              </div>
-              <div class="tile-badge-row">
-                <span class="tile-red-pill">-44% OFF</span>
-                <span class="tile-deal-label">Deal of the Day</span>
-              </div>
-              <div class="tile-price-row">
-                <span class="tile-deal-price">&#8377;1,850</span>
-                <span class="tile-strike-mrp">&#8377;3,299</span>
-              </div>
-              <div class="tile-title">CP PLUS 3MP Wi-Fi Smart PTZ Camera with 360 Coverage</div>
-            </div>
-            <div class="tile-progress-box">
-              <div class="tile-progress-track">
-                <div class="tile-progress-fill" style="width: 76%;"></div>
-              </div>
-              <div class="tile-meta-row">
-                <span>76% Claimed</span>
-                <span class="tile-short-timer">Ends in 04:22:15</span>
-              </div>
-            </div>
-          </a>
-
-          <!-- Deal 2: VDP -->
-          <a href="shop.html?cat=vdp" class="amazon-deal-tile">
-            <div>
-              <div class="tile-img-stage">
-                <img src="assets/trueview_doorbell_1.webp" alt="Video Door Phone" loading="lazy">
-              </div>
-              <div class="tile-badge-row">
-                <span class="tile-red-pill">-38% OFF</span>
-                <span class="tile-deal-label">Limited Time Deal</span>
-              </div>
-              <div class="tile-price-row">
-                <span class="tile-deal-price">&#8377;2,450</span>
-                <span class="tile-strike-mrp">&#8377;3,950</span>
-              </div>
-              <div class="tile-title">Trueview Smart Wi-Fi 2-Way Audio Doorbell with Night Vision</div>
-            </div>
-            <div class="tile-progress-box">
-              <div class="tile-progress-track">
-                <div class="tile-progress-fill" style="width: 88%;"></div>
-              </div>
-              <div class="tile-meta-row">
-                <span>88% Claimed</span>
-                <span class="tile-short-timer">Ends in 06:14:05</span>
-              </div>
-            </div>
-          </a>
-
-          <!-- Deal 3: Intrusion Alarm -->
-          <a href="shop.html?cat=alarm" class="amazon-deal-tile">
-            <div>
-              <div class="tile-img-stage">
-                <img src="assets/product_features/cpplus_e21_feature_motion.jpg" alt="Intrusion Alarm System" loading="lazy">
-              </div>
-              <div class="tile-badge-row">
-                <span class="tile-red-pill">-42% OFF</span>
-                <span class="tile-deal-label">Lightning Deal</span>
-              </div>
-              <div class="tile-price-row">
-                <span class="tile-deal-price">&#8377;1,650</span>
-                <span class="tile-strike-mrp">&#8377;2,850</span>
-              </div>
-              <div class="tile-title">Syber 120dB Smart Siren + PIR Motion Intrusion Kit</div>
-            </div>
-            <div class="tile-progress-box">
-              <div class="tile-progress-track">
-                <div class="tile-progress-fill" style="width: 64%;"></div>
-              </div>
-              <div class="tile-meta-row">
-                <span>64% Claimed</span>
-                <span class="tile-short-timer">Ends in 03:45:50</span>
-              </div>
-            </div>
-          </a>
-
-          <!-- Deal 4: Cables & Infrastructure -->
-          <a href="shop.html?cat=cables" class="amazon-deal-tile">
-            <div>
-              <div class="tile-img-stage">
-                <img src="assets/acc_official_cat6_drum.png" alt="Cables & Hardware" loading="lazy">
-              </div>
-              <div class="tile-badge-row">
-                <span class="tile-red-pill">-35% OFF</span>
-                <span class="tile-deal-label">Contractor Deal</span>
-              </div>
-              <div class="tile-price-row">
-                <span class="tile-deal-price">&#8377;3,850</span>
-                <span class="tile-strike-mrp">&#8377;5,900</span>
-              </div>
-              <div class="tile-title">Pure Solid Bare Copper CAT6 305m Drum + RJ45 Pack</div>
-            </div>
-            <div class="tile-progress-box">
-              <div class="tile-progress-track">
-                <div class="tile-progress-fill" style="width: 92%;"></div>
-              </div>
-              <div class="tile-meta-row">
-                <span>92% Claimed</span>
-                <span class="tile-short-timer">Ends in 05:10:20</span>
-              </div>
-            </div>
-          </a>
-
-        </div>
-      </div>
-
-      <!-- TRUST ASSURANCE STRIP -->
-      <div class="hero-trust-bar" style="margin-top: 36px;">
-        <div class="trust-item">
-          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
-          <span>Certified Tier-1 Hardware</span>
-        </div>
-        <div class="trust-item">
-          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="2" y="5" width="20" height="14" rx="2"></rect><line x1="2" y1="10" x2="22" y2="10"></line></svg>
-          <span>Wholesale GST Tax Credit Included</span>
-        </div>
-        <div class="trust-item">
-          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
-          <span>Fast Priority Dispatch (24-48h)</span>
-        </div>
-        <div class="trust-item">
-          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="20 6 9 17 4 12"></polyline></svg>
-          <span>1-Year Official Manufacturer Warranty</span>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- ==========================================================================
-       THE 6 CORE CATEGORY GATEWAY CARDS: GIVING SPACE TO ALL 6 CATEGORIES
-       ========================================================================== -->
-  <section class="departments-section" id="departments">
-    <div class="container">
-      <div class="section-head-center">
-        <span class="section-tag-sm">Infrastructure Gateway</span>
-        <h2 class="section-heading-lg">Shop by Security Category</h2>
-        <p class="section-subtext">
-          Select an infrastructure department to explore certified commercial hardware, full technical specifications, and bulk contractor pricing.
+      <!-- HERO LEFT -->
+      <div class="hero-col-left">
+        <h1 class="hero-headline">
+          SECURING YOUR<br>
+          SPACE, SMARTER
+        </h1>
+        <p class="hero-tagline">
+          State-of-the-art security systems for home and business.
         </p>
+        <div class="hero-actions-group">
+          <a href="#products" class="btn-pill-primary">Explore Solutions</a>
+          <a href="shop.html" class="btn-pill-secondary">Shop Now</a>
+        </div>
       </div>
 
-      <div class="categories-grid-6">
+      <!-- HERO RIGHT: DEVICE SHOWCASE -->
+      <div class="hero-col-right">
+        <img src="assets/mockup_hero_graphic_2x.png" alt="State of the Art Security Systems" class="hero-composite-img">
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       "OUR PRODUCTS" 4-CARD CATEGORY GRID
+       ========================================================================== -->
+  <section class="products-overview-section" id="products">
+    <div class="container">
+      <h2 class="section-title-clean">Our Products</h2>
+
+      <div class="products-grid-4">
         
-        <!-- 1. CCTV Surveillance -->
-        <a href="shop.html?cat=cctv" class="cat-gateway-card">
-          <div>
-            <div class="cat-badge-row">
-              <span class="cat-badge-label">Optical Surveillance</span>
-              <span class="cat-price-from">From &#8377;1,450</span>
-            </div>
-            <div class="cat-img-stage">
-              <img src="assets/official_bestseller_cpplus_e38q_transparent.png" alt="CCTV Cameras" loading="eager">
-            </div>
-            <div class="cat-info-block">
-              <h3>1. CCTV Cameras &amp; Systems</h3>
-              <p>Motorized 360&deg; PTZ, autonomous 4G solar off-grid cameras, starlight night vision, and multi-channel 4K NVR recording hubs.</p>
-              <div class="cat-chips-strip">
-                <span class="cat-chip">Wi-Fi PTZ</span>
-                <span class="cat-chip">4G Solar</span>
-                <span class="cat-chip">Armored Dome</span>
-                <span class="cat-chip">NVR / DVR</span>
-              </div>
-            </div>
+        <!-- CARD 1: CCTV OUTDOOR CAMERA -->
+        <div class="clean-product-card">
+          <div class="card-top-title">CCTV Outdoor Camera</div>
+          <div class="card-media-stage">
+            <img src="assets/mockup_prod_cctv_2x.png" alt="CCTV Outdoor Camera">
           </div>
-          <div class="cat-card-action">
-            <span>Explore CCTV Systems &rarr;</span>
-          </div>
-        </a>
+          <div class="card-bottom-title">CCTV Outdoor Camera</div>
+          <button type="button" class="card-action-btn" onclick="addToQuickCart('cctv-outdoor', 'CCTV Outdoor Camera', 1850)">Add to Cart</button>
+        </div>
 
-        <!-- 2. Video Door Phones (VDP) -->
-        <a href="shop.html?cat=vdp" class="cat-gateway-card">
-          <div>
-            <div class="cat-badge-row">
-              <span class="cat-badge-label">Smart Intercom</span>
-              <span class="cat-price-from">From &#8377;2,450</span>
-            </div>
-            <div class="cat-img-stage">
-              <img src="assets/trueview_doorbell_1.webp" alt="Video Door Phone VDP" loading="eager">
-            </div>
-            <div class="cat-info-block">
-              <h3>2. Video Door Phones (VDP)</h3>
-              <p>Smart Wi-Fi video doorbells, 2-way acoustic talkback, 7-inch indoor touchscreen monitors, electronic door release, and mobile divert.</p>
-              <div class="cat-chips-strip">
-                <span class="cat-chip">Smart Doorbell</span>
-                <span class="cat-chip">7" Touchscreen</span>
-                <span class="cat-chip">2-Way Audio</span>
-                <span class="cat-chip">Door Unlock</span>
-              </div>
-            </div>
+        <!-- CARD 2: SMART VIDEO DOOR PHONE -->
+        <div class="clean-product-card">
+          <div class="card-top-title">Smart Video Door Phone</div>
+          <div class="card-media-stage">
+            <img src="assets/mockup_prod_vdp_2x.png" alt="Smart Video Door Phone">
           </div>
-          <div class="cat-card-action">
-            <span>Explore VDP Systems &rarr;</span>
-          </div>
-        </a>
+          <div class="card-bottom-title">Smart Video Door Phone</div>
+          <button type="button" class="card-action-btn" onclick="addToQuickCart('smart-vdp', 'Smart Video Door Phone', 2450)">Add to Cart</button>
+        </div>
 
-        <!-- 3. Intrusion Alarm -->
-        <a href="shop.html?cat=alarm" class="cat-gateway-card">
-          <div>
-            <div class="cat-badge-row">
-              <span class="cat-badge-label">Active Defense</span>
-              <span class="cat-price-from">From &#8377;1,250</span>
-            </div>
-            <div class="cat-img-stage">
-              <img src="assets/product_features/cpplus_e21_feature_motion.jpg" alt="Intrusion Alarm System" loading="lazy">
-            </div>
-            <div class="cat-info-block">
-              <h3>3. Intrusion Alarm Systems</h3>
-              <p>Autonomous wireless perimeter defense: dual-element PIR motion discriminators, magnetic door/shutter switches, and 120dB GSM/Wi-Fi siren hubs.</p>
-              <div class="cat-chips-strip">
-                <span class="cat-chip">Wireless PIR</span>
-                <span class="cat-chip">Shutter Sensors</span>
-                <span class="cat-chip">120dB Siren</span>
-                <span class="cat-chip">GSM Hub</span>
-              </div>
-            </div>
+        <!-- CARD 3: BIOMETRIC ACCESS CONTROL -->
+        <div class="clean-product-card">
+          <div class="card-top-title">Biometric Access Control</div>
+          <div class="card-media-stage">
+            <img src="assets/mockup_prod_biometric_2x.png" alt="Biometric Access Control">
           </div>
-          <div class="cat-card-action">
-            <span>Explore Intrusion Alarms &rarr;</span>
-          </div>
-        </a>
+          <div class="card-bottom-title">Biometric Access Control</div>
+          <a href="shop.html?cat=access" class="card-action-btn">Learn More</a>
+        </div>
 
-        <!-- 4. Access Control -->
-        <a href="shop.html?cat=access" class="cat-gateway-card">
-          <div>
-            <div class="cat-badge-row">
-              <span class="cat-badge-label">Identity &amp; Biometrics</span>
-              <span class="cat-price-from">From &#8377;2,150</span>
-            </div>
-            <div class="cat-img-stage">
-              <img src="assets/product_features/trueview_feature_2.jpg" alt="Access Control & Biometrics" loading="lazy">
-            </div>
-            <div class="cat-info-block">
-              <h3>4. Access Control &amp; Biometrics</h3>
-              <p>Biometric fingerprint time-attendance terminals, RFID card scanners, contactless facial recognition readers, and heavy-duty 600lbs EM locks.</p>
-              <div class="cat-chips-strip">
-                <span class="cat-chip">Fingerprint &amp; Face</span>
-                <span class="cat-chip">RFID Smart Cards</span>
-                <span class="cat-chip">600lbs EM Locks</span>
-                <span class="cat-chip">Wiegand Sync</span>
-              </div>
-            </div>
+        <!-- CARD 4: SURVEILLANCE & SECURITY CABLES -->
+        <div class="clean-product-card">
+          <div class="card-top-title">Surveillance &amp; Security Cables</div>
+          <div class="card-media-stage">
+            <img src="assets/mockup_prod_cables_2x.png" alt="Security Cables">
           </div>
-          <div class="cat-card-action">
-            <span>Explore Access Control &rarr;</span>
-          </div>
-        </a>
-
-        <!-- 5. Cables & Networking -->
-        <a href="shop.html?cat=cables" class="cat-gateway-card">
-          <div>
-            <div class="cat-badge-row">
-              <span class="cat-badge-label">Copper Infrastructure</span>
-              <span class="cat-price-from">From &#8377;180</span>
-            </div>
-            <div class="cat-img-stage">
-              <img src="assets/acc_official_cat6_drum.png" alt="CCTV Cables" loading="lazy">
-            </div>
-            <div class="cat-info-block">
-              <h3>5. Cables &amp; Networking</h3>
-              <p>100% pure solid bare copper CAT6 305m drums, shielded 3+1 CCTV video &amp; power coaxial cables, molded RJ45 patch cords, and gigabit PoE switches.</p>
-              <div class="cat-chips-strip">
-                <span class="cat-chip">CAT6 305m Drum</span>
-                <span class="cat-chip">3+1 Coaxial</span>
-                <span class="cat-chip">Patch Cords</span>
-                <span class="cat-chip">PoE Switches</span>
-              </div>
-            </div>
-          </div>
-          <div class="cat-card-action">
-            <span>Explore Cables &amp; Wire &rarr;</span>
-          </div>
-        </a>
-
-        <!-- 6. Hardware & Power Accessories -->
-        <a href="shop.html?cat=accessory" class="cat-gateway-card">
-          <div>
-            <div class="cat-badge-row">
-              <span class="cat-badge-label">Installer Essentials</span>
-              <span class="cat-price-from">From &#8377;180</span>
-            </div>
-            <div class="cat-img-stage">
-              <img src="assets/acc_official_smps.png" alt="Power & Hardware Accessories" loading="lazy">
-            </div>
-            <div class="cat-info-block">
-              <h3>6. Hardware &amp; Power Accessories</h3>
-              <p>Centralized regulated 12V SMPS units (5A/10A/20A), IP66 weatherproof round junction deep-base boxes, BNC/DC connectors, and Seagate SkyHawk HDDs.</p>
-              <div class="cat-chips-strip">
-                <span class="cat-chip">12V SMPS Units</span>
-                <span class="cat-chip">IP66 Base Boxes</span>
-                <span class="cat-chip">SkyHawk 4TB</span>
-                <span class="cat-chip">Connectors</span>
-              </div>
-            </div>
-          </div>
-          <div class="cat-card-action">
-            <span>Explore Accessories &rarr;</span>
-          </div>
-        </a>
+          <div class="card-bottom-title">Security Cables</div>
+          <button type="button" class="card-action-btn" onclick="addToQuickCart('security-cables', 'Security Cables CAT6', 3850)">Add to Cart</button>
+        </div>
 
       </div>
     </div>
   </section>
 
   <!-- ==========================================================================
-       BRAND PARTNERSHIPS SECTION (MINIMALIST WHITE)
+       TRUST PILLARS STRIP
        ========================================================================== -->
-  <section class="brands-section-minimal">
-    <div class="container">
-      <div class="section-head-center" style="margin-bottom: 32px;">
-        <span class="section-tag-sm">Certified Hardware</span>
-        <h2 class="section-heading-lg" style="font-size: 26px;">Authorized Brand Partnerships</h2>
+  <section class="trust-pillars-strip">
+    <div class="container trust-pillars-flex">
+      
+      <!-- ITEM 1: TOP-RATED SECURITY -->
+      <div class="trust-pillar-item">
+        <div class="trust-icon-wrap">
+          <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+            <polygon points="12 8 13.5 11 17 11.5 14.5 14 15 17.5 12 16 9 17.5 9.5 14 7 11.5 10.5 11 12 8" fill="currentColor" stroke="none"></polygon>
+          </svg>
+        </div>
+        <span class="trust-text-label">Top-Rated Security</span>
       </div>
 
-      <div class="brands-grid-clean">
-        <div class="brand-partner-card">
-          <span class="brand-partner-name">CP PLUS</span>
-          <span class="brand-partner-badge">Authorized Partner &bull; 9 Models</span>
+      <!-- ITEM 2: FREE SHIPPING & SUPPORT -->
+      <div class="trust-pillar-item">
+        <div class="trust-icon-wrap">
+          <svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="1" y="3" width="15" height="13"></rect>
+            <polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon>
+            <circle cx="5.5" cy="18.5" r="2.5"></circle>
+            <circle cx="18.5" cy="18.5" r="2.5"></circle>
+            <line x1="0" y1="6" x2="3" y2="6"></line>
+            <line x1="0" y1="10" x2="2" y2="10"></line>
+          </svg>
         </div>
-        <div class="brand-partner-card">
-          <span class="brand-partner-name">Trueview</span>
-          <span class="brand-partner-badge">Tier-1 Direct &bull; 31 Models</span>
-        </div>
-        <div class="brand-partner-card">
-          <span class="brand-partner-name">iDADA</span>
-          <span class="brand-partner-badge">Official Partner &bull; Smart Series</span>
-        </div>
-        <div class="brand-partner-card">
-          <span class="brand-partner-name">Seagate</span>
-          <span class="brand-partner-badge">SkyHawk Partner &bull; Surveillance</span>
-        </div>
+        <span class="trust-text-label">Free Shipping &amp; Support</span>
       </div>
+
+      <!-- ITEM 3: 24/7 TECHNICAL ASSISTANCE -->
+      <div class="trust-pillar-item">
+        <div class="trust-icon-wrap">
+          <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3 18v-6a9 9 0 0 1 18 0v6"></path>
+            <path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"></path>
+          </svg>
+        </div>
+        <span class="trust-text-label">24/7 Technical Assistance</span>
+      </div>
+
     </div>
   </section>
 
   <!-- ==========================================================================
-       WHOLESALE & WHY US ASSURANCE GRID
+       PARTNER BRANDS LOGOS STRIP
        ========================================================================== -->
-  <section class="assurance-section">
-    <div class="container">
-      <div class="section-head-center">
-        <span class="section-tag-sm">Procurement Assurance</span>
-        <h2 class="section-heading-lg">Why Procure from Syber Space</h2>
-      </div>
-
-      <div class="assurance-grid">
-        <div class="assurance-card">
-          <div class="assurance-icon">
-            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
-          </div>
-          <h4>Wholesale GST Invoicing</h4>
-          <p>Every commercial order includes genuine GST invoices with input tax credit for contractors and businesses.</p>
-        </div>
-
-        <div class="assurance-card">
-          <div class="assurance-icon">
-            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
-          </div>
-          <h4>Fast Priority Dispatch</h4>
-          <p>Verified orders dispatched within 24 to 48 business hours with express logistics and tracking numbers.</p>
-        </div>
-
-        <div class="assurance-card">
-          <div class="assurance-icon">
-            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
-          </div>
-          <h4>1-Year Official Warranty</h4>
-          <p>Complete 1-year brand warranty backed by direct replacement support on genuine manufacturing defects.</p>
-        </div>
-
-        <div class="assurance-card">
-          <div class="assurance-icon">
-            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.2"><polygon points="23 7 16 12 23 17 23 7"></polygon><rect x="1" y="5" width="15" height="14" rx="2" ry="2"></rect></svg>
-          </div>
-          <h4>Unboxing Video Replacement</h4>
-          <p>Continuous unboxing video policy guarantees 100% instant hassle-free replacement in case of transit damage.</p>
-        </div>
-      </div>
+  <section class="brand-logos-strip">
+    <div class="container brand-logos-row">
+      <span class="brand-logo-text-item">Panasonic</span>
+      <span class="brand-logo-text-item">Hisense</span>
+      <span class="brand-logo-text-item">CP PLUS</span>
+      <span class="brand-logo-text-item">Trueview</span>
+      <span class="brand-logo-text-item">LG</span>
+      <span class="brand-logo-text-item">Microsoft</span>
+      <span class="brand-logo-text-item">Seagate</span>
     </div>
   </section>
 
   <!-- ==========================================================================
-       CLEAN MINIMALIST FOOTER
+       MINIMALIST ASSURANCE FOOTER
        ========================================================================== -->
-  <footer>
+  <footer class="minimal-footer">
     <div class="container">
-      <div class="footer-top">
-        <div class="footer-col">
-          <h5 style="color: var(--black); font-size: 16px;">SYBER SPACE</h5>
-          <p style="margin-bottom: 12px; line-height: 1.6;">
-            The Surveillance Store. Precision optical hardware, video door phones, alarms, access control, and cables for residential and enterprise security infrastructure.
-          </p>
-          <div class="footer-gateway-badge">
-            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
-            <span>HDFC SmartGateway Protected</span>
-          </div>
+      <div class="footer-content-row">
+        
+        <div class="footer-b2b-box">
+          <a href="https://wa.me/917511180808?text=Hello%20Syber%20Space%2C%20I%20need%20a%20B2B%20wholesale%20quotation." target="_blank" rel="noopener noreferrer" class="footer-hotline-pill">
+            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+            <span>B2B Hotline: +91 75111 80808</span>
+          </a>
+          <span style="font-size: 13px; color: var(--text-muted);">Commercial GST Invoicing &amp; Input Tax Credit Available</span>
         </div>
 
-        <div class="footer-col">
-          <h5>Departments</h5>
-          <ul class="footer-links">
-            <li><a href="shop.html?cat=cctv">CCTV Cameras</a></li>
-            <li><a href="shop.html?cat=vdp">Video Door Phones</a></li>
-            <li><a href="shop.html?cat=alarm">Intrusion Alarms</a></li>
-            <li><a href="shop.html?cat=access">Access Control</a></li>
-            <li><a href="shop.html?cat=cables">Cables &amp; Wire</a></li>
-            <li><a href="shop.html?cat=accessory">Power &amp; Accessories</a></li>
-          </ul>
-        </div>
+        <ul class="footer-links-list">
+          <li><a href="shop.html">All Hardware</a></li>
+          <li><a href="shop.html?cat=cctv">CCTV Cameras</a></li>
+          <li><a href="shop.html?cat=vdp">Video Door Phones</a></li>
+          <li><a href="shop.html?cat=access">Access Control</a></li>
+          <li><a href="cart.html">View Cart</a></li>
+        </ul>
 
-        <div class="footer-col">
-          <h5>Brands</h5>
-          <ul class="footer-links">
-            <li><a href="shop.html?search=CP+PLUS">CP PLUS</a></li>
-            <li><a href="shop.html?search=Trueview">Trueview</a></li>
-            <li><a href="shop.html?search=iDADA">iDADA</a></li>
-            <li><a href="shop.html?search=Seagate">Seagate SkyHawk</a></li>
-          </ul>
-        </div>
-
-        <div class="footer-col">
-          <h5>Direct Contact</h5>
-          <ul class="footer-links">
-            <li><a href="tel:+917511180808">Phone: +91 75111 80808</a></li>
-            <li><a href="https://wa.me/917511180808" target="_blank" rel="noopener noreferrer">WhatsApp Support</a></li>
-            <li><a href="cart.html">View Shopping Cart</a></li>
-            <li><a href="shop.html">Complete Hardware Catalog</a></li>
-          </ul>
-        </div>
       </div>
 
-      <div class="footer-bottom">
-        <div>
-          &copy; <span id="currentYear"></span> SYBER SPACE. All rights reserved. Zero middlemen &bull; Factory wholesale direct.
-        </div>
-        <div>
-          Official Security &amp; Surveillance Hardware Distribution.
+      <div class="footer-bottom-copy">
+        <div>&copy; 2026 SYBER SPACE. All rights reserved. Tier-1 Certified Optical Hardware.</div>
+        <div class="hdfc-badge-pill">
+          <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+          <span>Secured by HDFC Bank SmartGateway</span>
         </div>
       </div>
     </div>
   </footer>
 
+  <!-- TOAST NOTIFICATION -->
+  <div class="cart-toast-notification" id="cartToast">
+    <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#22c55e" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+    <span id="toastMsg">Product added to cart!</span>
+  </div>
+
+  <!-- JAVASCRIPT LOGIC -->
   <script>
-    document.getElementById('currentYear').textContent = new Date().getFullYear();
-
-    // Update cart counter from localStorage
-    function updateHeaderCartBadge() {
-      try {
-        const raw = localStorage.getItem('syber_cart') || localStorage.getItem('syber_cart_items') || '[]';
-        const cart = JSON.parse(raw);
-        const count = cart.reduce((acc, item) => acc + (item.quantity || 1), 0);
-        const badge = document.getElementById('cartBadge');
-        if (badge) badge.textContent = count;
-      } catch (e) {
-        console.error(e);
-      }
-    }
-    updateHeaderCartBadge();
-
-    // Header Search Input
-    function triggerHeaderSearch() {
-      const input = document.getElementById('headerSearchInput');
-      if (!input) return;
-      const q = input.value.trim();
-      if (q) {
-        window.location.href = 'shop.html?search=' + encodeURIComponent(q);
-      }
-    }
-
-    const headerSearchInput = document.getElementById('headerSearchInput');
-    if (headerSearchInput) {
-      headerSearchInput.addEventListener('keydown', (e) => {
-        if (e.key === 'Enter') {
-          triggerHeaderSearch();
+    // Search input handler
+    const searchInput = document.getElementById('headerSearch');
+    if (searchInput) {
+      searchInput.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' && searchInput.value.trim().length > 0) {
+          window.location.href = 'shop.html?q=' + encodeURIComponent(searchInput.value.trim());
         }
       });
     }
 
-    // Storage listener across windows
-    window.addEventListener('storage', (e) => {
-      if (e.key === 'syber_cart' || e.key === 'syber_cart_items') {
-        updateHeaderCartBadge();
+    // Cart management
+    function getCart() {
+      try {
+        const data = localStorage.getItem('syber_cart') || localStorage.getItem('syber_cart_items');
+        return data ? JSON.parse(data) : [];
+      } catch (e) {
+        return [];
       }
-    });
-
-    // Category cards are fully styled with native responsive CSS and micro-interactions
-  
-    // Amazon-Style Live Countdown Timer
-    function initDealTimers() {
-      function updateTimers() {
-        const now = new Date();
-        const midnight = new Date();
-        midnight.setHours(23, 59, 59, 999);
-        let diff = Math.floor((midnight - now) / 1000);
-        if (diff < 0) diff = 86400 + diff;
-
-        const h = String(Math.floor(diff / 3600)).padStart(2, '0');
-        const m = String(Math.floor((diff % 3600) / 60)).padStart(2, '0');
-        const s = String(diff % 60).padStart(2, '0');
-        const timeStr = `${h}h : ${m}m : ${s}s`;
-
-        const timerEls = document.querySelectorAll('.deal-timer-digits');
-        timerEls.forEach(el => {
-          el.textContent = timeStr;
-        });
-
-        const shortTimer = `${h}:${m}:${s}`;
-        const shortEls = document.querySelectorAll('.tile-short-timer');
-        shortEls.forEach(el => {
-          el.textContent = 'Ends in ' + shortTimer;
-        });
-      }
-
-      updateTimers();
-      setInterval(updateTimers, 1000);
     }
 
-    // Amazon-Style Hero Deal Carousel
-    function initHeroOfferCarousel() {
-      const slides = document.querySelectorAll('.deal-slide');
-      const tabs = document.querySelectorAll('.deal-quick-tab');
-      const dots = document.querySelectorAll('.carousel-dot');
-      const prevBtn = document.querySelector('.prev-btn');
-      const nextBtn = document.querySelector('.next-btn');
-      const wrapper = document.querySelector('.deal-carousel-wrapper');
-
-      if (slides.length === 0) return;
-
-      let current = 0;
-      let timer = null;
-
-      function goToSlide(index) {
-        if (index < 0) index = slides.length - 1;
-        if (index >= slides.length) index = 0;
-        current = index;
-
-        slides.forEach((s, i) => {
-          s.classList.toggle('active', i === current);
-        });
-        tabs.forEach((t, i) => {
-          t.classList.toggle('active', i === current);
-        });
-        dots.forEach((d, i) => {
-          d.classList.toggle('active', i === current);
-        });
+    function updateCartBadge() {
+      const cart = getCart();
+      const count = Array.isArray(cart) ? cart.reduce((sum, item) => sum + (item.quantity || 1), 0) : 0;
+      const badge = document.getElementById('cartBadgeCount');
+      if (badge) {
+        badge.textContent = count > 0 ? count : 1;
       }
-
-      function startAutoplay() {
-        stopAutoplay();
-        timer = setInterval(() => {
-          goToSlide(current + 1);
-        }, 5500);
-      }
-
-      function stopAutoplay() {
-        if (timer) clearInterval(timer);
-      }
-
-      if (prevBtn) {
-        prevBtn.addEventListener('click', () => {
-          goToSlide(current - 1);
-          startAutoplay();
-        });
-      }
-
-      if (nextBtn) {
-        nextBtn.addEventListener('click', () => {
-          goToSlide(current + 1);
-          startAutoplay();
-        });
-      }
-
-      tabs.forEach((tab, i) => {
-        tab.addEventListener('click', () => {
-          goToSlide(i);
-          startAutoplay();
-        });
-      });
-
-      dots.forEach((dot, i) => {
-        dot.addEventListener('click', () => {
-          goToSlide(i);
-          startAutoplay();
-        });
-      });
-
-      if (wrapper) {
-        wrapper.addEventListener('mouseenter', stopAutoplay);
-        wrapper.addEventListener('mouseleave', startAutoplay);
-      }
-
-      startAutoplay();
     }
 
-    // Initialize timers and carousel on DOMContentLoaded
+    function showToast(msg) {
+      const toast = document.getElementById('cartToast');
+      const text = document.getElementById('toastMsg');
+      if (toast && text) {
+        text.textContent = msg;
+        toast.classList.add('show');
+        setTimeout(() => {
+          toast.classList.remove('show');
+        }, 2600);
+      }
+    }
+
+    function addToQuickCart(id, title, price) {
+      let cart = getCart();
+      if (!Array.isArray(cart)) cart = [];
+
+      const existingIndex = cart.findIndex(item => item.id === id);
+      if (existingIndex > -1) {
+        cart[existingIndex].quantity = (cart[existingIndex].quantity || 1) + 1;
+      } else {
+        cart.push({
+          id: id,
+          title: title,
+          price: price,
+          quantity: 1,
+          image: 'assets/mockup_prod_' + (id.includes('cctv') ? 'cctv' : id.includes('vdp') ? 'vdp' : id.includes('biometric') ? 'biometric' : 'cables') + '_2x.png'
+        });
+      }
+
+      localStorage.setItem('syber_cart', JSON.stringify(cart));
+      localStorage.setItem('syber_cart_items', JSON.stringify(cart));
+      updateCartBadge();
+      showToast(title + ' added to Cart!');
+    }
+
     document.addEventListener('DOMContentLoaded', () => {
-      initDealTimers();
-      initHeroOfferCarousel();
+      updateCartBadge();
     });
-    // In case DOM already loaded
-    if (document.readyState === 'interactive' || document.readyState === 'complete') {
-      initDealTimers();
-      initHeroOfferCarousel();
-    }
-</script>
+  </script>
+
 </body>
 </html>
