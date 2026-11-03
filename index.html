@@ -321,21 +321,21 @@
 
     /* CARD FRAME */
     .offer-card-frame {
-      background: #f8fafc;
-      border: 1px solid #e2e8f0;
-      border-radius: 20px;
-      padding: 22px 24px 20px;
-      box-shadow: 0 10px 30px rgba(15, 23, 42, 0.04);
+      background: transparent;
+      border: none;
+      border-radius: 0;
+      padding: 0;
+      box-shadow: none;
       transition: all 0.3s ease;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      min-height: 330px;
+      min-height: 310px;
     }
 
     .offer-card-frame:hover {
-      box-shadow: 0 16px 36px rgba(15, 23, 42, 0.08);
-      border-color: #cbd5e1;
+      box-shadow: none;
+      border-color: transparent;
     }
 
     .offer-card-header {
@@ -452,7 +452,7 @@
       justify-content: space-between;
       gap: 14px;
       padding-top: 12px;
-      border-top: 1px solid #eef2f6;
+      border-top: none;
     }
 
     .offer-spec-note {
@@ -882,14 +882,452 @@
         align-items: flex-start;
       }
     }
+  
+    /* ==========================================================================
+       MOBILE VIEW (EXACT MATCH TO USER SPEC: media_1793689076667_e5f7b445.jpg)
+       ========================================================================== */
+    .mobile-only {
+      display: none !important;
+    }
+
+    .desktop-only {
+      display: block;
+    }
+
+    /* MOBILE HEADER */
+    .mobile-header-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 20px;
+      background: #ffffff;
+      border-bottom: 1px solid #f1f5f9;
+    }
+
+    .mobile-brand-group {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .mobile-brand-title {
+      font-size: 19px;
+      font-weight: 900;
+      letter-spacing: -0.2px;
+      color: #0f172a;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      text-transform: uppercase;
+      text-decoration: none;
+    }
+
+    .mobile-brand-dot {
+      width: 7px;
+      height: 7px;
+      background: var(--primary-blue);
+      border-radius: 50%;
+      display: inline-block;
+    }
+
+    .mobile-brand-sub {
+      font-size: 9.5px;
+      font-weight: 800;
+      letter-spacing: 1.5px;
+      color: #64748b;
+      text-transform: uppercase;
+      margin-top: 2px;
+    }
+
+    .mobile-header-tools {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .mobile-whatsapp-btn {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background: #ecfdf5;
+      border: 1px solid #a7f3d0;
+      color: #10b981;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      transition: all 0.2s ease;
+    }
+
+    .mobile-cart-btn {
+      position: relative;
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      color: #0f172a;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+    }
+
+    .mobile-cart-badge {
+      position: absolute;
+      top: -2px;
+      right: -2px;
+      background: var(--primary-blue);
+      color: #ffffff;
+      font-size: 10px;
+      font-weight: 800;
+      width: 17px;
+      height: 17px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* MOBILE SEARCH BAR */
+    .mobile-search-strip {
+      padding: 12px 20px 8px;
+      background: #ffffff;
+    }
+
+    .mobile-search-pill-box {
+      position: relative;
+      width: 100%;
+    }
+
+    .mobile-search-icon {
+      position: absolute;
+      left: 14px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 16px;
+      height: 16px;
+      color: #94a3b8;
+    }
+
+    .mobile-search-input {
+      width: 100%;
+      padding: 10px 65px 10px 40px;
+      font-size: 13.5px;
+      font-family: inherit;
+      color: #0f172a;
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      outline: none;
+    }
+
+    .mobile-search-input:focus {
+      border-color: var(--primary-blue);
+      background: #ffffff;
+    }
+
+    .mobile-filter-pill {
+      position: absolute;
+      right: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+      background: #ffffff;
+      border: 1px solid #cbd5e1;
+      color: #64748b;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 3px 8px;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    /* MOBILE HERO CARD */
+    .mobile-hero-container {
+      padding: 12px 20px 20px;
+      background: #ffffff;
+    }
+
+    .mobile-hero-card {
+      background: linear-gradient(180deg, #f0f7ff 0%, #ffffff 100%);
+      border: 1px solid #dbeafe;
+      border-radius: 20px;
+      padding: 22px 18px 18px;
+      box-shadow: 0 4px 18px rgba(37, 99, 235, 0.05);
+    }
+
+    .mobile-hero-tag-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: #eff6ff;
+      border: 1px solid #bfdbfe;
+      color: #1e40af;
+      font-size: 10.5px;
+      font-weight: 800;
+      letter-spacing: 0.8px;
+      padding: 4px 12px;
+      border-radius: 9999px;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    .mobile-hero-tag-dot {
+      width: 6px;
+      height: 6px;
+      background: #2563eb;
+      border-radius: 50%;
+    }
+
+    .mobile-hero-h1 {
+      font-size: 25px;
+      font-weight: 900;
+      line-height: 1.2;
+      color: #0f172a;
+      margin-bottom: 10px;
+      letter-spacing: -0.4px;
+    }
+
+    .mobile-hero-blue {
+      color: #1e60ff;
+    }
+
+    .mobile-hero-p {
+      font-size: 13px;
+      line-height: 1.5;
+      color: #475569;
+      margin-bottom: 18px;
+    }
+
+    .mobile-hero-btns-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 18px;
+    }
+
+    .mobile-btn-primary {
+      flex: 1;
+      background: var(--primary-blue);
+      color: #ffffff;
+      font-size: 13px;
+      font-weight: 700;
+      padding: 11px 14px;
+      border-radius: 9999px;
+      text-align: center;
+      text-decoration: none;
+      box-shadow: 0 4px 14px rgba(30, 96, 255, 0.25);
+    }
+
+    .mobile-btn-secondary {
+      flex: 1;
+      background: #ffffff;
+      border: 1.5px solid #cbd5e1;
+      color: #0f172a;
+      font-size: 13px;
+      font-weight: 700;
+      padding: 10px 12px;
+      border-radius: 12px;
+      text-align: center;
+      text-decoration: none;
+    }
+
+    .mobile-trust-checks-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-top: 14px;
+      border-top: 1px solid rgba(226, 232, 240, 0.8);
+      font-size: 11px;
+      font-weight: 700;
+      color: #059669;
+    }
+
+    .mobile-check-item {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    /* MOBILE PRODUCT CATEGORIES HORIZONTAL CAROUSEL */
+    .mobile-categories-section {
+      padding: 10px 20px 24px;
+      background: #ffffff;
+    }
+
+    .mobile-categories-header {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      margin-bottom: 14px;
+    }
+
+    .mobile-cat-title-block h3 {
+      font-size: 17px;
+      font-weight: 800;
+      color: #0f172a;
+      margin-bottom: 2px;
+    }
+
+    .mobile-cat-title-block p {
+      font-size: 11.5px;
+      color: #64748b;
+    }
+
+    .mobile-reset-link {
+      font-size: 12.5px;
+      font-weight: 700;
+      color: var(--primary-blue);
+      text-decoration: none;
+    }
+
+    .mobile-cat-scroll-track {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      overflow-x: auto;
+      padding-bottom: 8px;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+    }
+
+    .mobile-cat-scroll-track::-webkit-scrollbar {
+      display: none;
+    }
+
+    .mobile-cat-card-item {
+      min-width: 92px;
+      padding: 14px 10px;
+      background: #ffffff;
+      border: 1.5px solid #e2e8f0;
+      border-radius: 16px;
+      text-align: center;
+      text-decoration: none;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      flex-shrink: 0;
+      transition: all 0.2s ease;
+    }
+
+    .mobile-cat-card-item:hover,
+    .mobile-cat-card-item.active {
+      border-color: var(--primary-blue);
+      background: #f0f7ff;
+    }
+
+    .mobile-cat-icon-box {
+      width: 38px;
+      height: 38px;
+      border-radius: 10px;
+      background: #eff6ff;
+      color: var(--primary-blue);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .mobile-cat-label {
+      font-size: 12px;
+      font-weight: 700;
+      color: #0f172a;
+      white-space: nowrap;
+    }
+
+    /* MOBILE PERSISTENT BOTTOM NAVBAR */
+    .mobile-bottom-nav {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 58px;
+      background: #ffffff;
+      border-top: 1px solid #eef2f6;
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      padding: 0 10px;
+      z-index: 1000;
+      box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.05);
+    }
+
+    .mobile-nav-tab {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 44px;
+      height: 44px;
+      color: #94a3b8;
+      text-decoration: none;
+      transition: color 0.2s ease;
+      position: relative;
+    }
+
+    .mobile-nav-tab.active {
+      color: var(--primary-blue);
+    }
+
+    .mobile-float-wa {
+      width: 46px;
+      height: 46px;
+      border-radius: 50%;
+      background: #10b981;
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 14px rgba(16, 185, 129, 0.35);
+      margin-top: -14px;
+      text-decoration: none;
+      transition: transform 0.2s ease;
+    }
+
+    .mobile-float-wa:hover {
+      transform: scale(1.05);
+    }
+
+    .mobile-nav-badge-float {
+      position: absolute;
+      top: 4px;
+      right: 4px;
+      background: var(--primary-blue);
+      color: #ffffff;
+      font-size: 9px;
+      font-weight: 800;
+      width: 15px;
+      height: 15px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1.5px solid #ffffff;
+    }
+
+    /* MEDIA QUERY FOR VIEWPORT SWITCHING */
+    @media (max-width: 768px) {
+      .desktop-only {
+        display: none !important;
+      }
+      .mobile-only {
+        display: block !important;
+      }
+      .mobile-bottom-nav {
+        display: flex !important;
+      }
+      body {
+        padding-bottom: 65px; /* space for bottom nav */
+      }
+    }
   </style>
+
 </head>
 <body>
 
   <!-- ==========================================================================
        TOP NAVIGATION BAR
        ========================================================================== -->
-  <header class="site-header">
+  <!-- DESKTOP NAVBAR -->
+  <header class="site-header desktop-only">
     <div class="container nav-container">
       
       <!-- LOGO -->
@@ -947,7 +1385,8 @@
   <!-- ==========================================================================
        HERO SECTION: "SECURING YOUR SPACE, SMARTER"
        ========================================================================== -->
-  <section class="hero-main-section">
+  <!-- DESKTOP HERO -->
+  <section class="hero-main-section desktop-only">
     <div class="container hero-grid-2col">
       
       <!-- HERO LEFT -->
@@ -1059,6 +1498,168 @@
   <!-- ==========================================================================
        "OUR PRODUCTS" 4-CARD CATEGORY GRID
        ========================================================================== -->
+  <!-- ==========================================================================
+       MOBILE VIEW COMPONENTS (media_1793689076667_e5f7b445.jpg)
+       ========================================================================== -->
+  <div class="mobile-only">
+    
+    <!-- 1. MOBILE HEADER -->
+    <div class="mobile-header-bar">
+      <div class="mobile-brand-group">
+        <a href="index.html" class="mobile-brand-title">
+          <span>SYBER SPACE</span>
+          <span class="mobile-brand-dot"></span>
+        </a>
+        <span class="mobile-brand-sub">PERIMETER &amp; SECURITY</span>
+      </div>
+      <div class="mobile-header-tools">
+        <a href="https://wa.me/917511180808" target="_blank" rel="noopener noreferrer" class="mobile-whatsapp-btn" aria-label="WhatsApp Support">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+            <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2zm.01 18.11c-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.12 8.12 0 0 1-1.25-4.34c0-4.49 3.66-8.15 8.16-8.15 2.18 0 4.23.85 5.77 2.39a8.1 8.1 0 0 1 2.4 5.76c-.01 4.5-3.67 8.16-8.19 8.16z"/>
+          </svg>
+        </a>
+        <a href="cart.html" class="mobile-cart-btn" aria-label="Cart">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <path d="M16 10a4 4 0 0 1-8 0"></path>
+          </svg>
+          <span class="mobile-cart-badge" id="mobileCartCount">2</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- 2. MOBILE SEARCH BAR -->
+    <div class="mobile-search-strip">
+      <div class="mobile-search-pill-box">
+        <svg class="mobile-search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+          <circle cx="11" cy="11" r="8"></circle>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+        </svg>
+        <input type="text" class="mobile-search-input" id="mobileSearchInput" placeholder="Search 4K CCTV, VDP Kits, Cables..." aria-label="Search equipment">
+        <button type="button" class="mobile-filter-pill" onclick="window.location.href='shop.html'">filter</button>
+      </div>
+    </div>
+
+    <!-- 3. MOBILE HERO CARD -->
+    <div class="mobile-hero-container">
+      <div class="mobile-hero-card">
+        <div class="mobile-hero-tag-pill">
+          <span class="mobile-hero-tag-dot"></span>
+          <span>ENTERPRISE GRADE SECURITY</span>
+        </div>
+        <h1 class="mobile-hero-h1">
+          Secure Your Space.<br>
+          <span class="mobile-hero-blue">Engineered Defense.</span>
+        </h1>
+        <p class="mobile-hero-p">
+          Complete surveillance, smart door video entry, and biometric access kits designed for modern homes and facilities.
+        </p>
+        <div class="mobile-hero-btns-row">
+          <a href="shop.html" class="mobile-btn-primary">Shop Bundles</a>
+          <a href="https://wa.me/917511180808?text=Hello%20Syber%20Space%2C%20I%20need%20a%20Bill%20of%20Materials%20quotation." target="_blank" rel="noopener noreferrer" class="mobile-btn-secondary">Get Bill of Materials</a>
+        </div>
+        <div class="mobile-trust-checks-row">
+          <div class="mobile-check-item">
+            <span>&#10003;</span> <span>3 Yr Warranty</span>
+          </div>
+          <div class="mobile-check-item">
+            <span>&#10003;</span> <span>OEM Certified</span>
+          </div>
+          <div class="mobile-check-item">
+            <span>&#10003;</span> <span>Tech Support</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 4. MOBILE PRODUCT CATEGORIES CAROUSEL -->
+    <div class="mobile-categories-section">
+      <div class="mobile-categories-header">
+        <div class="mobile-cat-title-block">
+          <h3>Product Categories</h3>
+          <p>Select any department to filter equipment</p>
+        </div>
+        <a href="shop.html" class="mobile-reset-link">Reset View</a>
+      </div>
+
+      <div class="mobile-cat-scroll-track">
+        
+        <!-- Category 1: CCTV -->
+        <a href="shop.html?cat=cctv" class="mobile-cat-card-item active">
+          <div class="mobile-cat-icon-box">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M23 7l-7 5 7 5V7z"></path>
+              <rect x="1" y="5" width="15" height="14" rx="2" ry="2"></rect>
+            </svg>
+          </div>
+          <span class="mobile-cat-label">1. CCTV</span>
+        </a>
+
+        <!-- Category 2: VDP -->
+        <a href="shop.html?cat=vdp" class="mobile-cat-card-item">
+          <div class="mobile-cat-icon-box">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="2" y="3" width="20" height="14" rx="2"></rect>
+              <line x1="8" y1="21" x2="16" y2="21"></line>
+              <line x1="12" y1="17" x2="12" y2="21"></line>
+            </svg>
+          </div>
+          <span class="mobile-cat-label">2. VDP</span>
+        </a>
+
+        <!-- Category 3: Intrusion Alarm -->
+        <a href="shop.html?cat=alarm" class="mobile-cat-card-item">
+          <div class="mobile-cat-icon-box">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
+              <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
+            </svg>
+          </div>
+          <span class="mobile-cat-label">3. Intrusion</span>
+        </a>
+
+        <!-- Category 4: Access Control -->
+        <a href="shop.html?cat=access" class="mobile-cat-card-item">
+          <div class="mobile-cat-icon-box">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 11c1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3 1.34 3 3 3z"></path>
+              <path d="M12 14c-2.33 0-7 1.17-7 3.5V19h14v-1.5c0-2.33-4.67-3.5-7-3.5z"></path>
+            </svg>
+          </div>
+          <span class="mobile-cat-label">4. Access</span>
+        </a>
+
+        <!-- Category 5: Cables -->
+        <a href="shop.html?cat=cables" class="mobile-cat-card-item">
+          <div class="mobile-cat-icon-box">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10"></circle>
+              <circle cx="12" cy="12" r="4"></circle>
+              <line x1="12" y1="2" x2="12" y2="4"></line>
+              <line x1="12" y1="20" x2="12" y2="22"></line>
+            </svg>
+          </div>
+          <span class="mobile-cat-label">5. Cables</span>
+        </a>
+
+        <!-- Category 6: Accessories -->
+        <a href="shop.html?cat=accessory" class="mobile-cat-card-item">
+          <div class="mobile-cat-icon-box">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="2" y="6" width="20" height="12" rx="2"></rect>
+              <circle cx="7" cy="12" r="1.5"></circle>
+              <circle cx="17" cy="12" r="1.5"></circle>
+            </svg>
+          </div>
+          <span class="mobile-cat-label">6. Accessories</span>
+        </a>
+
+      </div>
+    </div>
+
+  </div>
+
   <section class="products-overview-section" id="products">
     <div class="container">
       <h2 class="section-title-clean">Our Products</h2>
@@ -1274,6 +1875,15 @@
       localStorage.setItem('syber_cart', JSON.stringify(cart));
       localStorage.setItem('syber_cart_items', JSON.stringify(cart));
       updateCartBadge();
+    const mobileSearch = document.getElementById('mobileSearchInput');
+    if (mobileSearch) {
+      mobileSearch.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' && mobileSearch.value.trim().length > 0) {
+          window.location.href = 'shop.html?q=' + encodeURIComponent(mobileSearch.value.trim());
+        }
+      });
+    }
+
       showToast(title + ' added to Cart!');
     }
 
@@ -1349,6 +1959,65 @@
       initHeroOfferSlider();
     });
   </script>
+
+
+  <!-- MOBILE PERSISTENT BOTTOM NAVIGATION BAR -->
+  <div class="mobile-bottom-nav mobile-only">
+    <!-- 1. Home -->
+    <a href="index.html" class="mobile-nav-tab active" aria-label="Home">
+      <svg viewBox="0 0 24 24" width="23" height="23" fill="none" stroke="currentColor" stroke-width="2.2">
+        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+        <polyline points="9 22 9 12 15 12 15 22"></polyline>
+      </svg>
+    </a>
+    
+    <!-- 2. Categories -->
+    <a href="shop.html" class="mobile-nav-tab" aria-label="Categories">
+      <svg viewBox="0 0 24 24" width="23" height="23" fill="none" stroke="currentColor" stroke-width="2.2">
+        <line x1="3" y1="6" x2="21" y2="6"></line>
+        <line x1="3" y1="12" x2="21" y2="12"></line>
+        <line x1="3" y1="18" x2="21" y2="18"></line>
+      </svg>
+    </a>
+
+    <!-- 3. WhatsApp Center -->
+    <a href="https://wa.me/917511180808" target="_blank" rel="noopener noreferrer" class="mobile-float-wa" aria-label="Instant WhatsApp Chat">
+      <svg viewBox="0 0 24 24" width="23" height="23" fill="currentColor">
+        <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2zm.01 18.11c-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.12 8.12 0 0 1-1.25-4.34c0-4.49 3.66-8.15 8.16-8.15 2.18 0 4.23.85 5.77 2.39a8.1 8.1 0 0 1 2.4 5.76c-.01 4.5-3.67 8.16-8.19 8.16z"/>
+      </svg>
+    </a>
+
+    <!-- 4. Cart -->
+    <a href="cart.html" class="mobile-nav-tab" aria-label="Shopping Cart">
+      <div style="position: relative; display: flex; align-items: center; justify-content: center;">
+        <svg viewBox="0 0 24 24" width="23" height="23" fill="none" stroke="currentColor" stroke-width="2.2">
+          <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <path d="M16 10a4 4 0 0 1-8 0"></path>
+        </svg>
+        <span class="mobile-nav-badge-float" id="bottomNavCartCount">2</span>
+      </div>
+    </a>
+
+    <!-- 5. Account -->
+    <a href="shop.html" class="mobile-nav-tab" aria-label="Account">
+      <svg viewBox="0 0 24 24" width="23" height="23" fill="none" stroke="currentColor" stroke-width="2.2">
+        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+        <circle cx="12" cy="7" r="4"></circle>
+      </svg>
+    </a>
+  </div>
+      <span>Cart</span>
+    </a>
+
+    <a href="shop.html" class="mobile-nav-tab">
+      <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+        <circle cx="12" cy="7" r="4"></circle>
+      </svg>
+      <span>Account</span>
+    </a>
+  </div>
 
 </body>
 </html>
