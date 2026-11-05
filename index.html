@@ -1318,6 +1318,458 @@
         padding-bottom: 65px; /* space for bottom nav */
       }
     }
+  
+    /* ==========================================================================
+       STADIUM & STADIUM OUTLET DUAL-BRAND TOP BAR
+       ========================================================================== */
+    .top-brand-switcher-bar {
+      background: #0f172a;
+      color: #94a3b8;
+      font-size: 12px;
+      font-weight: 600;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      position: relative;
+      z-index: 101;
+    }
+
+    .top-brand-switcher-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 38px;
+    }
+
+    .brand-tabs-group {
+      display: flex;
+      align-items: center;
+      height: 100%;
+    }
+
+    .brand-tab {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      height: 100%;
+      padding: 0 20px;
+      color: #94a3b8;
+      text-decoration: none;
+      font-size: 11.5px;
+      font-weight: 800;
+      letter-spacing: 0.6px;
+      transition: all 0.2s ease;
+      position: relative;
+      text-transform: uppercase;
+      border: none;
+      background: transparent;
+      cursor: pointer;
+      font-family: inherit;
+    }
+
+    .brand-tab:hover {
+      color: #ffffff;
+    }
+
+    .brand-tab.active {
+      background: #ffffff;
+      color: #0f172a;
+      box-shadow: 0 -2px 0 0 var(--primary-blue) inset;
+    }
+
+    .brand-tab-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--primary-blue);
+      display: inline-block;
+    }
+
+    .brand-tab-outlet {
+      background: rgba(255, 255, 255, 0.05);
+      color: #cbd5e1;
+    }
+
+    .brand-tab-outlet:hover {
+      background: rgba(255, 255, 255, 0.1);
+      color: #ffffff;
+    }
+
+    .brand-tab-outlet.active {
+      background: #ffffff;
+      color: #0f172a;
+      box-shadow: 0 -2px 0 0 #dc2626 inset;
+    }
+
+    .brand-tab-badge {
+      background: #dc2626;
+      color: #ffffff;
+      font-size: 9px;
+      font-weight: 900;
+      padding: 2px 6px;
+      border-radius: 4px;
+      letter-spacing: 0.8px;
+      line-height: 1;
+    }
+
+    .top-perks-group {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+      font-size: 11.5px;
+      color: #94a3b8;
+    }
+
+    .top-perk-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      color: #cbd5e1;
+    }
+
+    .top-perk-item svg {
+      color: #10b981;
+    }
+
+    .top-hotline-link {
+      color: #38bdf8;
+      text-decoration: none;
+      font-weight: 700;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      transition: color 0.2s ease;
+    }
+
+    .top-hotline-link:hover {
+      color: #7dd3fc;
+      text-decoration: underline;
+    }
+
+    /* WHOLESALE MODE BANNER */
+    .wholesale-mode-alert {
+      display: none;
+      background: #eff6ff;
+      border-bottom: 1px solid #bfdbfe;
+      padding: 8px 24px;
+      text-align: center;
+      font-size: 12.5px;
+      font-weight: 700;
+      color: #1e40af;
+      transition: all 0.3s ease;
+    }
+
+    .wholesale-mode-alert.visible {
+      display: block;
+    }
+
+    .wholesale-mode-alert-inner {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .wholesale-badge-live {
+      background: #2563eb;
+      color: #ffffff;
+      font-size: 10px;
+      font-weight: 800;
+      padding: 2px 8px;
+      border-radius: 4px;
+      letter-spacing: 0.5px;
+    }
+
+    /* MOBILE DUAL-BRAND SWITCHER STRIP */
+    .mobile-brand-tabs-strip {
+      display: flex;
+      align-items: center;
+      background: #0f172a;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      padding: 0;
+    }
+
+    .mobile-brand-tab {
+      flex: 1;
+      height: 38px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      background: transparent;
+      border: none;
+      color: #94a3b8;
+      font-size: 11px;
+      font-weight: 800;
+      font-family: inherit;
+      letter-spacing: 0.5px;
+      cursor: pointer;
+      text-transform: uppercase;
+      transition: all 0.2s ease;
+    }
+
+    .mobile-brand-tab.active {
+      background: #ffffff;
+      color: #0f172a;
+    }
+
+    .mobile-tab-dot {
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--primary-blue);
+    }
+
+    .mobile-tab-tag {
+      background: #dc2626;
+      color: #ffffff;
+      font-size: 8.5px;
+      font-weight: 900;
+      padding: 1.5px 5px;
+      border-radius: 3px;
+      line-height: 1;
+    }
+
+    /* ==========================================================================
+       STADIUM OUTLET STYLE MINIMALIST PRODUCT DISPLAY & FILTERING
+       ========================================================================== */
+    .outlet-products-header {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      margin-bottom: 22px;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .outlet-header-title-block h2 {
+      font-size: 24px;
+      font-weight: 800;
+      letter-spacing: -0.3px;
+      color: var(--text-main);
+      margin-bottom: 4px;
+    }
+
+    .outlet-header-title-block p {
+      font-size: 13.5px;
+      color: var(--text-muted);
+    }
+
+    .outlet-filter-pills-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-bottom: 24px;
+    }
+
+    .outlet-filter-pill-btn {
+      padding: 7px 16px;
+      border-radius: 9999px;
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      color: #475569;
+      font-size: 12.5px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      font-family: inherit;
+    }
+
+    .outlet-filter-pill-btn:hover {
+      background: #f1f5f9;
+      color: #0f172a;
+      border-color: #cbd5e1;
+    }
+
+    .outlet-filter-pill-btn.active {
+      background: #0f172a;
+      color: #ffffff;
+      border-color: #0f172a;
+    }
+
+    .outlet-products-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+
+    @media (max-width: 1024px) {
+      .outlet-products-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 640px) {
+      .outlet-products-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
+    }
+
+    /* STADIUM OUTLET PRODUCT CARD */
+    .outlet-prod-card {
+      background: #ffffff;
+      border: 1px solid #eef2f6;
+      border-radius: 16px;
+      padding: 16px 16px 18px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+      position: relative;
+    }
+
+    .outlet-prod-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 28px rgba(15, 23, 42, 0.08);
+      border-color: #cbd5e1;
+    }
+
+    .outlet-card-top-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 10px;
+    }
+
+    .outlet-discount-pill {
+      background: #dc2626;
+      color: #ffffff;
+      font-size: 10.5px;
+      font-weight: 800;
+      padding: 3px 8px;
+      border-radius: 4px;
+      letter-spacing: 0.5px;
+    }
+
+    .outlet-stock-indicator {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 11px;
+      font-weight: 700;
+      color: #059669;
+    }
+
+    .outlet-stock-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #10b981;
+    }
+
+    .outlet-img-canvas {
+      height: 140px;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 8px 0 14px;
+      background: #ffffff;
+    }
+
+    .outlet-img-canvas img {
+      max-height: 125px;
+      max-width: 88%;
+      object-fit: contain;
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.04));
+    }
+
+    .outlet-prod-card:hover .outlet-img-canvas img {
+      transform: scale(1.06);
+    }
+
+    .outlet-card-body {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .outlet-brand-tag {
+      font-size: 10.5px;
+      font-weight: 800;
+      color: #64748b;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+      margin-bottom: 3px;
+    }
+
+    .outlet-prod-title {
+      font-size: 14px;
+      font-weight: 700;
+      color: #0f172a;
+      line-height: 1.35;
+      margin-bottom: 6px;
+    }
+
+    .outlet-spec-bullet {
+      font-size: 12px;
+      color: #64748b;
+      line-height: 1.4;
+      margin-bottom: 14px;
+    }
+
+    .outlet-pricing-zone {
+      padding-top: 10px;
+      border-top: 1px solid #f1f5f9;
+      margin-bottom: 12px;
+    }
+
+    .outlet-mrp-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 12px;
+      color: #94a3b8;
+    }
+
+    .outlet-mrp-price {
+      text-decoration: line-through;
+    }
+
+    .outlet-current-price-row {
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+      margin-top: 2px;
+    }
+
+    .outlet-price-bold {
+      font-size: 21px;
+      font-weight: 900;
+      color: #0f172a;
+      letter-spacing: -0.3px;
+    }
+
+    .outlet-tax-note {
+      font-size: 10.5px;
+      font-weight: 600;
+      color: #059669;
+    }
+
+    .outlet-buy-btn {
+      width: 100%;
+      background: #0f172a;
+      color: #ffffff;
+      font-size: 13px;
+      font-weight: 700;
+      padding: 10px 16px;
+      border-radius: 10px;
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      transition: all 0.2s ease;
+      font-family: inherit;
+    }
+
+    .outlet-buy-btn:hover {
+      background: var(--primary-blue);
+      transform: translateY(-1px);
+      box-shadow: 0 4px 14px rgba(30, 96, 255, 0.25);
+    }
+
   </style>
 
 </head>
@@ -1326,6 +1778,54 @@
   <!-- ==========================================================================
        TOP NAVIGATION BAR
        ========================================================================== -->
+    <!-- ==========================================================================
+       TOP DUAL-BRAND SWITCHER BAR (STADIUM & STADIUM OUTLET PATTERN)
+       ========================================================================== -->
+  <div class="top-brand-switcher-bar desktop-only" id="topBrandSwitcher">
+    <div class="container top-brand-switcher-container">
+      
+      <!-- DUAL BRAND TABS -->
+      <div class="brand-tabs-group" role="tablist" aria-label="Brand Portal Switcher">
+        <button type="button" class="brand-tab active" id="tabRetail" onclick="switchBrandMode('retail')" role="tab" aria-selected="true">
+          <span class="brand-tab-dot"></span>
+          <span class="brand-tab-name">SYBER SPACE</span>
+        </button>
+        <button type="button" class="brand-tab brand-tab-outlet" id="tabWholesale" onclick="switchBrandMode('wholesale')" role="tab" aria-selected="false">
+          <span class="brand-tab-name">SYBER WHOLESALE</span>
+          <span class="brand-tab-badge">OUTLET</span>
+        </button>
+      </div>
+
+      <!-- OUTLET PERKS & HOTLINE -->
+      <div class="top-perks-group">
+        <span class="top-perk-item">
+          <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+          <span>Wholesale GST Tax Invoice</span>
+        </span>
+        <span class="top-perk-item">
+          <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+          <span>OEM Official Warranty</span>
+        </span>
+        <span class="top-perk-item">
+          <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+          <span>Priority 24–48h Dispatch</span>
+        </span>
+        <a href="https://wa.me/917511180808" target="_blank" rel="noopener noreferrer" class="top-hotline-link">
+          <span>B2B Hotline: +91 75111 80808</span>
+        </a>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- WHOLESALE MODE ANNOUNCEMENT BANNER -->
+  <div class="wholesale-mode-alert" id="wholesaleAlertBanner">
+    <div class="wholesale-mode-alert-inner">
+      <span class="wholesale-badge-live">WHOLESALE OUTLET ACTIVE</span>
+      <span>Direct Tier-1 Commercial Procurement &bull; Wholesale Rates with Full 18% GST Input Tax Credit</span>
+    </div>
+  </div>
+
   <!-- DESKTOP NAVBAR -->
   <header class="site-header desktop-only">
     <div class="container nav-container">
@@ -1503,6 +2003,17 @@
        ========================================================================== -->
   <div class="mobile-only">
     
+    <!-- MOBILE DUAL-BRAND SWITCHER (STADIUM & STADIUM OUTLET) -->
+    <div class="mobile-brand-tabs-strip">
+      <button type="button" class="mobile-brand-tab active" id="mobileTabRetail" onclick="switchBrandMode('retail')">
+        <span class="mobile-tab-dot"></span>
+        <span>SYBER SPACE</span>
+      </button>
+      <button type="button" class="mobile-brand-tab" id="mobileTabWholesale" onclick="switchBrandMode('wholesale')">
+        <span>SYBER WHOLESALE</span>
+        <span class="mobile-tab-tag">OUTLET</span>
+      </button>
+    </div>
     <!-- 1. MOBILE HEADER -->
     <div class="mobile-header-bar">
       <div class="mobile-brand-group">
@@ -1660,50 +2171,304 @@
 
   </div>
 
+    <!-- ==========================================================================
+       STADIUM OUTLET MINIMALIST STANDARD PRODUCT DISPLAY
+       ========================================================================== -->
   <section class="products-overview-section" id="products">
     <div class="container">
-      <h2 class="section-title-clean">Our Products</h2>
+      
+      <!-- OUTLET SECTION HEADER -->
+      <div class="outlet-products-header">
+        <div class="outlet-header-title-block">
+          <h2 id="outletHeadingTitle">Outlet Hardware &amp; Equipment</h2>
+          <p id="outletHeadingSub">Direct wholesale pricing on certified Tier-1 security equipment across all 6 departments</p>
+        </div>
+      </div>
 
-      <div class="products-grid-4">
+      <!-- CATEGORY FILTER PILLS -->
+      <div class="outlet-filter-pills-row" role="tablist">
+        <button type="button" class="outlet-filter-pill-btn active" onclick="filterOutletCategory('all', this)">All Deals</button>
+        <button type="button" class="outlet-filter-pill-btn" onclick="filterOutletCategory('cctv', this)">1. CCTV</button>
+        <button type="button" class="outlet-filter-pill-btn" onclick="filterOutletCategory('vdp', this)">2. VDP</button>
+        <button type="button" class="outlet-filter-pill-btn" onclick="filterOutletCategory('alarm', this)">3. Intrusion</button>
+        <button type="button" class="outlet-filter-pill-btn" onclick="filterOutletCategory('access', this)">4. Access</button>
+        <button type="button" class="outlet-filter-pill-btn" onclick="filterOutletCategory('cables', this)">5. Cables</button>
+        <button type="button" class="outlet-filter-pill-btn" onclick="filterOutletCategory('accessory', this)">6. Accessories</button>
+      </div>
+
+      <!-- OUTLET PRODUCTS GRID (8 STANDARD PRODUCTS) -->
+      <div class="outlet-products-grid" id="outletProductsGrid">
         
-        <!-- CARD 1: CCTV OUTDOOR CAMERA -->
-        <div class="clean-product-card">
-          <div class="card-top-title">CCTV Outdoor Camera</div>
-          <div class="card-media-stage">
-            <img src="assets/mockup_prod_cctv_2x.png" alt="CCTV Outdoor Camera">
+        <!-- PRODUCT 1: CCTV WI-FI PT CAMERA -->
+        <div class="outlet-prod-card" data-category="cctv">
+          <div>
+            <div class="outlet-card-top-row">
+              <span class="outlet-discount-pill">-36% OFF</span>
+              <span class="outlet-stock-indicator"><span class="outlet-stock-dot"></span> In Stock</span>
+            </div>
+            <div class="outlet-img-canvas">
+              <img src="assets/mockup_prod_cctv_2x.png" alt="CP PLUS Ezykam 2MP Wi-Fi Camera">
+            </div>
+            <div class="outlet-card-body">
+              <span class="outlet-brand-tag">CP PLUS</span>
+              <h3 class="outlet-prod-title">CP PLUS Ezykam 2MP Smart Wi-Fi Pan &amp; Tilt Camera</h3>
+              <p class="outlet-spec-bullet">1080p FHD &bull; 2-Way Audio Talkback &bull; 360&deg; IR Night Vision</p>
+            </div>
           </div>
-          <div class="card-bottom-title">CCTV Outdoor Camera</div>
-          <button type="button" class="card-action-btn" onclick="addToQuickCart('cctv-outdoor', 'CCTV Outdoor Camera', 1850)">Add to Cart</button>
+          <div>
+            <div class="outlet-pricing-zone">
+              <div class="outlet-mrp-row">
+                <span>M.R.P.:</span>
+                <span class="outlet-mrp-price">&#8377;3,100</span>
+              </div>
+              <div class="outlet-current-price-row">
+                <span class="outlet-price-bold">&#8377;1,980</span>
+                <span class="outlet-tax-note">incl. GST invoice</span>
+              </div>
+            </div>
+            <button type="button" class="outlet-buy-btn" onclick="addToQuickCart('cctv-e28q', 'CP PLUS Ezykam 2MP Wi-Fi Camera', 1980)">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+              <span>Add to Cart</span>
+            </button>
+          </div>
         </div>
 
-        <!-- CARD 2: SMART VIDEO DOOR PHONE -->
-        <div class="clean-product-card">
-          <div class="card-top-title">Smart Video Door Phone</div>
-          <div class="card-media-stage">
-            <img src="assets/mockup_prod_vdp_2x.png" alt="Smart Video Door Phone">
+        <!-- PRODUCT 2: SMART VIDEO DOOR PHONE -->
+        <div class="outlet-prod-card" data-category="vdp">
+          <div>
+            <div class="outlet-card-top-row">
+              <span class="outlet-discount-pill">-38% OFF</span>
+              <span class="outlet-stock-indicator"><span class="outlet-stock-dot"></span> In Stock</span>
+            </div>
+            <div class="outlet-img-canvas">
+              <img src="assets/mockup_prod_vdp_2x.png" alt="Smart 7-Inch Touchscreen Video Door Phone">
+            </div>
+            <div class="outlet-card-body">
+              <span class="outlet-brand-tag">HIKVISION</span>
+              <h3 class="outlet-prod-title">Hikvision 7-Inch Color LCD Video Door Phone Kit</h3>
+              <p class="outlet-spec-bullet">Dual-Way Acoustic Intercom &bull; Electronic Lock Output &bull; HD Pinhole</p>
+            </div>
           </div>
-          <div class="card-bottom-title">Smart Video Door Phone</div>
-          <button type="button" class="card-action-btn" onclick="addToQuickCart('smart-vdp', 'Smart Video Door Phone', 2450)">Add to Cart</button>
+          <div>
+            <div class="outlet-pricing-zone">
+              <div class="outlet-mrp-row">
+                <span>M.R.P.:</span>
+                <span class="outlet-mrp-price">&#8377;14,500</span>
+              </div>
+              <div class="outlet-current-price-row">
+                <span class="outlet-price-bold">&#8377;8,990</span>
+                <span class="outlet-tax-note">incl. GST invoice</span>
+              </div>
+            </div>
+            <button type="button" class="outlet-buy-btn" onclick="addToQuickCart('vdp-hik-7', 'Hikvision 7-Inch VDP Kit', 8990)">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+              <span>Add to Cart</span>
+            </button>
+          </div>
         </div>
 
-        <!-- CARD 3: BIOMETRIC ACCESS CONTROL -->
-        <div class="clean-product-card">
-          <div class="card-top-title">Biometric Access Control</div>
-          <div class="card-media-stage">
-            <img src="assets/mockup_prod_biometric_2x.png" alt="Biometric Access Control">
+        <!-- PRODUCT 3: BIOMETRIC ACCESS CONTROL -->
+        <div class="outlet-prod-card" data-category="access">
+          <div>
+            <div class="outlet-card-top-row">
+              <span class="outlet-discount-pill">-40% OFF</span>
+              <span class="outlet-stock-indicator"><span class="outlet-stock-dot"></span> In Stock</span>
+            </div>
+            <div class="outlet-img-canvas">
+              <img src="assets/mockup_prod_biometric_2x.png" alt="Biometric Fingerprint & RFID Terminal">
+            </div>
+            <div class="outlet-card-body">
+              <span class="outlet-brand-tag">DAHUA</span>
+              <h3 class="outlet-prod-title">Dahua Standalone Optical Biometric &amp; RFID Terminal</h3>
+              <p class="outlet-spec-bullet">500 Fingerprints &bull; 600lbs EM Lock Interface &bull; Wiegand Output</p>
+            </div>
           </div>
-          <div class="card-bottom-title">Biometric Access Control</div>
-          <a href="shop.html?cat=access" class="card-action-btn">Learn More</a>
+          <div>
+            <div class="outlet-pricing-zone">
+              <div class="outlet-mrp-row">
+                <span>M.R.P.:</span>
+                <span class="outlet-mrp-price">&#8377;9,800</span>
+              </div>
+              <div class="outlet-current-price-row">
+                <span class="outlet-price-bold">&#8377;5,850</span>
+                <span class="outlet-tax-note">incl. GST invoice</span>
+              </div>
+            </div>
+            <button type="button" class="outlet-buy-btn" onclick="addToQuickCart('access-dahua-bio', 'Dahua Standalone Biometric Terminal', 5850)">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+              <span>Add to Cart</span>
+            </button>
+          </div>
         </div>
 
-        <!-- CARD 4: SURVEILLANCE & SECURITY CABLES -->
-        <div class="clean-product-card">
-          <div class="card-top-title">Surveillance &amp; Security Cables</div>
-          <div class="card-media-stage">
-            <img src="assets/mockup_prod_cables_2x.png" alt="Security Cables">
+        <!-- PRODUCT 4: SOLID COPPER CAT6 CABLES -->
+        <div class="outlet-prod-card" data-category="cables">
+          <div>
+            <div class="outlet-card-top-row">
+              <span class="outlet-discount-pill">-40% OFF</span>
+              <span class="outlet-stock-indicator"><span class="outlet-stock-dot"></span> In Stock</span>
+            </div>
+            <div class="outlet-img-canvas">
+              <img src="assets/mockup_prod_cables_2x.png" alt="Pure Solid Copper CAT6 Drum 305m">
+            </div>
+            <div class="outlet-card-body">
+              <span class="outlet-brand-tag">SYBER CORE</span>
+              <h3 class="outlet-prod-title">Syber Core Solid Copper CAT6 Network Cable Drum (305m)</h3>
+              <p class="outlet-spec-bullet">23 AWG Pure Annealed Copper &bull; Gigabit PoE+ Ready &bull; Wooden Spool</p>
+            </div>
           </div>
-          <div class="card-bottom-title">Security Cables</div>
-          <button type="button" class="card-action-btn" onclick="addToQuickCart('security-cables', 'Security Cables CAT6', 3850)">Add to Cart</button>
+          <div>
+            <div class="outlet-pricing-zone">
+              <div class="outlet-mrp-row">
+                <span>M.R.P.:</span>
+                <span class="outlet-mrp-price">&#8377;6,400</span>
+              </div>
+              <div class="outlet-current-price-row">
+                <span class="outlet-price-bold">&#8377;3,850</span>
+                <span class="outlet-tax-note">incl. GST invoice</span>
+              </div>
+            </div>
+            <button type="button" class="outlet-buy-btn" onclick="addToQuickCart('cable-cat6-305', 'Syber Core Pure Copper CAT6 305m', 3850)">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+              <span>Add to Cart</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- PRODUCT 5: INTRUSION ALARM SENSOR -->
+        <div class="outlet-prod-card" data-category="alarm">
+          <div>
+            <div class="outlet-card-top-row">
+              <span class="outlet-discount-pill">-36% OFF</span>
+              <span class="outlet-stock-indicator"><span class="outlet-stock-dot"></span> In Stock</span>
+            </div>
+            <div class="outlet-img-canvas">
+              <img src="assets/mockup_hero_graphic_2x.png" alt="Wireless Perimeter Motion & Glassbreak Sensor">
+            </div>
+            <div class="outlet-card-body">
+              <span class="outlet-brand-tag">SECUREYE</span>
+              <h3 class="outlet-prod-title">Secureye Autonomous Dual PIR Perimeter Intrusion Beam</h3>
+              <p class="outlet-spec-bullet">12m 110&deg; Coverage &bull; Pet Immune &bull; 433MHz Anti-Tamper Protocol</p>
+            </div>
+          </div>
+          <div>
+            <div class="outlet-pricing-zone">
+              <div class="outlet-mrp-row">
+                <span>M.R.P.:</span>
+                <span class="outlet-mrp-price">&#8377;4,200</span>
+              </div>
+              <div class="outlet-current-price-row">
+                <span class="outlet-price-bold">&#8377;2,690</span>
+                <span class="outlet-tax-note">incl. GST invoice</span>
+              </div>
+            </div>
+            <button type="button" class="outlet-buy-btn" onclick="addToQuickCart('alarm-pir-beam', 'Secureye Dual PIR Intrusion Beam', 2690)">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+              <span>Add to Cart</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- PRODUCT 6: 8-PORT GIGABIT POE+ SWITCH -->
+        <div class="outlet-prod-card" data-category="accessory">
+          <div>
+            <div class="outlet-card-top-row">
+              <span class="outlet-discount-pill">-38% OFF</span>
+              <span class="outlet-stock-indicator"><span class="outlet-stock-dot"></span> In Stock</span>
+            </div>
+            <div class="outlet-img-canvas">
+              <img src="assets/mockup_prod_cables_2x.png" alt="8-Port Gigabit PoE+ Industrial Network Switch">
+            </div>
+            <div class="outlet-card-body">
+              <span class="outlet-brand-tag">TP-LINK</span>
+              <h3 class="outlet-prod-title">TP-Link 8-Port Gigabit Desktop PoE+ Commercial Switch</h3>
+              <p class="outlet-spec-bullet">120W Total PoE Power &bull; 6KV Lightning Surge Protection &bull; Plug &amp; Play</p>
+            </div>
+          </div>
+          <div>
+            <div class="outlet-pricing-zone">
+              <div class="outlet-mrp-row">
+                <span>M.R.P.:</span>
+                <span class="outlet-mrp-price">&#8377;4,800</span>
+              </div>
+              <div class="outlet-current-price-row">
+                <span class="outlet-price-bold">&#8377;2,990</span>
+                <span class="outlet-tax-note">incl. GST invoice</span>
+              </div>
+            </div>
+            <button type="button" class="outlet-buy-btn" onclick="addToQuickCart('switch-poe-8p', 'TP-Link 8-Port Gigabit PoE Switch', 2990)">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+              <span>Add to Cart</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- PRODUCT 7: 4K ULTRA-HD BULLET CAMERA -->
+        <div class="outlet-prod-card" data-category="cctv">
+          <div>
+            <div class="outlet-card-top-row">
+              <span class="outlet-discount-pill">-42% OFF</span>
+              <span class="outlet-stock-indicator"><span class="outlet-stock-dot"></span> In Stock</span>
+            </div>
+            <div class="outlet-img-canvas">
+              <img src="assets/mockup_prod_cctv_2x.png" alt="4K Ultra-HD Weatherproof Bullet Camera">
+            </div>
+            <div class="outlet-card-body">
+              <span class="outlet-brand-tag">CP PLUS</span>
+              <h3 class="outlet-prod-title">CP PLUS 5MP Starlight Full-Color Outdoor Bullet Camera</h3>
+              <p class="outlet-spec-bullet">IP67 Metal Casing &bull; 40m Warm LEDs &bull; Built-in Mic &bull; Smart Detection</p>
+            </div>
+          </div>
+          <div>
+            <div class="outlet-pricing-zone">
+              <div class="outlet-mrp-row">
+                <span>M.R.P.:</span>
+                <span class="outlet-mrp-price">&#8377;5,200</span>
+              </div>
+              <div class="outlet-current-price-row">
+                <span class="outlet-price-bold">&#8377;2,999</span>
+                <span class="outlet-tax-note">incl. GST invoice</span>
+              </div>
+            </div>
+            <button type="button" class="outlet-buy-btn" onclick="addToQuickCart('cctv-bullet-5mp', 'CP PLUS 5MP Starlight Bullet Camera', 2999)">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+              <span>Add to Cart</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- PRODUCT 8: 12V 20A CCTV REGULATED SMPS -->
+        <div class="outlet-prod-card" data-category="accessory">
+          <div>
+            <div class="outlet-card-top-row">
+              <span class="outlet-discount-pill">-35% OFF</span>
+              <span class="outlet-stock-indicator"><span class="outlet-stock-dot"></span> In Stock</span>
+            </div>
+            <div class="outlet-img-canvas">
+              <img src="assets/mockup_prod_cables_2x.png" alt="12V 20A Regulated CCTV SMPS Power Supply">
+            </div>
+            <div class="outlet-card-body">
+              <span class="outlet-brand-tag">SYBER CORE</span>
+              <h3 class="outlet-prod-title">Syber Core 12V 20A 16-Channel Regulated CCTV Power Supply</h3>
+              <p class="outlet-spec-bullet">Overload &bull; Short Circuit Protection &bull; Metal Mesh Chassis &bull; 240W</p>
+            </div>
+          </div>
+          <div>
+            <div class="outlet-pricing-zone">
+              <div class="outlet-mrp-row">
+                <span>M.R.P.:</span>
+                <span class="outlet-mrp-price">&#8377;2,800</span>
+              </div>
+              <div class="outlet-current-price-row">
+                <span class="outlet-price-bold">&#8377;1,820</span>
+                <span class="outlet-tax-note">incl. GST invoice</span>
+              </div>
+            </div>
+            <button type="button" class="outlet-buy-btn" onclick="addToQuickCart('smps-12v-20a', 'Syber Core 12V 20A 16CH SMPS', 1820)">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+              <span>Add to Cart</span>
+            </button>
+          </div>
         </div>
 
       </div>
@@ -1853,6 +2618,55 @@
           toast.classList.remove('show');
         }, 2600);
       }
+    }
+
+    
+    // DUAL-BRAND MODE SWITCHER (STADIUM & STADIUM OUTLET)
+    function switchBrandMode(mode) {
+      const tabRetail = document.getElementById('tabRetail');
+      const tabWholesale = document.getElementById('tabWholesale');
+      const mobTabRetail = document.getElementById('mobileTabRetail');
+      const mobTabWholesale = document.getElementById('mobileTabWholesale');
+      const alertBanner = document.getElementById('wholesaleAlertBanner');
+      const headingTitle = document.getElementById('outletHeadingTitle');
+      const headingSub = document.getElementById('outletHeadingSub');
+
+      if (mode === 'wholesale') {
+        if (tabRetail) tabRetail.classList.remove('active');
+        if (tabWholesale) tabWholesale.classList.add('active');
+        if (mobTabRetail) mobTabRetail.classList.remove('active');
+        if (mobTabWholesale) mobTabWholesale.classList.add('active');
+        if (alertBanner) alertBanner.classList.add('visible');
+        if (headingTitle) headingTitle.textContent = 'Syber Wholesale & Outlet Equipment';
+        if (headingSub) headingSub.textContent = 'Commercial B2B clearance & bulk tier-1 distribution pricing with official GST tax credit';
+        showToast('Wholesale Outlet Mode Active (B2B Rates)');
+      } else {
+        if (tabRetail) tabRetail.classList.add('active');
+        if (tabWholesale) tabWholesale.classList.remove('active');
+        if (mobTabRetail) mobTabRetail.classList.add('active');
+        if (mobTabWholesale) mobTabWholesale.classList.remove('active');
+        if (alertBanner) alertBanner.classList.remove('visible');
+        if (headingTitle) headingTitle.textContent = 'Outlet Hardware & Equipment';
+        if (headingSub) headingSub.textContent = 'Direct wholesale pricing on certified Tier-1 security equipment across all 6 departments';
+        showToast('Standard Syber Space Mode Active');
+      }
+    }
+
+    // CATEGORY FILTERING LOGIC
+    function filterOutletCategory(category, btnElement) {
+      const buttons = document.querySelectorAll('.outlet-filter-pill-btn');
+      buttons.forEach(b => b.classList.remove('active'));
+      if (btnElement) btnElement.classList.add('active');
+
+      const cards = document.querySelectorAll('.outlet-prod-card');
+      cards.forEach(card => {
+        const cardCat = card.getAttribute('data-category');
+        if (category === 'all' || cardCat === category) {
+          card.style.display = 'flex';
+        } else {
+          card.style.display = 'none';
+        }
+      });
     }
 
     function addToQuickCart(id, title, price) {
