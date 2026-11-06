@@ -22,13 +22,18 @@
     }
 
     :root {
+      --stadium-yellow: #ffe500;
+      --stadium-yellow-hover: #ffd200;
+      --stadium-yellow-subtle: #fef9c3;
+      --stadium-black: #0f172a;
+      --stadium-dark: #090d16;
       --primary-blue: #1e60ff;
       --primary-blue-hover: #1450e0;
-      --text-main: #111827;
-      --text-muted: #4b5563;
-      --text-light: #6b7280;
+      --text-main: #0f172a;
+      --text-muted: #475569;
+      --text-light: #64748b;
       --bg-canvas: #ffffff;
-      --card-bg: #f8fafc;
+      --card-bg: #ffffff;
       --card-border: #e2e8f0;
       --border-light: #e5e7eb;
       --font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
@@ -1212,8 +1217,9 @@
 
     .mobile-cat-card-item:hover,
     .mobile-cat-card-item.active {
-      border-color: var(--primary-blue);
-      background: #f0f7ff;
+      border-color: #0f172a;
+      background: #fefce8;
+      box-shadow: 0 0 0 1.5px var(--stadium-yellow);
     }
 
     .mobile-cat-icon-box {
@@ -1770,6 +1776,650 @@
       box-shadow: 0 4px 14px rgba(30, 96, 255, 0.25);
     }
 
+  
+    /* ==========================================================================
+       STADIUM OUTLET SIGNATURE YELLOW BRAND & PROMO STRIP
+       ========================================================================== */
+    .stadium-yellow-ticker {
+      background: var(--stadium-yellow);
+      color: #000000;
+      font-size: 11.5px;
+      font-weight: 900;
+      letter-spacing: 0.8px;
+      padding: 7px 16px;
+      text-align: center;
+      text-transform: uppercase;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+      position: relative;
+      z-index: 102;
+    }
+
+    .stadium-yellow-ticker a {
+      color: #000000;
+      text-decoration: underline;
+      margin-left: 8px;
+      font-weight: 900;
+    }
+
+    /* TOP DUAL-BRAND SWITCHER BAR */
+    .top-brand-switcher-bar {
+      background: #0f172a;
+      color: #94a3b8;
+      font-size: 12px;
+      font-weight: 600;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      position: relative;
+      z-index: 101;
+    }
+
+    .top-brand-switcher-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 40px;
+    }
+
+    .brand-tabs-group {
+      display: flex;
+      align-items: center;
+      height: 100%;
+    }
+
+    .brand-tab {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      height: 100%;
+      padding: 0 20px;
+      color: #94a3b8;
+      text-decoration: none;
+      font-size: 11.5px;
+      font-weight: 800;
+      letter-spacing: 0.6px;
+      transition: all 0.2s ease;
+      position: relative;
+      text-transform: uppercase;
+      border: none;
+      background: transparent;
+      cursor: pointer;
+      font-family: inherit;
+    }
+
+    .brand-tab:hover {
+      color: #ffffff;
+    }
+
+    .brand-tab.active {
+      background: #ffffff;
+      color: #0f172a;
+      box-shadow: 0 -2px 0 0 var(--primary-blue) inset;
+    }
+
+    .brand-tab-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--primary-blue);
+      display: inline-block;
+    }
+
+    .brand-tab-outlet {
+      background: rgba(255, 255, 255, 0.04);
+      color: #cbd5e1;
+    }
+
+    .brand-tab-outlet:hover {
+      background: rgba(255, 255, 255, 0.08);
+      color: #ffffff;
+    }
+
+    .brand-tab-outlet.active {
+      background: #ffffff;
+      color: #0f172a;
+      box-shadow: 0 -3px 0 0 var(--stadium-yellow) inset;
+    }
+
+    .brand-tab-badge-yellow {
+      background: var(--stadium-yellow);
+      color: #000000;
+      font-size: 9px;
+      font-weight: 900;
+      padding: 2px 6px;
+      border-radius: 4px;
+      letter-spacing: 0.8px;
+      line-height: 1;
+    }
+
+    .top-perks-group {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+      font-size: 11.5px;
+      color: #94a3b8;
+    }
+
+    .top-perk-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      color: #cbd5e1;
+    }
+
+    .top-perk-item svg {
+      color: var(--stadium-yellow);
+    }
+
+    .top-hotline-link {
+      color: var(--stadium-yellow);
+      text-decoration: none;
+      font-weight: 800;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      transition: all 0.2s ease;
+    }
+
+    .top-hotline-link:hover {
+      text-decoration: underline;
+      filter: brightness(1.1);
+    }
+
+    /* WHOLESALE MODE BANNER */
+    .wholesale-mode-alert {
+      display: none;
+      background: #fefce8;
+      border-bottom: 1.5px solid #fde047;
+      padding: 9px 24px;
+      text-align: center;
+      font-size: 13px;
+      font-weight: 700;
+      color: #854d0e;
+      transition: all 0.3s ease;
+    }
+
+    .wholesale-mode-alert.visible {
+      display: block;
+    }
+
+    .wholesale-mode-alert-inner {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .wholesale-badge-live {
+      background: #000000;
+      color: var(--stadium-yellow);
+      font-size: 10px;
+      font-weight: 900;
+      padding: 3px 8px;
+      border-radius: 4px;
+      letter-spacing: 0.8px;
+    }
+
+    /* MOBILE DUAL-BRAND SWITCHER STRIP */
+    .mobile-brand-tabs-strip {
+      display: flex;
+      align-items: center;
+      background: #0f172a;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      padding: 0;
+    }
+
+    .mobile-brand-tab {
+      flex: 1;
+      height: 38px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      background: transparent;
+      border: none;
+      color: #94a3b8;
+      font-size: 11px;
+      font-weight: 800;
+      font-family: inherit;
+      letter-spacing: 0.5px;
+      cursor: pointer;
+      text-transform: uppercase;
+      transition: all 0.2s ease;
+    }
+
+    .mobile-brand-tab.active {
+      background: #ffffff;
+      color: #0f172a;
+      border-bottom: 2px solid var(--stadium-yellow);
+    }
+
+    .mobile-tab-dot {
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--primary-blue);
+    }
+
+    .mobile-tab-tag-yellow {
+      background: var(--stadium-yellow);
+      color: #000000;
+      font-size: 8.5px;
+      font-weight: 900;
+      padding: 1.5px 5px;
+      border-radius: 3px;
+      line-height: 1;
+    }
+
+    /* STADIUM OUTLET HERO PILL & BUTTONS */
+    .hero-outlet-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #fefce8;
+      border: 1px solid #fde047;
+      color: #854d0e;
+      padding: 5px 14px;
+      border-radius: 9999px;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.6px;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+
+    .hero-outlet-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #eab308;
+    }
+
+    .btn-pill-stadium-yellow {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      background: var(--stadium-yellow);
+      color: #000000;
+      font-size: 14.5px;
+      font-weight: 800;
+      padding: 12px 28px;
+      border-radius: 9999px;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      box-shadow: 0 4px 18px rgba(255, 229, 0, 0.45);
+      border: none;
+      cursor: pointer;
+    }
+
+    .btn-pill-stadium-yellow:hover {
+      background: var(--stadium-yellow-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 22px rgba(255, 229, 0, 0.55);
+    }
+
+    .hero-highlight-yellow {
+      background: linear-gradient(180deg, transparent 65%, #fef08a 65%);
+      display: inline;
+    }
+
+    /* ==========================================================================
+       VISUAL CATEGORIES SHORTCUT GRID (STADIUM OUTLET STYLE)
+       ========================================================================== */
+    .stadium-cat-grid-section {
+      padding: 28px 0 20px;
+      background: #ffffff;
+    }
+
+    .stadium-cat-grid-header {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      margin-bottom: 18px;
+    }
+
+    .stadium-cat-grid-header h3 {
+      font-size: 20px;
+      font-weight: 800;
+      color: var(--text-main);
+      letter-spacing: -0.3px;
+    }
+
+    .stadium-cat-grid-header p {
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    .stadium-cat-tiles-6 {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 14px;
+    }
+
+    @media (max-width: 980px) {
+      .stadium-cat-tiles-6 {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    @media (max-width: 640px) {
+      .stadium-cat-tiles-6 {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    .stadium-cat-tile {
+      background: #ffffff;
+      border: 1.5px solid #eef2f6;
+      border-radius: 14px;
+      padding: 14px 12px;
+      text-align: center;
+      text-decoration: none;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      min-height: 155px;
+      transition: all 0.25s ease;
+    }
+
+    .stadium-cat-tile:hover {
+      border-color: #0f172a;
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(15, 23, 42, 0.08);
+    }
+
+    .stadium-cat-tile-img-box {
+      height: 75px;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 8px;
+    }
+
+    .stadium-cat-tile-img-box img {
+      max-height: 68px;
+      max-width: 85%;
+      object-fit: contain;
+      transition: transform 0.25s ease;
+    }
+
+    .stadium-cat-tile:hover .stadium-cat-tile-img-box img {
+      transform: scale(1.08);
+    }
+
+    .stadium-cat-tile-title {
+      font-size: 13px;
+      font-weight: 800;
+      color: var(--text-main);
+      margin-bottom: 2px;
+      line-height: 1.25;
+    }
+
+    .stadium-cat-tile-price {
+      font-size: 11px;
+      font-weight: 700;
+      color: #64748b;
+    }
+
+    /* ==========================================================================
+       STADIUM OUTLET MINIMALIST PRODUCT DISPLAY & YELLOW BUTTONS
+       ========================================================================== */
+    .outlet-products-header {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .outlet-header-title-block h2 {
+      font-size: 25px;
+      font-weight: 900;
+      letter-spacing: -0.4px;
+      color: var(--text-main);
+      margin-bottom: 4px;
+      text-transform: uppercase;
+    }
+
+    .outlet-header-title-block p {
+      font-size: 13.5px;
+      color: var(--text-muted);
+    }
+
+    .outlet-filter-pills-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-bottom: 24px;
+    }
+
+    .outlet-filter-pill-btn {
+      padding: 8px 18px;
+      border-radius: 9999px;
+      background: #f8fafc;
+      border: 1.5px solid #e2e8f0;
+      color: #334155;
+      font-size: 13px;
+      font-weight: 800;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      font-family: inherit;
+    }
+
+    .outlet-filter-pill-btn:hover {
+      background: #f1f5f9;
+      color: #000000;
+      border-color: #cbd5e1;
+    }
+
+    .outlet-filter-pill-btn.active {
+      background: var(--stadium-yellow);
+      color: #000000;
+      border-color: #000000;
+      box-shadow: 0 2px 8px rgba(255, 229, 0, 0.4);
+    }
+
+    .outlet-products-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+
+    @media (max-width: 1024px) {
+      .outlet-products-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 640px) {
+      .outlet-products-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
+    }
+
+    /* STADIUM OUTLET PRODUCT CARD */
+    .outlet-prod-card {
+      background: #ffffff;
+      border: 1.5px solid #f1f5f9;
+      border-radius: 16px;
+      padding: 16px 16px 18px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+      position: relative;
+    }
+
+    .outlet-prod-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 14px 32px rgba(15, 23, 42, 0.09);
+      border-color: #cbd5e1;
+    }
+
+    .outlet-card-top-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 8px;
+    }
+
+    /* SIGNATURE STADIUM OUTLET YELLOW DISCOUNT TAG */
+    .outlet-discount-pill-yellow {
+      background: var(--stadium-yellow);
+      color: #000000;
+      font-size: 11px;
+      font-weight: 900;
+      padding: 4px 10px;
+      border-radius: 6px;
+      letter-spacing: 0.6px;
+      box-shadow: 0 2px 6px rgba(255, 229, 0, 0.35);
+      text-transform: uppercase;
+    }
+
+    .outlet-stock-indicator {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 11px;
+      font-weight: 700;
+      color: #059669;
+    }
+
+    .outlet-stock-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #10b981;
+    }
+
+    .outlet-img-canvas {
+      height: 150px;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 6px 0 14px;
+      background: #ffffff;
+    }
+
+    .outlet-img-canvas img {
+      max-height: 135px;
+      max-width: 88%;
+      object-fit: contain;
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      filter: drop-shadow(0 6px 14px rgba(0, 0, 0, 0.05));
+    }
+
+    .outlet-prod-card:hover .outlet-img-canvas img {
+      transform: scale(1.08);
+    }
+
+    .outlet-card-body {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .outlet-brand-tag {
+      font-size: 11px;
+      font-weight: 800;
+      color: #64748b;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+
+    .outlet-prod-title {
+      font-size: 14.5px;
+      font-weight: 800;
+      color: #0f172a;
+      line-height: 1.35;
+      margin-bottom: 6px;
+    }
+
+    .outlet-spec-bullet {
+      font-size: 12px;
+      color: #64748b;
+      line-height: 1.4;
+      margin-bottom: 14px;
+    }
+
+    .outlet-pricing-zone {
+      padding-top: 10px;
+      border-top: 1px solid #f1f5f9;
+      margin-bottom: 12px;
+    }
+
+    .outlet-mrp-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 12px;
+      color: #94a3b8;
+    }
+
+    .outlet-mrp-price {
+      text-decoration: line-through;
+    }
+
+    .outlet-current-price-row {
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+      margin-top: 2px;
+    }
+
+    .outlet-price-bold {
+      font-size: 22px;
+      font-weight: 900;
+      color: #0f172a;
+      letter-spacing: -0.4px;
+    }
+
+    .outlet-tax-note {
+      font-size: 11px;
+      font-weight: 700;
+      color: #059669;
+    }
+
+    /* SIGNATURE STADIUM OUTLET YELLOW BUY BUTTON */
+    .outlet-buy-btn-yellow {
+      width: 100%;
+      background: var(--stadium-yellow);
+      color: #000000;
+      font-size: 13.5px;
+      font-weight: 900;
+      padding: 11px 16px;
+      border-radius: 10px;
+      border: 1.5px solid #000000;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      transition: all 0.2s ease;
+      font-family: inherit;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    }
+
+    .outlet-buy-btn-yellow:hover {
+      background: #000000;
+      color: var(--stadium-yellow);
+      border-color: #000000;
+      transform: translateY(-1px);
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+    }
+
+    /* CART BADGE IN YELLOW */
+    .cart-badge-pill {
+      background: var(--stadium-yellow) !important;
+      color: #000000 !important;
+      font-weight: 900 !important;
+    }
+
   </style>
 
 </head>
@@ -1778,21 +2428,25 @@
   <!-- ==========================================================================
        TOP NAVIGATION BAR
        ========================================================================== -->
-    <!-- ==========================================================================
-       TOP DUAL-BRAND SWITCHER BAR (STADIUM & STADIUM OUTLET PATTERN)
-       ========================================================================== -->
+      <!-- STADIUM OUTLET SIGNATURE YELLOW PROMOTIONAL TICKER -->
+  <div class="stadium-yellow-ticker desktop-only">
+    <span>OUTLET SPECIAL: UP TO 50% OFF CCTV &amp; SECURITY SYSTEMS &bull; DIRECT WHOLESALE B2B SUPPLY &bull; GST INVOICE INCLUDED</span>
+    <a href="#products">SHOP ALL DEALS &rarr;</a>
+  </div>
+
+  <!-- TOP DUAL-BRAND SWITCHER BAR (STADIUM & STADIUM OUTLET PATTERN) -->
   <div class="top-brand-switcher-bar desktop-only" id="topBrandSwitcher">
     <div class="container top-brand-switcher-container">
       
       <!-- DUAL BRAND TABS -->
       <div class="brand-tabs-group" role="tablist" aria-label="Brand Portal Switcher">
-        <button type="button" class="brand-tab active" id="tabRetail" onclick="switchBrandMode('retail')" role="tab" aria-selected="true">
+        <button type="button" class="brand-tab" id="tabRetail" onclick="switchBrandMode('retail')" role="tab" aria-selected="false">
           <span class="brand-tab-dot"></span>
           <span class="brand-tab-name">SYBER SPACE</span>
         </button>
-        <button type="button" class="brand-tab brand-tab-outlet" id="tabWholesale" onclick="switchBrandMode('wholesale')" role="tab" aria-selected="false">
-          <span class="brand-tab-name">SYBER WHOLESALE</span>
-          <span class="brand-tab-badge">OUTLET</span>
+        <button type="button" class="brand-tab brand-tab-outlet active" id="tabWholesale" onclick="switchBrandMode('wholesale')" role="tab" aria-selected="true">
+          <span class="brand-tab-name">SYBER OUTLET</span>
+          <span class="brand-tab-badge-yellow">OUTLET</span>
         </button>
       </div>
 
@@ -1819,9 +2473,9 @@
   </div>
 
   <!-- WHOLESALE MODE ANNOUNCEMENT BANNER -->
-  <div class="wholesale-mode-alert" id="wholesaleAlertBanner">
+  <div class="wholesale-mode-alert visible desktop-only" id="wholesaleAlertBanner">
     <div class="wholesale-mode-alert-inner">
-      <span class="wholesale-badge-live">WHOLESALE OUTLET ACTIVE</span>
+      <span class="wholesale-badge-live">OUTLET MODE ACTIVE</span>
       <span>Direct Tier-1 Commercial Procurement &bull; Wholesale Rates with Full 18% GST Input Tax Credit</span>
     </div>
   </div>
@@ -1891,16 +2545,23 @@
       
       <!-- HERO LEFT -->
       <div class="hero-col-left">
+        <div class="hero-outlet-pill">
+          <span class="hero-outlet-dot"></span>
+          <span>TIER-1 SECURITY OUTLET</span>
+        </div>
         <h1 class="hero-headline">
           SECURING YOUR<br>
-          SPACE, SMARTER
+          <span class="hero-highlight-yellow">SPACE, SMARTER</span>
         </h1>
         <p class="hero-tagline">
-          State-of-the-art security systems for home and business.
+          Direct warehouse distribution pricing on commercial surveillance, smart video door phones, and biometric perimeter access.
         </p>
         <div class="hero-actions-group">
-          <a href="#products" class="btn-pill-primary">Explore Solutions</a>
-          <a href="shop.html" class="btn-pill-secondary">Shop Now</a>
+          <a href="#products" class="btn-pill-stadium-yellow">
+            <span>Shop All Outlet Deals</span>
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+          </a>
+          <a href="https://wa.me/917511180808?text=Hello%20Syber%20Space%2C%20I%20need%20a%20B2B%20wholesale%20quotation." target="_blank" rel="noopener noreferrer" class="btn-pill-secondary">Request B2B Quotation</a>
         </div>
       </div>
 
@@ -1994,6 +2655,91 @@
 
     </div>
   </section>
+  <!-- ==========================================================================
+       VISUAL 6-DEPARTMENT SHORTCUTS (STADIUM OUTLET STYLE)
+       ========================================================================== -->
+  <section class="stadium-cat-grid-section desktop-only">
+    <div class="container">
+      <div class="stadium-cat-grid-header">
+        <div>
+          <h3>Shop by Department</h3>
+          <p>Instant wholesale pricing across all 6 core categories</p>
+        </div>
+        <a href="shop.html" style="font-size: 13px; font-weight: 800; color: #0f172a; text-decoration: underline;">View Full Catalog &rarr;</a>
+      </div>
+
+      <div class="stadium-cat-tiles-6">
+        
+        <!-- TILE 1: CCTV -->
+        <a href="shop.html?cat=cctv" class="stadium-cat-tile">
+          <div class="stadium-cat-tile-img-box">
+            <img src="assets/mockup_prod_cctv_2x.png" alt="CCTV Cameras">
+          </div>
+          <div>
+            <div class="stadium-cat-tile-title">1. CCTV Surveillance</div>
+            <div class="stadium-cat-tile-price">From &#8377;1,850</div>
+          </div>
+        </a>
+
+        <!-- TILE 2: VDP -->
+        <a href="shop.html?cat=vdp" class="stadium-cat-tile">
+          <div class="stadium-cat-tile-img-box">
+            <img src="assets/mockup_prod_vdp_2x.png" alt="Video Door Phones">
+          </div>
+          <div>
+            <div class="stadium-cat-tile-title">2. Video Door Phones</div>
+            <div class="stadium-cat-tile-price">From &#8377;2,450</div>
+          </div>
+        </a>
+
+        <!-- TILE 3: INTRUSION ALARM -->
+        <a href="shop.html?cat=alarm" class="stadium-cat-tile">
+          <div class="stadium-cat-tile-img-box">
+            <img src="assets/mockup_hero_graphic_2x.png" alt="Intrusion Alarms">
+          </div>
+          <div>
+            <div class="stadium-cat-tile-title">3. Intrusion Alarm</div>
+            <div class="stadium-cat-tile-price">From &#8377;2,690</div>
+          </div>
+        </a>
+
+        <!-- TILE 4: ACCESS CONTROL -->
+        <a href="shop.html?cat=access" class="stadium-cat-tile">
+          <div class="stadium-cat-tile-img-box">
+            <img src="assets/mockup_prod_biometric_2x.png" alt="Access Control">
+          </div>
+          <div>
+            <div class="stadium-cat-tile-title">4. Access Control</div>
+            <div class="stadium-cat-tile-price">From &#8377;5,850</div>
+          </div>
+        </a>
+
+        <!-- TILE 5: CABLES -->
+        <a href="shop.html?cat=cables" class="stadium-cat-tile">
+          <div class="stadium-cat-tile-img-box">
+            <img src="assets/mockup_prod_cables_2x.png" alt="Security Cables">
+          </div>
+          <div>
+            <div class="stadium-cat-tile-title">5. Security Cables</div>
+            <div class="stadium-cat-tile-price">From &#8377;3,850</div>
+          </div>
+        </a>
+
+        <!-- TILE 6: ACCESSORIES -->
+        <a href="shop.html?cat=accessory" class="stadium-cat-tile">
+          <div class="stadium-cat-tile-img-box">
+            <img src="assets/mockup_prod_cables_2x.png" alt="Power &amp; Accessories">
+          </div>
+          <div>
+            <div class="stadium-cat-tile-title">6. Accessories &amp; Power</div>
+            <div class="stadium-cat-tile-price">From &#8377;1,820</div>
+          </div>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
 
   <!-- ==========================================================================
        "OUR PRODUCTS" 4-CARD CATEGORY GRID
@@ -2003,15 +2749,20 @@
        ========================================================================== -->
   <div class="mobile-only">
     
+    <!-- MOBILE STADIUM YELLOW PROMO TICKER -->
+    <div class="stadium-yellow-ticker" style="font-size: 10px; padding: 5px 12px;">
+      <span>OUTLET SPECIAL: UP TO 50% OFF CCTV &bull; GST INVOICE</span>
+    </div>
+
     <!-- MOBILE DUAL-BRAND SWITCHER (STADIUM & STADIUM OUTLET) -->
     <div class="mobile-brand-tabs-strip">
-      <button type="button" class="mobile-brand-tab active" id="mobileTabRetail" onclick="switchBrandMode('retail')">
+      <button type="button" class="mobile-brand-tab" id="mobileTabRetail" onclick="switchBrandMode('retail')">
         <span class="mobile-tab-dot"></span>
         <span>SYBER SPACE</span>
       </button>
-      <button type="button" class="mobile-brand-tab" id="mobileTabWholesale" onclick="switchBrandMode('wholesale')">
-        <span>SYBER WHOLESALE</span>
-        <span class="mobile-tab-tag">OUTLET</span>
+      <button type="button" class="mobile-brand-tab active" id="mobileTabWholesale" onclick="switchBrandMode('wholesale')">
+        <span>SYBER OUTLET</span>
+        <span class="mobile-tab-tag-yellow">OUTLET</span>
       </button>
     </div>
     <!-- 1. MOBILE HEADER -->
@@ -2067,7 +2818,7 @@
           Complete surveillance, smart door video entry, and biometric access kits designed for modern homes and facilities.
         </p>
         <div class="mobile-hero-btns-row">
-          <a href="shop.html" class="mobile-btn-primary">Shop Bundles</a>
+          <a href="shop.html" class="mobile-btn-primary" style="background: var(--stadium-yellow); color: #000000; font-weight: 800; border: none; box-shadow: 0 4px 14px rgba(255, 229, 0, 0.45);">Shop Bundles</a>
           <a href="https://wa.me/917511180808?text=Hello%20Syber%20Space%2C%20I%20need%20a%20Bill%20of%20Materials%20quotation." target="_blank" rel="noopener noreferrer" class="mobile-btn-secondary">Get Bill of Materials</a>
         </div>
         <div class="mobile-trust-checks-row">
@@ -2174,13 +2925,16 @@
     <!-- ==========================================================================
        STADIUM OUTLET MINIMALIST STANDARD PRODUCT DISPLAY
        ========================================================================== -->
+    <!-- ==========================================================================
+       STADIUM OUTLET MINIMALIST PRODUCT DISPLAY (YELLOW ACCENTS & PERFECT IMAGES)
+       ========================================================================== -->
   <section class="products-overview-section" id="products">
     <div class="container">
       
       <!-- OUTLET SECTION HEADER -->
       <div class="outlet-products-header">
         <div class="outlet-header-title-block">
-          <h2 id="outletHeadingTitle">Outlet Hardware &amp; Equipment</h2>
+          <h2 id="outletHeadingTitle">FEATURED OUTLET EQUIPMENT</h2>
           <p id="outletHeadingSub">Direct wholesale pricing on certified Tier-1 security equipment across all 6 departments</p>
         </div>
       </div>
@@ -2196,14 +2950,14 @@
         <button type="button" class="outlet-filter-pill-btn" onclick="filterOutletCategory('accessory', this)">6. Accessories</button>
       </div>
 
-      <!-- OUTLET PRODUCTS GRID (8 STANDARD PRODUCTS) -->
+      <!-- OUTLET PRODUCTS GRID (8 STADIUM OUTLET STYLE STANDARD PRODUCTS) -->
       <div class="outlet-products-grid" id="outletProductsGrid">
         
         <!-- PRODUCT 1: CCTV WI-FI PT CAMERA -->
         <div class="outlet-prod-card" data-category="cctv">
           <div>
             <div class="outlet-card-top-row">
-              <span class="outlet-discount-pill">-36% OFF</span>
+              <span class="outlet-discount-pill-yellow">-36% OFF</span>
               <span class="outlet-stock-indicator"><span class="outlet-stock-dot"></span> In Stock</span>
             </div>
             <div class="outlet-img-canvas">
@@ -2226,8 +2980,8 @@
                 <span class="outlet-tax-note">incl. GST invoice</span>
               </div>
             </div>
-            <button type="button" class="outlet-buy-btn" onclick="addToQuickCart('cctv-e28q', 'CP PLUS Ezykam 2MP Wi-Fi Camera', 1980)">
-              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+            <button type="button" class="outlet-buy-btn-yellow" onclick="addToQuickCart('cctv-e28q', 'CP PLUS Ezykam 2MP Wi-Fi Camera', 1980)">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
               <span>Add to Cart</span>
             </button>
           </div>
@@ -2237,7 +2991,7 @@
         <div class="outlet-prod-card" data-category="vdp">
           <div>
             <div class="outlet-card-top-row">
-              <span class="outlet-discount-pill">-38% OFF</span>
+              <span class="outlet-discount-pill-yellow">-38% OFF</span>
               <span class="outlet-stock-indicator"><span class="outlet-stock-dot"></span> In Stock</span>
             </div>
             <div class="outlet-img-canvas">
@@ -2260,8 +3014,8 @@
                 <span class="outlet-tax-note">incl. GST invoice</span>
               </div>
             </div>
-            <button type="button" class="outlet-buy-btn" onclick="addToQuickCart('vdp-hik-7', 'Hikvision 7-Inch VDP Kit', 8990)">
-              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+            <button type="button" class="outlet-buy-btn-yellow" onclick="addToQuickCart('vdp-hik-7', 'Hikvision 7-Inch VDP Kit', 8990)">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
               <span>Add to Cart</span>
             </button>
           </div>
@@ -2271,7 +3025,7 @@
         <div class="outlet-prod-card" data-category="access">
           <div>
             <div class="outlet-card-top-row">
-              <span class="outlet-discount-pill">-40% OFF</span>
+              <span class="outlet-discount-pill-yellow">-40% OFF</span>
               <span class="outlet-stock-indicator"><span class="outlet-stock-dot"></span> In Stock</span>
             </div>
             <div class="outlet-img-canvas">
@@ -2294,8 +3048,8 @@
                 <span class="outlet-tax-note">incl. GST invoice</span>
               </div>
             </div>
-            <button type="button" class="outlet-buy-btn" onclick="addToQuickCart('access-dahua-bio', 'Dahua Standalone Biometric Terminal', 5850)">
-              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+            <button type="button" class="outlet-buy-btn-yellow" onclick="addToQuickCart('access-dahua-bio', 'Dahua Standalone Biometric Terminal', 5850)">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
               <span>Add to Cart</span>
             </button>
           </div>
@@ -2305,7 +3059,7 @@
         <div class="outlet-prod-card" data-category="cables">
           <div>
             <div class="outlet-card-top-row">
-              <span class="outlet-discount-pill">-40% OFF</span>
+              <span class="outlet-discount-pill-yellow">-40% OFF</span>
               <span class="outlet-stock-indicator"><span class="outlet-stock-dot"></span> In Stock</span>
             </div>
             <div class="outlet-img-canvas">
@@ -2328,8 +3082,8 @@
                 <span class="outlet-tax-note">incl. GST invoice</span>
               </div>
             </div>
-            <button type="button" class="outlet-buy-btn" onclick="addToQuickCart('cable-cat6-305', 'Syber Core Pure Copper CAT6 305m', 3850)">
-              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+            <button type="button" class="outlet-buy-btn-yellow" onclick="addToQuickCart('cable-cat6-305', 'Syber Core Pure Copper CAT6 305m', 3850)">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
               <span>Add to Cart</span>
             </button>
           </div>
@@ -2339,7 +3093,7 @@
         <div class="outlet-prod-card" data-category="alarm">
           <div>
             <div class="outlet-card-top-row">
-              <span class="outlet-discount-pill">-36% OFF</span>
+              <span class="outlet-discount-pill-yellow">-36% OFF</span>
               <span class="outlet-stock-indicator"><span class="outlet-stock-dot"></span> In Stock</span>
             </div>
             <div class="outlet-img-canvas">
@@ -2362,8 +3116,8 @@
                 <span class="outlet-tax-note">incl. GST invoice</span>
               </div>
             </div>
-            <button type="button" class="outlet-buy-btn" onclick="addToQuickCart('alarm-pir-beam', 'Secureye Dual PIR Intrusion Beam', 2690)">
-              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+            <button type="button" class="outlet-buy-btn-yellow" onclick="addToQuickCart('alarm-pir-beam', 'Secureye Dual PIR Intrusion Beam', 2690)">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
               <span>Add to Cart</span>
             </button>
           </div>
@@ -2373,7 +3127,7 @@
         <div class="outlet-prod-card" data-category="accessory">
           <div>
             <div class="outlet-card-top-row">
-              <span class="outlet-discount-pill">-38% OFF</span>
+              <span class="outlet-discount-pill-yellow">-38% OFF</span>
               <span class="outlet-stock-indicator"><span class="outlet-stock-dot"></span> In Stock</span>
             </div>
             <div class="outlet-img-canvas">
@@ -2396,8 +3150,8 @@
                 <span class="outlet-tax-note">incl. GST invoice</span>
               </div>
             </div>
-            <button type="button" class="outlet-buy-btn" onclick="addToQuickCart('switch-poe-8p', 'TP-Link 8-Port Gigabit PoE Switch', 2990)">
-              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+            <button type="button" class="outlet-buy-btn-yellow" onclick="addToQuickCart('switch-poe-8p', 'TP-Link 8-Port Gigabit PoE Switch', 2990)">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
               <span>Add to Cart</span>
             </button>
           </div>
@@ -2407,7 +3161,7 @@
         <div class="outlet-prod-card" data-category="cctv">
           <div>
             <div class="outlet-card-top-row">
-              <span class="outlet-discount-pill">-42% OFF</span>
+              <span class="outlet-discount-pill-yellow">-42% OFF</span>
               <span class="outlet-stock-indicator"><span class="outlet-stock-dot"></span> In Stock</span>
             </div>
             <div class="outlet-img-canvas">
@@ -2430,8 +3184,8 @@
                 <span class="outlet-tax-note">incl. GST invoice</span>
               </div>
             </div>
-            <button type="button" class="outlet-buy-btn" onclick="addToQuickCart('cctv-bullet-5mp', 'CP PLUS 5MP Starlight Bullet Camera', 2999)">
-              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+            <button type="button" class="outlet-buy-btn-yellow" onclick="addToQuickCart('cctv-bullet-5mp', 'CP PLUS 5MP Starlight Bullet Camera', 2999)">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
               <span>Add to Cart</span>
             </button>
           </div>
@@ -2441,7 +3195,7 @@
         <div class="outlet-prod-card" data-category="accessory">
           <div>
             <div class="outlet-card-top-row">
-              <span class="outlet-discount-pill">-35% OFF</span>
+              <span class="outlet-discount-pill-yellow">-35% OFF</span>
               <span class="outlet-stock-indicator"><span class="outlet-stock-dot"></span> In Stock</span>
             </div>
             <div class="outlet-img-canvas">
@@ -2464,8 +3218,8 @@
                 <span class="outlet-tax-note">incl. GST invoice</span>
               </div>
             </div>
-            <button type="button" class="outlet-buy-btn" onclick="addToQuickCart('smps-12v-20a', 'Syber Core 12V 20A 16CH SMPS', 1820)">
-              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+            <button type="button" class="outlet-buy-btn-yellow" onclick="addToQuickCart('smps-12v-20a', 'Syber Core 12V 20A 16CH SMPS', 1820)">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
               <span>Add to Cart</span>
             </button>
           </div>
