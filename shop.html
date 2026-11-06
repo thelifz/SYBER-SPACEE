@@ -3,1376 +3,1711 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Hardware Catalog | Syber Space The Surveillance Store</title>
-  <meta name="description" content="Certified commercial CCTV hardware, optical sensors, enterprise recording hubs, and surveillance storage at direct factory wholesale pricing.">
+  <title>SYBER SPACE Wholesale - Bulk Contractor Lots &amp; Commercial Pallets</title>
+  <meta name="description" content="Authorized Tier-1 wholesale surveillance distribution for commercial contractors: bulk camera lots of 20 units for 30k, 10x VDP cartons, and master cable pallets.">
 
-  <!-- GOOGLE FONTS: PLUS JAKARTA SANS & INTER -->
+  <!-- Google Fonts: Plus Jakarta Sans -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700;800;900&display=swap" rel="stylesheet">
-
-  <script src="assets/gsap.min.js"></script>
-  <script src="products_data.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 
   <style>
-/* ==========================================================================
-   ROOT COLOR PALETTE & RESET
-   ========================================================================== */
-:root {
-  --blue: #2563eb;
-  --blue-hover: #1d4ed8;
-  --blue-light: #38bdf8;
-  --black: #090d16;
-  --white: #ffffff;
-  --bg-slate: #f8fafc;
-  --text-heading: #090d16;
-  --text-body: #334155;
-  --text-muted: #64748b;
-  --border-light: #e2e8f0;
-  --radius-sm: 8px;
-  --radius-md: 14px;
-  --radius-lg: 20px;
-  --shadow-sm: 0 2px 8px rgba(9, 13, 22, 0.04);
-  --shadow-md: 0 10px 24px rgba(9, 13, 22, 0.07);
-  --shadow-hover: 0 18px 36px rgba(37, 99, 235, 0.12);
-}
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-html {
-  scroll-behavior: smooth;
-  font-family: 'Plus Jakarta Sans', 'Inter', -apple-system, sans-serif;
-  color: var(--text-body);
-  background: #ffffff;
-  -webkit-font-smoothing: antialiased;
-}
-
-body {
-  overflow-x: hidden;
-}
-
-a {
-  text-decoration: none;
-  color: inherit;
-}
-
-.container {
-  max-width: 1240px;
-  margin: 0 auto;
-  padding: 0 24px;
-}
-
-/* ==========================================================================
-   HEADER
-   ========================================================================== */
-header {
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  background: rgba(255, 255, 255, 0.98);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border-bottom: 1px solid rgba(15, 23, 42, 0.08);
-}
-
-.header-top-row {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 24px;
-  padding: 16px 0;
-}
-
-.brand {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  text-decoration: none;
-}
-
-.brand-title {
-  font-size: 20px;
-  font-weight: 900;
-  letter-spacing: -0.5px;
-  color: var(--black);
-}
-
-.brand-subtitle {
-  font-size: 10px;
-  font-weight: 800;
-  letter-spacing: 1.4px;
-  color: var(--blue);
-  text-transform: uppercase;
-  display: block;
-  margin-top: 2px;
-}
-
-.header-search-wrap {
-  flex: 1;
-  max-width: 520px;
-  position: relative;
-  display: flex;
-  align-items: center;
-}
-
-.header-search-wrap svg {
-  position: absolute;
-  left: 14px;
-  color: #94a3b8;
-  pointer-events: none;
-}
-
-.header-search-input {
-  width: 100%;
-  padding: 11px 90px 11px 40px;
-  font-size: 13.5px;
-  font-family: inherit;
-  border-radius: 999px;
-  border: 1px solid rgba(15, 23, 42, 0.12);
-  background: #f8fafc;
-  color: var(--text-heading);
-  outline: none;
-  transition: all 0.2s ease;
-}
-
-.header-search-input:focus {
-  border-color: var(--blue);
-  background: #ffffff;
-  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
-}
-
-.header-search-btn {
-  position: absolute;
-  right: 5px;
-  background: var(--blue);
-  color: #ffffff;
-  border: none;
-  border-radius: 999px;
-  padding: 7px 18px;
-  font-size: 12px;
-  font-weight: 700;
-  font-family: inherit;
-  cursor: pointer;
-  transition: all 0.2s ease;
-}
-
-.header-search-btn:hover {
-  background: var(--blue-hover);
-}
-
-.header-right {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-
-.header-hotline-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  font-size: 12px;
-  font-weight: 700;
-  color: #334155;
-  background: rgba(255, 255, 255, 0.9);
-  border: 1px solid rgba(15, 23, 42, 0.1);
-  border-radius: 12px;
-  padding: 8px 14px;
-  transition: all 0.2s ease;
-}
-
-.header-hotline-btn svg {
-  color: var(--blue);
-}
-
-.header-hotline-btn:hover {
-  border-color: var(--blue);
-  color: var(--blue);
-}
-
-.header-cart-pill {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  background: var(--black);
-  color: var(--white);
-  padding: 8px 16px;
-  border-radius: 999px;
-  font-size: 13px;
-  font-weight: 700;
-  transition: all 0.2s ease;
-  box-shadow: 0 4px 12px rgba(9, 13, 22, 0.15);
-}
-
-.header-cart-pill:hover {
-  background: var(--blue);
-  transform: translateY(-1px);
-}
-
-.cart-pill-badge {
-  background: var(--blue);
-  color: var(--white);
-  border-radius: 999px;
-  font-size: 11px;
-  font-weight: 800;
-  min-width: 18px;
-  height: 18px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0 5px;
-}
-
-/* ==========================================================================
-   NAVIGATION SHELF BAR
-   ========================================================================== */
-.header-shelf-bar {
-  position: relative;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  padding-bottom: 8px;
-}
-
-.shelf-line {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 2px;
-  background: linear-gradient(90deg, transparent 0%, rgba(15, 23, 42, 0.15) 15%, rgba(15, 23, 42, 0.15) 85%, transparent 100%);
-}
-
-.shelf-tabs-container {
-  display: flex;
-  align-items: flex-start;
-  justify-content: center;
-  gap: 14px;
-  position: relative;
-  z-index: 1;
-}
-
-.nav-ribbon-tab {
-  position: relative;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  color: #ffffff !important;
-  font-size: 13px;
-  font-weight: 700;
-  letter-spacing: 0.2px;
-  padding: 8px 20px 10px;
-  border-radius: 6px 6px 13px 13px;
-  text-decoration: none;
-  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.22), 0 2px 4px rgba(0, 0, 0, 0.12);
-  transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
-  cursor: pointer;
-  user-select: none;
-}
-
-.nav-ribbon-tab::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 5px;
-  border-radius: 6px 6px 0 0;
-  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.4) 0%, transparent 100%);
-  pointer-events: none;
-}
-
-.nav-ribbon-tab[data-cat="cctv"] { background: #2563eb; color: #ffffff !important; }
-.nav-ribbon-tab[data-cat="cctv"]:hover { background: #1d4ed8; transform: translateY(2px); }
-
-.nav-ribbon-tab[data-cat="vdp"] { background: #fcd34d; color: #78350f !important; }
-.nav-ribbon-tab[data-cat="vdp"]:hover { background: #fbbf24; transform: translateY(2px); }
-
-.nav-ribbon-tab[data-cat="alarm"] { background: #86efac; color: #064e3b !important; }
-.nav-ribbon-tab[data-cat="alarm"]:hover { background: #4ade80; transform: translateY(2px); }
-
-.nav-ribbon-tab[data-cat="access"] { background: #fda4af; color: #881337 !important; }
-.nav-ribbon-tab[data-cat="access"]:hover { background: #f43f5e; color: #ffffff !important; transform: translateY(2px); }
-
-.nav-ribbon-tab[data-cat="cables"] { background: #99f6e4; color: #134e4a !important; }
-.nav-ribbon-tab[data-cat="cables"]:hover { background: #2dd4bf; transform: translateY(2px); }
-
-.nav-ribbon-tab[data-cat="accessory"] { background: #ddd6fe; color: #4c1d95 !important; }
-.nav-ribbon-tab[data-cat="accessory"]:hover { background: #c084fc; color: #ffffff !important; transform: translateY(2px); }
-
-.nav-ribbon-tab[data-cat="all"] { background: #334155; color: #ffffff !important; }
-.nav-ribbon-tab[data-cat="all"]:hover { background: #0f172a; transform: translateY(2px); }
-
-.nav-ribbon-tab[data-cat="home"] { background: #0f172a; color: #ffffff !important; }
-.nav-ribbon-tab[data-cat="home"]:hover { background: #1e293b; transform: translateY(2px); }
-
-.nav-ribbon-tab.active::after {
-  content: "";
-  position: absolute;
-  bottom: 2px;
-  width: 18px;
-  height: 3px;
-  background: #ffffff;
-  border-radius: 999px;
-  box-shadow: 0 0 8px rgba(255, 255, 255, 0.9);
-}
-
-/* ==========================================================================
-   PAGE HERO BAR
-   ========================================================================== */
-.shop-hero-bar {
-  background: #090d16;
-  color: #ffffff;
-  padding: 38px 0;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-}
-
-.shop-hero-head {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 20px;
-}
-
-.shop-tag {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  font-size: 11px;
-  font-weight: 800;
-  letter-spacing: 1.2px;
-  color: var(--blue-light);
-  text-transform: uppercase;
-  margin-bottom: 8px;
-}
-
-.shop-tag::before {
-  content: "";
-  width: 7px;
-  height: 7px;
-  border-radius: 50%;
-  background: var(--blue-light);
-  box-shadow: 0 0 8px var(--blue-light);
-}
-
-.shop-title {
-  font-size: 32px;
-  font-weight: 900;
-  letter-spacing: -0.8px;
-  color: #ffffff;
-}
-
-.shop-desc {
-  font-size: 14.5px;
-  color: #94a3b8;
-  max-width: 580px;
-  margin-top: 6px;
-  line-height: 1.5;
-}
-
-.shop-perks-strip {
-  display: flex;
-  align-items: center;
-  gap: 20px;
-  flex-wrap: wrap;
-}
-
-.shop-perk-pill {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  background: rgba(255, 255, 255, 0.06);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  border-radius: 999px;
-  padding: 6px 14px;
-  font-size: 12px;
-  font-weight: 600;
-  color: #cbd5e1;
-}
-
-.shop-perk-pill svg {
-  color: var(--blue-light);
-}
-
-/* ==========================================================================
-   PRODUCT CATALOG SECTION: HIGH PERFORMANCE FOR 100+ ITEMS
-   ========================================================================== */
-.catalog-section {
-  padding: 40px 0 95px;
-  background: var(--bg-slate);
-}
-
-.catalog-header-bar {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 16px;
-  margin-bottom: 24px;
-}
-
-.catalog-filter-tabs {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  flex-wrap: wrap;
-}
-
-.filter-tab {
-  background: var(--white);
-  border: 1px solid var(--border-light);
-  color: var(--text-body);
-  font-size: 13px;
-  font-weight: 600;
-  padding: 8px 18px;
-  border-radius: 999px;
-  cursor: pointer;
-  transition: all 0.2s ease;
-  font-family: inherit;
-}
-
-.filter-tab:hover {
-  border-color: var(--blue);
-  color: var(--blue);
-}
-
-.filter-tab.active {
-  background: var(--blue);
-  border-color: var(--blue);
-  color: var(--white);
-  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
-}
-
-.catalog-search-wrap {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.catalog-search-input {
-  border: 1px solid var(--border-light);
-  background: var(--white);
-  color: var(--text-heading);
-  border-radius: 12px;
-  padding: 9px 16px;
-  font-size: 13px;
-  font-family: inherit;
-  outline: none;
-  width: 280px;
-  transition: all 0.2s ease;
-}
-
-.catalog-search-input:focus {
-  border-color: var(--blue);
-  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
-}
-
-.catalog-results-info {
-  font-size: 13px;
-  font-weight: 600;
-  color: var(--text-muted);
-  margin-bottom: 20px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-/* PRODUCT GRID */
-.products-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 20px;
-}
-
-.prod-card {
-  background: var(--white);
-  border: 1px solid var(--border-light);
-  border-radius: var(--radius-md);
-  padding: 16px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  box-shadow: var(--shadow-sm);
-  transition: all 0.28s ease;
-  position: relative;
-}
-
-.prod-card:hover {
-  transform: translateY(-4px);
-  border-color: var(--blue);
-  box-shadow: var(--shadow-hover);
-}
-
-.prod-badge {
-  position: absolute;
-  top: 12px;
-  left: 12px;
-  background: var(--black);
-  color: var(--white);
-  font-size: 9px;
-  font-weight: 800;
-  letter-spacing: 0.8px;
-  padding: 3px 8px;
-  border-radius: 6px;
-  text-transform: uppercase;
-  z-index: 2;
-}
-
-.prod-badge.highlight {
-  background: var(--blue);
-}
-
-.prod-thumb-wrap {
-  height: 180px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: #fbfcfe;
-  border-radius: 10px;
-  margin-bottom: 14px;
-  padding: 12px;
-  position: relative;
-  overflow: hidden;
-}
-
-.prod-thumb-wrap img {
-  max-height: 155px;
-  max-width: 100%;
-  object-fit: contain;
-  transition: transform 0.3s ease;
-}
-
-.prod-card:hover .prod-thumb-wrap img {
-  transform: scale(1.05);
-}
-
-.prod-brand {
-  font-size: 10px;
-  font-weight: 800;
-  letter-spacing: 1.2px;
-  color: var(--blue);
-  text-transform: uppercase;
-  margin-bottom: 4px;
-}
-
-.prod-title {
-  font-size: 14px;
-  font-weight: 700;
-  color: var(--text-heading);
-  line-height: 1.35;
-  margin-bottom: 8px;
-  height: 38px;
-  overflow: hidden;
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-}
-
-.prod-title a {
-  color: inherit;
-}
-
-.prod-title a:hover {
-  color: var(--blue);
-}
-
-.prod-chips {
-  display: flex;
-  align-items: center;
-  gap: 5px;
-  flex-wrap: wrap;
-  margin-bottom: 12px;
-  min-height: 22px;
-}
-
-.prod-chip {
-  background: var(--bg-slate);
-  border: 1px solid var(--border-light);
-  font-size: 10px;
-  font-weight: 600;
-  color: var(--text-body);
-  padding: 2px 7px;
-  border-radius: 4px;
-}
-
-.prod-price-row {
-  display: flex;
-  align-items: baseline;
-  gap: 8px;
-  margin-bottom: 14px;
-}
-
-.prod-price {
-  font-size: 18px;
-  font-weight: 900;
-  color: var(--black);
-}
-
-.prod-mrp {
-  font-size: 12px;
-  color: var(--text-muted);
-  text-decoration: line-through;
-}
-
-.prod-save {
-  font-size: 11px;
-  font-weight: 700;
-  color: var(--blue);
-}
-
-.prod-actions {
-  display: grid;
-  grid-template-columns: 1fr auto;
-  gap: 8px;
-}
-
-.btn-add-cart {
-  background: var(--blue);
-  color: var(--white);
-  border: none;
-  border-radius: 9px;
-  padding: 9px 12px;
-  font-size: 12.5px;
-  font-weight: 700;
-  font-family: inherit;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 6px;
-  transition: all 0.2s ease;
-}
-
-.btn-add-cart:hover {
-  background: var(--blue-hover);
-  transform: translateY(-1px);
-}
-
-.btn-card-details {
-  background: var(--bg-slate);
-  border: 1px solid var(--border-light);
-  color: var(--text-heading);
-  border-radius: 9px;
-  padding: 9px 12px;
-  font-size: 12px;
-  font-weight: 600;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: all 0.2s ease;
-}
-
-.btn-card-details:hover {
-  background: var(--white);
-  border-color: var(--blue);
-  color: var(--blue);
-}
-
-.catalog-load-more {
-  text-align: center;
-  margin-top: 36px;
-}
-
-.btn-load-more {
-  background: var(--white);
-  border: 1px solid var(--blue);
-  color: var(--blue);
-  font-size: 13.5px;
-  font-weight: 700;
-  font-family: inherit;
-  padding: 12px 32px;
-  border-radius: 999px;
-  cursor: pointer;
-  transition: all 0.25s ease;
-  box-shadow: 0 4px 14px rgba(37, 99, 235, 0.1);
-}
-
-.btn-load-more:hover {
-  background: var(--blue);
-  color: var(--white);
-  transform: translateY(-2px);
-  box-shadow: 0 8px 20px rgba(37, 99, 235, 0.25);
-}
-
-.catalog-empty {
-  grid-column: 1 / -1;
-  text-align: center;
-  padding: 60px 20px;
-  background: var(--white);
-  border-radius: var(--radius-md);
-  border: 1px dashed var(--border-light);
-}
-
-.catalog-empty h4 {
-  font-size: 18px;
-  font-weight: 800;
-  color: var(--text-heading);
-  margin-bottom: 8px;
-}
-
-.catalog-empty p {
-  font-size: 14px;
-  color: var(--text-muted);
-}
-
-/* ==========================================================================
-   TOAST NOTIFICATION
-   ========================================================================== */
-.cart-toast {
-  position: fixed;
-  bottom: 28px;
-  right: 28px;
-  background: #090d16;
-  color: #ffffff;
-  padding: 14px 22px;
-  border-radius: 14px;
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  font-size: 13.5px;
-  font-weight: 600;
-  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.35);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  z-index: 999;
-  transform: translateY(120px);
-  opacity: 0;
-  pointer-events: none;
-  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.cart-toast.active {
-  transform: translateY(0);
-  opacity: 1;
-  pointer-events: auto;
-}
-
-.toast-link {
-  color: var(--blue-light);
-  font-weight: 700;
-  margin-left: 6px;
-  text-decoration: underline;
-}
-
-/* ==========================================================================
-   FOOTER
-   ========================================================================== */
-footer {
-  background: #060913;
-  color: #94a3b8;
-  padding: 60px 0 35px;
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
-}
-
-.footer-top {
-  display: grid;
-  grid-template-columns: 1.6fr 1fr 1fr 1.2fr;
-  gap: 40px;
-  margin-bottom: 50px;
-}
-
-.footer-brand h3 {
-  font-size: 20px;
-  font-weight: 900;
-  color: #ffffff;
-  letter-spacing: -0.4px;
-  margin-bottom: 12px;
-}
-
-.footer-brand p {
-  font-size: 13.5px;
-  line-height: 1.6;
-  max-width: 340px;
-  margin-bottom: 20px;
-}
-
-.footer-hotline {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  background: rgba(37, 99, 235, 0.12);
-  border: 1px solid rgba(37, 99, 235, 0.3);
-  color: var(--blue-light);
-  padding: 9px 18px;
-  border-radius: 999px;
-  font-size: 13px;
-  font-weight: 700;
-}
-
-.footer-col h4 {
-  font-size: 13px;
-  font-weight: 800;
-  letter-spacing: 0.8px;
-  color: #ffffff;
-  text-transform: uppercase;
-  margin-bottom: 18px;
-}
-
-.footer-col ul {
-  list-style: none;
-}
-
-.footer-col li {
-  margin-bottom: 10px;
-  font-size: 13.5px;
-}
-
-.footer-col a:hover {
-  color: #ffffff;
-}
-
-.footer-bottom {
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
-  padding-top: 25px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  font-size: 12px;
-  flex-wrap: wrap;
-  gap: 16px;
-}
-
-.footer-badges {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-}
-
-.footer-badge-dot {
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: var(--blue-light);
-}
-
-@media (max-width: 1024px) {
-  .products-grid { grid-template-columns: repeat(3, 1fr); }
-  .footer-top { grid-template-columns: repeat(2, 1fr); }
-}
-
-@media (max-width: 768px) {
-  .products-grid { grid-template-columns: repeat(2, 1fr); }
-  .header-search-wrap { display: none; }
-  .footer-top { grid-template-columns: 1fr; }
-  .shelf-tabs-container { overflow-x: auto; justify-content: flex-start; padding-bottom: 10px; }
-}
-
-@media (max-width: 480px) {
-  .products-grid { grid-template-columns: 1fr; }
-}
+    /* ==========================================================================
+       RESET & BASE STYLING
+       ========================================================================== */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --wholesale-black: #090d16;
+      --wholesale-dark: #0f172a;
+      --wholesale-blue: #2563eb;
+      --wholesale-blue-hover: #1d4ed8;
+      --wholesale-accent: #38bdf8;
+      --stadium-gray: #f4f4f5;
+      --stadium-border: #e4e4e7;
+      --text-main: #000000;
+      --text-muted: #52525b;
+      --text-light: #71717a;
+      --bg-canvas: #ffffff;
+      --font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    }
+
+    body {
+      font-family: var(--font-family);
+      background-color: var(--bg-canvas);
+      color: var(--text-main);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      line-height: 1.45;
+      overflow-x: hidden;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* ==========================================================================
+       1. TOP BRAND SWITCHER (STADIUM DUAL-BRANCH PATTERN)
+       ========================================================================== */
+    .stadium-top-brand-bar {
+      background: #f4f4f5;
+      border-bottom: 1px solid var(--stadium-border);
+      height: 36px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .stadium-top-brand-tabs {
+      display: flex;
+      align-items: center;
+      height: 100%;
+      gap: 2px;
+    }
+
+    .stadium-top-tab {
+      height: 100%;
+      padding: 0 20px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 13.5px;
+      font-weight: 700;
+      color: #71717a;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      font-family: inherit;
+    }
+
+    .stadium-top-tab:hover {
+      color: #000000;
+    }
+
+    /* ACTIVE TAB ON WHOLESALE STORE: syber space IS ACTIVE */
+    .stadium-top-tab.active {
+      background: #ffffff;
+      color: #000000;
+      font-weight: 900;
+      box-shadow: 0 -2px 0 #000000 inset;
+    }
+
+    .stadium-outlet-tag {
+      font-size: 9.5px;
+      font-weight: 900;
+      border: 1px solid currentColor;
+      padding: 1px 4px;
+      border-radius: 2px;
+      line-height: 1;
+      letter-spacing: 0.5px;
+    }
+
+    /* ==========================================================================
+       2. MAIN HEADER (LOGO, SEARCH & TOOLS)
+       ========================================================================== */
+    .stadium-main-header {
+      background: #ffffff;
+      border-bottom: 1px solid #f1f5f9;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .header-top-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 32px;
+      padding: 16px 0 12px;
+    }
+
+    .brand-logo-stadium {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+      color: #000000;
+    }
+
+    .brand-logo-title {
+      font-size: 26px;
+      font-weight: 900;
+      letter-spacing: -0.6px;
+      text-transform: lowercase;
+      white-space: nowrap;
+    }
+
+    .brand-logo-wholesale-badge {
+      background: var(--wholesale-black);
+      color: #ffffff;
+      font-size: 10px;
+      font-weight: 900;
+      padding: 3px 7px;
+      border-radius: 3px;
+      letter-spacing: 0.8px;
+      line-height: 1;
+    }
+
+    /* WIDE PILL SEARCH BAR */
+    .stadium-search-wrap {
+      flex: 1;
+      max-width: 640px;
+      position: relative;
+    }
+
+    .stadium-search-input {
+      width: 100%;
+      height: 44px;
+      padding: 0 20px 0 46px;
+      background: #ffffff;
+      border: 1.5px solid #d4d4d8;
+      border-radius: 9999px;
+      font-size: 14px;
+      font-family: inherit;
+      color: #000000;
+      outline: none;
+      transition: all 0.2s ease;
+    }
+
+    .stadium-search-input:focus {
+      border-color: #000000;
+      box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.06);
+    }
+
+    .stadium-search-icon {
+      position: absolute;
+      left: 16px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 18px;
+      height: 18px;
+      color: #71717a;
+      pointer-events: none;
+    }
+
+    /* HEADER RIGHT UTILITIES */
+    .header-right-tools {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .header-tool-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      color: #000000;
+      background: transparent;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      position: relative;
+    }
+
+    .header-tool-btn:hover {
+      background: #f4f4f5;
+    }
+
+    .cart-badge-dot {
+      position: absolute;
+      top: 4px;
+      right: 4px;
+      background: #000000;
+      color: #ffffff;
+      font-size: 10px;
+      font-weight: 900;
+      width: 17px;
+      height: 17px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1.5px solid #ffffff;
+    }
+
+    @media (max-width: 640px) {
+      .header-top-row {
+        gap: 12px;
+        padding: 12px 0 10px;
+      }
+      .brand-logo-title {
+        font-size: 20px;
+      }
+      .header-right-tools {
+        gap: 6px;
+      }
+    }
+
+    /* ==========================================================================
+       3. CATEGORY SUB-NAVIGATION & MEGA MENU
+       ========================================================================== */
+    .category-nav-strip {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 36px;
+      padding: 6px 0 12px;
+      list-style: none;
+      position: relative;
+    }
+
+    .cat-nav-link {
+      font-size: 14.5px;
+      font-weight: 700;
+      color: #27272a;
+      text-decoration: none;
+      padding: 6px 0;
+      position: relative;
+      cursor: pointer;
+      transition: color 0.15s ease;
+    }
+
+    .cat-nav-link:hover,
+    .cat-nav-link.active {
+      color: #000000;
+    }
+
+    .cat-nav-link.active::after {
+      content: '';
+      position: absolute;
+      bottom: -12px;
+      left: 0;
+      right: 0;
+      height: 2.5px;
+      background: #000000;
+    }
+
+    @media (max-width: 900px) {
+      .category-nav-strip {
+        justify-content: flex-start;
+        overflow-x: auto;
+        gap: 24px;
+        padding-bottom: 8px;
+        scrollbar-width: none;
+      }
+      .category-nav-strip::-webkit-scrollbar {
+        display: none;
+      }
+      .cat-nav-link {
+        white-space: nowrap;
+        font-size: 13.5px;
+      }
+    }
+
+    /* MEGA MENU DROPDOWN */
+    .stadium-mega-menu {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      background: #ffffff;
+      border-bottom: 2px solid #000000;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+      z-index: 99;
+      padding: 36px 0 44px;
+    }
+
+    .stadium-mega-menu.open {
+      display: block;
+    }
+
+    .mega-menu-grid {
+      display: grid;
+      grid-template-columns: 200px 1fr 1fr 200px;
+      gap: 40px;
+    }
+
+    .mega-col-title {
+      font-size: 14px;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: #000000;
+      margin-bottom: 18px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid #f1f5f9;
+    }
+
+    .mega-links-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .mega-links-list a {
+      font-size: 13.5px;
+      color: #3f3f46;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .mega-links-list a:hover {
+      color: #000000;
+      font-weight: 700;
+      transform: translateX(3px);
+    }
+
+    /* ==========================================================================
+       4. SPLIT SCREEN HERO BANNER (WHOLESALE B2B THEME)
+       ========================================================================== */
+    .stadium-split-hero {
+      width: 100%;
+      background: #ffffff;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-height: 480px;
+    }
+
+    @media (max-width: 900px) {
+      .stadium-split-hero {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* LEFT 50%: SOLID DEEP BLACK / HIGH CONTRAST B2B */
+    .stadium-hero-wholesale-side {
+      background: #090d16;
+      padding: 68px 54px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      color: #ffffff;
+    }
+
+    .wholesale-tag-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(255, 255, 255, 0.12);
+      border: 1px solid rgba(255, 255, 255, 0.24);
+      padding: 4px 12px;
+      border-radius: 9999px;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.5px;
+      color: #38bdf8;
+      margin-bottom: 20px;
+      text-transform: uppercase;
+    }
+
+    .stadium-hero-h1 {
+      font-size: 46px;
+      font-weight: 900;
+      line-height: 1.08;
+      letter-spacing: -0.8px;
+      color: #ffffff;
+      text-transform: uppercase;
+      margin-bottom: 18px;
+      font-family: inherit;
+    }
+
+    .stadium-hero-sub {
+      font-size: 16px;
+      font-weight: 500;
+      color: #94a3b8;
+      margin-bottom: 28px;
+      line-height: 1.5;
+      max-width: 480px;
+    }
+
+    .stadium-hero-sub strong {
+      color: #ffffff;
+      font-weight: 800;
+    }
+
+    @media (max-width: 640px) {
+      .stadium-hero-h1 {
+        font-size: 32px;
+      }
+      .stadium-hero-wholesale-side {
+        padding: 40px 24px;
+      }
+    }
+
+    .stadium-hero-btns-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .stadium-hero-btn {
+      background: #ffffff;
+      color: #000000;
+      font-size: 14px;
+      font-weight: 800;
+      padding: 13px 24px;
+      border-radius: 4px;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .stadium-hero-btn:hover {
+      background: #e2e8f0;
+      transform: translateY(-2px);
+    }
+
+    .stadium-hero-btn-outline {
+      background: transparent;
+      color: #ffffff;
+      border: 1.5px solid rgba(255, 255, 255, 0.4);
+      font-size: 14px;
+      font-weight: 800;
+      padding: 13px 24px;
+      border-radius: 4px;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .stadium-hero-btn-outline:hover {
+      border-color: #ffffff;
+      background: rgba(255, 255, 255, 0.08);
+      transform: translateY(-2px);
+    }
+
+    /* RIGHT 50%: SEAMLESS COMMERCIAL HARDWARE STUDIO PHOTO */
+    .stadium-hero-image-side {
+      background: #f8fafc;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 40px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .stadium-hero-studio-img {
+      max-height: 400px;
+      max-width: 90%;
+      object-fit: contain;
+      filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.1));
+      transition: transform 0.4s ease;
+    }
+
+    .stadium-hero-studio-img:hover {
+      transform: scale(1.04);
+    }
+
+    /* ==========================================================================
+       5. HORIZONTAL WHOLESALE LOTS STRIP (IMAGE 2 PATTERN)
+       ========================================================================== */
+    .stadium-strip-carousel-section {
+      padding: 34px 0 28px;
+      background: #ffffff;
+      border-bottom: 1px solid #f1f5f9;
+      position: relative;
+    }
+
+    .strip-carousel-container {
+      position: relative;
+      display: flex;
+      align-items: center;
+    }
+
+    .strip-carousel-track {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      overflow-x: auto;
+      scroll-behavior: smooth;
+      scrollbar-width: none;
+      padding: 10px 4px;
+      width: 100%;
+    }
+
+    .strip-carousel-track::-webkit-scrollbar {
+      display: none;
+    }
+
+    .strip-item-card {
+      min-width: 175px;
+      max-width: 185px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      text-decoration: none;
+      color: #000000;
+      transition: transform 0.2s ease;
+      flex-shrink: 0;
+    }
+
+    .strip-item-card:hover {
+      transform: translateY(-4px);
+    }
+
+    .strip-img-box {
+      width: 100%;
+      height: 120px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 8px;
+      position: relative;
+    }
+
+    .strip-img-box img {
+      max-height: 105px;
+      max-width: 90%;
+      object-fit: contain;
+      transition: transform 0.25s ease;
+    }
+
+    .strip-item-card:hover .strip-img-box img {
+      transform: scale(1.08);
+    }
+
+    .strip-bulk-qty-tag {
+      font-size: 10.5px;
+      font-weight: 900;
+      background: #000000;
+      color: #ffffff;
+      padding: 2px 6px;
+      border-radius: 3px;
+      margin-bottom: 4px;
+      letter-spacing: 0.5px;
+    }
+
+    .strip-item-name {
+      font-size: 13px;
+      font-weight: 800;
+      color: #18181b;
+      margin-bottom: 2px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      width: 100%;
+    }
+
+    .strip-item-price-row {
+      font-size: 13.5px;
+      font-weight: 900;
+      color: #000000;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .strip-item-mrp {
+      font-size: 11.5px;
+      font-weight: 500;
+      color: #a1a1aa;
+      text-decoration: line-through;
+    }
+
+    .strip-item-unit-rate {
+      font-size: 11px;
+      font-weight: 700;
+      color: #2563eb;
+      margin-top: 2px;
+    }
+
+    .strip-arrow-next {
+      position: absolute;
+      right: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: #ffffff;
+      border: 1.5px solid #e4e4e7;
+      color: #000000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+      z-index: 10;
+      transition: all 0.2s ease;
+    }
+
+    .strip-arrow-next:hover {
+      background: #000000;
+      color: #ffffff;
+      border-color: #000000;
+    }
+
+    /* ==========================================================================
+       6. WHOLESALE CONTRACTOR LOTS GRID
+       ========================================================================== */
+    .outlet-main-section {
+      padding: 44px 0 60px;
+      background: #ffffff;
+    }
+
+    .outlet-sec-header {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      margin-bottom: 24px;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .outlet-sec-title h2 {
+      font-size: 26px;
+      font-weight: 900;
+      letter-spacing: -0.5px;
+      color: #000000;
+      text-transform: uppercase;
+    }
+
+    .outlet-sec-title p {
+      font-size: 13.5px;
+      color: #71717a;
+      margin-top: 2px;
+    }
+
+    .outlet-filter-pills-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-bottom: 28px;
+    }
+
+    .outlet-filter-btn {
+      padding: 8px 18px;
+      border-radius: 4px;
+      background: #f4f4f5;
+      border: 1px solid #e4e4e7;
+      color: #27272a;
+      font-size: 13px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      font-family: inherit;
+    }
+
+    .outlet-filter-btn:hover {
+      background: #e4e4e7;
+      color: #000000;
+    }
+
+    .outlet-filter-btn.active {
+      background: #000000;
+      color: #ffffff;
+      border-color: #000000;
+    }
+
+    .outlet-products-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 22px;
+    }
+
+    @media (max-width: 1024px) {
+      .outlet-products-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 640px) {
+      .outlet-products-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* WHOLESALE LOT CARD */
+    .stadium-prod-card {
+      background: #ffffff;
+      border: 1.5px solid #e4e4e7;
+      border-radius: 8px;
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: all 0.25s ease;
+      position: relative;
+    }
+
+    .stadium-prod-card:hover {
+      border-color: #000000;
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.08);
+      transform: translateY(-3px);
+    }
+
+    .card-top-tag-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 6px;
+    }
+
+    .wholesale-lot-badge {
+      background: #000000;
+      color: #ffffff;
+      font-size: 11px;
+      font-weight: 900;
+      padding: 3px 8px;
+      border-radius: 3px;
+      letter-spacing: 0.5px;
+    }
+
+    .card-stock-tag {
+      font-size: 11px;
+      font-weight: 700;
+      color: #16a34a;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .card-stock-tag::before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #16a34a;
+      display: inline-block;
+    }
+
+    .card-media-stage {
+      height: 155px;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 10px 0;
+    }
+
+    .card-media-stage img {
+      max-height: 140px;
+      max-width: 90%;
+      object-fit: contain;
+      transition: transform 0.3s ease;
+    }
+
+    .stadium-prod-card:hover .card-media-stage img {
+      transform: scale(1.06);
+    }
+
+    .card-info-box {
+      margin-top: 4px;
+    }
+
+    .card-brand-label {
+      font-size: 11px;
+      font-weight: 800;
+      color: #71717a;
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+      margin-bottom: 2px;
+    }
+
+    .card-prod-title {
+      font-size: 15px;
+      font-weight: 800;
+      color: #000000;
+      line-height: 1.3;
+      margin-bottom: 6px;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    .card-spec-desc {
+      font-size: 12px;
+      color: #52525b;
+      margin-bottom: 12px;
+      line-height: 1.4;
+    }
+
+    .card-pricing-block {
+      border-top: 1px solid #f1f5f9;
+      padding-top: 12px;
+      margin-top: 8px;
+    }
+
+    .card-mrp-row {
+      font-size: 12px;
+      color: #71717a;
+      margin-bottom: 2px;
+    }
+
+    .card-mrp-price {
+      text-decoration: line-through;
+    }
+
+    .card-price-current {
+      font-size: 22px;
+      font-weight: 900;
+      color: #000000;
+      display: flex;
+      align-items: baseline;
+      gap: 6px;
+    }
+
+    .card-unit-calc {
+      font-size: 12.5px;
+      font-weight: 800;
+      color: #2563eb;
+      margin: 2px 0 10px;
+    }
+
+    .card-gst-note {
+      font-size: 11px;
+      font-weight: 600;
+      color: #71717a;
+    }
+
+    .stadium-buy-btn {
+      width: 100%;
+      height: 42px;
+      background: #000000;
+      color: #ffffff;
+      border: none;
+      border-radius: 4px;
+      font-size: 13.5px;
+      font-weight: 800;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.2s ease;
+      font-family: inherit;
+    }
+
+    .stadium-buy-btn:hover {
+      background: #27272a;
+      transform: translateY(-1px);
+    }
+
+    /* ==========================================================================
+       7. B2B TRUST PILLARS & FOOTER
+       ========================================================================== */
+    .stadium-trust-strip {
+      background: #f8fafc;
+      border-top: 1px solid #e2e8f0;
+      border-bottom: 1px solid #e2e8f0;
+      padding: 24px 0;
+    }
+
+    .trust-strip-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      text-align: center;
+    }
+
+    @media (max-width: 768px) {
+      .trust-strip-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
+      }
+    }
+
+    .trust-pillar {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      font-size: 13.5px;
+      font-weight: 800;
+      color: #000000;
+    }
+
+    .trust-pillar svg {
+      width: 22px;
+      height: 22px;
+      color: #000000;
+    }
+
+    .stadium-clean-footer {
+      background: #ffffff;
+      padding: 40px 0 30px;
+      font-size: 13px;
+      color: #71717a;
+    }
+
+    .footer-top-links-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 20px;
+      margin-bottom: 24px;
+    }
+
+    .footer-links-group {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      list-style: none;
+    }
+
+    .footer-links-group a {
+      color: #27272a;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .footer-links-group a:hover {
+      text-decoration: underline;
+    }
+
+    /* TOAST */
+    .cart-toast {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      background: #000000;
+      color: #ffffff;
+      padding: 14px 22px;
+      border-radius: 6px;
+      font-size: 14px;
+      font-weight: 700;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      transform: translateY(100px);
+      opacity: 0;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      pointer-events: none;
+    }
+
+    .cart-toast.show {
+      transform: translateY(0);
+      opacity: 1;
+    }
   </style>
 </head>
 <body>
 
-<!-- HEADER -->
-<header>
-  <div class="container header-top-row">
-    <a href="index.html" class="brand" aria-label="Syber Space Home">
-      <div class="brand-text">
-        <span class="brand-title">SYBER SPACE</span>
-        <span class="brand-subtitle">THE SURVEILLANCE STORE</span>
-      </div>
-    </a>
-
-    <div class="header-search-wrap">
-      <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
-      <input type="text" id="headerSearchInput" class="header-search-input" placeholder="Search 100+ surveillance cameras, DVRs, kits..." autocomplete="off">
-      <button type="button" class="header-search-btn" id="headerSearchBtn" onclick="triggerHeaderSearch()">Search</button>
-    </div>
-
-    <div class="header-right">
-      <a href="https://wa.me/917511180808" target="_blank" class="header-hotline-btn">
-        <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
-        <span>+91 75111 80808</span>
-      </a>
-
-      <a href="cart.html" class="header-cart-pill" id="headerCartBtn" aria-label="View Shopping Cart">
-        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
-        <span>Cart</span>
-        <span class="cart-pill-badge" id="cart-counter">0</span>
+  <!-- 1. TOP BRAND SWITCHER (STADIUM DUAL-BRANCH PATTERN: WHOLESALE ACTIVE) -->
+  <div class="stadium-top-brand-bar">
+    <div class="stadium-top-brand-tabs" role="tablist">
+      <a href="shop.html" class="stadium-top-tab active">syber space</a>
+      <a href="index.html" class="stadium-top-tab">
+        <span>syber space</span>
+        <span class="stadium-outlet-tag">OUTLET</span>
       </a>
     </div>
   </div>
 
-  <div class="header-shelf-bar">
-    <div class="shelf-line"></div>
-    <div class="container shelf-tabs-container">
-      <a href="javascript:void(0)" class="nav-ribbon-tab active" data-cat="all" onclick="selectNavBox(this, 'all')">
-        <span>Shop All</span>
-      </a>
-      <a href="javascript:void(0)" class="nav-ribbon-tab" data-cat="cctv" onclick="selectNavBox(this, 'cctv')">
-        <span>CCTV</span>
-      </a>
-      <a href="javascript:void(0)" class="nav-ribbon-tab" data-cat="vdp" onclick="selectNavBox(this, 'vdp')">
-        <span>VDP</span>
-      </a>
-      <a href="javascript:void(0)" class="nav-ribbon-tab" data-cat="alarm" onclick="selectNavBox(this, 'alarm')">
-        <span>Intrusion Alarm</span>
-      </a>
-      <a href="javascript:void(0)" class="nav-ribbon-tab" data-cat="access" onclick="selectNavBox(this, 'access')">
-        <span>Access Control</span>
-      </a>
-      <a href="javascript:void(0)" class="nav-ribbon-tab" data-cat="cables" onclick="selectNavBox(this, 'cables')">
-        <span>Cables</span>
-      </a>
-      <a href="javascript:void(0)" class="nav-ribbon-tab" data-cat="accessory" onclick="selectNavBox(this, 'accessory')">
-        <span>Accessories</span>
-      </a>
-      <a href="index.html" class="nav-ribbon-tab" data-cat="home" style="background:#0f172a; color:#fff !important;">
-        <span>&larr; Home</span>
-      </a>
-    </div>
-  </div>
-</header>
+  <!-- 2. MAIN HEADER (LOGO, SEARCH & ICONS) -->
+  <header class="stadium-main-header">
+    <div class="container">
+      
+      <!-- TOP ROW: LOGO, SEARCH BAR, ACCOUNT & CART -->
+      <div class="header-top-row">
+        
+        <!-- LOGO -->
+        <a href="shop.html" class="brand-logo-stadium" aria-label="Syber Space Wholesale Home">
+          <span class="brand-logo-title">syber space</span>
+          <span class="brand-logo-wholesale-badge">WHOLESALE</span>
+        </a>
 
-<!-- PAGE TITLE STRIP -->
-<div class="shop-hero-bar">
-  <div class="container shop-hero-head">
-    <div>
-      <div class="shop-tag">Official Direct Inventory</div>
-      <h1 class="shop-title" id="pageTitleHeading">Surveillance Hardware Catalog</h1>
-      <p class="shop-desc" id="pageTitleDesc">Authentic optical surveillance equipment, enterprise storage, and commercial PoE infrastructure directly from Tier-1 manufacturers.</p>
-    </div>
-    <div class="shop-perks-strip">
-      <div class="shop-perk-pill">
-        <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
-        <span>100% Tax Invoiced</span>
-      </div>
-      <div class="shop-perk-pill">
-        <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
-        <span>Official Warranties</span>
-      </div>
-      <div class="shop-perk-pill">
-        <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="1" y="3" width="15" height="13"></rect><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon><circle cx="5.5" cy="18.5" r="2.5"></circle><circle cx="18.5" cy="18.5" r="2.5"></circle></svg>
-        <span>Express Insured Dispatch</span>
-      </div>
-    </div>
-  </div>
-</div>
+        <!-- WIDE SEARCH INPUT -->
+        <div class="stadium-search-wrap">
+          <svg class="stadium-search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+          <input type="text" class="stadium-search-input" id="stadiumSearch" placeholder="Search bulk cartons, 20x camera lots, contractor spools..." aria-label="Search wholesale lots">
+        </div>
 
-<!-- HARDWARE CATALOG SECTION -->
-<section class="catalog-section" id="catalog-section">
-  <div class="container">
-    <div class="catalog-header-bar">
-      <div class="catalog-filter-tabs" id="catalogFilterTabs">
-        <button type="button" class="filter-tab active" data-cat="all" onclick="filterFromTab('all')">All Hardware</button>
-        <button type="button" class="filter-tab" data-cat="cctv" onclick="filterFromTab('cctv')">CCTV Cameras</button>
-        <button type="button" class="filter-tab" data-cat="vdp" onclick="filterFromTab('vdp')">Video Door Phones</button>
-        <button type="button" class="filter-tab" data-cat="alarm" onclick="filterFromTab('alarm')">Intrusion Alarms</button>
-        <button type="button" class="filter-tab" data-cat="access" onclick="filterFromTab('access')">Access Control</button>
-        <button type="button" class="filter-tab" data-cat="cables" onclick="filterFromTab('cables')">Cables &amp; Wire</button>
-        <button type="button" class="filter-tab" data-cat="accessory" onclick="filterFromTab('accessory')">Accessories</button>
+        <!-- RIGHT ICONS -->
+        <div class="header-right-tools">
+          <button type="button" class="header-tool-btn" aria-label="B2B Contractor Account" onclick="window.location.href='https://wa.me/917511180808'">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+              <circle cx="12" cy="7" r="4"></circle>
+            </svg>
+          </button>
+          
+          <a href="cart.html" class="header-tool-btn" aria-label="Shopping Cart">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+              <line x1="3" y1="6" x2="21" y2="6"></line>
+              <path d="M16 10a4 4 0 0 1-8 0"></path>
+            </svg>
+            <span class="cart-badge-dot" id="cartBadgeCount">0</span>
+          </a>
+        </div>
+
       </div>
 
-      <div class="catalog-search-wrap">
-        <input type="text" id="catalogSearchInput" class="catalog-search-input" placeholder="Filter by model or brand...">
+      <!-- BOTTOM ROW: CATEGORY SUB-NAVIGATION -->
+      <nav aria-label="Department Navigation">
+        <ul class="category-nav-strip">
+          <li><span class="cat-nav-link" id="navEquipment" onclick="toggleMegaMenu()">Equipment &darr;</span></li>
+          <li><a href="#products" class="cat-nav-link" onclick="filterDepartment('cctv')">Bulk CCTV Lots (20x)</a></li>
+          <li><a href="#products" class="cat-nav-link" onclick="filterDepartment('vdp')">VDP Cartons (10x)</a></li>
+          <li><a href="#products" class="cat-nav-link" onclick="filterDepartment('access')">Biometric Packs (10x)</a></li>
+          <li><a href="#products" class="cat-nav-link" onclick="filterDepartment('cables')">Cable Pallets (5x)</a></li>
+          <li><a href="#products" class="cat-nav-link" onclick="filterDepartment('accessory')">Accessories (50x)</a></li>
+          <li><a href="index.html" class="cat-nav-link" style="color: #dc2626; font-weight: 900;">Switch to Single Units (Outlet) &rarr;</a></li>
+        </ul>
+      </nav>
+
+    </div>
+
+    <!-- 3. WHOLESALE MEGA-MENU DROPDOWN -->
+    <div class="stadium-mega-menu" id="stadiumMegaMenu">
+      <div class="container mega-menu-grid">
+        
+        <!-- COLUMN 1: CONTRACTOR NEWS -->
+        <div>
+          <div class="mega-col-title">Contractor Lots</div>
+          <ul class="mega-links-list">
+            <li><a href="#products">20x Camera Master Cartons</a></li>
+            <li><a href="#products">10x VDP Touchscreen Crates</a></li>
+            <li><a href="#products">Pure Copper Master Pallets</a></li>
+            <li><a href="https://wa.me/917511180808" target="_blank" rel="noopener noreferrer">Request Formal B2B Quotation</a></li>
+          </ul>
+        </div>
+
+        <!-- COLUMN 2: HARDWARE SUBSYSTEMS IN BULK -->
+        <div>
+          <div class="mega-col-title">Bulk Surveillance</div>
+          <ul class="mega-links-list">
+            <li><a href="#products">20x CP PLUS 2MP Wi-Fi Lots</a></li>
+            <li><a href="#products">10x CP PLUS 5MP Starlight Bullets</a></li>
+            <li><a href="#products">4x Solar 4G PTZ Project Packs</a></li>
+            <li><a href="#products">5x 32-Channel NVR Central Hubs</a></li>
+          </ul>
+        </div>
+
+        <!-- COLUMN 3: INSTALLER DEPLOYMENT -->
+        <div>
+          <div class="mega-col-title">Infrastructure &amp; Wire</div>
+          <ul class="mega-links-list">
+            <li><a href="#products">5x 305m CAT6 Pallet Packs</a></li>
+            <li><a href="#products">10x 8-Port PoE Switch Cartons</a></li>
+            <li><a href="#products">10x 12V 20A CCTV SMPS Crates</a></li>
+            <li><a href="#products">50x IP66 Junction Box Crates</a></li>
+          </ul>
+        </div>
+
+        <!-- COLUMN 4: AUTHORIZED TRADEMARKS -->
+        <div>
+          <div class="mega-col-title">Direct OEM Brands</div>
+          <ul class="mega-links-list">
+            <li><a href="#products">CP PLUS Wholesale</a></li>
+            <li><a href="#products">Hikvision Commercial</a></li>
+            <li><a href="#products">Dahua Enterprise</a></li>
+            <li><a href="#products">Trueview Industrial</a></li>
+            <li><a href="#products">Seagate SkyHawk Master Lots</a></li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </header>
+
+  <!-- ==========================================================================
+       4. SPLIT SCREEN HERO BANNER (WHOLESALE B2B THEME)
+       ========================================================================== -->
+  <section class="stadium-split-hero">
+    
+    <!-- LEFT 50%: SOLID DEEP BLACK WITH B2B HEADLINE & BULK CALLOUT -->
+    <div class="stadium-hero-wholesale-side">
+      <div class="wholesale-tag-badge">
+        <span>Tier-1 Direct Commercial Distribution</span>
+      </div>
+      <h1 class="stadium-hero-h1">
+        WHOLESALE BULK HARDWARE DISTRIBUTION
+      </h1>
+      <p class="stadium-hero-sub">
+        Direct factory master cartons &amp; contractor volume lots. 
+        <strong>Pack of 20 CP PLUS cameras for &#8377;30,000</strong> (just &#8377;1,500/unit) with full 18% GST Input Tax Credit.
+      </p>
+      <div class="stadium-hero-btns-row">
+        <a href="#products" class="stadium-hero-btn" onclick="filterDepartment('cctv')">20x CCTV Lots</a>
+        <a href="#products" class="stadium-hero-btn-outline" onclick="filterDepartment('vdp')">VDP Cartons</a>
+        <a href="https://wa.me/917511180808" class="stadium-hero-btn-outline" target="_blank" rel="noopener noreferrer">Custom Project Quote</a>
       </div>
     </div>
 
-    <div class="catalog-results-info">
-      <span id="catalogCountDisplay">Showing products</span>
-      <span>100% Certified Direct Factory Stock</span>
+    <!-- RIGHT 50%: STUDIO COMMERCIAL SETUP PHOTOGRAPHY -->
+    <div class="stadium-hero-image-side">
+      <img src="assets/wholesale_supply_kit.png" alt="Commercial CCTV &amp; Security Wholesale Supply Lot" class="stadium-hero-studio-img">
     </div>
 
-    <div class="products-grid" id="productsGrid">
-      <!-- Injected dynamically from SYBER_PRODUCTS -->
-    </div>
+  </section>
 
-    <div class="catalog-load-more" id="catalogLoadMoreWrap">
-      <button type="button" class="btn-load-more" id="btnLoadMore" onclick="loadMoreHardware()">
-        Load More Hardware (+12)
+  <!-- ==========================================================================
+       5. HORIZONTAL WHOLESALE LOTS STRIP (IMAGE 2 PATTERN)
+       ========================================================================== */
+  <section class="stadium-strip-carousel-section">
+    <div class="container strip-carousel-container">
+      
+      <div class="strip-carousel-track" id="stripCarouselTrack">
+        
+        <!-- ITEM 1: 20x CP PLUS CAMERAS -->
+        <a href="#products" class="strip-item-card" onclick="filterDepartment('cctv')">
+          <div class="strip-bulk-qty-tag">20 UNITS LOT</div>
+          <div class="strip-img-box">
+            <img src="assets/cp_e21q_1.png" alt="20x CP PLUS 2MP Wi-Fi Cameras">
+          </div>
+          <div class="strip-item-name">20x CP PLUS 2MP Wi-Fi</div>
+          <div class="strip-item-price-row">
+            <span>&#8377;30,000</span>
+            <span class="strip-item-mrp">&#8377;62,000</span>
+          </div>
+          <div class="strip-item-unit-rate">&#8377;1,500 / unit</div>
+        </a>
+
+        <!-- ITEM 2: 10x HIKVISION VDP -->
+        <a href="#products" class="strip-item-card" onclick="filterDepartment('vdp')">
+          <div class="strip-bulk-qty-tag">10 UNITS CARTON</div>
+          <div class="strip-img-box">
+            <img src="assets/official_vdp_touchscreen_transparent.png" alt="10x Hikvision 7-Inch VDP Kits">
+          </div>
+          <div class="strip-item-name">10x Hikvision 7" VDP</div>
+          <div class="strip-item-price-row">
+            <span>&#8377;75,000</span>
+            <span class="strip-item-mrp">&#8377;145,000</span>
+          </div>
+          <div class="strip-item-unit-rate">&#8377;7,500 / unit</div>
+        </a>
+
+        <!-- ITEM 3: 10x DAHUA BIOMETRIC -->
+        <a href="#products" class="strip-item-card" onclick="filterDepartment('access')">
+          <div class="strip-bulk-qty-tag">10 UNITS LOT</div>
+          <div class="strip-img-box">
+            <img src="assets/official_biometric_reader_transparent.png" alt="10x Dahua Biometric Terminals">
+          </div>
+          <div class="strip-item-name">10x Dahua Biometric</div>
+          <div class="strip-item-price-row">
+            <span>&#8377;48,000</span>
+            <span class="strip-item-mrp">&#8377;98,000</span>
+          </div>
+          <div class="strip-item-unit-rate">&#8377;4,800 / unit</div>
+        </a>
+
+        <!-- ITEM 4: 5x CAT6 PALLET -->
+        <a href="#products" class="strip-item-card" onclick="filterDepartment('cables')">
+          <div class="strip-bulk-qty-tag">5 SPOOLS (1525m)</div>
+          <div class="strip-img-box">
+            <img src="assets/acc_official_cat6_drum.png" alt="5x Pure Copper CAT6 305m Drums">
+          </div>
+          <div class="strip-item-name">5x Pure Copper CAT6</div>
+          <div class="strip-item-price-row">
+            <span>&#8377;16,500</span>
+            <span class="strip-item-mrp">&#8377;32,000</span>
+          </div>
+          <div class="strip-item-unit-rate">&#8377;3,300 / drum</div>
+        </a>
+
+        <!-- ITEM 5: 10x POE SWITCHES -->
+        <a href="#products" class="strip-item-card" onclick="filterDepartment('accessory')">
+          <div class="strip-bulk-qty-tag">10 UNITS PACK</div>
+          <div class="strip-img-box">
+            <img src="assets/trueview_poe_4_2_transparent.png" alt="10x Trueview 4+2 PoE Switches">
+          </div>
+          <div class="strip-item-name">10x Trueview 4+2 PoE</div>
+          <div class="strip-item-price-row">
+            <span>&#8377;21,000</span>
+            <span class="strip-item-mrp">&#8377;39,900</span>
+          </div>
+          <div class="strip-item-unit-rate">&#8377;2,100 / unit</div>
+        </a>
+
+        <!-- ITEM 6: 10x 12V SMPS -->
+        <a href="#products" class="strip-item-card" onclick="filterDepartment('accessory')">
+          <div class="strip-bulk-qty-tag">10 UNITS CARTON</div>
+          <div class="strip-img-box">
+            <img src="assets/acc_official_smps.png" alt="10x 12V 8-Ch SMPS Power Supplies">
+          </div>
+          <div class="strip-item-name">10x 12V 8-Ch SMPS</div>
+          <div class="strip-item-price-row">
+            <span>&#8377;9,800</span>
+            <span class="strip-item-mrp">&#8377;18,500</span>
+          </div>
+          <div class="strip-item-unit-rate">&#8377;980 / unit</div>
+        </a>
+
+        <!-- ITEM 7: 5x SKYHAWK 2TB -->
+        <a href="#products" class="strip-item-card" onclick="filterDepartment('accessory')">
+          <div class="strip-bulk-qty-tag">5 UNITS LOT</div>
+          <div class="strip-img-box">
+            <img src="assets/acc_official_skyhawk_hdd.png" alt="5x Seagate SkyHawk 2TB Surveillance HDDs">
+          </div>
+          <div class="strip-item-name">5x Seagate SkyHawk 2TB</div>
+          <div class="strip-item-price-row">
+            <span>&#8377;19,500</span>
+            <span class="strip-item-mrp">&#8377;31,000</span>
+          </div>
+          <div class="strip-item-unit-rate">&#8377;3,900 / unit</div>
+        </a>
+
+        <!-- ITEM 8: 50x JUNCTION BOXES -->
+        <a href="#products" class="strip-item-card" onclick="filterDepartment('accessory')">
+          <div class="strip-bulk-qty-tag">50 UNITS CRATE</div>
+          <div class="strip-img-box">
+            <img src="assets/acc_official_junction_box.png" alt="50x IP66 Weatherproof CCTV Junction Boxes">
+          </div>
+          <div class="strip-item-name">50x IP66 Junction Boxes</div>
+          <div class="strip-item-price-row">
+            <span>&#8377;7,500</span>
+            <span class="strip-item-mrp">&#8377;17,500</span>
+          </div>
+          <div class="strip-item-unit-rate">&#8377;150 / box</div>
+        </a>
+
+      </div>
+
+      <!-- NEXT ARROW -->
+      <button type="button" class="strip-arrow-next" onclick="scrollStripCarousel()" aria-label="Next Wholesale Lots">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
       </button>
+
     </div>
+  </section>
+
+  <!-- ==========================================================================
+       6. WHOLESALE CONTRACTOR LOTS GRID
+       ========================================================================== -->
+  <section class="outlet-main-section" id="products">
+    <div class="container">
+      
+      <!-- SECTION HEADER -->
+      <div class="outlet-sec-header">
+        <div class="outlet-sec-title">
+          <h2>CONTRACTOR WHOLESALE MASTER LOTS</h2>
+          <p>Factory sealed master cartons &amp; commercial lots with full 18% GST Input Tax Credit</p>
+        </div>
+      </div>
+
+      <!-- FILTER PILLS -->
+      <div class="outlet-filter-pills-row" role="tablist">
+        <button type="button" class="outlet-filter-btn active" onclick="filterDepartment('all', this)">All Master Lots</button>
+        <button type="button" class="outlet-filter-btn" onclick="filterDepartment('cctv', this)">CCTV Lots (20x)</button>
+        <button type="button" class="outlet-filter-btn" onclick="filterDepartment('vdp', this)">VDP Cartons (10x)</button>
+        <button type="button" class="outlet-filter-btn" onclick="filterDepartment('access', this)">Biometric Packs (10x)</button>
+        <button type="button" class="outlet-filter-btn" onclick="filterDepartment('cables', this)">Cable Pallets (5x)</button>
+        <button type="button" class="outlet-filter-btn" onclick="filterDepartment('accessory', this)">Accessories (50x)</button>
+      </div>
+
+      <!-- WHOLESALE LOT CARDS GRID -->
+      <div class="outlet-products-grid" id="outletGrid">
+        
+        <!-- CARD 1: 20x CP PLUS 2MP SMART WI-FI -->
+        <div class="stadium-prod-card" data-cat="cctv">
+          <div>
+            <div class="card-top-tag-row">
+              <span class="wholesale-lot-badge">20 UNITS CARTON</span>
+              <span class="card-stock-tag">Ready for Dispatch</span>
+            </div>
+            <div class="card-media-stage">
+              <img src="assets/cp_e21q_1.png" alt="20x CP PLUS 2MP Wi-Fi Cameras Master Carton">
+            </div>
+            <div class="card-info-box">
+              <div class="card-brand-label">CP PLUS WHOLESALE</div>
+              <h3 class="card-prod-title">20x CP PLUS Ezykam 2MP Smart Wi-Fi Pan &amp; Tilt Cameras</h3>
+              <p class="card-spec-desc">Full Master Carton of 20 units &bull; 1080p FHD &bull; 2-Way Talk &bull; 360&deg; View</p>
+            </div>
+          </div>
+          <div>
+            <div class="card-pricing-block">
+              <div class="card-mrp-row">Retail Value: <span class="card-mrp-price">&#8377;62,000</span></div>
+              <div class="card-price-current">
+                <span>&#8377;30,000</span>
+                <span class="card-gst-note">/ carton</span>
+              </div>
+              <div class="card-unit-calc">&#8377;1,500 / unit (Save &#8377;32,000)</div>
+            </div>
+            <button type="button" class="stadium-buy-btn" onclick="quickAddToCart('lot-cctv-cpplus-20', '20x CP PLUS 2MP Wi-Fi Cameras Lot', 30000)">Add 20x Lot to Cart</button>
+          </div>
+        </div>
+
+        <!-- CARD 2: 10x HIKVISION 7-INCH VDP KITS -->
+        <div class="stadium-prod-card" data-cat="vdp">
+          <div>
+            <div class="card-top-tag-row">
+              <span class="wholesale-lot-badge">10 UNITS CRATE</span>
+              <span class="card-stock-tag">Ready for Dispatch</span>
+            </div>
+            <div class="card-media-stage">
+              <img src="assets/official_vdp_touchscreen_transparent.png" alt="10x Hikvision 7-Inch VDP Kits">
+            </div>
+            <div class="card-info-box">
+              <div class="card-brand-label">HIKVISION COMMERCIAL</div>
+              <h3 class="card-prod-title">10x Hikvision 7-Inch Color LCD Video Door Phone Kits</h3>
+              <p class="card-spec-desc">Installer Crate of 10 Complete Kits &bull; Monitors &bull; Outdoor Units &bull; EM Output</p>
+            </div>
+          </div>
+          <div>
+            <div class="card-pricing-block">
+              <div class="card-mrp-row">Retail Value: <span class="card-mrp-price">&#8377;145,000</span></div>
+              <div class="card-price-current">
+                <span>&#8377;75,000</span>
+                <span class="card-gst-note">/ crate</span>
+              </div>
+              <div class="card-unit-calc">&#8377;7,500 / unit (Save &#8377;70,000)</div>
+            </div>
+            <button type="button" class="stadium-buy-btn" onclick="quickAddToCart('lot-vdp-hik-10', '10x Hikvision 7 VDP Kits Crate', 75000)">Add 10x Crate to Cart</button>
+          </div>
+        </div>
+
+        <!-- CARD 3: 10x DAHUA BIOMETRIC TERMINALS -->
+        <div class="stadium-prod-card" data-cat="access">
+          <div>
+            <div class="card-top-tag-row">
+              <span class="wholesale-lot-badge">10 UNITS LOT</span>
+              <span class="card-stock-tag">Ready for Dispatch</span>
+            </div>
+            <div class="card-media-stage">
+              <img src="assets/official_biometric_reader_transparent.png" alt="10x Dahua Biometric Readers">
+            </div>
+            <div class="card-info-box">
+              <div class="card-brand-label">DAHUA ENTERPRISE</div>
+              <h3 class="card-prod-title">10x Dahua Standalone Optical Biometric &amp; RFID Terminals</h3>
+              <p class="card-spec-desc">Contractor Lot of 10 &bull; 500 Fingerprint Storage &bull; Wiegand &bull; EM Interface</p>
+            </div>
+          </div>
+          <div>
+            <div class="card-pricing-block">
+              <div class="card-mrp-row">Retail Value: <span class="card-mrp-price">&#8377;98,000</span></div>
+              <div class="card-price-current">
+                <span>&#8377;48,000</span>
+                <span class="card-gst-note">/ lot</span>
+              </div>
+              <div class="card-unit-calc">&#8377;4,800 / unit (Save &#8377;50,000)</div>
+            </div>
+            <button type="button" class="stadium-buy-btn" onclick="quickAddToCart('lot-bio-dahua-10', '10x Dahua Biometric Terminals Lot', 48000)">Add 10x Lot to Cart</button>
+          </div>
+        </div>
+
+        <!-- CARD 4: 5x SOLID COPPER CAT6 DRUMS -->
+        <div class="stadium-prod-card" data-cat="cables">
+          <div>
+            <div class="card-top-tag-row">
+              <span class="wholesale-lot-badge">5 DRUMS (1525m)</span>
+              <span class="card-stock-tag">Ready for Dispatch</span>
+            </div>
+            <div class="card-media-stage">
+              <img src="assets/acc_official_cat6_drum.png" alt="5x Pure Solid Copper CAT6 305m Spools Pallet">
+            </div>
+            <div class="card-info-box">
+              <div class="card-brand-label">SYBER CORE WHOLESALE</div>
+              <h3 class="card-prod-title">5x Syber Core Solid Copper CAT6 Cable Drums (1,525m)</h3>
+              <p class="card-spec-desc">Installer Pallet of 5 Wooden Drums &bull; 23 AWG Pure Copper &bull; Gigabit PoE+</p>
+            </div>
+          </div>
+          <div>
+            <div class="card-pricing-block">
+              <div class="card-mrp-row">Retail Value: <span class="card-mrp-price">&#8377;32,000</span></div>
+              <div class="card-price-current">
+                <span>&#8377;16,500</span>
+                <span class="card-gst-note">/ pallet</span>
+              </div>
+              <div class="card-unit-calc">&#8377;3,300 / drum (Save &#8377;15,500)</div>
+            </div>
+            <button type="button" class="stadium-buy-btn" onclick="quickAddToCart('lot-cat6-pallet-5', '5x Pure Copper CAT6 305m Pallet', 16500)">Add 5x Pallet to Cart</button>
+          </div>
+        </div>
+
+        <!-- CARD 5: 10x TRUEVIEW 4+2 POE SWITCHES -->
+        <div class="stadium-prod-card" data-cat="accessory">
+          <div>
+            <div class="card-top-tag-row">
+              <span class="wholesale-lot-badge">10 UNITS PACK</span>
+              <span class="card-stock-tag">Ready for Dispatch</span>
+            </div>
+            <div class="card-media-stage">
+              <img src="assets/trueview_poe_4_2_transparent.png" alt="10x Trueview 4+2 PoE Commercial Switches">
+            </div>
+            <div class="card-info-box">
+              <div class="card-brand-label">TRUEVIEW INDUSTRIAL</div>
+              <h3 class="card-prod-title">10x Trueview 4+2 100M/Gigabit CCTV PoE Switches</h3>
+              <p class="card-spec-desc">Contractor Carton of 10 Switches &bull; 65W High Budget &bull; Surge Protected</p>
+            </div>
+          </div>
+          <div>
+            <div class="card-pricing-block">
+              <div class="card-mrp-row">Retail Value: <span class="card-mrp-price">&#8377;39,900</span></div>
+              <div class="card-price-current">
+                <span>&#8377;21,000</span>
+                <span class="card-gst-note">/ carton</span>
+              </div>
+              <div class="card-unit-calc">&#8377;2,100 / unit (Save &#8377;18,900)</div>
+            </div>
+            <button type="button" class="stadium-buy-btn" onclick="quickAddToCart('lot-poe-trueview-10', '10x Trueview 4+2 PoE Switches Carton', 21000)">Add 10x Pack to Cart</button>
+          </div>
+        </div>
+
+        <!-- CARD 6: 10x 12V 8-CH SMPS UNITS -->
+        <div class="stadium-prod-card" data-cat="accessory">
+          <div>
+            <div class="card-top-tag-row">
+              <span class="wholesale-lot-badge">10 UNITS CARTON</span>
+              <span class="card-stock-tag">Ready for Dispatch</span>
+            </div>
+            <div class="card-media-stage">
+              <img src="assets/acc_official_smps.png" alt="10x 12V 8-Channel Regulated CCTV SMPS Power Units">
+            </div>
+            <div class="card-info-box">
+              <div class="card-brand-label">SYBER CORE WHOLESALE</div>
+              <h3 class="card-prod-title">10x Syber Core 12V 8-Channel Regulated CCTV SMPS Units</h3>
+              <p class="card-spec-desc">Installer Carton of 10 &bull; Individual Fuse Protection &bull; Heavy Metal Casing</p>
+            </div>
+          </div>
+          <div>
+            <div class="card-pricing-block">
+              <div class="card-mrp-row">Retail Value: <span class="card-mrp-price">&#8377;18,500</span></div>
+              <div class="card-price-current">
+                <span>&#8377;9,800</span>
+                <span class="card-gst-note">/ carton</span>
+              </div>
+              <div class="card-unit-calc">&#8377;980 / unit (Save &#8377;8,700)</div>
+            </div>
+            <button type="button" class="stadium-buy-btn" onclick="quickAddToCart('lot-smps-10', '10x 12V 8-Ch SMPS Power Supplies Carton', 9800)">Add 10x Carton to Cart</button>
+          </div>
+        </div>
+
+        <!-- CARD 7: 5x SEAGATE SKYHAWK 2TB HDDS -->
+        <div class="stadium-prod-card" data-cat="accessory">
+          <div>
+            <div class="card-top-tag-row">
+              <span class="wholesale-lot-badge">5 UNITS LOT</span>
+              <span class="card-stock-tag">Ready for Dispatch</span>
+            </div>
+            <div class="card-media-stage">
+              <img src="assets/acc_official_skyhawk_hdd.png" alt="5x Seagate SkyHawk 2TB Surveillance Hard Drives">
+            </div>
+            <div class="card-info-box">
+              <div class="card-brand-label">SEAGATE OEM DIRECT</div>
+              <h3 class="card-prod-title">5x Seagate SkyHawk 2TB 24/7 Surveillance Hard Drives</h3>
+              <p class="card-spec-desc">Contractor Lot of 5 &bull; 64MB Cache &bull; 1M Hours MTBF &bull; 3-Year Official OEM Warranty</p>
+            </div>
+          </div>
+          <div>
+            <div class="card-pricing-block">
+              <div class="card-mrp-row">Retail Value: <span class="card-mrp-price">&#8377;31,000</span></div>
+              <div class="card-price-current">
+                <span>&#8377;19,500</span>
+                <span class="card-gst-note">/ lot</span>
+              </div>
+              <div class="card-unit-calc">&#8377;3,900 / unit (Save &#8377;11,500)</div>
+            </div>
+            <button type="button" class="stadium-buy-btn" onclick="quickAddToCart('lot-hdd-skyhawk-5', '5x Seagate SkyHawk 2TB Hard Drives Lot', 19500)">Add 5x Lot to Cart</button>
+          </div>
+        </div>
+
+        <!-- CARD 8: 50x WEATHERPROOF JUNCTION BOXES -->
+        <div class="stadium-prod-card" data-cat="accessory">
+          <div>
+            <div class="card-top-tag-row">
+              <span class="wholesale-lot-badge">50 UNITS CRATE</span>
+              <span class="card-stock-tag">Ready for Dispatch</span>
+            </div>
+            <div class="card-media-stage">
+              <img src="assets/acc_official_junction_box.png" alt="50x IP66 Weatherproof CCTV Junction Boxes">
+            </div>
+            <div class="card-info-box">
+              <div class="card-brand-label">SYBER CORE WHOLESALE</div>
+              <h3 class="card-prod-title">50x IP66 Commercial Outdoor CCTV Base Junction Boxes</h3>
+              <p class="card-spec-desc">Contractor Crate of 50 Boxes &bull; Rubber Gaskets &bull; UV Resistant &bull; Screws Included</p>
+            </div>
+          </div>
+          <div>
+            <div class="card-pricing-block">
+              <div class="card-mrp-row">Retail Value: <span class="card-mrp-price">&#8377;17,500</span></div>
+              <div class="card-price-current">
+                <span>&#8377;7,500</span>
+                <span class="card-gst-note">/ crate</span>
+              </div>
+              <div class="card-unit-calc">&#8377;150 / box (Save &#8377;10,000)</div>
+            </div>
+            <button type="button" class="stadium-buy-btn" onclick="quickAddToCart('lot-jbox-crate-50', '50x IP66 CCTV Junction Boxes Crate', 7500)">Add 50x Crate to Cart</button>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       7. B2B TRUST PILLARS
+       ========================================================================== -->
+  <section class="stadium-trust-strip">
+    <div class="container trust-strip-grid">
+      <div class="trust-pillar">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+        <span>Full 18% GST Input Credit</span>
+      </div>
+      <div class="trust-pillar">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+        <span>Tier-1 Direct OEM Warranties</span>
+      </div>
+      <div class="trust-pillar">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="1" y="3" width="15" height="13"></rect><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon><circle cx="5.5" cy="18.5" r="2.5"></circle><circle cx="18.5" cy="18.5" r="2.5"></circle></svg>
+        <span>Priority 24-48h Freight Dispatch</span>
+      </div>
+      <div class="trust-pillar">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+        <span>B2B Desk: +91 75111 80808</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       8. CLEAN MINIMALIST FOOTER
+       ========================================================================== -->
+  <footer class="stadium-clean-footer">
+    <div class="container">
+      <div class="footer-top-links-row">
+        <div style="font-weight: 800; color: #000000; font-size: 15px;">
+          syber space wholesale
+        </div>
+        <ul class="footer-links-group">
+          <li><a href="index.html">Outlet (Single Units)</a></li>
+          <li><a href="#products" onclick="filterDepartment('cctv')">20x CCTV Lots</a></li>
+          <li><a href="#products" onclick="filterDepartment('vdp')">VDP Cartons</a></li>
+          <li><a href="#products" onclick="filterDepartment('cables')">Cable Pallets</a></li>
+          <li><a href="cart.html">View Cart</a></li>
+        </ul>
+      </div>
+      <div style="font-size: 12px; color: #a1a1aa;">
+        &copy; 2026 SYBER SPACE WHOLESALE. All rights reserved. Tier-1 Commercial Optical Hardware.
+      </div>
+    </div>
+  </footer>
+
+  <!-- TOAST NOTIFICATION -->
+  <div class="cart-toast" id="cartToast">
+    <span id="toastMsg">Wholesale lot added to cart!</span>
   </div>
-</section>
 
-<!-- TOAST NOTIFICATION -->
-<div class="cart-toast" id="cartToast">
-  <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" style="color: var(--blue-light);"><polyline points="20 6 9 17 4 12"></polyline></svg>
-  <span class="toast-msg" id="toastMsg">Added to cart</span>
-  <a href="cart.html" class="toast-link">View Cart &rarr;</a>
-</div>
+  <!-- JAVASCRIPT LOGIC -->
+  <script>
+    // MEGA MENU TOGGLE
+    function toggleMegaMenu() {
+      const menu = document.getElementById('stadiumMegaMenu');
+      const link = document.getElementById('navEquipment');
+      if (menu) {
+        menu.classList.toggle('open');
+        if (link) link.classList.toggle('active');
+      }
+    }
 
-<!-- FOOTER -->
-<footer>
-  <div class="container">
-    <div class="footer-top">
-      <div class="footer-brand">
-        <h3>SYBER SPACE</h3>
-        <p>The Surveillance Store. Authorized dealer of certified commercial CCTV hardware, optical sensors, enterprise recording hubs, and surveillance storage.</p>
-        <a href="https://wa.me/917511180808" target="_blank" class="footer-hotline">
-          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
-          Direct Advisory: +91 75111 80808
-        </a>
-      </div>
-
-      <div class="footer-col">
-        <h4>Categories</h4>
-        <ul>
-          <li><a href="javascript:void(0)" onclick="filterFromTab('wifi-camera')">Smart Wi-Fi Cameras</a></li>
-          <li><a href="javascript:void(0)" onclick="filterFromTab('4g-camera')">Solar 4G Cameras</a></li>
-          <li><a href="javascript:void(0)" onclick="filterFromTab('nvr-dvr')">DVR &amp; NVR Systems</a></li>
-          <li><a href="javascript:void(0)" onclick="filterFromTab('poe-switch')">Commercial PoE Units</a></li>
-          <li><a href="javascript:void(0)" onclick="filterFromTab('accessory')">Surveillance Storage</a></li>
-        </ul>
-      </div>
-
-      <div class="footer-col">
-        <h4>Direct Services</h4>
-        <ul>
-          <li><a href="cart.html">View Shopping Cart</a></li>
-          <li><a href="checkout.html">Direct B2B Checkout</a></li>
-          <li><a href="index.html#why-section">Quality Standards</a></li>
-          <li><a href="index.html#categories-section">Hardware Gateways</a></li>
-          <li><a href="https://wa.me/917511180808" target="_blank">Bulk Sizing Requests</a></li>
-        </ul>
-      </div>
-
-      <div class="footer-col">
-        <h4>Support &amp; Standards</h4>
-        <ul>
-          <li><span>100% Tax Invoiced Orders</span></li>
-          <li><span>Manufacturer RMA Support</span></li>
-          <li><span>Direct Dispatch Logistics</span></li>
-          <li><span>Mon - Sat: 9:00 AM - 8:00 PM</span></li>
-          <li><span>Inquiries: sales@syberspace.com</span></li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="footer-bottom">
-      <div>
-        &copy; <span id="currentYear"></span> Syber Space. All rights reserved. Precision Surveillance Systems.
-      </div>
-      <div class="footer-badges">
-        <span class="footer-badge-dot"></span>
-        <span>256-Bit SSL Encrypted Checkout</span>
-        <span class="footer-badge-dot"></span>
-        <span>HDFC SmartGateway Protected</span>
-      </div>
-    </div>
-  </div>
-</footer>
-
-<script>
-document.getElementById('currentYear').textContent = new Date().getFullYear();
-
-// 1. CART MANAGEMENT
-function getLocalCart() {
-  try {
-    const raw = localStorage.getItem('syber_cart') || localStorage.getItem('syber_cart_items');
-    return JSON.parse(raw || '[]');
-  } catch(e) {
-    return [];
-  }
-}
-
-function updateHeaderCartBadge() {
-  const cart = getLocalCart();
-  const totalCount = cart.reduce((sum, item) => sum + (Number(item.quantity || item.qty) || 1), 0);
-  const badge = document.getElementById('cart-counter');
-  if (badge) badge.textContent = totalCount;
-}
-
-function directAddToCart(productId, event) {
-  if (event) {
-    event.preventDefault();
-    event.stopPropagation();
-  }
-
-  if (typeof SYBER_PRODUCTS === 'undefined') return;
-  const product = SYBER_PRODUCTS.find(p => p.id === productId);
-  if (!product) return;
-
-  const cart = getLocalCart();
-  const existing = cart.find(i => i.id === product.id || i.title === product.title);
-  const imgSrc = (product.images && product.images.length > 0) ? product.images[0] : 'assets/official_bestseller_idada_q2i_transparent.png';
-
-  if (existing) {
-    existing.quantity = (existing.quantity || 1) + 1;
-    existing.qty = existing.quantity;
-  } else {
-    cart.push({
-      id: product.id,
-      title: product.title,
-      name: product.title,
-      brand: product.brand || 'SYBER',
-      price: Number(product.price) || 0,
-      mrp: product.mrp || '',
-      save: product.save || '',
-      img: imgSrc,
-      image: imgSrc,
-      qty: 1,
-      quantity: 1
+    // Close mega menu when clicking outside
+    document.addEventListener('click', (e) => {
+      const menu = document.getElementById('stadiumMegaMenu');
+      const link = document.getElementById('navEquipment');
+      if (menu && menu.classList.contains('open')) {
+        if (!menu.contains(e.target) && e.target !== link) {
+          menu.classList.remove('open');
+          if (link) link.classList.remove('active');
+        }
+      }
     });
-  }
 
-  try {
-    localStorage.setItem('syber_cart', JSON.stringify(cart));
-    localStorage.setItem('syber_cart_items', JSON.stringify(cart));
-  } catch(e) {}
+    // HORIZONTAL CAROUSEL SCROLL
+    function scrollStripCarousel() {
+      const track = document.getElementById('stripCarouselTrack');
+      if (track) {
+        track.scrollBy({ left: 350, behavior: 'smooth' });
+      }
+    }
 
-  updateHeaderCartBadge();
-  showCartToast(`Added "${product.title}" to cart`);
-}
+    // DEPARTMENT FILTER
+    function filterDepartment(cat, btn) {
+      const buttons = document.querySelectorAll('.outlet-filter-btn');
+      buttons.forEach(b => b.classList.remove('active'));
+      if (btn) btn.classList.add('active');
 
-function showCartToast(msg) {
-  const toast = document.getElementById('cartToast');
-  const msgEl = document.getElementById('toastMsg');
-  if (!toast || !msgEl) return;
-  msgEl.textContent = msg;
-  toast.classList.add('active');
-  clearTimeout(window.__toastTimer);
-  window.__toastTimer = setTimeout(() => {
-    toast.classList.remove('active');
-  }, 3200);
-}
+      const cards = document.querySelectorAll('.stadium-prod-card');
+      cards.forEach(c => {
+        const cCat = c.getAttribute('data-cat');
+        if (cat === 'all' || cCat === cat) {
+          c.style.display = 'flex';
+        } else {
+          c.style.display = 'none';
+        }
+      });
+    }
 
-// 2. DYNAMIC CATALOG ENGINE
-let activeCategory = 'all';
-let searchQuery = '';
-let renderedCount = 0;
-const BATCH_SIZE = 12;
+    // SEARCH HANDLER
+    const searchInp = document.getElementById('stadiumSearch');
+    if (searchInp) {
+      searchInp.addEventListener('input', (e) => {
+        const q = searchInp.value.toLowerCase().trim();
+        const cards = document.querySelectorAll('.stadium-prod-card');
+        cards.forEach(c => {
+          const text = c.textContent.toLowerCase();
+          c.style.display = text.includes(q) ? 'flex' : 'none';
+        });
+      });
+    }
 
-function getFilteredProducts() {
-  if (typeof SYBER_PRODUCTS === 'undefined') return [];
-  return SYBER_PRODUCTS.filter(item => {
-    let matchesCat = true;
-    if (activeCategory !== 'all') {
-      if (activeCategory === 'cctv') {
-        matchesCat = ['wifi-camera', '4g-camera', 'solar-hub', 'nvr-dvr', 'poe-switch', 'ahd-camera', 'router', 'cctv'].includes(item.category);
-      } else if (activeCategory === 'vdp') {
-        matchesCat = item.category === 'vdp' || item.category === 'doorbell';
-      } else if (activeCategory === 'alarm') {
-        matchesCat = item.category === 'alarm';
-      } else if (activeCategory === 'access') {
-        matchesCat = item.category === 'access';
-      } else if (activeCategory === 'cables') {
-        matchesCat = item.category === 'cables';
-      } else if (activeCategory === 'accessory') {
-        matchesCat = item.category === 'accessory';
+    // CART MANAGEMENT (SHARED WITH INDEX.HTML)
+    function getCart() {
+      try {
+        const data = localStorage.getItem('syber_cart') || localStorage.getItem('syber_cart_items');
+        return data ? JSON.parse(data) : [];
+      } catch (e) {
+        return [];
+      }
+    }
+
+    function updateCartBadge() {
+      const cart = getCart();
+      const count = Array.isArray(cart) ? cart.reduce((sum, item) => sum + (item.quantity || 1), 0) : 0;
+      const badge = document.getElementById('cartBadgeCount');
+      if (badge) {
+        badge.textContent = count > 0 ? count : 0;
+      }
+    }
+
+    function quickAddToCart(id, title, price) {
+      const cart = getCart();
+      const existing = cart.find(item => item.id === id);
+      if (existing) {
+        existing.quantity = (existing.quantity || 1) + 1;
       } else {
-        matchesCat = item.category === activeCategory;
+        cart.push({ id, title, price, quantity: 1, image: 'assets/wholesale_supply_kit.png' });
+      }
+      localStorage.setItem('syber_cart', JSON.stringify(cart));
+      localStorage.setItem('syber_cart_items', JSON.stringify(cart));
+      updateCartBadge();
+      showToast(title + ' added to cart!');
+    }
+
+    function showToast(msg) {
+      const toast = document.getElementById('cartToast');
+      const text = document.getElementById('toastMsg');
+      if (toast && text) {
+        text.textContent = msg;
+        toast.classList.add('show');
+        setTimeout(() => toast.classList.remove('show'), 2400);
       }
     }
 
-    let matchesSearch = true;
-    if (searchQuery) {
-      const q = searchQuery.toLowerCase();
-      const titleMatch = (item.title || '').toLowerCase().includes(q);
-      const brandMatch = (item.brand || '').toLowerCase().includes(q);
-      const descMatch = (item.desc || '').toLowerCase().includes(q);
-      const chipsMatch = (item.chips || []).some(c => c.toLowerCase().includes(q));
-      matchesSearch = titleMatch || brandMatch || descMatch || chipsMatch;
-    }
-
-    return matchesCat && matchesSearch;
-  });
-}
-
-function renderProductCard(p) {
-  const imgSrc = (p.images && p.images.length > 0) ? p.images[0] : 'assets/official_bestseller_idada_q2i_transparent.png';
-  const badgeHtml = p.badge ? `<span class="prod-badge ${p.badge.includes('BEST') ? 'highlight' : ''}">${escapeHtml(p.badge)}</span>` : '';
-  const chipsHtml = (p.chips || []).slice(0, 3).map(c => `<span class="prod-chip">${escapeHtml(c)}</span>`).join('');
-  const priceDisplay = Number(p.price) ? `&#8377;${Number(p.price).toLocaleString('en-IN')}` : 'Contact for Quote';
-  const mrpHtml = p.mrp ? `<span class="prod-mrp">${escapeHtml(p.mrp)}</span>` : '';
-  const saveHtml = p.save ? `<span class="prod-save">${escapeHtml(p.save)}</span>` : '';
-
-  return `
-    <div class="prod-card" data-id="${escapeHtml(p.id)}">
-      ${badgeHtml}
-      <a href="product.html?id=${encodeURIComponent(p.id)}" class="prod-thumb-wrap" aria-label="${escapeHtml(p.title)}">
-        <img src="${escapeHtml(imgSrc)}" alt="${escapeHtml(p.title)}" loading="lazy" decoding="async">
-      </a>
-      <div>
-        <div class="prod-brand">${escapeHtml(p.brand || 'SYBER')}</div>
-        <h4 class="prod-title">
-          <a href="product.html?id=${encodeURIComponent(p.id)}">${escapeHtml(p.title)}</a>
-        </h4>
-        <div class="prod-chips">
-          ${chipsHtml}
-        </div>
-        <div class="prod-price-row">
-          <span class="prod-price">${priceDisplay}</span>
-          ${mrpHtml}
-          ${saveHtml}
-        </div>
-      </div>
-      <div class="prod-actions">
-        <button type="button" class="btn-add-cart" onclick="directAddToCart('${escapeHtml(p.id)}', event)">
-          <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
-          <span>Add to Cart</span>
-        </button>
-        <a href="product.html?id=${encodeURIComponent(p.id)}" class="btn-card-details" aria-label="Details for ${escapeHtml(p.title)}">
-          <span>Details</span>
-        </a>
-      </div>
-    </div>
-  `;
-}
-
-function escapeHtml(str) {
-  return String(str || '').replace(/[&<>"']/g, m => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
-}
-
-function updateCatalogView(reset = true) {
-  const grid = document.getElementById('productsGrid');
-  const countDisplay = document.getElementById('catalogCountDisplay');
-  const loadMoreWrap = document.getElementById('catalogLoadMoreWrap');
-  if (!grid) return;
-
-  const filtered = getFilteredProducts();
-
-  if (reset) {
-    renderedCount = 0;
-    grid.innerHTML = '';
-  }
-
-  if (filtered.length === 0) {
-    grid.innerHTML = `
-      <div class="catalog-empty">
-        <h4>No matching hardware found</h4>
-        <p>Try refining your search terms or clearing category filters to view all products.</p>
-      </div>
-    `;
-    if (countDisplay) countDisplay.textContent = '0 products found';
-    if (loadMoreWrap) loadMoreWrap.style.display = 'none';
-    return;
-  }
-
-  const nextBatch = filtered.slice(renderedCount, renderedCount + BATCH_SIZE);
-  const cardsHtml = nextBatch.map(p => renderProductCard(p)).join('');
-  grid.insertAdjacentHTML('beforeend', cardsHtml);
-
-  renderedCount += nextBatch.length;
-
-  if (countDisplay) {
-    countDisplay.textContent = `Showing ${renderedCount} of ${filtered.length} products`;
-  }
-
-  if (loadMoreWrap) {
-    if (renderedCount < filtered.length) {
-      loadMoreWrap.style.display = 'block';
-      const remaining = filtered.length - renderedCount;
-      const btn = document.getElementById('btnLoadMore');
-      if (btn) btn.textContent = `Load More Hardware (+${Math.min(BATCH_SIZE, remaining)})`;
-    } else {
-      loadMoreWrap.style.display = 'none';
-    }
-  }
-
-  if (typeof gsap !== 'undefined' && nextBatch.length > 0) {
-    const cards = grid.querySelectorAll('.prod-card:not(.gsap-ready)');
-    cards.forEach(card => card.classList.add('gsap-ready'));
-    gsap.from(cards, {
-      opacity: 0,
-      y: 18,
-      duration: 0.4,
-      stagger: 0.04,
-      ease: 'power2.out'
-    });
-  }
-}
-
-function loadMoreHardware() {
-  updateCatalogView(false);
-}
-
-function filterFromTab(cat) {
-  activeCategory = cat;
-  const tabs = document.querySelectorAll('.filter-tab');
-  tabs.forEach(t => {
-    if (t.dataset.cat === cat) t.classList.add('active');
-    else t.classList.remove('active');
-  });
-
-  const ribbonTabs = document.querySelectorAll('.nav-ribbon-tab');
-  ribbonTabs.forEach(b => {
-    if (b.dataset.cat === cat) b.classList.add('active');
-    else b.classList.remove('active');
-  });
-
-  const titles = {
-    'all': 'Complete Security & Hardware Catalog',
-    'cctv': 'CCTV Surveillance Systems & Cameras',
-    'vdp': 'Video Door Phones (VDP) & Intercoms',
-    'alarm': 'Intrusion Alarm Systems & Sensors',
-    'access': 'Access Control & Biometric Systems',
-    'cables': 'Cables, Pure Copper & Networking',
-    'accessory': 'Hardware Accessories, SMPS & Storage'
-  };
-  const titleEl = document.getElementById('pageTitleHeading');
-  if (titleEl && titles[cat]) titleEl.textContent = titles[cat];
-
-  updateCatalogView(true);
-}
-
-function selectNavBox(el, cat) {
-  filterFromTab(cat);
-}
-
-function triggerHeaderSearch() {
-  const input = document.getElementById('headerSearchInput');
-  if (!input) return;
-  const q = input.value.trim();
-  searchQuery = q;
-  const catalogInput = document.getElementById('catalogSearchInput');
-  if (catalogInput) catalogInput.value = q;
-  updateCatalogView(true);
-}
-
-// 3. INITIALIZATION ON PAGE LOAD
-window.addEventListener('DOMContentLoaded', () => {
-  updateHeaderCartBadge();
-
-  // Read URL params
-  const urlParams = new URLSearchParams(window.location.search);
-  const catParam = urlParams.get('cat');
-  const searchParam = urlParams.get('search');
-
-  if (catParam) {
-    filterFromTab(catParam);
-  } else if (searchParam) {
-    searchQuery = searchParam;
-    const input = document.getElementById('headerSearchInput');
-    if (input) input.value = searchParam;
-    const catalogInput = document.getElementById('catalogSearchInput');
-    if (catalogInput) catalogInput.value = searchParam;
-    updateCatalogView(true);
-  } else {
-    updateCatalogView(true);
-  }
-
-  // Header Search on enter key
-  const headerSearchInput = document.getElementById('headerSearchInput');
-  if (headerSearchInput) {
-    headerSearchInput.addEventListener('keydown', (e) => {
-      if (e.key === 'Enter') {
-        e.preventDefault();
-        triggerHeaderSearch();
-      }
-    });
-  }
-
-  // Catalog search input typing listener with debounce
-  const catalogInput = document.getElementById('catalogSearchInput');
-  if (catalogInput) {
-    let debounceTimer;
-    catalogInput.addEventListener('input', (e) => {
-      clearTimeout(debounceTimer);
-      debounceTimer = setTimeout(() => {
-        searchQuery = e.target.value.trim();
-        const headerInput = document.getElementById('headerSearchInput');
-        if (headerInput) headerInput.value = searchQuery;
-        updateCatalogView(true);
-      }, 250);
-    });
-  }
-});
-</script>
-
+    updateCartBadge();
+  </script>
 </body>
 </html>
