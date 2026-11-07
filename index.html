@@ -345,6 +345,230 @@
       white-space: nowrap;
     }
 
+    
+    /* ==========================================================================
+       SAMSUNG-STYLE SLIDE-DOWN MEGA MENU (SMOOTH ACCORDION SLIDE & BACKDROP)
+       ========================================================================== */
+    .mega-menu-backdrop {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.45);
+      backdrop-filter: blur(2px);
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.3s;
+      z-index: 80;
+      pointer-events: none;
+    }
+
+    .mega-menu-backdrop.open {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+    }
+
+    .stadium-mega-menu {
+      display: block !important;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      background: #ffffff;
+      border-top: 1px solid #e4e4e7;
+      border-bottom: 2px solid #000000;
+      box-shadow: 0 28px 56px rgba(0, 0, 0, 0.12);
+      padding: 34px 0 38px;
+      z-index: 99;
+      
+      /* SMOOTH SAMSUNG SLIDE DOWN TRANSITION */
+      transform: translateY(-16px);
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+      transition: transform 0.32s cubic-bezier(0.16, 1, 0.3, 1), 
+                  opacity 0.28s ease, 
+                  visibility 0.28s;
+    }
+
+    .stadium-mega-menu.open {
+      transform: translateY(0);
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+    }
+
+    .samsung-mega-wrapper {
+      display: grid;
+      grid-template-columns: 1fr 240px;
+      gap: 40px;
+      align-items: start;
+    }
+
+    .samsung-cat-grid {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 20px 14px;
+    }
+
+    .samsung-cat-card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      text-decoration: none;
+      color: #18181b;
+      padding: 10px 6px;
+      border-radius: 8px;
+      transition: all 0.22s ease;
+    }
+
+    .samsung-cat-card:hover {
+      background: #fbfbfb;
+      transform: translateY(-3px);
+    }
+
+    .samsung-cat-thumb {
+      width: 100%;
+      height: 78px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 8px;
+    }
+
+    .samsung-cat-thumb img {
+      max-height: 72px;
+      max-width: 90%;
+      object-fit: contain;
+      filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.05));
+      transition: transform 0.25s ease, filter 0.25s ease;
+    }
+
+    .samsung-cat-card:hover .samsung-cat-thumb img {
+      transform: scale(1.08);
+      filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.10));
+    }
+
+    .samsung-cat-label {
+      font-size: 12px;
+      font-weight: 700;
+      line-height: 1.25;
+      color: #27272a;
+      transition: color 0.2s ease;
+      min-height: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .samsung-cat-card:hover .samsung-cat-label {
+      color: #000000;
+      font-weight: 800;
+    }
+
+    .samsung-discover-col {
+      border-left: 1px solid #f1f5f9;
+      padding-left: 32px;
+    }
+
+    .samsung-discover-title {
+      font-size: 11px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      color: #71717a;
+      margin-bottom: 14px;
+    }
+
+    .samsung-discover-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 11px;
+    }
+
+    .samsung-discover-list a {
+      font-size: 13px;
+      font-weight: 600;
+      color: #27272a;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: all 0.2s ease;
+      padding: 2px 0;
+    }
+
+    .samsung-discover-list a:hover {
+      color: #000000;
+      padding-left: 4px;
+    }
+
+    .samsung-discover-list a .discover-arrow {
+      color: #a1a1aa;
+      font-size: 13px;
+      transition: transform 0.2s ease, color 0.2s ease;
+    }
+
+    .samsung-discover-list a:hover .discover-arrow {
+      color: #000000;
+      transform: translateX(3px);
+    }
+
+    /* BRANDS TAB VIEW */
+    .samsung-view-panel {
+      display: none;
+    }
+    .samsung-view-panel.active {
+      display: block;
+    }
+
+    .samsung-brands-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px 14px;
+    }
+
+    .samsung-brand-pill {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 8px 12px;
+      background: #fbfbfb;
+      border: 1px solid #e4e4e7;
+      border-radius: 6px;
+      text-decoration: none;
+      color: #18181b;
+      font-size: 12.5px;
+      font-weight: 600;
+      transition: all 0.2s ease;
+    }
+
+    .samsung-brand-pill:hover {
+      background: #ffffff;
+      border-color: #000000;
+      transform: translateY(-1px);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.04);
+    }
+
+    .samsung-brand-pill.hdd-brand {
+      border-color: #bfdbfe;
+      background: #eff6ff;
+      color: #1d4ed8;
+      font-weight: 700;
+    }
+
+    .brand-tag {
+      font-size: 10px;
+      color: #71717a;
+      background: #f4f4f5;
+      padding: 1px 5px;
+      border-radius: 4px;
+    }
+
     /* MEGA MENU DROPDOWN (IMAGE 3) */
     .stadium-mega-menu {
       display: none;
@@ -1267,15 +1491,19 @@
       </div>
 
       <!-- BOTTOM ROW: CATEGORY SUB-NAVIGATION (IMAGE 2 & 3) -->
-      <nav aria-label="Department Navigation">
+      <nav aria-label="Department Navigation" class="stadium-nav-container">
         <ul class="category-nav-strip">
-          <li><span class="cat-nav-link" id="navCategories" onclick="toggleMegaMenu()">Categories &darr;</span></li>
+          <li class="has-dropdown" onmouseenter="openSamsungMegaMenu('categories')" onmouseleave="closeSamsungMegaMenu()">
+            <span class="cat-nav-link" id="navCategories" onclick="toggleSamsungMegaMenu('categories')">Categories &darr;</span>
+          </li>
           <li><a href="shop.html?cat=cctv" class="cat-nav-link">CCTV Surveillance</a></li>
           <li><a href="shop.html?cat=storage" class="cat-nav-link">CCTV Hard Disks</a></li>
           <li><a href="shop.html?cat=vdp" class="cat-nav-link">Video Door Phones</a></li>
           <li><a href="shop.html?cat=access" class="cat-nav-link">Biometrics &amp; Access</a></li>
           <li><a href="shop.html?cat=cables" class="cat-nav-link">Cabling &amp; Fiber</a></li>
-          <li><a href="javascript:void(0)" class="cat-nav-link" onclick="toggleMegaMenu()">Brands We Deal &darr;</a></li>
+          <li class="has-dropdown" onmouseenter="openSamsungMegaMenu('brands')" onmouseleave="closeSamsungMegaMenu()">
+            <span class="cat-nav-link" id="navBrands" onclick="toggleSamsungMegaMenu('brands')">Brands We Deal &darr;</span>
+          </li>
           <li><a href="#products" class="cat-nav-link" style="color: #dc2626; font-weight: 900;">Outlet Deals</a></li>
         </ul>
       </nav>
@@ -1283,72 +1511,162 @@
     </div>
 
     <!-- 3. STADIUM OUTLET MEGA-MENU DROPDOWN (EXACT MATCH TO IMAGE 3) -->
-    <div class="stadium-mega-menu" id="stadiumMegaMenu">
-      <div class="container mega-menu-grid">
+    <div class="mega-menu-backdrop" id="megaMenuBackdrop" onclick="closeSamsungMegaMenuInstant()"></div>
+    <div class="stadium-mega-menu" id="stadiumMegaMenu" onmouseenter="keepSamsungMegaMenuOpen()" onmouseleave="closeSamsungMegaMenu()">
+      <div class="container">
         
-        <!-- COLUMN 1: NEWS & DIRECT DEALS -->
-        <div>
-          <div class="mega-col-title">News</div>
-          <ul class="mega-links-list">
-            <li><a href="#products"><span>Best-selling favourites</span></a></li>
-            <li><a href="javascript:void(0)" onclick="toggleMegaMenu()"><span>All 17 Certified Brands</span></a></li>
-            <li><a href="shop.html?deal=bundle"><span>Enterprise 4K Bundles</span></a></li>
-            <li><a href="shop.html"><span>Wholesale 20x Bulk Lots</span></a></li>
-            <li><a href="https://wa.me/917511180808" target="_blank" rel="noopener noreferrer"><span>B2B Wholesale Hotline</span></a></li>
-          </ul>
-        </div>
+        <div class="samsung-mega-wrapper">
+          
+          <!-- LEFT SIDE: ACTIVE PANEL (CATEGORIES OR BRANDS) -->
+          <div class="samsung-content-side">
+            
+            <!-- PANEL A: VISUAL CATEGORIES GRID (EXACT SAMSUNG LAYOUT) -->
+            <div class="samsung-view-panel active" id="viewCategories">
+              <div class="samsung-cat-grid">
+                
+                <!-- TILE 1: 4K DOME CAMERAS -->
+                <a href="shop.html?cat=cctv" class="samsung-cat-card">
+                  <div class="samsung-cat-thumb">
+                    <img src="assets/hero_camera_dome_ai.png" alt="4K Ultra-HD Dome Cameras">
+                  </div>
+                  <div class="samsung-cat-label">4K Dome Cameras</div>
+                </a>
 
-        <!-- COLUMN 2: CCTV SURVEILLANCE & SYSTEMS -->
-        <div>
-          <div class="mega-col-title">CCTV &amp; Surveillance</div>
-          <ul class="mega-links-list">
-            <li><a href="shop.html?cat=cctv" style="font-weight: 700; color: #000000;"><span>Everything in Surveillance</span></a></li>
-            <li><a href="shop.html?cat=cctv"><span>4K Ultra-HD Surveillance</span> <span class="mega-chevron">&rsaquo;</span></a></li>
-            <li><a href="shop.html?cat=cctv"><span>Smart Wi-Fi Pan &amp; Tilt</span> <span class="mega-chevron">&rsaquo;</span></a></li>
-            <li><a href="shop.html?cat=cctv"><span>Solar 4G Perimeter Cameras</span> <span class="mega-chevron">&rsaquo;</span></a></li>
-            <li><a href="shop.html?cat=cctv"><span>Commercial NVR &amp; DVR Hubs</span> <span class="mega-chevron">&rsaquo;</span></a></li>
-            <li><a href="shop.html?cat=vdp"><span>7" Touchscreen Video Intercom</span> <span class="mega-chevron">&rsaquo;</span></a></li>
-            <li><a href="shop.html?cat=cctv"><span>Color Night Vision Domes</span></a></li>
-          </ul>
-        </div>
+                <!-- TILE 2: STARLIGHT BULLET CAMERAS -->
+                <a href="shop.html?cat=cctv" class="samsung-cat-card">
+                  <div class="samsung-cat-thumb">
+                    <img src="assets/official_bestseller_cpplus_e38q_transparent.png" alt="Starlight Bullet Cameras">
+                  </div>
+                  <div class="samsung-cat-label">Starlight Bullets</div>
+                </a>
 
-        <!-- COLUMN 3: STORAGE, POWER & INFRASTRUCTURE -->
-        <div>
-          <div class="mega-col-title">Storage &amp; Infrastructure</div>
-          <ul class="mega-links-list">
-            <li><a href="shop.html?cat=storage" style="font-weight: 700; color: #1d4ed8;"><span>CCTV Hard Disks (3 Brands)</span> <span class="mega-badge-hdd">Surveillance HDD</span></a></li>
-            <li><a href="shop.html?cat=access"><span>Biometric Attendance &amp; Access</span> <span class="mega-chevron">&rsaquo;</span></a></li>
-            <li><a href="shop.html?cat=cables"><span>Pure Copper CAT6 Drums</span> <span class="mega-chevron">&rsaquo;</span></a></li>
-            <li><a href="shop.html?cat=cables"><span>Fiber Optic Transmission</span> <span class="mega-chevron">&rsaquo;</span></a></li>
-            <li><a href="shop.html?cat=accessory"><span>12V Regulated SMPS Units</span> <span class="mega-chevron">&rsaquo;</span></a></li>
-            <li><a href="shop.html?cat=cables"><span>Gigabit PoE Switches</span> <span class="mega-chevron">&rsaquo;</span></a></li>
-            <li><a href="shop.html?cat=accessory"><span>BNC &amp; DC Precision Connectors</span></a></li>
-            <li><a href="shop.html?cat=solutions"><span>Video Conference Peripherals</span></a></li>
-          </ul>
-        </div>
+                <!-- TILE 3: SMART WI-FI PTZ -->
+                <a href="shop.html?cat=cctv" class="samsung-cat-card">
+                  <div class="samsung-cat-thumb">
+                    <img src="assets/cp_e21q_1.png" alt="Smart Wi-Fi PTZ Cameras">
+                  </div>
+                  <div class="samsung-cat-label">Smart Wi-Fi PTZ</div>
+                </a>
 
-        <!-- COLUMN 4: BRANDS WE DEAL (ALL 17 CERTIFIED BRANDS) -->
-        <div>
-          <div class="mega-col-title">Brands We Deal (17)</div>
-          <ul class="mega-links-list mega-brands-columns">
-            <li><a href="shop.html?q=Hikvision"><span>1. Hikvision</span></a></li>
-            <li><a href="shop.html?q=CP+PLUS"><span>2. CP Plus</span></a></li>
-            <li><a href="shop.html?q=Prama"><span>3. Prama</span></a></li>
-            <li><a href="shop.html?q=Hi-Focus"><span>4. Hi-Focus</span></a></li>
-            <li><a href="shop.html?q=Secureye"><span>5. Secureye</span></a></li>
-            <li><a href="shop.html?q=Nexiview"><span>6. Nexiview</span></a></li>
-            <li><a href="shop.html?q=Fiber"><span>7. Fiber</span></a></li>
-            <li><a href="shop.html?q=WD" style="font-weight: 700; color: #1d4ed8;"><span>8. WD</span> <span class="mega-badge-hdd">CCTV HDD</span></a></li>
-            <li><a href="shop.html?q=Seagate" style="font-weight: 700; color: #1d4ed8;"><span>9. Seagate</span> <span class="mega-badge-hdd">CCTV HDD</span></a></li>
-            <li><a href="shop.html?q=Toshiba" style="font-weight: 700; color: #1d4ed8;"><span>10. Toshiba</span> <span class="mega-badge-hdd">CCTV HDD</span></a></li>
-            <li><a href="shop.html?q=Trueview"><span>11. Trueview</span></a></li>
-            <li><a href="shop.html?q=Finolex"><span>12. Finolex</span></a></li>
-            <li><a href="shop.html?q=ESSL"><span>13. ESSL</span></a></li>
-            <li><a href="shop.html?q=ERD"><span>14. ERD</span></a></li>
-            <li><a href="shop.html?q=Logitech"><span>15. Logitech</span></a></li>
-            <li><a href="shop.html?q=MX"><span>16. MX</span></a></li>
-            <li><a href="shop.html?q=TP-Link"><span>17. TP-Link</span></a></li>
-          </ul>
+                <!-- TILE 4: SOLAR 4G CAMERAS -->
+                <a href="shop.html?cat=cctv" class="samsung-cat-card">
+                  <div class="samsung-cat-thumb">
+                    <img src="assets/official_trueview_solar_T18149-01.png" alt="Solar 4G Perimeter Cameras">
+                  </div>
+                  <div class="samsung-cat-label">Solar 4G Cameras</div>
+                </a>
+
+                <!-- TILE 5: CCTV HARD DISKS -->
+                <a href="shop.html?cat=storage" class="samsung-cat-card">
+                  <div class="samsung-cat-thumb">
+                    <img src="assets/acc_official_skyhawk_hdd.png" alt="CCTV Surveillance Hard Disks">
+                  </div>
+                  <div class="samsung-cat-label">CCTV Hard Disks</div>
+                </a>
+
+                <!-- TILE 6: VIDEO DOOR PHONES -->
+                <a href="shop.html?cat=vdp" class="samsung-cat-card">
+                  <div class="samsung-cat-thumb">
+                    <img src="assets/official_vdp_touchscreen_transparent.png" alt="Touchscreen Video Door Phones">
+                  </div>
+                  <div class="samsung-cat-label">Video Door Phones</div>
+                </a>
+
+                <!-- TILE 7: BIOMETRICS & ACCESS -->
+                <a href="shop.html?cat=access" class="samsung-cat-card">
+                  <div class="samsung-cat-thumb">
+                    <img src="assets/official_biometric_reader_transparent.png" alt="Biometrics and Access Readers">
+                  </div>
+                  <div class="samsung-cat-label">Biometric Terminals</div>
+                </a>
+
+                <!-- TILE 8: PURE COPPER CAT6 -->
+                <a href="shop.html?cat=cables" class="samsung-cat-card">
+                  <div class="samsung-cat-thumb">
+                    <img src="assets/acc_official_cat6_drum.png" alt="Pure Copper CAT6 Cable 305m">
+                  </div>
+                  <div class="samsung-cat-label">Pure Copper CAT6</div>
+                </a>
+
+                <!-- TILE 9: POE GIGABIT SWITCHES -->
+                <a href="shop.html?cat=cables" class="samsung-cat-card">
+                  <div class="samsung-cat-thumb">
+                    <img src="assets/trueview_poe_4_2_transparent.png" alt="Commercial PoE Gigabit Switches">
+                  </div>
+                  <div class="samsung-cat-label">PoE Switches</div>
+                </a>
+
+                <!-- TILE 10: 12V MULTI-CH SMPS -->
+                <a href="shop.html?cat=accessory" class="samsung-cat-card">
+                  <div class="samsung-cat-thumb">
+                    <img src="assets/acc_official_smps.png" alt="12V Central SMPS Power Units">
+                  </div>
+                  <div class="samsung-cat-label">12V Central SMPS</div>
+                </a>
+
+                <!-- TILE 11: NVR & DVR CENTRAL HUBS -->
+                <a href="shop.html?cat=cctv" class="samsung-cat-card">
+                  <div class="samsung-cat-thumb">
+                    <img src="assets/wholesale_supply_kit.png" alt="Commercial NVR and DVR Hubs">
+                  </div>
+                  <div class="samsung-cat-label">Commercial NVRs</div>
+                </a>
+
+                <!-- TILE 12: IP66 WEATHERPROOF BOXES -->
+                <a href="shop.html?cat=accessory" class="samsung-cat-card">
+                  <div class="samsung-cat-thumb">
+                    <img src="assets/acc_official_junction_box.png" alt="IP66 Weatherproof Junction Boxes">
+                  </div>
+                  <div class="samsung-cat-label">Junction Boxes</div>
+                </a>
+
+              </div>
+            </div>
+
+            <!-- PANEL B: ALL 17 BRANDS WE DEAL -->
+            <div class="samsung-view-panel" id="viewBrands">
+              <div class="samsung-brands-header">
+                <div style="font-size: 15px; font-weight: 800; color: #000000; margin-bottom: 14px;">
+                  All 17 Authorized Commercial Security Brands
+                </div>
+              </div>
+              <div class="samsung-brands-grid">
+                <a href="shop.html?q=Hikvision" class="samsung-brand-pill"><span>1. Hikvision</span> <span class="brand-tag">CCTV</span></a>
+                <a href="shop.html?q=CP+PLUS" class="samsung-brand-pill"><span>2. CP Plus</span> <span class="brand-tag">CCTV</span></a>
+                <a href="shop.html?q=Prama" class="samsung-brand-pill"><span>3. Prama</span> <span class="brand-tag">CCTV</span></a>
+                <a href="shop.html?q=Hi-Focus" class="samsung-brand-pill"><span>4. Hi-Focus</span> <span class="brand-tag">CCTV</span></a>
+                <a href="shop.html?q=Secureye" class="samsung-brand-pill"><span>5. Secureye</span> <span class="brand-tag">CCTV</span></a>
+                <a href="shop.html?q=Nexiview" class="samsung-brand-pill"><span>6. Nexiview</span> <span class="brand-tag">CCTV</span></a>
+                <a href="shop.html?q=Fiber" class="samsung-brand-pill"><span>7. Fiber</span> <span class="brand-tag">Fiber</span></a>
+                <a href="shop.html?q=WD" class="samsung-brand-pill hdd-brand"><span>8. WD</span> <span class="mega-badge-hdd">CCTV HDD</span></a>
+                <a href="shop.html?q=Seagate" class="samsung-brand-pill hdd-brand"><span>9. Seagate</span> <span class="mega-badge-hdd">CCTV HDD</span></a>
+                <a href="shop.html?q=Toshiba" class="samsung-brand-pill hdd-brand"><span>10. Toshiba</span> <span class="mega-badge-hdd">CCTV HDD</span></a>
+                <a href="shop.html?q=Trueview" class="samsung-brand-pill"><span>11. Trueview</span> <span class="brand-tag">Solar</span></a>
+                <a href="shop.html?q=Finolex" class="samsung-brand-pill"><span>12. Finolex</span> <span class="brand-tag">Cables</span></a>
+                <a href="shop.html?q=ESSL" class="samsung-brand-pill"><span>13. ESSL</span> <span class="brand-tag">Access</span></a>
+                <a href="shop.html?q=ERD" class="samsung-brand-pill"><span>14. ERD</span> <span class="brand-tag">SMPS</span></a>
+                <a href="shop.html?q=Logitech" class="samsung-brand-pill"><span>15. Logitech</span> <span class="brand-tag">AV</span></a>
+                <a href="shop.html?q=MX" class="samsung-brand-pill"><span>16. MX</span> <span class="brand-tag">Connectors</span></a>
+                <a href="shop.html?q=TP-Link" class="samsung-brand-pill"><span>17. TP-Link</span> <span class="brand-tag">PoE</span></a>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- RIGHT SIDE: DISCOVER SIDEBAR (EXACT MATCH TO SAMSUNG SCREENSHOT) -->
+          <div class="samsung-discover-col">
+            <div class="samsung-discover-title">Discover</div>
+            <ul class="samsung-discover-list">
+              <li><a href="#products"><span>Best-Selling Systems</span> <span class="discover-arrow">&rarr;</span></a></li>
+              <li><a href="javascript:void(0)" onclick="openSamsungMegaMenu('brands')"><span>All 17 Certified Brands</span> <span class="discover-arrow">&rarr;</span></a></li>
+              <li><a href="shop.html?cat=storage" style="color: #1d4ed8; font-weight: 700;"><span>CCTV Hard Disks (3 Brands)</span> <span class="discover-arrow">&rarr;</span></a></li>
+              <li><a href="shop.html?deal=bundle"><span>Enterprise 4K Bundles</span> <span class="discover-arrow">&rarr;</span></a></li>
+              <li><a href="shop.html"><span>Wholesale 20x Bulk Lots</span> <span class="discover-arrow">&rarr;</span></a></li>
+              <li><a href="#products" style="color: #dc2626; font-weight: 700;"><span>Outlet Clearance Deals</span> <span class="discover-arrow">&rarr;</span></a></li>
+              <li><a href="https://wa.me/917511180808" target="_blank" rel="noopener noreferrer"><span>B2B WhatsApp Desk</span> <span class="discover-arrow">&rarr;</span></a></li>
+            </ul>
+          </div>
+
         </div>
 
       </div>
@@ -1886,6 +2204,74 @@
   <!-- JAVASCRIPT LOGIC -->
   <script>
     // MEGA MENU TOGGLE (IMAGE 3)
+    
+    // SAMSUNG-STYLE SLIDE DOWN CONTROLLER
+    let megaMenuTimeout = null;
+    const megaMenu = document.getElementById('stadiumMegaMenu');
+    const backdrop = document.getElementById('megaMenuBackdrop');
+    const navCategories = document.getElementById('navCategories');
+    const navBrands = document.getElementById('navBrands');
+
+    function openSamsungMegaMenu(view) {
+      if (megaMenuTimeout) {
+        clearTimeout(megaMenuTimeout);
+        megaMenuTimeout = null;
+      }
+      
+      const viewCatEl = document.getElementById('viewCategories');
+      const viewBrandEl = document.getElementById('viewBrands');
+
+      if (view === 'brands') {
+        if (viewCatEl) viewCatEl.classList.remove('active');
+        if (viewBrandEl) viewBrandEl.classList.add('active');
+        if (navBrands) navBrands.classList.add('active');
+        if (navCategories) navCategories.classList.remove('active');
+      } else {
+        if (viewBrandEl) viewBrandEl.classList.remove('active');
+        if (viewCatEl) viewCatEl.classList.add('active');
+        if (navCategories) navCategories.classList.add('active');
+        if (navBrands) navBrands.classList.remove('active');
+      }
+
+      if (megaMenu) megaMenu.classList.add('open');
+      if (backdrop) backdrop.classList.add('open');
+    }
+
+    function closeSamsungMegaMenu() {
+      megaMenuTimeout = setTimeout(() => {
+        closeSamsungMegaMenuInstant();
+      }, 220);
+    }
+
+    function closeSamsungMegaMenuInstant() {
+      if (megaMenuTimeout) {
+        clearTimeout(megaMenuTimeout);
+        megaMenuTimeout = null;
+      }
+      if (megaMenu) megaMenu.classList.remove('open');
+      if (backdrop) backdrop.classList.remove('open');
+      if (navCategories) navCategories.classList.remove('active');
+      if (navBrands) navBrands.classList.remove('active');
+    }
+
+    function keepSamsungMegaMenuOpen() {
+      if (megaMenuTimeout) {
+        clearTimeout(megaMenuTimeout);
+        megaMenuTimeout = null;
+      }
+    }
+
+    function toggleSamsungMegaMenu(view) {
+      if (megaMenu && megaMenu.classList.contains('open')) {
+        const isBrandsActive = document.getElementById('viewBrands') && document.getElementById('viewBrands').classList.contains('active');
+        if ((view === 'brands' && isBrandsActive) || (view !== 'brands' && !isBrandsActive)) {
+          closeSamsungMegaMenuInstant();
+          return;
+        }
+      }
+      openSamsungMegaMenu(view);
+    }
+
     function toggleMegaMenu() {
       const menu = document.getElementById('stadiumMegaMenu');
       const link = document.getElementById('navCategories');
