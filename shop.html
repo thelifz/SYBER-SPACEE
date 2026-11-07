@@ -1028,12 +1028,13 @@
       <!-- BOTTOM ROW: CATEGORY SUB-NAVIGATION -->
       <nav aria-label="Department Navigation">
         <ul class="category-nav-strip">
-          <li><span class="cat-nav-link" id="navEquipment" onclick="toggleMegaMenu()">Equipment &darr;</span></li>
+          <li><span class="cat-nav-link" id="navCategories" onclick="toggleMegaMenu()">Categories &darr;</span></li>
           <li><a href="#products" class="cat-nav-link" onclick="filterDepartment('cctv')">Bulk CCTV Lots (20x)</a></li>
+          <li><a href="#products" class="cat-nav-link" onclick="filterDepartment('storage')">CCTV Hard Disks</a></li>
           <li><a href="#products" class="cat-nav-link" onclick="filterDepartment('vdp')">VDP Cartons (10x)</a></li>
           <li><a href="#products" class="cat-nav-link" onclick="filterDepartment('access')">Biometric Packs (10x)</a></li>
           <li><a href="#products" class="cat-nav-link" onclick="filterDepartment('cables')">Cable Pallets (5x)</a></li>
-          <li><a href="#products" class="cat-nav-link" onclick="filterDepartment('accessory')">Accessories (50x)</a></li>
+          <li><a href="javascript:void(0)" class="cat-nav-link" onclick="toggleMegaMenu()">Brands We Deal &darr;</a></li>
           <li><a href="index.html" class="cat-nav-link" style="color: #000000; font-weight: 900; background: #f4f4f5; padding: 4px 12px; border-radius: 4px;">Single Units (Retail) &rarr;</a></li>
         </ul>
       </nav>
@@ -1044,48 +1045,65 @@
     <div class="stadium-mega-menu" id="stadiumMegaMenu">
       <div class="container mega-menu-grid">
         
-        <!-- COLUMN 1: CONTRACTOR NEWS -->
+        <!-- COLUMN 1: CONTRACTOR LOTS -->
         <div>
           <div class="mega-col-title">Contractor Lots</div>
           <ul class="mega-links-list">
-            <li><a href="#products">20x Camera Master Cartons</a></li>
-            <li><a href="#products">10x VDP Touchscreen Crates</a></li>
-            <li><a href="#products">Pure Copper Master Pallets</a></li>
-            <li><a href="https://wa.me/917511180808" target="_blank" rel="noopener noreferrer">Request Formal B2B Quotation</a></li>
+            <li><a href="#products"><span>20x Camera Master Cartons</span></a></li>
+            <li><a href="#products"><span>10x VDP Touchscreen Crates</span></a></li>
+            <li><a href="#products"><span>Pure Copper Master Pallets</span></a></li>
+            <li><a href="javascript:void(0)" onclick="toggleMegaMenu()"><span>All 17 Certified Brands</span></a></li>
+            <li><a href="https://wa.me/917511180808" target="_blank" rel="noopener noreferrer"><span>Request Formal B2B Quotation</span></a></li>
           </ul>
         </div>
 
-        <!-- COLUMN 2: HARDWARE SUBSYSTEMS IN BULK -->
+        <!-- COLUMN 2: BULK SURVEILLANCE -->
         <div>
           <div class="mega-col-title">Bulk Surveillance</div>
           <ul class="mega-links-list">
-            <li><a href="#products">20x CP PLUS 2MP Wi-Fi Lots</a></li>
-            <li><a href="#products">10x CP PLUS 5MP Starlight Bullets</a></li>
-            <li><a href="#products">4x Solar 4G PTZ Project Packs</a></li>
-            <li><a href="#products">5x 32-Channel NVR Central Hubs</a></li>
+            <li><a href="#products" style="font-weight: 700; color: #000000;"><span>Everything in Wholesale CCTV</span></a></li>
+            <li><a href="#products" onclick="filterDepartment('cctv')"><span>20x CP PLUS 2MP Wi-Fi Lots</span> <span class="mega-chevron">&rsaquo;</span></a></li>
+            <li><a href="#products" onclick="filterDepartment('cctv')"><span>10x CP PLUS 5MP Starlight Bullets</span> <span class="mega-chevron">&rsaquo;</span></a></li>
+            <li><a href="#products" onclick="filterDepartment('cctv')"><span>4x Solar 4G PTZ Project Packs</span> <span class="mega-chevron">&rsaquo;</span></a></li>
+            <li><a href="#products" onclick="filterDepartment('cctv')"><span>5x 32-Channel NVR Central Hubs</span> <span class="mega-chevron">&rsaquo;</span></a></li>
+            <li><a href="#products" onclick="filterDepartment('vdp')"><span>10x Hikvision 7" VDP Crates</span> <span class="mega-chevron">&rsaquo;</span></a></li>
           </ul>
         </div>
 
-        <!-- COLUMN 3: INSTALLER DEPLOYMENT -->
+        <!-- COLUMN 3: STORAGE & INFRASTRUCTURE -->
         <div>
-          <div class="mega-col-title">Infrastructure &amp; Wire</div>
+          <div class="mega-col-title">Storage &amp; Infrastructure</div>
           <ul class="mega-links-list">
-            <li><a href="#products">5x 305m CAT6 Pallet Packs</a></li>
-            <li><a href="#products">10x 8-Port PoE Switch Cartons</a></li>
-            <li><a href="#products">10x 12V 20A CCTV SMPS Crates</a></li>
-            <li><a href="#products">50x IP66 Junction Box Crates</a></li>
+            <li><a href="#products" style="font-weight: 700; color: #1d4ed8;"><span>CCTV Hard Disks (3 Brands)</span> <span class="mega-badge-hdd">Surveillance HDD</span></a></li>
+            <li><a href="#products" onclick="filterDepartment('cables')"><span>5x 305m CAT6 Pallet Packs</span> <span class="mega-chevron">&rsaquo;</span></a></li>
+            <li><a href="#products" onclick="filterDepartment('cables')"><span>10x 8-Port PoE Switch Cartons</span> <span class="mega-chevron">&rsaquo;</span></a></li>
+            <li><a href="#products" onclick="filterDepartment('accessory')"><span>10x 12V 20A CCTV SMPS Crates</span> <span class="mega-chevron">&rsaquo;</span></a></li>
+            <li><a href="#products" onclick="filterDepartment('accessory')"><span>50x IP66 Weatherproof Crates</span> <span class="mega-chevron">&rsaquo;</span></a></li>
+            <li><a href="#products" onclick="filterDepartment('access')"><span>10x Dahua Biometric Master Lots</span></a></li>
           </ul>
         </div>
 
-        <!-- COLUMN 4: AUTHORIZED TRADEMARKS -->
+        <!-- COLUMN 4: BRANDS WE DEAL (ALL 17 CERTIFIED BRANDS) -->
         <div>
-          <div class="mega-col-title">Direct OEM Brands</div>
-          <ul class="mega-links-list">
-            <li><a href="#products">CP PLUS Wholesale</a></li>
-            <li><a href="#products">Hikvision Commercial</a></li>
-            <li><a href="#products">Dahua Enterprise</a></li>
-            <li><a href="#products">Trueview Industrial</a></li>
-            <li><a href="#products">Seagate SkyHawk Master Lots</a></li>
+          <div class="mega-col-title">Brands We Deal (17)</div>
+          <ul class="mega-links-list mega-brands-columns">
+            <li><a href="#products"><span>1. Hikvision</span></a></li>
+            <li><a href="#products"><span>2. CP Plus</span></a></li>
+            <li><a href="#products"><span>3. Prama</span></a></li>
+            <li><a href="#products"><span>4. Hi-Focus</span></a></li>
+            <li><a href="#products"><span>5. Secureye</span></a></li>
+            <li><a href="#products"><span>6. Nexiview</span></a></li>
+            <li><a href="#products"><span>7. Fiber</span></a></li>
+            <li><a href="#products" style="font-weight: 700; color: #1d4ed8;"><span>8. WD</span> <span class="mega-badge-hdd">CCTV HDD</span></a></li>
+            <li><a href="#products" style="font-weight: 700; color: #1d4ed8;"><span>9. Seagate</span> <span class="mega-badge-hdd">CCTV HDD</span></a></li>
+            <li><a href="#products" style="font-weight: 700; color: #1d4ed8;"><span>10. Toshiba</span> <span class="mega-badge-hdd">CCTV HDD</span></a></li>
+            <li><a href="#products"><span>11. Trueview</span></a></li>
+            <li><a href="#products"><span>12. Finolex</span></a></li>
+            <li><a href="#products"><span>13. ESSL</span></a></li>
+            <li><a href="#products"><span>14. ERD</span></a></li>
+            <li><a href="#products"><span>15. Logitech</span></a></li>
+            <li><a href="#products"><span>16. MX</span></a></li>
+            <li><a href="#products"><span>17. TP-Link</span></a></li>
           </ul>
         </div>
 
@@ -1572,7 +1590,7 @@
     // MEGA MENU TOGGLE
     function toggleMegaMenu() {
       const menu = document.getElementById('stadiumMegaMenu');
-      const link = document.getElementById('navEquipment');
+      const link = document.getElementById('navCategories');
       if (menu) {
         menu.classList.toggle('open');
         if (link) link.classList.toggle('active');
@@ -1582,7 +1600,7 @@
     // Close mega menu when clicking outside
     document.addEventListener('click', (e) => {
       const menu = document.getElementById('stadiumMegaMenu');
-      const link = document.getElementById('navEquipment');
+      const link = document.getElementById('navCategories');
       if (menu && menu.classList.contains('open')) {
         if (!menu.contains(e.target) && e.target !== link) {
           menu.classList.remove('open');

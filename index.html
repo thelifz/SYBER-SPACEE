@@ -288,6 +288,63 @@
       text-decoration-thickness: 2px;
     }
 
+    
+    /* MEGA MENU STYLING ENHANCEMENTS */
+    .mega-links-list a {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      text-decoration: none;
+      font-size: 13.5px;
+      color: #3f3f46;
+      padding: 3px 0;
+      transition: all 0.2s ease;
+    }
+
+    .mega-links-list a:hover {
+      color: #000000;
+      padding-left: 3px;
+    }
+
+    .mega-chevron {
+      color: #a1a1aa;
+      font-size: 15px;
+      font-weight: 400;
+      transition: transform 0.2s ease, color 0.2s ease;
+    }
+
+    .mega-links-list a:hover .mega-chevron {
+      color: #000000;
+      transform: translateX(3px);
+    }
+
+    .mega-badge-hdd {
+      background: #eff6ff;
+      color: #1d4ed8;
+      font-size: 10px;
+      font-weight: 800;
+      padding: 2px 6px;
+      border-radius: 4px;
+      border: 1px solid #bfdbfe;
+      letter-spacing: 0.3px;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    .mega-brands-columns {
+      display: grid !important;
+      grid-template-columns: 1fr 1fr;
+      gap: 6px 14px;
+      max-height: none !important;
+      overflow-y: visible !important;
+      padding: 0;
+    }
+    .mega-brands-columns li a {
+      font-size: 13px;
+      white-space: nowrap;
+    }
+
     /* MEGA MENU DROPDOWN (IMAGE 3) */
     .stadium-mega-menu {
       display: none;
@@ -309,7 +366,7 @@
 
     .mega-menu-grid {
       display: grid;
-      grid-template-columns: 1fr 1.2fr 1.2fr 1fr;
+      grid-template-columns: 0.9fr 1.15fr 1.25fr 1.35fr;
       gap: 44px;
     }
 
@@ -1212,13 +1269,13 @@
       <!-- BOTTOM ROW: CATEGORY SUB-NAVIGATION (IMAGE 2 & 3) -->
       <nav aria-label="Department Navigation">
         <ul class="category-nav-strip">
-          <li><span class="cat-nav-link" id="navEquipment" onclick="toggleMegaMenu()">Equipment &darr;</span></li>
+          <li><span class="cat-nav-link" id="navCategories" onclick="toggleMegaMenu()">Categories &darr;</span></li>
           <li><a href="shop.html?cat=cctv" class="cat-nav-link">CCTV Surveillance</a></li>
+          <li><a href="shop.html?cat=storage" class="cat-nav-link">CCTV Hard Disks</a></li>
           <li><a href="shop.html?cat=vdp" class="cat-nav-link">Video Door Phones</a></li>
-          <li><a href="shop.html?cat=alarm" class="cat-nav-link">Intrusion Alarm</a></li>
-          <li><a href="shop.html?cat=access" class="cat-nav-link">Access Control</a></li>
-          <li><a href="shop.html?cat=cables" class="cat-nav-link">Cables</a></li>
-          <li><a href="shop.html?cat=accessory" class="cat-nav-link">Accessories</a></li>
+          <li><a href="shop.html?cat=access" class="cat-nav-link">Biometrics &amp; Access</a></li>
+          <li><a href="shop.html?cat=cables" class="cat-nav-link">Cabling &amp; Fiber</a></li>
+          <li><a href="javascript:void(0)" class="cat-nav-link" onclick="toggleMegaMenu()">Brands We Deal &darr;</a></li>
           <li><a href="#products" class="cat-nav-link" style="color: #dc2626; font-weight: 900;">Outlet Deals</a></li>
         </ul>
       </nav>
@@ -1229,53 +1286,68 @@
     <div class="stadium-mega-menu" id="stadiumMegaMenu">
       <div class="container mega-menu-grid">
         
-        <!-- COLUMN 1: NEWS / HIGHLIGHTS -->
+        <!-- COLUMN 1: NEWS & DIRECT DEALS -->
         <div>
           <div class="mega-col-title">News</div>
           <ul class="mega-links-list">
-            <li><a href="#products">Best-selling favourites</a></li>
-            <li><a href="shop.html?deal=bundle">Enterprise 4K Bundles</a></li>
-            <li><a href="shop.html?cat=solutions">Certified Trademarks</a></li>
-            <li><a href="https://wa.me/917511180808" target="_blank" rel="noopener noreferrer">B2B Contractor Hotline</a></li>
+            <li><a href="#products"><span>Best-selling favourites</span></a></li>
+            <li><a href="javascript:void(0)" onclick="toggleMegaMenu()"><span>All 17 Certified Brands</span></a></li>
+            <li><a href="shop.html?deal=bundle"><span>Enterprise 4K Bundles</span></a></li>
+            <li><a href="shop.html"><span>Wholesale 20x Bulk Lots</span></a></li>
+            <li><a href="https://wa.me/917511180808" target="_blank" rel="noopener noreferrer"><span>B2B Wholesale Hotline</span></a></li>
           </ul>
         </div>
 
-        <!-- COLUMN 2: HARDWARE SUBSYSTEMS -->
+        <!-- COLUMN 2: CCTV SURVEILLANCE & SYSTEMS -->
         <div>
-          <div class="mega-col-title">Equipment Subsystems</div>
+          <div class="mega-col-title">CCTV &amp; Surveillance</div>
           <ul class="mega-links-list">
-            <li><a href="shop.html?cat=cctv">4K Ultra-HD Surveillance</a></li>
-            <li><a href="shop.html?cat=cctv">Smart Wi-Fi Pan &amp; Tilt</a></li>
-            <li><a href="shop.html?cat=vdp">7" Touchscreen Intercoms</a></li>
-            <li><a href="shop.html?cat=access">Biometric Access Readers</a></li>
-            <li><a href="shop.html?cat=alarm">Dual PIR Perimeter Beams</a></li>
-            <li><a href="shop.html?cat=cables">Pure Copper CAT6 Drums</a></li>
+            <li><a href="shop.html?cat=cctv" style="font-weight: 700; color: #000000;"><span>Everything in Surveillance</span></a></li>
+            <li><a href="shop.html?cat=cctv"><span>4K Ultra-HD Surveillance</span> <span class="mega-chevron">&rsaquo;</span></a></li>
+            <li><a href="shop.html?cat=cctv"><span>Smart Wi-Fi Pan &amp; Tilt</span> <span class="mega-chevron">&rsaquo;</span></a></li>
+            <li><a href="shop.html?cat=cctv"><span>Solar 4G Perimeter Cameras</span> <span class="mega-chevron">&rsaquo;</span></a></li>
+            <li><a href="shop.html?cat=cctv"><span>Commercial NVR &amp; DVR Hubs</span> <span class="mega-chevron">&rsaquo;</span></a></li>
+            <li><a href="shop.html?cat=vdp"><span>7" Touchscreen Video Intercom</span> <span class="mega-chevron">&rsaquo;</span></a></li>
+            <li><a href="shop.html?cat=cctv"><span>Color Night Vision Domes</span></a></li>
           </ul>
         </div>
 
-        <!-- COLUMN 3: DEPLOYMENT INFRASTRUCTURE -->
+        <!-- COLUMN 3: STORAGE, POWER & INFRASTRUCTURE -->
         <div>
-          <div class="mega-col-title">Infrastructure &amp; Power</div>
+          <div class="mega-col-title">Storage &amp; Infrastructure</div>
           <ul class="mega-links-list">
-            <li><a href="shop.html?cat=cables">PoE Gigabit Switches</a></li>
-            <li><a href="shop.html?cat=accessory">12V Regulated SMPS Units</a></li>
-            <li><a href="shop.html?cat=access">600lbs Heavy-Duty EM Locks</a></li>
-            <li><a href="shop.html?cat=cctv">NVR Centralized Hubs</a></li>
-            <li><a href="shop.html?cat=accessory">BNC &amp; DC Connector Packs</a></li>
-            <li><a href="shop.html?cat=accessory">Industrial Weatherproof Boxes</a></li>
+            <li><a href="shop.html?cat=storage" style="font-weight: 700; color: #1d4ed8;"><span>CCTV Hard Disks (3 Brands)</span> <span class="mega-badge-hdd">Surveillance HDD</span></a></li>
+            <li><a href="shop.html?cat=access"><span>Biometric Attendance &amp; Access</span> <span class="mega-chevron">&rsaquo;</span></a></li>
+            <li><a href="shop.html?cat=cables"><span>Pure Copper CAT6 Drums</span> <span class="mega-chevron">&rsaquo;</span></a></li>
+            <li><a href="shop.html?cat=cables"><span>Fiber Optic Transmission</span> <span class="mega-chevron">&rsaquo;</span></a></li>
+            <li><a href="shop.html?cat=accessory"><span>12V Regulated SMPS Units</span> <span class="mega-chevron">&rsaquo;</span></a></li>
+            <li><a href="shop.html?cat=cables"><span>Gigabit PoE Switches</span> <span class="mega-chevron">&rsaquo;</span></a></li>
+            <li><a href="shop.html?cat=accessory"><span>BNC &amp; DC Precision Connectors</span></a></li>
+            <li><a href="shop.html?cat=solutions"><span>Video Conference Peripherals</span></a></li>
           </ul>
         </div>
 
-        <!-- COLUMN 4: AUTHORIZED TRADEMARKS -->
+        <!-- COLUMN 4: BRANDS WE DEAL (ALL 17 CERTIFIED BRANDS) -->
         <div>
-          <div class="mega-col-title">Trademarks</div>
-          <ul class="mega-links-list">
-            <li><a href="shop.html?q=CP+PLUS">CP PLUS</a></li>
-            <li><a href="shop.html?q=Hikvision">Hikvision</a></li>
-            <li><a href="shop.html?q=Dahua">Dahua</a></li>
-            <li><a href="shop.html?q=Trueview">Trueview</a></li>
-            <li><a href="shop.html?q=Secureye">Secureye</a></li>
-            <li><a href="shop.html?q=TP-Link">TP-Link</a></li>
+          <div class="mega-col-title">Brands We Deal (17)</div>
+          <ul class="mega-links-list mega-brands-columns">
+            <li><a href="shop.html?q=Hikvision"><span>1. Hikvision</span></a></li>
+            <li><a href="shop.html?q=CP+PLUS"><span>2. CP Plus</span></a></li>
+            <li><a href="shop.html?q=Prama"><span>3. Prama</span></a></li>
+            <li><a href="shop.html?q=Hi-Focus"><span>4. Hi-Focus</span></a></li>
+            <li><a href="shop.html?q=Secureye"><span>5. Secureye</span></a></li>
+            <li><a href="shop.html?q=Nexiview"><span>6. Nexiview</span></a></li>
+            <li><a href="shop.html?q=Fiber"><span>7. Fiber</span></a></li>
+            <li><a href="shop.html?q=WD" style="font-weight: 700; color: #1d4ed8;"><span>8. WD</span> <span class="mega-badge-hdd">CCTV HDD</span></a></li>
+            <li><a href="shop.html?q=Seagate" style="font-weight: 700; color: #1d4ed8;"><span>9. Seagate</span> <span class="mega-badge-hdd">CCTV HDD</span></a></li>
+            <li><a href="shop.html?q=Toshiba" style="font-weight: 700; color: #1d4ed8;"><span>10. Toshiba</span> <span class="mega-badge-hdd">CCTV HDD</span></a></li>
+            <li><a href="shop.html?q=Trueview"><span>11. Trueview</span></a></li>
+            <li><a href="shop.html?q=Finolex"><span>12. Finolex</span></a></li>
+            <li><a href="shop.html?q=ESSL"><span>13. ESSL</span></a></li>
+            <li><a href="shop.html?q=ERD"><span>14. ERD</span></a></li>
+            <li><a href="shop.html?q=Logitech"><span>15. Logitech</span></a></li>
+            <li><a href="shop.html?q=MX"><span>16. MX</span></a></li>
+            <li><a href="shop.html?q=TP-Link"><span>17. TP-Link</span></a></li>
           </ul>
         </div>
 
@@ -1816,7 +1888,7 @@
     // MEGA MENU TOGGLE (IMAGE 3)
     function toggleMegaMenu() {
       const menu = document.getElementById('stadiumMegaMenu');
-      const link = document.getElementById('navEquipment');
+      const link = document.getElementById('navCategories');
       if (menu) {
         menu.classList.toggle('open');
         if (link) link.classList.toggle('active');
@@ -1826,7 +1898,7 @@
     // Close mega menu when clicking outside
     document.addEventListener('click', (e) => {
       const menu = document.getElementById('stadiumMegaMenu');
-      const link = document.getElementById('navEquipment');
+      const link = document.getElementById('navCategories');
       if (menu && menu.classList.contains('open')) {
         if (!menu.contains(e.target) && e.target !== link) {
           menu.classList.remove('open');
