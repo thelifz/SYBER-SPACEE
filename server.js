@@ -235,7 +235,7 @@ function formatTaxInvoiceEmail(order) {
     const bodyText = `
 =============================================================================
 SYBER SPACE SECURITY SYSTEMS — COMMERCIAL TAX INVOICE & DISPATCH ORDER
-Authorized CCTV Surveillance Systems // Direct Wholesale Kerala HQ
+Authorized CCTV Surveillance Systems // Direct Wholesale Central HQ
 GSTIN: 32AABCU9603R1ZM  |  Phone: +91 75111 80808  |  Email: info.syberspacestore@gmail.com
 =============================================================================
 
@@ -258,19 +258,19 @@ Mobile Phone:       +91 ${cust.phone || 'N/A'}
 Email Address:      ${cust.email || 'N/A'}
 Delivery Address:   ${cust.address || 'N/A'}
 City / District:    ${cust.city || 'N/A'}
-State:              ${cust.state || 'Kerala'} (State Code: 32)
+State:              ${cust.state || 'Primary'} (State Code: 32)
 Postal Pincode:     ${cust.pincode || 'N/A'}
 
 ORDERED SURVEILLANCE HARDWARE:
 -----------------------------------------------------------------------------
 ${itemsTableText}
 
-FINANCIAL BREAKDOWN (KERALA GST):
+FINANCIAL BREAKDOWN (GST INVOICE):
 -----------------------------------------------------------------------------
 Taxable Hardware Value:  Rs. ${taxableAmt.toLocaleString('en-IN')}
 GST @ 18% (Included):     Rs. ${gstAmt.toLocaleString('en-IN')}
 Transit Insurance:       COMPLIMENTARY
-Express Courier Delivery: FREE INSURED COURIER (Direct Kerala Warehouse)
+Express Courier Delivery: FREE INSURED COURIER (Direct Central Warehouse)
 -----------------------------------------------------------------------------
 TOTAL AMOUNT RECEIVED:   Rs. ${totalAmt.toLocaleString('en-IN')}
 -----------------------------------------------------------------------------
@@ -323,7 +323,7 @@ Payout / Bank Info: ${refundData.payoutDetails || 'Not Provided'}
 Unboxing Video:     ${refundData.unboxingVideoConfirmed ? 'CONFIRMED AVAILABLE BY CUSTOMER' : 'NOT CONFIRMED'}
 Customer Notes:     ${refundData.notes || 'No additional comments provided'}
 
-NEXT STEPS FOR KERALA SUPPORT DESK:
+NEXT STEPS FOR B2B SUPPORT DESK:
 1. Verify order in orders_vault.json.
 2. Request continuous unboxing video from customer via WhatsApp (+91 ${refundData.customerPhone}).
 3. For Refunds: Initiate UPI/Bank transfer within 24-48 hours upon parcel return.
@@ -419,6 +419,57 @@ const server = http.createServer((req, res) => {
     // =========================================================================
     // API ROUTE: HEALTH CHECK & AUDIT PROBES (Render, Railway, AWS ECS, GCP)
     // =========================================================================
+    
+    // =========================================================================
+    // BRANDS DIRECTORY API (ALL 17 VERIFIED COMMERCIAL SECURITY BRANDS)
+    // =========================================================================
+    if (pathname === '/api/brands' && req.method === 'GET') {
+        const brandsList = [
+            { id: 'hikvision', name: 'Hikvision', domain: 'CCTV & VDP', logo: 'assets/brands/hikvision.svg', isCctvHardDisk: false },
+            { id: 'cpplus', name: 'CP Plus', domain: 'Surveillance & Wi-Fi', logo: 'assets/brands/cpplus.svg', isCctvHardDisk: false },
+            { id: 'prama', name: 'Prama', domain: 'Commercial CCTV', logo: 'assets/brands/prama.svg', isCctvHardDisk: false },
+            { id: 'hifocus', name: 'Hi-Focus', domain: 'HD Video Security', logo: 'assets/brands/hifocus.svg', isCctvHardDisk: false },
+            { id: 'secureye', name: 'Secureye', domain: 'Biometrics & CCTV', logo: 'assets/brands/secureye.svg', isCctvHardDisk: false },
+            { id: 'nexiview', name: 'Nexiview', domain: 'CCTV Surveillance', logo: 'assets/brands/nexiview.svg', isCctvHardDisk: false },
+            { id: 'fiber', name: 'Fiber', domain: 'Optical Fiber Transmission', logo: 'assets/brands/fiber.svg', isCctvHardDisk: false },
+            { id: 'wd', name: 'WD Purple', domain: 'CCTV Hard Disk (24/7)', logo: 'assets/brands/wd.svg', isCctvHardDisk: true },
+            { id: 'seagate', name: 'Seagate SkyHawk', domain: 'CCTV Hard Disk (24/7)', logo: 'assets/brands/seagate.svg', isCctvHardDisk: true },
+            { id: 'toshiba', name: 'Toshiba S300', domain: 'CCTV Hard Disk (24/7)', logo: 'assets/brands/toshiba.svg', isCctvHardDisk: true },
+            { id: 'trueview', name: 'Trueview', domain: 'Solar 4G & PoE', logo: 'assets/brands/trueview.svg', isCctvHardDisk: false },
+            { id: 'finolex', name: 'Finolex', domain: 'Pure Copper Cables', logo: 'assets/brands/finolex.svg', isCctvHardDisk: false },
+            { id: 'essl', name: 'ESSL', domain: 'Biometrics & Access', logo: 'assets/brands/essl.svg', isCctvHardDisk: false },
+            { id: 'erd', name: 'ERD', domain: '12V CCTV SMPS Units', logo: 'assets/brands/erd.svg', isCctvHardDisk: false },
+            { id: 'logitech', name: 'Logitech', domain: 'Video Collaboration', logo: 'assets/brands/logitech.svg', isCctvHardDisk: false },
+            { id: 'mx', name: 'MX', domain: 'BNC & AV Hardware', logo: 'assets/brands/mx.svg', isCctvHardDisk: false },
+            { id: 'tplink', name: 'TP-Link', domain: 'Networking & PoE', logo: 'assets/brands/tplink.svg', isCctvHardDisk: false }
+        ];
+
+        return sendJson(200, {
+            success: true,
+            totalBrands: brandsList.length,
+            cctvHardDiskCount: brandsList.filter(b => b.isCctvHardDisk).length,
+            cctvHardDiskBrands: brandsList.filter(b => b.isCctvHardDisk).map(b => b.name),
+            brands: brandsList
+        });
+    }
+
+    // =========================================================================
+    // CATEGORIES & DEPARTMENTS API
+    // =========================================================================
+    if (pathname === '/api/categories' && req.method === 'GET') {
+        return sendJson(200, {
+            success: true,
+            departments: [
+                { id: 'cctv', title: 'CCTV Surveillance', count: 24, url: 'shop.html?cat=cctv' },
+                { id: 'storage', title: 'CCTV Hard Disks', count: 12, url: 'shop.html?cat=storage' },
+                { id: 'vdp', title: 'Video Door Phones', count: 8, url: 'shop.html?cat=vdp' },
+                { id: 'access', title: 'Biometrics & Access', count: 14, url: 'shop.html?cat=access' },
+                { id: 'cables', title: 'Cabling & Fiber', count: 16, url: 'shop.html?cat=cables' },
+                { id: 'accessory', title: 'Accessories & Power', count: 19, url: 'shop.html?cat=accessory' }
+            ]
+        });
+    }
+
     if ((pathname === '/health' || pathname === '/api/health') && req.method === 'GET') {
         return sendJson(200, {
             status: 'HEALTHY',
@@ -843,7 +894,7 @@ const server = http.createServer((req, res) => {
             return sendJson(200, {
                 success: true,
                 refundRef,
-                message: `Your ${refundRecord.requestType} request has been transmitted to ${COMPANY_EMAIL}. Our Kerala desk will verify and contact you within 24–48 hours.`,
+                message: `Your ${refundRecord.requestType} request has been transmitted to ${COMPANY_EMAIL}. Our B2B desk will verify and contact you within 24–48 hours.`,
                 recipient: COMPANY_EMAIL,
                 policy: 'NO CANCELLATION // ONLY REFUND & EXCHANGE',
                 submittedAt: refundRecord.submittedAt

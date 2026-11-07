@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 50">
+  <rect x="6" y="8" width="148" height="34" rx="4" fill="#fff1f2" stroke="#E11D48" stroke-width="1.5"/>
+  <rect x="14" y="14" width="22" height="22" rx="3" fill="#E11D48"/>
+  <text x="17" y="29" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif" font-size="10" font-weight="900" fill="#ffffff">S3</text>
+  <text x="42" y="29" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif" font-size="13.5" font-weight="900" fill="#9f1239" letter-spacing="0.5">TOSHIBA</text>
+</svg>

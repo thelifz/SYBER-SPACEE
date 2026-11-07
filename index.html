@@ -322,6 +322,124 @@
       transform: scaleX(1);
     }
 
+    
+    /* ANTI-GLITCH HOVER BRIDGE & SMOOTHNESS ENHANCEMENTS */
+    .stadium-mega-menu::before {
+      content: '';
+      position: absolute;
+      top: -30px;
+      left: 0;
+      right: 0;
+      height: 30px;
+      background: transparent;
+      pointer-events: auto;
+    }
+
+    .samsung-content-side {
+      min-height: 250px;
+      position: relative;
+    }
+
+    .samsung-view-panel {
+      display: none;
+      opacity: 0;
+      transform: translateY(4px);
+      transition: opacity 0.22s cubic-bezier(0.16, 1, 0.3, 1), transform 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .samsung-view-panel.active {
+      display: block;
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* BRAND CARDS WITH IMAGES / LOGOS */
+    .samsung-brands-cards-grid {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 10px 8px;
+    }
+
+    .samsung-brand-card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      text-decoration: none;
+      background: #ffffff;
+      border: 1.5px solid #e4e4e7;
+      border-radius: 8px;
+      padding: 8px 6px;
+      transition: all 0.2s ease;
+    }
+
+    .samsung-brand-card:hover {
+      border-color: #000000;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.06);
+    }
+
+    .samsung-brand-logo-wrap {
+      width: 100%;
+      height: 38px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 6px;
+    }
+
+    .samsung-brand-logo-wrap img {
+      max-height: 32px;
+      max-width: 92%;
+      object-fit: contain;
+    }
+
+    .samsung-brand-details {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2px;
+      width: 100%;
+    }
+
+    .samsung-brand-name {
+      font-size: 11.5px;
+      font-weight: 800;
+      color: #18181b;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 100%;
+    }
+
+    .samsung-brand-tag {
+      font-size: 9.5px;
+      font-weight: 700;
+      color: #71717a;
+      background: #f4f4f5;
+      padding: 1px 6px;
+      border-radius: 4px;
+      white-space: nowrap;
+    }
+
+    /* HARD DISK CARDS SPECIAL STYLING */
+    .samsung-brand-card.hdd-special-card {
+      border-color: #bfdbfe;
+      background: #f8faff;
+    }
+
+    .samsung-brand-card.hdd-special-card:hover {
+      border-color: #2563eb;
+      box-shadow: 0 8px 16px rgba(37, 99, 235, 0.12);
+    }
+
+    .samsung-brand-tag.hdd-tag {
+      background: #eff6ff;
+      color: #1d4ed8;
+      border: 1px solid #bfdbfe;
+      font-weight: 800;
+    }
+
     /* MEGA MENU STYLING ENHANCEMENTS */
     .mega-links-list a {
       display: flex;
@@ -1773,26 +1891,167 @@
             </div>
 
             <!-- PANEL 7: ALL 17 BRANDS WE DEAL -->
+                        <!-- PANEL 7: ALL 17 BRANDS WE DEAL (WITH AUTHENTIC LOGOS & DOMAIN BADGES) -->
             <div class="samsung-view-panel" id="view_brands">
-              <div class="samsung-panel-title">All 17 Authorized Commercial Security Brands</div>
-              <div class="samsung-brands-grid">
-                <a href="shop.html?q=Hikvision" class="samsung-brand-pill"><span>1. Hikvision</span> <span class="brand-tag">CCTV</span></a>
-                <a href="shop.html?q=CP+PLUS" class="samsung-brand-pill"><span>2. CP Plus</span> <span class="brand-tag">CCTV</span></a>
-                <a href="shop.html?q=Prama" class="samsung-brand-pill"><span>3. Prama</span> <span class="brand-tag">CCTV</span></a>
-                <a href="shop.html?q=Hi-Focus" class="samsung-brand-pill"><span>4. Hi-Focus</span> <span class="brand-tag">CCTV</span></a>
-                <a href="shop.html?q=Secureye" class="samsung-brand-pill"><span>5. Secureye</span> <span class="brand-tag">CCTV</span></a>
-                <a href="shop.html?q=Nexiview" class="samsung-brand-pill"><span>6. Nexiview</span> <span class="brand-tag">CCTV</span></a>
-                <a href="shop.html?q=Fiber" class="samsung-brand-pill"><span>7. Fiber</span> <span class="brand-tag">Fiber</span></a>
-                <a href="shop.html?q=WD" class="samsung-brand-pill hdd-brand"><span>8. WD</span> <span class="mega-badge-hdd">CCTV HDD</span></a>
-                <a href="shop.html?q=Seagate" class="samsung-brand-pill hdd-brand"><span>9. Seagate</span> <span class="mega-badge-hdd">CCTV HDD</span></a>
-                <a href="shop.html?q=Toshiba" class="samsung-brand-pill hdd-brand"><span>10. Toshiba</span> <span class="mega-badge-hdd">CCTV HDD</span></a>
-                <a href="shop.html?q=Trueview" class="samsung-brand-pill"><span>11. Trueview</span> <span class="brand-tag">Solar</span></a>
-                <a href="shop.html?q=Finolex" class="samsung-brand-pill"><span>12. Finolex</span> <span class="brand-tag">Cables</span></a>
-                <a href="shop.html?q=ESSL" class="samsung-brand-pill"><span>13. ESSL</span> <span class="brand-tag">Access</span></a>
-                <a href="shop.html?q=ERD" class="samsung-brand-pill"><span>14. ERD</span> <span class="brand-tag">SMPS</span></a>
-                <a href="shop.html?q=Logitech" class="samsung-brand-pill"><span>15. Logitech</span> <span class="brand-tag">AV</span></a>
-                <a href="shop.html?q=MX" class="samsung-brand-pill"><span>16. MX</span> <span class="brand-tag">Connectors</span></a>
-                <a href="shop.html?q=TP-Link" class="samsung-brand-pill"><span>17. TP-Link</span> <span class="brand-tag">PoE</span></a>
+              <div class="samsung-panel-title">
+                All 17 Authorized Commercial Security Brands
+                <span class="samsung-title-badge" style="font-size: 11px; font-weight: 700; color: #1e40af; background: #eff6ff; padding: 2px 8px; border-radius: 9999px; margin-left: 8px;">Certified OEM Partners</span>
+              </div>
+              <div class="samsung-brands-cards-grid">
+                
+                <!-- 1. HIKVISION -->
+                <a href="shop.html?q=Hikvision" class="samsung-brand-card">
+                  <div class="samsung-brand-logo-wrap"><img src="assets/brands/hikvision.svg" alt="Hikvision CCTV &amp; VDP"></div>
+                  <div class="samsung-brand-details">
+                    <span class="samsung-brand-name">Hikvision</span>
+                    <span class="samsung-brand-tag">CCTV &amp; VDP</span>
+                  </div>
+                </a>
+
+                <!-- 2. CP PLUS -->
+                <a href="shop.html?q=CP+PLUS" class="samsung-brand-card">
+                  <div class="samsung-brand-logo-wrap"><img src="assets/brands/cpplus.svg" alt="CP Plus Surveillance"></div>
+                  <div class="samsung-brand-details">
+                    <span class="samsung-brand-name">CP Plus</span>
+                    <span class="samsung-brand-tag">Surveillance</span>
+                  </div>
+                </a>
+
+                <!-- 3. PRAMA -->
+                <a href="shop.html?q=Prama" class="samsung-brand-card">
+                  <div class="samsung-brand-logo-wrap"><img src="assets/brands/prama.svg" alt="Prama Commercial CCTV"></div>
+                  <div class="samsung-brand-details">
+                    <span class="samsung-brand-name">Prama</span>
+                    <span class="samsung-brand-tag">Commercial CCTV</span>
+                  </div>
+                </a>
+
+                <!-- 4. HI-FOCUS -->
+                <a href="shop.html?q=Hi-Focus" class="samsung-brand-card">
+                  <div class="samsung-brand-logo-wrap"><img src="assets/brands/hifocus.svg" alt="Hi-Focus HD Video"></div>
+                  <div class="samsung-brand-details">
+                    <span class="samsung-brand-name">Hi-Focus</span>
+                    <span class="samsung-brand-tag">HD Video</span>
+                  </div>
+                </a>
+
+                <!-- 5. SECUREYE -->
+                <a href="shop.html?q=Secureye" class="samsung-brand-card">
+                  <div class="samsung-brand-logo-wrap"><img src="assets/brands/secureye.svg" alt="Secureye Biometrics &amp; CCTV"></div>
+                  <div class="samsung-brand-details">
+                    <span class="samsung-brand-name">Secureye</span>
+                    <span class="samsung-brand-tag">Biometrics</span>
+                  </div>
+                </a>
+
+                <!-- 6. NEXIVIEW -->
+                <a href="shop.html?q=Nexiview" class="samsung-brand-card">
+                  <div class="samsung-brand-logo-wrap"><img src="assets/brands/nexiview.svg" alt="Nexiview Surveillance"></div>
+                  <div class="samsung-brand-details">
+                    <span class="samsung-brand-name">Nexiview</span>
+                    <span class="samsung-brand-tag">Surveillance</span>
+                  </div>
+                </a>
+
+                <!-- 7. FIBER -->
+                <a href="shop.html?q=Fiber" class="samsung-brand-card">
+                  <div class="samsung-brand-logo-wrap"><img src="assets/brands/fiber.svg" alt="Fiber Optical Transmission"></div>
+                  <div class="samsung-brand-details">
+                    <span class="samsung-brand-name">Fiber</span>
+                    <span class="samsung-brand-tag">Optical Cable</span>
+                  </div>
+                </a>
+
+                <!-- 8. WD PURPLE (CCTV HARD DISK) -->
+                <a href="shop.html?q=WD" class="samsung-brand-card hdd-special-card">
+                  <div class="samsung-brand-logo-wrap"><img src="assets/brands/wd.svg" alt="WD Purple CCTV Hard Disk"></div>
+                  <div class="samsung-brand-details">
+                    <span class="samsung-brand-name" style="color: #581c87;">WD Purple</span>
+                    <span class="samsung-brand-tag hdd-tag">CCTV Hard Disk</span>
+                  </div>
+                </a>
+
+                <!-- 9. SEAGATE SKYHAWK (CCTV HARD DISK) -->
+                <a href="shop.html?q=Seagate" class="samsung-brand-card hdd-special-card">
+                  <div class="samsung-brand-logo-wrap"><img src="assets/brands/seagate.svg" alt="Seagate SkyHawk CCTV Hard Disk"></div>
+                  <div class="samsung-brand-details">
+                    <span class="samsung-brand-name" style="color: #065f46;">Seagate SkyHawk</span>
+                    <span class="samsung-brand-tag hdd-tag">CCTV Hard Disk</span>
+                  </div>
+                </a>
+
+                <!-- 10. TOSHIBA S300 (CCTV HARD DISK) -->
+                <a href="shop.html?q=Toshiba" class="samsung-brand-card hdd-special-card">
+                  <div class="samsung-brand-logo-wrap"><img src="assets/brands/toshiba.svg" alt="Toshiba S300 CCTV Hard Disk"></div>
+                  <div class="samsung-brand-details">
+                    <span class="samsung-brand-name" style="color: #9f1239;">Toshiba S300</span>
+                    <span class="samsung-brand-tag hdd-tag">CCTV Hard Disk</span>
+                  </div>
+                </a>
+
+                <!-- 11. TRUEVIEW -->
+                <a href="shop.html?q=Trueview" class="samsung-brand-card">
+                  <div class="samsung-brand-logo-wrap"><img src="assets/brands/trueview.svg" alt="Trueview Solar 4G &amp; PoE"></div>
+                  <div class="samsung-brand-details">
+                    <span class="samsung-brand-name">Trueview</span>
+                    <span class="samsung-brand-tag">Solar &amp; PoE</span>
+                  </div>
+                </a>
+
+                <!-- 12. FINOLEX -->
+                <a href="shop.html?q=Finolex" class="samsung-brand-card">
+                  <div class="samsung-brand-logo-wrap"><img src="assets/brands/finolex.svg" alt="Finolex Pure Copper Cables"></div>
+                  <div class="samsung-brand-details">
+                    <span class="samsung-brand-name">Finolex</span>
+                    <span class="samsung-brand-tag">Copper Cables</span>
+                  </div>
+                </a>
+
+                <!-- 13. ESSL -->
+                <a href="shop.html?q=ESSL" class="samsung-brand-card">
+                  <div class="samsung-brand-logo-wrap"><img src="assets/brands/essl.svg" alt="eSSL Biometrics &amp; Access"></div>
+                  <div class="samsung-brand-details">
+                    <span class="samsung-brand-name">eSSL</span>
+                    <span class="samsung-brand-tag">Biometrics</span>
+                  </div>
+                </a>
+
+                <!-- 14. ERD -->
+                <a href="shop.html?q=ERD" class="samsung-brand-card">
+                  <div class="samsung-brand-logo-wrap"><img src="assets/brands/erd.svg" alt="ERD 12V CCTV SMPS"></div>
+                  <div class="samsung-brand-details">
+                    <span class="samsung-brand-name">ERD</span>
+                    <span class="samsung-brand-tag">12V SMPS</span>
+                  </div>
+                </a>
+
+                <!-- 15. LOGITECH -->
+                <a href="shop.html?q=Logitech" class="samsung-brand-card">
+                  <div class="samsung-brand-logo-wrap"><img src="assets/brands/logitech.svg" alt="Logitech Video Collaboration"></div>
+                  <div class="samsung-brand-details">
+                    <span class="samsung-brand-name">Logitech</span>
+                    <span class="samsung-brand-tag">AV Systems</span>
+                  </div>
+                </a>
+
+                <!-- 16. MX -->
+                <a href="shop.html?q=MX" class="samsung-brand-card">
+                  <div class="samsung-brand-logo-wrap"><img src="assets/brands/mx.svg" alt="MX MDR Connectors"></div>
+                  <div class="samsung-brand-details">
+                    <span class="samsung-brand-name">MX MDR</span>
+                    <span class="samsung-brand-tag">Connectors</span>
+                  </div>
+                </a>
+
+                <!-- 17. TP-LINK -->
+                <a href="shop.html?q=TP-Link" class="samsung-brand-card">
+                  <div class="samsung-brand-logo-wrap"><img src="assets/brands/tplink.svg" alt="TP-Link Networking &amp; PoE"></div>
+                  <div class="samsung-brand-details">
+                    <span class="samsung-brand-name">TP-Link</span>
+                    <span class="samsung-brand-tag">PoE &amp; Wi-Fi</span>
+                  </div>
+                </a>
+
               </div>
             </div>
 
@@ -2477,7 +2736,7 @@
     function closeSamsungMegaMenu() {
       megaMenuTimeout = setTimeout(() => {
         closeSamsungMegaMenuInstant();
-      }, 220);
+      }, 320);
     }
 
     function closeSamsungMegaMenuInstant() {

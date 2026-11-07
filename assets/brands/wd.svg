@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 50">
+  <rect x="6" y="8" width="148" height="34" rx="4" fill="#f5f3ff" stroke="#7C3AED" stroke-width="1.5"/>
+  <rect x="14" y="14" width="22" height="22" rx="3" fill="#581C87"/>
+  <text x="18" y="29" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif" font-size="11" font-weight="900" fill="#ffffff">WD</text>
+  <text x="42" y="29" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif" font-size="14" font-weight="900" fill="#581C87" letter-spacing="0.5">PURPLE</text>
+</svg>
