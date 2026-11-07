@@ -1253,15 +1253,25 @@
       <nav aria-label="Department Navigation" class="stadium-nav-container">
         <ul class="category-nav-strip">
           <li class="has-dropdown" onmouseenter="openSamsungMegaMenu('categories')" onmouseleave="closeSamsungMegaMenu()">
-            <span class="cat-nav-link" id="navCategories" onclick="toggleSamsungMegaMenu('categories')">Categories &darr;</span>
+            <span class="cat-nav-link" id="nav_categories" onclick="toggleSamsungMegaMenu('categories')">Categories &darr;</span>
           </li>
-          <li><a href="#products" class="cat-nav-link" onclick="filterDepartment('cctv')">Bulk CCTV Lots (20x)</a></li>
-          <li><a href="#products" class="cat-nav-link" onclick="filterDepartment('storage')">CCTV Hard Disks</a></li>
-          <li><a href="#products" class="cat-nav-link" onclick="filterDepartment('vdp')">VDP Cartons (10x)</a></li>
-          <li><a href="#products" class="cat-nav-link" onclick="filterDepartment('access')">Biometric Packs (10x)</a></li>
-          <li><a href="#products" class="cat-nav-link" onclick="filterDepartment('cables')">Cable Pallets (5x)</a></li>
+          <li class="has-dropdown" onmouseenter="openSamsungMegaMenu('cctv')" onmouseleave="closeSamsungMegaMenu()">
+            <a href="#products" onclick="filterDepartment('cctv')" class="cat-nav-link" id="nav_cctv">Bulk CCTV Lots (20x)</a>
+          </li>
+          <li class="has-dropdown" onmouseenter="openSamsungMegaMenu('storage')" onmouseleave="closeSamsungMegaMenu()">
+            <a href="#products" onclick="filterDepartment('storage')" class="cat-nav-link" id="nav_storage">CCTV Hard Disks</a>
+          </li>
+          <li class="has-dropdown" onmouseenter="openSamsungMegaMenu('vdp')" onmouseleave="closeSamsungMegaMenu()">
+            <a href="#products" onclick="filterDepartment('vdp')" class="cat-nav-link" id="nav_vdp">VDP Cartons (10x)</a>
+          </li>
+          <li class="has-dropdown" onmouseenter="openSamsungMegaMenu('access')" onmouseleave="closeSamsungMegaMenu()">
+            <a href="#products" onclick="filterDepartment('access')" class="cat-nav-link" id="nav_access">Biometric Packs (10x)</a>
+          </li>
+          <li class="has-dropdown" onmouseenter="openSamsungMegaMenu('cables')" onmouseleave="closeSamsungMegaMenu()">
+            <a href="#products" onclick="filterDepartment('cables')" class="cat-nav-link" id="nav_cables">Cable Pallets (5x)</a>
+          </li>
           <li class="has-dropdown" onmouseenter="openSamsungMegaMenu('brands')" onmouseleave="closeSamsungMegaMenu()">
-            <span class="cat-nav-link" id="navBrands" onclick="toggleSamsungMegaMenu('brands')">Brands We Deal &darr;</span>
+            <span class="cat-nav-link" id="nav_brands" onclick="toggleSamsungMegaMenu('brands')">Brands We Deal &darr;</span>
           </li>
           <li><a href="index.html" class="cat-nav-link" style="color: #000000; font-weight: 900; background: #f4f4f5; padding: 4px 12px; border-radius: 4px;">Single Units (Retail) &rarr;</a></li>
         </ul>
@@ -1910,32 +1920,124 @@
   <script>
     // MEGA MENU TOGGLE
     
-    // SAMSUNG-STYLE SLIDE DOWN CONTROLLER
+    
+    // SAMSUNG-STYLE MULTI-DEPARTMENT CONTROLLER
     let megaMenuTimeout = null;
     const megaMenu = document.getElementById('stadiumMegaMenu');
     const backdrop = document.getElementById('megaMenuBackdrop');
-    const navCategories = document.getElementById('navCategories');
-    const navBrands = document.getElementById('navBrands');
 
-    function openSamsungMegaMenu(view) {
+    const discoverConfig = {
+      categories: {
+        title: "Discover All",
+        links: [
+          { text: "Best-Selling Systems", href: "#products" },
+          { text: "All 17 Certified Brands", href: "javascript:void(0)", onClick: "openSamsungMegaMenu('brands')" },
+          { text: "CCTV Hard Disks (3 Brands)", href: "shop.html?cat=storage", highlight: "blue" },
+          { text: "Enterprise 4K Bundles", href: "shop.html?deal=bundle" },
+          { text: "Wholesale 20x Bulk Lots", href: "shop.html" },
+          { text: "Outlet Clearance Deals", href: "#products", highlight: "red" },
+          { text: "B2B WhatsApp Desk", href: "https://wa.me/917511180808", target: "_blank" }
+        ]
+      },
+      cctv: {
+        title: "CCTV Highlights",
+        links: [
+          { text: "4K Commercial Bundles", href: "shop.html?cat=cctv" },
+          { text: "Starlight Color Night Vision", href: "shop.html?cat=cctv" },
+          { text: "Outdoor Weatherproof PTZ", href: "shop.html?cat=cctv" },
+          { text: "20x Camera Bulk Lots (Save 40%)", href: "shop.html", highlight: "blue" },
+          { text: "Solar SIM Zero-Wire Kits", href: "shop.html?cat=cctv" },
+          { text: "View Full CCTV Catalog", href: "shop.html?cat=cctv" }
+        ]
+      },
+      storage: {
+        title: "Storage Hub",
+        links: [
+          { text: "WD Purple vs SkyHawk Comparison", href: "shop.html?cat=storage" },
+          { text: "24/7 Always-On Reliability", href: "shop.html?cat=storage" },
+          { text: "All 3 Surveillance HDD Brands", href: "javascript:void(0)", onClick: "openSamsungMegaMenu('brands')", highlight: "blue" },
+          { text: "NVR Storage Capacity Guide", href: "shop.html?cat=storage" },
+          { text: "Bulk Master HDD Cartons", href: "shop.html?cat=storage" },
+          { text: "View All Storage Drives", href: "shop.html?cat=storage" }
+        ]
+      },
+      vdp: {
+        title: "Intercom Solutions",
+        links: [
+          { text: "Villa Video Doorbell Bundles", href: "shop.html?cat=vdp" },
+          { text: "Multi-Apartment Intercoms", href: "shop.html?cat=vdp" },
+          { text: "Mobile App Door Unlock", href: "shop.html?cat=vdp" },
+          { text: "600lbs EM Lock Bundles", href: "shop.html?cat=vdp", highlight: "blue" },
+          { text: "View All Video Door Phones", href: "shop.html?cat=vdp" }
+        ]
+      },
+      access: {
+        title: "Access Solutions",
+        links: [
+          { text: "Time & Attendance Software", href: "shop.html?cat=access" },
+          { text: "Contactless Facial Terminals", href: "shop.html?cat=access" },
+          { text: "Proximity RFID Cards & Fobs", href: "shop.html?cat=access" },
+          { text: "10x Biometric Master Lots", href: "shop.html", highlight: "blue" },
+          { text: "View All Biometrics & Access", href: "shop.html?cat=access" }
+        ]
+      },
+      cables: {
+        title: "Cables & Power",
+        links: [
+          { text: "Pure Solid Copper CAT6 (Finolex)", href: "shop.html?cat=cables" },
+          { text: "Armored Optical Fiber Runs", href: "shop.html?cat=cables" },
+          { text: "PoE Power Budgeting Guide", href: "shop.html?cat=cables" },
+          { text: "12V Multi-Ch Central SMPS", href: "shop.html?cat=accessory", highlight: "blue" },
+          { text: "5x Cable Pallet Discounts", href: "shop.html" },
+          { text: "View All Infrastructure", href: "shop.html?cat=cables" }
+        ]
+      },
+      brands: {
+        title: "Certified OEMs",
+        links: [
+          { text: "All 17 Certified Brands", href: "javascript:void(0)", onClick: "openSamsungMegaMenu('brands')" },
+          { text: "CCTV Hard Disks (WD, Seagate, Toshiba)", href: "shop.html?cat=storage", highlight: "blue" },
+          { text: "Wholesale Tier-1 Distribution", href: "shop.html" },
+          { text: "OEM Factory Warranty Support", href: "shop.html" },
+          { text: "Direct B2B Quotations", href: "https://wa.me/917511180808", target: "_blank" }
+        ]
+      }
+    };
+
+    function openSamsungMegaMenu(dept) {
       if (megaMenuTimeout) {
         clearTimeout(megaMenuTimeout);
         megaMenuTimeout = null;
       }
-      
-      const viewCatEl = document.getElementById('viewCategories');
-      const viewBrandEl = document.getElementById('viewBrands');
 
-      if (view === 'brands') {
-        if (viewCatEl) viewCatEl.classList.remove('active');
-        if (viewBrandEl) viewBrandEl.classList.add('active');
-        if (navBrands) navBrands.classList.add('active');
-        if (navCategories) navCategories.classList.remove('active');
-      } else {
-        if (viewBrandEl) viewBrandEl.classList.remove('active');
-        if (viewCatEl) viewCatEl.classList.add('active');
-        if (navCategories) navCategories.classList.add('active');
-        if (navBrands) navBrands.classList.remove('active');
+      // Hide all panels
+      const panels = document.querySelectorAll('.samsung-view-panel');
+      panels.forEach(p => p.classList.remove('active'));
+
+      // Show requested panel
+      const targetPanel = document.getElementById('view_' + dept);
+      if (targetPanel) targetPanel.classList.add('active');
+
+      // Update nav link active underlines
+      const navLinks = document.querySelectorAll('.category-nav-strip .cat-nav-link');
+      navLinks.forEach(l => l.classList.remove('active'));
+      const activeLink = document.getElementById('nav_' + dept);
+      if (activeLink) activeLink.classList.add('active');
+
+      // Update Discover Sidebar
+      const disc = discoverConfig[dept] || discoverConfig.categories;
+      const titleEl = document.getElementById('samsungDiscoverTitle');
+      const listEl = document.getElementById('samsungDiscoverList');
+      if (titleEl) titleEl.textContent = disc.title;
+      if (listEl) {
+        listEl.innerHTML = disc.links.map(item => {
+          let style = '';
+          if (item.highlight === 'blue') style = ' style="color: #1d4ed8; font-weight: 700;"';
+          if (item.highlight === 'red') style = ' style="color: #dc2626; font-weight: 700;"';
+          let clickAttr = item.onClick ? ` onclick="${item.onClick}"` : '';
+          let targetAttr = item.target ? ` target="${item.target}" rel="noopener noreferrer"` : '';
+          return `<li><a href="${item.href}"${clickAttr}${targetAttr}${style}><span>${item.text}</span> <span class="discover-arrow">&rarr;</span></a></li>`;
+        }).join('');
       }
 
       if (megaMenu) megaMenu.classList.add('open');
@@ -1955,8 +2057,8 @@
       }
       if (megaMenu) megaMenu.classList.remove('open');
       if (backdrop) backdrop.classList.remove('open');
-      if (navCategories) navCategories.classList.remove('active');
-      if (navBrands) navBrands.classList.remove('active');
+      const navLinks = document.querySelectorAll('.category-nav-strip .cat-nav-link');
+      navLinks.forEach(l => l.classList.remove('active'));
     }
 
     function keepSamsungMegaMenuOpen() {
@@ -1966,15 +2068,15 @@
       }
     }
 
-    function toggleSamsungMegaMenu(view) {
+    function toggleSamsungMegaMenu(dept) {
       if (megaMenu && megaMenu.classList.contains('open')) {
-        const isBrandsActive = document.getElementById('viewBrands') && document.getElementById('viewBrands').classList.contains('active');
-        if ((view === 'brands' && isBrandsActive) || (view !== 'brands' && !isBrandsActive)) {
+        const currentActive = document.getElementById('view_' + dept);
+        if (currentActive && currentActive.classList.contains('active')) {
           closeSamsungMegaMenuInstant();
           return;
         }
       }
-      openSamsungMegaMenu(view);
+      openSamsungMegaMenu(dept);
     }
 
     function toggleMegaMenu() {
