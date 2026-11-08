@@ -26,7 +26,8 @@ const SYBER_PRODUCTS = [
       "assets/idada_q2i_feature_two_way.jpg",
       "assets/idada_feature_512gb_sd.png",
       "assets/idada_feature_dual_mount.png"
-    ]
+    ],
+    "mainCategory": "wifi-solar"
   },
   {
     "id": "cp-plus-ezykam-cp-e28q-2mp-pan-tilt-wi-fi-camera",
@@ -51,7 +52,8 @@ const SYBER_PRODUCTS = [
       "assets/product_features/cpplus_e21_feature_360.jpg",
       "assets/product_features/cpplus_e21_feature_motion.jpg",
       "assets/product_features/cpplus_e21_feature_audio.jpg"
-    ]
+    ],
+    "mainCategory": "wifi-solar"
   },
   {
     "id": "cp-plus-ezykam-cp-e38q-3mp-pan-tilt-wi-fi-camera",
@@ -77,7 +79,8 @@ const SYBER_PRODUCTS = [
       "assets/product_features/cpplus_e21_feature_360.jpg",
       "assets/product_features/cpplus_e21_feature_motion.jpg",
       "assets/product_features/cpplus_e21_feature_audio.jpg"
-    ]
+    ],
+    "mainCategory": "wifi-solar"
   },
   {
     "id": "cp-plus-ezykam-cp-e21q-2mp-pan-tilt-wi-fi-camera-with-lan",
@@ -103,7 +106,8 @@ const SYBER_PRODUCTS = [
       "assets/product_features/cpplus_e21_feature_360.jpg",
       "assets/product_features/cpplus_e21_feature_motion.jpg",
       "assets/product_features/cpplus_e21_feature_audio.jpg"
-    ]
+    ],
+    "mainCategory": "wifi-solar"
   },
   {
     "id": "cp-plus-ezykam-cp-e31q-3mp-pan-tilt-wi-fi-camera-with-lan",
@@ -129,7 +133,8 @@ const SYBER_PRODUCTS = [
       "assets/product_features/cpplus_e21_feature_360.jpg",
       "assets/product_features/cpplus_e21_feature_motion.jpg",
       "assets/product_features/cpplus_e21_feature_audio.jpg"
-    ]
+    ],
+    "mainCategory": "wifi-solar"
   },
   {
     "id": "cp-plus-ezykam-cp-e48q-4mp-pan-tilt-wi-fi-camera",
@@ -155,7 +160,8 @@ const SYBER_PRODUCTS = [
       "assets/product_features/cpplus_e21_feature_360.jpg",
       "assets/product_features/cpplus_e21_feature_motion.jpg",
       "assets/product_features/cpplus_e21_feature_audio.jpg"
-    ]
+    ],
+    "mainCategory": "wifi-solar"
   },
   {
     "id": "cp-plus-ezykam-cp-e41q-4mp-pan-tilt-wi-fi-camera-with-lan",
@@ -181,7 +187,8 @@ const SYBER_PRODUCTS = [
       "assets/product_features/cpplus_e21_feature_360.jpg",
       "assets/product_features/cpplus_e21_feature_motion.jpg",
       "assets/product_features/cpplus_e21_feature_audio.jpg"
-    ]
+    ],
+    "mainCategory": "wifi-solar"
   },
   {
     "id": "cp-plus-ezykam-cp-z43q-4mp-outdoor-full-color-wi-fi-pt-camera",
@@ -207,7 +214,8 @@ const SYBER_PRODUCTS = [
       "assets/product_features/cpplus_e21_feature_360.jpg",
       "assets/product_features/cpplus_e21_feature_motion.jpg",
       "assets/product_features/cpplus_e21_feature_audio.jpg"
-    ]
+    ],
+    "mainCategory": "wifi-solar"
   },
   {
     "id": "cp-plus-ezykam-cp-z45q-4mp-outdoor-full-color-wi-fi-pt-camera",
@@ -233,7 +241,8 @@ const SYBER_PRODUCTS = [
       "assets/product_features/cpplus_e21_feature_360.jpg",
       "assets/product_features/cpplus_e21_feature_motion.jpg",
       "assets/product_features/cpplus_e21_feature_audio.jpg"
-    ]
+    ],
+    "mainCategory": "wifi-solar"
   },
   {
     "id": "cp-plus-ezyliv-ez-p34q-3mp-full-color-wi-fi-pt-camera",
@@ -259,7 +268,8 @@ const SYBER_PRODUCTS = [
       "assets/product_features/cpplus_e21_feature_360.jpg",
       "assets/product_features/cpplus_e21_feature_motion.jpg",
       "assets/product_features/cpplus_e21_feature_audio.jpg"
-    ]
+    ],
+    "mainCategory": "wifi-solar"
   },
   {
     "id": "trueview-t18296s-smart-wi-fi-robot-pt-camera-3mp",
@@ -282,7 +292,8 @@ const SYBER_PRODUCTS = [
       "assets/trueview_t18296s_1.webp",
       "assets/trueview_t18296s_2.webp",
       "assets/trueview_t18296s_3.webp"
-    ]
+    ],
+    "mainCategory": "wifi-solar"
   },
   {
     "id": "trueview-t18294s-smart-wi-fi-dome-camera-3mp",
@@ -305,7 +316,8 @@ const SYBER_PRODUCTS = [
       "assets/trueview_t18294s_1.webp",
       "assets/trueview_t18294s_2.webp",
       "assets/trueview_t18294s_3.webp"
-    ]
+    ],
+    "mainCategory": "wifi-solar"
   },
   {
     "id": "trueview-t18295s-smart-wi-fi-bullet-camera-3mp-ip66",
@@ -328,7 +340,8 @@ const SYBER_PRODUCTS = [
       "assets/trueview_t18295s_1.webp",
       "assets/trueview_t18295s_2.webp",
       "assets/trueview_t18295s_3.webp"
-    ]
+    ],
+    "mainCategory": "wifi-solar"
   },
   {
     "id": "trueview-t18290s-smart-wi-fi-mini-pt-camera-3mp-ip65",
@@ -351,7 +364,8 @@ const SYBER_PRODUCTS = [
       "assets/trueview_t18290s_1.webp",
       "assets/trueview_t18290s_2.webp",
       "assets/trueview_t18290s_3.webp"
-    ]
+    ],
+    "mainCategory": "wifi-solar"
   },
   {
     "id": "trueview-t18293sf-smart-4g-dome-camera-3mp-4g-5g-sim",
@@ -374,7 +388,8 @@ const SYBER_PRODUCTS = [
       "assets/trueview_t18293sf_1.webp",
       "assets/trueview_t18293sf_2.webp",
       "assets/trueview_t18293sf_3.webp"
-    ]
+    ],
+    "mainCategory": "wifi-solar"
   },
   {
     "id": "trueview-t18292sf-smart-4g-bullet-camera-3mp-ip66",
@@ -397,7 +412,8 @@ const SYBER_PRODUCTS = [
       "assets/trueview_t18292sf_1.webp",
       "assets/trueview_t18292sf_2.webp",
       "assets/trueview_t18292sf_3.webp"
-    ]
+    ],
+    "mainCategory": "wifi-solar"
   },
   {
     "id": "trueview-t18291sf-smart-4g-mini-pt-camera-3mp-ip65",
@@ -420,7 +436,8 @@ const SYBER_PRODUCTS = [
       "assets/trueview_t18291sf_1.webp",
       "assets/trueview_t18291sf_2.webp",
       "assets/trueview_t18291sf_3.webp"
-    ]
+    ],
+    "mainCategory": "wifi-solar"
   },
   {
     "id": "trueview-t292357-a-solar-power-hub-36w-13500mah-bms",
@@ -446,7 +463,8 @@ const SYBER_PRODUCTS = [
       "assets/product_features/trueview_feature_3.jpg",
       "assets/product_features/trueview_feature_4.jpg",
       "assets/product_features/tv_4g_1.jpeg"
-    ]
+    ],
+    "mainCategory": "wifi-solar"
   },
   {
     "id": "trueview-t38236-a-10-channel-wi-fi-nvr-8mp-6tb-support",
@@ -467,7 +485,8 @@ const SYBER_PRODUCTS = [
     ],
     "images": [
       "assets/trueview_t38236a.webp"
-    ]
+    ],
+    "mainCategory": "cctv"
   },
   {
     "id": "trueview-t38118-ae-16-channel-8mp-4k-nvr-1-sata-8tb",
@@ -488,7 +507,8 @@ const SYBER_PRODUCTS = [
     ],
     "images": [
       "assets/trueview_t38118ae.webp"
-    ]
+    ],
+    "mainCategory": "cctv"
   },
   {
     "id": "trueview-t38119-ae-32-channel-8mp-4k-nvr-2-sata-16tb",
@@ -509,7 +529,8 @@ const SYBER_PRODUCTS = [
     ],
     "images": [
       "assets/trueview_t38119ae.webp"
-    ]
+    ],
+    "mainCategory": "cctv"
   },
   {
     "id": "trueview-t18258-a-4g-router-r300-300mbps-sim-slot",
@@ -532,7 +553,8 @@ const SYBER_PRODUCTS = [
       "assets/trueview_router_angle.jpg",
       "assets/trueview_router_front.jpg",
       "assets/trueview_router_rear.jpg"
-    ]
+    ],
+    "mainCategory": "accessories"
   },
   {
     "id": "trueview-t18259-a-4g-router-r500-5db-high-gain-dual-antenna",
@@ -555,7 +577,8 @@ const SYBER_PRODUCTS = [
       "assets/trueview_router_front.jpg",
       "assets/trueview_router_angle.jpg",
       "assets/trueview_router_rear.jpg"
-    ]
+    ],
+    "mainCategory": "accessories"
   },
   {
     "id": "trueview-t18182-a-4g-router-dual-lan-4-high-gain-antennas",
@@ -578,7 +601,8 @@ const SYBER_PRODUCTS = [
       "assets/trueview_router_angle.jpg",
       "assets/trueview_router_front.jpg",
       "assets/trueview_router_rear.jpg"
-    ]
+    ],
+    "mainCategory": "accessories"
   },
   {
     "id": "trueview-t38241-a-smart-video-door-bell-3mp-wi-fi-6",
@@ -601,7 +625,8 @@ const SYBER_PRODUCTS = [
       "assets/trueview_doorbell_1.webp",
       "assets/trueview_doorbell_2.webp",
       "assets/trueview_doorbell_3.webp"
-    ]
+    ],
+    "mainCategory": "home-automation"
   },
   {
     "id": "trueview-t38260-a-poe-switch-4-2-10-100m-65w",
@@ -624,7 +649,8 @@ const SYBER_PRODUCTS = [
       "assets/trueview_poe_angle.jpg",
       "assets/trueview_poe_front.jpg",
       "assets/trueview_poe_rear.jpg"
-    ]
+    ],
+    "mainCategory": "cctv"
   },
   {
     "id": "trueview-t38262-a-poe-switch-8-2-10-100m-120w",
@@ -647,7 +673,8 @@ const SYBER_PRODUCTS = [
       "assets/trueview_poe_front.jpg",
       "assets/trueview_poe_angle.jpg",
       "assets/trueview_poe_rear.jpg"
-    ]
+    ],
+    "mainCategory": "cctv"
   },
   {
     "id": "trueview-t38261-a-poe-switch-4g-2g-1sfp-gigabit-65w",
@@ -670,7 +697,8 @@ const SYBER_PRODUCTS = [
       "assets/trueview_poe_angle.jpg",
       "assets/trueview_poe_front.jpg",
       "assets/trueview_poe_rear.jpg"
-    ]
+    ],
+    "mainCategory": "cctv"
   },
   {
     "id": "trueview-t38263-a-poe-switch-8-2g-100m-poe-giga-uplink-120w",
@@ -693,7 +721,8 @@ const SYBER_PRODUCTS = [
       "assets/trueview_poe_front.jpg",
       "assets/trueview_poe_angle.jpg",
       "assets/trueview_poe_rear.jpg"
-    ]
+    ],
+    "mainCategory": "cctv"
   },
   {
     "id": "trueview-t38264-a-poe-switch-8g-2g-full-gigabit-120w",
@@ -716,7 +745,8 @@ const SYBER_PRODUCTS = [
       "assets/trueview_poe_angle.jpg",
       "assets/trueview_poe_front.jpg",
       "assets/trueview_poe_rear.jpg"
-    ]
+    ],
+    "mainCategory": "cctv"
   },
   {
     "id": "trueview-t38265-a-poe-switch-8g-2g-1sfp-gigabit-sfp-120w",
@@ -739,7 +769,8 @@ const SYBER_PRODUCTS = [
       "assets/trueview_poe_front.jpg",
       "assets/trueview_poe_angle.jpg",
       "assets/trueview_poe_rear.jpg"
-    ]
+    ],
+    "mainCategory": "cctv"
   },
   {
     "id": "trueview-t38266-a-poe-switch-16-2g-1sfp-100m-poe-250w-300w",
@@ -762,7 +793,8 @@ const SYBER_PRODUCTS = [
       "assets/trueview_poe_angle.jpg",
       "assets/trueview_poe_front.jpg",
       "assets/trueview_poe_rear.jpg"
-    ]
+    ],
+    "mainCategory": "cctv"
   },
   {
     "id": "trueview-t38267-a-poe-switch-16g-2g-1sfp-full-gigabit-300w",
@@ -785,7 +817,8 @@ const SYBER_PRODUCTS = [
       "assets/trueview_poe_front.jpg",
       "assets/trueview_poe_angle.jpg",
       "assets/trueview_poe_rear.jpg"
-    ]
+    ],
+    "mainCategory": "cctv"
   },
   {
     "id": "trueview-t38269-a-poe-switch-24g-2g-2sfp-24-gigabit-300w",
@@ -808,7 +841,8 @@ const SYBER_PRODUCTS = [
       "assets/trueview_poe_angle.jpg",
       "assets/trueview_poe_front.jpg",
       "assets/trueview_poe_rear.jpg"
-    ]
+    ],
+    "mainCategory": "cctv"
   },
   {
     "id": "trueview-t18256-a-dual-light-hd-2mp-dome-camera",
@@ -831,7 +865,8 @@ const SYBER_PRODUCTS = [
       "assets/trueview_ahd_dome_1.webp",
       "assets/trueview_ahd_dome_2.webp",
       "assets/trueview_ahd_dome_3.webp"
-    ]
+    ],
+    "mainCategory": "cctv"
   },
   {
     "id": "trueview-t18257-a-dual-light-hd-2mp-bullet-camera-ip66",
@@ -854,7 +889,8 @@ const SYBER_PRODUCTS = [
       "assets/trueview_ahd_bullet_1.webp",
       "assets/trueview_ahd_bullet_2.webp",
       "assets/trueview_ahd_bullet_3.webp"
-    ]
+    ],
+    "mainCategory": "cctv"
   },
   {
     "id": "trueview-t18300-a-dual-light-hd-2mp-mini-pan-tilt-camera",
@@ -877,7 +913,8 @@ const SYBER_PRODUCTS = [
       "assets/trueview_ahd_pt_1.webp",
       "assets/trueview_ahd_pt_2.webp",
       "assets/trueview_ahd_pt_3.webp"
-    ]
+    ],
+    "mainCategory": "cctv"
   },
   {
     "id": "trueview-t38297-a-4-channel-4-audio-5in1-analog-dvr",
@@ -898,7 +935,8 @@ const SYBER_PRODUCTS = [
     ],
     "images": [
       "assets/trueview_dvr_4ch.webp"
-    ]
+    ],
+    "mainCategory": "cctv"
   },
   {
     "id": "trueview-t38298-a-8-channel-8-audio-5in1-analog-dvr",
@@ -919,7 +957,8 @@ const SYBER_PRODUCTS = [
     ],
     "images": [
       "assets/trueview_dvr_8ch.webp"
-    ]
+    ],
+    "mainCategory": "cctv"
   },
   {
     "id": "trueview-t37431-be-16-channel-5in1-analog-dvr-cloud",
@@ -940,7 +979,8 @@ const SYBER_PRODUCTS = [
     ],
     "images": [
       "assets/trueview_dvr_16ch.webp"
-    ]
+    ],
+    "mainCategory": "cctv"
   },
   {
     "id": "trueview-t38299-a-16-channel-16-audio-5in1-analog-dvr",
@@ -961,7 +1001,8 @@ const SYBER_PRODUCTS = [
     ],
     "images": [
       "assets/trueview_dvr_16ch_16audio.webp"
-    ]
+    ],
+    "mainCategory": "cctv"
   },
   {
     "id": "cctv-smps-power-supply-12v-10a",
@@ -982,7 +1023,8 @@ const SYBER_PRODUCTS = [
     ],
     "images": [
       "assets/acc_official_smps.png"
-    ]
+    ],
+    "mainCategory": "accessories"
   },
   {
     "id": "cctv-surveillance-hard-drive-4tb",
@@ -1007,7 +1049,8 @@ const SYBER_PRODUCTS = [
       "assets/cctv_surveillance_hdd.jpg",
       "assets/product_features/seagate_feature_64cams.jpg",
       "assets/product_features/seagate_feature_firmware.jpg"
-    ]
+    ],
+    "mainCategory": "accessories"
   },
   {
     "id": "cctv-cat6-pure-copper-cable-305m",
@@ -1028,7 +1071,8 @@ const SYBER_PRODUCTS = [
     ],
     "images": [
       "assets/acc_official_cat6_drum.png"
-    ]
+    ],
+    "mainCategory": "cables"
   },
   {
     "id": "cctv-weatherproof-junction-box-ip66",
@@ -1049,7 +1093,8 @@ const SYBER_PRODUCTS = [
     ],
     "images": [
       "assets/acc_official_junction_box.png"
-    ]
+    ],
+    "mainCategory": "accessories"
   },
   {
     "id": "cctv-smps-power-supply-12v-5a",
@@ -1070,7 +1115,8 @@ const SYBER_PRODUCTS = [
     ],
     "images": [
       "assets/acc_smps_5a.jpg"
-    ]
+    ],
+    "mainCategory": "accessories"
   },
   {
     "id": "cctv-smps-power-supply-12v-20a",
@@ -1091,7 +1137,8 @@ const SYBER_PRODUCTS = [
     ],
     "images": [
       "assets/acc_smps_20a.jpg"
-    ]
+    ],
+    "mainCategory": "accessories"
   },
   {
     "id": "cctv-power-adapter-12v-2a",
@@ -1112,7 +1159,8 @@ const SYBER_PRODUCTS = [
     ],
     "images": [
       "assets/acc_adapter_12v_2a.jpg"
-    ]
+    ],
+    "mainCategory": "accessories"
   },
   {
     "id": "cctv-skyhawk-hard-drive-1tb",
@@ -1137,7 +1185,8 @@ const SYBER_PRODUCTS = [
       "assets/cctv_surveillance_hdd.jpg",
       "assets/product_features/seagate_feature_64cams.jpg",
       "assets/product_features/seagate_feature_firmware.jpg"
-    ]
+    ],
+    "mainCategory": "accessories"
   },
   {
     "id": "cctv-skyhawk-hard-drive-2tb",
@@ -1162,7 +1211,8 @@ const SYBER_PRODUCTS = [
       "assets/cctv_surveillance_hdd.jpg",
       "assets/product_features/seagate_feature_64cams.jpg",
       "assets/product_features/seagate_feature_firmware.jpg"
-    ]
+    ],
+    "mainCategory": "accessories"
   },
   {
     "id": "cctv-sandisk-high-endurance-128gb",
@@ -1183,7 +1233,8 @@ const SYBER_PRODUCTS = [
     ],
     "images": [
       "assets/acc_sandisk_128gb.jpg"
-    ]
+    ],
+    "mainCategory": "accessories"
   },
   {
     "id": "cctv-sandisk-high-endurance-256gb",
@@ -1204,7 +1255,8 @@ const SYBER_PRODUCTS = [
     ],
     "images": [
       "assets/acc_sandisk_256gb.jpg"
-    ]
+    ],
+    "mainCategory": "accessories"
   },
   {
     "id": "cctv-coaxial-cable-3-1-90m",
@@ -1225,7 +1277,8 @@ const SYBER_PRODUCTS = [
     ],
     "images": [
       "assets/acc_cable_coaxial_3_1_90m.jpg"
-    ]
+    ],
+    "mainCategory": "cables"
   },
   {
     "id": "cctv-coaxial-cable-3-1-180m",
@@ -1246,7 +1299,8 @@ const SYBER_PRODUCTS = [
     ],
     "images": [
       "assets/acc_cable_coaxial_3_1_180m.jpg"
-    ]
+    ],
+    "mainCategory": "cables"
   },
   {
     "id": "cctv-hdmi-cable-5m-4k",
@@ -1267,7 +1321,8 @@ const SYBER_PRODUCTS = [
     ],
     "images": [
       "assets/acc_hdmi_5m.jpg"
-    ]
+    ],
+    "mainCategory": "cables"
   },
   {
     "id": "cctv-cat6-patch-cord-3m",
@@ -1288,7 +1343,8 @@ const SYBER_PRODUCTS = [
     ],
     "images": [
       "assets/acc_cat6_patch_cord_3m.jpg"
-    ]
+    ],
+    "mainCategory": "cables"
   },
   {
     "id": "cctv-dvr-rack-2u",
@@ -1309,7 +1365,8 @@ const SYBER_PRODUCTS = [
     ],
     "images": [
       "assets/acc_dvr_rack_2u.jpg"
-    ]
+    ],
+    "mainCategory": "accessories"
   },
   {
     "id": "cctv-server-rack-4u",
@@ -1330,7 +1387,8 @@ const SYBER_PRODUCTS = [
     ],
     "images": [
       "assets/acc_server_rack_4u.jpg"
-    ]
+    ],
+    "mainCategory": "accessories"
   },
   {
     "id": "cctv-pole-mount-bracket",
@@ -1351,7 +1409,8 @@ const SYBER_PRODUCTS = [
     ],
     "images": [
       "assets/acc_pole_mount_bracket.jpg"
-    ]
+    ],
+    "mainCategory": "accessories"
   },
   {
     "id": "cctv-bnc-connectors-pack-10",
@@ -1372,7 +1431,8 @@ const SYBER_PRODUCTS = [
     ],
     "images": [
       "assets/acc_bnc_connectors_pack.jpg"
-    ]
+    ],
+    "mainCategory": "accessories"
   },
   {
     "id": "cctv-dc-power-connectors-pack-10",
@@ -1393,7 +1453,8 @@ const SYBER_PRODUCTS = [
     ],
     "images": [
       "assets/acc_dc_connectors_pack.jpg"
-    ]
+    ],
+    "mainCategory": "accessories"
   },
   {
     "id": "cctv-rj45-connectors-cat6-pack-50",
@@ -1414,7 +1475,8 @@ const SYBER_PRODUCTS = [
     ],
     "images": [
       "assets/acc_rj45_connectors_pack.jpg"
-    ]
+    ],
+    "mainCategory": "cables"
   },
   {
     "id": "cctv-rj45-crimping-tool-kit",
@@ -1435,7 +1497,8 @@ const SYBER_PRODUCTS = [
     ],
     "images": [
       "assets/acc_rj45_crimping_tool.jpg"
-    ]
+    ],
+    "mainCategory": "accessories"
   },
   {
     "id": "trueview-solar-4g-sim-outdoor-pan-tilt-camera",
@@ -1462,7 +1525,8 @@ const SYBER_PRODUCTS = [
       "assets/product_features/trueview_feature_3.jpg",
       "assets/product_features/trueview_feature_4.jpg",
       "assets/product_features/tv_4g_1.jpeg"
-    ]
+    ],
+    "mainCategory": "wifi-solar"
   },
   {
     "id": "trueview-smart-wifi-video-doorbell-vdp",
@@ -1484,7 +1548,8 @@ const SYBER_PRODUCTS = [
       "PIR Detection",
       "2-Way Talkback",
       "Mobile Unlock"
-    ]
+    ],
+    "mainCategory": "wifi-solar"
   },
   {
     "id": "cp-plus-7inch-touchscreen-color-vdp-kit",
@@ -1506,7 +1571,8 @@ const SYBER_PRODUCTS = [
       "Electronic Lock Release",
       "Night Vision",
       "2-Wire Easy Fit"
-    ]
+    ],
+    "mainCategory": "home-automation"
   },
   {
     "id": "trueview-villa-multi-apartment-ip-vdp-station",
@@ -1528,7 +1594,8 @@ const SYBER_PRODUCTS = [
       "RFID Card Unlock",
       "Smartphone Divert",
       "Weatherproof IP65"
-    ]
+    ],
+    "mainCategory": "home-automation"
   },
   {
     "id": "cp-plus-wireless-pir-motion-alarm-sensor",
@@ -1550,7 +1617,8 @@ const SYBER_PRODUCTS = [
       "Pet Immunity",
       "Encrypted 433MHz",
       "2-Year Battery Life"
-    ]
+    ],
+    "mainCategory": "home-automation"
   },
   {
     "id": "syber-wireless-smart-intrusion-alarm-hub-kit",
@@ -1572,7 +1640,8 @@ const SYBER_PRODUCTS = [
       "120dB Piercing Siren",
       "Door & PIR Sensors",
       "Instant Mobile Alert"
-    ]
+    ],
+    "mainCategory": "home-automation"
   },
   {
     "id": "heavy-duty-magnetic-door-shutter-sensor",
@@ -1594,7 +1663,8 @@ const SYBER_PRODUCTS = [
       "Rolling Shutter Fit",
       "Wide Gap 50mm",
       "Tamper Proof"
-    ]
+    ],
+    "mainCategory": "home-automation"
   },
   {
     "id": "biometric-fingerprint-rfid-time-attendance-terminal",
@@ -1616,7 +1686,8 @@ const SYBER_PRODUCTS = [
       "RFID Card Reader",
       "TCP/IP & USB Sync",
       "Battery Backup"
-    ]
+    ],
+    "mainCategory": "home-automation"
   },
   {
     "id": "facial-recognition-biometric-access-reader",
@@ -1638,7 +1709,8 @@ const SYBER_PRODUCTS = [
       "Anti-Photo Spoofing",
       "Wiegand Output",
       "Access Controller"
-    ]
+    ],
+    "mainCategory": "home-automation"
   },
   {
     "id": "heavy-duty-600lbs-electromagnetic-em-lock-kit",
@@ -1660,7 +1732,8 @@ const SYBER_PRODUCTS = [
       "ZL Mounting Bracket",
       "12V DC Regulated",
       "LED Lock Status"
-    ]
+    ],
+    "mainCategory": "home-automation"
   },
   {
     "id": "pure-copper-cat6-305m-network-cable-drum",
@@ -1682,7 +1755,8 @@ const SYBER_PRODUCTS = [
       "305m Pull Box",
       "Gigabit PoE Ready",
       "Low Crosstalk"
-    ]
+    ],
+    "mainCategory": "cables"
   },
   {
     "id": "syber-3-plus-1-coaxial-cctv-cable-90m",
@@ -1704,7 +1778,8 @@ const SYBER_PRODUCTS = [
       "Solid Copper Core",
       "High Density Braid",
       "Zero Signal Loss"
-    ]
+    ],
+    "mainCategory": "cables"
   },
   {
     "id": "syber-3-plus-1-coaxial-cctv-cable-180m",
@@ -1726,7 +1801,8 @@ const SYBER_PRODUCTS = [
       "Dual-Layer Shield",
       "Low Voltage Drop",
       "Weatherproof Sheath"
-    ]
+    ],
+    "mainCategory": "cables"
   },
   {
     "id": "molded-snagless-rj45-cat6-patch-cord-3m",
@@ -1748,10 +1824,145 @@ const SYBER_PRODUCTS = [
       "Gold-Plated Contacts",
       "Snagless Boot",
       "Pure Stranded Copper"
+    ],
+    "mainCategory": "cables"
+  },
+  {
+    "id": "dashcam-4k-dual-gps",
+    "index": 78,
+    "title": "Syber RoadEye 4K Ultra-HD Dual-Channel Front & Rear Dash Cam",
+    "brand": "SYBER SPACE",
+    "category": "dash-cams",
+    "mainCategory": "dash-cams",
+    "price": 4990,
+    "mrp": "₹8,999",
+    "save": "Save 45%",
+    "rating": "4.9",
+    "badge": "NEW AUTOMOTIVE",
+    "desc": "Flagship 4K front + 1080p rear automotive dash camera. Built-in GPS logging, supercapacitor power, Sony STARVIS night sensor, and 24/7 parking surveillance mode.",
+    "chips": [
+      "4K Ultra HD",
+      "Dual Channel",
+      "GPS Logger",
+      "Parking Guard"
+    ],
+    "images": [
+      "assets/dash_cam_4k_front_rear.png"
+    ]
+  },
+  {
+    "id": "dashcam-pro-night-vision",
+    "index": 79,
+    "title": "CP PLUS CarGuard 2K HDR Night Vision Stealth Dash Cam",
+    "brand": "CP PLUS",
+    "category": "dash-cams",
+    "mainCategory": "dash-cams",
+    "price": 3490,
+    "mrp": "₹6,200",
+    "save": "Save 44%",
+    "rating": "4.8",
+    "badge": "CAR SECURITY",
+    "desc": "Compact discreet car dashboard camera with 140° wide field-of-view, G-sensor emergency collision lock, and mobile Wi-Fi video streaming.",
+    "chips": [
+      "2K 1440p",
+      "140° Wide FOV",
+      "G-Sensor",
+      "Wi-Fi App"
+    ],
+    "images": [
+      "assets/dash_cam_4k_front_rear.png"
+    ]
+  },
+  {
+    "id": "acc-wireless-mouse-dvr",
+    "index": 80,
+    "title": "Syber Pro 2.4GHz Optical Wireless Mouse for CCTV DVR/NVR GUI",
+    "brand": "SYBER SPACE",
+    "category": "accessories",
+    "mainCategory": "cctv",
+    "price": 390,
+    "mrp": "₹799",
+    "save": "Save 51%",
+    "rating": "4.9",
+    "badge": "CCTV ACCESSORY",
+    "desc": "Driver-free 2.4GHz wireless mouse with nano USB receiver specifically tuned for Linux-based CCTV DVR and NVR recorder management consoles.",
+    "chips": [
+      "2.4GHz Wireless",
+      "Plug & Play",
+      "DVR/NVR Tuned"
+    ],
+    "images": [
+      "assets/wireless_mouse_dvr.png"
+    ]
+  },
+  {
+    "id": "acc-cobox-indoor-base",
+    "index": 81,
+    "title": "CoBox Indoor Clean Architecture Deep Camera Mount Junction Box",
+    "brand": "SYBER SPACE",
+    "category": "accessories",
+    "mainCategory": "accessories",
+    "price": 120,
+    "mrp": "₹250",
+    "save": "Save 52%",
+    "rating": "4.8",
+    "badge": "ESSENTIAL ACCESSORY",
+    "desc": "Clean aesthetic indoor camera base junction box. Conceals BNC/DC/RJ45 connectors and excess cables flush behind dome or bullet cameras.",
+    "chips": [
+      "Flush Mount",
+      "Cable Concealment",
+      "ABS Fire-Retardant"
+    ],
+    "images": [
+      "assets/cobox_indoor_junction_box.png"
+    ]
+  },
+  {
+    "id": "acc-cobox-outdoor-ip66",
+    "index": 82,
+    "title": "CoBox Outdoor IP66 Weatherproof Rubber-Gasket Base Box",
+    "brand": "SYBER SPACE",
+    "category": "accessories",
+    "mainCategory": "accessories",
+    "price": 180,
+    "mrp": "₹350",
+    "save": "Save 49%",
+    "rating": "5.0",
+    "badge": "IP66 OUTDOOR",
+    "desc": "Heavy-duty outdoor junction box with silicone rubber waterproofing seal, threaded conduit ports, and UV-stabilized polycarbonate enclosure.",
+    "chips": [
+      "IP66 Waterproof",
+      "Conduit Knockouts",
+      "Stainless Screws"
+    ],
+    "images": [
+      "assets/cobox_outdoor_ip66_junction_box.png"
+    ]
+  },
+  {
+    "id": "acc-rj45-gold-connectors",
+    "index": 83,
+    "title": "Ultra-Link Cat6 Gold-Plated RJ45 Modular Crimp Plugs (Pack of 50)",
+    "brand": "ULTRA-LINK",
+    "category": "accessories",
+    "mainCategory": "accessories",
+    "price": 350,
+    "mrp": "₹650",
+    "save": "Save 46%",
+    "rating": "4.9",
+    "badge": "PACK OF 50",
+    "desc": "50-micron gold-plated 8P8C modular RJ45 connectors for solid and stranded Cat6 UTP network cabling in IP surveillance installations.",
+    "chips": [
+      "50 Micron Gold",
+      "Cat6 8P8C",
+      "Pack of 50"
+    ],
+    "images": [
+      "assets/rj45_cat6_modular_jacks.png"
     ]
   }
 ];
 
-if (typeof module !== 'undefined' && module.exports) {
+if (typeof module !== 'undefined') {
   module.exports = SYBER_PRODUCTS;
 }
