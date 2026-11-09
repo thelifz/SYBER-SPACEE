@@ -54,64 +54,116 @@
     }
 
     /* ==========================================================================
-       1. TOP BRAND SWITCHER (STADIUM & STADIUM OUTLET PATTERN - IMAGE 2)
+       1. TOP BRAND SWITCHER (REDESIGNED PREMIUM CAPSULE + LIVELY RAINBOW WHOLESALE)
        ========================================================================== */
+    @keyframes livelyRainbowFlow {
+      0% {
+        background-position: 0% 50%;
+      }
+      50% {
+        background-position: 100% 50%;
+      }
+      100% {
+        background-position: 0% 50%;
+      }
+    }
+
+    @keyframes livelyRainbowGlow {
+      0%, 100% {
+        box-shadow: 0 0 10px rgba(255, 0, 100, 0.55), 0 0 18px rgba(0, 210, 255, 0.4);
+      }
+      50% {
+        box-shadow: 0 0 16px rgba(255, 180, 0, 0.7), 0 0 24px rgba(120, 0, 255, 0.55);
+      }
+    }
+
     .stadium-top-brand-bar {
-      background: #f4f4f5;
-      border-bottom: 1px solid var(--stadium-border);
-      height: 36px;
+      background: #f8fafc;
+      border-bottom: 1px solid #e2e8f0;
+      padding: 6px 0;
       display: flex;
       align-items: center;
       justify-content: center;
+      position: relative;
+      z-index: 101;
     }
 
     .stadium-top-brand-tabs {
-      display: flex;
+      background: #ffffff;
+      border: 1.5px solid #e2e8f0;
+      border-radius: 9999px;
+      padding: 3px;
+      display: inline-flex;
       align-items: center;
-      height: 100%;
-      gap: 2px;
+      gap: 4px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
     }
 
     .stadium-top-tab {
-      height: 100%;
-      padding: 0 20px;
+      padding: 6px 18px;
+      border-radius: 9999px;
       display: inline-flex;
       align-items: center;
-      gap: 6px;
-      font-size: 13.5px;
+      gap: 7px;
+      font-size: 13px;
       font-weight: 700;
-      color: #71717a;
-      text-decoration: none;
-      transition: all 0.2s ease;
+      color: #64748b;
+      text-decoration: none !important;
+      transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
       background: transparent;
       border: none;
       cursor: pointer;
       font-family: inherit;
+      line-height: 1;
     }
 
     .stadium-top-tab:hover {
-      color: #000000;
+      color: #0f172a;
+      background: #f1f5f9;
+      text-decoration: none !important;
     }
 
     .stadium-top-tab.active {
-      background: #ffffff;
-      color: #000000;
-      border-top: 1px solid var(--stadium-border);
-      border-left: 1px solid var(--stadium-border);
-      border-right: 1px solid var(--stadium-border);
-      border-bottom: 1px solid #ffffff;
-      margin-bottom: -1px;
+      background: #0f172a;
+      color: #ffffff;
+      box-shadow: 0 2px 8px rgba(15, 23, 42, 0.22);
     }
 
-    .stadium-wholesale-tag,
-    .stadium-outlet-tag {
-      border: 1.5px solid #000000;
-      font-size: 9px;
+    .stadium-top-tab.active:hover {
+      background: #000000;
+      color: #ffffff;
+    }
+
+    /* LIVELY RAINBOW WHOLESALE BADGE & GLOW */
+    .stadium-wholesale-tag {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 9.5px;
       font-weight: 900;
-      padding: 1px 4px;
-      border-radius: 2px;
-      letter-spacing: 0.6px;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+      color: #ffffff !important;
+      padding: 3px 9px;
+      border-radius: 9999px;
+      background: linear-gradient(90deg, #ff0055, #ff5500, #ffbb00, #00dd77, #0099ff, #7700ff, #ff00aa, #ff0055);
+      background-size: 300% 300%;
+      animation: livelyRainbowFlow 3.5s ease infinite, livelyRainbowGlow 2.5s ease-in-out infinite;
+      border: none;
       line-height: 1;
+      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.35);
+    }
+
+    .stadium-top-tab.tab-wholesale:hover {
+      background: #ffffff;
+      color: #0f172a;
+      box-shadow: 0 0 0 1.5px #ff0077, 0 3px 12px rgba(255, 0, 100, 0.25);
+    }
+
+    .stadium-top-tab.tab-wholesale.active {
+      background: #0f172a;
+      color: #ffffff;
+      box-shadow: 0 0 0 1.5px #00dd77, 0 4px 14px rgba(0, 221, 119, 0.3);
     }
 
     /* ==========================================================================
@@ -282,10 +334,9 @@
 
     .cat-nav-link:hover,
     .cat-nav-link.active {
-      color: #000000;
-      text-decoration: underline;
-      text-underline-offset: 6px;
-      text-decoration-thickness: 2px;
+      color: #000000 !important;
+      text-decoration: none !important;
+      outline: none;
     }
 
     
@@ -306,20 +357,12 @@
     }
 
     .cat-nav-link::after {
-      content: '';
-      position: absolute;
-      bottom: -4px;
-      left: 10px;
-      right: 10px;
-      height: 2.5px;
-      background: #000000;
-      transform: scaleX(0);
-      transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+      display: none !important;
     }
 
     .cat-nav-link.active::after,
     .cat-nav-link:hover::after {
-      transform: scaleX(1);
+      display: none !important;
     }
 
     
@@ -1887,11 +1930,13 @@
 </head>
 <body>
 
-  <!-- 1. TOP BRAND SWITCHER (STADIUM & STADIUM OUTLET PATTERN - IMAGE 2) -->
+  <!-- 1. TOP BRAND SWITCHER (PREMIUM SEGMENTED PILL + LIVELY RAINBOW WHOLESALE) -->
   <div class="stadium-top-brand-bar">
     <div class="stadium-top-brand-tabs" role="tablist">
-      <a href="index.html" class="stadium-top-tab active">syber space</a>
-      <a href="shop.html" class="stadium-top-tab">
+      <a href="index.html" class="stadium-top-tab active">
+        <span>syber space</span>
+      </a>
+      <a href="shop.html" class="stadium-top-tab tab-wholesale" title="Switch to Syber Space Wholesale Store">
         <span>syber space</span>
         <span class="stadium-wholesale-tag">WHOLESALE</span>
       </a>
@@ -1950,24 +1995,23 @@
             <a href="#cctv-setup-matrix" class="cat-nav-link" id="nav_cctv">CCTV</a>
           </li>
           <li class="has-dropdown" onmouseenter="openSamsungMegaMenu('dashcams')" onmouseleave="closeSamsungMegaMenu()">
-            <a href="#products" onclick="filterDepartment('dash-cams')" class="cat-nav-link" id="nav_dashcams">Dash Cams</a>
+            <a href="#products" onclick="filterDepartment('dash-cams')" class="cat-nav-link" id="nav_dashcams">Dashcams</a>
           </li>
           <li class="has-dropdown" onmouseenter="openSamsungMegaMenu('homeauto')" onmouseleave="closeSamsungMegaMenu()">
-            <a href="#products" onclick="filterDepartment('home-automation')" class="cat-nav-link" id="nav_homeauto">Home Automation</a>
+            <a href="#products" onclick="filterDepartment('home-automation')" class="cat-nav-link" id="nav_homeauto">Automation</a>
           </li>
           <li class="has-dropdown" onmouseenter="openSamsungMegaMenu('accessories')" onmouseleave="closeSamsungMegaMenu()">
-            <a href="#cctv-setup-matrix" class="cat-nav-link" id="nav_accessories" style="font-weight: 800; color: #1e40af;">Accessories (The Big List)</a>
+            <a href="#cctv-setup-matrix" class="cat-nav-link" id="nav_accessories">Accessories</a>
           </li>
           <li class="has-dropdown" onmouseenter="openSamsungMegaMenu('cables')" onmouseleave="closeSamsungMegaMenu()">
             <a href="#products" onclick="filterDepartment('cables')" class="cat-nav-link" id="nav_cables">Cables</a>
           </li>
           <li class="has-dropdown" onmouseenter="openSamsungMegaMenu('wifisolar')" onmouseleave="closeSamsungMegaMenu()">
-            <a href="#products" onclick="filterDepartment('wifi-solar')" class="cat-nav-link" id="nav_wifisolar">Wifi/4G/Solar Cameras</a>
+            <a href="#products" onclick="filterDepartment('wifi-solar')" class="cat-nav-link" id="nav_wifisolar">Wireless</a>
           </li>
           <li class="has-dropdown" onmouseenter="openSamsungMegaMenu('brands')" onmouseleave="closeSamsungMegaMenu()">
-            <span class="cat-nav-link" id="nav_brands" onclick="toggleSamsungMegaMenu('brands')">Brands We Deal &darr;</span>
+            <span class="cat-nav-link" id="nav_brands" onclick="toggleSamsungMegaMenu('brands')">Brands &darr;</span>
           </li>
-          <li><a href="shop.html" class="cat-nav-link" style="color: #000000; font-weight: 900; background: #fef08a; padding: 4px 12px; border-radius: 4px; border: 1px solid #facc15;">Wholesale (B2B) &rarr;</a></li>
         </ul>
       </nav>
 
@@ -2700,16 +2744,15 @@
 
       <!-- FILTER PILLS MATCHING IMAGE 2: OUR PRODUCT CATEGORIES -->
       <div class="outlet-filter-pills-row" role="tablist">
-        <button type="button" class="outlet-filter-btn active" onclick="filterDepartment('all', this)">All Products</button>
-        <button type="button" class="outlet-filter-btn" onclick="filterDepartment('cctv', this)">1. CCTV</button>
-        <button type="button" class="outlet-filter-btn" onclick="filterDepartment('dash-cams', this)">2. Dash Cams</button>
-        <button type="button" class="outlet-filter-btn" onclick="filterDepartment('home-automation', this)">3. Home Automation</button>
-        <button type="button" class="outlet-filter-btn" onclick="filterDepartment('accessories', this)">4. Accessories (The Big List)</button>
-        <button type="button" class="outlet-filter-btn" onclick="filterDepartment('cables', this)">5. Cables</button>
-        <button type="button" class="outlet-filter-btn" onclick="filterDepartment('wifi-solar', this)">6. Wifi/4G/Solar Cameras</button>
+        <button type="button" class="outlet-filter-btn active" onclick="filterDepartment('all', this)">All</button>
+        <button type="button" class="outlet-filter-btn" onclick="filterDepartment('cctv', this)">CCTV</button>
+        <button type="button" class="outlet-filter-btn" onclick="filterDepartment('dash-cams', this)">Dashcams</button>
+        <button type="button" class="outlet-filter-btn" onclick="filterDepartment('home-automation', this)">Automation</button>
+        <button type="button" class="outlet-filter-btn" onclick="filterDepartment('accessories', this)">Accessories</button>
+        <button type="button" class="outlet-filter-btn" onclick="filterDepartment('cables', this)">Cables</button>
+        <button type="button" class="outlet-filter-btn" onclick="filterDepartment('wifi-solar', this)">Wireless</button>
       </div>
 
-      <!-- 8 CLEAN PRODUCT CARDS -->
       <div style="margin-bottom: 24px; max-width: 500px;">
         <input type="text" id="catalogSearchInput" placeholder="Filter by model, brand, or specification..." 
           oninput="handleCatalogSearch(this.value)"
