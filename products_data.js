@@ -3438,6 +3438,9 @@ const SYBER_PRODUCTS = [
   }
 ];
 
+if (typeof window !== 'undefined') {
+  window.SYBER_PRODUCTS = SYBER_PRODUCTS;
+}
 if (typeof module !== 'undefined') {
   module.exports = SYBER_PRODUCTS;
 }

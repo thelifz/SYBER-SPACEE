@@ -1352,15 +1352,63 @@
             };
         }
 
+        // Canonical Product Aliases for Mega-Menu, Matrix, and Legacy Links
+        const PRODUCT_ALIASES = {
+            'hero-dome-cam': 'trueview-t18294s-smart-wi-fi-dome-camera-3mp',
+            'hero-bullet-cam': 'trueview-t18257-a-dual-light-hd-2mp-bullet-camera-ip66',
+            'trueview-16ch-pro-dvr-h265': 'trueview-t38118-ae-16-channel-8mp-4k-nvr-1-sata-8tb',
+            'poe-switch-4-2': 'trueview-t38260-a-poe-switch-4-2-10-100m-65w',
+            'trueview-4g-solar-smart-ptz-camera': 'trueview-solar-4g-sim-outdoor-pan-tilt-camera',
+            'official_vdp_touchscreen': 'cp-plus-7inch-touchscreen-color-vdp-kit',
+            'official_biometric_reader': 'essl-k90-pro-biometric-fingerprint-attendance-system',
+            'router-300m': 'trueview-t18258-a-4g-router-r300-300mbps-sim-slot',
+            'official_trueview_solar_t18149-01': 'trueview-solar-4g-sim-outdoor-pan-tilt-camera',
+            'official_bestseller_cpplus_e38q': 'cp-plus-ezykam-cp-e38q-3mp-pan-tilt-wi-fi-camera',
+            'trueview-t38298': 'trueview-t38298-a-8-channel-8-audio-5in1-analog-dvr',
+            'trueview-t38118': 'trueview-t38118-ae-16-channel-8mp-4k-nvr-1-sata-8tb'
+        };
+
         function loadProductFromUrl() {
             const urlParams = new URLSearchParams(window.location.search);
-            const targetId = urlParams.get('id') || urlParams.get('model');
+            const rawParam = urlParams.get('id') || urlParams.get('model') || '';
+            const rawDecoded = decodeURIComponent(rawParam).trim();
             const defaultId = 'trueview-solar-4g-sim-outdoor-pan-tilt-camera';
 
             if (typeof SYBER_PRODUCTS !== 'undefined' && SYBER_PRODUCTS.length > 0) {
-                if (targetId) {
-                    currentProduct = SYBER_PRODUCTS.find(p => p.id === targetId);
+                if (rawDecoded) {
+                    // Level 1: Exact ID match
+                    currentProduct = SYBER_PRODUCTS.find(p => p.id === rawDecoded);
+
+                    // Level 2: Lowercase clean slug match
+                    if (!currentProduct) {
+                        const cleanSlug = rawDecoded.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
+                        currentProduct = SYBER_PRODUCTS.find(p => p.id.toLowerCase() === cleanSlug);
+
+                        // Level 3: Known Alias Map
+                        if (!currentProduct && PRODUCT_ALIASES[cleanSlug]) {
+                            const aliasTarget = PRODUCT_ALIASES[cleanSlug];
+                            currentProduct = SYBER_PRODUCTS.find(p => p.id === aliasTarget);
+                        }
+
+                        // Level 4: Partial ID containment
+                        if (!currentProduct) {
+                            currentProduct = SYBER_PRODUCTS.find(p => p.id.includes(cleanSlug) || cleanSlug.includes(p.id));
+                        }
+
+                        // Level 5: Fuzzy title keywords match
+                        if (!currentProduct) {
+                            const words = cleanSlug.split('-').filter(w => w.length > 2);
+                            if (words.length > 0) {
+                                currentProduct = SYBER_PRODUCTS.find(p => {
+                                    const titleLower = p.title.toLowerCase();
+                                    return words.filter(w => titleLower.includes(w)).length >= Math.min(2, words.length);
+                                });
+                            }
+                        }
+                    }
                 }
+
+                // Level 6: Default fallback
                 if (!currentProduct) {
                     currentProduct = SYBER_PRODUCTS.find(p => p.id === defaultId) || SYBER_PRODUCTS[0];
                 }
@@ -1748,7 +1796,6 @@
                     }, 300);
                 }
             }
-        }
         }
 
         function initCartCounter() {
