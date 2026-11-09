@@ -286,7 +286,7 @@ function validateCustomerData() {
         gstin,
         address,
         city,
-        state: state || 'Kerala',
+        state: state || 'Central',
         pincode
     };
 }
@@ -306,7 +306,7 @@ async function triggerCheckoutPayment(forcedMethod) {
     // If sandbox simulator is triggered and fields are blank, provide sensible test defaults
     if (forcedMethod === 'SANDBOX TEST SIMULATOR') {
         const nameEl = document.getElementById('co-name');
-        if (nameEl && !nameEl.value.trim()) nameEl.value = 'Kerala Surveillance Partner';
+        if (nameEl && !nameEl.value.trim()) nameEl.value = 'Surveillance Partner';
         const phoneEl = document.getElementById('co-phone');
         if (phoneEl && !phoneEl.value.trim()) phoneEl.value = '9876543210';
         const emailEl = document.getElementById('co-email');
@@ -498,7 +498,7 @@ function renderCheckoutSuccessView(serverTxn, customer, railDesc, itemsList) {
                     <h3 style="font-family:var(--font-heading); font-size:1.3rem; font-weight:900; margin:0 0 4px; color:#0f172a;">SYBER SPACE SECURITY SYSTEMS</h3>
                     <p style="font-size:0.8rem; color:#475569; margin:0; line-height:1.5;">
                         Authorized Commercial CCTV &amp; Wholesale Surveillance Infrastructure<br>
-                        Kerala HQ &bull; GSTIN: <strong>32AABCU9603R1ZM</strong> &bull; Email: <strong>info.syberspacestore@gmail.com</strong>
+                        Central Warehouse &bull; GSTIN: <strong>32AABCU9603R1ZM</strong> &bull; Email: <strong>info.syberspacestore@gmail.com</strong>
                     </p>
                 </div>
                 <div style="text-align:right; font-family:var(--font-mono); font-size:0.8rem; color:#0f172a;">
@@ -522,7 +522,7 @@ function renderCheckoutSuccessView(serverTxn, customer, railDesc, itemsList) {
                 <div style="background:#f8fafc; border:1px solid #e2e8f0; border-radius:10px; padding:12px 16px;">
                     <strong style="font-size:0.75rem; letter-spacing:0.08em; text-transform:uppercase; color:#0f172a; display:block; margin-bottom:4px;">GST &amp; TAX CREDITS:</strong>
                     <span><strong>Customer GSTIN:</strong> ${customer.gstin ? escapeHtml(customer.gstin) : 'Not Provided (Consumer Invoice)'}</span><br>
-                    <span><strong>State Code:</strong> 32 (Kerala) &bull; Intra/Inter-State Tax</span><br>
+                    <span><strong>State Code:</strong> 32 (Central) &bull; Intra/Inter-State Tax</span><br>
                     <span style="color:#059669; font-weight:700;">18% Input Tax Credit Eligible Under CGST/SGST/IGST Act</span>
                 </div>
             </div>
@@ -555,7 +555,7 @@ function renderCheckoutSuccessView(serverTxn, customer, railDesc, itemsList) {
                 </div>
                 <div style="display:flex; justify-content:space-between; margin-bottom:6px;">
                     <span>Insured Transit Dispatch:</span>
-                    <span style="color:#059669; font-weight:800;">FREE pan-India</span>
+                    <span style="color:#059669; font-weight:800;">FREE Express Delivery</span>
                 </div>
                 <div style="display:flex; justify-content:space-between; border-top:1.5px solid #0f172a; padding-top:10px; margin-top:8px; font-size:1.15rem; font-weight:900; color:#0f172a; font-family:var(--font-heading);">
                     <span>TOTAL RECEIVED:</span>
@@ -601,7 +601,7 @@ function renderCheckoutSuccessView(serverTxn, customer, railDesc, itemsList) {
                 Need to Return or Exchange Hardware?
             </h4>
             <p style="font-size:0.82rem; color:#475569; line-height:1.5; margin:0 0 14px;">
-                Because wholesale surveillance equipment is booked immediately for warehouse verification and transit insurance, orders cannot be cancelled after confirmation. If any defect or model mismatch occurs, submit a request below for a <strong>100% Refund</strong> or <strong>Hardware Replacement / Exchange</strong>. Continuous unboxing video required for transit claims.
+                Because wholesale surveillance hardware is booked immediately for warehouse verification and transit insurance, orders cannot be cancelled after confirmation. If any defect or model mismatch occurs, submit a request below for a <strong>100% Refund</strong> or <strong>Hardware Replacement / Exchange</strong>. Continuous unboxing video required for transit claims.
             </p>
             <div style="display:flex; gap:10px; flex-wrap:wrap;">
                 <button type="button" class="btn-co-sandbox" onclick="openRefundExchangeModal('${currentOrderRef}')" style="margin-top:0; width:auto; padding:10px 20px;">
@@ -748,7 +748,7 @@ async function handleRefundSubmit(e) {
                         NOTIFICATION TRANSMITTED TO info.syberspacestore@gmail.com
                     </p>
                     <p style="font-size:0.86rem; color:#475569; max-width:480px; margin:0 auto 1.5rem; line-height:1.6;">
-                        Your ${requestType} request for Order <strong>#${orderId}</strong> has been logged into our support queue. Reference ID: <strong>${data.refundRef || 'REF-' + Date.now()}</strong>. Our Kerala desk will verify your request and contact you via WhatsApp / Phone within 24-48 hours.
+                        Your ${requestType} request for Order <strong>#${orderId}</strong> has been logged into our support queue. Reference ID: <strong>${data.refundRef || 'REF-' + Date.now()}</strong>. Our support desk will verify your request and contact you via WhatsApp / Phone within 24-48 hours.
                     </p>
                     <div style="display:flex; justify-content:center; gap:10px; flex-wrap:wrap;">
                         <a href="https://wa.me/917511180808?text=${encodeURIComponent(`Hello Syber Space, I have submitted a ${requestType} request for Order ${orderId}. Please assist.`)}" target="_blank" rel="noopener noreferrer" class="btn-co-pay" style="width:auto; padding:12px 24px; text-decoration:none; display:inline-flex; align-items:center; gap:8px;">

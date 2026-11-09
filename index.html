@@ -2020,6 +2020,7 @@
 
   </style>
   <script src="products_data.js"></script>
+  <script src="cart.js"></script>
 </head>
 <body>
 
@@ -3403,18 +3404,15 @@
       }
     }
 
-    function quickAddToCart(id, title, price) {
-      const cart = getCart();
-      const existing = cart.find(item => item.id === id);
-      if (existing) {
-        existing.quantity = (existing.quantity || 1) + 1;
-      } else {
-        cart.push({ id, title, price, quantity: 1, image: 'assets/cp_e21q_1.png' });
+    function quickAddToCart(id, title, price, img) {
+      if (window.syberCart) {
+        window.syberCart.add({
+          id: id,
+          title: title,
+          price: price,
+          image: img || 'assets/cp_e21q_1.png'
+        }, 1);
       }
-      localStorage.setItem('syber_cart', JSON.stringify(cart));
-      localStorage.setItem('syber_cart_items', JSON.stringify(cart));
-      updateCartBadge();
-      showToast(title + ' added to cart!');
     }
 
     function showToast(msg) {

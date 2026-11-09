@@ -1,192 +1,1162 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CART [ SYBER SPACE ]</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&family=Syne:wght@400..800&display=swap" rel="stylesheet">
-    <style>
-        .cart-container {
-            padding: 150px 5%;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shopping Cart - SYBER SPACE Security Systems</title>
+  <meta name="description" content="Review your commercial CCTV cameras, hard disks, and security accessories. Wholesale outlet pricing with secure checkout.">
 
-        .cart-header {
-            font-family: var(--font-display);
-            font-size: 3rem;
-            margin-bottom: 2rem;
-            border-bottom: 1px solid var(--accent);
-            padding-bottom: 1rem;
-            text-transform: uppercase;
-        }
+  <!-- Google Fonts: Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 
-        .cart-content {
-            display: flex;
-            gap: 4rem;
-        }
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-        .cart-items {
-            flex: 2;
-        }
+    :root {
+      --stadium-yellow: #ffe500;
+      --stadium-yellow-hover: #ffd200;
+      --stadium-black: #000000;
+      --stadium-dark: #0f172a;
+      --stadium-gray: #f4f4f5;
+      --stadium-border: #e4e4e7;
+      --primary-blue: #1e60ff;
+      --text-main: #000000;
+      --text-muted: #52525b;
+      --text-light: #71717a;
+      --bg-canvas: #ffffff;
+      --font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    }
 
-        .empty-cart-msg {
-            font-family: var(--font-mono);
-            color: #888;
-            font-size: 1.2rem;
-            padding: 3rem 0;
-            border: 1px dashed rgba(255,255,255,0.2);
-            text-align: center;
-            background: rgba(0,0,0,0.5);
-        }
+    body {
+      font-family: var(--font-family);
+      background-color: var(--bg-canvas);
+      color: var(--text-main);
+      -webkit-font-smoothing: antialiased;
+      line-height: 1.45;
+      overflow-x: hidden;
+    }
 
-        .cart-summary {
-            flex: 1;
-            background: #0a0a0a;
-            border: 1px solid rgba(255,255,255,0.2);
-            padding: 2rem;
-            height: fit-content;
-        }
+    .container {
+      width: 100%;
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
 
-        .summary-title {
-            font-family: var(--font-display);
-            font-size: 1.5rem;
-            margin-bottom: 2rem;
-            border-bottom: 1px dashed rgba(255,255,255,0.2);
-            padding-bottom: 1rem;
-        }
+    /* 1. TOP BRAND SWITCHER */
+    @keyframes livelyRainbowFlow {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
 
-        .summary-row {
-            display: flex;
-            justify-content: space-between;
-            font-family: var(--font-mono);
-            margin-bottom: 1rem;
-            color: #ccc;
-        }
+    @keyframes livelyRainbowGlow {
+      0%, 100% { box-shadow: 0 0 10px rgba(255, 0, 100, 0.55), 0 0 18px rgba(0, 210, 255, 0.4); }
+      50% { box-shadow: 0 0 16px rgba(255, 180, 0, 0.7), 0 0 24px rgba(120, 0, 255, 0.55); }
+    }
 
-        .summary-total {
-            margin-top: 2rem;
-            padding-top: 1rem;
-            border-top: 1px solid var(--accent);
-            color: var(--accent);
-            font-size: 1.5rem;
-            font-weight: bold;
-        }
+    .stadium-top-brand-bar {
+      background: #f8fafc;
+      border-bottom: 1px solid #e2e8f0;
+      padding: 6px 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      z-index: 101;
+    }
 
-        .checkout-btn {
-            width: 100%;
-            padding: 1rem;
-            margin-top: 2rem;
-            background: var(--accent);
-            color: #000;
-            border: none;
-            font-family: var(--font-mono);
-            font-size: 1.2rem;
-            font-weight: bold;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
+    .stadium-top-brand-tabs {
+      background: #ffffff;
+      border: 1.5px solid #e2e8f0;
+      border-radius: 9999px;
+      padding: 3px;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+    }
 
-        .checkout-btn:hover {
-            background: #fff;
-            box-shadow: 0 0 15px var(--accent);
-        }
+    .stadium-top-tab {
+      padding: 6px 18px;
+      border-radius: 9999px;
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      font-size: 13px;
+      font-weight: 700;
+      color: #64748b;
+      text-decoration: none !important;
+      transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+      background: transparent;
+      border: none;
+      cursor: pointer;
+    }
 
-        .back-link {
-            display: inline-block;
-            margin-top: 2rem;
-            color: #aaa;
-            font-family: var(--font-mono);
-            text-decoration: none;
-            border-bottom: 1px solid transparent;
-            transition: all 0.3s;
-        }
+    .stadium-top-tab:hover {
+      color: #0f172a;
+      background: #f1f5f9;
+    }
 
-        .back-link:hover {
-            color: var(--accent);
-            border-bottom-color: var(--accent);
-        }
+    .stadium-top-tab.active {
+      background: #0f172a;
+      color: #ffffff;
+      box-shadow: 0 2px 8px rgba(15, 23, 42, 0.22);
+    }
 
-        @media (max-width: 768px) {
-            .cart-content {
-                flex-direction: column;
-            }
-        }
-    </style>
+    .stadium-wholesale-tag {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 9.5px;
+      font-weight: 900;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+      color: #ffffff !important;
+      padding: 3px 9px;
+      border-radius: 9999px;
+      background: linear-gradient(90deg, #ff0055, #ff5500, #ffbb00, #00dd77, #0099ff, #7700ff, #ff00aa, #ff0055);
+      background-size: 300% 300%;
+      animation: livelyRainbowFlow 3.5s ease infinite, livelyRainbowGlow 2.5s ease-in-out infinite;
+      border: none;
+      line-height: 1;
+    }
+
+    /* 2. MAIN HEADER */
+    .stadium-main-header {
+      background: #ffffff;
+      border-bottom: 1px solid #f1f5f9;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .header-top-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 32px;
+      padding: 16px 0 12px;
+    }
+
+    .brand-logo-stadium {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      text-decoration: none;
+      color: #000000;
+    }
+
+    .brand-logo-title {
+      font-size: 26px;
+      font-weight: 900;
+      letter-spacing: -0.6px;
+      text-transform: lowercase;
+      white-space: nowrap;
+    }
+
+    .brand-logo-outlet-badge {
+      border: 2px solid #000000;
+      font-size: 10.5px;
+      font-weight: 900;
+      padding: 2px 5px;
+      border-radius: 3px;
+      letter-spacing: 0.8px;
+      line-height: 1;
+    }
+
+    .stadium-search-wrap {
+      flex: 1;
+      max-width: 640px;
+      position: relative;
+    }
+
+    .stadium-search-input {
+      width: 100%;
+      height: 44px;
+      padding: 0 20px 0 46px;
+      background: #ffffff;
+      border: 1.5px solid #d4d4d8;
+      border-radius: 9999px;
+      font-size: 14px;
+      font-family: inherit;
+      color: #000000;
+      outline: none;
+      transition: all 0.2s ease;
+    }
+
+    .stadium-search-input:focus {
+      border-color: #000000;
+      box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.06);
+    }
+
+    .stadium-search-icon {
+      position: absolute;
+      left: 16px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 18px;
+      height: 18px;
+      color: #71717a;
+      pointer-events: none;
+    }
+
+    .header-right-tools {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .header-tool-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      color: #000000;
+      background: transparent;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      text-decoration: none;
+      position: relative;
+      transition: all 0.2s ease;
+    }
+
+    .header-tool-btn:hover {
+      background: #f4f4f5;
+    }
+
+    .cart-badge-dot {
+      position: absolute;
+      top: 4px;
+      right: 4px;
+      background: var(--stadium-yellow);
+      color: #000000;
+      font-size: 10px;
+      font-weight: 900;
+      width: 17px;
+      height: 17px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1.5px solid #ffffff;
+    }
+
+    /* 3. CATEGORY NAVIGATION STRIP */
+    .stadium-cat-nav-strip {
+      background: #ffffff;
+      border-bottom: 1px solid #e4e4e7;
+    }
+
+    .cat-nav-list {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      padding: 10px 0;
+      list-style: none;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+
+    .cat-nav-list::-webkit-scrollbar {
+      display: none;
+    }
+
+    .cat-nav-item a, .cat-nav-item button {
+      font-size: 13.5px;
+      font-weight: 700;
+      color: #000000;
+      text-decoration: none;
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      white-space: nowrap;
+      transition: color 0.15s ease;
+      font-family: inherit;
+    }
+
+    .cat-nav-item a:hover, .cat-nav-item button:hover {
+      color: #52525b;
+    }
+
+    /* 4. CART HERO BANNER & BREADCRUMBS */
+    .cart-page-wrapper {
+      padding: 32px 0 80px;
+      background: #fafafa;
+      min-height: 80vh;
+    }
+
+    .cart-breadcrumb {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 12.5px;
+      font-weight: 700;
+      color: #71717a;
+      margin-bottom: 20px;
+    }
+
+    .cart-breadcrumb a {
+      color: #000000;
+      text-decoration: none;
+    }
+
+    .cart-breadcrumb a:hover {
+      text-decoration: underline;
+    }
+
+    .cart-header-row {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      margin-bottom: 28px;
+      border-bottom: 2px solid #000000;
+      padding-bottom: 16px;
+    }
+
+    .cart-title-main {
+      font-size: 32px;
+      font-weight: 900;
+      letter-spacing: -0.8px;
+      color: #000000;
+    }
+
+    .cart-items-count-badge {
+      background: var(--stadium-yellow);
+      color: #000000;
+      font-size: 13px;
+      font-weight: 900;
+      padding: 4px 12px;
+      border-radius: 9999px;
+      border: 1.5px solid #000000;
+    }
+
+    /* 5. 2-COLUMN CART GRID */
+    .cart-main-grid {
+      display: grid;
+      grid-template-columns: 1.8fr 1fr;
+      gap: 32px;
+      align-items: start;
+    }
+
+    @media (max-width: 900px) {
+      .cart-main-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* Cart Items Container */
+    .cart-items-card {
+      background: #ffffff;
+      border: 1.5px solid #e4e4e7;
+      border-radius: 16px;
+      padding: 24px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+    }
+
+    .cart-item-table-header {
+      display: grid;
+      grid-template-columns: 2.5fr 1fr 1fr 1fr 40px;
+      padding-bottom: 12px;
+      border-bottom: 1.5px solid #e4e4e7;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+      color: #71717a;
+    }
+
+    .cart-row {
+      display: grid;
+      grid-template-columns: 2.5fr 1fr 1fr 1fr 40px;
+      align-items: center;
+      padding: 20px 0;
+      border-bottom: 1px solid #f4f4f5;
+    }
+
+    .cart-row:last-child {
+      border-bottom: none;
+    }
+
+    .cart-item-prod {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .cart-item-thumb {
+      width: 72px;
+      height: 72px;
+      object-fit: contain;
+      background: #f8fafc;
+      border: 1px solid #e4e4e7;
+      border-radius: 10px;
+      padding: 6px;
+      flex-shrink: 0;
+    }
+
+    .cart-item-info {
+      min-width: 0;
+    }
+
+    .cart-item-brand {
+      font-size: 10px;
+      font-weight: 900;
+      letter-spacing: 0.6px;
+      text-transform: uppercase;
+      color: #71717a;
+      margin-bottom: 2px;
+    }
+
+    .cart-item-title {
+      font-size: 14px;
+      font-weight: 800;
+      color: #000000;
+      text-decoration: none;
+      display: block;
+      line-height: 1.35;
+    }
+
+    .cart-item-title:hover {
+      text-decoration: underline;
+    }
+
+    .cart-unit-price {
+      font-size: 14px;
+      font-weight: 800;
+      color: #52525b;
+    }
+
+    .cart-qty-stepper {
+      display: inline-flex;
+      align-items: center;
+      border: 1.5px solid #000000;
+      border-radius: 9999px;
+      background: #ffffff;
+      overflow: hidden;
+    }
+
+    .cart-qty-btn {
+      background: transparent;
+      border: none;
+      width: 30px;
+      height: 30px;
+      font-size: 15px;
+      font-weight: 900;
+      color: #000000;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.15s ease;
+    }
+
+    .cart-qty-btn:hover {
+      background: var(--stadium-yellow);
+    }
+
+    .cart-qty-val {
+      width: 28px;
+      text-align: center;
+      font-size: 13px;
+      font-weight: 800;
+      color: #000000;
+    }
+
+    .cart-line-total {
+      font-size: 16px;
+      font-weight: 900;
+      color: #000000;
+    }
+
+    .cart-item-remove-btn {
+      background: transparent;
+      border: none;
+      color: #a1a1aa;
+      cursor: pointer;
+      padding: 6px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.2s ease;
+    }
+
+    .cart-item-remove-btn:hover {
+      color: #dc2626;
+      background: #fee2e2;
+    }
+
+    .cart-actions-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 20px;
+      padding-top: 16px;
+      border-top: 1px solid #f4f4f5;
+    }
+
+    .btn-cart-secondary {
+      background: transparent;
+      border: 1.5px solid #d4d4d8;
+      border-radius: 9999px;
+      padding: 9px 18px;
+      font-size: 12.5px;
+      font-weight: 800;
+      color: #000000;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .btn-cart-secondary:hover {
+      border-color: #000000;
+      background: #f4f4f5;
+    }
+
+    /* 6. ORDER SUMMARY CARD */
+    .cart-summary-card {
+      background: #ffffff;
+      border: 2px solid #000000;
+      border-radius: 16px;
+      padding: 24px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+      position: sticky;
+      top: 100px;
+    }
+
+    .summary-title {
+      font-size: 18px;
+      font-weight: 900;
+      color: #000000;
+      margin-bottom: 20px;
+      border-bottom: 1px solid #e4e4e7;
+      padding-bottom: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.4px;
+    }
+
+    .summary-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 13.5px;
+      color: #52525b;
+      margin-bottom: 12px;
+    }
+
+    .summary-row.total-row {
+      border-top: 2px solid #000000;
+      margin-top: 16px;
+      padding-top: 16px;
+      font-size: 19px;
+      font-weight: 900;
+      color: #000000;
+    }
+
+    .summary-green-tag {
+      color: #059669;
+      font-weight: 800;
+    }
+
+    /* Promo code box */
+    .coupon-box-wrap {
+      display: flex;
+      gap: 8px;
+      margin: 18px 0;
+    }
+
+    .coupon-input {
+      flex: 1;
+      height: 40px;
+      padding: 0 14px;
+      border: 1.5px solid #d4d4d8;
+      border-radius: 8px;
+      font-size: 13px;
+      font-family: inherit;
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+
+    .coupon-input:focus {
+      outline: none;
+      border-color: #000000;
+    }
+
+    .btn-apply-coupon {
+      padding: 0 16px;
+      background: #000000;
+      color: #ffffff;
+      border: none;
+      border-radius: 8px;
+      font-size: 12px;
+      font-weight: 800;
+      cursor: pointer;
+      transition: background 0.2s ease;
+    }
+
+    .btn-apply-coupon:hover {
+      background: #333333;
+    }
+
+    .coupon-status-msg {
+      font-size: 12px;
+      font-weight: 700;
+      margin-bottom: 12px;
+      display: none;
+    }
+
+    .coupon-status-msg.success {
+      color: #059669;
+      display: block;
+    }
+
+    .coupon-status-msg.error {
+      color: #dc2626;
+      display: block;
+    }
+
+    .btn-checkout-primary {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      width: 100%;
+      padding: 16px 24px;
+      background: var(--stadium-yellow);
+      color: #000000;
+      border: 2px solid #000000;
+      border-radius: 9999px;
+      font-size: 15px;
+      font-weight: 900;
+      text-align: center;
+      text-decoration: none;
+      cursor: pointer;
+      box-shadow: 0 4px 14px rgba(255, 229, 0, 0.4);
+      transition: all 0.2s ease;
+      margin-top: 18px;
+    }
+
+    .btn-checkout-primary:hover {
+      background: #000000;
+      color: #ffffff;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .summary-trust-bullets {
+      margin-top: 24px;
+      padding-top: 20px;
+      border-top: 1px solid #f4f4f5;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .trust-bullet-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 12px;
+      font-weight: 700;
+      color: #52525b;
+    }
+
+    .trust-bullet-icon {
+      width: 18px;
+      height: 18px;
+      color: #059669;
+      flex-shrink: 0;
+    }
+
+    /* EMPTY CART STATE */
+    .empty-cart-container {
+      background: #ffffff;
+      border: 1.5px solid #e4e4e7;
+      border-radius: 16px;
+      padding: 80px 24px;
+      text-align: center;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+    }
+
+    .empty-cart-icon-big {
+      width: 80px;
+      height: 80px;
+      color: #a1a1aa;
+      margin-bottom: 20px;
+    }
+
+    .empty-cart-headline {
+      font-size: 26px;
+      font-weight: 900;
+      color: #000000;
+      margin-bottom: 10px;
+    }
+
+    .empty-cart-subtext {
+      font-size: 14px;
+      color: #71717a;
+      max-width: 480px;
+      margin: 0 auto 30px;
+      line-height: 1.5;
+    }
+
+    .btn-explore-catalog {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 32px;
+      background: var(--stadium-yellow);
+      color: #000000;
+      border: 2px solid #000000;
+      border-radius: 9999px;
+      font-size: 14px;
+      font-weight: 900;
+      text-decoration: none;
+      transition: all 0.2s ease;
+    }
+
+    .btn-explore-catalog:hover {
+      background: #000000;
+      color: #ffffff;
+    }
+
+    /* FOOTER */
+    .stadium-footer {
+      background: #000000;
+      color: #ffffff;
+      padding: 50px 0 30px;
+      margin-top: 60px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 40px;
+      margin-bottom: 40px;
+    }
+
+    @media (max-width: 768px) {
+      .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+      }
+    }
+
+    .footer-col h4 {
+      font-size: 14px;
+      font-weight: 900;
+      letter-spacing: 0.6px;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+      color: var(--stadium-yellow);
+    }
+
+    .footer-col ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .footer-col a {
+      color: #a1a1aa;
+      text-decoration: none;
+      font-size: 13px;
+      transition: color 0.15s ease;
+    }
+
+    .footer-col a:hover {
+      color: #ffffff;
+    }
+
+    .footer-bottom-row {
+      border-top: 1px solid #27272a;
+      padding-top: 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 12px;
+      color: #71717a;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+  </style>
 </head>
 <body>
-    <div class="crt-overlay"></div>
-    <div class="scanlines"></div>
 
-        <nav class="navbar">
-        <div class="logo"><a href="index.html" style="text-decoration:none; color:inherit;">SYBER SPACE</a></div>
-        
-        <div class="nav-search-wrapper">
-            <form action="index.html" method="GET" class="nav-search-box">
-                <svg class="search-icon" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.2">
-                    <circle cx="11" cy="11" r="8"></circle>
-                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+  <!-- 1. TOP BRAND SWITCHER -->
+  <div class="stadium-top-brand-bar">
+    <div class="stadium-top-brand-tabs">
+      <a href="index.html" class="stadium-top-tab active">
+        <span>syber space</span>
+      </a>
+      <a href="shop.html" class="stadium-top-tab tab-wholesale">
+        <span>syber space</span>
+        <span class="stadium-wholesale-tag">WHOLESALE</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- 2. MAIN HEADER -->
+  <header class="stadium-main-header">
+    <div class="container">
+      <div class="header-top-row">
+        <!-- Logo -->
+        <a href="index.html" class="brand-logo-stadium" title="SYBER SPACE - Secure Your Space at Outlet Price">
+          <span class="brand-logo-title">syber space</span>
+          <span class="brand-logo-outlet-badge">OUTLET</span>
+        </a>
+
+        <!-- Search Bar -->
+        <div class="stadium-search-wrap">
+          <svg class="stadium-search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+          <input type="text" class="stadium-search-input" placeholder="Search by product, category, brand..." autocomplete="off">
+        </div>
+
+        <!-- Right Tools -->
+        <div class="header-right-tools">
+          <a href="cart.html" class="header-tool-btn" aria-label="Shopping Cart">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+              <line x1="3" y1="6" x2="21" y2="6"></line>
+              <path d="M16 10a4 4 0 0 1-8 0"></path>
+            </svg>
+            <span class="cart-badge-dot" id="cartBadgeCount">0</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- 3. CATEGORY NAVIGATION STRIP -->
+  <nav class="stadium-cat-nav-strip">
+    <div class="container">
+      <ul class="cat-nav-list">
+        <li class="cat-nav-item"><a href="category.html?cat=all">Categories &darr;</a></li>
+        <li class="cat-nav-item"><a href="category.html?cat=cctv">CCTV</a></li>
+        <li class="cat-nav-item"><a href="category.html?cat=dash-cams">Dashcams</a></li>
+        <li class="cat-nav-item"><a href="category.html?cat=home-automation">Automation</a></li>
+        <li class="cat-nav-item"><a href="category.html?cat=accessories">Accessories</a></li>
+        <li class="cat-nav-item"><a href="category.html?cat=cables">Cables</a></li>
+        <li class="cat-nav-item"><a href="category.html?cat=wifi-solar">Wireless</a></li>
+        <li class="cat-nav-item"><a href="category.html?cat=all">Brands We Deal &darr;</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- 4. CART CONTENT MAIN -->
+  <main class="cart-page-wrapper">
+    <div class="container">
+      
+      <!-- Breadcrumbs -->
+      <div class="cart-breadcrumb">
+        <a href="index.html">Home</a>
+        <span>/</span>
+        <span>Shopping Cart</span>
+      </div>
+
+      <div class="cart-header-row">
+        <h1 class="cart-title-main">Shopping Cart</h1>
+        <span class="cart-items-count-badge" id="cartHeaderBadge">0 Items</span>
+      </div>
+
+      <!-- Live Cart Container -->
+      <div id="cartViewContainer">
+        <!-- Rendered dynamically by script -->
+      </div>
+
+    </div>
+  </main>
+
+  <!-- 5. FOOTER -->
+  <footer class="stadium-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <h4>SYBER SPACE SECURITY SYSTEMS</h4>
+          <p style="color: #a1a1aa; font-size: 13px; line-height: 1.6; margin-bottom: 16px;">
+            Authorized Tier-1 wholesale surveillance hardware distributor. Direct factory procurement for CCTV cameras, NVRs, smart VDP systems, enterprise cabling, and high-endurance surveillance hard disks.
+          </p>
+          <p style="color: #71717a; font-size: 12px;">HDFC SmartGateway Authorized Commercial Terminal</p>
+        </div>
+        <div class="footer-col">
+          <h4>Categories</h4>
+          <ul>
+            <li><a href="category.html?cat=cctv">CCTV Systems</a></li>
+            <li><a href="category.html?cat=dash-cams">Dash Cams</a></li>
+            <li><a href="category.html?cat=home-automation">Home Automation</a></li>
+            <li><a href="category.html?cat=accessories">Accessories (The Big List)</a></li>
+            <li><a href="category.html?cat=cables">Cabling &amp; Fiber</a></li>
+            <li><a href="category.html?cat=wifi-solar">Wireless &amp; Solar Cameras</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Customer Service</h4>
+          <ul>
+            <li><a href="contact.html">Contact Us</a></li>
+            <li><a href="shipping-policy.html">Shipping Policy</a></li>
+            <li><a href="refund-policy.html">Refund Policy</a></li>
+            <li><a href="terms.html">Terms &amp; Conditions</a></li>
+            <li><a href="privacy.html">Privacy Policy</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Wholesale Terminal</h4>
+          <ul>
+            <li><a href="shop.html">B2B Wholesale Portal</a></li>
+            <li><a href="checkout.html">Direct Checkout</a></li>
+            <li><a href="https://wa.me/917511180808" target="_blank" rel="noopener noreferrer">WhatsApp Support</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom-row">
+        <div>&copy; 2026 SYBER SPACE Security Systems. All Rights Reserved.</div>
+        <div>All prices listed in Rupee (&#8377;) inclusive of applicable GST.</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="products_data.js"></script>
+  <script src="cart.js"></script>
+  <script>
+    let appliedDiscountPct = 0;
+
+    function renderCartPage() {
+      const container = document.getElementById('cartViewContainer');
+      const headerBadge = document.getElementById('cartHeaderBadge');
+      if (!container) return;
+
+      const cart = window.syberCart.getCart();
+      const count = window.syberCart.count();
+      const subtotal = window.syberCart.subtotal();
+
+      if (headerBadge) {
+        headerBadge.textContent = count + (count === 1 ? ' Item' : ' Items');
+      }
+
+      if (cart.length === 0) {
+        container.innerHTML = `
+          <div class="empty-cart-container">
+            <svg class="empty-cart-icon-big" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="9" cy="21" r="1"></circle>
+              <circle cx="20" cy="21" r="1"></circle>
+              <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+            </svg>
+            <h2 class="empty-cart-headline">Your Cart is Currently Empty</h2>
+            <p class="empty-cart-subtext">You have not added any surveillance hardware to your order yet. Explore our high-definition cameras, network recorders, and contractor accessories at direct outlet prices.</p>
+            <a href="category.html?cat=all" class="btn-explore-catalog">
+              <span>EXPLORE OUR CATALOG</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </a>
+          </div>
+        `;
+        return;
+      }
+
+      // Compute pricing
+      const discountAmount = Math.round(subtotal * (appliedDiscountPct / 100));
+      const grandTotal = Math.max(0, subtotal - discountAmount);
+
+      container.innerHTML = `
+        <div class="cart-main-grid">
+          
+          <!-- LEFT: CART ITEMS -->
+          <div class="cart-items-card">
+            <div class="cart-item-table-header">
+              <span>Product</span>
+              <span style="text-align: right;">Price</span>
+              <span style="text-align: center;">Quantity</span>
+              <span style="text-align: right;">Total</span>
+              <span></span>
+            </div>
+
+            <div class="cart-items-list-wrap">
+              ${cart.map(function(item) {
+                const itemPrice = Math.round(Number(item.price) || 0);
+                const lineTotal = itemPrice * (item.quantity || 1);
+                const safeId = item.id || item.name;
+                const safeTitle = item.name || item.title;
+                const safeBrand = item.brand || 'SYBER';
+                const imgSrc = item.image || 'assets/official_bestseller_idada_q2i_transparent.png';
+
+                return `
+                  <div class="cart-row" data-id="${safeId}">
+                    <div class="cart-item-prod">
+                      <img src="${imgSrc}" alt="${safeTitle}" class="cart-item-thumb" onerror="this.src='assets/official_bestseller_idada_q2i_transparent.png'">
+                      <div class="cart-item-info">
+                        <div class="cart-item-brand">${safeBrand}</div>
+                        <a href="product.html?id=${encodeURIComponent(safeId)}" class="cart-item-title">${safeTitle}</a>
+                      </div>
+                    </div>
+                    
+                    <div class="cart-unit-price" style="text-align: right;">₹${itemPrice.toLocaleString('en-IN')}</div>
+                    
+                    <div style="text-align: center;">
+                      <div class="cart-qty-stepper">
+                        <button type="button" class="cart-qty-btn" onclick="updateCartRow('${safeId}', -1)" aria-label="Decrease quantity">-</button>
+                        <span class="cart-qty-val">${item.quantity || 1}</span>
+                        <button type="button" class="cart-qty-btn" onclick="updateCartRow('${safeId}', 1)" aria-label="Increase quantity">+</button>
+                      </div>
+                    </div>
+
+                    <div class="cart-line-total" style="text-align: right;">₹${lineTotal.toLocaleString('en-IN')}</div>
+
+                    <div style="text-align: right;">
+                      <button type="button" class="cart-item-remove-btn" onclick="removeCartRow('${safeId}')" title="Remove item" aria-label="Remove item">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                          <line x1="18" y1="6" x2="6" y2="18"></line>
+                          <line x1="6" y1="6" x2="18" y2="18"></line>
+                        </svg>
+                      </button>
+                    </div>
+                  </div>
+                `;
+              }).join('')}
+            </div>
+
+            <div class="cart-actions-bar">
+              <a href="category.html?cat=all" class="btn-cart-secondary">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="19" y1="12" x2="5" y2="12"></line>
+                  <polyline points="12 19 5 12 12 5"></polyline>
                 </svg>
-                <input type="text" name="q" class="nav-search-input" placeholder="SEARCH SURVEILLANCE HARDWARE, PTZ, NVRS..." autocomplete="off">
-                <button type="submit" class="nav-search-submit">[ SEARCH ]</button>
-            </form>
-        </div>
+                <span>Continue Shopping</span>
+              </a>
+              <button type="button" class="btn-cart-secondary" onclick="clearFullCart()">
+                <span>Clear Cart</span>
+              </button>
+            </div>
+          </div>
 
-        <div class="nav-links">
-            <a href="index.html#cameras">CAMERAS</a>
-            <a href="index.html#about">ABOUT</a>
-            <a href="cart.html">CART (0)</a>
-        </div>
-    </nav>
+          <!-- RIGHT: ORDER SUMMARY -->
+          <div class="cart-summary-card">
+            <h3 class="summary-title">Order Summary</h3>
 
-    <main class="cart-container">
-        <h1 class="cart-header">SECURE CART</h1>
-        
-        <div class="cart-content">
-            <div class="cart-items">
-                <div class="empty-cart-msg">
-                    [ NO HARDWARE SELECTED ]<br><br>
-                    YOUR CART IS CURRENTLY EMPTY.
-                </div>
+            <div class="summary-row">
+              <span>Subtotal (${count} ${count === 1 ? 'item' : 'items'}):</span>
+              <strong style="color: #000000;">₹${subtotal.toLocaleString('en-IN')}</strong>
             </div>
 
-            <div class="cart-summary">
-                <h3 class="summary-title">ORDER SUMMARY</h3>
-                
-                <div class="summary-row">
-                    <span>SUBTOTAL</span>
-                    <span id="summary-subtotal">₹0</span>
-                </div>
-                <div class="summary-row">
-                    <span>SHIPPING</span>
-                    <span>FREE</span>
-                </div>
-                <div class="summary-row">
-                    <span>TAX (GST 18%)</span>
-                    <span id="summary-gst">₹0</span>
-                </div>
-
-                <div class="summary-row summary-total">
-                    <span>TOTAL</span>
-                    <span id="summary-total">₹0</span>
-                </div>
-
-                <button class="checkout-btn">[ INITIATE SECURE PROCUREMENT ]</button>
-
-                <a href="index.html" class="back-link">&larr; RETURN TO CATALOG</a>
+            <div class="summary-row">
+              <span>Express Delivery:</span>
+              <span class="summary-green-tag">FREE</span>
             </div>
-        </div>
-    </main>
 
-    <footer>
-        <div class="footer-content">
-            <p>&copy; 2026 SYBER SPACE. All rights reserved. Enterprise and residential optical surveillance architecture.</p>
-            <p>Direct Advisory Hotline: +91 75111 80808 | Support Desk: info.syberspacestore@gmail.com</p>
-        </div>
-    </footer>
+            <div class="summary-row">
+              <span>Applicable GST (18%):</span>
+              <span style="color: #71717a;">Included</span>
+            </div>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-    <script src="cart.js"></script>
+            ${appliedDiscountPct > 0 ? `
+              <div class="summary-row" style="color: #059669; font-weight: 800;">
+                <span>Discount (${appliedDiscountPct}%):</span>
+                <span>- ₹${discountAmount.toLocaleString('en-IN')}</span>
+              </div>
+            ` : ''}
+
+            <!-- Coupon Box -->
+            <div class="coupon-box-wrap">
+              <input type="text" class="coupon-input" id="cartCouponInput" placeholder="PROMO CODE (e.g. OUTLET10)" autocomplete="off">
+              <button type="button" class="btn-apply-coupon" onclick="applyCouponCode()">APPLY</button>
+            </div>
+            <div class="coupon-status-msg" id="couponStatusMsg"></div>
+
+            <div class="summary-row total-row">
+              <span>Total Payable:</span>
+              <span style="color: #000000;">₹${grandTotal.toLocaleString('en-IN')}</span>
+            </div>
+
+            <a href="checkout.html" class="btn-checkout-primary">
+              <span>PROCEED TO CHECKOUT</span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </a>
+
+            <!-- Trust Bullets -->
+            <div class="summary-trust-bullets">
+              <div class="trust-bullet-item">
+                <svg class="trust-bullet-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span>HDFC Bank SmartGateway™ Encrypted Checkout</span>
+              </div>
+              <div class="trust-bullet-item">
+                <svg class="trust-bullet-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span>2-Year Comprehensive Hardware Warranty</span>
+              </div>
+              <div class="trust-bullet-item">
+                <svg class="trust-bullet-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span>Same-Day Priority Dispatch &amp; Transit Insurance</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      `;
+    }
+
+    function updateCartRow(id, delta) {
+      window.syberCart.update(id, delta);
+      renderCartPage();
+    }
+
+    function removeCartRow(id) {
+      window.syberCart.remove(id);
+      renderCartPage();
+    }
+
+    function clearFullCart() {
+      if (confirm('Are you sure you want to clear all items from your cart?')) {
+        window.syberCart.clear();
+        renderCartPage();
+      }
+    }
+
+    function applyCouponCode() {
+      const input = document.getElementById('cartCouponInput');
+      const msg = document.getElementById('couponStatusMsg');
+      if (!input || !msg) return;
+
+      const code = input.value.trim().toUpperCase();
+      if (code === 'OUTLET10' || code === 'SYBER10') {
+        appliedDiscountPct = 10;
+        msg.className = 'coupon-status-msg success';
+        msg.textContent = 'Coupon applied: 10% instant discount unlocked!';
+        renderCartPage();
+      } else if (code === '') {
+        msg.className = 'coupon-status-msg error';
+        msg.textContent = 'Please enter a valid coupon code.';
+      } else {
+        msg.className = 'coupon-status-msg error';
+        msg.textContent = 'Invalid promo code. Use OUTLET10 for 10% off.';
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      renderCartPage();
+      window.addEventListener('syberCartUpdated', renderCartPage);
+    });
+  </script>
 </body>
 </html>
