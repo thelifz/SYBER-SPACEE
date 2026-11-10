@@ -2621,6 +2621,266 @@
       transform: translateY(-1px);
     }
 
+  
+    /* 1. MICRO TOP ANNOUNCEMENT STRIP */
+    .syber-top-strip {
+      background: #000000;
+      color: #ffffff;
+      font-size: 11.5px;
+      font-weight: 600;
+      letter-spacing: 0.3px;
+      border-bottom: 1px solid #27272a;
+      padding: 7px 0;
+    }
+    .syber-top-strip .container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .syber-top-strip b {
+      color: #ffe500;
+    }
+    .syber-top-strip-link {
+      color: #ffe500;
+      text-decoration: none;
+      font-weight: 700;
+      transition: color 0.2s ease;
+    }
+    .syber-top-strip-link:hover {
+      text-decoration: underline;
+    }
+    @media (max-width: 768px) {
+      .syber-top-strip-right {
+        display: none;
+      }
+    }
+
+    /* 2. THREE-COLUMN BUNDLE DEALS GRID */
+    .bundle-deals-section {
+      padding: 56px 0 52px;
+      background: #ffffff;
+      border-bottom: 1px solid #e4e4e7;
+    }
+    .bundle-deals-header {
+      margin-bottom: 28px;
+    }
+    .bundle-deals-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+    @media (max-width: 990px) {
+      .bundle-deals-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    .bundle-deal-card {
+      background: #ffffff;
+      border: 2px solid #000000;
+      border-radius: 16px;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 16px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+      transition: all 0.25s ease;
+      position: relative;
+    }
+    .bundle-deal-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 14px 28px rgba(0, 0, 0, 0.1);
+    }
+    .bundle-deal-card.hot {
+      background: #fafafa;
+      border-color: #000000;
+    }
+    .bundle-deal-badge {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      color: #000000;
+      background: #ffe500;
+      padding: 4px 10px;
+      border-radius: 4px;
+      align-self: flex-start;
+    }
+    .bundle-deal-title {
+      font-size: 20px;
+      font-weight: 900;
+      color: #000000;
+      line-height: 1.25;
+      margin: 8px 0 6px;
+    }
+    .bundle-deal-desc {
+      font-size: 13.5px;
+      color: #52525b;
+      line-height: 1.5;
+    }
+    .bundle-deal-amt {
+      font-size: 16px;
+      font-weight: 900;
+      color: #16a34a;
+      background: #f0fdf4;
+      border: 1px solid #bbf7d0;
+      padding: 6px 12px;
+      border-radius: 6px;
+      display: inline-block;
+      margin: 10px 0;
+    }
+    .btn-bundle-action {
+      display: block;
+      width: 100%;
+      text-align: center;
+      padding: 12px 18px;
+      background: #000000;
+      color: #ffffff;
+      font-size: 13.5px;
+      font-weight: 800;
+      border-radius: 8px;
+      text-decoration: none !important;
+      transition: all 0.2s ease;
+    }
+    .btn-bundle-action:hover {
+      background: #ffe500;
+      color: #000000;
+    }
+
+    /* 3. 17 AUTHORIZED BRANDS WALL */
+    .brands-wall-section {
+      padding: 56px 0 52px;
+      background: #fafafa;
+      border-bottom: 1px solid #e4e4e7;
+    }
+    .brands-wall-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 24px;
+    }
+    .brand-wall-pill {
+      background: #ffffff;
+      border: 1.5px solid #e4e4e7;
+      border-radius: 10px;
+      padding: 10px 16px;
+      display: inline-flex;
+      align-items: baseline;
+      gap: 8px;
+      text-decoration: none !important;
+      color: #000000;
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
+    }
+    .brand-wall-pill:hover {
+      border-color: #000000;
+      background: #ffe500;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 14px rgba(0, 0, 0, 0.08);
+    }
+    .brand-wall-name {
+      font-size: 14.5px;
+      font-weight: 800;
+      color: #000000;
+    }
+    .brand-wall-spec {
+      font-size: 11.5px;
+      font-weight: 600;
+      color: #71717a;
+    }
+    .brand-wall-pill:hover .brand-wall-spec {
+      color: #000000;
+    }
+
+    /* 4. QUOTING A BIG PROJECT SECTION */
+    .project-quote-section {
+      background: #ffe500;
+      color: #000000;
+      border-top: 2px solid #000000;
+      border-bottom: 2px solid #000000;
+      padding: 48px 0;
+    }
+    .project-quote-wrap {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 32px;
+      align-items: center;
+    }
+    @media (max-width: 860px) {
+      .project-quote-wrap {
+        grid-template-columns: 1fr;
+      }
+    }
+    .project-quote-title {
+      font-size: 32px;
+      font-weight: 900;
+      color: #000000;
+      letter-spacing: -0.5px;
+      line-height: 1.15;
+      margin-bottom: 8px;
+    }
+    .project-quote-desc {
+      font-size: 15px;
+      font-weight: 600;
+      color: #18181b;
+      max-width: 580px;
+      line-height: 1.5;
+    }
+    .project-quote-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .project-quote-phone {
+      font-family: monospace;
+      font-size: 16px;
+      font-weight: 900;
+      background: #000000;
+      color: #ffe500;
+      padding: 10px 16px;
+      border-radius: 8px;
+      letter-spacing: 0.5px;
+    }
+    .btn-quote-copy {
+      background: transparent;
+      color: #000000;
+      border: 2px solid #000000;
+      border-radius: 8px;
+      padding: 10px 16px;
+      font-size: 13.5px;
+      font-weight: 800;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      font-family: inherit;
+    }
+    .btn-quote-copy:hover {
+      background: #000000;
+      color: #ffe500;
+    }
+    .btn-quote-wa {
+      background: #000000;
+      color: #ffffff;
+      border: 2px solid #000000;
+      border-radius: 8px;
+      padding: 10px 18px;
+      font-size: 13.5px;
+      font-weight: 800;
+      text-decoration: none !important;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.2s ease;
+      font-family: inherit;
+    }
+    .btn-quote-wa:hover {
+      background: #27272a;
+      color: #ffe500;
+    }
+
   </style>
   <script src="products_data.js"></script>
   <script src="cart.js"></script>
@@ -2663,6 +2923,16 @@
   </div>
 
   <!-- 2. MAIN HEADER (LOGO, SEARCH & ICONS - IMAGE 2) -->
+  <div class="syber-top-strip" role="region" aria-label="Announcement">
+    <div class="container">
+      <div class="syber-top-strip-left">
+        <b>Priority 24&ndash;48h Dispatch</b> on Wholesale Lots &bull; Full 18% GST Input Tax Credit
+      </div>
+      <div class="syber-top-strip-right">
+        Direct B2B Desk: <a href="https://wa.me/917511180808" class="syber-top-strip-link" target="_blank" rel="noopener">+91 75111 80808</a> &bull; OEM Warranty
+      </div>
+    </div>
+  </div>
   <header class="stadium-main-header">
     <div class="container">
       
@@ -3046,12 +3316,12 @@
       <!-- TABS: BESTSELLERS VS SUGGESTED SYSTEMS -->
       <div class="matrix-tabs-row" role="tablist">
         <button type="button" class="matrix-tab-btn active" id="btnTabBestsellers" onclick="switchSetupTab('bestsellers')">
-          <svg class="ico" style="font-size: 15px; margin-right: 6px;"><use href="#i-shield"/></svg>
+          <svg class="ico" width="18" height="18" style="font-size: 15px; margin-right: 6px;"><use href="#i-shield"/></svg>
           <span>Top Bestsellers</span>
           <span class="tab-badge-pill">8 Verified Products</span>
         </button>
         <button type="button" class="matrix-tab-btn" id="btnTabSuggested" onclick="switchSetupTab('suggested')">
-          <svg class="ico" style="font-size: 15px; margin-right: 6px;"><use href="#i-dome"/></svg>
+          <svg class="ico" width="18" height="18" style="font-size: 15px; margin-right: 6px;"><use href="#i-dome"/></svg>
           <span>Suggested Systems</span>
           <span class="tab-badge-pill">4 Complete Packages</span>
         </button>
@@ -3062,6 +3332,105 @@
         <!-- Rendered dynamically by renderCctvSetupMatrix() -->
       </div>
 
+    </div>
+  </section>
+  <!-- ==========================================================================
+       THREE-COLUMN BUNDLE DEALS (FROM WEBSITE 22)
+       ========================================================================== -->
+  <section class="bundle-deals-section" id="deals">
+    <div class="container">
+      <div class="bundle-deals-header">
+        <div class="hero-cat-kicker">WHOLESALE BUNDLE DEALS</div>
+        <h2 class="hero-cat-title" style="font-size: 26px;">Bigger Lots, Bigger Savings</h2>
+        <p style="color: #71717a; font-size: 14px; margin-top: 4px; max-width: 580px;">
+          Pre-packaged surveillance bundles for installers and contractors with guaranteed instant wholesale savings.
+        </p>
+      </div>
+
+      <div class="bundle-deals-grid">
+        <!-- DEAL 1 -->
+        <article class="bundle-deal-card hot">
+          <div>
+            <span class="bundle-deal-badge">Limited Time &bull; Buy 1 Get 2 Free</span>
+            <h3 class="bundle-deal-title">Enterprise Perimeter 4K Bundle</h3>
+            <p class="bundle-deal-desc">
+              8-Channel PoE NVR hub + 4x 4K Ultra-HD starlight night vision AI dome cameras + 2TB surveillance storage.
+            </p>
+          </div>
+          <div>
+            <div class="bundle-deal-amt">Save &#8377;8,499 Total</div>
+            <a href="https://wa.me/917511180808?text=Hi%20Syber%20Space%2C%20please%20confirm%20stock%20and%20quote%20for%20the%20Enterprise%20Perimeter%204K%20Bundle%20(Save%20Rs%208499)." target="_blank" rel="noopener" class="btn-bundle-action">
+              Ask for this bundle &rarr;
+            </a>
+          </div>
+        </article>
+
+        <!-- DEAL 2 -->
+        <article class="bundle-deal-card">
+          <div>
+            <span class="bundle-deal-badge">Villa &amp; Office &bull; Flat Discount</span>
+            <h3 class="bundle-deal-title">Smart Touchscreen VDP &amp; Biometrics</h3>
+            <p class="bundle-deal-desc">
+              7-inch color touchscreen intercom with two-way audio, RFID outdoor call station, and electromagnetic rim lock integration.
+            </p>
+          </div>
+          <div>
+            <div class="bundle-deal-amt">Save &#8377;12,500 Total</div>
+            <a href="https://wa.me/917511180808?text=Hi%20Syber%20Space%2C%20please%20confirm%20stock%20and%20quote%20for%20the%20Smart%20Touchscreen%20VDP%20%26%20Biometrics%20Bundle%20(Save%20Rs%2012500)." target="_blank" rel="noopener" class="btn-bundle-action">
+              Ask for this bundle &rarr;
+            </a>
+          </div>
+        </article>
+
+        <!-- DEAL 3 -->
+        <article class="bundle-deal-card">
+          <div>
+            <span class="bundle-deal-badge">Contractor Combo &bull; Best Value</span>
+            <h3 class="bundle-deal-title">Pure Copper CAT6 &amp; PoE Infrastructure</h3>
+            <p class="bundle-deal-desc">
+              305m annealed solid copper drum paired with a 65W high-budget 4+2 PoE switch for clean, certified IP installations.
+            </p>
+          </div>
+          <div>
+            <div class="bundle-deal-amt">Save &#8377;9,200 Total</div>
+            <a href="https://wa.me/917511180808?text=Hi%20Syber%20Space%2C%20please%20confirm%20stock%20and%20quote%20for%20the%20Pure%20Copper%20CAT6%20%26%20PoE%20Infrastructure%20Bundle%20(Save%20Rs%209200)." target="_blank" rel="noopener" class="btn-bundle-action">
+              Ask for this bundle &rarr;
+            </a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+  <!-- ==========================================================================
+       17 AUTHORIZED OEM BRANDS WALL (FROM WEBSITE 22)
+       ========================================================================== -->
+  <section class="brands-wall-section" id="brands">
+    <div class="container">
+      <div class="hero-cat-kicker">AUTHORIZED DISTRIBUTOR PORTFOLIO</div>
+      <h2 class="hero-cat-title" style="font-size: 26px;">17 Certified Hardware Brands</h2>
+      <p style="color: #71717a; font-size: 14px; margin-top: 4px; max-width: 600px;">
+        Direct Tier-1 partnerships with official warranty and guaranteed 18% GST input tax credit. Click any brand to browse certified products.
+      </p>
+
+      <div class="brands-wall-grid">
+        <a href="category.html?brand=Hikvision" class="brand-wall-pill"><span class="brand-wall-name">Hikvision</span><span class="brand-wall-spec">4K AcuSense &amp; ColorVu</span></a>
+        <a href="category.html?brand=CP+Plus" class="brand-wall-pill"><span class="brand-wall-name">CP Plus</span><span class="brand-wall-spec">Wi-Fi &amp; Analog CCTV</span></a>
+        <a href="category.html?brand=Prama" class="brand-wall-pill"><span class="brand-wall-name">Prama</span><span class="brand-wall-spec">Commercial Surveillance</span></a>
+        <a href="category.html?brand=Hi-Focus" class="brand-wall-pill"><span class="brand-wall-name">Hi-Focus</span><span class="brand-wall-spec">HD Video Systems</span></a>
+        <a href="category.html?brand=Secureye" class="brand-wall-pill"><span class="brand-wall-name">Secureye</span><span class="brand-wall-spec">Biometrics &amp; CCTV</span></a>
+        <a href="category.html?brand=Nexiview" class="brand-wall-pill"><span class="brand-wall-name">Nexiview</span><span class="brand-wall-spec">Surveillance Hardware</span></a>
+        <a href="category.html?brand=Fiber" class="brand-wall-pill"><span class="brand-wall-name">Fiber</span><span class="brand-wall-spec">Optical Transmission</span></a>
+        <a href="category.html?brand=WD+Purple" class="brand-wall-pill"><span class="brand-wall-name">WD Purple</span><span class="brand-wall-spec">24/7 Surveillance Drives</span></a>
+        <a href="category.html?brand=Seagate+SkyHawk" class="brand-wall-pill"><span class="brand-wall-name">Seagate SkyHawk</span><span class="brand-wall-spec">Surveillance AI Drives</span></a>
+        <a href="category.html?brand=Toshiba+S300" class="brand-wall-pill"><span class="brand-wall-name">Toshiba S300</span><span class="brand-wall-spec">Surveillance Storage</span></a>
+        <a href="category.html?brand=Trueview" class="brand-wall-pill"><span class="brand-wall-name">Trueview</span><span class="brand-wall-spec">Solar 4G &amp; PoE Switches</span></a>
+        <a href="category.html?brand=Finolex" class="brand-wall-pill"><span class="brand-wall-name">Finolex</span><span class="brand-wall-spec">Pure Solid Copper CAT6</span></a>
+        <a href="category.html?brand=eSSL" class="brand-wall-pill"><span class="brand-wall-name">eSSL</span><span class="brand-wall-spec">Biometrics &amp; Attendance</span></a>
+        <a href="category.html?brand=ERD" class="brand-wall-pill"><span class="brand-wall-name">ERD</span><span class="brand-wall-spec">12V CCTV SMPS Power</span></a>
+        <a href="category.html?brand=Logitech" class="brand-wall-pill"><span class="brand-wall-name">Logitech</span><span class="brand-wall-spec">Video Collaboration</span></a>
+        <a href="category.html?brand=MX" class="brand-wall-pill"><span class="brand-wall-name">MX MDR</span><span class="brand-wall-spec">BNC &amp; DC Connectors</span></a>
+        <a href="category.html?brand=TP-Link" class="brand-wall-pill"><span class="brand-wall-name">TP-Link</span><span class="brand-wall-spec">Enterprise PoE &amp; Wi-Fi</span></a>
+      </div>
     </div>
   </section>
 
@@ -3091,6 +3460,27 @@
   </section>
 
   <!-- 9. CLEAN MINIMALIST FOOTER -->
+    <!-- ==========================================================================
+       QUOTING A BIG PROJECT SECTION (FROM WEBSITE 22)
+       ========================================================================== -->
+  <section class="project-quote-section" id="project-quote">
+    <div class="container project-quote-wrap">
+      <div>
+        <h2 class="project-quote-title">Quoting a big project?</h2>
+        <p class="project-quote-desc">
+          Send your camera count and site type directly to our B2B desk. Contractors and dealers receive volume lots up to 20x with full 18% GST tax credit.
+        </p>
+      </div>
+      <div class="project-quote-actions">
+        <code class="project-quote-phone">+91 75111 80808</code>
+        <button type="button" class="btn-quote-copy" id="btnCopyB2B" onclick="copyB2BPhone()">Copy number</button>
+        <a href="https://wa.me/917511180808?text=Hi%20Syber%20Space%2C%20I%20am%20quoting%20a%20security%20project%20and%20need%20a%20wholesale%20quote%20for%20contractor%20lots." target="_blank" rel="noopener" class="btn-quote-wa">
+          <svg class="ico" width="18" height="18" style="font-size: 16px;"><use href="#i-chat"/></svg>
+          Open WhatsApp
+        </a>
+      </div>
+    </div>
+  </section>
   <footer class="stadium-clean-footer">
     <div class="container">
       <div class="footer-top-links-row">

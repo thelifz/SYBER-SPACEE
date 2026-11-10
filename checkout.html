@@ -672,9 +672,44 @@
     .btn-success-secondary:hover {
       background: #333333;
     }
+  
+    .ico {
+      width: 1em;
+      height: 1em;
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 3;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      vertical-align: middle;
+      display: inline-block;
+    }
+
   </style>
 </head>
 <body>
+<svg width="0" height="0" style="position:absolute; display:none;" aria-hidden="true">
+  <symbol id="i-bullet" viewBox="0 0 64 64"><rect x="6" y="20" width="38" height="20" rx="7"/><circle cx="46" cy="30" r="9"/><circle cx="46" cy="30" r="3.5"/><path d="M20 40v8l-8 6M20 48h14"/></symbol>
+  <symbol id="i-dome" viewBox="0 0 64 64"><path d="M8 42a24 24 0 0 1 48 0z"/><circle cx="32" cy="36" r="6"/><path d="M12 50h40"/></symbol>
+  <symbol id="i-vdp" viewBox="0 0 64 64"><rect x="12" y="8" width="40" height="48" rx="7"/><rect x="18" y="14" width="28" height="20" rx="3"/><circle cx="32" cy="46" r="4"/></symbol>
+  <symbol id="i-finger" viewBox="0 0 64 64"><path d="M18 26a14 14 0 0 1 28 0M13 36a19 19 0 0 1 8-21M51 36a19 19 0 0 0-3-14M24 50c-2-6-2-12 0-18a8 8 0 0 1 16 2c0 8-1 14-4 20M32 34c0 8 0 12-2 18"/></symbol>
+  <symbol id="i-cable" viewBox="0 0 64 64"><circle cx="30" cy="32" r="20"/><circle cx="30" cy="32" r="9"/><path d="M50 32h10M30 52v6"/></symbol>
+  <symbol id="i-switch" viewBox="0 0 64 64"><rect x="6" y="22" width="52" height="20" rx="5"/><path d="M15 32h4M24 32h4M33 32h4M42 32h4M15 28v-2M24 28v-2M33 28v-2M42 28v-2"/></symbol>
+  <symbol id="i-power" viewBox="0 0 64 64"><rect x="8" y="14" width="48" height="36" rx="6"/><path d="M34 20l-8 13h8l-4 11 10-15h-8z"/></symbol>
+  <symbol id="i-hdd" viewBox="0 0 64 64"><rect x="8" y="10" width="48" height="44" rx="7"/><circle cx="32" cy="30" r="10"/><circle cx="32" cy="30" r="2.5"/><path d="M16 46h12"/></symbol>
+  <symbol id="i-box" viewBox="0 0 64 64"><rect x="10" y="14" width="44" height="36" rx="5"/><circle cx="17" cy="21" r="1.5"/><circle cx="47" cy="21" r="1.5"/><circle cx="17" cy="43" r="1.5"/><circle cx="47" cy="43" r="1.5"/><path d="M24 32h16"/></symbol>
+  <symbol id="i-solar" viewBox="0 0 64 64"><path d="M8 54l8-24h40l-8 24zM12 42h40M30 30l-3 24M42 30l-2 24"/><circle cx="32" cy="14" r="6"/><path d="M32 20v10"/></symbol>
+  <symbol id="i-router" viewBox="0 0 64 64"><rect x="8" y="32" width="48" height="16" rx="5"/><path d="M18 40h2M26 40h2M16 32L12 14M48 32l4-18"/></symbol>
+  <symbol id="i-shield" viewBox="0 0 64 64"><path d="M32 6l20 8v16c0 14-9 22-20 28C21 52 12 44 12 30V14z"/><path d="M23 32l7 7 12-14"/></symbol>
+  <symbol id="i-truck" viewBox="0 0 64 64"><path d="M6 16h32v28H6zM38 24h12l8 10v10H38z"/><circle cx="18" cy="48" r="5"/><circle cx="48" cy="48" r="5"/></symbol>
+  <symbol id="i-gst" viewBox="0 0 64 64"><rect x="12" y="6" width="40" height="52" rx="6"/><path d="M22 20h20M22 30h20M22 40h10"/><path d="M40 42l6 6M46 42l-6 6"/></symbol>
+  <symbol id="i-chat" viewBox="0 0 64 64"><path d="M8 14h48v32H28l-12 10V46H8z"/><path d="M20 26h24M20 35h14"/></symbol>
+  <symbol id="i-car" viewBox="0 0 64 64"><path d="M8 40l6-16h36l6 16v10H8z"/><circle cx="18" cy="50" r="4"/><circle cx="46" cy="50" r="4"/><path d="M14 36h36"/></symbol>
+  <symbol id="i-bag" viewBox="0 0 64 64"><path d="M12 20h40l-3 34H15z"/><path d="M24 26v-6a8 8 0 0 1 16 0v6"/></symbol>
+  <symbol id="i-search" viewBox="0 0 64 64"><circle cx="28" cy="28" r="16"/><path d="M40 40l16 16"/></symbol>
+  <symbol id="i-home" viewBox="0 0 64 64"><path d="M8 30L32 10l24 20M14 26v28h36V26"/><rect x="26" y="36" width="12" height="18"/></symbol>
+</svg>
+
 
   <!-- 1. TOP BRAND SWITCHER -->
   <div class="stadium-top-brand-bar">

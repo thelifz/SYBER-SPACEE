@@ -293,6 +293,55 @@
       }
     }
 
+  
+    /* 1. MICRO TOP ANNOUNCEMENT STRIP */
+    .syber-top-strip {
+      background: #000000;
+      color: #ffffff;
+      font-size: 11.5px;
+      font-weight: 600;
+      letter-spacing: 0.3px;
+      border-bottom: 1px solid #27272a;
+      padding: 7px 0;
+    }
+    .syber-top-strip .container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .syber-top-strip b {
+      color: #ffe500;
+    }
+    .syber-top-strip-link {
+      color: #ffe500;
+      text-decoration: none;
+      font-weight: 700;
+      transition: color 0.2s ease;
+    }
+    .syber-top-strip-link:hover {
+      text-decoration: underline;
+    }
+    @media (max-width: 768px) {
+      .syber-top-strip-right {
+        display: none;
+      }
+    }
+
+  
+    .ico {
+      width: 1em;
+      height: 1em;
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 3;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      vertical-align: middle;
+      display: inline-block;
+    }
+
   </style>
 
     <!-- Google Fonts: Plus Jakarta Sans -->
@@ -657,6 +706,16 @@
   </div>
 
   <!-- 2. MAIN HEADER -->
+  <div class="syber-top-strip" role="region" aria-label="Announcement">
+    <div class="container">
+      <div class="syber-top-strip-left">
+        <b>Priority 24&ndash;48h Dispatch</b> on Wholesale Lots &bull; Full 18% GST Input Tax Credit
+      </div>
+      <div class="syber-top-strip-right">
+        Direct B2B Desk: <a href="https://wa.me/917511180808" class="syber-top-strip-link" target="_blank" rel="noopener">+91 75111 80808</a> &bull; OEM Warranty
+      </div>
+    </div>
+  </div>
   <header class="stadium-main-header">
     <div class="header-top-row">
       <a href="index.html" class="brand-logo-stadium" title="SYBER SPACE">

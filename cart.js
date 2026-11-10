@@ -526,7 +526,30 @@
                 gap: 8px;
             }
 
-            .drawer-btn-checkout:hover {
+            .drawer-btn-whatsapp {
+            width: 100%;
+            padding: 13px 20px;
+            background: transparent;
+            color: #000000;
+            border: 1.5px solid #000000;
+            border-radius: 9999px;
+            font-size: 13px;
+            font-weight: 800;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            cursor: pointer;
+            margin-top: 8px;
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: inherit;
+        }
+        .drawer-btn-whatsapp:hover {
+            background: #000000;
+            color: #ffe500;
+        }
+        .drawer-btn-checkout:hover {
                 background: #000000;
                 color: #ffffff;
             }
@@ -1088,3 +1111,29 @@
     };
 
 })(window, document);
+
+window.sendCartToWhatsApp = function() {
+    try {
+        const cart = (window.syberCart && window.syberCart.items) ? window.syberCart.items : (JSON.parse(localStorage.getItem('syber_cart')) || []);
+        if (!cart || cart.length === 0) {
+            alert('Your cart is currently empty. Add products first to generate a WhatsApp quote.');
+            return;
+        }
+        let lines = ['Hi Syber Space, please confirm stock and B2B pricing for:'];
+        let subtotal = 0;
+        cart.forEach(function(item) {
+            const qty = item.quantity || 1;
+            const cost = (item.price || 0) * qty;
+            subtotal += cost;
+            lines.push('- ' + qty + 'x ' + (item.title || item.name) + ' (₹' + cost.toLocaleString('en-IN') + ')');
+        });
+        lines.push('');
+        lines.push('Estimated Order Value: ₹' + subtotal.toLocaleString('en-IN') + ' (incl. 18% GST)');
+        lines.push('Please confirm dispatch time and GST invoice details.');
+        const msg = encodeURIComponent(lines.join('\n'));
+        window.open('https://wa.me/917511180808?text=' + msg, '_blank');
+    } catch(e) {
+        console.error('WhatsApp RFQ Error:', e);
+        window.open('https://wa.me/917511180808', '_blank');
+    }
+};
