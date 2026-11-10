@@ -2521,6 +2521,106 @@
       transform: translate(2px, -2px);
     }
 
+  
+    .matrix-num-badge {
+      font-size: 10.5px;
+      font-weight: 800;
+      color: #ffe500;
+      background: #000000;
+      padding: 3px 8px;
+      border-radius: 4px;
+      letter-spacing: 0.4px;
+      text-transform: uppercase;
+    }
+
+    .matrix-role-tag {
+      font-size: 10.5px;
+      font-weight: 700;
+      color: #52525b;
+      background: #f4f4f5;
+      padding: 3px 8px;
+      border-radius: 4px;
+      border: 1px solid #e4e4e7;
+    }
+
+    .matrix-thumb-stage {
+      height: 125px;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 12px;
+    }
+
+    .matrix-thumb-stage img {
+      max-height: 110px;
+      max-width: 90%;
+      object-fit: contain;
+      transition: transform 0.25s ease;
+    }
+
+    .matrix-item-name {
+      font-size: 14.5px;
+      font-weight: 800;
+      color: #000000;
+      line-height: 1.3;
+      margin-bottom: 4px;
+    }
+
+    .matrix-item-desc {
+      font-size: 11.5px;
+      color: #71717a;
+      line-height: 1.45;
+      margin-bottom: 12px;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      min-height: 34px;
+    }
+
+    .matrix-btn-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .btn-matrix-view {
+      flex: 1;
+      text-align: center;
+      font-size: 12px;
+      font-weight: 700;
+      padding: 8px 10px;
+      background: #000000;
+      color: #ffffff;
+      border-radius: 6px;
+      text-decoration: none !important;
+      transition: all 0.2s ease;
+    }
+
+    .btn-matrix-view:hover {
+      background: #27272a;
+      color: #ffe500;
+    }
+
+    .btn-matrix-add {
+      font-size: 12px;
+      font-weight: 800;
+      padding: 8px 14px;
+      background: #ffe500;
+      color: #000000;
+      border: 1px solid #000000;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .btn-matrix-add:hover {
+      background: #000000;
+      color: #ffe500;
+      transform: translateY(-1px);
+    }
+
   </style>
   <script src="products_data.js"></script>
   <script src="cart.js"></script>
@@ -2929,26 +3029,31 @@
        CCTV SYSTEM SETUP MATRIX & WORKING ACCESSORIES ("THE BIG LIST")
        Matches User Image 1: HD Camera (14 Items) & IP Camera (13 Items)
        ========================================================================== -->
+    <!-- ==========================================================================
+       7. BESTSELLERS & SUGGESTED HARDWARE SYSTEMS
+       ========================================================================== -->
   <section id="cctv-setup-matrix" class="cctv-matrix-section">
     <div class="container">
       
       <div class="matrix-header-box">
-        <span class="matrix-kicker">CCTV Setup Architecture &bull; Image 1 Checklist</span>
-        <h2 class="matrix-title">CCTV SETUP REQUIREMENTS &mdash; THE BIG LIST</h2>
+        <span class="matrix-kicker">VERIFIED POPULAR HARDWARE &bull; TIER-1 RATINGS</span>
+        <h2 class="matrix-title">BESTSELLERS &amp; SUGGESTED SYSTEMS</h2>
         <p class="matrix-subtitle">
-          Essential accessories and core hardware required to make your CCTV surveillance setup fully operational. Explore the exact 14-item HD Camera architecture or 13-item IP Camera architecture with live product display links.
+          Top-rated surveillance cameras, 4K recording hubs, smart touchscreens, and installer-recommended security packages with verified field reliability.
         </p>
       </div>
 
-      <!-- TABS: HD CAMERA VS IP CAMERA -->
+      <!-- TABS: BESTSELLERS VS SUGGESTED SYSTEMS -->
       <div class="matrix-tabs-row" role="tablist">
-        <button type="button" class="matrix-tab-btn active" id="btnTabHd" onclick="switchSetupTab('hd')">
-          <span>HD Camera Setup Architecture</span>
-          <span class="tab-badge-pill">14 Required Items</span>
+        <button type="button" class="matrix-tab-btn active" id="btnTabBestsellers" onclick="switchSetupTab('bestsellers')">
+          <svg class="ico" style="font-size: 15px; margin-right: 6px;"><use href="#i-shield"/></svg>
+          <span>Top Bestsellers</span>
+          <span class="tab-badge-pill">8 Verified Products</span>
         </button>
-        <button type="button" class="matrix-tab-btn" id="btnTabIp" onclick="switchSetupTab('ip')">
-          <span>IP Camera Setup Architecture</span>
-          <span class="tab-badge-pill">13 Required Items</span>
+        <button type="button" class="matrix-tab-btn" id="btnTabSuggested" onclick="switchSetupTab('suggested')">
+          <svg class="ico" style="font-size: 15px; margin-right: 6px;"><use href="#i-dome"/></svg>
+          <span>Suggested Systems</span>
+          <span class="tab-badge-pill">4 Complete Packages</span>
         </button>
       </div>
 
@@ -3229,91 +3334,215 @@
     // =========================================================================
     // CCTV SETUP REQUIREMENTS DATA & CONTROLLER ("THE BIG LIST" - IMAGE 1)
     // =========================================================================
-    const CCTV_SETUP_DATA = {
-      hd: [
-        { num: 1, name: "DVR", role: "Recording Hub", desc: "Trueview 8-Channel 5-in-1 DVR", productId: "trueview-t38298-a-8-channel-8-audio-5in1-analog-dvr", img: "assets/trueview_dvr_8ch.webp", price: 4200, mrp: 6800 },
-        { num: 2, name: "Dome Camera", role: "Indoor Optical", desc: "Trueview 2MP Dual-Light Dome Camera", productId: "trueview-t18256-a-dual-light-hd-2mp-dome-camera", img: "assets/hero_camera_dome_ai.png", price: 1450, mrp: 2200 },
-        { num: 3, name: "Bullet Camera", role: "Outdoor Optical", desc: "Trueview 2MP Weatherproof IP66 Bullet", productId: "trueview-t18257-a-dual-light-hd-2mp-bullet-camera-ip66", img: "assets/official_bestseller_cpplus_e38q_transparent.png", price: 1650, mrp: 2500 },
-        { num: 4, name: "Power Supply", role: "Power Distribution", desc: "Syber 12V 10A Multi-Channel Central SMPS", productId: "cctv-smps-power-supply-12v-10a", img: "assets/acc_official_smps.png", price: 1150, mrp: 1850 },
-        { num: 5, name: "HDD", role: "Surveillance Storage", desc: "Seagate SkyHawk 4TB Surveillance Grade HDD", productId: "cctv-surveillance-hard-drive-4tb", img: "assets/acc_official_wd_purple_hdd.png", price: 8200, mrp: 12500 },
-        { num: 6, name: "Cables", role: "Coaxial Cabling", desc: "Syber Pro 3+1 Pure Copper CCTV Cable (90M)", productId: "cctv-coaxial-cable-3-1-90m", img: "assets/acc_cable_coaxial_3_1_90m.jpg", price: 1650, mrp: 2600 },
-        { num: 7, name: "BNC Connector", role: "Video Plugs", desc: "Push-On Spring-Relief BNC Plugs (Pack of 10)", productId: "cctv-bnc-connectors-pack-10", img: "assets/acc_bnc_connectors_pack.jpg", price: 220, mrp: 450 },
-        { num: 8, name: "DC Connector", role: "Power Pigtails", desc: "Heavy-Duty 12V DC Male Power Pigtails (10-Pk)", productId: "cctv-dc-power-connectors-pack-10", img: "assets/acc_dc_connectors_pack.jpg", price: 160, mrp: 300 },
-        { num: 9, name: "DVR Rack", role: "Hardware Enclosure", desc: "Syber 2U Wall-Mount Lockable Metal Cabinet", productId: "cctv-dvr-rack-2u", img: "assets/acc_dvr_rack_2u.jpg", price: 1450, mrp: 2400 },
-        { num: 10, name: "Wireless Mouse", role: "Console Input", desc: "2.4GHz Optical Wireless Mouse for DVR GUI", productId: "acc-wireless-mouse-dvr", img: "assets/wireless_mouse_dvr.png", price: 380, mrp: 799 },
-        { num: 11, name: "HDMI Cables", role: "Display Output", desc: "Ultra-Link 4K High-Speed HDMI Cable (5M)", productId: "cctv-hdmi-cable-5m-4k", img: "assets/acc_hdmi_5m.jpg", price: 420, mrp: 850 },
-        { num: 12, name: "CoBox Indoor", role: "Base Junction Box", desc: "CoBox Indoor Clean Base Junction Box", productId: "acc-cobox-indoor-base", img: "assets/cobox_indoor_junction_box.png", price: 120, mrp: 220 },
-        { num: 13, name: "CoBox Outdoor", role: "Weatherproof Base", desc: "CoBox Outdoor IP66 Rubber-Gasketed Box", productId: "acc-cobox-outdoor-ip66", img: "assets/cobox_outdoor_ip66_junction_box.png", price: 180, mrp: 350 },
-        { num: 14, name: "Wifi Router", role: "Network Gateway", desc: "Trueview R300 High-Gain Wi-Fi / 4G Router", productId: "trueview-t18258-a-4g-router-r300-300mbps-sim-slot", img: "assets/trueview_router_front.jpg", price: 1850, mrp: 2900 }
+        // ==========================================================================
+    // BESTSELLERS & SUGGESTED SYSTEMS DATA & CONTROLLER
+    // ==========================================================================
+    const BESTSELLERS_DATA = {
+      bestsellers: [
+        {
+          num: 1,
+          badge: "Top Bestseller",
+          role: "Smart Wi-Fi PTZ",
+          name: "CP PLUS 3MP Wi-Fi Pan & Tilt Camera",
+          desc: "3MP 1296p crystal clarity, 360-degree precision coverage, two-way audio talkback, and auto human tracking.",
+          productId: "cp-plus-cp-e21q-3mp-wi-fi-pan-tilt-camera",
+          img: "assets/cp_e21q_1.png",
+          price: 1980,
+          mrp: 3100,
+          rating: "4.9 (412 orders)"
+        },
+        {
+          num: 2,
+          badge: "Recording Hub",
+          role: "5-in-1 Hybrid DVR",
+          name: "Trueview 8-Channel 5-in-1 DVR",
+          desc: "H.265+ compression, 8-channel synchronous playback, HDMI 1080p output, and remote mobile viewing.",
+          productId: "trueview-t38298-a-8-channel-8-audio-5in1-analog-dvr",
+          img: "assets/trueview_dvr_8ch.webp",
+          price: 4200,
+          mrp: 6800,
+          rating: "4.8 (210 orders)"
+        },
+        {
+          num: 3,
+          badge: "Smart Automation",
+          role: "Touchscreen VDP",
+          name: "Hikvision 7\" Touchscreen VDP",
+          desc: "7-inch colorful TFT touchscreen, 1024x600 resolution, PoE power, and seamless mobile intercom calling.",
+          productId: "hikvision-ds-kh6320-wte1-7-inch-touch-screen-ip-indoor-station",
+          img: "assets/official_vdp_touchscreen_transparent.png",
+          price: 8990,
+          mrp: 14500,
+          rating: "4.9 (185 orders)"
+        },
+        {
+          num: 4,
+          badge: "Solid Copper",
+          role: "Pure Copper CAT6",
+          name: "D-Link CAT6 UTP Cable 305m Drum",
+          desc: "305-meter continuous roll, 23 AWG annealed solid copper conductors, 250MHz bandwidth, and zero packet loss.",
+          productId: "d-link-cat6-utp-cable-305m-drum",
+          img: "assets/acc_official_cat6_drum.png",
+          price: 3850,
+          mrp: 6400,
+          rating: "5.0 (520 orders)"
+        },
+        {
+          num: 5,
+          badge: "24/7 Storage",
+          role: "Surveillance HDD",
+          name: "WD Purple 2TB Surveillance HDD",
+          desc: "Engineered specifically for 24/7 continuous recording, AllFrame firmware, and support for up to 64 HD cameras.",
+          productId: "wd-purple-2tb-surveillance-hard-drive",
+          img: "assets/acc_official_wd_purple_hdd.png",
+          price: 4850,
+          mrp: 6900,
+          rating: "4.9 (340 orders)"
+        },
+        {
+          num: 6,
+          badge: "PoE Power",
+          role: "PoE Switch 65W",
+          name: "Trueview 4+2 PoE Switch",
+          desc: "4 Fast Ethernet PoE ports + 2 Uplink ports, 65W total power budget, 250m long-distance transmission mode.",
+          productId: "trueview-4fe-poe-2fe-uplink-switch",
+          img: "assets/trueview_poe_4_2_transparent.png",
+          price: 2490,
+          mrp: 3990,
+          rating: "4.8 (190 orders)"
+        },
+        {
+          num: 7,
+          badge: "Central Power",
+          role: "12V 10A SMPS",
+          name: "Syber 12V 10A 8-Channel SMPS",
+          desc: "Regulated multi-channel power distribution, individual PTC fuse protection, surge suppression, and cooling vents.",
+          productId: "syber-12v-10a-8-channel-cctv-power-supply",
+          img: "assets/acc_official_smps.png",
+          price: 1150,
+          mrp: 1850,
+          rating: "4.9 (310 orders)"
+        },
+        {
+          num: 8,
+          badge: "Biometric Access",
+          role: "Access Terminal",
+          name: "Dahua Standalone RFID Terminal",
+          desc: "Waterproof IP66 touch keypad, 30,000 card capacity, tamper alarm, and Wiegand protocol integration.",
+          productId: "dahua-asi1201e-standalone-rfid-waterproof-keypad-reader",
+          img: "assets/official_biometric_reader_transparent.png",
+          price: 5850,
+          mrp: 9800,
+          rating: "4.9 (145 orders)"
+        }
       ],
-      ip: [
-        { num: 1, name: "NVR", role: "Network Hub", desc: "Trueview 16-Channel 8MP 4K Ultra-HD NVR", productId: "trueview-t38118-ae-16-channel-8mp-4k-nvr-1-sata-8tb", img: "assets/trueview_dvr_16ch.webp", price: 6800, mrp: 11200 },
-        { num: 2, name: "IP Bullet Camera", role: "Outdoor Optical", desc: "Trueview 3MP Smart Weatherproof IP Bullet", productId: "trueview-t18295s-smart-wi-fi-bullet-camera-3mp-ip66", img: "assets/official_bestseller_cpplus_e38q_transparent.png", price: 2350, mrp: 3600 },
-        { num: 3, name: "IP Dome Camera", role: "Indoor Optical", desc: "Trueview 3MP Smart Pan & Tilt Dome Camera", productId: "trueview-t18294s-smart-wi-fi-dome-camera-3mp", img: "assets/hero_camera_dome_ai.png", price: 2150, mrp: 3400 },
-        { num: 4, name: "POE Switches", role: "Power Over Ethernet", desc: "Trueview 4+2 Port 65W Commercial PoE Switch", productId: "trueview-t38260-a-poe-switch-4-2-10-100m-65w", img: "assets/trueview_poe_4_2_transparent.png", price: 2490, mrp: 3990 },
-        { num: 5, name: "HDD", role: "Surveillance Storage", desc: "Seagate SkyHawk 4TB Surveillance Grade HDD", productId: "cctv-surveillance-hard-drive-4tb", img: "assets/acc_official_wd_purple_hdd.png", price: 8200, mrp: 12500 },
-        { num: 6, name: "Network Cable", role: "Ethernet Runs", desc: "Pure Solid Bare Copper CAT6 UTP Cable (305M)", productId: "cctv-cat6-pure-copper-cable-305m", img: "assets/acc_official_cat6_drum.png", price: 3850, mrp: 6400 },
-        { num: 7, name: "RJ 45 Jack", role: "Modular Plugs", desc: "Cat6 Gold-Plated RJ45 Modular Plugs (50-Pk)", productId: "acc-rj45-gold-connectors", img: "assets/rj45_cat6_modular_jacks.png", price: 320, mrp: 650 },
-        { num: 8, name: "NVR Rack", role: "Server Cabinet", desc: "Syber 4U Wall-Mount Network & Server Cabinet", productId: "cctv-server-rack-4u", img: "assets/acc_server_rack_4u.jpg", price: 2650, mrp: 4200 },
-        { num: 9, name: "Wireless Mouse", role: "Console Input", desc: "2.4GHz Optical Wireless Mouse for NVR GUI", productId: "acc-wireless-mouse-dvr", img: "assets/wireless_mouse_dvr.png", price: 380, mrp: 799 },
-        { num: 10, name: "CoBox Indoor", role: "Base Junction Box", desc: "CoBox Indoor Clean Base Junction Box", productId: "acc-cobox-indoor-base", img: "assets/cobox_indoor_junction_box.png", price: 120, mrp: 220 },
-        { num: 11, name: "CoBox Outdoor", role: "Weatherproof Base", desc: "CoBox Outdoor IP66 Rubber-Gasketed Box", productId: "acc-cobox-outdoor-ip66", img: "assets/cobox_outdoor_ip66_junction_box.png", price: 180, mrp: 350 },
-        { num: 12, name: "HDMI Cable", role: "Display Output", desc: "Ultra-Link 4K High-Speed HDMI Cable (5M)", productId: "cctv-hdmi-cable-5m-4k", img: "assets/acc_hdmi_5m.jpg", price: 420, mrp: 850 },
-        { num: 13, name: "Wifi Router", role: "Network Gateway", desc: "Trueview R300 High-Gain Wi-Fi / 4G Router", productId: "trueview-t18258-a-4g-router-r300-300mbps-sim-slot", img: "assets/trueview_router_front.jpg", price: 1850, mrp: 2900 }
+      suggested: [
+        {
+          num: 1,
+          badge: "Suggested Package",
+          role: "Enterprise Setup",
+          name: "Enterprise Perimeter 4K Bundle",
+          desc: "4x 4K Ultra-HD AI Domes, 8-Channel PoE NVR, 2TB WD Purple Storage, and 100m Solid Copper CAT6 Cable.",
+          productId: "enterprise-perimeter-4k-bundle",
+          img: "assets/mockup_hero_graphic_transparent.png",
+          price: 24800,
+          mrp: 38500,
+          rating: "5.0 (98 installations)"
+        },
+        {
+          num: 2,
+          badge: "Suggested Package",
+          role: "Villa Security",
+          name: "Smart Villa Touchscreen & Access Kit",
+          desc: "7\" Color Touchscreen VDP, Outdoor Two-Way Video Call Station, Electronic Rim Lock, and RFID Fobs.",
+          productId: "smart-villa-vdp-kit",
+          img: "assets/official_vdp_touchscreen_transparent.png",
+          price: 16400,
+          mrp: 26000,
+          rating: "4.9 (124 installations)"
+        },
+        {
+          num: 3,
+          badge: "Suggested Package",
+          role: "Commercial Setup",
+          name: "Commercial 4-Camera ColorVu HD Setup",
+          desc: "4x 2MP ColorVu Day/Night Cameras, 4-Channel Hybrid DVR, 1TB Surveillance HDD, 8-Channel SMPS, and Connectors.",
+          productId: "commercial-4-camera-hd-setup",
+          img: "assets/wholesale_supply_kit.png",
+          price: 11200,
+          mrp: 17900,
+          rating: "4.9 (215 installations)"
+        },
+        {
+          num: 4,
+          badge: "Suggested Package",
+          role: "Solar Kit",
+          name: "Wireless 4G Solar Zero-Wiring Kit",
+          desc: "4G LTE Solar PTZ Camera, 60W High-Efficiency Monocrystalline Solar Panel, and 128GB High-Endurance MicroSD.",
+          productId: "solar-4g-zero-wiring-kit",
+          img: "assets/hero_product_solar_v2.png",
+          price: 8450,
+          mrp: 13900,
+          rating: "4.8 (76 installations)"
+        }
       ]
     };
 
-    let currentSetupMode = 'hd';
+    let currentSetupMode = 'bestsellers';
 
     function renderCctvSetupMatrix(mode) {
+      if (mode === 'hd') mode = 'bestsellers';
+      if (mode === 'ip') mode = 'suggested';
       currentSetupMode = mode;
-      const items = CCTV_SETUP_DATA[mode] || [];
-      const total = items.length;
+      const items = BESTSELLERS_DATA[mode] || BESTSELLERS_DATA.bestsellers;
       const container = document.getElementById('matrixGridContainer');
       if (!container) return;
 
-      container.innerHTML = items.map(item => {
-        const numFormatted = String(item.num).padStart(2, '0');
-        return `
-          <div class="matrix-item-card">
-            <div>
-              <div class="matrix-card-top">
-                <span class="matrix-num-badge">#${numFormatted} / ${total}</span>
-                <span class="matrix-role-tag">${item.role}</span>
-              </div>
-              <a href="product.html?id=${item.productId}" class="matrix-thumb-stage" title="Click to view product display">
-                <img src="${item.img}" alt="${item.name}" loading="lazy">
-              </a>
-              <div class="matrix-item-name">${item.num}. ${item.name}</div>
-              <div class="matrix-item-desc">${item.desc}</div>
-            </div>
-            <div>
-              <div style="display: flex; align-items: baseline; gap: 8px; margin-bottom: 10px;">
-                <span style="font-size: 15px; font-weight: 900; color: #000000;">&#8377;${item.price.toLocaleString('en-IN')}</span>
-                <span style="font-size: 11.5px; color: #a1a1aa; text-decoration: line-through;">&#8377;${item.mrp.toLocaleString('en-IN')}</span>
-              </div>
-              <div class="matrix-btn-row">
-                <a href="product.html?id=${item.productId}" class="btn-matrix-view">View Product Display &rarr;</a>
-                <button type="button" class="btn-matrix-add" onclick="quickAddToCart('${item.productId}', '${item.name}', ${item.price})">+ Add</button>
-              </div>
-            </div>
-          </div>
-        `;
+      container.innerHTML = items.map(function(item) {
+        const savePercent = Math.round(((item.mrp - item.price) / item.mrp) * 100);
+        return [
+          '<div class="matrix-item-card">',
+          '  <div>',
+          '    <div class="matrix-card-top">',
+          '      <span class="matrix-num-badge">' + item.badge + '</span>',
+          '      <span class="matrix-role-tag">' + item.role + '</span>',
+          '    </div>',
+          '    <a href="product.html?id=' + encodeURIComponent(item.productId) + '" class="matrix-thumb-stage" title="Click to view product display">',
+          '      <img src="' + item.img + '" alt="' + item.name + '" loading="lazy">',
+          '    </a>',
+          '    <div style="font-size: 11px; font-weight: 700; color: #16a34a; margin-bottom: 4px;">',
+          '      &#9733; ' + item.rating,
+          '    </div>',
+          '    <div class="matrix-item-name">' + item.name + '</div>',
+          '    <div class="matrix-item-desc">' + item.desc + '</div>',
+          '  </div>',
+          '  <div>',
+          '    <div style="display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 10px;">',
+          '      <div style="display: flex; align-items: baseline; gap: 8px;">',
+          '        <span style="font-size: 16px; font-weight: 900; color: #000000;">&#8377;' + item.price.toLocaleString('en-IN') + '</span>',
+          '        <span style="font-size: 11.5px; color: #a1a1aa; text-decoration: line-through;">&#8377;' + item.mrp.toLocaleString('en-IN') + '</span>',
+          '      </div>',
+          '      <span style="font-size: 10.5px; font-weight: 800; background: #ffe500; color: #000000; padding: 2px 6px; border-radius: 4px;">Save ' + savePercent + '%</span>',
+          '    </div>',
+          '    <div class="matrix-btn-row">',
+          '      <a href="product.html?id=' + encodeURIComponent(item.productId) + '" class="btn-matrix-view">View Details &rarr;</a>',
+          '      <button type="button" class="btn-matrix-add" onclick="quickAddToCart(\'' + item.productId + '\', \'' + item.name.replace(/'/g, "\\'") + '\', ' + item.price + ', \'' + item.img + '\')">+ Add</button>',
+          '    </div>',
+          '  </div>',
+          '</div>'
+        ].join('\n');
       }).join('');
     }
 
     function switchSetupTab(mode) {
-      const btnHd = document.getElementById('btnTabHd');
-      const btnIp = document.getElementById('btnTabIp');
-      if (btnHd && btnIp) {
-        if (mode === 'hd') {
-          btnHd.classList.add('active');
-          btnIp.classList.remove('active');
-        } else {
-          btnIp.classList.add('active');
-          btnHd.classList.remove('active');
-        }
-      }
+      if (mode === 'hd') mode = 'bestsellers';
+      if (mode === 'ip') mode = 'suggested';
+      const btnBestsellers = document.getElementById('btnTabBestsellers') || document.getElementById('btnTabHd');
+      const btnSuggested = document.getElementById('btnTabSuggested') || document.getElementById('btnTabIp');
+
+      if (btnBestsellers) btnBestsellers.classList.toggle('active', mode === 'bestsellers');
+      if (btnSuggested) btnSuggested.classList.toggle('active', mode === 'suggested');
+
       renderCctvSetupMatrix(mode);
     }
 
