@@ -1995,11 +1995,231 @@
       margin-top: 2px;
     }
 
-</style>
+
+    /* MODERN TACTILE UI (BLEND OF 11 AND 22) */
+    .ico {
+      width: 1em;
+      height: 1em;
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 3;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .hero-stamp-badge {
+      position: absolute;
+      top: 14px;
+      right: 18px;
+      transform: rotate(8deg);
+      background: #000000;
+      color: #ffe500;
+      font-weight: 900;
+      font-size: 13.5px;
+      letter-spacing: 0.8px;
+      padding: 7px 16px;
+      border-radius: 8px;
+      box-shadow: 0 6px 0 rgba(0, 0, 0, 0.22);
+      text-transform: uppercase;
+      z-index: 15;
+      pointer-events: none;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    @media (max-width: 640px) {
+      .hero-stamp-badge {
+        top: 10px;
+        right: 10px;
+        font-size: 11px;
+        padding: 5px 12px;
+      }
+    }
+
+    .stadium-hero-kicker {
+      display: inline-block;
+      font-size: 11.5px;
+      font-weight: 900;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: #000000;
+      background: rgba(0, 0, 0, 0.08);
+      padding: 4px 10px;
+      border-radius: 4px;
+      margin-bottom: 16px;
+    }
+
+    .hero-categories-strip {
+      background: #fafafa;
+      border-top: 1px solid #e4e4e7;
+      border-bottom: 1px solid #e4e4e7;
+      padding: 32px 0 36px;
+    }
+
+    .hero-categories-header {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .hero-cat-kicker {
+      font-size: 11.5px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+      color: #71717a;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .hero-cat-kicker::before {
+      content: "";
+      width: 14px;
+      height: 3px;
+      border-radius: 2px;
+      background: #ffe500;
+    }
+
+    .hero-cat-title {
+      font-size: 22px;
+      font-weight: 900;
+      color: #000000;
+      letter-spacing: -0.4px;
+      margin-top: 4px;
+    }
+
+    .hero-cat-grid {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 14px;
+    }
+
+    @media (max-width: 1100px) {
+      .hero-cat-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    @media (max-width: 640px) {
+      .hero-cat-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+      }
+    }
+
+    .hero-cat-card {
+      background: #ffffff;
+      border: 1.5px solid #e4e4e7;
+      border-radius: 12px;
+      padding: 16px 14px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 12px;
+      text-decoration: none !important;
+      color: #000000;
+      position: relative;
+      transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
+    }
+
+    .hero-cat-card:hover {
+      border-color: #000000;
+      transform: translateY(-4px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+    }
+
+    .hero-cat-icon-wrap {
+      width: 44px;
+      height: 44px;
+      border-radius: 10px;
+      background: #f4f4f5;
+      color: #000000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.22s ease;
+      font-size: 22px;
+    }
+
+    .hero-cat-card:hover .hero-cat-icon-wrap {
+      background: #ffe500;
+      color: #000000;
+      transform: scale(1.08);
+    }
+
+    .hero-cat-svg {
+      width: 22px;
+      height: 22px;
+    }
+
+    .hero-cat-text {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      width: 100%;
+    }
+
+    .hero-cat-name {
+      font-size: 15px;
+      font-weight: 800;
+      color: #000000;
+      letter-spacing: -0.2px;
+      line-height: 1.2;
+    }
+
+    .hero-cat-meta {
+      font-size: 11px;
+      font-weight: 600;
+      color: #71717a;
+      line-height: 1.3;
+    }
+
+    .hero-cat-arrow {
+      position: absolute;
+      top: 14px;
+      right: 14px;
+      font-size: 14px;
+      font-weight: 700;
+      color: #a1a1aa;
+      transition: all 0.2s ease;
+    }
+
+    .hero-cat-card:hover .hero-cat-arrow {
+      color: #000000;
+      transform: translate(2px, -2px);
+    }
+
+  </style>
   <script src="products_data.js"></script>
   <script src="cart.js"></script>
 </head>
 <body>
+<svg width="0" height="0" style="position:absolute; display:none;" aria-hidden="true">
+  <symbol id="i-bullet" viewBox="0 0 64 64"><rect x="6" y="20" width="38" height="20" rx="7"/><circle cx="46" cy="30" r="9"/><circle cx="46" cy="30" r="3.5"/><path d="M20 40v8l-8 6M20 48h14"/></symbol>
+  <symbol id="i-dome" viewBox="0 0 64 64"><path d="M8 42a24 24 0 0 1 48 0z"/><circle cx="32" cy="36" r="6"/><path d="M12 50h40"/></symbol>
+  <symbol id="i-vdp" viewBox="0 0 64 64"><rect x="12" y="8" width="40" height="48" rx="7"/><rect x="18" y="14" width="28" height="20" rx="3"/><circle cx="32" cy="46" r="4"/></symbol>
+  <symbol id="i-finger" viewBox="0 0 64 64"><path d="M18 26a14 14 0 0 1 28 0M13 36a19 19 0 0 1 8-21M51 36a19 19 0 0 0-3-14M24 50c-2-6-2-12 0-18a8 8 0 0 1 16 2c0 8-1 14-4 20M32 34c0 8 0 12-2 18"/></symbol>
+  <symbol id="i-cable" viewBox="0 0 64 64"><circle cx="30" cy="32" r="20"/><circle cx="30" cy="32" r="9"/><path d="M50 32h10M30 52v6"/></symbol>
+  <symbol id="i-switch" viewBox="0 0 64 64"><rect x="6" y="22" width="52" height="20" rx="5"/><path d="M15 32h4M24 32h4M33 32h4M42 32h4M15 28v-2M24 28v-2M33 28v-2M42 28v-2"/></symbol>
+  <symbol id="i-power" viewBox="0 0 64 64"><rect x="8" y="14" width="48" height="36" rx="6"/><path d="M34 20l-8 13h8l-4 11 10-15h-8z"/></symbol>
+  <symbol id="i-hdd" viewBox="0 0 64 64"><rect x="8" y="10" width="48" height="44" rx="7"/><circle cx="32" cy="30" r="10"/><circle cx="32" cy="30" r="2.5"/><path d="M16 46h12"/></symbol>
+  <symbol id="i-box" viewBox="0 0 64 64"><rect x="10" y="14" width="44" height="36" rx="5"/><circle cx="17" cy="21" r="1.5"/><circle cx="47" cy="21" r="1.5"/><circle cx="17" cy="43" r="1.5"/><circle cx="47" cy="43" r="1.5"/><path d="M24 32h16"/></symbol>
+  <symbol id="i-solar" viewBox="0 0 64 64"><path d="M8 54l8-24h40l-8 24zM12 42h40M30 30l-3 24M42 30l-2 24"/><circle cx="32" cy="14" r="6"/><path d="M32 20v10"/></symbol>
+  <symbol id="i-router" viewBox="0 0 64 64"><rect x="8" y="32" width="48" height="16" rx="5"/><path d="M18 40h2M26 40h2M16 32L12 14M48 32l4-18"/></symbol>
+  <symbol id="i-shield" viewBox="0 0 64 64"><path d="M32 6l20 8v16c0 14-9 22-20 28C21 52 12 44 12 30V14z"/><path d="M23 32l7 7 12-14"/></symbol>
+  <symbol id="i-truck" viewBox="0 0 64 64"><path d="M6 16h32v28H6zM38 24h12l8 10v10H38z"/><circle cx="18" cy="48" r="5"/><circle cx="48" cy="48" r="5"/></symbol>
+  <symbol id="i-gst" viewBox="0 0 64 64"><rect x="12" y="6" width="40" height="52" rx="6"/><path d="M22 20h20M22 30h20M22 40h10"/><path d="M40 42l6 6M46 42l-6 6"/></symbol>
+  <symbol id="i-chat" viewBox="0 0 64 64"><path d="M8 14h48v32H28l-12 10V46H8z"/><path d="M20 26h24M20 35h14"/></symbol>
+  <symbol id="i-car" viewBox="0 0 64 64"><path d="M8 40l6-16h36l6 16v10H8z"/><circle cx="18" cy="50" r="4"/><circle cx="46" cy="50" r="4"/><path d="M14 36h36"/></symbol>
+  <symbol id="i-bag" viewBox="0 0 64 64"><path d="M12 20h40l-3 34H15z"/><path d="M24 26v-6a8 8 0 0 1 16 0v6"/></symbol>
+  <symbol id="i-search" viewBox="0 0 64 64"><circle cx="28" cy="28" r="16"/><path d="M40 40l16 16"/></symbol>
+  <symbol id="i-home" viewBox="0 0 64 64"><path d="M8 30L32 10l24 20M14 26v28h36V26"/><rect x="26" y="36" width="12" height="18"/></symbol>
+</svg>
+
 
   <!-- 1. TOP BRAND SWITCHER (PREMIUM SEGMENTED PILL + LIVELY RAINBOW WHOLESALE) -->
   <div class="stadium-top-brand-bar">
@@ -2057,685 +2277,6 @@
 
       </div>
 
-      <!-- BOTTOM ROW: CATEGORY SUB-NAVIGATION -->
-      <nav aria-label="Department Navigation" class="stadium-nav-container">
-        <ul class="category-nav-strip">
-          <li class="has-dropdown" onmouseenter="openSamsungMegaMenu('categories')" onmouseleave="closeSamsungMegaMenu()">
-            <a href="category.html?cat=all" class="cat-nav-link" id="nav_categories">Categories &darr;</a>
-          </li>
-          <li class="has-dropdown" onmouseenter="openSamsungMegaMenu('cctv')" onmouseleave="closeSamsungMegaMenu()">
-            <a href="category.html?cat=cctv" class="cat-nav-link" id="nav_cctv">CCTV</a>
-          </li>
-          <li class="has-dropdown" onmouseenter="openSamsungMegaMenu('dashcams')" onmouseleave="closeSamsungMegaMenu()">
-            <a href="category.html?cat=dash-cams" class="cat-nav-link" id="nav_dashcams">Dashcams</a>
-          </li>
-          <li class="has-dropdown" onmouseenter="openSamsungMegaMenu('homeauto')" onmouseleave="closeSamsungMegaMenu()">
-            <a href="category.html?cat=home-automation" class="cat-nav-link" id="nav_homeauto">Automation</a>
-          </li>
-          <li class="has-dropdown" onmouseenter="openSamsungMegaMenu('accessories')" onmouseleave="closeSamsungMegaMenu()">
-            <a href="category.html?cat=accessories" class="cat-nav-link" id="nav_accessories">Accessories</a>
-          </li>
-          <li class="has-dropdown" onmouseenter="openSamsungMegaMenu('cables')" onmouseleave="closeSamsungMegaMenu()">
-            <a href="category.html?cat=cables" class="cat-nav-link" id="nav_cables">Cables</a>
-          </li>
-          <li class="has-dropdown" onmouseenter="openSamsungMegaMenu('wifisolar')" onmouseleave="closeSamsungMegaMenu()">
-            <a href="category.html?cat=wifi-solar" class="cat-nav-link" id="nav_wifisolar">Wireless</a>
-          </li>
-          <li class="has-dropdown" onmouseenter="openSamsungMegaMenu('brands')" onmouseleave="closeSamsungMegaMenu()">
-            <a href="category.html?cat=all" class="cat-nav-link" id="nav_brands">Brands &darr;</a>
-          </li>
-        </ul>
-      </nav>
-
-    </div>
-
-    <!-- 3. WHOLESALE MEGA-MENU DROPDOWN -->
-    <div class="mega-menu-backdrop" id="megaMenuBackdrop" onclick="closeSamsungMegaMenuInstant()"></div>
-        <!-- MEGA MENU DROPDOWN (SAMSUNG STYLE SLIDE DOWN WITH 7 DEPARTMENTS) -->
-    <div class="stadium-backdrop" id="stadiumBackdrop" onclick="closeSamsungMegaMenuInstant()"></div>
-    <div class="stadium-mega-menu" id="stadiumMegaMenu" onmouseenter="keepSamsungMegaMenuOpen()" onmouseleave="closeSamsungMegaMenu()">
-      <div class="container">
-        
-        <div class="samsung-mega-wrapper">
-          
-          <!-- LEFT SIDE: ACTIVE PANEL (DYNAMICALLY SWITCHED) -->
-          <div class="samsung-content-side">
-            <!-- PANEL 1: MASTER PRODUCT CATEGORIES OVERVIEW (IMAGE 2) -->
-            <div class="samsung-view-panel active" id="view_categories">
-              <div class="samsung-panel-title">
-                Our Official Product Categories
-                <span class="samsung-title-badge" style="font-size: 11px; font-weight: 700; color: #1e40af; background: #eff6ff; padding: 2px 8px; border-radius: 9999px; margin-left: 8px;">6 Core Lines</span>
-              </div>
-              <div class="samsung-cat-grid">
-                <a href="category.html?cat=wifi-solar" class="samsung-cat-card">
-                  <div class="samsung-cat-thumb"><img src="assets/hero_camera_dome_ai.png" alt="CCTV Systems"></div>
-                  <div class="samsung-cat-label">1. CCTV (HD &amp; IP)</div>
-                </a>
-                <a href="#products" onclick="filterDepartment('dash-cams'); closeSamsungMegaMenuInstant();" class="samsung-cat-card">
-                  <div class="samsung-cat-thumb"><img src="assets/dash_cam_4k_front_rear.png" alt="Dash Cams"></div>
-                  <div class="samsung-cat-label">2. Dash Cams</div>
-                </a>
-                <a href="#products" onclick="filterDepartment('home-automation'); closeSamsungMegaMenuInstant();" class="samsung-cat-card">
-                  <div class="samsung-cat-thumb"><img src="assets/official_vdp_touchscreen_transparent.png" alt="Home Automation"></div>
-                  <div class="samsung-cat-label">3. Home Automation</div>
-                </a>
-                <a href="#cctv-setup-matrix" onclick="closeSamsungMegaMenuInstant();" class="samsung-cat-card">
-                  <div class="samsung-cat-thumb"><img src="assets/cobox_outdoor_ip66_junction_box.png" alt="Accessories (The Big List)"></div>
-                  <div class="samsung-cat-label">4. Accessories (The Big List)</div>
-                </a>
-                <a href="#products" onclick="filterDepartment('cables'); closeSamsungMegaMenuInstant();" class="samsung-cat-card">
-                  <div class="samsung-cat-thumb"><img src="assets/acc_official_cat6_drum.png" alt="Cables &amp; Coaxial"></div>
-                  <div class="samsung-cat-label">5. Cables</div>
-                </a>
-                <a href="#products" onclick="filterDepartment('wifi-solar'); closeSamsungMegaMenuInstant();" class="samsung-cat-card">
-                  <div class="samsung-cat-thumb"><img src="assets/official_trueview_solar_T18149-01.png" alt="Wifi 4G Solar Cameras"></div>
-                  <div class="samsung-cat-label">6. Wifi/4G/Solar Cameras</div>
-                </a>
-              </div>
-            </div>
-
-                        <!-- PANEL 2: CCTV (SAMSUNG-STYLE SERIES & SUB-CATEGORIES) -->
-            <div class="samsung-view-panel" id="view_cctv">
-              <div class="samsung-panel-title">
-                CCTV Surveillance &mdash; Series &amp; Brand Selection
-                <span class="samsung-title-badge" style="font-size: 11px; font-weight: 800; color: #000000; background: var(--stadium-yellow); padding: 2px 8px; border-radius: 9999px; margin-left: 8px; border: 1px solid #000000;">48 Models Available</span>
-              </div>
-
-              <!-- SAMSUNG-STYLE SUBNAV SERIES TABS -->
-              <div class="cctv-subnav-strip">
-                <button type="button" class="cctv-subnav-tab active" data-series="ip" onmouseenter="switchCctvSeries('ip', this)" onclick="switchCctvSeries('ip', this)">
-                  <span>1. IP Camera Systems</span>
-                  <span class="cctv-tab-badge">PoE &amp; 4K</span>
-                </button>
-                <button type="button" class="cctv-subnav-tab" data-series="hd" onmouseenter="switchCctvSeries('hd', this)" onclick="switchCctvSeries('hd', this)">
-                  <span>2. HD Analog Systems</span>
-                  <span class="cctv-tab-badge">Coaxial &amp; DVR</span>
-                </button>
-                <button type="button" class="cctv-subnav-tab" data-series="brands" onmouseenter="switchCctvSeries('brands', this)" onclick="switchCctvSeries('brands', this)">
-                  <span>3. Brand Selection</span>
-                  <span class="cctv-tab-badge">17 Brands</span>
-                </button>
-                <button type="button" class="cctv-subnav-tab" data-series="wifi" onmouseenter="switchCctvSeries('wifi', this)" onclick="switchCctvSeries('wifi', this)">
-                  <span>4. Smart Wi-Fi &amp; Solar</span>
-                  <span class="cctv-tab-badge">Wireless</span>
-                </button>
-                <button type="button" class="cctv-subnav-tab" data-series="all" onmouseenter="switchCctvSeries('all', this)" onclick="switchCctvSeries('all', this)">
-                  <span>5. All CCTV Products</span>
-                  <span class="cctv-tab-badge">Full List</span>
-                </button>
-              </div>
-
-              <!-- SUB-PANEL 1: IP CAMERA SYSTEMS -->
-              <div class="cctv-series-panel active" id="cctv_series_ip">
-                <div class="cctv-series-header-bar">
-                  <div class="cctv-series-desc">
-                    <strong>IP Camera Series:</strong> Digital network surveillance with Power-over-Ethernet (PoE), AI analytics, and multi-channel 4K NVR hubs.
-                  </div>
-                  <a href="category.html?cat=cctv&sub=ip" class="cctv-series-action-link">Explore All IP Systems &rarr;</a>
-                </div>
-                <div class="samsung-cat-grid">
-                  <a href="product.html?id=tp-link-vigi-c340-4mp-outdoor-full-color-bullet-camera" class="samsung-cat-card">
-                    <div class="samsung-cat-thumb"><img src="assets/trueview_ahd_bullet_1.webp" alt="IP Bullet Camera"></div>
-                    <div class="samsung-cat-label">IP Bullet Cameras</div>
-                    <div class="samsung-cat-sublabel">4K Color &bull; From &#8377;3,650</div>
-                  </a>
-                  <a href="product.html?id=trueview-t18294s-smart-wi-fi-dome-camera-3mp" class="samsung-cat-card">
-                    <div class="samsung-cat-thumb"><img src="assets/hero_camera_dome_ai.png" alt="IP Dome Camera"></div>
-                    <div class="samsung-cat-label">IP Dome Cameras</div>
-                    <div class="samsung-cat-sublabel">4MP Audio &bull; From &#8377;2,950</div>
-                  </a>
-                  <a href="product.html?id=trueview-t38118-ae-16-channel-8mp-4k-nvr-1-sata-8tb" class="samsung-cat-card">
-                    <div class="samsung-cat-thumb"><img src="assets/trueview_dvr_16ch.webp" alt="PoE NVR Hub"></div>
-                    <div class="samsung-cat-label">PoE NVR Hubs</div>
-                    <div class="samsung-cat-sublabel">8/16CH 4K &bull; From &#8377;6,499</div>
-                  </a>
-                  <a href="product.html?id=trueview-t38260-a-poe-switch-4-2-10-100m-65w" class="samsung-cat-card">
-                    <div class="samsung-cat-thumb"><img src="assets/trueview_poe_4_2_transparent.png" alt="PoE Network Switches"></div>
-                    <div class="samsung-cat-label">PoE Switches</div>
-                    <div class="samsung-cat-sublabel">Gigabit &bull; From &#8377;1,850</div>
-                  </a>
-                  <a href="category.html?brand=WD" class="samsung-cat-card">
-                    <div class="samsung-cat-thumb"><img src="assets/acc_official_wd_purple_hdd.png" alt="Surveillance Hard Disks"></div>
-                    <div class="samsung-cat-label">Surveillance HDDs</div>
-                    <div class="samsung-cat-sublabel">WD Purple 24/7 &bull; From &#8377;3,200</div>
-                  </a>
-                  <a href="category.html?cat=cables" class="samsung-cat-card">
-                    <div class="samsung-cat-thumb"><img src="assets/acc_official_cat6_drum.png" alt="Cat6 Network Cable"></div>
-                    <div class="samsung-cat-label">Cat6 Cable Drums</div>
-                    <div class="samsung-cat-sublabel">305m Pure Copper &bull; &#8377;4,850</div>
-                  </a>
-                  <a href="category.html?cat=accessories" class="samsung-cat-card">
-                    <div class="samsung-cat-thumb"><img src="assets/acc_rj45_connectors_pack.jpg" alt="RJ45 Modular Jacks"></div>
-                    <div class="samsung-cat-label">RJ45 Jacks</div>
-                    <div class="samsung-cat-sublabel">Gold-Plated &bull; &#8377;350 / pack</div>
-                  </a>
-                  <a href="category.html?cat=accessories" class="samsung-cat-card">
-                    <div class="samsung-cat-thumb"><img src="assets/acc_server_rack_4u.jpg" alt="NVR Wall Rack"></div>
-                    <div class="samsung-cat-label">NVR Server Racks</div>
-                    <div class="samsung-cat-sublabel">4U/6U Enclosures &bull; From &#8377;1,450</div>
-                  </a>
-                </div>
-              </div>
-
-              <!-- SUB-PANEL 2: HD ANALOG SYSTEMS -->
-              <div class="cctv-series-panel" id="cctv_series_hd">
-                <div class="cctv-series-header-bar">
-                  <div class="cctv-series-desc">
-                    <strong>HD Analog Series:</strong> Heavy-duty coaxial surveillance with 5MP Full-Color starlight cameras, hybrid multi-channel DVRs, and central 12V SMPS.
-                  </div>
-                  <a href="category.html?cat=cctv&sub=hd" class="cctv-series-action-link">Explore All HD Analog Systems &rarr;</a>
-                </div>
-                <div class="samsung-cat-grid">
-                  <a href="product.html?id=trueview-t18257-a-dual-light-hd-2mp-bullet-camera-ip66" class="samsung-cat-card">
-                    <div class="samsung-cat-thumb"><img src="assets/official_bestseller_cpplus_e38q_transparent.png" alt="HD Bullet Camera"></div>
-                    <div class="samsung-cat-label">HD Bullet Cameras</div>
-                    <div class="samsung-cat-sublabel">5MP Full-Color &bull; From &#8377;1,450</div>
-                  </a>
-                  <a href="product.html?id=trueview-t18294s-smart-wi-fi-dome-camera-3mp" class="samsung-cat-card">
-                    <div class="samsung-cat-thumb"><img src="assets/hero_camera_dome_ai.png" alt="HD Dome Camera"></div>
-                    <div class="samsung-cat-label">HD Dome Cameras</div>
-                    <div class="samsung-cat-sublabel">Wide-Angle IR &bull; From &#8377;1,150</div>
-                  </a>
-                  <a href="product.html?id=trueview-t38118-ae-16-channel-8mp-4k-nvr-1-sata-8tb" class="samsung-cat-card">
-                    <div class="samsung-cat-thumb"><img src="assets/trueview_dvr_8ch.webp" alt="Multi-Mode DVR Hub"></div>
-                    <div class="samsung-cat-label">Digital DVR Hubs</div>
-                    <div class="samsung-cat-sublabel">4/8/16CH Hybrid &bull; From &#8377;3,850</div>
-                  </a>
-                  <a href="product.html?id=cctv-smps-power-supply-12v-10a" class="samsung-cat-card">
-                    <div class="samsung-cat-thumb"><img src="assets/acc_official_smps.png" alt="Central SMPS Power Supply"></div>
-                    <div class="samsung-cat-label">12V SMPS Supplies</div>
-                    <div class="samsung-cat-sublabel">10A/20A Metal &bull; From &#8377;750</div>
-                  </a>
-                  <a href="category.html?brand=Seagate" class="samsung-cat-card">
-                    <div class="samsung-cat-thumb"><img src="assets/acc_official_skyhawk_hdd.png" alt="Seagate SkyHawk HDD"></div>
-                    <div class="samsung-cat-label">Surveillance HDDs</div>
-                    <div class="samsung-cat-sublabel">Seagate SkyHawk &bull; From &#8377;3,100</div>
-                  </a>
-                  <a href="category.html?cat=cables" class="samsung-cat-card">
-                    <div class="samsung-cat-thumb"><img src="assets/acc_cable_coaxial_3_1_90m.jpg" alt="3+1 Coaxial Cable"></div>
-                    <div class="samsung-cat-label">3+1 Coaxial Cables</div>
-                    <div class="samsung-cat-sublabel">90m/180m Copper &bull; From &#8377;1,250</div>
-                  </a>
-                  <a href="category.html?cat=accessories" class="samsung-cat-card">
-                    <div class="samsung-cat-thumb"><img src="assets/acc_bnc_connectors_pack.jpg" alt="BNC Connectors"></div>
-                    <div class="samsung-cat-label">BNC Connectors</div>
-                    <div class="samsung-cat-sublabel">Pure Copper &bull; &#8377;190 / pack</div>
-                  </a>
-                  <a href="category.html?cat=accessories" class="samsung-cat-card">
-                    <div class="samsung-cat-thumb"><img src="assets/acc_dc_connectors_pack.jpg" alt="DC Connectors"></div>
-                    <div class="samsung-cat-label">DC Power Jacks</div>
-                    <div class="samsung-cat-sublabel">Heavy-Duty &bull; &#8377;120 / pack</div>
-                  </a>
-                </div>
-              </div>
-
-              <!-- SUB-PANEL 3: BRAND SELECTION ("CATEGORIES HAVE CATEGORIES") -->
-              <div class="cctv-series-panel" id="cctv_series_brands">
-                <div class="cctv-series-header-bar">
-                  <div class="cctv-series-desc">
-                    <strong>Authorized CCTV Brand Series:</strong> Select your preferred surveillance manufacturer to browse their full ecosystem.
-                  </div>
-                  <a href="category.html?cat=cctv" class="cctv-series-action-link">View All Brands &rarr;</a>
-                </div>
-                <div class="samsung-cat-grid">
-                  <a href="category.html?brand=Hikvision" class="samsung-cat-card">
-                    <div class="samsung-cat-thumb"><img src="assets/brands/hikvision.svg" alt="Hikvision"></div>
-                    <div class="samsung-cat-label">Hikvision</div>
-                    <div class="samsung-cat-sublabel">Turbo HD &bull; ColorVu Series</div>
-                  </a>
-                  <a href="category.html?brand=CP%20Plus" class="samsung-cat-card">
-                    <div class="samsung-cat-thumb"><img src="assets/brands/cpplus.svg" alt="CP Plus"></div>
-                    <div class="samsung-cat-label">CP Plus</div>
-                    <div class="samsung-cat-sublabel">Cosmic HD &bull; Ezykam Series</div>
-                  </a>
-                  <a href="category.html?brand=Prama" class="samsung-cat-card">
-                    <div class="samsung-cat-thumb"><img src="assets/brands/prama.svg" alt="Prama"></div>
-                    <div class="samsung-cat-label">Prama</div>
-                    <div class="samsung-cat-sublabel">Commercial 4K True HD</div>
-                  </a>
-                  <a href="category.html?brand=Hi-Focus" class="samsung-cat-card">
-                    <div class="samsung-cat-thumb"><img src="assets/brands/hifocus.svg" alt="Hi-Focus"></div>
-                    <div class="samsung-cat-label">Hi-Focus</div>
-                    <div class="samsung-cat-sublabel">Enterprise IP &bull; NVR Hubs</div>
-                  </a>
-                  <a href="category.html?brand=Secureye" class="samsung-cat-card">
-                    <div class="samsung-cat-thumb"><img src="assets/brands/secureye.svg" alt="Secureye"></div>
-                    <div class="samsung-cat-label">Secureye</div>
-                    <div class="samsung-cat-sublabel">Falcon Series &bull; CCTV</div>
-                  </a>
-                  <a href="category.html?brand=Trueview" class="samsung-cat-card">
-                    <div class="samsung-cat-thumb"><img src="assets/brands/trueview.svg" alt="Trueview"></div>
-                    <div class="samsung-cat-label">Trueview</div>
-                    <div class="samsung-cat-sublabel">PoE IP &bull; 4G Solar PTZ</div>
-                  </a>
-                  <a href="category.html?brand=TP-Link" class="samsung-cat-card">
-                    <div class="samsung-cat-thumb"><img src="assets/brands/tplink.svg" alt="TP-Link VIGI"></div>
-                    <div class="samsung-cat-label">TP-Link VIGI</div>
-                    <div class="samsung-cat-sublabel">Smart Business Network</div>
-                  </a>
-                  <a href="category.html?brand=Nexiview" class="samsung-cat-card">
-                    <div class="samsung-cat-thumb"><img src="assets/brands/nexiview.svg" alt="Nexiview"></div>
-                    <div class="samsung-cat-label">Nexiview</div>
-                    <div class="samsung-cat-sublabel">High Precision Optics</div>
-                  </a>
-                </div>
-              </div>
-
-              <!-- SUB-PANEL 4: SMART WI-FI & SOLAR -->
-              <div class="cctv-series-panel" id="cctv_series_wifi">
-                <div class="cctv-series-header-bar">
-                  <div class="cctv-series-desc">
-                    <strong>Standalone &amp; Wire-Free Series:</strong> 4G SIM cellular, solar battery powered, and motorized 360&deg; Wi-Fi cameras for locations without cabling.
-                  </div>
-                  <a href="category.html?cat=wifi-solar" class="cctv-series-action-link">Explore Wireless Cameras &rarr;</a>
-                </div>
-                <div class="samsung-cat-grid">
-                  <a href="product.html?id=trueview-solar-4g-sim-outdoor-pan-tilt-camera" class="samsung-cat-card">
-                    <div class="samsung-cat-thumb"><img src="assets/official_trueview_solar_T18149-01.png" alt="4G Solar PTZ"></div>
-                    <div class="samsung-cat-label">4G Solar PTZ Cameras</div>
-                    <div class="samsung-cat-sublabel">100% Wire-Free &bull; &#8377;4,950</div>
-                  </a>
-                  <a href="product.html?id=idada-id-q2i35s-td-3mp-pan-tilt-smart-wi-fi-camera" class="samsung-cat-card">
-                    <div class="samsung-cat-thumb"><img src="assets/official_bestseller_idada_q2i_transparent.png" alt="iDADA 3MP Wi-Fi"></div>
-                    <div class="samsung-cat-label">360&deg; Wi-Fi Cameras</div>
-                    <div class="samsung-cat-sublabel">2-Way Audio &bull; &#8377;1,850</div>
-                  </a>
-                  <a href="product.html?id=cp-plus-ezykam-cp-e28q-2mp-pan-tilt-wi-fi-camera" class="samsung-cat-card">
-                    <div class="samsung-cat-thumb"><img src="assets/product_features/cpplus_enriched_e31q.png" alt="CP Plus Ezykam"></div>
-                    <div class="samsung-cat-label">CP Plus Ezykam</div>
-                    <div class="samsung-cat-sublabel">Smart Tracking &bull; &#8377;1,980</div>
-                  </a>
-                  <a href="category.html?cat=accessories" class="samsung-cat-card">
-                    <div class="samsung-cat-thumb"><img src="assets/acc_sandisk_128gb.jpg" alt="SanDisk MicroSD"></div>
-                    <div class="samsung-cat-label">High Endurance MicroSD</div>
-                    <div class="samsung-cat-sublabel">24/7 Loop Recording &bull; &#8377;1,299</div>
-                  </a>
-                </div>
-              </div>
-
-              <!-- SUB-PANEL 5: ALL CCTV HARDWARE -->
-              <div class="cctv-series-panel" id="cctv_series_all">
-                <div class="cctv-series-header-bar">
-                  <div class="cctv-series-desc">
-                    <strong>Complete CCTV Catalog:</strong> Explore all 48 high-definition and network surveillance products with wholesale pricing.
-                  </div>
-                  <a href="category.html?cat=cctv" class="cctv-series-action-link">Open Full Catalog Page &rarr;</a>
-                </div>
-                <div class="samsung-cat-grid">
-                  <a href="category.html?cat=cctv" class="samsung-cat-card">
-                    <div class="samsung-cat-thumb"><img src="assets/hero_camera_dome_ai.png" alt="All Cameras"></div>
-                    <div class="samsung-cat-label">All Camera Models</div>
-                    <div class="samsung-cat-sublabel">Dome, Bullet &amp; PTZ</div>
-                  </a>
-                  <a href="category.html?cat=cctv" class="samsung-cat-card">
-                    <div class="samsung-cat-thumb"><img src="assets/wholesale_supply_kit.png" alt="Recorders"></div>
-                    <div class="samsung-cat-label">DVRs &amp; NVR Hubs</div>
-                    <div class="samsung-cat-sublabel">4CH to 32CH</div>
-                  </a>
-                  <a href="category.html?cat=accessories" class="samsung-cat-card">
-                    <div class="samsung-cat-thumb"><img src="assets/acc_official_wd_purple_hdd.png" alt="Storage"></div>
-                    <div class="samsung-cat-label">Surveillance Storage</div>
-                    <div class="samsung-cat-sublabel">WD &bull; Seagate &bull; Toshiba</div>
-                  </a>
-                  <a href="category.html?cat=accessories" class="samsung-cat-card">
-                    <div class="samsung-cat-thumb"><img src="assets/acc_official_smps.png" alt="Power Supply"></div>
-                    <div class="samsung-cat-label">Power &amp; Connectors</div>
-                    <div class="samsung-cat-sublabel">12V SMPS &bull; BNC &bull; DC</div>
-                  </a>
-                </div>
-              </div>
-
-            </div>
-
-            <!-- PANEL 3: DASH CAMS (IMAGE 2 - CATEGORY 2) -->
-            <div class="samsung-view-panel" id="view_dashcams">
-              <div class="samsung-panel-title">
-                Automotive Security &mdash; 4K Dash Cams &amp; Parking Surveillance
-                <span class="samsung-title-badge" style="font-size: 11px; font-weight: 700; color: #1e40af; background: #eff6ff; padding: 2px 8px; border-radius: 9999px; margin-left: 8px;">Vehicle Security</span>
-              </div>
-              <div class="samsung-cat-grid">
-                <a href="product.html?id=dashcam-4k-dual-gps" class="samsung-cat-card">
-                  <div class="samsung-cat-thumb"><img src="assets/dash_cam_4k_front_rear.png" alt="4K Dual Dash Cam"></div>
-                  <div class="samsung-cat-label">4K Front + Rear Dual Dash Cam</div>
-                </a>
-                <a href="product.html?id=dashcam-pro-night-vision" class="samsung-cat-card">
-                  <div class="samsung-cat-thumb"><img src="assets/dash_cam_4k_front_rear.png" alt="2K Stealth Dash Cam"></div>
-                  <div class="samsung-cat-label">2K HDR Stealth Dash Cam</div>
-                </a>
-                <a href="#products" onclick="filterDepartment('dash-cams'); closeSamsungMegaMenuInstant();" class="samsung-cat-card">
-                  <div class="samsung-cat-thumb"><img src="assets/acc_sandisk_128gb.jpg" alt="Dash Cam Endurance Storage"></div>
-                  <div class="samsung-cat-label">High Endurance MicroSD</div>
-                </a>
-                <a href="#products" onclick="filterDepartment('dash-cams'); closeSamsungMegaMenuInstant();" class="samsung-cat-card">
-                  <div class="samsung-cat-thumb"><img src="assets/acc_dc_connectors_pack.jpg" alt="Hardwire Parking Kits"></div>
-                  <div class="samsung-cat-label">24/7 Hardwire Kits</div>
-                </a>
-              </div>
-            </div>
-
-            <!-- PANEL 4: HOME AUTOMATION (IMAGE 2 - CATEGORY 3) -->
-            <div class="samsung-view-panel" id="view_homeauto">
-              <div class="samsung-panel-title">
-                Smart Home Automation &mdash; Video Intercom &amp; Biometrics
-                <span class="samsung-title-badge" style="font-size: 11px; font-weight: 700; color: #1e40af; background: #eff6ff; padding: 2px 8px; border-radius: 9999px; margin-left: 8px;">Access &amp; Intercom</span>
-              </div>
-              <div class="samsung-cat-grid">
-                <a href="product.html?id=cp-plus-7inch-touchscreen-color-vdp-kit" class="samsung-cat-card">
-                  <div class="samsung-cat-thumb"><img src="assets/official_vdp_touchscreen_transparent.png" alt="Video Door Phone"></div>
-                  <div class="samsung-cat-label">7" Touchscreen VDP</div>
-                </a>
-                <a href="product.html?id=essl-k90-pro-biometric-fingerprint-attendance-system" class="samsung-cat-card">
-                  <div class="samsung-cat-thumb"><img src="assets/official_biometric_reader_transparent.png" alt="Biometric Attendance"></div>
-                  <div class="samsung-cat-label">Biometric Time &amp; Attendance</div>
-                </a>
-                <a href="#products" onclick="filterDepartment('home-automation'); closeSamsungMegaMenuInstant();" class="samsung-cat-card">
-                  <div class="samsung-cat-thumb"><img src="assets/acc_official_vdp_doorbell.png" alt="Villa Doorbells"></div>
-                  <div class="samsung-cat-label">Smart Villa Doorbells</div>
-                </a>
-                <a href="#products" onclick="filterDepartment('home-automation'); closeSamsungMegaMenuInstant();" class="samsung-cat-card">
-                  <div class="samsung-cat-thumb"><img src="assets/acc_official_junction_box.png" alt="600lbs EM Locks"></div>
-                  <div class="samsung-cat-label">600lbs EM Electronic Locks</div>
-                </a>
-                <a href="#products" onclick="filterDepartment('home-automation'); closeSamsungMegaMenuInstant();" class="samsung-cat-card">
-                  <div class="samsung-cat-thumb"><img src="assets/official_biometric_reader_transparent.png" alt="AI Face Terminals"></div>
-                  <div class="samsung-cat-label">AI Facial Terminals</div>
-                </a>
-              </div>
-            </div>
-
-            <!-- PANEL 5: ACCESSORIES (THE BIG LIST - IMAGE 1) -->
-            <div class="samsung-view-panel" id="view_accessories">
-              <div class="samsung-panel-title">
-                The Big List &mdash; Essential Working Accessories for HD &amp; IP CCTV
-                <span class="samsung-title-badge" style="font-size: 11px; font-weight: 700; color: #1e40af; background: #eff6ff; padding: 2px 8px; border-radius: 9999px; margin-left: 8px;">Hardware Requirements</span>
-              </div>
-              <div class="samsung-cat-grid">
-                <a href="product.html?id=cctv-smps-power-supply-12v-10a" class="samsung-cat-card">
-                  <div class="samsung-cat-thumb"><img src="assets/acc_official_smps.png" alt="Power Supply"></div>
-                  <div class="samsung-cat-label">Power Supply (12V SMPS)</div>
-                </a>
-                <a href="product.html?id=cctv-surveillance-hard-drive-4tb" class="samsung-cat-card">
-                  <div class="samsung-cat-thumb"><img src="assets/acc_official_wd_purple_hdd.png" alt="HDD"></div>
-                  <div class="samsung-cat-label">HDD (WD / Seagate / Toshiba)</div>
-                </a>
-                <a href="product.html?id=cctv-bnc-connectors-pack-10" class="samsung-cat-card">
-                  <div class="samsung-cat-thumb"><img src="assets/acc_bnc_connectors_pack.jpg" alt="BNC Connector"></div>
-                  <div class="samsung-cat-label">BNC Connectors (10-Pk)</div>
-                </a>
-                <a href="product.html?id=cctv-dc-power-connectors-pack-10" class="samsung-cat-card">
-                  <div class="samsung-cat-thumb"><img src="assets/acc_dc_connectors_pack.jpg" alt="DC Connector"></div>
-                  <div class="samsung-cat-label">DC Connectors (10-Pk)</div>
-                </a>
-                <a href="product.html?id=acc-rj45-gold-connectors" class="samsung-cat-card">
-                  <div class="samsung-cat-thumb"><img src="assets/rj45_cat6_modular_jacks.png" alt="RJ 45 Jack"></div>
-                  <div class="samsung-cat-label">RJ 45 Jacks (50-Pk)</div>
-                </a>
-                <a href="product.html?id=cctv-dvr-rack-2u" class="samsung-cat-card">
-                  <div class="samsung-cat-thumb"><img src="assets/acc_dvr_rack_2u.jpg" alt="DVR Rack"></div>
-                  <div class="samsung-cat-label">DVR Rack (2U Lockable)</div>
-                </a>
-                <a href="product.html?id=cctv-server-rack-4u" class="samsung-cat-card">
-                  <div class="samsung-cat-thumb"><img src="assets/acc_server_rack_4u.jpg" alt="NVR Rack"></div>
-                  <div class="samsung-cat-label">NVR Rack (4U Cabinet)</div>
-                </a>
-                <a href="product.html?id=acc-wireless-mouse-dvr" class="samsung-cat-card">
-                  <div class="samsung-cat-thumb"><img src="assets/wireless_mouse_dvr.png" alt="Wireless Mouse"></div>
-                  <div class="samsung-cat-label">Wireless Mouse (DVR/NVR)</div>
-                </a>
-                <a href="product.html?id=cctv-hdmi-cable-5m-4k" class="samsung-cat-card">
-                  <div class="samsung-cat-thumb"><img src="assets/acc_hdmi_5m.jpg" alt="HDMI Cables"></div>
-                  <div class="samsung-cat-label">HDMI Cables (4K 5M)</div>
-                </a>
-                <a href="product.html?id=acc-cobox-indoor-base" class="samsung-cat-card">
-                  <div class="samsung-cat-thumb"><img src="assets/cobox_indoor_junction_box.png" alt="CoBox Indoor"></div>
-                  <div class="samsung-cat-label">CoBox Indoor (Junction Box)</div>
-                </a>
-                <a href="product.html?id=acc-cobox-outdoor-ip66" class="samsung-cat-card">
-                  <div class="samsung-cat-thumb"><img src="assets/cobox_outdoor_ip66_junction_box.png" alt="CoBox Outdoor"></div>
-                  <div class="samsung-cat-label">CoBox Outdoor (IP66 Waterproof)</div>
-                </a>
-                <a href="product.html?id=trueview-t18258-a-4g-router-r300-300mbps-sim-slot" class="samsung-cat-card">
-                  <div class="samsung-cat-thumb"><img src="assets/trueview_router_front.jpg" alt="Wifi Router"></div>
-                  <div class="samsung-cat-label">Wifi Router (High-Gain B2B)</div>
-                </a>
-              </div>
-            </div>
-
-            <!-- PANEL 6: CABLES (IMAGE 2 - CATEGORY 5) -->
-            <div class="samsung-view-panel" id="view_cables">
-              <div class="samsung-panel-title">
-                Cables &amp; Network Infrastructure
-                <span class="samsung-title-badge" style="font-size: 11px; font-weight: 700; color: #1e40af; background: #eff6ff; padding: 2px 8px; border-radius: 9999px; margin-left: 8px;">100% Pure Solid Copper</span>
-              </div>
-              <div class="samsung-cat-grid">
-                <a href="product.html?id=cctv-cat6-pure-copper-cable-305m" class="samsung-cat-card">
-                  <div class="samsung-cat-thumb"><img src="assets/acc_official_cat6_drum.png" alt="CAT6 Pure Copper"></div>
-                  <div class="samsung-cat-label">CAT6 Pure Copper (305M)</div>
-                </a>
-                <a href="product.html?id=cctv-coaxial-cable-3-1-90m" class="samsung-cat-card">
-                  <div class="samsung-cat-thumb"><img src="assets/acc_official_cat6_drum.png" alt="3+1 CCTV Coaxial"></div>
-                  <div class="samsung-cat-label">3+1 CCTV Coaxial (90M)</div>
-                </a>
-                <a href="product.html?id=cctv-coaxial-cable-3-1-180m" class="samsung-cat-card">
-                  <div class="samsung-cat-thumb"><img src="assets/acc_official_cat6_drum.png" alt="3+1 CCTV Coaxial 180M"></div>
-                  <div class="samsung-cat-label">3+1 CCTV Coaxial (180M)</div>
-                </a>
-                <a href="product.html?id=cctv-cat6-patch-cord-3m" class="samsung-cat-card">
-                  <div class="samsung-cat-thumb"><img src="assets/acc_cat6_patch_cord_3m.jpg" alt="Cat6 Patch Cord"></div>
-                  <div class="samsung-cat-label">Cat6 Snagless Patch Cord (3M)</div>
-                </a>
-              </div>
-            </div>
-
-            <!-- PANEL 7: WIFI / 4G / SOLAR CAMERAS (IMAGE 2 - CATEGORY 6) -->
-            <div class="samsung-view-panel" id="view_wifisolar">
-              <div class="samsung-panel-title">
-                Wifi / 4G / Solar Autonomous Cameras
-                <span class="samsung-title-badge" style="font-size: 11px; font-weight: 700; color: #1e40af; background: #eff6ff; padding: 2px 8px; border-radius: 9999px; margin-left: 8px;">Zero Wiring</span>
-              </div>
-              <div class="samsung-cat-grid">
-                <a href="product.html?id=trueview-solar-4g-sim-outdoor-pan-tilt-camera" class="samsung-cat-card">
-                  <div class="samsung-cat-thumb"><img src="assets/official_trueview_solar_T18149-01.png" alt="Solar 4G PTZ"></div>
-                  <div class="samsung-cat-label">Solar 4G PTZ Camera</div>
-                </a>
-                <a href="product.html?id=idada-id-q2i35s-td-3mp-pan-tilt-smart-wi-fi-camera" class="samsung-cat-card">
-                  <div class="samsung-cat-thumb"><img src="assets/cp_e21q_1.png" alt="3MP Wi-Fi Pan Tilt"></div>
-                  <div class="samsung-cat-label">3MP Smart Wi-Fi Pan &amp; Tilt</div>
-                </a>
-                <a href="product.html?id=cp-plus-ezykam-cp-e38q-3mp-pan-tilt-wi-fi-camera" class="samsung-cat-card">
-                  <div class="samsung-cat-thumb"><img src="assets/official_bestseller_cpplus_e38q_transparent.png" alt="5MP Starlight Bullet"></div>
-                  <div class="samsung-cat-label">5MP Starlight Wi-Fi Bullet</div>
-                </a>
-                <a href="product.html?id=trueview-t18294s-smart-wi-fi-dome-camera-3mp" class="samsung-cat-card">
-                  <div class="samsung-cat-thumb"><img src="assets/hero_camera_dome_ai.png" alt="4K Ultra HD Dome"></div>
-                  <div class="samsung-cat-label">4K Color Night Vision Dome</div>
-                </a>
-              </div>
-            </div>
-
-<!-- PANEL 7: ALL 17 BRANDS WE DEAL (WITH AUTHENTIC LOGOS & DOMAIN BADGES) -->
-            <div class="samsung-view-panel" id="view_brands">
-              <div class="samsung-panel-title">
-                All 17 Authorized Commercial Security Brands
-                <span class="samsung-title-badge" style="font-size: 11px; font-weight: 700; color: #1e40af; background: #eff6ff; padding: 2px 8px; border-radius: 9999px; margin-left: 8px;">Certified OEM Partners</span>
-              </div>
-              <div class="samsung-brands-cards-grid">
-                
-                <!-- 1. HIKVISION -->
-                <a href="#products" onclick="filterByBrand('Hikvision', this); closeSamsungMegaMenuInstant(); return false;" class="samsung-brand-card">
-                  <div class="samsung-brand-logo-wrap"><img src="assets/brands/hikvision.svg" alt="Hikvision CCTV &amp; VDP"></div>
-                  <div class="samsung-brand-details">
-                    <span class="samsung-brand-name">Hikvision</span>
-                    <span class="samsung-brand-tag">CCTV &amp; VDP</span>
-                  </div>
-                </a>
-
-                <!-- 2. CP PLUS -->
-                <a href="#products" onclick="filterByBrand('CP Plus', this); closeSamsungMegaMenuInstant(); return false;" class="samsung-brand-card">
-                  <div class="samsung-brand-logo-wrap"><img src="assets/brands/cpplus.svg" alt="CP Plus Surveillance"></div>
-                  <div class="samsung-brand-details">
-                    <span class="samsung-brand-name">CP Plus</span>
-                    <span class="samsung-brand-tag">Surveillance</span>
-                  </div>
-                </a>
-
-                <!-- 3. PRAMA -->
-                <a href="#products" onclick="filterByBrand('Prama', this); closeSamsungMegaMenuInstant(); return false;" class="samsung-brand-card">
-                  <div class="samsung-brand-logo-wrap"><img src="assets/brands/prama.svg" alt="Prama Commercial CCTV"></div>
-                  <div class="samsung-brand-details">
-                    <span class="samsung-brand-name">Prama</span>
-                    <span class="samsung-brand-tag">Commercial CCTV</span>
-                  </div>
-                </a>
-
-                <!-- 4. HI-FOCUS -->
-                <a href="#products" onclick="filterByBrand('Hi-Focus', this); closeSamsungMegaMenuInstant(); return false;" class="samsung-brand-card">
-                  <div class="samsung-brand-logo-wrap"><img src="assets/brands/hifocus.svg" alt="Hi-Focus HD Video"></div>
-                  <div class="samsung-brand-details">
-                    <span class="samsung-brand-name">Hi-Focus</span>
-                    <span class="samsung-brand-tag">HD Video</span>
-                  </div>
-                </a>
-
-                <!-- 5. SECUREYE -->
-                <a href="#products" onclick="filterByBrand('Secureye', this); closeSamsungMegaMenuInstant(); return false;" class="samsung-brand-card">
-                  <div class="samsung-brand-logo-wrap"><img src="assets/brands/secureye.svg" alt="Secureye Biometrics &amp; CCTV"></div>
-                  <div class="samsung-brand-details">
-                    <span class="samsung-brand-name">Secureye</span>
-                    <span class="samsung-brand-tag">Biometrics</span>
-                  </div>
-                </a>
-
-                <!-- 6. NEXIVIEW -->
-                <a href="#products" onclick="filterByBrand('Nexiview', this); closeSamsungMegaMenuInstant(); return false;" class="samsung-brand-card">
-                  <div class="samsung-brand-logo-wrap"><img src="assets/brands/nexiview.svg" alt="Nexiview Surveillance"></div>
-                  <div class="samsung-brand-details">
-                    <span class="samsung-brand-name">Nexiview</span>
-                    <span class="samsung-brand-tag">Surveillance</span>
-                  </div>
-                </a>
-
-                <!-- 7. FIBER -->
-                <a href="#products" onclick="filterByBrand('Fiber', this); closeSamsungMegaMenuInstant(); return false;" class="samsung-brand-card">
-                  <div class="samsung-brand-logo-wrap"><img src="assets/brands/fiber.svg" alt="Fiber Optical Transmission"></div>
-                  <div class="samsung-brand-details">
-                    <span class="samsung-brand-name">Fiber</span>
-                    <span class="samsung-brand-tag">Optical Cable</span>
-                  </div>
-                </a>
-
-                <!-- 8. WD PURPLE (CCTV HARD DISK) -->
-                <a href="#products" onclick="filterByBrand('WD', this); closeSamsungMegaMenuInstant(); return false;" class="samsung-brand-card hdd-special-card">
-                  <div class="samsung-brand-logo-wrap"><img src="assets/brands/wd.svg" alt="WD Purple CCTV Hard Disk"></div>
-                  <div class="samsung-brand-details">
-                    <span class="samsung-brand-name" style="color: #581c87;">WD Purple</span>
-                    <span class="samsung-brand-tag hdd-tag">CCTV Hard Disk</span>
-                  </div>
-                </a>
-
-                <!-- 9. SEAGATE SKYHAWK (CCTV HARD DISK) -->
-                <a href="#products" onclick="filterByBrand('Seagate', this); closeSamsungMegaMenuInstant(); return false;" class="samsung-brand-card hdd-special-card">
-                  <div class="samsung-brand-logo-wrap"><img src="assets/brands/seagate.svg" alt="Seagate SkyHawk CCTV Hard Disk"></div>
-                  <div class="samsung-brand-details">
-                    <span class="samsung-brand-name" style="color: #065f46;">Seagate SkyHawk</span>
-                    <span class="samsung-brand-tag hdd-tag">CCTV Hard Disk</span>
-                  </div>
-                </a>
-
-                <!-- 10. TOSHIBA S300 (CCTV HARD DISK) -->
-                <a href="#products" onclick="filterByBrand('Toshiba', this); closeSamsungMegaMenuInstant(); return false;" class="samsung-brand-card hdd-special-card">
-                  <div class="samsung-brand-logo-wrap"><img src="assets/brands/toshiba.svg" alt="Toshiba S300 CCTV Hard Disk"></div>
-                  <div class="samsung-brand-details">
-                    <span class="samsung-brand-name" style="color: #9f1239;">Toshiba S300</span>
-                    <span class="samsung-brand-tag hdd-tag">CCTV Hard Disk</span>
-                  </div>
-                </a>
-
-                <!-- 11. TRUEVIEW -->
-                <a href="#products" onclick="filterByBrand('Trueview', this); closeSamsungMegaMenuInstant(); return false;" class="samsung-brand-card">
-                  <div class="samsung-brand-logo-wrap"><img src="assets/brands/trueview.svg" alt="Trueview Solar 4G &amp; PoE"></div>
-                  <div class="samsung-brand-details">
-                    <span class="samsung-brand-name">Trueview</span>
-                    <span class="samsung-brand-tag">Solar &amp; PoE</span>
-                  </div>
-                </a>
-
-                <!-- 12. FINOLEX -->
-                <a href="#products" onclick="filterByBrand('Finolex', this); closeSamsungMegaMenuInstant(); return false;" class="samsung-brand-card">
-                  <div class="samsung-brand-logo-wrap"><img src="assets/brands/finolex.svg" alt="Finolex Pure Copper Cables"></div>
-                  <div class="samsung-brand-details">
-                    <span class="samsung-brand-name">Finolex</span>
-                    <span class="samsung-brand-tag">Copper Cables</span>
-                  </div>
-                </a>
-
-                <!-- 13. ESSL -->
-                <a href="#products" onclick="filterByBrand('ESSL', this); closeSamsungMegaMenuInstant(); return false;" class="samsung-brand-card">
-                  <div class="samsung-brand-logo-wrap"><img src="assets/brands/essl.svg" alt="eSSL Biometrics &amp; Access"></div>
-                  <div class="samsung-brand-details">
-                    <span class="samsung-brand-name">eSSL</span>
-                    <span class="samsung-brand-tag">Biometrics</span>
-                  </div>
-                </a>
-
-                <!-- 14. ERD -->
-                <a href="#products" onclick="filterByBrand('ERD', this); closeSamsungMegaMenuInstant(); return false;" class="samsung-brand-card">
-                  <div class="samsung-brand-logo-wrap"><img src="assets/brands/erd.svg" alt="ERD 12V CCTV SMPS"></div>
-                  <div class="samsung-brand-details">
-                    <span class="samsung-brand-name">ERD</span>
-                    <span class="samsung-brand-tag">12V SMPS</span>
-                  </div>
-                </a>
-
-                <!-- 15. LOGITECH -->
-                <a href="#products" onclick="filterByBrand('Logitech', this); closeSamsungMegaMenuInstant(); return false;" class="samsung-brand-card">
-                  <div class="samsung-brand-logo-wrap"><img src="assets/brands/logitech.svg" alt="Logitech Video Collaboration"></div>
-                  <div class="samsung-brand-details">
-                    <span class="samsung-brand-name">Logitech</span>
-                    <span class="samsung-brand-tag">AV Systems</span>
-                  </div>
-                </a>
-
-                <!-- 16. MX -->
-                <a href="#products" onclick="filterByBrand('MX', this); closeSamsungMegaMenuInstant(); return false;" class="samsung-brand-card">
-                  <div class="samsung-brand-logo-wrap"><img src="assets/brands/mx.svg" alt="MX MDR Connectors"></div>
-                  <div class="samsung-brand-details">
-                    <span class="samsung-brand-name">MX MDR</span>
-                    <span class="samsung-brand-tag">Connectors</span>
-                  </div>
-                </a>
-
-                <!-- 17. TP-LINK -->
-                <a href="#products" onclick="filterByBrand('TP-Link', this); closeSamsungMegaMenuInstant(); return false;" class="samsung-brand-card">
-                  <div class="samsung-brand-logo-wrap"><img src="assets/brands/tplink.svg" alt="TP-Link Networking &amp; PoE"></div>
-                  <div class="samsung-brand-details">
-                    <span class="samsung-brand-name">TP-Link</span>
-                    <span class="samsung-brand-tag">PoE &amp; Wi-Fi</span>
-                  </div>
-                </a>
-
-              </div>
-            </div>
-
-          </div>
-
-          <!-- RIGHT SIDE: DISCOVER SIDEBAR (DYNAMICALLY UPDATED) -->
-          <div class="samsung-discover-col">
-            <div class="samsung-discover-title" id="samsungDiscoverTitle">Discover Wholesale</div>
-            <ul class="samsung-discover-list" id="samsungDiscoverList">
-              <li><a href="#products" onclick="filterDepartment('cctv')"><span>20x Camera Master Cartons</span> <span class="discover-arrow">&rarr;</span></a></li>
-              <li><a href="javascript:void(0)" onclick="openSamsungMegaMenu('brands')"><span>All 17 Certified Brands</span> <span class="discover-arrow">&rarr;</span></a></li>
-              <li><a href="#products" onclick="filterDepartment('storage')" style="color: #1d4ed8; font-weight: 700;"><span>CCTV Hard Disks (3 Brands)</span> <span class="discover-arrow">&rarr;</span></a></li>
-              <li><a href="#products" onclick="filterDepartment('vdp')"><span>10x VDP Touchscreen Crates</span> <span class="discover-arrow">&rarr;</span></a></li>
-              <li><a href="#products" onclick="filterDepartment('cables')"><span>Pure Copper Master Pallets</span> <span class="discover-arrow">&rarr;</span></a></li>
-              <li><a href="index.html" style="color: #000000; font-weight: 700;"><span>Single Units (Retail)</span> <span class="discover-arrow">&rarr;</span></a></li>
-              <li><a href="https://wa.me/917511180808" target="_blank" rel="noopener noreferrer"><span>Direct Wholesale B2B Desk</span> <span class="discover-arrow">&rarr;</span></a></li>
-            </ul>
-          </div>
-
-        </div>
-
-      </div>
     </div>
   </header>
 
@@ -2746,6 +2287,7 @@
     
     <!-- LEFT 50%: SOLID STADIUM YELLOW (#FFE500) -->
     <div class="stadium-hero-yellow-side">
+      <div class="stadium-hero-kicker">AUTHORIZED TIER-1 WHOLESALE DISTRIBUTOR</div>
       <h1 class="stadium-hero-h1">
         WHOLESALE BULK HARDWARE DISTRIBUTION
       </h1>
@@ -2762,10 +2304,103 @@
 
     <!-- RIGHT 50%: STUDIO COMMERCIAL SETUP PHOTOGRAPHY -->
     <div class="stadium-hero-image-side">
+      <div class="hero-stamp-badge">20x WHOLESALE LOTS</div>
       <img src="assets/wholesale_supply_kit.png" alt="Commercial CCTV &amp; Security Wholesale Supply Lot" class="stadium-hero-studio-img">
     </div>
 
   </section>
+
+  <!-- ==========================================================================
+       HERO INTEGRATED CATEGORIES (6 CORE LINES WITH VECTOR SYMBOLS)
+       ========================================================================== -->
+  <section class="hero-categories-strip" id="categories">
+    <div class="container">
+      <div class="hero-categories-header">
+        <div>
+          <div class="hero-cat-kicker">OFFICIAL HARDWARE SELECTION</div>
+          <h2 class="hero-cat-title">Six Core Categories</h2>
+        </div>
+        <p style="color: #71717a; font-size: 13.5px; font-weight: 500; margin: 0; max-width: 440px;">
+          Direct Tier-1 certified surveillance, dash cameras, smart automation, and cabling lines.
+        </p>
+      </div>
+
+      <div class="hero-cat-grid">
+        <!-- 1. CCTV -->
+        <a href="category.html?cat=cctv" class="hero-cat-card">
+          <div class="hero-cat-icon-wrap">
+            <svg class="hero-cat-svg ico"><use href="#i-dome"/></svg>
+          </div>
+          <div class="hero-cat-text">
+            <span class="hero-cat-name">CCTV Systems</span>
+            <span class="hero-cat-meta">48 Models &bull; HD &amp; IP</span>
+          </div>
+          <span class="hero-cat-arrow">&rarr;</span>
+        </a>
+
+        <!-- 2. DASH CAMS -->
+        <a href="category.html?cat=dash-cams" class="hero-cat-card">
+          <div class="hero-cat-icon-wrap">
+            <svg class="hero-cat-svg ico"><use href="#i-car"/></svg>
+          </div>
+          <div class="hero-cat-text">
+            <span class="hero-cat-name">Dash Cams</span>
+            <span class="hero-cat-meta">12 Models &bull; 4K Dual</span>
+          </div>
+          <span class="hero-cat-arrow">&rarr;</span>
+        </a>
+
+        <!-- 3. HOME AUTOMATION -->
+        <a href="category.html?cat=home-automation" class="hero-cat-card">
+          <div class="hero-cat-icon-wrap">
+            <svg class="hero-cat-svg ico"><use href="#i-home"/></svg>
+          </div>
+          <div class="hero-cat-text">
+            <span class="hero-cat-name">Smart Automation</span>
+            <span class="hero-cat-meta">18 Models &bull; VDP &amp; Locks</span>
+          </div>
+          <span class="hero-cat-arrow">&rarr;</span>
+        </a>
+
+        <!-- 4. ACCESSORIES -->
+        <a href="category.html?cat=accessories" class="hero-cat-card">
+          <div class="hero-cat-icon-wrap">
+            <svg class="hero-cat-svg ico"><use href="#i-box"/></svg>
+          </div>
+          <div class="hero-cat-text">
+            <span class="hero-cat-name">Accessories</span>
+            <span class="hero-cat-meta">34 Models &bull; Power &amp; Hubs</span>
+          </div>
+          <span class="hero-cat-arrow">&rarr;</span>
+        </a>
+
+        <!-- 5. CABLES -->
+        <a href="category.html?cat=cables" class="hero-cat-card">
+          <div class="hero-cat-icon-wrap">
+            <svg class="hero-cat-svg ico"><use href="#i-cable"/></svg>
+          </div>
+          <div class="hero-cat-text">
+            <span class="hero-cat-name">Pure Copper Cables</span>
+            <span class="hero-cat-meta">16 Spools &bull; CAT6 &amp; 3+1</span>
+          </div>
+          <span class="hero-cat-arrow">&rarr;</span>
+        </a>
+
+        <!-- 6. WIRELESS -->
+        <a href="category.html?cat=wireless" class="hero-cat-card">
+          <div class="hero-cat-icon-wrap">
+            <svg class="hero-cat-svg ico"><use href="#i-solar"/></svg>
+          </div>
+          <div class="hero-cat-text">
+            <span class="hero-cat-name">Wi-Fi &amp; Solar</span>
+            <span class="hero-cat-meta">14 Models &bull; Zero Wiring</span>
+          </div>
+          <span class="hero-cat-arrow">&rarr;</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
 
   <!-- ==========================================================================
        5. HORIZONTAL WHOLESALE LOTS STRIP (FIXED CLEAN HTML)

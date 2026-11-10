@@ -264,7 +264,36 @@
             pointer-events: none;
         }
 
-    </style>
+    
+    /* 3D TACTILE ANGLED STAMP BADGE (FROM WEBSITE 22 BLEND) */
+    .hero-stamp-badge {
+      position: absolute;
+      top: 24px;
+      right: 28px;
+      transform: rotate(8deg);
+      background: #000000;
+      color: #ffe500;
+      font-weight: 900;
+      font-size: 13.5px;
+      letter-spacing: 0.8px;
+      padding: 7px 16px;
+      border-radius: 8px;
+      box-shadow: 0 6px 0 rgba(0, 0, 0, 0.22);
+      text-transform: uppercase;
+      z-index: 15;
+      pointer-events: none;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    @media (max-width: 640px) {
+      .hero-stamp-badge {
+        top: 10px;
+        right: 10px;
+        font-size: 11px;
+        padding: 5px 12px;
+      }
+    }
+
+  </style>
 
     <!-- Google Fonts: Plus Jakarta Sans -->
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -658,20 +687,6 @@
     </div>
   </header>
 
-  <!-- 3. CATEGORY NAVIGATION STRIP -->
-  <nav class="stadium-cat-nav-strip">
-    <ul class="cat-nav-list">
-      <li class="cat-nav-item"><a href="category.html?cat=all">Categories &darr;</a></li>
-      <li class="cat-nav-item"><a href="category.html?cat=cctv">CCTV</a></li>
-      <li class="cat-nav-item"><a href="category.html?cat=dash-cams">Dashcams</a></li>
-      <li class="cat-nav-item"><a href="category.html?cat=home-automation">Automation</a></li>
-      <li class="cat-nav-item"><a href="category.html?cat=accessories">Accessories</a></li>
-      <li class="cat-nav-item"><a href="category.html?cat=cables">Cables</a></li>
-      <li class="cat-nav-item"><a href="category.html?cat=wifi-solar">Wireless</a></li>
-      <li class="cat-nav-item"><a href="category.html?cat=all">Brands We Deal &darr;</a></li>
-    </ul>
-  </nav>
-
 <!-- MAIN PRODUCT ARENA -->
     <main class="product-page-main">
         
@@ -697,6 +712,7 @@
 
                     <!-- 2. CENTER: PINNED CAMERA VISUAL (PURE MINIMAL WHITE CANVAS WITH INTERACTIVE ZOOM) -->
                     <div class="asus-center-stage" id="asus-center-stage">
+                        <div class="hero-stamp-badge">ORIGINAL TIER-1</div>
                         <div class="asus-product-visual-wrap" id="asus-product-wrap" onclick="toggleProductZoom()">
                             <img src="assets/hero_product_solar_v2.png" alt="CCTV Camera" class="asus-pinned-camera-img" id="asus-camera-img">
                             <div class="asus-product-shadow"></div>
