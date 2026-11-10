@@ -1141,10 +1141,11 @@
        ========================================================================== */
     .stadium-split-hero {
       width: 100%;
-      background: #ffffff;
+      background: var(--stadium-yellow);
       display: grid;
       grid-template-columns: 1fr 1fr;
       min-height: 480px;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.08);
     }
 
     @media (max-width: 900px) {
@@ -1159,15 +1160,15 @@
       top: 14px;
       right: 18px;
       transform: rotate(8deg);
-      background: #000000;
-      color: var(--stadium-yellow);
+      background: #e11d48;
+      color: #ffffff;
       font-family: inherit;
       font-weight: 900;
       font-size: 13.5px;
-      letter-spacing: 0.8px;
+      letter-spacing: 0.6px;
       padding: 7px 16px;
       border-radius: 8px;
-      box-shadow: 0 6px 0 rgba(0, 0, 0, 0.22);
+      box-shadow: 0 6px 16px rgba(225, 29, 72, 0.35);
       text-transform: uppercase;
       z-index: 15;
       pointer-events: none;
@@ -1363,7 +1364,7 @@
 
     /* LEFT 50%: SOLID STADIUM YELLOW */
     .stadium-hero-yellow-side {
-      background: var(--stadium-yellow);
+      background: transparent;
       padding: 68px 54px;
       display: flex;
       flex-direction: column;
@@ -1375,8 +1376,8 @@
       font-size: 48px;
       font-weight: 900;
       line-height: 1.08;
-      letter-spacing: -0.8px;
-      color: #000000;
+      letter-spacing: -0.03em;
+      color: #0f172a;
       text-transform: uppercase;
       margin-bottom: 28px;
       font-family: inherit;
@@ -1399,17 +1400,26 @@
     }
 
     .stadium-hero-btn {
-      background: #000000;
-      color: #ffffff;
-      font-size: 14px;
-      font-weight: 800;
-      padding: 13px 24px;
-      border-radius: 4px;
+      background: #ffffff;
+      color: #0f172a;
+      font-size: 13.5px;
+      font-weight: 700;
+      padding: 11px 22px;
+      border-radius: 9999px;
+      border: 1px solid rgba(0, 0, 0, 0.08);
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06), 0 1px 3px rgba(0, 0, 0, 0.04);
       text-decoration: none;
-      transition: all 0.2s ease;
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
       display: inline-flex;
       align-items: center;
       justify-content: center;
+    }
+
+    .stadium-hero-btn:hover {
+      background: #f8fafc;
+      color: #000000;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
     }
 
     .stadium-hero-btn:hover {
@@ -1419,14 +1429,14 @@
 
         /* OFFER SLIDESHOW STYLING (BORDERLESS NO-BOX DESIGN) */
     .stadium-hero-image-side {
-      background: #ffffff;
+      background: transparent;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
       padding: 30px 44px;
       position: relative;
-      overflow: hidden;
+      overflow: visible;
       width: 100%;
     }
 
@@ -1462,8 +1472,12 @@
       flex-direction: column;
       justify-content: space-between;
       min-height: 310px;
-      background: transparent;
-      padding: 0;
+      background: #ffffff;
+      border: 1px solid rgba(0, 0, 0, 0.07);
+      border-radius: 20px;
+      box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.12), 0 4px 12px rgba(0, 0, 0, 0.04);
+      padding: 24px 28px;
+      position: relative;
     }
 
     .offer-card-header {
@@ -1580,18 +1594,25 @@
     }
 
     .offer-action-btn {
-      background: #000000;
+      background: #2563eb;
       color: #ffffff;
-      font-size: 12.5px;
+      font-size: 13px;
       font-weight: 700;
-      padding: 8px 18px;
-      border-radius: 4px;
+      padding: 9px 20px;
+      border-radius: 8px;
       text-decoration: none;
       white-space: nowrap;
       transition: all 0.2s ease;
       display: inline-flex;
       align-items: center;
       gap: 4px;
+      box-shadow: 0 4px 12px rgba(37, 99, 235, 0.25);
+    }
+
+    .offer-action-btn:hover {
+      background: #1d4ed8;
+      transform: translateY(-1px);
+      box-shadow: 0 6px 16px rgba(37, 99, 235, 0.35);
     }
 
     .offer-action-btn:hover {
@@ -1628,7 +1649,7 @@
 
     .offer-dot-btn.active {
       width: 22px;
-      background: #000000;
+      background: #0f172a;
     }
 
     .offer-arrows-group {
@@ -2340,14 +2361,14 @@
       top: 14px;
       right: 18px;
       transform: rotate(8deg);
-      background: #000000;
-      color: #ffe500;
+      background: #e11d48;
+      color: #ffffff;
       font-weight: 900;
       font-size: 13.5px;
-      letter-spacing: 0.8px;
+      letter-spacing: 0.6px;
       padding: 7px 16px;
       border-radius: 8px;
-      box-shadow: 0 6px 0 rgba(0, 0, 0, 0.22);
+      box-shadow: 0 6px 16px rgba(225, 29, 72, 0.35);
       text-transform: uppercase;
       z-index: 15;
       pointer-events: none;
@@ -2624,7 +2645,7 @@
   
     /* 1. MICRO TOP ANNOUNCEMENT STRIP */
     .syber-top-strip {
-      background: #000000;
+      background: #0f172a;
       color: #ffffff;
       font-size: 11.5px;
       font-weight: 600;
