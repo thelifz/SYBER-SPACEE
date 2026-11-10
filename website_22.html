@@ -1,0 +1,955 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Syber Space — Design 22 Prototype</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=DM+Sans:wght@400;500;700&display=swap">
+  <style>
+    /* Website 22: Minimalist Single-Page Prototype */
+    :root {
+      --bg: #FFFDF5;
+      --surface: #FFFFFF;
+      --ink: #1B1707;
+      --muted: #6B6339;
+      --line: #EFE6B8;
+      --yellow: #FFFF00;
+      --yellow-deep: #E6E600;
+      --yellow-soft: #FFFFD6;
+      --on-yellow: #1B1707;
+      --band: #1B1707;
+      --on-band: #FFF8DC;
+      --ok: #1F7A3D;
+      --head: 'Bricolage Grotesque', 'Segoe UI', system-ui, sans-serif;
+      --body: 'DM Sans', 'Segoe UI', system-ui, sans-serif;
+      --shadow: 0 1px 0 rgba(27,23,7,.04), 0 8px 24px -12px rgba(120,90,0,.25);
+    }
+    @media (prefers-color-scheme: dark) {
+      :root:not([data-theme="light"]) {
+        --bg: #121008;
+        --surface: #1C1910;
+        --ink: #FBF4D6;
+        --muted: #B5AB7A;
+        --line: #34301C;
+        --yellow-soft: #2B2508;
+        --band: #0B0A04;
+        --on-band: #FFF8DC;
+        --ok: #5BD07F;
+        --shadow: 0 1px 0 rgba(0,0,0,.3), 0 8px 24px -12px rgba(0,0,0,.6);
+        color-scheme: dark;
+      }
+    }
+    :root[data-theme="dark"] {
+      --bg: #121008;
+      --surface: #1C1910;
+      --ink: #FBF4D6;
+      --muted: #B5AB7A;
+      --line: #34301C;
+      --yellow-soft: #2B2508;
+      --band: #0B0A04;
+      --on-band: #FFF8DC;
+      --ok: #5BD07F;
+      --shadow: 0 1px 0 rgba(0,0,0,.3), 0 8px 24px -12px rgba(0,0,0,.6);
+      color-scheme: dark;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      padding: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: var(--body);
+      font-size: 16px;
+      line-height: 1.55;
+      -webkit-font-smoothing: antialiased;
+    }
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0 0 auto;
+      height: env(safe-area-inset-top, 0px);
+      background: var(--surface);
+      z-index: 60;
+    }
+    a { color: inherit; }
+    h1, h2, h3 {
+      font-family: var(--head);
+      line-height: 1.08;
+      margin: 0;
+      text-wrap: balance;
+      letter-spacing: -.02em;
+    }
+    p { margin: 0; }
+    button { font: inherit; cursor: pointer; }
+    :focus-visible {
+      outline: 3px solid var(--ink);
+      outline-offset: 2px;
+      border-radius: 6px;
+    }
+    :root[data-theme="dark"] :focus-visible { outline-color: var(--yellow); }
+    @media (prefers-color-scheme: dark) {
+      :root:not([data-theme="light"]) :focus-visible { outline-color: var(--yellow); }
+    }
+    .wrap {
+      max-width: 1180px;
+      margin-inline: auto;
+      padding-left: max(16px, env(safe-area-inset-left, 0px));
+      padding-right: max(16px, env(safe-area-inset-right, 0px));
+    }
+    .ico {
+      width: 1em;
+      height: 1em;
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 3;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    /* Top strip */
+    .strip { background: var(--yellow); color: var(--on-yellow); font-size: 13px; font-weight: 500; }
+    .strip .wrap { display: flex; gap: 8px 24px; flex-wrap: wrap; justify-content: space-between; padding-block: 8px; }
+    .strip b { font-weight: 700; }
+
+    /* Header */
+    .head { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 50; background: var(--surface); border-bottom: 1px solid var(--line); }
+    .head .wrap { display: flex; align-items: center; gap: 16px; padding-block: 12px; }
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      font-family: var(--head);
+      font-weight: 800;
+      font-size: 22px;
+      letter-spacing: -.03em;
+      text-transform: lowercase;
+      white-space: nowrap;
+    }
+    .logo i {
+      width: 34px;
+      height: 34px;
+      border-radius: 10px;
+      background: var(--yellow);
+      color: var(--on-yellow);
+      display: grid;
+      place-items: center;
+      font-size: 20px;
+    }
+    .logo em {
+      font-style: normal;
+      background: var(--yellow);
+      color: var(--on-yellow);
+      padding: 0 6px;
+      border-radius: 6px;
+      margin-left: -2px;
+    }
+    .search {
+      flex: 1;
+      min-width: 0;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--bg);
+      border: 1.5px solid var(--line);
+      border-radius: 999px;
+      padding: 0 14px;
+      height: 42px;
+    }
+    .search:focus-within { border-color: var(--yellow-deep); }
+    .search input {
+      flex: 1;
+      min-width: 0;
+      border: 0;
+      background: transparent;
+      color: var(--ink);
+      font: inherit;
+      outline: 0;
+      height: 100%;
+    }
+    .search input::placeholder { color: var(--muted); }
+    .nav { display: flex; gap: 4px; }
+    .nav a {
+      padding: 8px 12px;
+      border-radius: 999px;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 15px;
+      white-space: nowrap;
+    }
+    .nav a:hover { background: var(--yellow-soft); }
+    .cartbtn {
+      position: relative;
+      height: 42px;
+      min-width: 42px;
+      padding: 0 14px;
+      border-radius: 999px;
+      border: 0;
+      background: var(--ink);
+      color: var(--bg);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 700;
+    }
+    .cartbtn .n {
+      background: var(--yellow);
+      color: var(--on-yellow);
+      border-radius: 999px;
+      min-width: 22px;
+      height: 22px;
+      display: grid;
+      place-items: center;
+      font-size: 13px;
+      padding: 0 6px;
+    }
+    .cartbtn.bump { animation: bump .35s; }
+    @keyframes bump { 40% { transform: scale(1.12); } }
+    @media (max-width: 900px) { .nav { display: none; } }
+    @media (max-width: 560px) {
+      .head .wrap { flex-wrap: wrap; }
+      .search { order: 3; flex-basis: 100%; }
+      .cartbtn { margin-left: auto; }
+      .logo { font-size: 20px; }
+    }
+
+    /* Hero */
+    .hero { background: var(--yellow); color: var(--on-yellow); overflow: hidden; }
+    .hero .wrap {
+      display: grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 40px;
+      align-items: center;
+      padding-block: 56px 64px;
+    }
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--on-yellow);
+      color: var(--yellow);
+      border-radius: 999px;
+      padding: 5px 12px;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+    }
+    .hero h1 { font-size: clamp(40px, 6.2vw, 76px); font-weight: 800; margin: 18px 0 16px; }
+    .hero h1 span {
+      background: var(--surface);
+      color: var(--ink);
+      padding: 0 .15em;
+      border-radius: .12em;
+      box-decoration-break: clone;
+      -webkit-box-decoration-break: clone;
+    }
+    .hero p.lead { font-size: 18px; max-width: 46ch; font-weight: 500; }
+    .cta { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 26px; }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      min-height: 46px;
+      padding: 0 20px;
+      border-radius: 12px;
+      border: 2px solid var(--ink);
+      background: var(--ink);
+      color: #FFF8DC;
+      font-weight: 700;
+      text-decoration: none;
+      font-size: 15px;
+      transition: transform .15s;
+    }
+    .btn:hover { transform: translateY(-2px); }
+    .btn.alt { background: transparent; color: inherit; }
+    .btn.sm { min-height: 38px; padding: 0 14px; font-size: 14px; border-radius: 10px; }
+    .hero .quick { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 22px; }
+    .hero .quick a {
+      font-size: 14px;
+      font-weight: 700;
+      text-decoration: none;
+      border: 1.5px solid rgba(27,23,7,.35);
+      border-radius: 999px;
+      padding: 6px 14px;
+      background: rgba(255,255,255,.35);
+    }
+    .hero .quick a:hover { background: #fff; }
+    .offer {
+      position: relative;
+      background: var(--surface);
+      color: var(--ink);
+      border: 2px solid var(--ink);
+      border-radius: 24px;
+      padding: 22px;
+      box-shadow: 10px 10px 0 var(--ink);
+    }
+    .offer .tag {
+      display: inline-block;
+      background: var(--yellow);
+      color: var(--on-yellow);
+      font-weight: 700;
+      font-size: 12px;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      border-radius: 8px;
+    }
+    .offer h2 { font-size: 26px; margin: 10px 0 4px; }
+    .offer .art {
+      margin: 12px 0;
+      border-radius: 16px;
+      background: var(--yellow-soft);
+      display: grid;
+      place-items: center;
+      padding: 14px;
+    }
+    .offer .art svg { width: 100%; max-width: 300px; height: auto; }
+    .offer .row { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+    .offer .save { font-family: var(--head); font-weight: 800; font-size: 22px; }
+    .offer .btn { background: var(--ink); color: var(--bg); }
+    .stamp {
+      position: absolute;
+      top: -18px;
+      right: -10px;
+      rotate: 8deg;
+      background: var(--ink);
+      color: var(--yellow);
+      font-family: var(--head);
+      font-weight: 800;
+      font-size: 15px;
+      padding: 8px 14px;
+      border-radius: 10px;
+      box-shadow: 0 6px 0 rgba(0,0,0,.15);
+    }
+    @media (max-width: 860px) {
+      .hero .wrap { grid-template-columns: 1fr; padding-block: 36px 48px; }
+      .offer { box-shadow: 6px 6px 0 var(--ink); }
+    }
+
+    /* Trust */
+    .trust { background: var(--surface); border-bottom: 1px solid var(--line); }
+    .trust .wrap { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px 24px; padding-block: 18px; }
+    .trust div { display: flex; align-items: center; gap: 12px; font-weight: 700; font-size: 14px; line-height: 1.3; }
+    .trust i {
+      flex: none;
+      width: 40px;
+      height: 40px;
+      border-radius: 12px;
+      background: var(--yellow-soft);
+      display: grid;
+      place-items: center;
+      font-size: 22px;
+    }
+    .trust small { display: block; font-weight: 400; color: var(--muted); font-size: 13px; }
+    @media (max-width: 900px) { .trust .wrap { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 480px) { .trust .wrap { grid-template-columns: 1fr; } }
+
+    /* Sections */
+    section.s { padding-block: 64px; }
+    .sh { display: flex; align-items: end; justify-content: space-between; gap: 16px; flex-wrap: wrap; margin-bottom: 28px; }
+    .sh h2 { font-size: clamp(28px, 4vw, 42px); font-weight: 800; }
+    .sh p { color: var(--muted); max-width: 52ch; margin-top: 8px; }
+    .kicker {
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .kicker::before {
+      content: "";
+      width: 22px;
+      height: 4px;
+      border-radius: 2px;
+      background: var(--yellow);
+    }
+
+    /* Categories */
+    .cats { display: grid; grid-template-columns: repeat(6, 1fr); gap: 12px; }
+    .cat {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 14px;
+      padding: 18px;
+      background: var(--surface);
+      border: 1.5px solid var(--line);
+      border-radius: 18px;
+      text-decoration: none;
+      transition: .18s;
+      min-width: 0;
+    }
+    .cat i {
+      width: 52px;
+      height: 52px;
+      border-radius: 14px;
+      background: var(--yellow-soft);
+      display: grid;
+      place-items: center;
+      font-size: 30px;
+      transition: .18s;
+    }
+    .cat b { font-family: var(--head); font-size: 17px; line-height: 1.15; }
+    .cat small { color: var(--muted); font-size: 13px; }
+    .cat:hover { border-color: var(--ink); transform: translateY(-3px); }
+    .cat:hover i { background: var(--yellow); }
+    @media (max-width: 1000px) { .cats { grid-template-columns: repeat(3, 1fr); } }
+    @media (max-width: 520px) { .cats { grid-template-columns: 1fr 1fr; } .cat { padding: 14px; } }
+
+    /* Deals */
+    .deals { background: var(--yellow-soft); }
+    .dgrid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .deal {
+      background: var(--surface);
+      border: 2px solid var(--ink);
+      border-radius: 22px;
+      padding: 22px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      min-width: 0;
+    }
+    .deal.hot { background: var(--yellow); color: var(--on-yellow); }
+    .deal .lab { font-size: 12px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
+    .deal h3 { font-size: 24px; }
+    .deal p { font-size: 15px; }
+    .deal .amt { font-family: var(--head); font-weight: 800; font-size: 34px; margin-top: auto; }
+    .deal .btn { width: 100%; }
+    .deal.hot .btn { background: var(--ink); color: #FFF8DC; }
+    .deal:not(.hot) .btn { background: var(--yellow); color: var(--on-yellow); border-color: var(--ink); }
+    @media (max-width: 860px) { .dgrid { grid-template-columns: 1fr; } }
+
+    /* Shop */
+    .tabs { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 22px; }
+    .tab {
+      border: 1.5px solid var(--line);
+      background: var(--surface);
+      color: var(--ink);
+      border-radius: 999px;
+      padding: 8px 16px;
+      font-weight: 700;
+      font-size: 14px;
+    }
+    .tab:hover { border-color: var(--ink); }
+    .tab[aria-pressed="true"] { background: var(--yellow); border-color: var(--ink); color: var(--on-yellow); }
+    .pgrid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+    @media (max-width: 1000px) { .pgrid { grid-template-columns: repeat(3, 1fr); } }
+    @media (max-width: 720px) { .pgrid { grid-template-columns: repeat(2, 1fr); gap: 12px; } }
+    @media (max-width: 400px) { .pgrid { grid-template-columns: 1fr; } }
+    .card {
+      background: var(--surface);
+      border: 1.5px solid var(--line);
+      border-radius: 18px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      min-width: 0;
+      transition: .18s;
+    }
+    .card:hover { box-shadow: var(--shadow); border-color: var(--yellow-deep); }
+    .card .pic {
+      position: relative;
+      aspect-ratio: 4/3;
+      max-width: 100%;
+      background: var(--yellow-soft);
+      display: grid;
+      place-items: center;
+      font-size: 64px;
+      color: var(--ink);
+    }
+    .card .off {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      background: var(--ink);
+      color: var(--yellow);
+      font-size: 12px;
+      font-weight: 700;
+      padding: 3px 8px;
+      border-radius: 8px;
+    }
+    .card .bd { padding: 14px; display: flex; flex-direction: column; gap: 6px; flex: 1; }
+    .card .br { font-size: 12px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
+    .card h3 { font-size: 16px; line-height: 1.25; font-family: var(--body); font-weight: 700; letter-spacing: 0; }
+    .card .pr { margin-top: auto; display: flex; align-items: baseline; gap: 8px; flex-wrap: wrap; padding-top: 6px; }
+    .card .pr b { font-family: var(--head); font-size: 22px; font-weight: 800; }
+    .card .pr s { color: var(--muted); font-size: 14px; }
+    .card .pr small { color: var(--muted); font-size: 13px; }
+    .card .btn { width: 100%; margin-top: 8px; }
+    .card .btn.added { background: var(--yellow); color: var(--on-yellow); }
+    .empty { grid-column: 1/-1; text-align: center; color: var(--muted); padding: 40px 0; }
+
+    /* Setup list */
+    .setup { display: grid; grid-template-columns: .8fr 1.2fr; gap: 32px; align-items: start; }
+    .setup .panel { background: var(--surface); border: 2px solid var(--ink); border-radius: 22px; padding: 22px; }
+    .setup ol {
+      list-style: none;
+      margin: 18px 0 0;
+      padding: 0;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px 20px;
+      counter-reset: i;
+    }
+    .setup li {
+      counter-increment: i;
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      padding: 8px 0;
+      border-bottom: 1px dashed var(--line);
+      font-size: 15px;
+      min-width: 0;
+    }
+    .setup li::before {
+      content: counter(i);
+      flex: none;
+      width: 26px;
+      height: 26px;
+      border-radius: 8px;
+      background: var(--yellow);
+      color: var(--on-yellow);
+      display: grid;
+      place-items: center;
+      font-size: 13px;
+      font-weight: 700;
+    }
+    .setup .meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 18px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+    .seg { display: inline-flex; border: 2px solid var(--ink); border-radius: 12px; overflow: hidden; }
+    .seg button { border: 0; background: transparent; color: var(--ink); padding: 9px 16px; font-weight: 700; font-size: 14px; }
+    .seg button[aria-pressed="true"] { background: var(--ink); color: var(--bg); }
+    @media (max-width: 860px) { .setup { grid-template-columns: 1fr; } }
+    @media (max-width: 520px) { .setup ol { grid-template-columns: 1fr; } }
+
+    /* Brands */
+    .brands { display: flex; flex-wrap: wrap; gap: 10px; }
+    .brands span {
+      background: var(--surface);
+      border: 1.5px solid var(--line);
+      border-radius: 12px;
+      padding: 10px 16px;
+      font-weight: 700;
+      font-size: 15px;
+    }
+    .brands span small { display: block; font-weight: 400; color: var(--muted); font-size: 12px; }
+
+    /* Contact */
+    .contact { background: var(--yellow); color: var(--on-yellow); }
+    .contact .wrap { display: grid; grid-template-columns: 1fr auto; gap: 24px; align-items: center; padding-block: 48px; }
+    .contact h2 { font-size: clamp(28px, 4vw, 44px); font-weight: 800; }
+    .contact p { margin-top: 8px; font-weight: 500; max-width: 50ch; }
+    .num { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-top: 16px; }
+    .num code {
+      font-family: var(--head);
+      font-weight: 800;
+      font-size: 26px;
+      background: var(--surface);
+      color: var(--ink);
+      padding: 6px 14px;
+      border-radius: 12px;
+      user-select: all;
+    }
+    .contact .btn.alt { border-color: var(--ink); }
+    @media (max-width: 760px) { .contact .wrap { grid-template-columns: 1fr; } }
+
+    /* Footer */
+    footer { background: var(--band); color: var(--on-band); }
+    footer .wrap { display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 28px; padding-block: 44px 32px; }
+    footer h4 { margin: 0 0 12px; font-family: var(--head); font-size: 15px; color: var(--yellow); letter-spacing: .04em; text-transform: uppercase; }
+    footer ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; font-size: 15px; }
+    footer a { text-decoration: none; opacity: .85; }
+    footer a:hover { opacity: 1; text-decoration: underline; }
+    footer .logo i { background: var(--yellow); }
+    footer p { opacity: .75; font-size: 14px; margin-top: 12px; max-width: 38ch; }
+    .copy { border-top: 1px solid rgba(255,248,220,.15); font-size: 13px; opacity: .7; }
+    .copy .wrap { display: block; padding-block: 16px; }
+    @media (max-width: 760px) {
+      footer .wrap { grid-template-columns: 1fr 1fr; }
+      footer .wrap > div:first-child { grid-column: 1/-1; }
+    }
+
+    /* Cart Drawer */
+    .scrim { position: fixed; inset: 0; background: rgba(27,23,7,.5); z-index: 80; }
+    .drawer {
+      position: fixed;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      width: min(420px, 100%);
+      background: var(--surface);
+      color: var(--ink);
+      z-index: 90;
+      display: flex;
+      flex-direction: column;
+      border-left: 2px solid var(--ink);
+      padding-top: env(safe-area-inset-top, 0px);
+      padding-right: env(safe-area-inset-right, 0px);
+      padding-bottom: env(safe-area-inset-bottom, 0px);
+      animation: slide .22s ease-out;
+    }
+    @keyframes slide { from { transform: translateX(30px); opacity: 0; } }
+    .drawer header { display: flex; align-items: center; justify-content: space-between; padding: 16px 18px; border-bottom: 1px solid var(--line); }
+    .drawer h2 { font-size: 22px; }
+    .x { border: 0; background: var(--yellow-soft); color: var(--ink); width: 38px; height: 38px; border-radius: 10px; font-size: 20px; }
+    .lines { flex: 1; overflow: auto; padding: 8px 18px; }
+    .line { display: grid; grid-template-columns: 48px 1fr auto; gap: 12px; align-items: center; padding: 12px 0; border-bottom: 1px solid var(--line); }
+    .line i { width: 48px; height: 48px; border-radius: 12px; background: var(--yellow-soft); display: grid; place-items: center; font-size: 26px; }
+    .line b { font-size: 14px; display: block; line-height: 1.25; }
+    .line small { color: var(--muted); }
+    .qty { display: inline-flex; align-items: center; gap: 2px; margin-top: 6px; border: 1.5px solid var(--line); border-radius: 10px; }
+    .qty button { border: 0; background: transparent; color: var(--ink); width: 30px; height: 30px; font-size: 16px; font-weight: 700; }
+    .qty span { min-width: 22px; text-align: center; font-weight: 700; font-size: 14px; }
+    .rm { border: 0; background: transparent; color: var(--muted); font-size: 13px; text-decoration: underline; }
+    .foot { padding: 16px 18px; border-top: 2px solid var(--ink); display: grid; gap: 10px; }
+    .tot { display: flex; justify-content: space-between; font-family: var(--head); font-weight: 800; font-size: 22px; }
+    .foot .btn { background: var(--yellow); color: var(--on-yellow); }
+    .foot small { color: var(--muted); font-size: 13px; }
+    .toast {
+      position: fixed;
+      left: 50%;
+      bottom: calc(20px + env(safe-area-inset-bottom, 0px));
+      translate: -50% 0;
+      background: var(--ink);
+      color: var(--bg);
+      padding: 10px 18px;
+      border-radius: 999px;
+      font-weight: 700;
+      font-size: 14px;
+      z-index: 100;
+      animation: rise .25s;
+    }
+    @keyframes rise { from { opacity: 0; translate: -50% 12px; } }
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; transition: none !important; }
+      html { scroll-behavior: auto; }
+    }
+  </style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-bullet" viewBox="0 0 64 64"><rect x="6" y="20" width="38" height="20" rx="7"/><circle cx="46" cy="30" r="9"/><circle cx="46" cy="30" r="3.5"/><path d="M20 40v8l-8 6M20 48h14"/></symbol>
+  <symbol id="i-dome" viewBox="0 0 64 64"><path d="M8 42a24 24 0 0 1 48 0z"/><circle cx="32" cy="36" r="6"/><path d="M12 50h40"/></symbol>
+  <symbol id="i-vdp" viewBox="0 0 64 64"><rect x="12" y="8" width="40" height="48" rx="7"/><rect x="18" y="14" width="28" height="20" rx="3"/><circle cx="32" cy="46" r="4"/></symbol>
+  <symbol id="i-finger" viewBox="0 0 64 64"><path d="M18 26a14 14 0 0 1 28 0M13 36a19 19 0 0 1 8-21M51 36a19 19 0 0 0-3-14M24 50c-2-6-2-12 0-18a8 8 0 0 1 16 2c0 8-1 14-4 20M32 34c0 8 0 12-2 18"/></symbol>
+  <symbol id="i-cable" viewBox="0 0 64 64"><circle cx="30" cy="32" r="20"/><circle cx="30" cy="32" r="9"/><path d="M50 32h10M30 52v6"/></symbol>
+  <symbol id="i-switch" viewBox="0 0 64 64"><rect x="6" y="22" width="52" height="20" rx="5"/><path d="M15 32h4M24 32h4M33 32h4M42 32h4M15 28v-2M24 28v-2M33 28v-2M42 28v-2"/></symbol>
+  <symbol id="i-power" viewBox="0 0 64 64"><rect x="8" y="14" width="48" height="36" rx="6"/><path d="M34 20l-8 13h8l-4 11 10-15h-8z"/></symbol>
+  <symbol id="i-hdd" viewBox="0 0 64 64"><rect x="8" y="10" width="48" height="44" rx="7"/><circle cx="32" cy="30" r="10"/><circle cx="32" cy="30" r="2.5"/><path d="M16 46h12"/></symbol>
+  <symbol id="i-box" viewBox="0 0 64 64"><rect x="10" y="14" width="44" height="36" rx="5"/><circle cx="17" cy="21" r="1.5"/><circle cx="47" cy="21" r="1.5"/><circle cx="17" cy="43" r="1.5"/><circle cx="47" cy="43" r="1.5"/><path d="M24 32h16"/></symbol>
+  <symbol id="i-solar" viewBox="0 0 64 64"><path d="M8 54l8-24h40l-8 24zM12 42h40M30 30l-3 24M42 30l-2 24"/><circle cx="32" cy="14" r="6"/><path d="M32 20v10"/></symbol>
+  <symbol id="i-router" viewBox="0 0 64 64"><rect x="8" y="32" width="48" height="16" rx="5"/><path d="M18 40h2M26 40h2M16 32L12 14M48 32l4-18"/></symbol>
+  <symbol id="i-shield" viewBox="0 0 64 64"><path d="M32 6l20 8v16c0 14-9 22-20 28C21 52 12 44 12 30V14z"/><path d="M23 32l7 7 12-14"/></symbol>
+  <symbol id="i-truck" viewBox="0 0 64 64"><path d="M6 16h32v28H6zM38 24h12l8 10v10H38z"/><circle cx="18" cy="48" r="5"/><circle cx="48" cy="48" r="5"/></symbol>
+  <symbol id="i-gst" viewBox="0 0 64 64"><rect x="12" y="6" width="40" height="52" rx="6"/><path d="M22 20h20M22 30h20M22 40h10"/><path d="M40 42l6 6M46 42l-6 6"/></symbol>
+  <symbol id="i-chat" viewBox="0 0 64 64"><path d="M8 14h48v32H28l-12 10V46H8z"/><path d="M20 26h24M20 35h14"/></symbol>
+  <symbol id="i-car" viewBox="0 0 64 64"><path d="M8 40l6-16h36l6 16v10H8z"/><circle cx="18" cy="50" r="4"/><circle cx="46" cy="50" r="4"/><path d="M14 36h36"/></symbol>
+  <symbol id="i-bag" viewBox="0 0 64 64"><path d="M12 20h40l-3 34H15z"/><path d="M24 26v-6a8 8 0 0 1 16 0v6"/></symbol>
+  <symbol id="i-search" viewBox="0 0 64 64"><circle cx="28" cy="28" r="16"/><path d="M40 40l16 16"/></symbol>
+  <symbol id="i-home" viewBox="0 0 64 64"><path d="M8 30L32 10l24 20M14 26v28h36V26"/><rect x="26" y="36" width="12" height="18"/></symbol>
+</svg>
+
+<div class="strip">
+  <div class="wrap">
+    <span><b>Free dispatch</b> on wholesale lots &bull; Priority 24&ndash;48h express</span>
+    <span>B2B desk: +91 75111 80808</span>
+  </div>
+</div>
+
+<header class="head">
+  <div class="wrap">
+    <a class="logo" href="#top" aria-label="Syber Space home">
+      <i><svg class="ico" style="stroke-width:4"><use href="#i-bullet"/></svg></i>syber <em>space</em>
+    </a>
+    <label class="search">
+      <svg class="ico" style="color:var(--muted)"><use href="#i-search"/></svg>
+      <input id="q" type="search" placeholder="Search cameras, DVR, cables, brands" aria-label="Search products">
+    </label>
+    <nav class="nav" aria-label="Sections">
+      <a href="#categories">Categories</a>
+      <a href="#deals">Deals</a>
+      <a href="#shop">Shop</a>
+      <a href="#biglist">Setup list</a>
+      <a href="#brands">Brands</a>
+    </nav>
+    <button class="cartbtn" id="cartbtn" aria-label="Open cart">
+      <svg class="ico" style="font-size:20px"><use href="#i-bag"/></svg>
+      <span class="n" id="count">0</span>
+    </button>
+  </div>
+</header>
+
+<main id="top">
+<section class="hero">
+  <div class="wrap">
+    <div>
+      <span class="eyebrow">Authorized Tier-1 security hardware</span>
+      <h1>Secure your space at <span>outlet price.</span></h1>
+      <p class="lead">CCTV, video door phones and biometric access from 17 certified brands, sold at direct wholesale rates with GST credit and OEM warranty.</p>
+      <div class="cta">
+        <a class="btn" href="#shop">Shop the catalog</a>
+        <a class="btn alt" href="#deals">See bundle deals</a>
+      </div>
+      <div class="quick">
+        <a href="#shop" data-go="cctv">4K CCTV</a>
+        <a href="#shop" data-go="access">Video Door Phone</a>
+        <a href="#shop" data-go="access">Access Control</a>
+        <a href="#shop" data-go="wireless">Solar &amp; 4G</a>
+      </div>
+    </div>
+    <div class="offer">
+      <span class="stamp">BUY 1 GET 2 FREE</span>
+      <span class="tag">Limited time offer</span>
+      <h2>Enterprise Perimeter 4K Bundle</h2>
+      <p style="color:var(--muted);font-size:15px">Multi-channel NVR with Ultra-HD starlight night vision.</p>
+      <div class="art" aria-hidden="true">
+        <svg viewBox="0 0 300 150" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" style="color:var(--ink)">
+          <rect x="30" y="40" width="120" height="48" rx="14" fill="var(--yellow)"/>
+          <circle cx="168" cy="64" r="26" fill="var(--surface)"/><circle cx="168" cy="64" r="14" fill="var(--ink)"/><circle cx="163" cy="58" r="4" fill="var(--yellow)" stroke="none"/>
+          <path d="M70 88v26l-24 16M70 114h40"/>
+          <path d="M214 50a40 40 0 0 1 56 0M224 62a26 26 0 0 1 36 0" stroke="var(--yellow-deep)"/>
+          <rect x="226" y="96" width="50" height="30" rx="6" fill="var(--surface)"/><path d="M234 108h8M248 108h8M262 108h6"/>
+        </svg>
+      </div>
+      <div class="row"><span class="save">Save &#8377;8,499</span><a class="btn sm" href="#shop" data-go="cctv">Claim offer</a></div>
+    </div>
+  </div>
+</section>
+
+<div class="trust">
+  <div class="wrap">
+    <div><i><svg class="ico"><use href="#i-shield"/></svg></i><span>100% OEM warranty<small>Official brand cover</small></span></div>
+    <div><i><svg class="ico"><use href="#i-gst"/></svg></i><span>GST tax credit<small>Included on wholesale</small></span></div>
+    <div><i><svg class="ico"><use href="#i-truck"/></svg></i><span>24&ndash;48h dispatch<small>Priority express</small></span></div>
+    <div><i><svg class="ico"><use href="#i-chat"/></svg></i><span>B2B WhatsApp desk<small>+91 75111 80808</small></span></div>
+  </div>
+</div>
+
+<section class="s" id="categories">
+  <div class="wrap">
+    <div class="sh"><div><div class="kicker">Official product categories</div><h2>Six core lines</h2><p>Everything a security installer or a homeowner needs, from camera to cable.</p></div></div>
+    <div class="cats">
+      <a class="cat" href="#shop" data-go="cctv"><i><svg class="ico"><use href="#i-dome"/></svg></i><b>CCTV (HD &amp; IP)</b><small>48 models</small></a>
+      <a class="cat" href="#shop" data-go="all"><i><svg class="ico"><use href="#i-car"/></svg></i><b>Dash Cams</b><small>4K dual and stealth</small></a>
+      <a class="cat" href="#shop" data-go="access"><i><svg class="ico"><use href="#i-home"/></svg></i><b>Home Automation</b><small>VDP, biometrics, locks</small></a>
+      <a class="cat" href="#shop" data-go="accessories"><i><svg class="ico"><use href="#i-box"/></svg></i><b>Accessories</b><small>The big list</small></a>
+      <a class="cat" href="#shop" data-go="cables"><i><svg class="ico"><use href="#i-cable"/></svg></i><b>Cables</b><small>Cat6 and coaxial</small></a>
+      <a class="cat" href="#shop" data-go="wireless"><i><svg class="ico"><use href="#i-solar"/></svg></i><b>Wi-Fi / 4G / Solar</b><small>Zero wiring</small></a>
+    </div>
+  </div>
+</section>
+
+<section class="s deals" id="deals">
+  <div class="wrap">
+    <div class="sh"><div><div class="kicker">Bundle deals</div><h2>Bigger lots, bigger savings</h2><p>Tell us the quantity and we confirm stock and the final wholesale quote on WhatsApp.</p></div></div>
+    <div class="dgrid">
+      <article class="deal hot"><span class="lab">Limited time &bull; Buy 1 get 2 free</span><h3>Enterprise Perimeter 4K Bundle</h3><p>Multi-channel NVR hub plus Ultra-HD starlight night vision cameras.</p><div class="amt">Save &#8377;8,499</div><a class="btn" data-deal="Enterprise Perimeter 4K Bundle" href="#">Ask for this bundle</a></article>
+      <article class="deal"><span class="lab">Villa &amp; office &bull; Flat discount</span><h3>Smart Touchscreen VDP &amp; Biometrics</h3><p>2-way intercom with 600lbs EM lock integration for gates and doors.</p><div class="amt">Save &#8377;12,500</div><a class="btn" data-deal="Smart Touchscreen VDP & Biometrics" href="#">Ask for this bundle</a></article>
+      <article class="deal"><span class="lab">Contractor combo &bull; Best value</span><h3>Pure Copper CAT6 &amp; PoE Infrastructure</h3><p>305m annealed copper drum with a 65W PoE switch for a clean IP install.</p><div class="amt">Save &#8377;9,200</div><a class="btn" data-deal="Pure Copper CAT6 & PoE Infrastructure" href="#">Ask for this bundle</a></article>
+    </div>
+  </div>
+</section>
+
+<section class="s" id="shop">
+  <div class="wrap">
+    <div class="sh"><div><div class="kicker">Outlet catalog</div><h2>Shop best sellers</h2><p id="shopnote">Prices in rupees, wholesale rates. Add items, then send your list to the B2B desk.</p></div></div>
+    <div class="tabs" id="tabs" role="group" aria-label="Filter by category"></div>
+    <div class="pgrid" id="grid" aria-live="polite"></div>
+  </div>
+</section>
+
+<section class="s" id="biglist" style="background:var(--surface);border-block:1px solid var(--line)">
+  <div class="wrap">
+    <div class="setup">
+      <div>
+        <div class="kicker">CCTV setup requirements</div>
+        <h2 style="font-size:clamp(28px, 4vw, 42px);font-weight:800">The big list</h2>
+        <p style="color:var(--muted);margin-top:10px;max-width:44ch">Cameras alone do not make a working system. Pick your camera type to see every item you need to buy together, so nothing is missing on install day.</p>
+        <div style="margin-top:20px"><div class="seg" role="group" aria-label="Camera type"><button id="b-hd" aria-pressed="true">HD camera setup</button><button id="b-ip" aria-pressed="false">IP camera setup</button></div></div>
+      </div>
+      <div class="panel">
+        <h3 id="bl-title" style="font-size:22px"></h3>
+        <ol id="bl"></ol>
+        <div class="meta"><span id="bl-note"></span><a class="btn sm" href="#shop" data-go="accessories">Browse accessories</a></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="s" id="brands">
+  <div class="wrap">
+    <div class="sh"><div><div class="kicker">Certified OEM partners</div><h2>17 authorized security brands</h2></div></div>
+    <div class="brands" id="brandlist"></div>
+  </div>
+</section>
+
+<section class="contact">
+  <div class="wrap">
+    <div>
+      <h2>Quoting a big project?</h2>
+      <p>Send your camera count and site type to the B2B desk. Contractors and dealers get wholesale lots up to 20x.</p>
+      <div class="num"><code>+91 75111 80808</code><button class="btn alt sm" id="copynum">Copy number</button><a class="btn sm" href="https://wa.me/917511180808" target="_blank" rel="noopener">Open WhatsApp</a></div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div><a class="logo" href="#top"><i style="color:var(--on-yellow)"><svg class="ico" style="stroke-width:4"><use href="#i-bullet"/></svg></i>syber <em>space</em></a><p>Authorized Tier-1 surveillance, video door phones and biometric security at direct wholesale outlet prices.</p></div>
+    <div><h4>Shop</h4><ul><li><a href="#shop" data-go="cctv">CCTV cameras</a></li><li><a href="#shop" data-go="access">Video door phones</a></li><li><a href="#shop" data-go="access">Access control</a></li><li><a href="#shop" data-go="cables">Cables</a></li></ul></div>
+    <div><h4>Explore</h4><ul><li><a href="#deals">Bundle deals</a></li><li><a href="#biglist">The big list</a></li><li><a href="#brands">Brands</a></li><li><a href="https://wa.me/917511180808" target="_blank" rel="noopener">B2B WhatsApp desk</a></li></ul></div>
+  </div>
+  <div class="copy"><div class="wrap">&copy; 2026 SYBER SPACE. All rights reserved. Tier-1 certified optical hardware.</div></div>
+</footer>
+
+<div id="layer"></div>
+
+<script>
+(function(){
+  var PHONE = '917511180808';
+  var P = [
+    { id: 'cp-2mp', n: 'CP Plus 2MP Wi-Fi Camera', b: 'CP Plus', c: 'wireless', p: 1980, o: 3100, i: 'bullet' },
+    { id: 'hik-vdp', n: 'Hikvision 7" Touchscreen Smart VDP', b: 'Hikvision', c: 'access', p: 8990, o: 14500, i: 'vdp' },
+    { id: 'dahua-bio', n: 'Biometric Access Control Reader', b: 'Dahua', c: 'access', p: 5850, o: 9800, i: 'finger' },
+    { id: 'cat6', n: 'Pure Copper CAT6 Cable, 305m', b: 'Cable drum', c: 'cables', p: 3850, o: 6400, i: 'cable' },
+    { id: 'poe', n: '4+2 PoE Switch, 65W', b: 'Trueview', c: 'cctv', p: 2490, o: 3990, i: 'switch' },
+    { id: 'smps', n: '12V 8-Channel SMPS Power Supply', b: 'ERD', c: 'accessories', p: 1150, o: 1850, i: 'power' },
+    { id: 'skyhawk', n: 'SkyHawk 2TB Surveillance HDD', b: 'Seagate', c: 'accessories', p: 4450, o: 6200, i: 'hdd' },
+    { id: 'ip66', n: 'IP66 Industrial Junction Box', b: 'CoBox', c: 'accessories', p: 180, o: 350, i: 'box' },
+    { id: 'solar4g', n: '4G Solar PTZ Camera, Outdoor', b: 'Trueview', c: 'wireless', p: 4950, i: 'solar' },
+    { id: 'idada', n: '3MP Pan-Tilt Smart Wi-Fi Camera', b: 'iDADA', c: 'wireless', p: 1850, i: 'dome' },
+    { id: 'vigi', n: 'VIGI C340 4MP Full-Color Bullet', b: 'TP-Link', c: 'cctv', p: 3650, from: 1, i: 'bullet' },
+    { id: 'coax', n: '3+1 CCTV Coaxial Cable, 90m', b: 'Finolex', c: 'cables', p: 1250, from: 1, i: 'cable' }
+  ];
+  var TABS = [['all','All'],['cctv','CCTV'],['wireless','Wi-Fi / Solar'],['access','Access control'],['cables','Cables'],['accessories','Accessories']];
+  var BRANDS = [
+    ['Hikvision','CCTV & VDP'],['CP Plus','Surveillance'],['Prama','Commercial CCTV'],['Hi-Focus','HD video'],
+    ['Secureye','Biometrics & CCTV'],['Nexiview','Surveillance'],['Fiber','Optical transmission'],
+    ['WD Purple','CCTV hard disk'],['Seagate SkyHawk','CCTV hard disk'],['Toshiba S300','CCTV hard disk'],
+    ['Trueview','Solar 4G & PoE'],['Finolex','Pure copper cables'],['eSSL','Biometrics & access'],
+    ['ERD','12V CCTV SMPS'],['Logitech','Video collaboration'],['MX','MDR connectors'],['TP-Link','Networking & PoE']
+  ];
+  var HD = [
+    'HD bullet or dome cameras','Digital video recorder (DVR)','12V SMPS power supply','Surveillance hard disk',
+    '3+1 CCTV coaxial cable','BNC connectors','DC power connectors','DVR rack, 2U lockable','Wireless mouse for DVR',
+    'HDMI cable, 4K 5m','Monitor or TV with HDMI','CoBox indoor junction box','CoBox outdoor, IP66','Wi-Fi router for remote view'
+  ];
+  var IP = [
+    'IP bullet or dome cameras','Network video recorder (NVR)','PoE network switch','Surveillance hard disk',
+    'Cat6 pure copper cable, 305m','RJ45 gold-plated jacks','Cat6 patch cord','NVR rack, 4U cabinet','Wireless mouse for NVR',
+    'HDMI cable, 4K 5m','CoBox indoor junction box','CoBox outdoor, IP66','Wi-Fi router for remote view'
+  ];
+
+  var cart = {}, filter = 'all', term = '';
+  try { var s = JSON.parse(localStorage.getItem('syber-cart') || '{}'); if (s && typeof s === 'object') cart = s; } catch (e) {}
+  var $ = function(s, r) { return (r || document).querySelector(s); };
+  var inr = function(n) { return '₹' + n.toLocaleString(); };
+  var byId = function(id) { return P.filter(function(x) { return x.id === id; })[0]; };
+  var ico = function(n) { return '<svg class="ico"><use href="#i-' + n + '"/></svg>'; };
+  function save() { try { localStorage.setItem('syber-cart', JSON.stringify(cart)); } catch (e) {} }
+  function esc(t) { return String(t).replace(/[&<>"]/g, function(c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
+
+  function tabs() {
+    $('#tabs').innerHTML = TABS.map(function(t) {
+      return '<button class="tab" data-f="' + t[0] + '" aria-pressed="' + (filter === t[0]) + '">' + t[1] + '</button>';
+    }).join('');
+  }
+  function grid() {
+    var list = P.filter(function(x) {
+      var okC = filter === 'all' || x.c === filter;
+      var hay = (x.n + ' ' + x.b + ' ' + x.c).toLowerCase();
+      return okC && (!term || hay.indexOf(term) > -1);
+    });
+    $('#grid').innerHTML = list.length ? list.map(function(x) {
+      var off = x.o ? Math.round((1 - x.p / x.o) * 100) : 0, inCart = cart[x.id];
+      return '<article class="card"><div class="pic">' + ico(x.i) + (off ? '<span class="off">' + off + '% off</span>' : '') + '</div><div class="bd"><span class="br">' + esc(x.b) + '</span><h3>' + esc(x.n) + '</h3><div class="pr">' + (x.from ? '<small>From</small>' : '') + '<b>' + inr(x.p) + '</b>' + (x.o ? '<s>' + inr(x.o) + '</s>' : '') + '</div><button class="btn sm' + (inCart ? ' added' : '') + '" data-add="' + x.id + '">' + (inCart ? 'In cart (' + inCart + ') &bull; add more' : 'Add to cart') + '</button></div></article>';
+    }).join('') : '<p class="empty">No products match that search. Try a brand name like TP-Link, or clear the search box.</p>';
+  }
+  function count() {
+    var n = 0; for (var k in cart) n += cart[k];
+    $('#count').textContent = n;
+  }
+  function toast(t) {
+    var old = $('.toast'); if (old) old.remove();
+    var d = document.createElement('div'); d.className = 'toast'; d.setAttribute('role', 'status'); d.textContent = t; document.body.appendChild(d);
+    setTimeout(function() { d.remove(); }, 1800);
+  }
+  function add(id) {
+    cart[id] = (cart[id] || 0) + 1; save(); count(); grid();
+    var b = $('#cartbtn'); b.classList.remove('bump'); void b.offsetWidth; b.classList.add('bump');
+    toast('Added to cart');
+  }
+  function total() { var t = 0; for (var k in cart) { var p = byId(k); if (p) t += p.p * cart[k]; } return t; }
+  function openCart() {
+    var keys = Object.keys(cart).filter(function(k) { return byId(k); });
+    var lines = keys.length ? keys.map(function(k) {
+      var p = byId(k);
+      return '<div class="line"><i>' + ico(p.i) + '</i><div><b>' + esc(p.n) + '</b><small>' + inr(p.p) + ' each</small><div class="qty"><button data-dec="' + k + '" aria-label="Decrease quantity">&minus;</button><span>' + cart[k] + '</span><button data-inc="' + k + '" aria-label="Increase quantity">+</button></div></div><div style="text-align:right"><b>' + inr(p.p * cart[k]) + '</b><button class="rm" data-rm="' + k + '">Remove</button></div></div>';
+    }).join('') : '<p class="empty" style="padding:48px 0">Your cart is empty. Add a few items from the catalog and send the list to the B2B desk.</p>';
+    var msg = 'Hello Syber Space, I would like a wholesale quote for:\n' + keys.map(function(k) { var p = byId(k); return '&bull; ' + p.n + ' x ' + cart[k]; }).join('\n') + '\nEstimated total: ' + inr(total());
+    $('#layer').innerHTML = '<div class="scrim" data-close></div><aside class="drawer" role="dialog" aria-label="Your cart"><header><h2>Your cart</h2><button class="x" data-close aria-label="Close cart">&times;</button></header><div class="lines">' + lines + '</div>' + (keys.length ? '<div class="foot"><div class="tot"><span>Estimated total</span><span>' + inr(total()) + '</span></div><small>Wholesale prices, GST credit included. The B2B desk confirms stock and the final quote.</small><a class="btn" target="_blank" rel="noopener" href="https://wa.me/' + PHONE + '?text=' + encodeURIComponent(msg) + '">Send list on WhatsApp</a></div>' : '') + '</aside>';
+    var c = $('.x', $('#layer')); if (c) c.focus();
+  }
+  function closeCart() { $('#layer').innerHTML = ''; $('#cartbtn').focus(); }
+
+  function biglist(kind) {
+    var L = kind === 'hd' ? HD : IP;
+    $('#bl-title').textContent = (kind === 'hd' ? 'HD camera setup' : 'IP camera setup') + ' &bull; ' + L.length + ' required items';
+    $('#bl').innerHTML = L.map(function(t) { return '<li>' + esc(t) + '</li>'; }).join('');
+    $('#bl-note').textContent = kind === 'hd' ? 'Coaxial cabling with a central 12V supply.' : 'Network cabling with power over Ethernet.';
+    $('#b-hd').setAttribute('aria-pressed', kind === 'hd'); $('#b-ip').setAttribute('aria-pressed', kind === 'ip');
+  }
+
+  document.addEventListener('click', function(e) {
+    var t = e.target.closest('[data-add],[data-f],[data-go],[data-inc],[data-dec],[data-rm],[data-close],[data-deal]');
+    if (e.target.closest('#cartbtn')) { openCart(); return; }
+    if (!t) return;
+    if (t.dataset.add) { add(t.dataset.add); }
+    else if (t.dataset.f) { filter = t.dataset.f; tabs(); grid(); }
+    else if (t.dataset.go) { filter = t.dataset.go; term = ''; $('#q').value = ''; tabs(); grid(); }
+    else if (t.dataset.inc) { cart[t.dataset.inc]++; save(); count(); grid(); openCart(); }
+    else if (t.dataset.dec) { cart[t.dataset.dec]--; if (cart[t.dataset.dec] <= 0) delete cart[t.dataset.dec]; save(); count(); grid(); openCart(); }
+    else if (t.dataset.rm) { delete cart[t.dataset.rm]; save(); count(); grid(); openCart(); }
+    else if (t.hasAttribute('data-close')) { closeCart(); }
+  });
+  Array.prototype.forEach.call(document.querySelectorAll('[data-deal]'), function(a) {
+    a.href = 'https://wa.me/' + PHONE + '?text=' + encodeURIComponent('Hello Syber Space, I am interested in the ' + a.dataset.deal + '. Please share details and quote.');
+    a.target = '_blank'; a.rel = 'noopener';
+  });
+  document.addEventListener('keydown', function(e) { if (e.key === 'Escape' && $('.drawer')) closeCart(); });
+  $('#q').addEventListener('input', function(e) {
+    term = e.target.value.trim().toLowerCase(); grid();
+    if (term) { var s = $('#shop'); if (s && s.getBoundingClientRect().top > window.innerHeight * .8) s.scrollIntoView({ behavior: 'smooth' }); }
+  });
+  $('#b-hd').addEventListener('click', function() { biglist('hd'); });
+  $('#b-ip').addEventListener('click', function() { biglist('ip'); });
+  $('#copynum').addEventListener('click', function() {
+    var el = $('.num code'), ok = function() { toast('Number copied'); }, sel = function() { var r = document.createRange(); r.selectNodeContents(el); var s = getSelection(); s.removeAllRanges(); s.addRange(r); toast('Number selected, press copy'); };
+    try { navigator.clipboard.writeText('+91 75111 80808').then(ok, sel); } catch (err) { sel(); }
+  });
+
+  $('#brandlist').innerHTML = BRANDS.map(function(b) { return '<span>' + esc(b[0]) + '<small>' + esc(b[1]) + '</small></span>'; }).join('');
+  tabs(); grid(); count(); biglist('hd');
+})();
+</script>
+
+</body>
+</html>
