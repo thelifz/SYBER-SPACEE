@@ -737,3 +737,87 @@ html, body, main,
   --bg-canvas: #FFFFD6 !important;
   --stadium-canvas: #FFFFD6 !important;
 }
+
+/* ==========================================================================
+   PHONE NUMBER IN YELLOW & WHATSAPP IN GREEN (User Explicit Request)
+   ========================================================================== */
+.num code, .project-phone-badge {
+  background: #FFFF00 !important;
+  color: #1B1707 !important;
+  border: 2px solid #1B1707 !important;
+  font-family: var(--head) !important;
+  font-weight: 900 !important;
+  font-size: 26px !important;
+  padding: 8px 18px !important;
+  border-radius: 14px !important;
+  letter-spacing: -0.01em !important;
+  box-shadow: 0 4px 10px rgba(27,23,7,0.08) !important;
+  display: inline-flex !important;
+  align-items: center !important;
+}
+
+/* WhatsApp Button in WhatsApp Green */
+.num a.btn, .btn-whatsapp, .btn-ugb-wa, .btn-cart-whatsapp-rfq,
+a[href*="wa.me"].btn, a[href*="whatsapp.com"].btn {
+  background: #25D366 !important;
+  color: #FFFFFF !important;
+  border: 2px solid #1B1707 !important;
+  font-family: var(--head) !important;
+  font-weight: 800 !important;
+  font-size: 15.5px !important;
+  border-radius: 12px !important;
+  padding: 10px 22px !important;
+  text-decoration: none !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  transition: all .18s ease !important;
+  box-shadow: 0 4px 12px rgba(37,211,102,0.3) !important;
+}
+.num a.btn:hover, .btn-whatsapp:hover, .btn-ugb-wa:hover, .btn-cart-whatsapp-rfq:hover,
+a[href*="wa.me"].btn:hover, a[href*="whatsapp.com"].btn:hover {
+  background: #20BA5A !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 6px 16px rgba(37,211,102,0.45) !important;
+}
+
+/* Copy Number button matching tactile theme */
+.num button.btn.alt, .btn-copy-num {
+  background: #FFFFFF !important;
+  color: #1B1707 !important;
+  border: 2px solid #1B1707 !important;
+  font-family: var(--head) !important;
+  font-weight: 800 !important;
+  font-size: 15px !important;
+  border-radius: 12px !important;
+  padding: 10px 20px !important;
+  cursor: pointer !important;
+  transition: all .18s ease !important;
+}
+.num button.btn.alt:hover, .btn-copy-num:hover {
+  background: #1B1707 !important;
+  color: #FFFFFF !important;
+  transform: translateY(-2px) !important;
+}
+
+/* Deal WhatsApp buttons in green */
+.deal .btn-wa, .deal .btn {
+  background: #25D366 !important;
+  color: #FFFFFF !important;
+  border: 2px solid #1B1707 !important;
+  font-weight: 800 !important;
+}
+.deal .btn-wa:hover, .deal .btn:hover {
+  background: #20BA5A !important;
+}
+
+/* Cart WhatsApp button in green */
+.btn-whatsapp-quote {
+  background: #25D366 !important;
+  color: #FFFFFF !important;
+  border: 2px solid #1B1707 !important;
+  font-weight: 800 !important;
+}
+.btn-whatsapp-quote:hover {
+  background: #20BA5A !important;
+}
