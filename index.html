@@ -852,29 +852,86 @@
         <a href="category.html?cat=cables">Solar &amp; 4G</a>
       </div>
     </div>
-    <div class="offer-card-stage">
-      <div class="offer-top-row">
-        <span class="offer-pill-blue">LIMITED TIME OFFER</span>
-        <span class="offer-pill-save">Save &#8377;8,499</span>
+    <div class="offer-card-stage" id="heroSlideshowCard" role="region" aria-roledescription="carousel" aria-label="Branded Hardware Offers">
+      <!-- SLIDE 1: Hikvision & Dahua Enterprise 4K Bundle -->
+      <div class="hero-slide active" data-index="0">
+        <div class="offer-top-row">
+          <span class="offer-pill-blue">LIMITED TIME OFFER</span>
+          <span class="offer-pill-save">Save &#8377;8,499</span>
+        </div>
+        <div class="offer-bundle-title">Hikvision &amp; Dahua Commercial Hub</div>
+        <div class="offer-bundle-promo">BUY 1 GET 2 FREE</div>
+        <div class="offer-art-stage">
+          <img src="assets/ai_hero_bundle_enterprise.jpg" alt="Hikvision &amp; Dahua Enterprise 4K Bundle">
+        </div>
+        <div class="offer-bottom-row">
+          <div class="desc">Multi-channel NVR + Ultra-HD Starlight Night Vision</div>
+          <a href="category.html?brand=Hikvision" class="offer-btn-claim">Claim Offer &rarr;</a>
+        </div>
       </div>
-      <div class="offer-bundle-title">Enterprise Perimeter 4K Bundle</div>
-      <div class="offer-bundle-promo">BUY 1 GET 2 FREE</div>
-      <div class="offer-art-stage">
-        <img src="assets/ai_hero_bundle_enterprise.jpg" alt="Enterprise Perimeter 4K Bundle">
+
+      <!-- SLIDE 2: Trueview 4G Solar Off-Grid PTZ -->
+      <div class="hero-slide" data-index="1">
+        <div class="offer-top-row">
+          <span class="offer-pill-blue" style="background:#dcfce7;color:#15803d;">100% WIRE-FREE SOLAR</span>
+          <span class="offer-pill-save">Save &#8377;4,049</span>
+        </div>
+        <div class="offer-bundle-title">Trueview Smart Off-Grid PTZ</div>
+        <div class="offer-bundle-promo">4G SIM + SOLAR ARRAY</div>
+        <div class="offer-art-stage">
+          <img src="assets/official_trueview_solar_T18149-01.png" alt="Trueview 4G Solar Smart PTZ Camera">
+        </div>
+        <div class="offer-bottom-row">
+          <div class="desc">Autonomous zero-cabling PTZ with dual lens starlight tracking</div>
+          <a href="category.html?brand=Trueview" class="offer-btn-claim">View Solar Line &rarr;</a>
+        </div>
       </div>
-      <div class="offer-bottom-row">
-        <div class="desc">Multi-channel NVR + Ultra-HD Starlight Night Vision</div>
-        <a href="category.html?cat=cctv" class="offer-btn-claim">Claim Offer &rarr;</a>
+
+      <!-- SLIDE 3: Hikvision 7" Touchscreen IP Intercom -->
+      <div class="hero-slide" data-index="2">
+        <div class="offer-top-row">
+          <span class="offer-pill-blue" style="background:#fef3c7;color:#b45309;">SMART ACCESS CONTROL</span>
+          <span class="offer-pill-save">Save &#8377;5,510</span>
+        </div>
+        <div class="offer-bundle-title">Hikvision IP Video Intercom</div>
+        <div class="offer-bundle-promo">TOUCHSCREEN + DOORBELL</div>
+        <div class="offer-art-stage">
+          <img src="assets/official_vdp_touchscreen_transparent.png" alt="Hikvision 7 Touchscreen IP VDP">
+        </div>
+        <div class="offer-bottom-row">
+          <div class="desc">Ultra-slim IPS monitor + 2MP HD night vision outdoor unit</div>
+          <a href="category.html?cat=home-automation" class="offer-btn-claim">View VDP Bundle &rarr;</a>
+        </div>
       </div>
+
+      <!-- SLIDE 4: CP PLUS 3MP Wi-Fi Smart PTZ Camera -->
+      <div class="hero-slide" data-index="3">
+        <div class="offer-top-row">
+          <span class="offer-pill-blue" style="background:#fee2e2;color:#b91c1c;">TOP BESTSELLER</span>
+          <span class="offer-pill-save">Save &#8377;1,450</span>
+        </div>
+        <div class="offer-bundle-title">CP PLUS EzyKam Smart Series</div>
+        <div class="offer-bundle-promo">FULL HD 360&deg; PTZ</div>
+        <div class="offer-art-stage">
+          <img src="assets/official_bestseller_idada_q2i_transparent.png" alt="CP PLUS 3MP Full HD Wi-Fi PTZ Camera">
+        </div>
+        <div class="offer-bottom-row">
+          <div class="desc">Motion tracking + two-way audio + cloud &amp; SD recording</div>
+          <a href="category.html?brand=CP%20Plus" class="offer-btn-claim">Shop CP PLUS &rarr;</a>
+        </div>
+      </div>
+
+      <!-- CAROUSEL NAVIGATION CONTROLS -->
       <div class="offer-carousel-row">
-        <div class="offer-dots">
-          <span class="dot active"></span>
-          <span class="dot"></span>
-          <span class="dot"></span>
+        <div class="offer-dots" id="heroSliderDots">
+          <span class="dot active" data-slide="0" title="Slide 1: Hikvision &amp; Dahua 4K"></span>
+          <span class="dot" data-slide="1" title="Slide 2: Trueview 4G Solar"></span>
+          <span class="dot" data-slide="2" title="Slide 3: Hikvision VDP"></span>
+          <span class="dot" data-slide="3" title="Slide 4: CP PLUS PTZ"></span>
         </div>
         <div class="offer-arrows">
-          <button type="button" aria-label="Previous Offer">&larr;</button>
-          <button type="button" aria-label="Next Offer">&rarr;</button>
+          <button type="button" id="heroSliderPrev" aria-label="Previous Offer">&larr;</button>
+          <button type="button" id="heroSliderNext" aria-label="Next Offer">&rarr;</button>
         </div>
       </div>
     </div>
@@ -1029,7 +1086,7 @@
       <div class="card">
         <div class="pic">
           <span class="off">Save 26%</span>
-          <img src="assets/acc_official_wd_purple_hdd.png" alt="WD Purple 2TB Surveillance Hard Drive">
+          <img src="assets/acc_official_wd_purple_clean.jpg" alt="Western Digital Purple 2TB Surveillance Hard Drive">
         </div>
         <div class="bd">
           <span class="br">WD PURPLE &bull; Storage</span>
@@ -1039,7 +1096,7 @@
             <s class="mrp">&#8377;6,500</s>
             <span class="sav">&#8377;1,700 off</span>
           </div>
-          <button type="button" class="btn sm" onclick="quickAddToCart('wd-purple-2tb', 'Western Digital Purple 2TB 24/7 Surveillance HDD', 4800, 'assets/acc_official_wd_purple.png', 'Western Digital')">+ Add to cart</button>
+          <button type="button" class="btn sm" onclick="quickAddToCart('wd-purple-2tb', 'Western Digital Purple 2TB 24/7 Surveillance HDD', 4800, 'assets/acc_official_wd_purple_clean.jpg', 'Western Digital')">+ Add to cart</button>
         </div>
       </div>
 
@@ -1370,6 +1427,70 @@
       }
     });
   }
+</script>
+
+
+<script>
+  // Hero Branded Hardware Slideshow Engine
+  (function initHeroSlideshow() {
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('#heroSlideshowCard .hero-slide');
+    const dots = document.querySelectorAll('#heroSliderDots .dot');
+    const prevBtn = document.getElementById('heroSliderPrev');
+    const nextBtn = document.getElementById('heroSliderNext');
+    const card = document.getElementById('heroSlideshowCard');
+    let timer = null;
+
+    if (!slides.length) return;
+
+    function goToSlide(index) {
+      if (index >= slides.length) index = 0;
+      if (index < 0) index = slides.length - 1;
+      currentSlide = index;
+
+      slides.forEach((s, i) => {
+        s.classList.toggle('active', i === currentSlide);
+      });
+
+      dots.forEach((d, i) => {
+        d.classList.toggle('active', i === currentSlide);
+      });
+    }
+
+    function next() {
+      goToSlide(currentSlide + 1);
+    }
+
+    function prev() {
+      goToSlide(currentSlide - 1);
+    }
+
+    function startTimer() {
+      stopTimer();
+      timer = setInterval(next, 4500);
+    }
+
+    function stopTimer() {
+      if (timer) clearInterval(timer);
+    }
+
+    if (nextBtn) nextBtn.addEventListener('click', () => { next(); startTimer(); });
+    if (prevBtn) prevBtn.addEventListener('click', () => { prev(); startTimer(); });
+
+    dots.forEach((dot, idx) => {
+      dot.addEventListener('click', () => {
+        goToSlide(idx);
+        startTimer();
+      });
+    });
+
+    if (card) {
+      card.addEventListener('mouseenter', stopTimer);
+      card.addEventListener('mouseleave', startTimer);
+    }
+
+    startTimer();
+  })();
 </script>
 
 </body>

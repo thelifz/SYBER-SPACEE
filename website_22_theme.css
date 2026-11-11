@@ -4,7 +4,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800;12..96,900&family=DM+Sans:wght@400;500;700;800&display=swap');
 
 :root {
-  --bg: #FFFFFF;
+  --bg: #FFFFD6;
   --surface: #FFFFFF;
   --ink: #1B1707;
   --muted: #64748B;
@@ -606,4 +606,134 @@ h1, h2, h3, h4, .brand-logo-title, .category-hero-title, .asus-hero-title {
   max-width: 85% !important;
   max-height: 85% !important;
   object-fit: contain !important;
+}
+
+/* Global Soft Yellow Canvas (#FFFFD6) matching user request */
+html, body {
+  background-color: #FFFFD6 !important;
+  color: #1B1707 !important;
+}
+
+section.s, .trust, .deals, .brands-section, .catalog-section, main {
+  background-color: #FFFFD6 !important;
+}
+
+/* Ensure clean contrast for cards on soft yellow */
+.card, .cat, .bundle-card, .deal, .panel, .setup .panel {
+  background: #FFFFFF !important;
+  border: 1.5px solid #1B1707 !important;
+}
+
+.deal.hot, .bundle-card.hot {
+  background: #FFFF00 !important;
+}
+
+/* Slideshow Container & Slide Styles */
+.hero-slider-wrap {
+  position: relative;
+  width: 100%;
+}
+.hero-slide {
+  display: none;
+  animation: slideFadeIn .35s ease-out;
+}
+.hero-slide.active {
+  display: block;
+}
+@keyframes slideFadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.offer-dots .dot {
+  cursor: pointer;
+  transition: all .25s ease;
+}
+.offer-dots .dot:hover {
+  background: #64748B;
+}
+.offer-dots .dot.active {
+  width: 24px;
+  background: #1B1707;
+}
+
+/* ==========================================================================
+   UNIVERSAL SOFT YELLOW CANVAS (#FFFFD6) ACROSS ALL PAGES
+   ========================================================================== */
+html, body, main,
+.cart-page-wrapper, .checkout-page-wrapper, .category-page-wrap,
+.stadium-site-wrapper, .app-root, .site-main, .catalog-wrapper {
+  background-color: #FFFFD6 !important;
+  background: #FFFFD6 !important;
+}
+
+/* Page containers inherit soft yellow canvas */
+.container, .wrap {
+  background-color: transparent !important;
+}
+
+/* Cards & Stages maintain crisp white readability on soft yellow */
+.card, .cat, .bundle-card, .deal, .panel, .setup .panel,
+.cart-table-card, .order-summary-card, .checkout-card, .order-manifest-card,
+.product-stage-card, .category-filter-card {
+  background-color: #FFFFFF !important;
+}
+
+/* Hero Section maintains vibrant Electric Yellow header accent */
+.hero {
+  background-color: #FFFF00 !important;
+}
+
+/* Deals hot card maintains Electric Yellow highlight */
+.deal.hot, .bundle-card.hot {
+  background-color: #FFFF00 !important;
+}
+
+/* ==========================================================================
+   TARGETED UNIVERSAL SOFT YELLOW (#FFFFD6) CANVAS OVERRIDES
+   ========================================================================== */
+html, body, main,
+.category-hero-banner, section, .category-catalog-section,
+.cart-page-wrapper, .checkout-page-wrapper, .product-page-main,
+.stadium-cat-nav-strip, .stadium-top-brand-bar, .site-mode-bar,
+.asus-hero-section, .contractor-quote-section {
+  background-color: #FFFFD6 !important;
+  background: #FFFFD6 !important;
+}
+
+/* Ensure cards pop with crisp white background & dark border on soft yellow */
+.category-filter-card, .cart-items-card, .order-summary-card,
+.checkout-panel-card, .order-manifest-card, .specs-grid-table,
+.asus-lot-card, .bundle-card:not(.hot), .deal:not(.hot) {
+  background-color: #FFFFFF !important;
+  border-color: #1B1707 !important;
+}
+
+/* PDP Stage Enhancements on Soft Yellow Canvas */
+.product-page-main {
+  background-color: #FFFFD6 !important;
+}
+.interactive-pdp-stage {
+  background-color: #FFFFD6 !important;
+}
+.pdp-interactive-stage-grid {
+  background-color: transparent !important;
+}
+.pdp-viewport-stage {
+  background-color: #FFFFFF !important;
+  border: 2px solid #1B1707 !important;
+  border-radius: 24px !important;
+  padding: 20px !important;
+  box-shadow: 0 10px 24px rgba(27,23,7,0.06) !important;
+}
+.pdp-config-panel-card {
+  background-color: #FFFFFF !important;
+  border: 2px solid #1B1707 !important;
+  border-radius: 24px !important;
+}
+
+/* Product CSS Variable Overrides for Soft Yellow Canvas */
+:root {
+  --c-bg: #FFFFD6 !important;
+  --bg-canvas: #FFFFD6 !important;
+  --stadium-canvas: #FFFFD6 !important;
 }
