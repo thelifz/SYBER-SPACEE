@@ -28,34 +28,8 @@
       --body: 'DM Sans', 'Segoe UI', system-ui, sans-serif;
       --shadow: 0 1px 0 rgba(27,23,7,.04), 0 8px 24px -12px rgba(120,90,0,.25);
     }
-    @media (prefers-color-scheme: dark) {
-      :root:not([data-theme="light"]) {
-        --bg: #121008;
-        --surface: #1C1910;
-        --ink: #FBF4D6;
-        --muted: #B5AB7A;
-        --line: #34301C;
-        --yellow-soft: #2B2508;
-        --band: #0B0A04;
-        --on-band: #FFF8DC;
-        --ok: #5BD07F;
-        --shadow: 0 1px 0 rgba(0,0,0,.3), 0 8px 24px -12px rgba(0,0,0,.6);
-        color-scheme: dark;
-      }
-    }
-    :root[data-theme="dark"] {
-      --bg: #121008;
-      --surface: #1C1910;
-      --ink: #FBF4D6;
-      --muted: #B5AB7A;
-      --line: #34301C;
-      --yellow-soft: #2B2508;
-      --band: #0B0A04;
-      --on-band: #FFF8DC;
-      --ok: #5BD07F;
-      --shadow: 0 1px 0 rgba(0,0,0,.3), 0 8px 24px -12px rgba(0,0,0,.6);
-      color-scheme: dark;
-    }
+    /* Dark mode media query neutralized in favor of unified 50% yellow-white design */
+    /* Dark theme neutralized */
 
     * { box-sizing: border-box; }
     html { scroll-behavior: smooth; }
@@ -784,6 +758,7 @@
       font-weight: 900;
     }
   </style>
+  <link rel="stylesheet" href="website_22_theme.css">
 </head>
 <body>
 
@@ -810,6 +785,16 @@
 </svg>
 
 <!-- TOP TICKER STRIP -->
+<!-- 1. SITE MODE SWITCHER PILL BAR -->
+<div class="site-mode-bar">
+  <div class="wrap" style="display: flex; justify-content: center; padding-block: 6px;">
+    <div class="site-mode-pill-toggle">
+      <a href="index.html" class="mode-pill active">syber space</a>
+      <a href="wholesale.html" class="mode-pill">syber space <span class="badge-wholesale">WHOLESALE</span></a>
+    </div>
+  </div>
+</div>
+
 <div class="strip">
   <div class="wrap">
     <span><b>Priority 24&ndash;48h Dispatch</b> on Wholesale Lots &bull; Full 18% GST Input Tax Credit</span>
@@ -824,8 +809,8 @@
       <i><svg class="ico" style="stroke-width:4"><use href="#i-bullet"/></svg></i>syber <em>space</em>
     </a>
     <label class="search">
-      <svg class="ico" style="color:var(--muted)"><use href="#i-search"/></svg>
-      <input id="q" type="search" placeholder="Search cameras, DVR, cables, brands" aria-label="Search products">
+      <svg class="ico" style="color:var(--muted); stroke-width: 2.5;"><use href="#i-search"/></svg>
+      <input id="q" type="search" placeholder="Search by product, category, brand..." aria-label="Search products">
     </label>
     <nav class="nav" aria-label="Sections">
       <a href="#categories">Categories</a>
@@ -833,12 +818,17 @@
       <a href="#shop">Shop</a>
       <a href="#brands">Brands</a>
       <a href="#project-quote">B2B Quote</a>
-      <a href="shop.html">Wholesale Hub</a>
+      <a href="wholesale.html">Wholesale Hub</a>
     </nav>
-    <button class="cartbtn" id="cartbtn" aria-label="Open cart" onclick="if(window.syberCart) window.syberCart.openDrawer()">
-      <svg class="ico" style="font-size:20px"><use href="#i-bag"/></svg>
-      <span class="n" id="count">0</span>
-    </button>
+    <div style="display: flex; align-items: center; gap: 12px; margin-left: auto;">
+      <a href="shop.html" style="color: #1B1707; display: grid; place-items: center; width: 38px; height: 38px; border-radius: 50%;" title="My Account" aria-label="My Account">
+        <svg class="ico" viewBox="0 0 24 24" style="width:22px; height:22px; stroke-width:2.2;"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+      </a>
+      <button class="cartbtn" id="cartbtn" aria-label="Open cart" onclick="if(window.syberCart && window.syberCart.openDrawer) { window.syberCart.openDrawer(); } else { window.location.href='cart.html'; }">
+        <svg class="ico" style="font-size:20px"><use href="#i-bag"/></svg>
+        <span class="n" id="count">0</span>
+      </button>
+    </div>
   </div>
 </header>
 
@@ -849,7 +839,7 @@
   <div class="wrap">
     <div>
       <span class="eyebrow">Authorized Tier-1 security hardware</span>
-      <h1>Secure your space at <span>outlet price.</span></h1>
+      <h1>SECURE YOUR SPACE AT <span class="hl">OUTLET PRICE</span></h1>
       <p class="lead">CCTV, video door phones and biometric access from 17 certified brands, sold at direct wholesale rates with GST credit and OEM warranty.</p>
       <div class="cta">
         <a class="btn" href="#shop">Shop the catalog</a>
@@ -862,16 +852,30 @@
         <a href="category.html?cat=cables">Solar &amp; 4G</a>
       </div>
     </div>
-    <div class="offer">
-      <span class="tag">Limited time offer</span>
-      <h2>Enterprise Perimeter 4K Bundle</h2>
-      <p style="color:var(--muted);font-size:15px">Multi-channel NVR with Ultra-HD starlight night vision.</p>
-      <div class="art" aria-hidden="true" style="padding: 10px; background: rgba(0,0,0,0.18);">
-        <img src="assets/mockup_hero_graphic_transparent.png" alt="4K Surveillance System" style="max-height: 180px; max-width: 100%; object-fit: contain;">
+    <div class="offer-card-stage">
+      <div class="offer-top-row">
+        <span class="offer-pill-blue">LIMITED TIME OFFER</span>
+        <span class="offer-pill-save">Save &#8377;8,499</span>
       </div>
-      <div class="row">
-        <span class="save">Save &#8377;8,499</span>
-        <a class="btn sm" href="category.html?cat=cctv">Claim offer</a>
+      <div class="offer-bundle-title">Enterprise Perimeter 4K Bundle</div>
+      <div class="offer-bundle-promo">BUY 1 GET 2 FREE</div>
+      <div class="offer-art-stage">
+        <img src="assets/ai_hero_bundle_enterprise.jpg" alt="Enterprise Perimeter 4K Bundle">
+      </div>
+      <div class="offer-bottom-row">
+        <div class="desc">Multi-channel NVR + Ultra-HD Starlight Night Vision</div>
+        <a href="category.html?cat=cctv" class="offer-btn-claim">Claim Offer &rarr;</a>
+      </div>
+      <div class="offer-carousel-row">
+        <div class="offer-dots">
+          <span class="dot active"></span>
+          <span class="dot"></span>
+          <span class="dot"></span>
+        </div>
+        <div class="offer-arrows">
+          <button type="button" aria-label="Previous Offer">&larr;</button>
+          <button type="button" aria-label="Next Offer">&rarr;</button>
+        </div>
       </div>
     </div>
   </div>
@@ -892,9 +896,9 @@
   <div class="wrap">
     <div class="sh">
       <div>
-        <div class="kicker">Official product categories</div>
-        <h2>Six core lines</h2>
-        <p>Everything a security installer or a homeowner needs, from camera to cable.</p>
+        <div class="kicker" style="color:#64748B; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; margin-bottom:8px;"><span style="color:#EAB308; font-weight:900; margin-right:6px;">—</span> OFFICIAL HARDWARE SELECTION</div>
+        <h2 style="font-size: clamp(28px, 4vw, 42px); font-weight: 800; margin: 0;">Six Core Categories</h2>
+        <p style="color: #64748B; margin-top: 8px;">Direct Tier-1 certified surveillance, dash cameras, smart automation, and cabling lines.</p>
       </div>
     </div>
     <div class="cats">
