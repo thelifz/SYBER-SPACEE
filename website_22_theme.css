@@ -1,0 +1,149 @@
+/* ==========================================================================
+   WEBSITE 22 UNIFIED DESIGN SYSTEM
+   ========================================================================== */
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800;12..96,900&family=DM+Sans:wght@400;500;700;800&display=swap');
+
+:root {
+  --bg: #121008;
+  --surface: #1C1910;
+  --ink: #FBF4D6;
+  --muted: #B5AB7A;
+  --line: #34301C;
+  --yellow: #FFFF00;
+  --yellow-deep: #E6E600;
+  --yellow-soft: #2B2508;
+  --on-yellow: #1B1707;
+  --band: #0B0A04;
+  --on-band: #FFF8DC;
+  --ok: #5BD07F;
+  --head: 'Bricolage Grotesque', 'Segoe UI', system-ui, sans-serif;
+  --body: 'DM Sans', 'Segoe UI', system-ui, sans-serif;
+  --shadow: 0 1px 0 rgba(0,0,0,.3), 0 8px 24px -12px rgba(0,0,0,.6);
+  color-scheme: dark;
+}
+
+body {
+  background: var(--bg) !important;
+  color: var(--ink) !important;
+  font-family: var(--body) !important;
+}
+
+h1, h2, h3, h4, .brand-logo-title, .category-hero-title, .asus-hero-title {
+  font-family: var(--head) !important;
+}
+
+/* Common Header & Top Strip matching Website 22 */
+.syber-top-strip, .strip {
+  background: var(--yellow) !important;
+  color: #1B1707 !important;
+  font-family: var(--body) !important;
+  font-size: 12.5px !important;
+  font-weight: 600 !important;
+  border-bottom: none !important;
+}
+.syber-top-strip b, .strip b {
+  color: #1B1707 !important;
+}
+.syber-top-strip-link, .strip a {
+  color: #1B1707 !important;
+}
+
+.stadium-main-header, .head {
+  background: var(--band) !important;
+  border-bottom: 1px solid var(--line) !important;
+}
+.brand-logo-stadium, .logo {
+  color: #FFFFFF !important;
+}
+.brand-logo-title {
+  font-family: var(--head) !important;
+  font-weight: 800 !important;
+}
+.brand-logo-wholesale-badge, .logo em {
+  background: var(--yellow) !important;
+  color: var(--on-yellow) !important;
+}
+
+/* Search Bar */
+.stadium-search-input, .search input {
+  background: #110F05 !important;
+  border: 1px solid var(--line) !important;
+  color: var(--ink) !important;
+}
+.stadium-search-icon, .search svg {
+  color: var(--muted) !important;
+}
+
+/* Tool buttons & Cart */
+.header-tool-btn {
+  color: var(--on-band) !important;
+}
+.header-tool-btn:hover {
+  background: var(--yellow-soft) !important;
+}
+.cart-badge-dot, .cartbtn .n {
+  background: var(--yellow) !important;
+  color: var(--on-yellow) !important;
+}
+
+/* Cards & Surfaces */
+.product-card, .card, .outlet-prod-card, .asus-spec-card, .asus-dock-card {
+  background: var(--surface) !important;
+  border: 1.5px solid var(--line) !important;
+  color: var(--ink) !important;
+  border-radius: 18px !important;
+}
+.product-card:hover, .card:hover, .outlet-prod-card:hover {
+  border-color: var(--yellow-deep) !important;
+  box-shadow: var(--shadow) !important;
+}
+.product-card .price, .prod-price-amt, .card .pr b {
+  color: var(--ink) !important;
+  font-family: var(--head) !important;
+  font-weight: 800 !important;
+}
+.product-card .mrp, .prod-mrp-amt, .card .pr s {
+  color: var(--muted) !important;
+}
+
+/* Buttons */
+.btn-primary, .stadium-hero-btn, .outlet-btn-add, .add-to-cart-btn, .card .btn {
+  background: var(--yellow) !important;
+  color: var(--on-yellow) !important;
+  font-family: var(--body) !important;
+  font-weight: 800 !important;
+  border: 2px solid var(--ink) !important;
+  border-radius: 12px !important;
+}
+.btn-primary:hover, .stadium-hero-btn:hover, .outlet-btn-add:hover, .add-to-cart-btn:hover, .card .btn:hover {
+  background: var(--yellow-deep) !important;
+  transform: translateY(-2px);
+}
+
+/* Filter bars, tabs & badges */
+.filter-pill, .tab, .cat-filter-btn {
+  background: var(--surface) !important;
+  color: var(--ink) !important;
+  border: 1.5px solid var(--line) !important;
+  border-radius: 999px !important;
+}
+.filter-pill.active, .tab.active, .tab[aria-pressed="true"], .cat-filter-btn.active {
+  background: var(--yellow) !important;
+  color: var(--on-yellow) !important;
+  border-color: var(--ink) !important;
+}
+
+/* Breadcrumbs & Kickers */
+.category-breadcrumbs a, .breadcrumb a {
+  color: var(--muted) !important;
+}
+.category-breadcrumbs .current, .breadcrumb .current {
+  color: var(--ink) !important;
+}
+
+/* Footers */
+footer, .stadium-main-footer, .foot {
+  background: var(--band) !important;
+  color: var(--on-band) !important;
+  border-top: 1px solid var(--line) !important;
+}
