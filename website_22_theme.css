@@ -990,3 +990,85 @@ a[href*="wa.me"].btn:hover, a[href*="whatsapp.com"].btn:hover {
   transform: translateY(-2px) !important;
   box-shadow: 3px 3px 0 #1B1707 !important;
 }
+
+/* ==========================================================================
+   HERO BANNER EDGE-TO-EDGE FULL-BOX (NO WRITING)
+   ========================================================================== */
+.hero .hero-slider-wrapper {
+  position: relative;
+  width: 100%;
+}
+.hero .hero-banner-card-box {
+  position: relative !important;
+  background: #020617 !important;
+  border: 2px solid #1B1707 !important;
+  border-radius: 28px !important;
+  padding: 0 !important;
+  box-shadow: 10px 10px 0 #1B1707 !important;
+  overflow: hidden !important;
+  width: 100% !important;
+  aspect-ratio: 1024 / 571 !important;
+  min-height: auto !important;
+}
+.hero-banner-fullscreen-link {
+  display: block !important;
+  width: 100% !important;
+  height: 100% !important;
+  text-decoration: none !important;
+  cursor: pointer !important;
+  overflow: hidden !important;
+}
+.hero-banner-fullscreen-img {
+  display: block !important;
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1) !important;
+}
+.hero-banner-fullscreen-link:hover .hero-banner-fullscreen-img {
+  transform: scale(1.02) !important;
+}
+.hero-banner-controls-strip {
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  margin-top: 14px !important;
+  padding: 0 4px !important;
+  border: none !important;
+}
+.hero-banner-controls-strip .offer-dots .dot {
+  background: rgba(27, 23, 7, 0.25) !important;
+  width: 8px !important;
+  height: 8px !important;
+  border-radius: 4px !important;
+  cursor: pointer !important;
+  transition: all .25s ease !important;
+}
+.hero-banner-controls-strip .offer-dots .dot.active {
+  background: #1B1707 !important;
+  width: 28px !important;
+}
+.hero-banner-controls-strip .offer-arrows {
+  display: flex !important;
+  gap: 8px !important;
+}
+.hero-banner-controls-strip .offer-arrows button {
+  width: 36px !important;
+  height: 36px !important;
+  border-radius: 50% !important;
+  border: 2px solid #1B1707 !important;
+  background: #FFFFFF !important;
+  color: #1B1707 !important;
+  font-size: 15px !important;
+  font-weight: 800 !important;
+  display: grid !important;
+  place-items: center !important;
+  cursor: pointer !important;
+  box-shadow: 2px 2px 0 #1B1707 !important;
+  transition: all .15s ease !important;
+}
+.hero-banner-controls-strip .offer-arrows button:hover {
+  background: #FFFF00 !important;
+  transform: translateY(-1px) !important;
+  box-shadow: 3px 3px 0 #1B1707 !important;
+}
