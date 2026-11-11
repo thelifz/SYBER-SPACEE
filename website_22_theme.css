@@ -920,3 +920,12 @@ a[href*="wa.me"].btn:hover, a[href*="whatsapp.com"].btn:hover {
     grid-template-columns: 1fr !important;
   }
 }
+
+/* Hide hero pill badges per user request */
+.eyebrow, .stadium-hero-kicker {
+  display: none !important;
+  visibility: hidden !important;
+  height: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
