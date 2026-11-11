@@ -884,3 +884,39 @@ a[href*="wa.me"].btn:hover, a[href*="whatsapp.com"].btn:hover {
   white-space: nowrap !important;
   color: #1B1707 !important;
 }
+
+/* ==========================================================================
+   HERO EXPANSION TO COVER FULL VIEWPORT HEIGHT (User Request: "widthen the strip so yellow covers up")
+   ========================================================================== */
+.hero {
+  background: var(--yellow) !important;
+  color: #1B1707 !important;
+  overflow: hidden !important;
+  border-bottom: 2px solid #1B1707 !important;
+  min-height: calc(100vh - 102px) !important;
+  min-height: calc(100dvh - 102px) !important;
+  display: flex !important;
+  align-items: center !important;
+  box-sizing: border-box !important;
+  padding-block: 30px !important;
+}
+
+.hero .wrap {
+  width: 100% !important;
+  max-width: 1380px !important;
+  display: grid !important;
+  grid-template-columns: 1.15fr .85fr !important;
+  gap: 40px !important;
+  align-items: center !important;
+  padding-block: 24px 32px !important;
+}
+
+@media (max-width: 900px) {
+  .hero {
+    min-height: auto !important;
+    padding-block: 40px 48px !important;
+  }
+  .hero .wrap {
+    grid-template-columns: 1fr !important;
+  }
+}
