@@ -3012,9 +3012,6 @@
         <!-- RIGHT 50%: HERO OFFER SLIDE SHOW (EXACT MATCH TO USER SPEC) -->
     <div class="stadium-hero-image-side" id="heroOfferArea">
       
-      <!-- 3D TACTILE ANGLED STAMP BADGE (FROM WEBSITE 22 BLEND) -->
-      <div class="hero-stamp-badge" id="heroStampBadge">BUY 1 GET 2 FREE</div>
-      
       <div class="hero-offer-slider" id="heroOfferSlider">
         
         <!-- SLIDE 1: ENTERPRISE PERIMETER 4K BUNDLE -->
@@ -4224,11 +4221,7 @@
     let offerInterval = null;
 
     function showOfferSlide(index) {
-      const STAMP_TEXTS = ['BUY 1 GET 2 FREE', 'FLAT &#8377;12,500 OFF', 'SAVE &#8377;9,200'];
-      const stampEl = document.getElementById('heroStampBadge');
-      if (stampEl && STAMP_TEXTS[index !== undefined ? ((index + 3) % 3) : 0]) {
-        stampEl.innerHTML = STAMP_TEXTS[(index + 3) % 3];
-      }
+      
       if (!offerSlides.length) return;
       currentOfferIndex = (index + offerSlides.length) % offerSlides.length;
 
